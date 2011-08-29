@@ -1,0 +1,14 @@
+
+
+otw: {
+  ( OtwPC
+    netOutput: ( UdpHandler localIpAddress: localhost 
+                            ipAddress:      localhost
+                            port: 4950
+                            localPort: 4951
+                            shared: true)
+    maxModels: 0
+    maxRange: 50000.0
+    maxElevations: 0
+  ) // OtwPC
+}

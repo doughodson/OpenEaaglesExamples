@@ -1,0 +1,17 @@
+
+// Server side for the UDP/IP handler tests
+
+( ServerSide
+    noWait: false
+
+// Single handler test
+    //netHandler:   ( UdpHandler  ipAddress: "172.17.160.92"  port: 3002  localPort: 3001 )
+
+// Double handler test
+    //netInput:       ( UdpHandler  port: 3001                   shared: true )
+    //netOutput:      ( UdpHandler  ipAddress: "172.17.160.92"  port: 3002  localPort: 3001  shared: true )
+
+// Single handler (localhost) test
+    netHandler:   ( UdpHandler  localIpAddress: localhost ipAddress: localhost  port: 3002  localPort: 3001 )
+)
+

@@ -1,0 +1,196 @@
+// ---
+// Some MFD stuff
+// ---
+
+
+sample:
+( MfdPage
+    pagingEvent: {
+        n: hsvcolors
+        p: worms
+    }
+    components: {
+
+        // --------------------------
+        // Simple graphic example (two pointers)
+        // --------------------------
+        ( TestTwo
+
+            transform: { ( Translation 0.0 -2.0 ) ( Scale 4.0 ) }
+        
+            v1: 0
+            v1Rate: 1
+            v1Max: 1
+            v1Min: -1
+
+            v2: 0.5
+            v2Rate: -0.5
+            v2Max:  1
+            v2Min: -1
+
+            components: {
+                ( Line
+                    selectName: 280
+                    color: white
+                    segment: 1
+                    vertices: {
+                        [ -1.0   0.0 ] [ -1.0    2.0 ]      // Left Side
+                        [  1.0   0.0 ] [  1.0    2.0 ]      // Right Side
+                        [ -1.0   0.0 ] [  1.0    0.0 ]      // Bottom
+                        [ -1.0   0.0 ] [ -1.0   -0.05 ]     // Left Az tic
+                        [ -0.67  0.0 ] [ -0.67  -0.05 ]     // Left Az tic
+                        [ -0.33  0.0 ] [ -0.33  -0.05 ]     // Left Az tic
+                        [  0.0   0.0 ] [  0.0   -0.05 ]     // Center Az tic
+                        [  1.0   0.0 ] [  1.0   -0.05 ]     // Right Az tic
+                        [  0.67  0.0 ] [  0.67  -0.05 ]     // Right Az tic
+                        [  0.33  0.0 ] [  0.33  -0.05 ]     // Right Az tic
+                        [ -1.0   1.0 ] [ -1.05   1.0 ]      // Elev tic
+                    }
+                )
+                v1: ( TdAzPtr
+                    selectName: 281
+                    transform: ( Translation 0.0 -0.03 )
+                    components: {
+                        ( Line color: blue vertices: { [ 0 0 ] [ 0 -0.1 ] } )
+                        ( AsciiText 
+                            transform: { ( Translation -0.05 -0.3 ) ( Scale 0.1 ) }
+                            text: "AZ"
+                        )
+                    }
+                )
+                v2: ( TdElevPtr
+                    selectName: 282
+                    transform: ( Translation -1.03 1.0 )
+                    components: {
+                        ( Line color: yellow vertices: { [ -0.1 0 ] [ 0 0 ] } )
+                        ( AsciiText
+                            transform: { ( Translation -0.3 -0.05 ) ( Scale 0.1 ) }
+                            text: "EL"
+                        )
+                    }
+                )
+            }
+        )
+
+        // --------------------------
+        // Simple numerical readouts
+        // --------------------------
+        ( TestTwo
+            selectName: 201
+        
+            v1: 0
+            v1Rate: 1
+            v1Max: 5
+            v1Min: 0
+
+            v2: 0
+            v2Rate: -5
+            v2Max:  10
+            v2Min: -10
+
+            components: {
+
+                // Rotary2 accepts false/true SELECT messages to select the first or second component
+                v1Title: ( Rotary2
+                    position: [ 1 1 ]
+                    components: {
+                        ( AsciiText text: "V1-UP:" )       // Rotary2 = false
+                        ( AsciiText text: "V1-DN:" )       // Rotary2 = true
+                    }
+                )
+
+                // Simple Numeric Readout Example without leading zeros
+                v1: ( NumericReadout
+                    color: blue
+                    position: [ 1 8 ]
+                    format: "###.#"
+                )
+
+                // Second Rotary example
+                v2Title: ( Rotary
+                    position: [ 2 1 ]
+                    components: {
+                        ( AsciiText text: "V2-UP:" )                  // Rotary = 1
+                        ( AsciiText text: "V2-UP:" color: red )       // Rotary = 2
+                        ( AsciiText text: "V2-DN:" )                  // Rotary = 3
+                        ( AsciiText text: "V2-DN:" color: red )       // Rotary = 4
+                    }
+                )
+
+                // Simple Numeric Readout Example with leading zeros and plus sign
+                v2: ( NumericReadout
+                    color: blue
+                    position: [ 2 8 ]
+                    format: "+0#.#"
+                )
+
+            }
+        )
+
+        // --------------------------
+        // Lat/Lon readouts
+        // --------------------------
+        ( TestTwo
+            selectName: 202
+        
+            v1: 0
+            v1Rate: 1
+            v1Max: 90
+            v1Min: -90
+
+            v2: 0
+            v2Rate: -1
+            v2Max:  180
+            v2Min: -180
+
+            components: {
+
+                v1: ( LatitudeReadout
+                    highLight: 1
+                    position: [ 18 2 ]
+	            format: "+0D@MM"
+                )
+
+                v2: ( LongitudeReadout
+                    color: white
+                    position: [ 19 2 ]
+	            format: "+0DD@MM"
+                )
+
+            }
+        )
+
+        // --------------------------
+        // Time and Angle readouts
+        // --------------------------
+        ( TestTwo
+            selectName: 203
+        
+            v1: 0
+            v1Rate: 1
+            v1Max: 3600
+            v1Min: 0
+
+            v2: 0
+            v2Rate: 1
+            v2Max:  180
+            v2Min: -180
+
+            components: {
+
+                v1: ( TimeReadout
+                    color: cyan
+                    position: [ 18 11 ]
+	            format: "HH:MM:SS.S"
+                )
+
+                v2: ( DirectionReadout
+                    color: cyan
+                    position: [ 19 11 ]
+	            format: "0DD@"
+                )
+
+            }
+        )
+    }
+)

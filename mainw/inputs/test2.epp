@@ -1,0 +1,20 @@
+// ---
+// Test display #2 -- Tests sub-displays
+// ---
+
+( TestDisplay
+    
+    name: "My_Main_Window"
+    
+    vpX:        100
+    vpY:        100
+    vpWidth:    1200
+    vpHeight:   700
+
+
+    displays: {
+      #include "testLeft.epp"
+      #include "testRight.epp"
+    }
+
+)

@@ -1,0 +1,44 @@
+// ---
+// Example page XX
+// ---
+
+xx:
+( MfdPage
+    pagingEvent: {
+        n: yy
+        p: materials
+        btest: worms
+    }
+    components: {
+        ( Polygon
+            selectName: 301
+            color: white
+            linewidth: 1
+            texture: t1
+            vertices: {
+                [  5  5 ]
+                [ -5  5 ]
+                [ -5 -5 ]
+                [  5 -5 ]
+            }
+            texCoord: {
+                [  1.0  1.0 ]
+                [  0.0  1.0 ]
+                [  0.0  0.0 ]
+                [  1.0  0.0 ]
+            }
+        )
+        ( Polygon
+            transform: ( Translation 2.5 2.5 0.5)
+            selectName: 302
+            color: ( rgba 1.0 1.0 0.1 0.2 )
+            linewidth: 1
+            vertices: {
+                [  5  5 ]
+                [ -5  5 ]
+                [ -5 -5 ]
+                [  5 -5 ]
+            }
+        )
+    }
+)

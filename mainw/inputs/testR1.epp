@@ -1,0 +1,26 @@
+// ---
+// Sub-(sub-display) for testRight, which is used by test2.epp
+// ---
+
+( TestDisplay
+    
+    name: "Test_R1"
+    
+    left:       -10.5
+    right:       10.5
+    bottom:     -10.5
+    top:         10.5
+    near:        -2.0
+    far:          2.0
+    
+    vpX:          0
+    vpY:        400
+    vpWidth:    100
+    vpHeight:   100
+
+    page:   materials        // First page
+   #include "testBasic.epp"
+
+)
+
+

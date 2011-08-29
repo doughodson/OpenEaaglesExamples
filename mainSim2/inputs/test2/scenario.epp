@@ -1,0 +1,23 @@
+// ---
+// Simulation scenario
+// ---
+
+
+ownship: p2728
+//ownship: g12728
+
+simulation: ( Simulation
+
+   // Initial freeze condition
+   freeze: false
+
+   // Reference position (player positions are relative to this location)
+   latitude:  REF_LATITUDE
+   longitude: REF_LONGITUDE
+
+   // The initial player list
+   players: {
+      #include "./players.epp"
+      //#include "./gndPlayers.epp"
+  }
+)

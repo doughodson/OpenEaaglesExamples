@@ -1,0 +1,96 @@
+#line 1 "inputs/test.epp"
+
+
+( TestDisplay    
+    name: "VMAP Level 0 Test"
+    normalFont: default
+    fonts: {
+        default: 
+        ( FTGLPolygonFonts 
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 0.3          
+            fontHeight: 0.3         
+            characterSpacing: 1   
+            lineSpacing: 2
+            faceSize: 1
+            path: "../data/fonts/"
+			file: "arialn.ttf"
+        )
+    }
+    
+    left:         -10
+    right:         10
+    bottom:       -10
+    top:           10
+
+    near:        -50.0
+    far:          50.0
+    
+    clearDepth: 1.0
+    clearColor: ( rgb 0 0 0 )
+
+    
+    vpWidth:    1000
+    vpHeight:   1000
+
+    vpfdirectory: 
+    ( VMAP0MainDirectory
+        
+        
+        
+        path: "Enter a path in file test.epp     "
+    )        
+    
+    page: test
+    pages: {
+        test: 
+        ( MapPage
+            refLat: 39.9276
+            refLon: -75.2182
+            range: 4000
+            outerRadius: 20
+            components: {
+                places:
+                ( SymbolLoader 
+                    showOnlyInRange: 0
+                    templates: {
+                        ( Graphic
+                            components: {
+                                name:
+                                ( AsciiText
+                                    color: white
+                                    text: "XXXXX"
+                                )
+                            }
+                        )
+                    }
+                )
+                points:
+                ( SymbolLoader 
+                    showOnlyInRange: 1
+                    templates: {
+                        ( Graphic
+                            components: {
+                                ( Circle
+                                    color: cyan
+                                    radius: 0.05
+                                    filled: 1
+                                    slices: 100
+                                )
+                            }
+                        )
+                    }
+                )
+                
+                ( Line
+                    color: yellow
+                    segment: 1
+                    vertices: {
+                        [ -180 0 ] [ 180 0 ]
+                        [ 0 -90 ] [ 0 90 ]
+                    }
+                )
+            }
+        )
+    }
+)

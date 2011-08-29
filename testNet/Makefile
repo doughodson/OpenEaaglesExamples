@@ -1,0 +1,22 @@
+#
+include ../makedefs
+
+PGM = testNet
+
+OBJS = ClientSide.o testNet.o NetTester.o ServerSide.o ServerTcpMulti.o
+
+LDFLAGS += -lpthread -loeBasic -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+#LDFLAGS += -lXi -lXmu
+LDFLAGS += -lrt
+
+all: $(PGM)
+
+
+$(PGM): $(OBJS)
+	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+
+edl:
+
+clean:
+	-rm -f *.o
+	-rm -f $(PGM)

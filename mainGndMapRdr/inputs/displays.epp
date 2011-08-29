@@ -1,0 +1,17 @@
+
+
+display:
+( RbrDisplay
+    
+    name: "Ground Mapping Radar Example"
+    
+    textureTest:    true            // True to load & draw a texture, else use glDrawPixels()
+    
+    vpHeight:   1024    // This viewport height is set my 1600 by 1200 display
+    vpWidth:    1024    // This viewport width is set for cos(latitude) times height: (cos(37)*1180)
+
+    left:          -0.1
+    right:          1.1
+    bottom:        -0.1
+    top:            1.1
+)

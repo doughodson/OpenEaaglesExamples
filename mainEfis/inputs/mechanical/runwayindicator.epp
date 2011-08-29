@@ -1,0 +1,224 @@
+// This will display aircraft deviation from the runway (both vertical and horizontal)
+( Graphic
+    transform: ( Translation 0 -1.0625 )
+    components: {
+        // draw the failure flag
+        rwfail:       
+        ( Graphic
+            transform:( Translation 0.5 -0.05 1 )
+            components: {
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.209 0.033 ]
+                        [ -0.199 0.024 ]
+                        [ -0.196 0.009 ]
+                        [ -0.202 -0.026 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.252 -0.017 ]
+                        [ -0.231 0.103 ]
+                        [ -0.192 0.096 ]
+                        [ -0.183 0.080 ]
+                        [ -0.188 0.052 ]
+                        [ -0.196 0.042 ]
+                        [ -0.209 0.033 ]
+                        [ -0.242 0.039 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.147 0.088 ] 
+                        [ -0.165 -0.011 ]
+                        [ -0.152 -0.035 ]
+                        [ -0.135 -0.038 ]
+                        [ -0.115 -0.019 ]
+                        [ -0.097 0.079 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.090 -0.045 ]
+                        [ -0.069 0.074 ]
+                        [ -0.035 -0.055 ]
+                        [ -0.014 0.064 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.009 0.06 ]
+                        [ 0.01 -0.063 ]
+                        [ 0.053 0.053 ]
+                        [ 0.054 -0.071 ]
+                        [ 0.098 0.045 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.113 -0.045 ]
+                        [ 0.152 -0.052 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.099 -0.079 ]
+                        [ 0.148 0.036 ]
+                        [ 0.155 -0.089 ]
+                        
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.254 0.017 ]
+                        [ 0.215 -0.041 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.198 0.027 ]
+                        [ 0.215 -0.041 ]
+                        [ 0.205 -0.097 ]
+                    }
+                )
+                ( Polygon
+                    color: red
+                    vertices: {
+                        [ 0.442 -0.014 ]
+                        [ 0.420 -0.138 ] 
+                        [ -0.033 -0.185 ]
+                        [ -0.442 0.014 ]
+                        [ -0.420 0.138 ]
+                        [ 0.033 0.185 ]
+                    }
+                )
+            }
+        )
+        // draw the scale
+        ( Graphic
+            transform: ( Translation 0 0 )
+            color: white
+            components: {
+                ( Polygon
+                    vertices: {
+                        [ 0.656 0 ]
+                        [ 0.650 0.018 ]
+                        [ 0.635 0.030 ]
+                        [ 0.615 0.030 ]
+                        [ 0.6 0.018 ]
+                        [ 0.594 0 ]
+                        [ 0.6 -0.18 ]
+                        [ 0.615 -0.030 ]
+                        [ 0.635 -0.030 ]
+                        [ 0.65 -0.018 ]
+                    }
+                )
+                ( Polygon   
+                    vertices: {
+                        [ -0.594 0 ]
+                        [ -0.6 0.018 ]
+                        [ -0.615 0.03 ]
+                        [ -0.635 0.03 ]
+                        [ -0.65 0.018 ]
+                        [ -0.656 0 ]
+                        [ -0.65 -0.018 ]
+                        [ -0.635 -0.03 ]
+                        [ -0.615 -0.03 ]
+                        [ -0.6 -0.018 ]
+                    }
+                )
+                ( Polygon   
+                    vertices: {
+                        [ 0.031 0.031 ]
+                        [ -0.031 0.031 ]
+                        [ -0.031 -0.156 ]
+                        [ 0.031 -0.156 ]
+                    }
+                )
+            }
+        )
+        
+        rwpointer:
+        ( GaugeSlider
+            allowComponentPass: 0
+            vertical: 0
+            // localizer dots (left and right)
+            scalingTable: 
+            ( Table1
+                x: [ -2.5 2.5 ]
+                data: [ -0.625 0.625 ]
+            )
+            components: {
+                // vertical displacement below 200 feet
+                rwpointervert:
+                ( GaugeSlider
+                    vertical: 1
+                    scalingTable: 
+                    ( Table1
+                        x: [ 200 0 ]
+                        data: [ 0 0.84375 ]
+                    )
+                    components: {
+                        ( Polygon
+                            color: white
+                            vertices: {
+                                [ -0.031 0 ]
+                                [ -0.031 -1.656 ]
+                                [ 0.031 -1.656 ]
+                                [ 0.031 0 ]
+                            }
+                        )
+                        ( Polygon
+                            color: white
+                            vertices: {
+                                [ 0.062 -0.469 ]
+                                [ -0.062 -0.469 ]
+                                [ -0.062 -0.5 ]
+                                [ 0.062 -0.5 ]
+                            }
+                        )
+                        ( Polygon
+                            color: white
+                            vertices: {
+                                [ 0.156 0.063 ]
+                                [ 0.188 -0.031 ]
+                                [ -0.188 -0.031 ]
+                                [ -0.156 0.065 ]
+                            }
+                        )
+                        ( Polygon  
+                            color: green
+                            vertices: {
+                                [ -0.406 -0.062 ]
+                                [ 0.406 -0.062 ]
+                                [ 0.406 0 ]
+                                [ 0.344 0.063 ]
+                                [ -0.344 0.063 ]
+                                [ -0.406 0 ]
+                            }
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ 0.125 -0.125 ]
+                                [ -0.125 -0.125 ]
+                                [ -0.125 -0.75 ]
+                                [ 0.125 -0.75 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+    }
+)
+

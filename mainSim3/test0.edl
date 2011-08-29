@@ -1,0 +1,311 @@
+#line 1 "inputs/test0.epp"
+
+
+
+
+#line 1 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\screenSetup.epp"
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+#line 6 "inputs/test0.epp"
+
+( SimStation
+
+   tcPriority: 0.0
+   netPriority: 0.0
+   
+   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\ioHandler.epp"
+
+
+
+
+ioHandler: ( SimIoHandler
+   inputData: ( IoData numAI: 10   numDI: 40 )	
+   devices: {
+      #line 1 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\ThrustMaster.epp"
+
+
+
+
+
+
+#line 1 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\f16HotasIo.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 72 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\f16HotasIo.h"
+#line 8 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\ThrustMaster.epp"
+
+( UsbJoystick
+   deviceIndex: 0
+   adapters: {
+
+      
+      
+      
+      ( AnalogInput ai: 1           channel: 0  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 2          channel: 1  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 3       channel: 2  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 6          channel: 3  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 5       channel: 4  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 7       value: 0.0 )
+      ( AnalogInput ai: 8       value: 0.0 )
+      ( AnalogInput ai: 4         value: 0.0 )
+
+      
+      
+      
+      ( DiscreteInput di: 1     port: 0  channel:  0 )
+      ( DiscreteInput di: 2     port: 0  channel:  5 )
+      ( DiscreteInput di: 3       port: 0  channel:  1 )
+      ( DiscreteInput di: 4        port: 0  channel:  2 )
+      ( DiscreteInput di: 5       port: 0  channel:  3 )
+      ( DiscreteInput di: 6          port: 0  channel:  4 )
+
+      ( DiscreteInput di: 7       port: 0  channel:  6 )
+      ( DiscreteInput di: 10    port: 0  channel:  7 )
+      ( DiscreteInput di: 8     port: 0  channel:  8 )
+      ( DiscreteInput di: 9     port: 0  channel:  9 )
+      ( DiscreteInput di: 11     value: false ) 
+
+      ( DiscreteInput di: 12       port: 0  channel:  10 )
+      ( DiscreteInput di: 13    port: 0  channel:  11 )
+      ( DiscreteInput di: 14     port: 0  channel:  12 )
+      ( DiscreteInput di: 15     port: 0  channel:  13 )
+      ( DiscreteInput di: 16     value: false ) 
+
+      ( DiscreteInput di: 17       port: 0  channel:  14 )
+      ( DiscreteInput di: 18    port: 0  channel:  15 )
+      ( DiscreteInput di: 19     port: 0  channel:  16 )
+      ( DiscreteInput di: 20     port: 0  channel:  17 )
+      ( DiscreteInput di: 21     value: false ) 
+
+      
+      
+      
+      ( DiscreteInput di: 27  port: 0  channel:  18 )
+      ( DiscreteInput di: 35          port: 0  channel:  19 )
+      ( DiscreteInput di: 36          port: 0  channel:  20 )
+      ( DiscreteInput di: 33       port: 0  channel:  21 )
+      ( DiscreteInput di: 34      port: 0  channel:  22 )
+      ( DiscreteInput di: 28   port: 0  channel:  23 )
+      ( DiscreteInput di: 30     port: 0  channel:  24 )
+      ( DiscreteInput di: 29     port: 0  channel:  25 )
+      ( DiscreteInput di: 31       port: 0  channel:  26 )
+      ( DiscreteInput di: 32       port: 0  channel:  27 )
+
+      
+      
+      
+      ( DiscreteInput di: 34   port: 0  channel:   2 )  
+      ( DiscreteInput di: 32       port: 0  channel:  23 )  
+      ( DiscreteInput di: 31        port: 0  channel:  22 )  
+      ( DiscreteInput di: 33       port: 0  channel:  21 )  
+
+   }
+)
+
+#line 9 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\ioHandler.epp"
+   }
+)
+#line 13 "inputs/test0.epp"
+
+
+   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\scenario.epp"
+
+
+
+
+ownship: sim3
+simulation: ( Simulation
+
+   
+   
+   
+   freeze: false
+
+   
+   
+   
+   latitude: 37.0 
+   longitude: -116
+
+   players: {
+
+      sim3: ( SimPlayer
+
+         id: 1
+         side: blue
+         type: "F-16"
+         signature: ( SigSphere radius: 2.0 )
+
+         
+         initXPos: ( NauticalMiles 0 )
+         initYPos: ( NauticalMiles 0 )
+
+         initAlt: ( Feet 15000 )
+         initHeading: ( Degrees 0.0 )      
+         initVelocity: 250
+         
+         positionFreeze: false
+
+         components: {
+
+            
+            
+            
+            dynamicsModel: ( JSBSimModel
+               rootDir: "../data/JSBSim/"
+               model: "f16"
+            )
+           
+            pilot: ( Autopilot
+               navMode: false
+               altitudeHoldMode: false
+               headingHoldMode: false
+               velocityHoldMode: false
+            )
+
+         }   
+      )   
+
+   }  
+
+)
+
+#line 16 "inputs/test0.epp"
+   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim3\\inputs\\instrumentPanel.epp"
+
+
+
+
+
+
+
+display:
+( InstrumentPanel
+    idleSleepTime: 20
+    
+    name: "Sim3 Display"
+    
+   
+    textures: {
+    }
+
+    fullScreen: 0
+
+    
+    left:        -9.0
+    right:        9.0
+    bottom:      -6.375
+    top:          6.375
+    near:        -2.0
+    far:          2.0
+   
+    vpX:        0
+    vpY:        0
+    vpWidth:    480
+    vpHeight:   480
+
+    colorTable: {
+    }
+            
+    clearColor: ( rgb 0.0 0.0 0.0 )
+    clearDepth: 1.0
+   
+
+	
+    page: eadi3D
+    pages: {
+        eadi3D: ( Eadi3DPage )
+    }
+)  
+
+#line 17 "inputs/test0.epp"
+
+)
+

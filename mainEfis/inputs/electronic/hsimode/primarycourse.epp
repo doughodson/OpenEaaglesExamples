@@ -1,0 +1,130 @@
+// Efis primary course pointer
+primarycoursepointer:
+( Rotators
+    linewidth: 2
+    color: white
+    components: {
+        ( Graphic
+            components: { 
+                ( Line
+                    vertices: {
+                        [ 0 -1.35 ]
+                        [ 0 -0.725 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 0 0.725 ]
+                        [ 0 0.925 ]
+                    }
+                )                
+                ( Line
+                    vertices: {
+                        [ -0.11 0.925 ]
+                        [ 0 1.35 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 0 1.35 ]
+                        [ 0.11 0.925 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 0.11 0.925 ]
+                        [ -0.11 0.925 ]
+                    }
+                )
+            }        
+        )                  
+
+        ( Graphic
+            components: {
+                // primary course deviation  
+                primarycoursedev:                 
+                ( Translator 
+                    linewidth: 2
+                    components: {
+                        ( Line
+                            vertices: {
+                                [ 0 -0.725 ]
+                                [ 0 0.725 ]
+                            }
+                        )
+                    }
+                )                      
+                                  
+                // course deviation scale   
+                ( Graphic
+                    components: {
+                        ( Line
+                            vertices: {
+                                [ -0.86 -0.04 ]
+                                [ -0.9 0 ]
+                                [ -0.86 0.04 ]
+                                [ -0.82 0 ]
+                                [ -0.86 -0.04 ]
+                            }
+                        )
+                        ( Line
+                            vertices: {
+                                [ -0.43 -0.04 ]
+                                [ -0.47 0 ]
+                                [ -0.43 0.04 ]
+                                [ -0.39 0 ]
+                                [ -0.43 -0.04 ]
+                            }
+                        )
+                        ( Line
+                            vertices: {
+                                [ 0.43 -0.04 ]
+                                [ 0.39 0 ]
+                                [ 0.43 0.04 ]
+                                [ 0.47 0 ]
+                                [ 0.43 -0.04 ]
+                            }
+                        )
+                        ( Line
+                            vertices: {
+                                [ 0.86 -0.04 ]
+                                [ 0.82 0 ]
+                                [ 0.86 0.04 ]
+                                [ 0.9 0 ]
+                                [ 0.86 -0.04 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+        
+        // to / from arrow
+        tofrom:
+        ( Translator
+            components: {
+                toorfrom:
+                ( Rotary2
+                    components: {
+                        // from
+                        ( Line
+                            vertices: {
+                                [ -0.075 0.12 ]
+                                [ 0 0 ]
+                                [ 0.075 0.12 ]
+                            }
+                        )
+                        // to
+                        ( Line
+                            vertices: {
+                                [ -0.075 -0.12 ]
+                                [ 0 0 ]
+                                [ 0.075 -0.12 ]
+                            }
+                        )
+                    }                        
+                )   
+            }
+        )
+    }
+) 

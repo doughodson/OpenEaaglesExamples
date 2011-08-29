@@ -1,0 +1,296 @@
+// =================================================================
+// DIS outgoing entity type mapping table 
+// =================================================================
+
+outputEntityTypes: {
+
+// ================================================================================================
+// Air vehicles
+// ================================================================================================
+
+// -------------------------------------------------------------
+// Aircraft: USA
+// -------------------------------------------------------------
+
+// Grumman F-14 Tomcat
+( DisNtm  disEntityType: [ 1  2  225  1  2  1  0 ]    template: ( Aircraft type: "F-14A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  2  2  0 ]    template: ( Aircraft type: "F-14D" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  2  0  0 ]    template: ( Aircraft type: "F-14" ) )
+
+// General Dynamics F-16 Fighting Falcon
+( DisNtm  disEntityType: [ 1  2  225  1  3  1  0 ]    template: ( Aircraft type: "F16A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  3  0 ]    template: ( Aircraft type: "F16C" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  0  0 ]    template: ( Aircraft type: "F16" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  1  0 ]    template: ( Aircraft type: "F-16A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  3  0 ]    template: ( Aircraft type: "F-16C" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  0  0 ]    template: ( Aircraft type: "F-16" ) )
+
+// General Dynamics F-4 Phantom
+( DisNtm  disEntityType: [ 1  2  225  1  3  2  0 ]    template: ( Aircraft type: "F-4B" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  3  0 ]    template: ( Aircraft type: "F-4C" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  4  0 ]    template: ( Aircraft type: "F-4D" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  5  0 ]    template: ( Aircraft type: "F-4E" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  6  0 ]    template: ( Aircraft type: "F-4F" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  7  0 ]    template: ( Aircraft type: "F-4J" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3 10  0 ]    template: ( Aircraft type: "F-4N" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3 11  0 ]    template: ( Aircraft type: "F-4S" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  3  0  0 ]    template: ( Aircraft type: "F-4" ) )
+    
+// McDonnell-Douglas F-15 Eagle
+( DisNtm  disEntityType: [ 1  2  225  1  5  1  0 ]    template: ( Aircraft type: "F15A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  3  0 ]    template: ( Aircraft type: "F15C" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  5  0 ]    template: ( Aircraft type: "F15E" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  0  0 ]    template: ( Aircraft type: "F15" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  1  0 ]    template: ( Aircraft type: "F-15A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  3  0 ]    template: ( Aircraft type: "F-15C" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  5  0 ]    template: ( Aircraft type: "F-15E" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  5  0  0 ]    template: ( Aircraft type: "F-15" ) )
+
+// McDonnell-Douglas F/A-18 Hornet
+( DisNtm  disEntityType: [ 1  2  225  1  9  1  0 ]    template: ( Aircraft type: "F-18A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  2  0 ]    template: ( Aircraft type: "F-18B" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  3  0 ]    template: ( Aircraft type: "F-18C" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  4  0 ]    template: ( Aircraft type: "F-18D" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  5  0 ]    template: ( Aircraft type: "AF-18A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  6  0 ]    template: ( Aircraft type: "ATF-18A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  7  0 ]    template: ( Aircraft type: "CF-188A/B" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9 10  0 ]    template: ( Aircraft type: "F-18E" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9 10  0 ]    template: ( Aircraft type: "F-18F" ) )
+( DisNtm  disEntityType: [ 1  2  225  1  9  0  0 ]    template: ( Aircraft type: "F-18" ) )
+    
+// Northrop F-5 Freedom Fighter
+( DisNtm  disEntityType: [ 1  2  225  1 10  1  0 ]    template: ( Aircraft type: "F-5A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  2  0 ]    template: ( Aircraft type: "F-5B" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  3  0 ]    template: ( Aircraft type: "F-5E" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  4  0 ]    template: ( Aircraft type: "F-5F" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  5  0 ]    template: ( Aircraft type: "RF-5A" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  6  0 ]    template: ( Aircraft type: "RF-5E" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  7  0 ]    template: ( Aircraft type: "RF-5F" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  0  0 ]    template: ( Aircraft type: "F-5" ) )
+( DisNtm  disEntityType: [ 1  2  225  1 10  0  0 ]    template: ( Aircraft type: "F5" ) )
+
+// Fairchild Republic A-10 Thunderbolt II
+( DisNtm  disEntityType: [ 1  2  225  2  4  1  0 ]    template: ( Aircraft type: "A-10A" ) )
+( DisNtm  disEntityType: [ 1  2  225  2  4  2  0 ]    template: ( Aircraft type: "OA-10A" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  4  0  0 ]    template: ( Aircraft type: "A-10" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  4  0  0 ]    template: ( Aircraft type: "A10" ) )
+
+// Rockwell International B-1
+( DisNtm  disEntityType: [ 1  2  225  3  1  1  0 ]    template: ( Aircraft type: "B-1B" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  1  1  0 ]    template: ( Aircraft type: "B1B" ) )
+   
+// Northrop B-2
+( DisNtm  disEntityType: [ 1  2  225  3  2  0  0 ]    template: ( Aircraft type: "B-2" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  2  0  0 ]    template: ( Aircraft type: "B2" ) )
+    
+// Boeing B-52 Stratofortress
+( DisNtm  disEntityType: [ 1  2  225  3  3  1  0 ]    template: ( Aircraft type: "B-52G" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  3  2  0 ]    template: ( Aircraft type: "B-52H" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  3  0  0 ]    template: ( Aircraft type: "B-52" ) )
+( DisNtm  disEntityType: [ 1  2  225  3  3  0  0 ]    template: ( Aircraft type: "B52" ) )
+
+// C-130
+( DisNtm  disEntityType: [ 1  2  225  4  1  1  0 ]    template: ( Aircraft type: "C-130" ) )
+
+// C-5
+( DisNtm  disEntityType: [ 1  2  225  4  2  1  0 ]    template: ( Aircraft type: "C-5" ) )
+
+// C-141
+( DisNtm  disEntityType: [ 1  2  225  4  3  1  0 ]    template: ( Aircraft type: "C-141" ) )
+
+// C-135
+( DisNtm  disEntityType: [ 1  2  225  4  4  0  0 ]    template: ( Aircraft type: "C-135" ) )
+
+// KC-135
+( DisNtm  disEntityType: [ 1  2  225  4  5  4  0 ]    template: ( Aircraft type: "KC-135" ) )
+
+// KC-10
+( DisNtm  disEntityType: [ 1  2  225  4  6  1  0 ]    template: ( Aircraft type: "KC-10" ) )
+
+// V-22 Osprey
+( DisNtm  disEntityType: [ 1  2  225  4 17  0  0 ]    template: ( Aircraft type: "V-22" ) )
+
+// RC-135 
+( DisNtm  disEntityType: [ 1  2  225  7  7  1  0 ]    template: ( Aircraft type: "RC-135S" ) )
+( DisNtm  disEntityType: [ 1  2  225  7  7  2  0 ]    template: ( Aircraft type: "RC-135U" ) )
+( DisNtm  disEntityType: [ 1  2  225  7  7  3  0 ]    template: ( Aircraft type: "RC-135V" ) )
+( DisNtm  disEntityType: [ 1  2  225  7  7  3  0 ]    template: ( Aircraft type: "RC-135W" ) )
+( DisNtm  disEntityType: [ 1  2  225  7  7  4  0 ]    template: ( Aircraft type: "RC-135X" ) )
+( DisNtm  disEntityType: [ 1  2  225  7  7  0  0 ]    template: ( Aircraft type: "RC-135" ) )
+
+// E-2 
+( DisNtm  disEntityType: [ 1  2  225  8  1  1  0 ]    template: ( Aircraft type: "E-2C" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  1  2  0 ]    template: ( Aircraft type: "TE-2C" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  1  0  0 ]    template: ( Aircraft type: "E-2" ) )
+
+// Boeing E-3 AWACS SENTRY
+( DisNtm  disEntityType: [ 1  2  225  8  4  1  0 ]    template: ( Aircraft type: "E-3A" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  4  2  0 ]    template: ( Aircraft type: "E-3B" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  4  3  0 ]    template: ( Aircraft type: "E-3C" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  4  4  0 ]    template: ( Aircraft type: "E-3D" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  4  5  0 ]    template: ( Aircraft type: "E-3F" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  4  6  0 ]    template: ( Aircraft type: "KE-3A" ) )
+( DisNtm  disEntityType: [ 1  2  225  8  4  0  0 ]    template: ( Aircraft type: "E-3" ) )
+
+// T-41
+( DisNtm  disEntityType: [ 1  2  225  40  1  1  0 ]    template: ( Aircraft type: "T-41" ) )
+
+// T-38
+( DisNtm  disEntityType: [ 1  2  225  40  3  1  0 ]    template: ( Aircraft type: "T-38" ) )
+
+// Boeing 767
+( DisNtm  disEntityType: [ 1  2  225  57  1  8  0 ]    template: ( Aircraft type: "B-767" ) )
+
+// Boeing 727
+( DisNtm  disEntityType: [ 1  2  225  57  1  6  0 ]    template: ( Aircraft type: "B-727" ) )
+ 
+// -------------------------------------------------------------
+// Helicopter: USA
+// -------------------------------------------------------------
+
+// USA Attack Helicopters
+( DisNtm  disEntityType: [ 1  2  225  20  1  1  0 ]    template: ( Helicopter type: "AH-64A" ) )
+( DisNtm  disEntityType: [ 1  2  225  20  1  2  0 ]    template: ( Helicopter type: "AH-64B" ) )
+( DisNtm  disEntityType: [ 1  2  225  20  1  3  0 ]    template: ( Helicopter type: "AH-64C" ) )
+( DisNtm  disEntityType: [ 1  2  225  20  1  4  0 ]    template: ( Helicopter type: "AH-64D" ) )
+( DisNtm  disEntityType: [ 1  2  225  20  1  0  0 ]    template: ( Helicopter type: "AH-64" ) )
+( DisNtm  disEntityType: [ 1  2  225  20  5  0  0 ]    template: ( Helicopter type: "MD-500" ) )
+( DisNtm  disEntityType: [ 1  2  225  20  0  0  0 ]    template: ( Helicopter type: "AttackHelicopter" ) )
+
+// USA Utility Helicopters
+( DisNtm  disEntityType: [ 1  2  225  21  1  0  0 ]    template: ( Helicopter type: "UH-1HP" ) )
+( DisNtm  disEntityType: [ 1  2  225  21  2  1  0 ]    template: ( Helicopter type: "UH-60A" ) )
+( DisNtm  disEntityType: [ 1  2  225  21  2  0  0 ]    template: ( Helicopter type: "UH-60" ) )
+( DisNtm  disEntityType: [ 1  2  225  21  7  0  0 ]    template: ( Helicopter type: "HH-65A" ) )
+( DisNtm  disEntityType: [ 1  2  225  21  0  0  0 ]    template: ( Helicopter type: "UtilityHelicopter" ) )
+
+// USA Antisubmarine Helicopters
+( DisNtm  disEntityType: [ 1  2  225  22  3  0  0 ]    template: ( Helicopter type: "HH-60J" ) )
+( DisNtm  disEntityType: [ 1  2  225  22  0  0  0 ]    template: ( Helicopter type: "AntisubmarineHelicopter" ) )
+
+// Default: USA Cargo Helicopter
+( DisNtm  disEntityType: [ 1  2  225  23  3  1  0 ]    template: ( Helicopter type: "CH-53A" ) )
+( DisNtm  disEntityType: [ 1  2  225  23  0  0  0 ]    template: ( Helicopter type: "CargoHelicopter" ) )
+
+// ================================================================================================
+// Ships -- Surface and sub-surface
+// ================================================================================================
+
+//Missile Cruiser
+( DisNtm  disEntityType: [ 1  3  225  3  0  0  0 ]   template: ( Ship type: "MissileCruiser" ) )
+
+//Attack Submarine
+( DisNtm  disEntityType: [ 1  4  225  3  0  0  0 ]   template: ( Ship type: "AttackSubmarine" ) )
+
+
+// ================================================================================================
+// Buildings -- 
+// ================================================================================================
+
+// Bermed Storage Bunker
+( DisNtm  disEntityType: [ 5  1  222  2  1  3  0 ]   template: ( Building type: "BermedBunker" ) )
+
+
+// ================================================================================================
+// Ground vehicles
+// ================================================================================================
+
+//  Tanks
+( DisNtm  disEntityType: [ 1  1  225   1  1  1  0 ]   template: ( Tank type: "M1Abrams" ) )
+( DisNtm  disEntityType: [ 1  1  225   1  1  2  0 ]   template: ( Tank type: "M1A1Abrams" ) )
+( DisNtm  disEntityType: [ 1  1  225   1  1  3  0 ]   template: ( Tank type: "M1A2" ) )
+( DisNtm  disEntityType: [ 1  1  225   1  2  1  0 ]   template: ( Tank type: "M60A3" ) )
+( DisNtm  disEntityType: [ 1  1  225   1  2  2  0 ]   template: ( Tank type: "M60A1" ) )
+
+( DisNtm  disEntityType: [ 1  1  222   1  1  1  0 ]   template: ( Tank type: "T-80" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  2  1  0 ]   template: ( Tank type: "T-72" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  3  1  0 ]   template: ( Tank type: "T-64" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  4  1  0 ]   template: ( Tank type: "T-62" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  5  1  0 ]   template: ( Tank type: "T-54" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  6  1  0 ]   template: ( Tank type: "T-55" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  8  1  0 ]   template: ( Tank type: "PT-76" ) )
+( DisNtm  disEntityType: [ 1  1  222   1  9  0  0 ]   template: ( Tank type: "T-90" ) )
+( DisNtm  disEntityType: [ 1  1  222   1 10  0  0 ]   template: ( Tank type: "T-34" ) )
+
+// Self-Propelled artillery
+( DisNtm  disEntityType: [ 1  1  222   4 10  1  0 ]   template: ( Artillery type: "ScudA" ) )
+( DisNtm  disEntityType: [ 1  1  222   4 10  2  0 ]   template: ( Artillery type: "ScudB" ) )
+( DisNtm  disEntityType: [ 1  1  222   4 10  3  0 ]   template: ( Artillery type: "ScudC" ) )
+
+// Small wheel vehicles                  
+( DisNtm  disEntityType: [ 1  1  222   6  1  0  0 ]   template: ( WheeledVehicle type: "SmallWheeledVehicle" ) )
+
+// Large wheel vehicles                  
+( DisNtm  disEntityType: [ 1  1  222   7  4  1  0 ]   template: ( WheeledVehicle type: "ZIL-131MslFuelTrk" ) )
+( DisNtm  disEntityType: [ 1  1  222   7  4  2  0 ]   template: ( WheeledVehicle type: "ZIL-131CalibVeh" ) )
+( DisNtm  disEntityType: [ 1  1  222   7  4  3  0 ]   template: ( WheeledVehicle type: "ZIL-131Tnkr" ) )
+( DisNtm  disEntityType: [ 1  1  222   7  4  4  0 ]   template: ( WheeledVehicle type: "ZIL-131ComVan" ) )  // (??)
+( DisNtm  disEntityType: [ 1  1  222   7  4  0  0 ]   template: ( WheeledVehicle type: "ZIL-131" ) )
+( DisNtm  disEntityType: [ 1  1  222   7 19  0  0 ]   template: ( WheeledVehicle type: "ZIL-133" ) )
+
+// Commercial trucks 
+( DisNtm  disEntityType: [ 1  1  225 27  6  0  0 ]   template: ( WheeledVehicle type: "ToyotaTruck" ) )
+( DisNtm  disEntityType: [ 1  1  225 27  7  0  0 ]   template: ( WheeledVehicle type: "CommercialTruck" ) )
+
+// Category: Control Facilities
+( DisNtm  disEntityType: [ 1  1  222  36  0  0  0 ]   template: ( GroundStation type: "ControlFacility" ) )
+( DisNtm  disEntityType: [ 1  1  222  37  0  0  0 ]   template: ( GroundStation type: "EW" ) )
+( DisNtm  disEntityType: [ 1  1  222  38  0  0  0 ]   template: ( GroundStation type: "MissileDefenseFacility" ) )
+
+
+// -------------------------------------------------------------
+// Missiles
+// -------------------------------------------------------------
+
+// AIM-9 Sidewinder
+( DisNtm  disEntityType: [ 2  1  225  1  1  1  0 ]   template: ( Missile type: "AIM-9B" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  2  0 ]   template: ( Missile type: "AIM-9D" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  3  0 ]   template: ( Missile type: "AIM-9L" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  3  0 ]   template: ( Missile type: "AIM-9M" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  3  0 ]   template: ( Missile type: "AIM-9S" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  4  0 ]   template: ( Missile type: "AIM-9P" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  5  0 ]   template: ( Missile type: "AIM-9R" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  6  0 ]   template: ( Missile type: "AIM-9X" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  1  0  0 ]   template: ( Missile type: "AIM-9" ) )
+
+// AIM-120 Advanced Medium-Range Air-to-Air Missile (AMRAAM)
+( DisNtm  disEntityType: [ 2  1  225  1  2  3  0 ]   template: ( Missile type: "AIM-120C" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  2  1  0 ]   template: ( Missile type: "AIM-120A" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  2  0  0 ]   template: ( Missile type: "AIM-120" ) )
+
+// AIM-7 Sparrow
+( DisNtm  disEntityType: [ 2  1  225  1  13  1  0 ]   template: ( Missile type: "AIM-7F" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  13  2  0 ]   template: ( Missile type: "AIM-7M" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  13  3  0 ]   template: ( Missile type: "AIM-7P" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  13  4  0 ]   template: ( Missile type: "AIM-7R" ) )
+( DisNtm  disEntityType: [ 2  1  225  1  13  0  0 ]   template: ( Missile type: "AIM-7" ) )
+
+// AGM-114 (Hellfire)
+( DisNtm  disEntityType: [ 2  2  225  1  3   1  0 ]   template: ( Missile type: "AGM-114A" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  3   2  0 ]   template: ( Missile type: "AGM-114B" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  3   3  0 ]   template: ( Missile type: "AGM-114C" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  3   4  0 ]   template: ( Missile type: "AGM-114F" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  3   5  1 ]   template: ( Missile type: "AGM-114K" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  3   6  0 ]   template: ( Missile type: "AGM-114L" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  3   0  0 ]   template: ( Missile type: "AGM-114" ) )
+
+// AGM-65 (Maverick)
+( DisNtm  disEntityType: [ 2  2  225  1  4   1  0 ]   template: ( Missile type: "AGM-65A" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  4   2  0 ]   template: ( Missile type: "AGM-65B" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  4   3  0 ]   template: ( Missile type: "AGM-65C" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  4   4  0 ]   template: ( Missile type: "AGM-65D" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  4   5  0 ]   template: ( Missile type: "AGM-65E" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  4   6  0 ]   template: ( Missile type: "AGM-65F" ) )
+( DisNtm  disEntityType: [ 2  2  225  1  4   0  0 ]   template: ( Missile type: "AGM-65" ) )
+
+// AGM-88 (Harm)
+( DisNtm  disEntityType: [ 2  4  225  1  1   1  0 ]   template: ( Missile type: "AGM-88A" ) )
+( DisNtm  disEntityType: [ 2  4  225  1  1   2  0 ]   template: ( Missile type: "AGM-88B" ) )
+( DisNtm  disEntityType: [ 2  4  225  1  1   3  0 ]   template: ( Missile type: "AGM-88C" ) )
+( DisNtm  disEntityType: [ 2  4  225  1  1   0  0 ]   template: ( Missile type: "AGM-88" ) )
+
+
+// BGM-109 (Tomahawk)
+( DisNtm  disEntityType: [ 2  9  225  1  19  2  0 ]   template: ( Missile type: "BGM-109" ) )
+
+}

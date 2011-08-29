@@ -1,0 +1,21 @@
+// ---
+// Example simulation built from mainx9, mainSim3 and mainFlightDisplay2.
+// ---
+
+//
+#define REF_LATITUDE      32.87
+#define REF_LONGITUDE     64.78
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( SimStation
+    
+   tcPriority: 1
+
+   #include "ioHandler.epp"
+   //#include "networkSetup.epp"
+   //#include "otwSetup.epp"
+   #include "otwSetupCIGI.epp"
+   #include "scenario.epp"
+   #include "instrumentPanel.epp"
+)

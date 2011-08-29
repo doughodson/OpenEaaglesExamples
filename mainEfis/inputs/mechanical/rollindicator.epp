@@ -1,0 +1,96 @@
+// Efis mechanical roll indicator
+( Graphic
+    components: {
+        // pointer
+        rollind:
+        ( Rotators
+            color: white
+            components: {
+                ( Polygon
+                    transform: ( Translation 0 1.65 ) 
+                    vertices: {
+                        [ 0 0 ]
+                        [ 0.094 -0.25 ]
+                        [ -0.094 -0.25 ]
+                    }
+                )
+            }
+        )
+        // draw the scale
+        ( Graphic
+            color: white
+            components: {
+                ( Line
+                    vertices: {
+                        [ -1.461 0.844 ]
+                        [ -1.625 0.937 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ -0.577 1.586 ]
+                        [ -0.641 1.762 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 1.461 0.844 ]
+                        [ 1.624 0.937 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 0.577 1.586 ]
+                        [ 0.641 1.762 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 0.293 1.662 ]
+                        [ 0.326 1.847 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ -0.293 1.662 ]
+                        [ -0.326 1.847 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 1.193 1.193 ]
+                        [ 1.282 1.282 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ -1.193 1.193 ]
+                        [ -1.282 1.282 ]
+                    }
+                )
+                ( Polygon
+                    vertices: {
+                        [ 0.844 1.461 ]
+                        [ 0.976 1.565 ]
+                        [ 0.868 1.628 ]
+                    }
+                )
+                ( Polygon
+                    vertices: {
+                        [ -0.844 1.461 ]
+                        [ -0.868 1.628 ]
+                        [ -0.976 1.565 ]
+                    }
+                )
+                ( Polygon
+                    vertices: {
+                        [ 0 1.688 ]
+                        [ 0.094 1.938 ]
+                        [ -0.094 1.938 ]
+                    }
+                )
+            }
+        )
+    }
+)
+

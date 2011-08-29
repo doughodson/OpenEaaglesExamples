@@ -1,0 +1,1013 @@
+// primary pfd page
+( Pfd 
+    components: {
+        // here is the menu bar (not functional right now)
+        ( Graphic
+            components: {
+                ( LineLoop
+                    color: white
+                    vertices: {
+                        [ -3.1 4.15 ]
+                        [  3.1 4.15 ]
+                        [  3.1 3.501 ]
+                        [ -3.1 3.501 ]
+                    }
+                )
+                ( Polygon
+                    color: gray1
+                    vertices: {
+                        [ -3.1 4.15 ]
+                        [  3.1 4.15 ]
+                        [  3.1 3.501 ]
+                        [ -3.1 3.501 ]
+                    }
+                )
+            }
+        )
+        
+        // warning and caution area
+        ( Graphic
+            components: {
+                // flight mode block
+                ( Line
+                    color: gray8
+                    segment: 1
+                    vertices: {
+                        [ 2.211 3.501 ]
+                        [ 2.211 2.909 ]
+                        [ -1.72 2.909 ]
+                        [ -1.72 3.501 ]
+                        [ -1.72 2.909 ]
+                        [ 2.211 2.909 ]
+                    }
+                )
+             mstrctn:
+                ( AsciiText
+                    color: yellow
+                    font: pfdspecfont
+                    transform: { ( Translation -1.5 3.04 ) ( Scale 2.5 ) }
+                    text: "MASTER CAUTION"
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ 2.211 3.501 ]
+                        [ 2.211 2.909 ]
+                        [ -1.72 2.909 ]
+                        [ -1.72 3.501 ]
+                    }
+                )
+            }
+        )
+        // MINS
+        ( AsciiText
+            font: pfdspecfont            
+            transform: { ( Translation 2.1 -2 ) ( Scale 1.4 ) }
+            text: "MINS"
+        )
+        // Radar alt label
+        ( AsciiText
+            font: pfdspecfont
+            transform: { ( Translation 2.1 -2.3 ) ( Scale 1.4 ) }
+            text: "RA"
+        )
+        // radar altitude and mins
+        ralt:
+        ( RdrAlt
+            components: {
+                // min value
+                rmin:
+                ( NumericReadout
+                    font: pfdspecfont
+                    inheritColor: 1
+                    transform: { ( Translation 2.45 -2.3 ) ( Scale 1.4 ) }
+                    format: "#####"
+                    value: 99999
+                )
+                ralt:
+                // actual radar alt
+                ( NumericReadout 
+                    font: pfdspecfont
+                    inheritColor: 1
+                    transform: { ( Translation -0.6 -0.6 0.3 ) ( Scale 1.4 ) }
+                    format: "#####"
+                    value: 99999
+                )
+                    
+            }
+        )
+        // background for the Radar alt
+        ( Polygon
+            color: black
+            transform: ( Translation -0.5 -0.54 0.3 )
+            vertices: {
+                [ -0.1 -0.1 ]
+                [  0.5 -0.1 ]
+                [  0.5  0.15 ]
+                [ -0.1  0.15 ]
+            }
+        )
+
+        // SPD readout
+        ( Graphic
+            components: {
+                ( AsciiText
+                    font: pfdspecfont
+                    color: green
+                    transform: { ( Translation -2.4 3.2 ) ( Scale 1.4 ) }       
+                    text: "SPD"
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -2.5 3.501 ]
+                        [ -2.5 3.176 ]
+                        [ -1.72 3.176 ]
+                        [ -1.72 3.501 ]
+                    }
+                )
+                ( Line
+                    color: gray8
+                    vertices: {
+                        [ -2.5 3.176 ]
+                        [ -1.72 3.176 ]
+                    }
+                ) 
+            }
+        )        
+        // commanded airspeed and background
+        ( Graphic
+            components: {
+                cmdspd:
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: magenta
+                    transform: { ( Translation -3.0 3.25 ) ( Scale 1.4 ) }
+                    format: "###"
+                    value: 999
+                )
+                ( Line
+                    transform: ( Translation 0 0 0.1 )
+                    color: gray8
+                    vertices: { [ -2.49 3.501 ] [ -2.49 3.176 ] }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -3.1 3.501 ]
+                        [ -3.1 3.176 ]
+                        [ -2.49 3.176 ]
+                        [ -2.49 3.501 ]
+                    }
+                )
+            }
+        )
+        
+        // angle of attack
+        ( Graphic
+            transform: ( Translation -2.5 -1.7 ) 
+            components: {
+                ( AsciiText
+                    font: pfdspecfont
+                    transform: { ( Translation -0.5 0 ) ( Scale 1.4 ) }
+                    color: green
+                    text: "AOA"
+                )
+            aoaro:                
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: white
+                    transform: { ( Translation 0.15 0 ) ( Scale 1.4 ) }
+                    format: "###.#"
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.5 -0.05 ]
+                        [  0.5 -0.05 ]
+                        [  0.5  0.25 ]
+                        [ -0.5  0.25 ]
+                    }
+                )
+            }
+        )
+        
+        // ground speed
+        ( Graphic
+            transform: ( Translation -2.5 -2 ) 
+            components: {
+                ( AsciiText
+                    font: pfdspecfont
+                    transform: { ( Translation -0.5 0 ) ( Scale 1.4 ) }
+                    color: green
+                    text: "G SPD"
+                )
+            gspd:                
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: white
+                    transform: { ( Translation 0.25 0 ) ( Scale 1.4 ) }
+                    format: "###"
+                    value: 999
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.5 -0.05 ]
+                        [  0.5 -0.05 ]
+                        [  0.5  0.25 ]
+                        [ -0.5  0.25 ]
+                    }
+                )
+            }
+        )
+        
+        // selected barometric setting
+        ( Graphic
+            transform: ( Translation 2.6555 -1.6 )
+            components: {
+                baro:
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: magenta
+                    transform: { ( Translation -0.25 -0.1 ) ( Scale 1.4 ) }
+                    format: "##.##"
+                    value: 29.80
+                )
+                ( LineLoop
+                    color: gray8
+                    vertices: {
+                        [ -0.4445 -0.1575 ]
+                        [  0.4445 -0.1575 ]
+                        [  0.4445  0.1575 ]
+                        [ -0.4445  0.1575 ]
+                    }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.5 -0.1575 ]
+                        [  0.4445 -0.1575 ]
+                        [  0.4445  0.1575 ]
+                        [ -0.5  0.1575 ]
+                    }
+                )
+            }
+        )
+        
+        // airspeed bug
+        spdbug:
+        ( GaugeSlider
+            vertical: 1
+            transform: ( Translation -2.6 0.876 ) 
+            
+            scalingTable: 
+               ( Table1
+                    // knots difference
+                    x: [ 46.625  -55.625 ]
+                 data: [ -2.3  2.3 ]
+                )
+            
+            components: {
+                ( Polygon
+                    color: magenta
+                    vertices: {
+                       [ 0 -0.1825 ] 
+                       [ 0.12 -0.1825 ]
+                       [ 0.12 0 ]
+                       [ 0.06 0 ]
+                    }
+                )
+                ( Polygon
+                    color: magenta
+                    vertices: {
+                       [ 0 0.1825 ] 
+                       [ 0.12 0.1825 ]
+                       [ 0.12 0 ]
+                       [ 0.06 0 ]
+                    }
+                ) 
+            }
+        )
+        
+        // airspeed - this is the ones column
+        ( Graphic
+            transform: ( Translation -2.75 0.586 )
+            components: {
+            ( Graphic
+                scissorX: 0
+                scissorWidth: 0.2
+                scissorY: 0
+                scissorHeight: 0.2
+                components: {
+                    spdtape: 
+                    ( GaugeSlider
+                        vertical: 1
+                        scalingTable: 
+                            ( Table1
+                                // airspeed (knots)
+                                x: [ 0 10 ]
+                                // inches
+                            data: [ 0 -2.1 ] 
+                            )
+                        components: {       
+                            ( Graphic
+                                color: white
+                                transform: ( Scale 1.4 )
+                                components: {
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 -0.15 ) text: "9")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont text: "0")   // start
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.15 ) text: "1")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.30 ) text: "2")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.45 ) text: "3")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.60 ) text: "4")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.75 ) text: "5")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.90 ) text: "6")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.05 ) text: "7")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.20 ) text: "8")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.35 ) text: "9") // end
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.50 ) text: "0")                        
+                                }
+                            )
+                        }
+                    )
+                }
+            )   // end of the ones
+                    
+            // this is the rest of the airspeed
+                spdrest:
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: white
+                    transform: { ( Translation -0.25 0 ) ( Scale 1.4 ) }
+                    format: "0#"                
+                )
+            // background for the speed tape
+                ( LineLoop  
+                    color: gray8
+                    linewidth: 2
+                    transform: ( Translation -0.02 -0.106 )
+                    vertices: {
+                        [ -0.28 0 ]
+                        [ 0.15 0 ]
+                        [ 0.25 0.2 ]
+                        [ 0.15 0.4 ]
+                        [ -0.28 0.4 ]
+                    }
+                )        
+                ( Polygon   
+                    color: black
+                    transform: ( Translation 0.02 -0.106 )
+                    vertices: {
+                        [ -0.28 0 ]
+                        [ 0.15 0 ]
+                        [ 0.25 0.2 ]
+                        [ 0.15 0.4 ]
+                        [ -0.28 0.4 ]
+                    }
+                )        
+            }
+        )
+ 
+        
+        
+        // this is the gauge tape, which includes all the tick marks and such
+        ( Graphic
+            transform: ( Translation -3.1 -1.424 )
+            scissorX: 0
+            scissorWidth: 0.6
+            scissorY: 0
+            scissorHeight: 4.6
+            components: {
+                airspd: 
+                ( GaugeSlider
+                    vertical: 1
+                    scalingTable: 
+                    ( Table1
+                        // airspeed (knots)
+                        x: [ 0 1000 ]
+                        // inches
+                        data: [ 0 -45 ] 
+                    )
+                    components: {
+                        #include "airspdtape.epp"
+                    }
+                )
+            }
+        )
+
+        // commanded altitude readout
+        ( Graphic
+            components: {
+                cmdalt:
+                ( NumericReadout
+                    transform: { ( Translation 2.4 2.95 ) ( Scale 1.4 ) }
+                    color: magenta
+                    font: pfdspecfont
+                    format: "#####"
+                    value: 10000
+                )
+                ( Line
+                    color: gray8
+                    vertices: { [ 2.2 3.501 ] [ 2.2 2.909 ] }
+                )
+                // background for the commanded alt readout
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ 2.19 3.501 ]
+                        [ 3.1 3.501 ]
+                        [ 3.1 2.909 ]
+                        [ 2.19 2.909 ]
+                    }
+                )  
+            }
+        )
+        
+        // altitude bug
+        altbug:
+        ( GaugeSlider
+            vertical: 1
+            transform: ( Translation 2.32 0.7435 ) 
+            
+            scalingTable: 
+               ( Table1
+                    // knots difference
+                    x: [ 493.222  -469.222 ]
+                 data: [ -2.1655  2.1655 ]
+                )
+            
+            components: {
+                ( LineLoop
+                    color: magenta
+                    linewidth: 2
+                    vertices: {
+                       [ 0 -0.1825 ] 
+                       [ -0.12 0 ]
+                       [ -0.12 -0.1825 ]
+                    }
+                )
+                
+                ( LineLoop
+                    linewidth: 2
+                    color: magenta
+                    vertices: {
+                       [ 0 0.1825 ] 
+                       [ -0.12 0.1825 ]
+                       [ -0.12 0 ]
+                    }
+                ) 
+            }
+        )
+        
+        /*
+        ( Line
+            transform: ( Translation 2.3 0 ) // -1.422 bottom // 2.909 top  ) // 0.7435 middle )
+            linewidth: 2
+            vertices: {
+                [ 0 0 ] [ 0.2 0 ]
+            }
+        )
+        */
+
+        // this is the altitude gauge readout, which actually is 2 gauge sliders and a numeric readout put together
+        ( Graphic
+            transform: ( Translation 2.9 0.71 )
+            components: {
+                
+                // outline
+                ( LineLoop
+                    linewidth: 2
+                    color: gray8
+                    vertices: {
+                        [ -0.4 -0.15 ]
+                        [ -0.6 0.09 ]
+                        [ -0.4  0.35 ]
+                        [  0.15  0.35 ] 
+                        [  0.15 -0.15 ]
+                    }
+                )
+                
+            altones:
+              // this one is always 0
+              ( AsciiText color: white font: pfdspecfont transform: ( Scale 1.4 ) text: "0" )
+              
+            ( Graphic
+                transform: ( Translation -0.12 0 )
+                scissorX: 0
+                scissorY: 0
+                scissorHeight: 0.2
+                scissorWidth: 0.2
+                components: {
+                    alttens:
+                    ( GaugeSlider
+                        vertical: 1
+                        scalingTable: 
+                            ( Table1
+                                // airspeed (knots)
+                                x: [ 0 10 ]
+                                // inches
+                            data: [ 0 -2.1 ] 
+                            )
+                        components: {       
+                            ( Graphic
+                                color: white
+                                transform: ( Scale 1.4 )
+                                components: {
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 -0.15 ) text: "9")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont text: "0")   // start
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.15 ) text: "1")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.30 ) text: "2")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.45 ) text: "3")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.60 ) text: "4")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.75 ) text: "5")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.90 ) text: "6")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.05 ) text: "7")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.20 ) text: "8")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.35 ) text: "9") // end
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.50 ) text: "0")                        
+                                }
+                            )
+                        } 
+                    )     
+                }
+            ) // end of the tens alt tape graphic 
+            
+                // this is the rest of the readout - we do this to make sure it's right justified
+                altsel:
+                ( Rotary
+                    components: {
+                    altrest1:                          
+                            ( NumericReadout
+                                transform: {( Translation -0.24 0 ) ( Scale 1.4 )}
+                                color: white
+                                font: pfdspecfont
+                                format: "#"
+                            )
+                    altrest2:
+                            ( NumericReadout
+                                transform: {( Translation -0.36 0 ) ( Scale 1.4 )}
+                                color: white
+                                font: pfdspecfont
+                                format: "##"
+                            )
+                    altrest3:
+                            ( NumericReadout
+                                transform: {( Translation -0.48 0 ) ( Scale 1.4 )}
+                                color: white
+                                font: pfdspecfont
+                                format: "###"
+                            )
+                    }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.4 -0.15 ]
+                        [ -0.6 0.09 ]
+                        [ -0.4  0.35 ]
+                        [  0.15  0.35 ] 
+                        [  0.15 -0.15 ]
+                    }
+                )
+                
+            }
+        )
+        
+        // altitude
+        ( Graphic
+            transform: ( Translation 2.221 -1.422 )
+            scissorX: 0
+            scissorWidth: 0.879
+            scissorY: 0
+            scissorHeight: 4.331
+            components: {
+                alttape: 
+                ( GaugeSlider
+                    vertical: 1
+                    scalingTable: 
+                        ( Table1
+                            // alt (feet)
+                            x: [ 0 100000 ]
+                        data: [ 0 -450 ]
+                        )
+                    
+                    components: {
+                        #include "alttape.epp"
+                    }
+                )
+            }
+        )
+
+        // glideslope pointer
+        glideslope:
+        ( GaugeSlider
+            vertical: 1
+            transform: ( Translation 1.65 0.8 )
+            scalingTable:
+                ( Table1
+                    // dots
+                    x: [ -2 2 ]
+                    // inches
+                 data: [ -1.34 1.34 ]
+                )
+            components: {
+                ( Polygon 
+                    color: white
+                    transform: ( Rotation 0.785 ) 
+                    vertices: {
+                        [ -0.075 -0.075 ]
+                        [ -0.075  0.075 ]
+                        [  0.075  0.075 ]
+                        [  0.075 -0.075 ]
+                    }
+                ) 
+            }
+        )
+                
+        // Glideslope scale
+        ( Graphic
+            transform: ( Translation 1.52 0.8 )
+            color: green
+            components: {
+                ( Line
+                    vertices: { [ 0 0 ] [ 0.25 0 ] }
+                    linewidth: 2
+                )
+                ( Circle
+                    transform: ( Translation 0.07 -0.67 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 0.07 -1.34 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 0.07 0.67 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 0.07 1.34 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+            }
+        )
+
+        // lat dev pointer
+        latdev:
+        ( GaugeSlider
+            vertical: 0
+            transform: ( Translation -0.3135 -0.75 )
+            scalingTable:
+                ( Table1
+                    // dots
+                    x: [ -2 2 ]
+                    // inches
+                 data: [ -1.5 1.5 ]
+                )
+            components: {
+                ( LineLoop 
+                    linewidth: 2
+                    color: white
+                    transform: ( Rotation 0.785 ) 
+                    vertices: {
+                        [ -0.075 -0.075 ]
+                        [ -0.075  0.075 ]
+                        [  0.075  0.075 ]
+                        [  0.075 -0.075 ]
+                    }
+                ) 
+            }
+        )
+        
+        // Lateral deviation scale
+        ( Graphic
+            transform: ( Translation -0.3135 -0.65 )
+            color: green
+            components: {
+                ( Line
+                    vertices: { [ 0 0 ] [ 0 -0.25 ] }
+                    linewidth: 3
+                )
+                ( Line
+                    transform: ( Translation -0.75 0 )
+                    vertices: { [ 0 0 ] [ 0 -0.2 ] }
+                    linewidth: 2
+                )
+                ( Line
+                    transform: ( Translation 0.75 0 )
+                    vertices: { [ 0 0 ] [ 0 -0.18 ] }
+                    linewidth: 2
+                )
+                ( Circle
+                    transform: ( Translation -1.5 -0.07 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 1.5 -0.07 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+            }
+        )        
+                            
+        // vertical velocity indicator scale - 3.625 high
+        ( Graphic
+            color: green
+            transform: ( Translation 1.95 0.8 )
+            components: {
+                ( Line
+                    segment: 1
+                    linewidth: 2
+                    vertices: {
+                        // middle line
+                        [ 0 0 ] [ 0.125 0 ]
+                        // top line
+                        [ 0 1.8125 ] [ 0.125 1.8125 ]
+                        // bottom line
+                        [ 0 -1.8125 ] [ 0.125 -1.8125 ]
+                        // (0 to +/- 0.5)
+                        [ 0 1.35 ] [ 0.125 1.35 ]
+                        [ 0 0.9 ] [ 0.125 0.9 ]
+                        [ 0.125 0.45 ] [ 0.035 0.45 ]
+                        [ 0 -0.9 ] [ 0.125 -0.9 ]
+                        [ 0 -1.35 ] [ 0.125 -1.35 ]
+                        [ 0.125 0.09 ] [ 0.075 0.09 ]
+                        [ 0.125 0.18 ] [ 0.075 0.18 ]
+                        [ 0.125 0.27 ] [ 0.075 0.27 ]
+                        [ 0.125 0.36 ] [ 0.075 0.36 ]
+                        [ 0.125 -0.09 ] [ 0.075 -0.09 ]
+                        [ 0.125 -0.18 ] [ 0.075 -0.18 ]
+                        [ 0.125 -0.27 ] [ 0.075 -0.27 ]
+                        [ 0.125 -0.36 ] [ 0.075 -0.36 ]
+                        [ 0.125 -0.45 ] [ 0.035 -0.45 ]
+                        // +/- 0.5 - 1
+                        [ 0.125 0.54 ] [ 0.075 0.54 ]
+                        [ 0.125 0.63 ] [ 0.075 0.63 ]
+                        [ 0.125 0.72 ] [ 0.075 0.72 ]
+                        [ 0.125 0.81 ] [ 0.075 0.81 ]
+                        [ 0.125 -0.54 ] [ 0.075 -0.54 ]
+                        [ 0.125 -0.63 ] [ 0.075 -0.63 ]
+                        [ 0.125 -0.72 ] [ 0.075 -0.72 ]
+                        [ 0.125 -0.81 ] [ 0.075 -0.81 ]
+                        // +/- 1 - 2
+                        [ 0.125 0.99 ] [ 0.075 0.99 ]
+                        [ 0.125 1.08 ] [ 0.075 1.08 ]
+                        [ 0.125 1.17 ] [ 0.075 1.17 ]
+                        [ 0.125 1.26 ] [ 0.075 1.26 ]
+                        [ 0.125 -0.99 ] [ 0.075 -0.99 ]
+                        [ 0.125 -1.08 ] [ 0.075 -1.08 ]
+                        [ 0.125 -1.17 ] [ 0.075 -1.17 ]
+                        [ 0.125 -1.26 ] [ 0.075 -1.26 ]
+                        // +/- 2 - 3 and up
+                        [ 0.125 1.44 ] [ 0.075 1.44 ]
+                        [ 0.125 1.53 ] [ 0.075 1.53 ]
+                        [ 0.125 1.62 ] [ 0.075 1.62 ]
+                        [ 0.125 1.71 ] [ 0.075 1.71 ]
+                        [ 0.125 -1.44 ] [ 0.075 -1.44 ]
+                        [ 0.125 -1.53 ] [ 0.075 -1.53 ]
+                        [ 0.125 -1.62 ] [ 0.075 -1.62 ]
+                        [ 0.125 -1.71 ] [ 0.075 -1.71 ]
+                    }
+                )
+                // numeric readouts that do not change
+                ( AsciiText
+                    transform: { ( Translation -0.15 0.81 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "1"
+                )
+                ( AsciiText
+                    transform: { ( Translation -0.15 1.26 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "2"
+                )
+                ( AsciiText
+                    transform: { ( Translation -0.15 -0.99 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "1"
+                )
+                ( AsciiText
+                    transform: { ( Translation -0.15 -1.44 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "2"
+                )
+            }
+        )
+        
+        // readouts for the max and min VVI, which will change accordingly
+        // max VVI - we use an instrument because it can handle the breakpoints for a color rotary
+        maxvvicolor:
+        ( Instrument
+            color: 
+                ( ColorRotary
+                    breakpoints: {
+                         0 
+                         6000
+                    }
+                    breakcolors: {
+                        //(rgb 1 1 0)
+                        (rgb 0 1 0)
+                        (rgb 1 1 0)
+                    }
+                )
+            components: {
+                maxvvi:
+                ( NumericReadout
+                    inheritColor: 1
+                    transform: { ( Translation 1.75 2.65 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                    font: pfdspecfont
+                    value: 3.0
+                )
+            }
+        )
+        // background
+        ( Polygon
+            color: black
+            transform: ( Translation 1.9 2.74 )
+            vertices: {
+                [ -0.2 -0.13 ] 
+                [ -0.2  0.1 ]
+                [  0.2  0.1 ]
+                [  0.2 -0.13 ]
+            }
+        )                
+
+        minvvicolor:
+        ( Instrument
+            color: 
+                ( ColorRotary
+                    breakpoints: {
+                        //-6000
+                            0 
+                         6000
+                    }
+                    breakcolors: {
+                       // (rgb 1 1 0)
+                        (rgb 0 1 0)
+                        (rgb 1 1 0)
+                    }
+                )
+            components: {
+                minvvi:
+                ( NumericReadout
+                    inheritColor: 1
+                    transform: { ( Translation 1.75 -1.25 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                    font: pfdspecfont
+                    value: 3.0
+                )
+            }
+        )
+        // background
+        ( Polygon
+            color: black
+            transform: ( Translation 1.9 -1.155 )
+            vertices: {
+                [ -0.2 -0.1 ] 
+                [ -0.2  0.13 ]
+                [  0.2  0.13 ]
+                [  0.2 -0.1 ]
+            }
+        )
+
+        // this is the gauge slider for the VVI
+        vvi:
+        ( AnalogGauge
+            color: white
+            transform: ( Translation 2.03 0.8 )
+            vertical: 1
+            scalingTable: 
+                ( Table1
+                    // vvi (feet per min)
+                    x: [ -3000 -1000 0 1000 3000 ]
+                    // inches
+                 data: [ -1.8125 -0.81 0 0.81 1.8125 ]
+                )
+            leftBoundary: -0.045
+            rightBoundary: 0.045
+        )
+
+        // here are the course pointer source readouts
+        // tacan
+        ( Graphic
+            color: cyan
+            linewidth: 2
+            transform: ( Translation 1.35 -3.85 ) 
+            components: {
+                ( Line
+                    segment: 1
+                    vertices: {
+                        [ 0 -0.2 ] [ 0 0.2 ]
+                        [ -0.07 -0.2 ] [ 0.07 -0.2 ]
+                        [ -0.1 0.05 ] [ 0 0.2 ]
+                        [ 0.1 0.05 ] [ 0 0.2 ]
+                    }
+                )
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
+                    text: "TAC"
+                )
+                nav1Id:
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
+                    text: "XXX"
+                )
+                nav1dme:
+                ( NumericReadout
+                    color: white
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 -0.2 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                )
+            }
+        )
+        // waypoint
+        ( Graphic
+            color: cyan
+            linewidth: 2
+            transform: ( Translation 2.25 -3.85 ) 
+            components: {
+                ( Line
+                    segment: 1
+                    vertices: {
+                        [ 0 0.245 ] [ -0.05 0.155 ]
+                        [ 0 0.245 ] [ 0.05 0.155 ]
+                        [ -0.05 0.155 ] [ -0.05 -0.195 ]
+                        [ 0.05 0.155 ] [ 0.05 -0.195 ]
+                        [ -0.05 -0.195 ] [ -0.09 -0.195 ]
+                        [ 0.05 -0.195 ] [ 0.09 -0.195 ]
+                        [ -0.09 -0.195 ] [ -0.09 -0.245 ]
+                        [ 0.09 -0.195 ] [ 0.09 -0.245 ]
+                        [ -0.09 -0.245 ] [ 0.09 -0.245 ]                        
+                    }
+                )
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
+                    text: "NAV"
+                )
+                nav2Id:
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
+                    text: "XXXXX"
+                )
+                nav2dme:
+                ( NumericReadout
+                    color: white
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 -0.2 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                )
+            }
+        )        
+
+        // source readout
+        ( AsciiText
+            font: pfdspecfont
+            transform: { ( Translation -3 -3.5 ) ( Scale 1.4 ) }
+            text: "CDI  SRC"
+        )
+        ( AsciiText
+            font: pfdspecfont
+            color: magenta
+            transform: { ( Translation -3 -3.8 ) ( Scale 1.4 ) }
+            text: "RMS/ILS1"
+        )
+        ( AsciiText
+            font: pfdspecfont
+            color: white
+            transform: { ( Translation -2.8 -4.1 ) ( Scale 1.4 ) }
+            text: "--- / 0.1"
+        )
+            
+        // draw the hsi
+        #include "hsi.epp"
+        // adi 
+        #include "adi.epp"
+
+    }
+) // end of test 
+

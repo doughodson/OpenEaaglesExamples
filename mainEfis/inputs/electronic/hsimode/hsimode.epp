@@ -1,0 +1,16 @@
+// HSI mode of the efis electronic hsi
+( EfisElectronicHsi 
+    components: {
+        
+        
+                // to-from arrow
+pritofrom:      ( EfisEHsiToFromArrow
+                    linewidth: 2
+                    components: {
+                    }
+                )  
+            }
+
+    }
+)   
+

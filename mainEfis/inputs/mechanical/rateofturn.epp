@@ -1,0 +1,140 @@
+// This is our rate of turn indicator
+( Graphic
+    transform: ( Translation 0 -1.5 )
+    components: {
+        // this is the flag
+        rtfail: 
+        ( Graphic
+            transform: ( Translation -0.6 0.09 1 )
+            components: {
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.073 -0.003 ]
+                        [ -0.056 -0.011 ]
+                        [ -0.048 -0.027 ]
+                        [ -0.048 -0.067 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.125 -0.067 ]
+                        [ -0.125 0.068 ]
+                        [ -0.065 0.068 ]
+                        [ -0.048 0.052 ]
+                        [ -0.048 0.020 ]
+                        [ -0.056 0.008 ]
+                        [ -0.073 -0.003 ]
+                        [ -0.125 -0.003 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.017 0.068 ]
+                        [ -0.017 -0.067 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.082 0.068 ]
+                        [ 0.082 -0.067 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ 0.039 0.068 ]
+                        [ 0.125 0.068 ]                
+                    }
+                )
+                ( Polygon
+                    color: red
+                    vertices: {
+                        [ 0.375 0.094 ]
+                        [ 0.375 -0.031 ]
+                        [ 0.25 -0.094 ]
+                        [ -0.375 -0.094 ]
+                        [ -0.375 0.094 ]
+                    }
+                )
+            }
+        )
+        // this is the pointer 
+        ( Graphic
+            transform: ( Translation 0 -0.15 )
+            components: {            
+                rtpointer:
+                ( GaugeSlider
+                    vertical: 0
+                    scalingTable: 
+                    ( Table1
+                        x: [ -2 2 ]
+                        data: [ -0.3125 0.3125 ]
+                    )
+                    components: {
+                        ( Polygon
+                            color: white
+                            vertices: {
+                                [ 0.039 0 ]
+                                [ 0.079 0.031 ]
+                                [ 0.079 0.094 ]
+                                [ -0.079 0.094 ]
+                                [ -0.079 0.031 ]
+                                [ -0.039 0 ]
+                                [ -0.039 -0.094 ]
+                                [ 0.039 -0.094 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+            
+        // this is the scale
+        rtscale:
+        ( Graphic
+            components: {
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ 0.234 -0.031 ]
+                        [ 0.391 -0.031 ]
+                        [ 0.391 0.031 ]
+                        [ 0.234 0.031 ]
+                    }
+                )
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.078 -0.031 ] 
+                        [ 0.078 -0.031 ]
+                        [ 0.078 0.031 ]
+                        [ -0.078 0.031 ]
+                    }
+                )
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.391 -0.031 ]
+                        [ -0.234 -0.031 ]
+                        [ -0.234 0.031 ]
+                        [ -0.391 0.031 ] 
+                    }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -1 0.125 ]
+                        [ -1 -0.75 ]
+                        [ 1 -0.75 ]
+                        [ 1 0.125 ]
+                    }
+                )
+            }
+        )        
+    }
+)
+

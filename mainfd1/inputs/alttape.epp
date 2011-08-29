@@ -1,0 +1,357 @@
+#define LEFT 0.12
+( Graphic
+    // translate up to the half way point of the tape
+    transform: ( Translation 0 2.221 )
+    components: {
+        // draw the numbers 
+        ( Graphic
+            color: green
+            transform: { ( Translation 0 -0.0945  ) ( Scale 1.4 ) }
+            components: {
+                // 0 - 800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 0 ) text: "0" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 0.643 ) text: "200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 1.286 ) text: "400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 1.929 ) text: "600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 2.572 ) text: "800" )
+                // 1000 - 1800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 3.215 ) text: "1000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 3.858 ) text: "1200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 4.501 ) text: "1400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 5.144 ) text: "1600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 5.787 ) text: "1800" )
+                // 200 - 280
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 6.43 ) text: "2000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 7.073 ) text: "2200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 7.716 ) text: "2400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 8.359 ) text: "2600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 9.002 ) text: "2800" )
+                // 300 - 380
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 9.645 ) text: "3000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 10.288 ) text: "3200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 10.931 ) text: "3400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 11.574 ) text: "3600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 12.217 ) text: "3800" )
+                // 400 - 480
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 12.86 ) text: "4000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 13.503 ) text: "4200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 14.146 ) text: "4400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 14.789 ) text: "4600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 15.432 ) text: "4800" )
+                // 500 - 580
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 16.075 ) text: "5000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 16.718 ) text: "5200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 17.361 ) text: "5400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 18.004 ) text: "5600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 18.647 ) text: "5800" )
+                // 600 - 680
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 19.29 ) text: "6000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 19.933 ) text: "6200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 20.576 ) text: "6400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 21.219 ) text: "6600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 21.862 ) text: "6800" )
+                // 700 - 780
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 22.505 ) text: "7000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 23.148 ) text: "7200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 23.791 ) text: "7400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 24.434 ) text: "7600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 25.077 ) text: "7800" )
+                // 800 - 880
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 25.72 ) text: "8000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 26.363 ) text: "8200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 27.006 ) text: "8400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 27.649 ) text: "8600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 28.292 ) text: "8800" )
+                // 900 - 980
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 28.935 ) text: "9000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 29.578 ) text: "9200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 30.221 ) text: "9400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 30.864 ) text: "9600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 31.507 ) text: "9800" )
+                // 10000 - 10800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 32.15 ) text: "10000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 32.793 ) text: "10200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 33.436 ) text: "10400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 34.079 ) text: "10600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 34.722 ) text: "10800" )
+                // 11000 - 11800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 35.365 ) text: "11000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 36.008 ) text: "11200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 36.651 ) text: "11400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 37.294 ) text: "11600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 37.937 ) text: "11800" )
+                // 12000 - 12800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 38.58 ) text: "12000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 39.223 ) text: "12200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 39.866 ) text: "12400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 40.509 ) text: "12600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 41.152 ) text: "12800" )
+                // 13000 - 13800                   
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 41.795 ) text: "13000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 42.438 ) text: "13200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 43.081 ) text: "13400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 43.724 ) text: "13600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 44.367 ) text: "13800" )
+                // 14000 - 14800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 45.01 ) text: "14000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 45.653 ) text: "14200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 46.296 ) text: "14400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 46.939 ) text: "14600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 47.582 ) text: "14800" )
+                // 15000 - 15800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 48.225 ) text: "15000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 48.868 ) text: "15200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 49.511 ) text: "15400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 50.154 ) text: "15600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 50.797 ) text: "15800" )
+                // 16000 - 16800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 51.44 ) text: "16000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 52.083 ) text: "16200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 52.726 ) text: "16400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 53.369 ) text: "16600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 54.012 ) text: "16800" )
+                // 17000 - 17800
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 54.655 ) text: "17000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 55.298 ) text: "17200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 55.941 ) text: "17400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 56.584 ) text: "17600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 57.227 ) text: "17800" )
+                // 18000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 57.87 ) text: "18000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 58.513 ) text: "18200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 59.156 ) text: "18400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 59.799 ) text: "18600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 60.442 ) text: "18800" )
+                // 19000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 61.085 ) text: "19000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 61.728 ) text: "19200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 62.371 ) text: "19400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 63.014 ) text: "19600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 63.657 ) text: "19800" )
+                // 20000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 64.3 ) text: "20000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 64.943 ) text: "20200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 65.586 ) text: "20400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 66.229 ) text: "20600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 66.872 ) text: "20800" )
+                // 21000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 67.515 ) text: "21000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 68.158 ) text: "21200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 68.801 ) text: "21400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 69.444 ) text: "21600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 70.087 ) text: "21800" )
+                // 22000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 70.73 ) text: "22000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 71.373 ) text: "22200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 72.016 ) text: "22400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 72.659 ) text: "22600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 73.302 ) text: "22800" )
+                // 23000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 73.945 ) text: "23000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 74.588 ) text: "23200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 75.231 ) text: "23400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 75.874 ) text: "23600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 76.517 ) text: "23800" )
+                // 24000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 77.16 ) text: "24000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 77.803 ) text: "24200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 78.446 ) text: "24400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 79.089 ) text: "24600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 79.732 ) text: "24800" )
+                // 25000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 80.375 ) text: "25000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 81.018 ) text: "25200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 81.661 ) text: "25400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 82.304 ) text: "25600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 82.947 ) text: "25800" )
+                // 26000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 83.59 ) text: "26000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 84.233 ) text: "26200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 84.876 ) text: "26400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 85.519 ) text: "26600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 86.162 ) text: "26800" )
+                // 27000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 86.805 ) text: "27000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 87.448 ) text: "27200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 88.091 ) text: "27400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 88.734 ) text: "27600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 89.377 ) text: "27800" )
+                // 28000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 90.02 ) text: "28000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 90.663 ) text: "28200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 91.306 ) text: "28400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 91.949 ) text: "28600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 92.592 ) text: "28800" )
+                // 29000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 93.235 ) text: "29000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 93.878 ) text: "29200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 94.521 ) text: "29400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 95.164 ) text: "29600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 95.807 ) text: "29800" )
+                // 30000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 96.45 ) text: "30000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 97.093 ) text: "30200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 97.736 ) text: "30400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 98.379 ) text: "30600" )
+                // readjusted here, instead of re-doing the whole thing (a little off)
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 99.0 ) text: "30800" )
+                // 31000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 99.643 ) text: "31000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 100.286 ) text: "31200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 100.929 ) text: "31400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 101.572 ) text: "31600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 102.215 ) text: "31800" )
+                // 32000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 102.858 ) text: "32000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 103.501 ) text: "32200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 104.144 ) text: "32400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 104.787 ) text: "32600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 105.43 ) text: "32800" )
+                // 33000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 106.073 ) text: "33000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 106.716 ) text: "33200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 107.359 ) text: "33400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 108.002 ) text: "33600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 108.645 ) text: "33800" )
+                // 34000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 109.288 ) text: "34000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 109.931 ) text: "34200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 110.574 ) text: "34400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 111.217 ) text: "34600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 111.86 ) text: "34800" )
+                // 35000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 112.503 ) text: "35000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 113.146 ) text: "35200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 113.789 ) text: "35400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 114.432 ) text: "35600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 115.075 ) text: "35800" )
+                // 36000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 115.718 ) text: "36000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 116.361 ) text: "36200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 117.004 ) text: "36400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 117.647 ) text: "36600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 118.29 ) text: "36800" )
+                // 37000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 118.933 ) text: "37000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 119.576 ) text: "37600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 120.219 ) text: "37400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 120.862 ) text: "37600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 121.505 ) text: "37800" )
+                // 38000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 122.148 ) text: "38000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 122.791  ) text: "38200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 123.434 ) text: "38400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 124.077 ) text: "38600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 124.72 ) text: "38800" )
+                // 39000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 125.363 ) text: "39000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 126.006 ) text: "39200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 126.649 ) text: "39400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 127.292 ) text: "39600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 127.935 ) text: "39800" )
+                // 40000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 128.578 ) text: "40000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 129.221 ) text: "40200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 129.864 ) text: "40400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 130.507 ) text: "40600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 131.15 ) text: "40800" )
+                // 41000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 131.793 ) text: "41000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 132.436 ) text: "41200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 133.079 ) text: "41400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 133.722 ) text: "41600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 134.365 ) text: "41800" )
+                // 42000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 135.008 ) text: "42000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 135.651 ) text: "42200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 136.294 ) text: "42400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 136.937 ) text: "42600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 137.58 ) text: "42800" )
+                // 43000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 138.223 ) text: "43000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 138.866 ) text: "43200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 139.509 ) text: "43400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 140.152 ) text: "43600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 140.795 ) text: "43800" )
+                // 44000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 141.438 ) text: "44000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 142.081 ) text: "44200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 142.724 ) text: "44400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 143.367 ) text: "44600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 144.01 ) text: "44800" )
+                // 45000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 144.653 ) text: "45000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 145.296 ) text: "45200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 145.939 ) text: "45400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 146.582 ) text: "45600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 147.225 ) text: "45800" )
+                // 46000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 147.868 ) text: "46000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 148.511 ) text: "46200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 149.154 ) text: "46400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 149.797 ) text: "46600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 150.44 ) text: "46800" )
+                // 47000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 151.083 ) text: "47000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 151.726 ) text: "47200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 152.369 ) text: "47400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 153.012 ) text: "47600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 153.655 ) text: "47800" )
+                // 48000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 154.298 ) text: "48000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 154.941 ) text: "48200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 155.584 ) text: "48400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 156.227 ) text: "48600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 156.87 ) text: "48800" )
+                // 49000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 157.513 ) text: "49000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 158.156 ) text: "49200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 158.799 ) text: "49400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 159.442 ) text: "49600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 160.085 ) text: "49800" )
+                // 50000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 160.728 ) text: "50000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 161.371 ) text: "50200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 162.014 ) text: "50400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 162.657 ) text: "50600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 163.3 ) text: "50800" )
+                // 51000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 163.943 ) text: "51000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 164.586 ) text: "51200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 165.229 ) text: "51400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 165.872 ) text: "51600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 166.515 ) text: "51800" )
+                // 52000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 167.158 ) text: "52000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 167.801 ) text: "52200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 168.444 ) text: "52400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 169.087 ) text: "52600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 169.73 ) text: "52800" )
+                // 53000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 170.373 ) text: "53000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 171.016 ) text: "53200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 171.659 ) text: "53400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 172.302 ) text: "53600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 172.945 ) text: "53800" )
+                // 54000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 173.588 ) text: "54000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 174.231 ) text: "54200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 174.874 ) text: "54400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 175.517 ) text: "54600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 176.16 ) text: "54800" )
+                // 55000
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 176.803 ) text: "55000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 177.446 ) text: "55200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 178.089 ) text: "55400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 178.732 ) text: "55600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation LEFT 179.375 ) text: "55800" )
+             }
+        )   
+        // now draw all of the lines 
+        ( SpdLines 
+            isAlt: 1
+        )
+    }
+)
+

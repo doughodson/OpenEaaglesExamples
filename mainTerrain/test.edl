@@ -1,0 +1,56 @@
+#line 1 "inputs/test.epp"
+
+
+( TerrainDisplay
+    
+    name: "My Main Window"
+    
+    
+    
+    altitude:     ( Feet 30000 )    
+    
+    colorScale:      1              
+    interpolate:    false           
+    shadows:        false            
+    aac:            true            
+    earthCurvature: false            
+    textureTest:    true            
+    
+    
+    
+    
+    vpHeight:   1180    
+    vpWidth:     944    
+
+    left:           0.0
+    right:          1.0
+    bottom:         0.0
+    top:            1.0
+    
+    
+    terrain:
+    ( QuadMap
+        path: "../data"
+        components: {
+            
+            ( QuadMap
+                components: {
+
+
+                      ( SrtmHgtFile file: "srtm3/N38W115.hgt" ) 
+                      ( SrtmHgtFile file: "srtm3/N38W114.hgt" )
+              }
+            )
+
+            ( QuadMap
+                components: {
+
+
+                      ( SrtmHgtFile file: "srtm3/N39W115.hgt" ) 
+                      ( SrtmHgtFile file: "srtm3/N39W114.hgt" )
+                }
+            )
+            
+        }
+    )
+)

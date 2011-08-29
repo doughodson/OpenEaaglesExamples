@@ -1,0 +1,69 @@
+
+ownship: ownship    
+
+simulation:
+( Simulation
+
+    latitude:    39.0
+    longitude: -114.0
+    freeze: false
+
+    players: {
+
+        ownship:
+        ( Aircraft
+
+            id: 1
+            side: blue
+            type: "F-16"
+            signature: ( SigSphere radius: 1.0 )
+
+            initLatitude:  ( LatLon direction: "n" degrees:  38 minutes: 0.0 )
+            initLongitude: ( LatLon direction: "w" degrees: 114 minutes: 0.0 )
+            initAlt: ( Feet 20000 )
+
+            initHeading: ( Degrees 0 )
+            initVelocity: 250
+            positionFreeze: true
+
+            components: {
+
+                pilot: ( Autopilot )
+
+                radar:
+                ( Antenna
+                    initPosition: [ 0 0 ]
+                    commandRateAzimuth:   ( Degrees 180 )
+                    commandRateElevation: ( Degrees 180 )
+                    reference: [ 0 -0.05236 ]                //  0 Az, -3 El
+                    searchVolume: [ 1.570796 0.087266 ]     // 90 by 5
+                    numBars: 4
+                )
+                sensors: ( RealBeamRadar
+                    antennaName: radar
+                    powerPeak:  ( KiloWatts 500.0 )
+                    frequency:  ( GigaHertz 3.0 )
+                    PRF:        ( Hertz 500.0 ) 
+                    pulseWidth: ( MilliSeconds 0.01 )
+                    threshold:  ( dB 2.0 )
+                    ranges:     [ 60 120 ]
+                    initRangeIdx: 1
+    
+                    interpolate: true       // True to interpolate between elevation posts, else use nearest
+
+                )
+
+            } // End ownship components
+
+        ) // End Ownship
+
+    } // End players
+
+
+    // Terrain data
+//    #include "dted.epp"
+    #include "srtm.epp"
+
+
+) // End simulation
+

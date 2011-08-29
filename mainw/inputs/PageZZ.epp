@@ -1,0 +1,35 @@
+// ---
+// Example page ZZ
+// ---
+        
+zz:
+( MfdPage
+    pagingEvent: {
+        n: worms
+        p: yy
+        btest: sample
+    }
+    
+    components: {
+        ( Polygon
+            selectName: 501
+            color: white
+            linewidth: 1
+            texture: t4
+            vertices: {
+                [  1.5  1.5 ]
+                [ -1.5  1.5 ]
+                [ -1.5 -1.5 ]
+                [  1.5 -1.5 ]
+            }
+            texCoord: {
+                [  1.0  1.0 ]
+                [  0.0  1.0 ]
+                [  0.0  0.0 ]
+                [  1.0  0.0 ]
+            }
+        )
+        ( AsciiText selectName: 302  position: [ 1  5 ]  text: "VERTICAL1"  vertical: 1 )
+        ( AsciiText selectName: 303  position: [ 1 10 ]  text: "VERTICAL2"  vertical: 1 )
+    }
+)

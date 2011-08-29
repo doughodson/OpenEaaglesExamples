@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// Terrain from SW USA
+// -----------------------------------------------------------------------------
+
+terrain:
+( QuadMap
+
+    path: DATA_PATH
+
+    components: {
+        ( QuadMap
+            components: {
+                ( SrtmHgtFile file: "srtm3/N39W115.hgt" ) 
+                ( SrtmHgtFile file: "srtm3/N39W114.hgt" )
+                ( SrtmHgtFile file: "srtm3/N38W115.hgt" ) 
+                ( SrtmHgtFile file: "srtm3/N38W114.hgt" )
+            }
+        )
+    }
+)
+
+

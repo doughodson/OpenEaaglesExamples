@@ -1,0 +1,59 @@
+//------------------------------------------------------------------------------
+// Maps AI/DI channels to table itmes
+//------------------------------------------------------------------------------
+
+#include "f16HotasIo.h"
+
+// analog input channels
+item:  1   ai: ROLL_AI        label: "Roll"
+item:  2   ai: PITCH_AI       label: "Pitch"
+item:  3   ai: THROTTLE_AI    label: "Throttle"
+item:  4   ai: RUDDER_AI      label: "Rudder"
+item:  5   ai: ANT_ELEV_AI    label: "Antenna"
+item:  6   ai: RANGE_AI       label: "Range"
+item:  7   ai: CURSOR_X_AI    label: "POV X"
+item:  8   ai: CURSOR_Y_AI    label: "POV Y"
+
+// input bit channels
+item: 21   di: TRIGGER_SW1    label: "Trig #1"
+item: 22   di: TRIGGER_SW2    label: "Trig #2"
+item: 23   di: PICKLE_SW      label: "Pickle"
+
+item: 24   di: PINKY_SW       label: "Pinky"
+item: 25   di: PADDLE_SW      label: "Paddle"
+item: 26   di: NWS_SW         label: "NWS"
+
+item: 27   di: TMS_UP_SW      label: "TMS up"
+item: 28   di: TMS_RIGHT_SW   label: "TMS right"
+item: 29   di: TMS_DOWN_SW    label: "TMS down"
+item: 30   di: TMS_LEFT_SW    label: "TMS left"
+item: 31   di: TMS_PUSH_SW    label: "TMS Push"
+
+item: 32   di: DMS_UP_SW      label: "DMS up"
+item: 33   di: DMS_RIGHT_SW   label: "DMS right"
+item: 34   di: DMS_DOWN_SW    label: "DMS down"
+item: 35   di: DMS_LEFT_SW    label: "DMS left"
+item: 36   di: DMS_PUSH_SW    label: "DMS Push"
+
+item: 37   di: CMS_UP_SW      label: "CMS up"
+item: 38   di: CMS_RIGHT_SW   label: "CMS right"
+item: 39   di: CMS_DOWN_SW    label: "CMS down"
+item: 40   di: CMS_LEFT_SW    label: "CMS left"
+item: 41   di: CMS_PUSH_SW    label: "CMS Push"
+
+item: 43   di: TRIM_PITCH_UP_SW     label: "Trim up"
+item: 44   di: TRIM_ROLL_RIGHT_SW   label: "Trim right"
+item: 42   di: TRIM_PITCH_DOWN_SW   label: "Trim down"
+item: 45   di: TRIM_ROLL_LEFT_SW    label: "Trim left"
+item: 46   di: TRIM_PUSH_SW         label: "Trim Push"
+
+item: 47   di: RDR_CUR_ENB_SW label: "Cursor Enb"
+item: 48   di: RNG_UNCAGE_SW  label: "Uncage"
+item: 49   di: MSL_MODE_SW    label: "MSL Mode"
+item: 50   di: DOG_MODE_SW    label: "DOG Mode"
+item: 51   di: SB_EXT_SW      label: "SB Ext"
+item: 52   di: SB_RET_SW      label: "SB RET"
+item: 53   di: IFF_IN_SW      label: "IFF In"
+item: 54   di: IFF_OUT_SW     label: "IFF Out"
+item: 55   di: VHF_SW         label: "VHF"
+item: 56   di: UHF_SW         label: "UHF"

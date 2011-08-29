@@ -1,0 +1,54 @@
+
+# -----------------------------------------------------------------------------
+# OpenEaagles Examples 'make' configuration file
+#       Default: the OpenEaaglesExamples directory is located relative to the
+#       OpenEaagles directory, which by default is /usr/local/OpenEaagles
+# -----------------------------------------------------------------------------
+
+# ---
+# OpenEaagles home directory
+#   Set the environment variable OE_ROOT to locate OpenEaagles
+#   Default path is "/usr/local/OpenEaagles
+# ---
+ifdef OE_ROOT
+   OPENEAAGLES = ${OE_ROOT}
+else
+   OPENEAAGLES = /usr/local/OpenEaagles
+endif
+
+# ---
+# OpenEaaglesExamples home directory
+#    (default is relative to OpenEaagles)
+# ---
+EXAMPLES = ${OPENEAAGLES}/../OpenEaaglesExamples
+
+# Uncomment if using FTGL version 2.1.2 or earlier
+# CPPFLAGS += -DFTGL_2_1_2 
+
+# ---
+# Example data directory (change as needed)
+# ---
+DATA_DIR = $(EXAMPLES)/data
+
+# ---
+# Modify the standard C++ flags
+# ---
+CPPFLAGS += -I$(OPENEAAGLES)/include
+CPPFLAGS += -I/usr/local/include
+CPPFLAGS += -O3
+#CPPFLAGS += -g
+
+# ---
+# Modify the standard loader flags
+# ---
+LDFLAGS += -L$(OPENEAAGLES)/lib/linux
+
+# EPP flags
+EPPFLAGS = \
+	-I$(DATA_DIR) \
+	-I$(OPENEAAGLES)/include \
+	-DDATA_PATH=\"$(DATA_DIR)\" \
+	-DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
+	-DFONT_11_19_PATH=\"$(DATA_DIR)/fonts/11x19/normal/\" \
+	-DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
+

@@ -1,0 +1,333 @@
+#define MASK 0
+#define NO_DISPLAY_LIST 0
+#define FILLED 1
+
+// this is the page in which we will setup simple openGL materials, as well as masking as well
+materials:
+( MfdPage
+    pagingEvent: {
+        n: xx
+        p: yiqcolors
+    }
+    components: {
+        
+#if 1    
+        ( Teapot
+            // test the material object
+            material: 
+            ( Material
+                diffuseColor: { 0.8 0.3 0.1 } 
+                specularColor: { 0.8 0.8 0.8 } 
+                shininess: 20
+            )
+            filled: FILLED
+            size: 2
+        )
+        ( Octahedron
+            material: m9
+            filled: FILLED
+            transform: { ( Translation 7 -4 ) ( Rotation 2 2 8 8 ) }
+        )
+        ( Icosahedron
+            material: m8
+            filled: FILLED
+            transform: ( Translation 5 8 ) 
+        )
+        
+        ( Tetrahedron
+            material: m7
+            filled: FILLED
+            transform: { ( Translation -8 0 )  ( Rotation 3.1 2 1 1 ) ( Scale 2 2 2 2 ) }
+        )            
+        ( Dodecahedron
+            material: m6
+            filled: FILLED
+            transform: { ( Translation 0 -8 ) ( Rotation 1 2 1 8 ) }
+        )
+        ( Torus
+            material: m6
+            filled: FILLED
+            slices: 50
+            stacks: 50
+            radius: 1
+            outerRadius: 2
+            transform: { ( Translation 0 8 ) ( Rotation 1 2 3 2 )  }
+        )
+        
+        ( Cube
+            filled: FILLED
+            size: 3
+            material: m5
+            transform: { ( Translation 7 0 ) ( Rotation 3 1 1 20 ) }
+        )
+        ( Cylinder
+            material: m3
+            height: 5
+            topRadius: 1
+            filled: FILLED
+            transform: { ( Translation 8 8 ) ( Rotation 1 0 0 1 ) }
+        )
+        ( Sphere
+            slices: 100
+            stacks: 100
+            transform: ( Translation -7 7 )
+            filled: FILLED
+            radius: 4
+            material: m1
+        )
+        ( Cone
+            slices: 50
+            stacks: 20
+            filled: FILLED
+            material: m4
+            transform: { ( Translation 7 -7 ) ( Rotation 2 0 0 1 ) }
+            height: 4
+            radius: 2
+        )
+        ( TestRotator 
+            transform: ( Translation -20 0 )
+            material: m2
+        )
+        
+    
+        rotator:
+        ( Graphic
+            transform: { ( Translation -8 -8 )( Rotation 1.5 1 1 1 ) }
+            components: {
+            
+                ( Polygon
+                    material: m1
+                    noDisplayList: 1
+                    //color: yellow
+                    vertices: {
+                        // front side
+                        [ -3  3  3 ]
+                        [  3  3  3 ]
+                        [  3 -3  3 ]
+                        [ -3 -3  3 ] 
+                    }
+                )
+                ( Polygon
+                    noDisplayList: 1
+                    texture: t1
+                    vertices: {
+                        // bottom side
+                        [ -3 -3 -3 ]
+                        [  3 -3 -3 ]
+                        [  3 -3  3 ]
+                        [ -3 -3  3 ]
+                    }
+                    texCoord: {
+                        [ 0 0 ]
+                        [ 0 1 ]
+                        [ 1 1 ]
+                        [ 1 0 ] 
+                    }
+                )
+                ( Polygon
+                    noDisplayList: 1
+                    //color: red
+                    material: m2
+                    vertices: {
+                        // left side
+                        [ -3  3  3 ]
+                        [ -3  3 -3 ]
+                        [ -3 -3 -3 ]
+                        [ -3 -3  3 ]
+                    }
+                )
+                ( Polygon
+                    noDisplayList: 1
+                    //color: green
+                    material: m3
+                    vertices: {
+                        // right side
+                        [  3 -3  3 ]
+                        [  3  3  3 ]
+                        [  3  3 -3 ]
+                        [  3 -3 -3 ]
+                    }
+                )
+                ( Polygon
+                    noDisplayList: 1
+                    //color: cyan
+                    material: m4
+                    vertices: {
+                        // back side
+                        [ -3 -3  -3 ]
+                        [ -3  3  -3 ]
+                        [  3  3  -3 ]
+                        [  3 -3  -3 ]
+                    }
+                )
+                ( Polygon
+                    noDisplayList: 1
+                    //color: white
+                    material: m2
+                    vertices: {
+                        // top side
+                        [ -3  3  3 ]
+                        [  3  3  3 ]
+                        [  3  3  -3 ]
+                        [  -3  3  -3 ]
+                    }
+                )
+                
+                        
+            }
+        )
+#endif        
+#if 0
+        
+        ( Graphic
+            color: red
+            transform: ( Translation 0 10 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 9 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 8 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: red
+            transform: ( Translation 0 7 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 6 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 5 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: red
+            transform: ( Translation 0 4 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 3 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 2 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: red
+            transform: ( Translation 0 1 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 0 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 -1 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: red
+            transform: ( Translation 0 -2 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 -3 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 -4 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: red
+            transform: ( Translation 0 -5 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 -6 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 -7 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: red
+            transform: ( Translation 0 -8 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: white
+            transform: ( Translation 0 -9 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        ( Graphic
+            color: blue
+            transform: ( Translation 0 -10 )
+            components: {
+                #include "polygontest.epp"
+            }
+        )
+        
+#endif
+    }   
+)
+

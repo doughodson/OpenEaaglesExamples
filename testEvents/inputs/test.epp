@@ -1,0 +1,294 @@
+// TestEvents - tests our Components send routines, using different parameters
+( SendDataDisplay
+    
+    name: "Test Events"
+            
+    left:       -10
+    right:       10
+    bottom:     -10
+    top:         10
+    near:        -50.0
+    far:          50.0
+    
+    clearDepth: 1.0
+    clearColor: ( rgb 0 0 0 )
+    
+    vpX:        100
+    vpY:        100
+    vpWidth:    500
+    vpHeight:   500
+    
+    normalFont: default
+    
+    fonts: {
+        default:  
+        ( FTGLPolygonFonts 
+            fontPosition: [ -10 10 ]
+            fontWidth: 1.0       
+            fontHeight: 1.0         
+            characterSpacing: 0.5   
+            lineSpacing: 1
+            path: FONT_PATH
+            file: "arialn.ttf"        
+        )   
+    }
+    
+    components: {
+        // background lines to separate
+        ( Line
+            segment: 1
+            linewidth: 2
+            color: yellow
+            vertices: {
+                [ -10 0 ] [ 10 0 ]
+                [ 0 -10 ] [ 0 10 ]
+            }
+        )
+            
+        ( AsciiText
+            color: white
+            reversed: 1
+            text: "SINGLE VALUES "
+            position: [ 1 1 ]
+        )
+
+        // here our the numeric readout tests
+        // Boolean
+        ( AsciiText 
+            position: [ 2 1 ]
+            text: "BOOLEAN:"
+        )
+        boolean:
+        ( NumericReadout
+            format: "#"
+            position: [ 2 10 ]
+        )
+
+        // Integer
+        ( AsciiText 
+            position: [ 3 1 ]
+            text: "INTEGER:"
+        )
+        integer:
+        ( NumericReadout
+            format: "###"
+            value: 999
+            position: [ 3 9 ]
+        )
+        
+        // Float
+        ( AsciiText 
+            position: [ 4 1 ]
+            text: "FLOAT:"
+        )
+        float:
+        ( NumericReadout
+            format: "00#.####"
+            value: 99.9999
+            position: [ 4 10 ]
+        )
+        
+        // Double
+        ( AsciiText 
+            position: [ 5 1 ]
+            text: "DOUBLE:"
+        )
+        double:
+        ( NumericReadout
+            format: "00#.#####"
+            value: 999.12345
+            position: [ 5 10 ]
+        )
+
+        // LCreal
+        ( AsciiText 
+            position: [ 6 1 ]
+            text: "LCREAL:"
+        )
+        lcreal:
+        ( NumericReadout
+            format: "##.#####"
+            value: 999.12345
+            position: [ 6 10 ]
+        )
+        
+        // String
+        ascii:
+        ( AsciiText
+            text: "XXXXXX"
+            position: [ 7 1 ]
+        )
+        
+        // Object
+        ( AsciiText 
+            reversed: 1
+            color: cyan
+            position: [ 11 1 ]
+            text: "OBJECT DATA:"
+        )
+        
+        objtest:
+        ( ObjectHandler 
+            components: {
+                // bool        
+                // Boolean
+                ( AsciiText 
+                    color: cyan
+                    position: [ 12 1 ]
+                    text: "BOOLEAN:"
+                )
+                objboolean:
+                ( NumericReadout
+                    color: cyan
+                    format: "#"
+                    position: [ 12 10 ]
+                )
+                
+                // Integer
+                ( AsciiText 
+                    color: cyan
+                    position: [ 13 1 ]
+                    text: "INTEGER:"
+                )
+                objinteger:
+                ( NumericReadout
+                    color: cyan
+                    format: "###"
+                    value: 999
+                    position: [ 13 9 ]
+                )
+                // Float
+                ( AsciiText 
+                    color: cyan
+                    position: [ 14 1 ]
+                    text: "FLOAT:"
+                )
+                objfloat:
+                ( NumericReadout
+                    format: "00#.####"
+                    color: cyan
+                    value: 99.9999
+                    position: [ 14 10 ]
+                )
+                
+                // Double
+                ( AsciiText 
+                    color: cyan
+                    position: [ 15 1 ]
+                    text: "DOUBLE:"
+                )
+                objdouble:
+                ( NumericReadout
+                    color: cyan
+                    format: "00#.#####"
+                    value: 999.12345
+                    position: [ 15 10 ]
+                )
+
+                // LCreal
+                ( AsciiText 
+                    color: cyan
+                    position: [ 16 1 ]
+                    text: "LCREAL:"
+                )
+                objreal:
+                ( NumericReadout
+                    format: "##.#####"
+                    color: cyan
+                    value: 999.12345
+                    position: [ 16 10 ]
+                )
+
+                // String
+                objascii:
+                ( AsciiText
+                    color: cyan
+                    text: "XXXXXX"
+                    position: [ 17 1 ]
+                )
+                
+            }
+        )
+        
+        // colors
+        colors:
+        ( Graphic
+            color: red
+            components: {        
+                ( Polygon
+                    transform: ( Translation 5 5 )
+                    vertices: {
+                        [ -1.9 -1.9 ]
+                        [ -1.9  1.9 ]
+                        [  1.9  1.9 ]
+                        [  1.9 -1.9 ]
+                    }
+                )
+                ( AsciiText
+                    color: white
+                    position: [ 3 28 ]
+                    text: "COLOR:"
+                )
+            }
+        )
+        
+        // test and array of material objects (tests object passing as well)
+        ( AsciiText
+            color: white
+            position: [ 11 27 ]
+            text: "MATERIALS:"
+        )
+
+        rotators1:
+        ( Rotators
+            components: {
+                matarray1:
+                ( Sphere
+                    material: 
+                    ( Material ) 
+                    radius: 1
+                    slices: 100
+                    stacks: 100
+                    filled: 1
+                    transform: ( Translation 5 -5 ) 
+                )
+            }
+        )
+        
+        rotators2:
+        ( Rotators
+            components: {
+                matarray2:
+                ( Torus
+                    material: 
+                    ( Material ) 
+                    radius: 0.5
+                    outerRadius: 1.6
+                    slices: 100
+                    stacks: 100
+                    filled: 1
+                    transform: { ( Translation 5 -5 ) ( Rotation 0 2.15 2.15 1) }
+                )
+            }
+        )
+        
+        rotators3:
+        ( Rotators
+            components: {
+                matarray3:
+                ( Torus
+                    material: 
+                    ( Material ) 
+                    radius: 0.5
+                    outerRadius: 3
+                    slices: 100
+                    stacks: 100
+                    filled: 1
+                    transform: { ( Translation 5 -5 ) ( Rotation 0 -1 0 1) }
+                )
+            }
+        )
+            
+
+    }
+)

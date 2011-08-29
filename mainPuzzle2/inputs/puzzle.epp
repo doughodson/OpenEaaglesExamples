@@ -1,0 +1,281 @@
+// ---
+// Puzzle board
+// ---
+
+#define P01 position: [ 1 4 ]
+#define P02 position: [ 2 4 ]
+#define P03 position: [ 3 4 ]
+#define P04 position: [ 4 4 ]
+#define P05 position: [ 1 3 ]
+#define P06 position: [ 2 3 ]
+#define P07 position: [ 3 3 ]
+#define P08 position: [ 4 3 ]
+#define P09 position: [ 1 2 ]
+#define P10 position: [ 2 2 ]
+#define P11 position: [ 3 2 ]
+#define P12 position: [ 4 2 ]
+#define P13 position: [ 1 1 ]
+#define P14 position: [ 2 1 ]
+#define P15 position: [ 3 1 ]
+#define P16 position: [ 4 1 ]
+
+( PuzzleBoard
+    
+    name: "Puzzle Board"
+    
+    left:         0.8
+    right:        5.0
+    bottom:       0.8
+    top:          6.0
+    near:        -2.0
+    far:          2.0
+    
+    vpWidth:    420
+    vpHeight:   520
+
+    colorTable: {
+        black:      ( rgba 0 0 0 )
+        red:        ( rgb 1 0 0 )
+        green:      ( rgb 0 1 0 )
+        yellow:     ( rgb 1 1 0 )
+        blue:       ( rgb 0 0 1 )
+        magenta:    ( rgb 1 0 1 )
+        cyan:       ( rgb 0 1 1 )
+        white:      ( rgb 1 1 1 )
+    }
+    
+    clearDepth: 1.0
+    clearColor: ( hsv 180.0 0.4 0.2 )
+
+    normalFont: font01
+
+    fonts: {
+        stroke01: ( StrokeFont
+            fontPosition: [ -9.5 9.5 ]
+            fontWidth: 0.4
+            fontHeight: 0.7
+            characterSpacing: 0.462
+            lineSpacing: 0.798
+        )
+    }
+
+    //---
+    // The puzzle
+    // ---
+    puzzle: ( Puzzle
+        initState: ( PuzzleState
+            blocks: {  // 14
+                ( Block1   P01   id:  1 )
+                ( Block2   P04   id:  2 )
+                ( Block3   P16   id:  3 )
+                ( Block4   P08   id:  4 )
+                ( Block5   P05   id:  5 )
+                ( Block6   P02   id:  6 )
+                ( Block7   P03   id:  7 )
+                ( Block8   P15   id:  8 )
+                ( Block9   P11   id:  9 )
+                ( Block10  P13   id: 10 )
+                ( Block11  P07   id: 11 )
+                ( Block12  P10   id: 12 )
+                ( Block13  P06   id: 13 )
+                ( Block14  P09   id: 14 )
+                ( Block15  P12   id: 15 )
+            }
+        )
+        goalState: ( PuzzleState
+            blocks: {
+                ( Block1   P01   id:  1 )
+                ( Block2   P02   id:  2 )
+                ( Block3   P03   id:  3 )
+                ( Block4   P04   id:  4 )
+                ( Block5   P05   id:  5 )
+                ( Block6   P06   id:  6 )
+                ( Block7   P07   id:  7 )
+                ( Block8   P08   id:  8 )
+                ( Block9   P09   id:  9 )
+                ( Block10  P10   id: 10 )
+                ( Block11  P11   id: 11 )
+                ( Block12  P12   id: 12 )
+                ( Block13  P13   id: 13 )
+                ( Block14  P14   id: 14 )
+                ( Block15  P15   id: 15 )
+            }
+        )
+    )
+
+    //---
+    // Graphical templates for drawing blocks by type
+    //  (positions in list (slot numbers) MUST match block type IDs)
+    // ---
+    templates: {
+    
+        1: ( Polygon
+            color: ( hsv 0.0 0.2 0.6 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        2: ( Polygon
+            color: ( hsv 0.0 0.4 0.7 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        3: ( Polygon
+            color: ( hsv 0.0 0.6 0.8 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        4: ( Polygon
+            color: ( hsv 0.0 0.8 0.9 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        5: ( Polygon
+            color: ( hsv 60.0 0.2 0.6 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        6: ( Polygon
+            color: ( hsv 60.0 0.4 0.7 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        7: ( Polygon
+            color: ( hsv 60.0 0.6 0.8 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        8: ( Polygon
+            color: ( hsv 60.0 0.8 0.9 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        9: ( Polygon
+            color: ( hsv 120.0 0.2 0.6 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        10: ( Polygon
+            color: ( hsv 120.0 0.4 0.7 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        11: ( Polygon
+            color: ( hsv 120.0 0.6 0.8 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        12: ( Polygon
+            color: ( hsv 120.0 0.8 0.9 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        13: ( Polygon
+            color: ( hsv 180.0 0.2 0.6 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        14: ( Polygon
+            color: ( hsv 180.0 0.4 0.7 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+    
+        15: ( Polygon
+            color: ( hsv 180.0 0.6 0.8 )
+            vertices: {
+                [  0.8  0.8 ]
+                [  0.0  0.8 ]
+                [  0.0  0.0 ]
+                [  0.8  0.0 ]
+            }
+        )
+        
+    }
+    
+    
+    // ---
+    // Background components
+    // ---
+    components: {
+        ( LineLoop
+            color: blue
+            linewidth: 1
+            vertices: {
+                [ 1.0   1.0 ]
+                [ 4.8  1.0 ]
+                [ 4.8  5.8 ]
+                [ 1.0  5.8 ]
+            }
+        )
+    }
+     
+)

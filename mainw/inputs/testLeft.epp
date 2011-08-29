@@ -1,0 +1,25 @@
+// ---
+// Left sub-display for test2.epp
+// ---
+
+( TestDisplay
+    
+    name: "Test_Left"
+    
+    left:       -10.5
+    right:       10.5
+    bottom:     -10.5
+    top:         10.5
+    near:        -2.0
+    far:          2.0
+    
+    vpX:         50
+    vpY:         50
+    vpWidth:    500
+    vpHeight:   500
+
+    page:   materials        // First page
+   #include "testBasic.epp"
+
+)
+

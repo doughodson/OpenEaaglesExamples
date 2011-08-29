@@ -1,0 +1,25 @@
+// ---
+// Simulation scenario
+// ---
+
+ownship: p01
+simulation: ( Simulation
+
+   // Initial freeze condition
+   freeze: false
+
+   // Reference position (player positions are relative to this location)
+   latitude:  REF_LATITUDE
+   longitude: REF_LONGITUDE
+
+   // The initial player list
+   players: {
+      #include "player01.epp"
+
+#if 0
+      #include "player02.epp"
+      #include "player03.epp"
+#endif
+  }
+)
+

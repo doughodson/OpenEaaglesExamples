@@ -1,0 +1,19 @@
+// ---
+// Route example
+// ---
+
+//
+#define REF_LATITUDE     32.87
+#define REF_LONGITUDE    64.78
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( Station
+    
+   tcPriority: 1
+
+   //#include "./test1/networkSetup.epp"
+   //#include "./test1/otwSetupPC.epp"
+   //#include "./test1/otwSetupCIGI.epp"
+   #include "./test1/scenario.epp"
+)

@@ -1,0 +1,39 @@
+// ---
+// Player #1 scenario
+// ---
+
+p01:
+( Aircraft
+
+    id: 1
+    side: blue
+    type: "B-747"
+    signature: ( SigSphere radius: 2.0 )
+
+    //initLatitude:  ( LatLon direction: "n" degrees: 34 minutes: 31.0 )
+    //initLongitude: ( LatLon direction: "w" degrees: 113 minutes: 58.0 )
+   
+    initAlt: ( Feet 10000 )
+    initHeading: ( Degrees 30.0 )      // Initial heading
+    initVelocity: 250
+    
+    positionFreeze: false
+
+    components: {
+
+      dynamicsModel: ( RacModel )
+     
+      pilot: ( Autopilot
+         navMode: true
+         altitudeHoldMode: true
+         headingHoldMode: true
+         velocityHoldMode: false
+      )
+
+      nav:( Navigation
+         utc: ( Seconds 0 )
+         #include "route01.epp"
+      )
+    
+    }
+)

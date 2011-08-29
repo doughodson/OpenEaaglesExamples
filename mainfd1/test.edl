@@ -1,0 +1,4619 @@
+#line 1 "inputs/test.epp"
+( GlutDisplay
+    name: "Flight Display Test"
+    left:   -10
+    right:   10
+    bottom: -10
+    top:     10
+    near:    -2.0
+    far:     2.0
+    vpWidth: 1000
+    vpHeight: 1000
+    clearDepth: 1.0
+    clearColor: (rgb 0 0 0)
+    fullScreen: 0
+        
+    colorTable: {
+        black:      ( rgba 0 0 0 )
+        red:        ( rgb 1 0 0 )
+        green:      ( rgb 0 1 0 )
+        yellow:     ( rgb 1 1 0 )
+        blue:       ( rgb 0 0 1 )
+        magenta:    ( rgb 1 0 1 )
+        brown:      ( rgb 0.3921568627450980392156862745098 0.27058823529411764705882352941176 0.15686274509803921568627450980392 )
+        white:      ( rgb 1 1 1 )
+        gray:       ( rgb 0.4 0.4 0.4 )
+        
+        adiCyan:    ( rgb 0.7921568627450980392156862745098 0.83529411764705882352941176470588 0.81176470588235294117647058823529 )    
+        cyan:       ( rgb 0 1 1 )
+        gray2:      ( rgb 0.2 0.2 0.2 )    
+        amber:      ( rgb 1 0.5 0 )   
+        sky:        ( rgb 0 0.407 0.545 )
+        adibrown:   ( rgb 0.3960784313725490196078431372549 0.17254901960784313725490196078431 0.22352941176470588235294117647059 )
+        adiblue:    ( rgb 0.023529411764705882352941176470588 0.011764705882352941176470588235294 0.98823529411764705882352941176471 )
+        gray1:      ( rgb 0.1 0.1 0.1 )
+        gray8:      ( rgb 0.8 0.8 0.8 )
+    }
+    
+    fonts: {
+        
+        default: 
+        ( FTGLPolygonFonts
+			
+            fontPosition: [ -10.5 10.5 ]
+            
+            fontWidth: 1
+            fontHeight: 1
+            
+            characterSpacing: 0.5
+            
+            lineSpacing: 0.75
+            path: "../data/fonts/"
+            file: "arialn.ttf"
+        )
+        
+        
+        instrevfont: 
+        (FTGLPolygonFonts
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 1
+            fontHeight: 1
+            characterSpacing: 0.5
+            lineSpacing: 0.75
+            path: "../data/fonts/"
+            file: "arialn.ttf"
+        )
+        
+        
+        instspecfont:
+        ( FTGLPolygonFonts 
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 1          
+            fontHeight: 1         
+            characterSpacing: 1   
+            lineSpacing: 1
+            path: "../data/fonts/"
+            file: "arialn.ttf"
+        )
+     
+        
+        pfdnormfont: 
+        ( FTGLPolygonFonts 
+            fontPosition: [ -3.1 4.15 ]
+            path: "../data/fonts/"
+            file: "arialn.ttf"
+            
+            fontWidth: 0.189
+            fontHeight: 0.189
+            faceSize: 1
+            characterSpacing: 0.0945
+            lineSpacing: 0.15
+        )
+        
+        
+        pfdspecfont: 
+        ( FTGLPolygonFonts 
+            path: "../data/fonts/"
+            file: "arialn.ttf"
+            
+            fontWidth: 0.189
+            fontHeight: 0.189
+            faceSize: 1
+            characterSpacing: 0.0945
+            lineSpacing: 0.15
+        )                
+    } 
+
+    normalFont: default
+        
+    page: testpfd
+     
+     
+    pages: {
+        #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\testpfd.epp"
+
+testpfd:
+    ( TestPfd
+        pagingEvent: {
+            n: testsd
+            p: testsd
+        }                
+        components: {
+        	
+			( AsciiText
+			    position: [ 26 2 ]
+				color: white
+				text: "testpfd.epp"
+			) 
+			( Graphic
+                transform: ( Scale 2 )
+                components: {
+                    #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\pfd.epp"
+
+( Pfd 
+    components: {
+        
+        ( Graphic
+            components: {
+                ( LineLoop
+                    color: white
+                    vertices: {
+                        [ -3.1 4.15 ]
+                        [  3.1 4.15 ]
+                        [  3.1 3.501 ]
+                        [ -3.1 3.501 ]
+                    }
+                )
+                ( Polygon
+                    color: gray1
+                    vertices: {
+                        [ -3.1 4.15 ]
+                        [  3.1 4.15 ]
+                        [  3.1 3.501 ]
+                        [ -3.1 3.501 ]
+                    }
+                )
+            }
+        )
+        
+        
+        ( Graphic
+            components: {
+                
+                ( Line
+                    color: gray8
+                    segment: 1
+                    vertices: {
+                        [ 2.211 3.501 ]
+                        [ 2.211 2.909 ]
+                        [ -1.72 2.909 ]
+                        [ -1.72 3.501 ]
+                        [ -1.72 2.909 ]
+                        [ 2.211 2.909 ]
+                    }
+                )
+             mstrctn:
+                ( AsciiText
+                    color: yellow
+                    font: pfdspecfont
+                    transform: { ( Translation -1.5 3.04 ) ( Scale 2.5 ) }
+                    text: "MASTER CAUTION"
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ 2.211 3.501 ]
+                        [ 2.211 2.909 ]
+                        [ -1.72 2.909 ]
+                        [ -1.72 3.501 ]
+                    }
+                )
+            }
+        )
+        
+        ( AsciiText
+            font: pfdspecfont            
+            transform: { ( Translation 2.1 -2 ) ( Scale 1.4 ) }
+            text: "MINS"
+        )
+        
+        ( AsciiText
+            font: pfdspecfont
+            transform: { ( Translation 2.1 -2.3 ) ( Scale 1.4 ) }
+            text: "RA"
+        )
+        
+        ralt:
+        ( RdrAlt
+            components: {
+                
+                rmin:
+                ( NumericReadout
+                    font: pfdspecfont
+                    inheritColor: 1
+                    transform: { ( Translation 2.45 -2.3 ) ( Scale 1.4 ) }
+                    format: "#####"
+                    value: 99999
+                )
+                ralt:
+                
+                ( NumericReadout 
+                    font: pfdspecfont
+                    inheritColor: 1
+                    transform: { ( Translation -0.6 -0.6 0.3 ) ( Scale 1.4 ) }
+                    format: "#####"
+                    value: 99999
+                )
+                    
+            }
+        )
+        
+        ( Polygon
+            color: black
+            transform: ( Translation -0.5 -0.54 0.3 )
+            vertices: {
+                [ -0.1 -0.1 ]
+                [  0.5 -0.1 ]
+                [  0.5  0.15 ]
+                [ -0.1  0.15 ]
+            }
+        )
+
+        
+        ( Graphic
+            components: {
+                ( AsciiText
+                    font: pfdspecfont
+                    color: green
+                    transform: { ( Translation -2.4 3.2 ) ( Scale 1.4 ) }       
+                    text: "SPD"
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -2.5 3.501 ]
+                        [ -2.5 3.176 ]
+                        [ -1.72 3.176 ]
+                        [ -1.72 3.501 ]
+                    }
+                )
+                ( Line
+                    color: gray8
+                    vertices: {
+                        [ -2.5 3.176 ]
+                        [ -1.72 3.176 ]
+                    }
+                ) 
+            }
+        )        
+        
+        ( Graphic
+            components: {
+                cmdspd:
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: magenta
+                    transform: { ( Translation -3.0 3.25 ) ( Scale 1.4 ) }
+                    format: "###"
+                    value: 999
+                )
+                ( Line
+                    transform: ( Translation 0 0 0.1 )
+                    color: gray8
+                    vertices: { [ -2.49 3.501 ] [ -2.49 3.176 ] }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -3.1 3.501 ]
+                        [ -3.1 3.176 ]
+                        [ -2.49 3.176 ]
+                        [ -2.49 3.501 ]
+                    }
+                )
+            }
+        )
+        
+        
+        ( Graphic
+            transform: ( Translation -2.5 -1.7 ) 
+            components: {
+                ( AsciiText
+                    font: pfdspecfont
+                    transform: { ( Translation -0.5 0 ) ( Scale 1.4 ) }
+                    color: green
+                    text: "AOA"
+                )
+            aoaro:                
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: white
+                    transform: { ( Translation 0.15 0 ) ( Scale 1.4 ) }
+                    format: "###.#"
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.5 -0.05 ]
+                        [  0.5 -0.05 ]
+                        [  0.5  0.25 ]
+                        [ -0.5  0.25 ]
+                    }
+                )
+            }
+        )
+        
+        
+        ( Graphic
+            transform: ( Translation -2.5 -2 ) 
+            components: {
+                ( AsciiText
+                    font: pfdspecfont
+                    transform: { ( Translation -0.5 0 ) ( Scale 1.4 ) }
+                    color: green
+                    text: "G SPD"
+                )
+            gspd:                
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: white
+                    transform: { ( Translation 0.25 0 ) ( Scale 1.4 ) }
+                    format: "###"
+                    value: 999
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.5 -0.05 ]
+                        [  0.5 -0.05 ]
+                        [  0.5  0.25 ]
+                        [ -0.5  0.25 ]
+                    }
+                )
+            }
+        )
+        
+        
+        ( Graphic
+            transform: ( Translation 2.6555 -1.6 )
+            components: {
+                baro:
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: magenta
+                    transform: { ( Translation -0.25 -0.1 ) ( Scale 1.4 ) }
+                    format: "##.##"
+                    value: 29.80
+                )
+                ( LineLoop
+                    color: gray8
+                    vertices: {
+                        [ -0.4445 -0.1575 ]
+                        [  0.4445 -0.1575 ]
+                        [  0.4445  0.1575 ]
+                        [ -0.4445  0.1575 ]
+                    }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.5 -0.1575 ]
+                        [  0.4445 -0.1575 ]
+                        [  0.4445  0.1575 ]
+                        [ -0.5  0.1575 ]
+                    }
+                )
+            }
+        )
+        
+        
+        spdbug:
+        ( GaugeSlider
+            vertical: 1
+            transform: ( Translation -2.6 0.876 ) 
+            
+            scalingTable: 
+               ( Table1
+                    
+                    x: [ 46.625  -55.625 ]
+                 data: [ -2.3  2.3 ]
+                )
+            
+            components: {
+                ( Polygon
+                    color: magenta
+                    vertices: {
+                       [ 0 -0.1825 ] 
+                       [ 0.12 -0.1825 ]
+                       [ 0.12 0 ]
+                       [ 0.06 0 ]
+                    }
+                )
+                ( Polygon
+                    color: magenta
+                    vertices: {
+                       [ 0 0.1825 ] 
+                       [ 0.12 0.1825 ]
+                       [ 0.12 0 ]
+                       [ 0.06 0 ]
+                    }
+                ) 
+            }
+        )
+        
+        
+        ( Graphic
+            transform: ( Translation -2.75 0.586 )
+            components: {
+            ( Graphic
+                scissorX: 0
+                scissorWidth: 0.2
+                scissorY: 0
+                scissorHeight: 0.2
+                components: {
+                    spdtape: 
+                    ( GaugeSlider
+                        vertical: 1
+                        scalingTable: 
+                            ( Table1
+                                
+                                x: [ 0 10 ]
+                                
+                            data: [ 0 -2.1 ] 
+                            )
+                        components: {       
+                            ( Graphic
+                                color: white
+                                transform: ( Scale 1.4 )
+                                components: {
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 -0.15 ) text: "9")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont text: "0")   
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.15 ) text: "1")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.30 ) text: "2")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.45 ) text: "3")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.60 ) text: "4")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.75 ) text: "5")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.90 ) text: "6")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.05 ) text: "7")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.20 ) text: "8")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.35 ) text: "9") 
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.50 ) text: "0")                        
+                                }
+                            )
+                        }
+                    )
+                }
+            )   
+                    
+            
+                spdrest:
+                ( NumericReadout
+                    font: pfdspecfont
+                    color: white
+                    transform: { ( Translation -0.25 0 ) ( Scale 1.4 ) }
+                    format: "0#"                
+                )
+            
+                ( LineLoop  
+                    color: gray8
+                    linewidth: 2
+                    transform: ( Translation -0.02 -0.106 )
+                    vertices: {
+                        [ -0.28 0 ]
+                        [ 0.15 0 ]
+                        [ 0.25 0.2 ]
+                        [ 0.15 0.4 ]
+                        [ -0.28 0.4 ]
+                    }
+                )        
+                ( Polygon   
+                    color: black
+                    transform: ( Translation 0.02 -0.106 )
+                    vertices: {
+                        [ -0.28 0 ]
+                        [ 0.15 0 ]
+                        [ 0.25 0.2 ]
+                        [ 0.15 0.4 ]
+                        [ -0.28 0.4 ]
+                    }
+                )        
+            }
+        )
+ 
+        
+        
+        
+        ( Graphic
+            transform: ( Translation -3.1 -1.424 )
+            scissorX: 0
+            scissorWidth: 0.6
+            scissorY: 0
+            scissorHeight: 4.6
+            components: {
+                airspd: 
+                ( GaugeSlider
+                    vertical: 1
+                    scalingTable: 
+                    ( Table1
+                        
+                        x: [ 0 1000 ]
+                        
+                        data: [ 0 -45 ] 
+                    )
+                    components: {
+                        #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\airspdtape.epp"
+( Graphic
+    
+    transform: ( Translation 0 2.1 )
+    components: {
+        
+        ( Graphic
+            color: green
+            transform: { ( Translation 0 -0.0945  ) ( Scale 1.4 ) }
+            components: {
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.23 0 ) text: "0" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.145 0.643 ) text: "20" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.145 1.286 ) text: "40" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.145 1.929 ) text: "60" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.145 2.572 ) text: "80" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 3.215 ) text: "100" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 3.858 ) text: "120" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 4.501 ) text: "140" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 5.144 ) text: "160" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 5.787 ) text: "180" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 6.43 ) text: "200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 7.073 ) text: "220" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 7.716 ) text: "240" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 8.359 ) text: "260" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 9.002 ) text: "280" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 9.645 ) text: "300" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 10.288 ) text: "320" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 10.931 ) text: "340" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 11.574 ) text: "360" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 12.217 ) text: "380" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 12.86 ) text: "400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 13.503 ) text: "420" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 14.146 ) text: "440" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 14.789 ) text: "460" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 15.432 ) text: "480" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 16.075 ) text: "500" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 16.718 ) text: "520" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 17.361 ) text: "540" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 18.004 ) text: "560" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 18.647 ) text: "580" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 19.29 ) text: "600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 19.933 ) text: "620" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 20.576 ) text: "640" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 21.219 ) text: "660" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 21.862 ) text: "680" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 22.505 ) text: "700" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 23.148 ) text: "720" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 23.791 ) text: "740" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 24.434 ) text: "760" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 25.077 ) text: "780" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 25.72 ) text: "800" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 26.363 ) text: "820" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 27.006 ) text: "840" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 27.649 ) text: "860" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 28.292 ) text: "880" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 28.935 ) text: "900" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 29.578 ) text: "920" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 30.221 ) text: "940" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 30.864 ) text: "960" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.06 31.507 ) text: "980" )
+             }
+        )   
+        
+        ( SpdLines color: green )
+    }
+)
+
+#line 394 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\pfd.epp"
+                    }
+                )
+            }
+        )
+
+        
+        ( Graphic
+            components: {
+                cmdalt:
+                ( NumericReadout
+                    transform: { ( Translation 2.4 2.95 ) ( Scale 1.4 ) }
+                    color: magenta
+                    font: pfdspecfont
+                    format: "#####"
+                    value: 10000
+                )
+                ( Line
+                    color: gray8
+                    vertices: { [ 2.2 3.501 ] [ 2.2 2.909 ] }
+                )
+                
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ 2.19 3.501 ]
+                        [ 3.1 3.501 ]
+                        [ 3.1 2.909 ]
+                        [ 2.19 2.909 ]
+                    }
+                )  
+            }
+        )
+        
+        
+        altbug:
+        ( GaugeSlider
+            vertical: 1
+            transform: ( Translation 2.32 0.7435 ) 
+            
+            scalingTable: 
+               ( Table1
+                    
+                    x: [ 493.222  -469.222 ]
+                 data: [ -2.1655  2.1655 ]
+                )
+            
+            components: {
+                ( LineLoop
+                    color: magenta
+                    linewidth: 2
+                    vertices: {
+                       [ 0 -0.1825 ] 
+                       [ -0.12 0 ]
+                       [ -0.12 -0.1825 ]
+                    }
+                )
+                
+                ( LineLoop
+                    linewidth: 2
+                    color: magenta
+                    vertices: {
+                       [ 0 0.1825 ] 
+                       [ -0.12 0.1825 ]
+                       [ -0.12 0 ]
+                    }
+                ) 
+            }
+        )
+        
+        
+
+
+
+
+
+
+
+
+
+        
+        ( Graphic
+            transform: ( Translation 2.9 0.71 )
+            components: {
+                
+                
+                ( LineLoop
+                    linewidth: 2
+                    color: gray8
+                    vertices: {
+                        [ -0.4 -0.15 ]
+                        [ -0.6 0.09 ]
+                        [ -0.4  0.35 ]
+                        [  0.15  0.35 ] 
+                        [  0.15 -0.15 ]
+                    }
+                )
+                
+            altones:
+              
+              ( AsciiText color: white font: pfdspecfont transform: ( Scale 1.4 ) text: "0" )
+              
+            ( Graphic
+                transform: ( Translation -0.12 0 )
+                scissorX: 0
+                scissorY: 0
+                scissorHeight: 0.2
+                scissorWidth: 0.2
+                components: {
+                    alttens:
+                    ( GaugeSlider
+                        vertical: 1
+                        scalingTable: 
+                            ( Table1
+                                
+                                x: [ 0 10 ]
+                                
+                            data: [ 0 -2.1 ] 
+                            )
+                        components: {       
+                            ( Graphic
+                                color: white
+                                transform: ( Scale 1.4 )
+                                components: {
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 -0.15 ) text: "9")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont text: "0")   
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.15 ) text: "1")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.30 ) text: "2")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.45 ) text: "3")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.60 ) text: "4")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.75 ) text: "5")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 0.90 ) text: "6")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.05 ) text: "7")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.20 ) text: "8")
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.35 ) text: "9") 
+                                    ( AsciiText inheritColor: 1 font: pfdspecfont transform: ( Translation 0 1.50 ) text: "0")                        
+                                }
+                            )
+                        } 
+                    )     
+                }
+            ) 
+            
+                
+                altsel:
+                ( Rotary
+                    components: {
+                    altrest1:                          
+                            ( NumericReadout
+                                transform: {( Translation -0.24 0 ) ( Scale 1.4 )}
+                                color: white
+                                font: pfdspecfont
+                                format: "#"
+                            )
+                    altrest2:
+                            ( NumericReadout
+                                transform: {( Translation -0.36 0 ) ( Scale 1.4 )}
+                                color: white
+                                font: pfdspecfont
+                                format: "##"
+                            )
+                    altrest3:
+                            ( NumericReadout
+                                transform: {( Translation -0.48 0 ) ( Scale 1.4 )}
+                                color: white
+                                font: pfdspecfont
+                                format: "###"
+                            )
+                    }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.4 -0.15 ]
+                        [ -0.6 0.09 ]
+                        [ -0.4  0.35 ]
+                        [  0.15  0.35 ] 
+                        [  0.15 -0.15 ]
+                    }
+                )
+                
+            }
+        )
+        
+        
+        ( Graphic
+            transform: ( Translation 2.221 -1.422 )
+            scissorX: 0
+            scissorWidth: 0.879
+            scissorY: 0
+            scissorHeight: 4.331
+            components: {
+                alttape: 
+                ( GaugeSlider
+                    vertical: 1
+                    scalingTable: 
+                        ( Table1
+                            
+                            x: [ 0 100000 ]
+                        data: [ 0 -450 ]
+                        )
+                    
+                    components: {
+                        #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\alttape.epp"
+
+( Graphic
+    
+    transform: ( Translation 0 2.221 )
+    components: {
+        
+        ( Graphic
+            color: green
+            transform: { ( Translation 0 -0.0945  ) ( Scale 1.4 ) }
+            components: {
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 0 ) text: "0" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 0.643 ) text: "200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 1.286 ) text: "400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 1.929 ) text: "600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 2.572 ) text: "800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 3.215 ) text: "1000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 3.858 ) text: "1200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 4.501 ) text: "1400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 5.144 ) text: "1600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 5.787 ) text: "1800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 6.43 ) text: "2000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 7.073 ) text: "2200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 7.716 ) text: "2400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 8.359 ) text: "2600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 9.002 ) text: "2800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 9.645 ) text: "3000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 10.288 ) text: "3200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 10.931 ) text: "3400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 11.574 ) text: "3600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 12.217 ) text: "3800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 12.86 ) text: "4000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 13.503 ) text: "4200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 14.146 ) text: "4400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 14.789 ) text: "4600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 15.432 ) text: "4800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 16.075 ) text: "5000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 16.718 ) text: "5200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 17.361 ) text: "5400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 18.004 ) text: "5600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 18.647 ) text: "5800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 19.29 ) text: "6000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 19.933 ) text: "6200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 20.576 ) text: "6400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 21.219 ) text: "6600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 21.862 ) text: "6800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 22.505 ) text: "7000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 23.148 ) text: "7200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 23.791 ) text: "7400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 24.434 ) text: "7600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 25.077 ) text: "7800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 25.72 ) text: "8000" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 26.363 ) text: "8200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 27.006 ) text: "8400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 27.649 ) text: "8600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 28.292 ) text: "8800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 28.935 ) text: "9000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 29.578 ) text: "9200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 30.221 ) text: "9400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 30.864 ) text: "9600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 31.507 ) text: "9800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 32.15 ) text: "10000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 32.793 ) text: "10200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 33.436 ) text: "10400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 34.079 ) text: "10600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 34.722 ) text: "10800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 35.365 ) text: "11000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 36.008 ) text: "11200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 36.651 ) text: "11400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 37.294 ) text: "11600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 37.937 ) text: "11800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 38.58 ) text: "12000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 39.223 ) text: "12200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 39.866 ) text: "12400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 40.509 ) text: "12600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 41.152 ) text: "12800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 41.795 ) text: "13000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 42.438 ) text: "13200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 43.081 ) text: "13400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 43.724 ) text: "13600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 44.367 ) text: "13800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 45.01 ) text: "14000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 45.653 ) text: "14200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 46.296 ) text: "14400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 46.939 ) text: "14600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 47.582 ) text: "14800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 48.225 ) text: "15000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 48.868 ) text: "15200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 49.511 ) text: "15400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 50.154 ) text: "15600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 50.797 ) text: "15800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 51.44 ) text: "16000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 52.083 ) text: "16200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 52.726 ) text: "16400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 53.369 ) text: "16600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 54.012 ) text: "16800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 54.655 ) text: "17000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 55.298 ) text: "17200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 55.941 ) text: "17400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 56.584 ) text: "17600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 57.227 ) text: "17800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 57.87 ) text: "18000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 58.513 ) text: "18200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 59.156 ) text: "18400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 59.799 ) text: "18600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 60.442 ) text: "18800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 61.085 ) text: "19000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 61.728 ) text: "19200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 62.371 ) text: "19400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 63.014 ) text: "19600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 63.657 ) text: "19800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 64.3 ) text: "20000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 64.943 ) text: "20200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 65.586 ) text: "20400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 66.229 ) text: "20600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 66.872 ) text: "20800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 67.515 ) text: "21000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 68.158 ) text: "21200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 68.801 ) text: "21400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 69.444 ) text: "21600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 70.087 ) text: "21800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 70.73 ) text: "22000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 71.373 ) text: "22200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 72.016 ) text: "22400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 72.659 ) text: "22600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 73.302 ) text: "22800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 73.945 ) text: "23000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 74.588 ) text: "23200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 75.231 ) text: "23400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 75.874 ) text: "23600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 76.517 ) text: "23800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 77.16 ) text: "24000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 77.803 ) text: "24200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 78.446 ) text: "24400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 79.089 ) text: "24600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 79.732 ) text: "24800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 80.375 ) text: "25000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 81.018 ) text: "25200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 81.661 ) text: "25400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 82.304 ) text: "25600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 82.947 ) text: "25800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 83.59 ) text: "26000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 84.233 ) text: "26200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 84.876 ) text: "26400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 85.519 ) text: "26600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 86.162 ) text: "26800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 86.805 ) text: "27000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 87.448 ) text: "27200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 88.091 ) text: "27400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 88.734 ) text: "27600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 89.377 ) text: "27800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 90.02 ) text: "28000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 90.663 ) text: "28200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 91.306 ) text: "28400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 91.949 ) text: "28600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 92.592 ) text: "28800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 93.235 ) text: "29000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 93.878 ) text: "29200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 94.521 ) text: "29400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 95.164 ) text: "29600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 95.807 ) text: "29800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 96.45 ) text: "30000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 97.093 ) text: "30200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 97.736 ) text: "30400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 98.379 ) text: "30600" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 99.0 ) text: "30800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 99.643 ) text: "31000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 100.286 ) text: "31200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 100.929 ) text: "31400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 101.572 ) text: "31600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 102.215 ) text: "31800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 102.858 ) text: "32000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 103.501 ) text: "32200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 104.144 ) text: "32400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 104.787 ) text: "32600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 105.43 ) text: "32800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 106.073 ) text: "33000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 106.716 ) text: "33200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 107.359 ) text: "33400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 108.002 ) text: "33600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 108.645 ) text: "33800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 109.288 ) text: "34000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 109.931 ) text: "34200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 110.574 ) text: "34400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 111.217 ) text: "34600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 111.86 ) text: "34800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 112.503 ) text: "35000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 113.146 ) text: "35200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 113.789 ) text: "35400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 114.432 ) text: "35600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 115.075 ) text: "35800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 115.718 ) text: "36000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 116.361 ) text: "36200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 117.004 ) text: "36400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 117.647 ) text: "36600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 118.29 ) text: "36800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 118.933 ) text: "37000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 119.576 ) text: "37600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 120.219 ) text: "37400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 120.862 ) text: "37600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 121.505 ) text: "37800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 122.148 ) text: "38000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 122.791  ) text: "38200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 123.434 ) text: "38400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 124.077 ) text: "38600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 124.72 ) text: "38800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 125.363 ) text: "39000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 126.006 ) text: "39200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 126.649 ) text: "39400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 127.292 ) text: "39600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 127.935 ) text: "39800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 128.578 ) text: "40000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 129.221 ) text: "40200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 129.864 ) text: "40400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 130.507 ) text: "40600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 131.15 ) text: "40800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 131.793 ) text: "41000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 132.436 ) text: "41200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 133.079 ) text: "41400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 133.722 ) text: "41600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 134.365 ) text: "41800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 135.008 ) text: "42000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 135.651 ) text: "42200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 136.294 ) text: "42400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 136.937 ) text: "42600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 137.58 ) text: "42800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 138.223 ) text: "43000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 138.866 ) text: "43200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 139.509 ) text: "43400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 140.152 ) text: "43600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 140.795 ) text: "43800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 141.438 ) text: "44000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 142.081 ) text: "44200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 142.724 ) text: "44400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 143.367 ) text: "44600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 144.01 ) text: "44800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 144.653 ) text: "45000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 145.296 ) text: "45200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 145.939 ) text: "45400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 146.582 ) text: "45600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 147.225 ) text: "45800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 147.868 ) text: "46000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 148.511 ) text: "46200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 149.154 ) text: "46400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 149.797 ) text: "46600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 150.44 ) text: "46800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 151.083 ) text: "47000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 151.726 ) text: "47200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 152.369 ) text: "47400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 153.012 ) text: "47600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 153.655 ) text: "47800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 154.298 ) text: "48000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 154.941 ) text: "48200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 155.584 ) text: "48400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 156.227 ) text: "48600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 156.87 ) text: "48800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 157.513 ) text: "49000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 158.156 ) text: "49200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 158.799 ) text: "49400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 159.442 ) text: "49600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 160.085 ) text: "49800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 160.728 ) text: "50000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 161.371 ) text: "50200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 162.014 ) text: "50400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 162.657 ) text: "50600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 163.3 ) text: "50800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 163.943 ) text: "51000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 164.586 ) text: "51200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 165.229 ) text: "51400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 165.872 ) text: "51600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 166.515 ) text: "51800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 167.158 ) text: "52000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 167.801 ) text: "52200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 168.444 ) text: "52400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 169.087 ) text: "52600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 169.73 ) text: "52800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 170.373 ) text: "53000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 171.016 ) text: "53200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 171.659 ) text: "53400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 172.302 ) text: "53600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 172.945 ) text: "53800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 173.588 ) text: "54000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 174.231 ) text: "54200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 174.874 ) text: "54400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 175.517 ) text: "54600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 176.16 ) text: "54800" )
+                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 176.803 ) text: "55000" )                
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 177.446 ) text: "55200" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 178.089 ) text: "55400" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 178.732 ) text: "55600" )
+                ( AsciiText font: pfdspecfont transform: ( Translation 0.12 179.375 ) text: "55800" )
+             }
+        )   
+        
+        ( SpdLines 
+            isAlt: 1
+        )
+    }
+)
+
+
+#line 597 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\pfd.epp"
+                    }
+                )
+            }
+        )
+
+        
+        glideslope:
+        ( GaugeSlider
+            vertical: 1
+            transform: ( Translation 1.65 0.8 )
+            scalingTable:
+                ( Table1
+                    
+                    x: [ -2 2 ]
+                    
+                 data: [ -1.34 1.34 ]
+                )
+            components: {
+                ( Polygon 
+                    color: white
+                    transform: ( Rotation 0.785 ) 
+                    vertices: {
+                        [ -0.075 -0.075 ]
+                        [ -0.075  0.075 ]
+                        [  0.075  0.075 ]
+                        [  0.075 -0.075 ]
+                    }
+                ) 
+            }
+        )
+                
+        
+        ( Graphic
+            transform: ( Translation 1.52 0.8 )
+            color: green
+            components: {
+                ( Line
+                    vertices: { [ 0 0 ] [ 0.25 0 ] }
+                    linewidth: 2
+                )
+                ( Circle
+                    transform: ( Translation 0.07 -0.67 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 0.07 -1.34 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 0.07 0.67 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 0.07 1.34 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+            }
+        )
+
+        
+        latdev:
+        ( GaugeSlider
+            vertical: 0
+            transform: ( Translation -0.3135 -0.75 )
+            scalingTable:
+                ( Table1
+                    
+                    x: [ -2 2 ]
+                    
+                 data: [ -1.5 1.5 ]
+                )
+            components: {
+                ( LineLoop 
+                    linewidth: 2
+                    color: white
+                    transform: ( Rotation 0.785 ) 
+                    vertices: {
+                        [ -0.075 -0.075 ]
+                        [ -0.075  0.075 ]
+                        [  0.075  0.075 ]
+                        [  0.075 -0.075 ]
+                    }
+                ) 
+            }
+        )
+        
+        
+        ( Graphic
+            transform: ( Translation -0.3135 -0.65 )
+            color: green
+            components: {
+                ( Line
+                    vertices: { [ 0 0 ] [ 0 -0.25 ] }
+                    linewidth: 3
+                )
+                ( Line
+                    transform: ( Translation -0.75 0 )
+                    vertices: { [ 0 0 ] [ 0 -0.2 ] }
+                    linewidth: 2
+                )
+                ( Line
+                    transform: ( Translation 0.75 0 )
+                    vertices: { [ 0 0 ] [ 0 -0.18 ] }
+                    linewidth: 2
+                )
+                ( Circle
+                    transform: ( Translation -1.5 -0.07 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+                ( Circle
+                    transform: ( Translation 1.5 -0.07 )
+                    filled: 1
+                    radius: 0.07
+                    slices: 1000
+                )
+            }
+        )        
+                            
+        
+        ( Graphic
+            color: green
+            transform: ( Translation 1.95 0.8 )
+            components: {
+                ( Line
+                    segment: 1
+                    linewidth: 2
+                    vertices: {
+                        
+                        [ 0 0 ] [ 0.125 0 ]
+                        
+                        [ 0 1.8125 ] [ 0.125 1.8125 ]
+                        
+                        [ 0 -1.8125 ] [ 0.125 -1.8125 ]
+                        
+                        [ 0 1.35 ] [ 0.125 1.35 ]
+                        [ 0 0.9 ] [ 0.125 0.9 ]
+                        [ 0.125 0.45 ] [ 0.035 0.45 ]
+                        [ 0 -0.9 ] [ 0.125 -0.9 ]
+                        [ 0 -1.35 ] [ 0.125 -1.35 ]
+                        [ 0.125 0.09 ] [ 0.075 0.09 ]
+                        [ 0.125 0.18 ] [ 0.075 0.18 ]
+                        [ 0.125 0.27 ] [ 0.075 0.27 ]
+                        [ 0.125 0.36 ] [ 0.075 0.36 ]
+                        [ 0.125 -0.09 ] [ 0.075 -0.09 ]
+                        [ 0.125 -0.18 ] [ 0.075 -0.18 ]
+                        [ 0.125 -0.27 ] [ 0.075 -0.27 ]
+                        [ 0.125 -0.36 ] [ 0.075 -0.36 ]
+                        [ 0.125 -0.45 ] [ 0.035 -0.45 ]
+                        
+                        [ 0.125 0.54 ] [ 0.075 0.54 ]
+                        [ 0.125 0.63 ] [ 0.075 0.63 ]
+                        [ 0.125 0.72 ] [ 0.075 0.72 ]
+                        [ 0.125 0.81 ] [ 0.075 0.81 ]
+                        [ 0.125 -0.54 ] [ 0.075 -0.54 ]
+                        [ 0.125 -0.63 ] [ 0.075 -0.63 ]
+                        [ 0.125 -0.72 ] [ 0.075 -0.72 ]
+                        [ 0.125 -0.81 ] [ 0.075 -0.81 ]
+                        
+                        [ 0.125 0.99 ] [ 0.075 0.99 ]
+                        [ 0.125 1.08 ] [ 0.075 1.08 ]
+                        [ 0.125 1.17 ] [ 0.075 1.17 ]
+                        [ 0.125 1.26 ] [ 0.075 1.26 ]
+                        [ 0.125 -0.99 ] [ 0.075 -0.99 ]
+                        [ 0.125 -1.08 ] [ 0.075 -1.08 ]
+                        [ 0.125 -1.17 ] [ 0.075 -1.17 ]
+                        [ 0.125 -1.26 ] [ 0.075 -1.26 ]
+                        
+                        [ 0.125 1.44 ] [ 0.075 1.44 ]
+                        [ 0.125 1.53 ] [ 0.075 1.53 ]
+                        [ 0.125 1.62 ] [ 0.075 1.62 ]
+                        [ 0.125 1.71 ] [ 0.075 1.71 ]
+                        [ 0.125 -1.44 ] [ 0.075 -1.44 ]
+                        [ 0.125 -1.53 ] [ 0.075 -1.53 ]
+                        [ 0.125 -1.62 ] [ 0.075 -1.62 ]
+                        [ 0.125 -1.71 ] [ 0.075 -1.71 ]
+                    }
+                )
+                
+                ( AsciiText
+                    transform: { ( Translation -0.15 0.81 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "1"
+                )
+                ( AsciiText
+                    transform: { ( Translation -0.15 1.26 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "2"
+                )
+                ( AsciiText
+                    transform: { ( Translation -0.15 -0.99 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "1"
+                )
+                ( AsciiText
+                    transform: { ( Translation -0.15 -1.44 ) ( Scale 1.4 ) }
+                    color: green
+                    font: pfdspecfont
+                    text: "2"
+                )
+            }
+        )
+        
+        
+        
+        maxvvicolor:
+        ( Instrument
+            color: 
+                ( ColorRotary
+                    breakpoints: {
+                         0 
+                         6000
+                    }
+                    breakcolors: {
+                        
+                        (rgb 0 1 0)
+                        (rgb 1 1 0)
+                    }
+                )
+            components: {
+                maxvvi:
+                ( NumericReadout
+                    inheritColor: 1
+                    transform: { ( Translation 1.75 2.65 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                    font: pfdspecfont
+                    value: 3.0
+                )
+            }
+        )
+        
+        ( Polygon
+            color: black
+            transform: ( Translation 1.9 2.74 )
+            vertices: {
+                [ -0.2 -0.13 ] 
+                [ -0.2  0.1 ]
+                [  0.2  0.1 ]
+                [  0.2 -0.13 ]
+            }
+        )                
+
+        minvvicolor:
+        ( Instrument
+            color: 
+                ( ColorRotary
+                    breakpoints: {
+                        
+                            0 
+                         6000
+                    }
+                    breakcolors: {
+                       
+                        (rgb 0 1 0)
+                        (rgb 1 1 0)
+                    }
+                )
+            components: {
+                minvvi:
+                ( NumericReadout
+                    inheritColor: 1
+                    transform: { ( Translation 1.75 -1.25 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                    font: pfdspecfont
+                    value: 3.0
+                )
+            }
+        )
+        
+        ( Polygon
+            color: black
+            transform: ( Translation 1.9 -1.155 )
+            vertices: {
+                [ -0.2 -0.1 ] 
+                [ -0.2  0.13 ]
+                [  0.2  0.13 ]
+                [  0.2 -0.1 ]
+            }
+        )
+
+        
+        vvi:
+        ( AnalogGauge
+            color: white
+            transform: ( Translation 2.03 0.8 )
+            vertical: 1
+            scalingTable: 
+                ( Table1
+                    
+                    x: [ -3000 -1000 0 1000 3000 ]
+                    
+                 data: [ -1.8125 -0.81 0 0.81 1.8125 ]
+                )
+            leftBoundary: -0.045
+            rightBoundary: 0.045
+        )
+
+        
+        
+        ( Graphic
+            color: cyan
+            linewidth: 2
+            transform: ( Translation 1.35 -3.85 ) 
+            components: {
+                ( Line
+                    segment: 1
+                    vertices: {
+                        [ 0 -0.2 ] [ 0 0.2 ]
+                        [ -0.07 -0.2 ] [ 0.07 -0.2 ]
+                        [ -0.1 0.05 ] [ 0 0.2 ]
+                        [ 0.1 0.05 ] [ 0 0.2 ]
+                    }
+                )
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
+                    text: "TAC"
+                )
+                nav1Id:
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
+                    text: "XXX"
+                )
+                nav1dme:
+                ( NumericReadout
+                    color: white
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 -0.2 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                )
+            }
+        )
+        
+        ( Graphic
+            color: cyan
+            linewidth: 2
+            transform: ( Translation 2.25 -3.85 ) 
+            components: {
+                ( Line
+                    segment: 1
+                    vertices: {
+                        [ 0 0.245 ] [ -0.05 0.155 ]
+                        [ 0 0.245 ] [ 0.05 0.155 ]
+                        [ -0.05 0.155 ] [ -0.05 -0.195 ]
+                        [ 0.05 0.155 ] [ 0.05 -0.195 ]
+                        [ -0.05 -0.195 ] [ -0.09 -0.195 ]
+                        [ 0.05 -0.195 ] [ 0.09 -0.195 ]
+                        [ -0.09 -0.195 ] [ -0.09 -0.245 ]
+                        [ 0.09 -0.195 ] [ 0.09 -0.245 ]
+                        [ -0.09 -0.245 ] [ 0.09 -0.245 ]                        
+                    }
+                )
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
+                    text: "NAV"
+                )
+                nav2Id:
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
+                    text: "XXXXX"
+                )
+                nav2dme:
+                ( NumericReadout
+                    color: white
+                    font: pfdspecfont
+                    transform: { ( Translation 0.2 -0.2 ) ( Scale 1.4 ) }
+                    format: "##.#"
+                )
+            }
+        )        
+
+        
+        ( AsciiText
+            font: pfdspecfont
+            transform: { ( Translation -3 -3.5 ) ( Scale 1.4 ) }
+            text: "CDI  SRC"
+        )
+        ( AsciiText
+            font: pfdspecfont
+            color: magenta
+            transform: { ( Translation -3 -3.8 ) ( Scale 1.4 ) }
+            text: "RMS/ILS1"
+        )
+        ( AsciiText
+            font: pfdspecfont
+            color: white
+            transform: { ( Translation -2.8 -4.1 ) ( Scale 1.4 ) }
+            text: "--- / 0.1"
+        )
+            
+        
+        #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\hsi.epp"
+
+( Graphic
+    transform: ( Translation -0.25 -2.75 )
+    components: {        
+        hsi:
+        ( Hsi
+            components: {
+                
+                nav2brgptr:
+                ( Rotators 
+                    components: {
+                        ( Line
+                            linewidth: 2
+                            color: cyan
+                            segment: 1
+                            vertices: {
+                                
+                                [ 0 1.25 ] [ -0.05 1.16 ]
+                                [ 0 1.25 ] [ 0.05 1.16 ]
+                                [ 0.05 0.81 ] [ 0.05 1.16 ]
+                                [ -0.05 0.81 ] [ -0.05 1.16 ]
+                                [ -0.05 0.81 ] [ 0.05 0.81 ]
+                                
+                                [ -0.05 -0.83 ] [ 0.05 -0.83 ]
+                                [ -0.05 -1.18 ] [ -0.05 -0.83 ]
+                                [ 0.05 -1.18 ] [ 0.05 -0.83 ]
+                                [ 0.05 -1.18 ] [ 0.14 -1.25 ]
+                                [ 0.05 -1.23 ] [ 0.15 -1.25 ]
+                                [ -0.05 -1.18 ] [ -0.14 -1.25 ]
+                                [ -0.05 -1.23 ] [ -0.15 -1.25 ]    
+                                [ -0.05 -1.23 ] [ 0.05 -1.23 ]                           
+                            }
+                        )
+                            
+                    }
+                )
+            
+                nav1brgptr:
+                
+                ( Rotators 
+                    components: {
+                        ( Line
+                            linewidth: 2
+                            color: cyan
+                            segment: 1
+                            vertices: {
+                                [ 0 1.25 ] [ 0  0.85 ]
+                                [ -0.1 1.1 ] [ 0 1.25 ]
+                                [ 0.1 1.1 ] [ 0 1.25 ]
+                                [ -0.07 0.85 ] [ 0.07 0.85 ]
+                                [ 0 -0.85 ] [ 0 -1.25 ]
+                                [ 0 -1.12 ] [ -0.146 -1.17 ]
+                                [ 0 -1.12 ] [ 0.146 -1.17 ]
+                            }
+                        )
+                            
+                    }
+                )
+                pricrsptr:
+                
+                ( CrsPntr 
+                    numDots: 4
+                    showCdi: 1
+                    showCrsPntr: 1
+                    components: {
+                        
+                        ( Graphic
+                            color: ( rgb 0.0235 0.647 0.0235 )
+                            components: {
+                                ( Circle
+                                    transform: ( Translation -0.88 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )
+                                ( Circle
+                                    transform: ( Translation -0.44 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )
+                                ( Circle
+                                    transform: ( Translation 0.88 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )
+                                ( Circle
+                                    transform: ( Translation 0.44 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )                                
+                            }
+                        )                                                              
+                    }
+                )   
+
+                
+                
+                ( Graphic
+                    transform: ( Translation 0 1.05 )
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.07 0 ) ( Scale 1.2 ) }
+                            text: "N"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    transform: { ( Rotation -0.5236 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "03"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    transform: { ( Rotation -1.0472 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "06"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                
+                
+                ( Graphic
+                    transform: { ( Rotation -1.57 )( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.052 0 ) ( Scale 1.2 ) }
+                            text: "E"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    transform: { ( Rotation -2.0944 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "12"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                                        
+                
+                ( Graphic
+                    transform: { ( Rotation -2.618 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "15"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                        
+                
+                ( Graphic
+                    transform: { ( Rotation 3.14 )( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.052 0 ) ( Scale 1.2 ) }
+                            text: "S"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    transform: { ( Rotation 2.618 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "21"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                             
+                
+                ( Graphic
+                    transform: { ( Rotation 2.094 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "24"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                                                        
+                
+                ( Graphic
+                    transform: { ( Rotation 1.57 )( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.09 -0.04 ) ( Scale 1.2 ) }
+                            text: "W"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    transform: { ( Rotation 1.0472 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "30"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    transform: { ( Rotation 0.5236 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "33"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                
+    selhdg:     ( Rotators
+                    components: {
+                        ( Graphic
+                            color: magenta
+                            linewidth: 2
+                            transform: ( Translation 0 1.25 )
+                            components: {
+                                ( LineLoop 
+                                    vertices: {
+                                        [ -0.12 0 ]
+                                        [ -0.12 0.08 ]
+                                        [ -0.08 0.08 ]
+                                        [ -0.02 0 ]
+                                    }
+                                )
+                                ( LineLoop 
+                                    vertices: {
+                                        [ 0.12 0 ]
+                                        [ 0.12 0.08 ]
+                                        [ 0.08 0.08 ]
+                                        [ 0.02 0 ]
+                                    }
+                                )                                
+                            }
+                        )
+                    }
+                )        
+      
+                ( DialTickMarks
+                    linewidth: 2
+                    color: green
+                    length: 0.17
+                    quantity: 36
+                    startAngle: 0
+                    sweepAngle: 360
+                    dialRadius: 1.25
+                )
+                ( DialTickMarks
+                    linewidth: 2
+                    color: green
+                    length: 0.1
+                    quantity: 36
+                    startAngle: 5
+                    sweepAngle: 360
+                    dialRadius: 1.25
+                )         
+            }
+        )
+        ( Line
+            color: white
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation 1.57 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation 0.785 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation 2.355  )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation -0.785 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation -2.355  )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation 3.14 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation -1.57 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation -3.14 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        
+thdg:   ( NumericReadout
+            font: pfdspecfont
+            color: white
+            transform: { ( Translation -0.18 1.48 ) ( Scale 1.4 ) }
+            format: "00#"
+        )
+        
+        ( LineLoop
+            color: white
+            vertices: {
+               [ 0 1.4 ]
+               [ -0.2 1.45 ]
+               [ -0.2  1.7 ]
+               [ 0.2 1.7 ]
+               [ 0.2 1.45 ]
+            }
+        )
+        ( Line
+            color: white
+            linewidth: 2
+            vertices: { [ -0.05 1.4 ] [ 0.05 1.4 ] }
+        )
+
+        
+        ( AsciiText
+            color: green
+            font: pfdspecfont
+            transform: ( Translation -1.4 1.48 ) 
+            text: "CRS"
+        )
+cmdcrs: ( NumericReadout
+            color: magenta
+            font: pfdspecfont
+            transform: { ( Translation -1.39 1.29 ) ( Scale 1.2 ) }
+            format: "00#"
+            value: 999
+        )
+            
+        ( AsciiText
+            color: green
+            font: pfdspecfont
+            transform: ( Translation 1.15 1.48 ) 
+            text: "HDG"
+        )
+cmdhdg: ( NumericReadout
+            color: magenta
+            font: pfdspecfont
+            transform: { ( Translation 1.17 1.29 ) ( Scale 1.2 ) }
+            format: "00#"
+            value: 999
+        )            
+    }
+)
+
+#line 1008 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\pfd.epp"
+        
+        #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\adi.epp"
+ 
+
+    ( Graphic
+        transform: ( Translation -0.3135 0.95 0.1 )
+        components: {
+        
+            ( Graphic
+                components: {
+                    
+                    ( Line
+                        linewidth: 2
+                        color: black
+                        segment: 1
+                        vertices: {
+                            [ -0.339 0.02 ] [ -1.089 0.02 ]
+                            [ -1.089 -0.02 ] [ -0.39 -0.02 ]
+                            [ -1.089 -0.02 ] [ -1.089 0.02 ]
+                            [ -0.347 0.02 ] [ -0.347 -0.115 ]
+                            [ -0.34 -0.115 ] [ -0.395 -0.115 ]
+                            [ -0.395 -0.115 ] [ -0.395 -0.02 ]
+                        }
+                    )                        
+                    ( Line 
+                        linewidth: 4
+                        color: white
+                        vertices: { 
+                            [ -0.339 0 ]
+                            [ -1.089 0 ]
+                        }
+                    )
+                    ( Line
+                        linewidth: 6
+                        color: white
+                        vertices: {
+                            [ -0.365 0 ]
+                            [ -0.365 -0.106 ]
+                        }
+                    )
+                    
+                    ( Line
+                        linewidth: 2
+                        color: black
+                        segment: 1
+                        vertices: {
+                            [ 0.339 0.02 ] [ 1.089 0.02 ]
+                            [ 1.089 -0.02 ] [ 0.39 -0.02 ]
+                            [ 1.089 -0.02 ] [ 1.089 0.02 ]
+                            [ 0.347 0.02 ] [ 0.347 -0.115 ]
+                            [ 0.34 -0.115 ] [ 0.395 -0.115 ]
+                            [ 0.395 -0.115 ] [ 0.395 -0.02 ]
+                        }
+                    )
+                    ( Line 
+                        linewidth: 4
+                        color: white
+                        vertices: { 
+                            [ 0.339 0 ]
+                            [ 1.089 0 ]
+                        }
+                    )  
+                    ( Line
+                        linewidth: 6
+                        color: white
+                        vertices: {
+                            [ 0.365 0 ]
+                            [ 0.365 -0.106 ]
+                        }
+                    )
+                    
+                    ( LineLoop
+                        color: black
+                        linewidth: 2
+                        vertices: {
+                            [ -0.0485 0.02425 ]
+                            [  0.0485 0.02425 ]
+                            [  0.0485 -0.07275 ]
+                            [ -0.0485 -0.07275 ]
+                        }
+                    )
+                    ( Polygon
+                        color: white        
+                        vertices: {
+                            [ -0.0485 0.02425 ]
+                            [  0.0485 0.02425 ]
+                            [  0.0485 -0.07275 ]
+                            [ -0.0485 -0.07275 ]
+                        }
+                    )
+                }
+            ) 
+
+            
+            
+            fdirbnkang: 
+            ( GaugeSlider
+                vertical: 0
+                scalingTable: 
+                    ( Table1
+                        
+                        x: [ -90 90 ]
+                        
+                     data: [ 0.56 -0.56 ]
+                    )
+                components: {
+                    ( Line
+                        linewidth: 4
+                        color: magenta
+                        vertices: { [ 0 -0.56 ] [ 0 0.56 ] }
+                    )
+                }
+            )
+            
+            
+            fdirpitch:
+            ( GaugeSlider
+                vertical: 1
+                scalingTable: 
+                    ( Table1
+                        
+                        x: [ -90 90 ]
+                        
+                     data: [ 0.56 -0.56 ]
+                    )
+                components: {
+                    ( Line
+                        linewidth: 4
+                        color: magenta
+                        vertices: { [ -0.56 0 ] [ 0.56 0 ] }
+                    )
+                }
+            )
+            
+            
+            bankscale:     
+            ( Graphic 
+                color: white
+                components: {   
+                    
+                    
+                    ( Polygon
+                        vertices: {
+                            [ -0.05 1.57 ]
+                            [ 0.05 1.57 ]
+                            [ 0 1.49 ]
+                        }
+                    )
+                    
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation 0.1745 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation -0.1745 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation 0.349 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation -0.349 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation 0.5235 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation -0.5235 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    
+                    ( Line
+                        linewidth: 4
+                        transform: ( Rotation 0.78525 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    ( Line
+                        linewidth: 4
+                        transform: ( Rotation -0.78525 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    
+                    60indices:
+                    ( Graphic
+                        color: yellow
+                        components: {
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation 1.047 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation -1.047 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                        }
+                    )
+                    
+                    90indices:
+                    ( Graphic
+                        color: yellow
+                        components: {
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation 1.5705 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation -1.5705 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                        }
+                    )
+                }
+            )          
+
+        
+bankangle: ( DialPointer
+            allowComponentPass: 0
+            color: ( ColorRotary
+                        breakpoints: {
+                            -35
+                            -34
+                            0 
+                            35
+                        }
+                        breakcolors: {
+                            ( rgb 1 1 0 )
+                            ( rgb 1 1 1 )
+                            ( rgb 1 1 1 )
+                            ( rgb 1 1 0 )
+                        }
+                    )
+            components: {
+                ( Polygon
+                    transform: ( Translation 0 1.4 ) 
+                    vertices: {
+                        [ 0 0.085 ]
+                        [ 0.085 -0.085 ]
+                        [ -0.085 -0.085 ]
+                    }
+                )
+    sideslip:   ( GaugeSlider
+                    vertical: 0
+                    transform: ( Translation 0 1.27 ) 
+                    scalingTable:
+                        ( Table1
+                            
+                            x: [ -21 21 ]
+                            data: [ -0.15 0.15 ]
+                        )
+                        
+                    components: {
+                        ( Polygon
+                            vertices: {
+                                [ -0.11 -0.035 ]
+                                [ 0.11 -0.035 ]  
+                                [ 0.085 0.035 ]
+                                [ -0.085 0.035 ]
+                                
+                            }
+                        )
+                    }
+                )                
+            }
+        )        
+    }                                       
+)
+
+( Graphic
+    scissorX: -1.825
+    scissorWidth: 3.65
+    scissorY: -1.5855
+    scissorHeight: 3.171
+    transform: ( Translation -0.3135 0.95 )
+    components: {    
+        adi:
+        ( Adi
+            scalingTable: 
+                ( Table1
+                    
+                    x: [ -90 90 ]
+                    
+                    data: [ 8.28 -8.28 ]
+                )
+            
+            components: {
+                  
+        rollladder:    ( Graphic
+                            components: {
+                                
+
+                                
+                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+         
+                                
+                pitchladder:   ( Graphic 
+                                components: {
+                                    #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\pitchtape.epp"
+
+horizonbar: ( Line
+                color: white                
+                linewidth: 2
+                segment: 1
+                transform: ( Translation 0.0 0.0 )
+                vertices: {
+                    [ -5.0 0.0 ]
+                    [ 5.0 0.0 ]
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 0.23 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.35 0 ]
+                    [ 0.17 0 ] [ 0.35 0 ]       
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 0.46 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 0.69 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.35 0 ]
+                    [ 0.17 0 ] [ 0.35 0 ]       
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 0.92 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 0.8255 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 0.8255 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 1.38 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 1.84 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 1.7455 ) ( Scale 1.4 ) }
+                text: "20" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 1.7455 ) ( Scale 1.4 ) }
+                text: "20" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 2.3 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )                  
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 2.76 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 2.6655 ) ( Scale 1.4 ) }
+                text: "30" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 2.6655 ) ( Scale 1.4 ) }
+                text: "30" 
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 3.22 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )                  
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 3.68 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 3.5855 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 3.5855 ) ( Scale 1.4 ) }
+                text: "40" 
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 4.14 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )   
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 4.6 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 4.5055 ) ( Scale 1.4 ) }
+                text: "50" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 4.5055 ) ( Scale 1.4 ) }
+                text: "50" 
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 5.06 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )   
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 5.52 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 5.4255 ) ( Scale 1.4 ) }
+                text: "60" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 5.4255 ) ( Scale 1.4 ) }
+                text: "60" 
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 5.98 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )   
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 6.44 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 6.3455 ) ( Scale 1.4 ) }
+                text: "70" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 6.3455 ) ( Scale 1.4 ) }
+                text: "70" 
+            )     
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 6.9 )
+                vertices: {
+                    [ -0.17 0 ] [ -0.47 0 ]
+                    [ -0.47 0 ] [ -0.47 -0.07 ]
+                    [ 0.17 0 ] [ 0.47 0 ]      
+                    [ 0.47 0 ] [ 0.47 -0.07 ] 
+                }
+            )   
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 7.36 )
+                vertices: {
+                    [ 0.17 0.0 ] [ 0.64 0.0 ]
+                    [ 0.64 0.0 ] [ 0.64 -0.07 ]
+                    [ -0.17 0 ] [ -0.64 0.0 ]
+                    [ -0.64 0.0 ] [ -0.64 -0.07 ]
+                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 7.2655 ) ( Scale 1.4 ) }
+                text: "80" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 7.2655 ) ( Scale 1.4 ) }
+                text: "80" 
+            )         
+            
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.23 ) ( Rotation 0.022 )  }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.35 0 ] [ -0.29 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.23 ) ( Rotation -0.022 )  }
+                vertices: {
+                    [ 0.35 0 ] [ 0.29 0 ]
+                    [ 0.17 0 ] [ 0.23 0 ]    
+                }
+            )
+
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.46 ) ( Rotation 0.044 )  }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.46 ) ( Rotation -0.044 )  }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )
+
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.69 ) ( Rotation 0.065 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.35 0 ] [ -0.29 0 ]
+                }
+            )            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.69 ) ( Rotation -0.065 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]    
+                    [ 0.35 0 ] [ 0.29 0 ]
+                }
+            )         
+               
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.92 ) ( Rotation 0.087 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -0.92 ) ( Rotation -0.087 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )            
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -1.0145 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -1.0145 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -1.38 ) ( Rotation 0.13 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            )     
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -1.38 ) ( Rotation -0.13 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )                 
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -1.84 ) ( Rotation 0.175 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -1.84 ) ( Rotation -0.175 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -1.9345 ) ( Scale 1.4 ) }
+                text: "20" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -1.9345 ) ( Scale 1.4 ) }
+                text: "20" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -2.3 ) ( Rotation 0.22 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            ) 
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -2.3 ) ( Rotation -0.22 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )               
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -2.76 ) ( Rotation 0.262 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -2.76 ) ( Rotation -0.262 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )            
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -2.8545 ) ( Scale 1.4 ) }
+                text: "30" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -2.8545 ) ( Scale 1.4 ) }
+                text: "30" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -3.22 ) ( Rotation 0.305 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            ) 
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -3.22 ) ( Rotation -0.305 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )             
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -3.68 ) ( Rotation 0.35 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -3.68 ) ( Rotation -0.35 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -3.7745 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -3.7745 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -4.14 ) ( Rotation 0.393 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -4.14 ) ( Rotation -0.393 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -4.6 ) ( Rotation 0.436 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -4.6 ) ( Rotation -0.436 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -4.6945 ) ( Scale 1.4 ) }
+                text: "50" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -4.6945 ) ( Scale 1.4 ) }
+                text: "50" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -5.06 ) ( Rotation 0.48 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -5.06 ) ( Rotation -0.48 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -5.52 ) ( Rotation 0.524 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -5.52 ) ( Rotation -0.524 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -5.6145 ) ( Scale 1.4 ) }
+                text: "60" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -5.6145 ) ( Scale 1.4 ) }
+                text: "60" 
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -5.98 ) ( Rotation 0.567 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -5.98 ) ( Rotation -0.567 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -6.44 ) ( Rotation 0.611 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -6.44 ) ( Rotation -0.611 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -6.5345 ) ( Scale 1.4 ) }
+                text: "70" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -6.5345 ) ( Scale 1.4 ) }
+                text: "70" 
+            )            
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -6.9 ) ( Rotation 0.654 ) }
+                vertices: {
+                    [ -0.17 0 ] [ -0.23 0 ]
+                    [ -0.27 0 ] [ -0.33 0 ]
+                    [ -0.37 0 ] [ -0.43 0 ]
+                    [ -0.47 0 ] [ -0.47 0.07 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -6.9 ) ( Rotation -0.654 ) }
+                vertices: {
+                    [ 0.17 0 ] [ 0.23 0 ]
+                    [ 0.27 0 ] [ 0.33 0 ]
+                    [ 0.37 0 ] [ 0.43 0 ]
+                    [ 0.47 0 ] [ 0.47 0.07 ] 
+                }
+            )
+            
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -7.36 ) ( Rotation 0.698 ) }
+                vertices: {
+                   [ -0.64 0.0 ] [ -0.64 0.07 ]
+                   [ -0.17 0 ] [ -0.22 0 ]
+                   [ -0.26 0 ] [ -0.31 0 ]
+                   [ -0.36 0 ] [ -0.41 0 ]
+                   [ -0.46 0 ] [ -0.51 0 ]
+                   [ -0.56 0 ] [ -0.61 0 ]
+                }
+            )
+            ( Line
+                color: white
+                segment: 1
+                transform: { ( Translation 0 -7.36 ) ( Rotation -0.698 ) }
+                vertices: {
+                   [ 0.64 0.0 ] [ 0.64 0.07 ]
+                   [ 0.17 0 ] [ 0.22 0 ]
+                   [ 0.26 0 ] [ 0.31 0 ]
+                   [ 0.36 0 ] [ 0.41 0 ]
+                   [ 0.46 0 ] [ 0.51 0 ]
+                   [ 0.56 0 ] [ 0.61 0 ]                    
+                }
+            )
+            
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation 0.7 -7.4545 ) ( Scale 1.4 ) }
+                text: "80" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdspecfont
+                transform: { ( Translation  -0.9425 -7.4545 ) ( Scale 1.4 ) }
+                text: "80" 
+            )                        
+
+    nadir: ( Graphic
+                transform: ( Translation 0.0 -8.28 )
+                color: yellow
+                linewidth: 2
+                components: {
+                    ( Circle radius: 0.12796875 )
+                    ( Line vertices: { [ 0.0 0.12796875 ] [ 0.0 0.38390625 ] } )
+                }
+            ) 
+                
+    zenith: ( Graphic
+                transform: ( Translation 0.0 8.28 ) 
+                color: yellow
+                linewidth: 2
+                components: {
+                    ( LineLoop
+                        vertices: { 
+                            [ 0.0 -0.463125 ]
+                            [ 0.02827  -0.0378523 ]
+                            [ 0.14625 0.0 ]
+                            [ 0.02545  0.0378523 ]
+                            [ 0.0 0.195 ]
+                            [ -0.02545 0.0378523 ]
+                            [ -0.14625 0.0 ]
+                            [ -0.02827 -0.0378523 ]
+                            [ 0.0 -0.463125 ]
+                        }
+                    )
+                }
+            ) 
+            
+    backsky:( Polygon 
+                color: ( rgb 0.023529411764705882352941176470588 0.011764705882352941176470588235294 0.98823529411764705882352941176471 )
+                transform: ( Translation 0 0 -0.1 )
+                vertices: {
+                    [ -12.0 0.0 ] 
+                    [ -12.0 12.0 ]
+                    [  12.0 12.0 ]
+                    [  12.0 0.0 ]
+                }
+            )
+    background: ( Polygon
+                    transform: ( Translation 0 0 -0.1 )
+                    color:  ( rgb 0.3960784313725490196078431372549 0.17254901960784313725490196078431 0.22352941176470588235294117647059 )
+                    vertices: {
+                        [ -12.0 0.0 ]
+                        [ -12.0 -12.0 ]
+                        [ 12.0 -12.0 ]
+                        [ 12.0 0.0 ]
+                    }
+                )                         
+
+
+#line 343 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\adi.epp"
+                                    
+                                    nosehigh:
+                                        ( Polygon   
+                                            color: red
+                                            transform: ( Translation 0 2.76 )
+                                            vertices: {
+                                                [ 0 0 ]
+                                                [ -0.942  0.45 ]
+                                                [  0  0.1 ]
+                                                [ 0.942 0.45 ]
+                                            }
+                                        )             
+                                    noselow:
+                                        ( Polygon   
+                                            color: red
+                                            transform: { ( Translation 0 -1.84 ) ( Rotation 3.14 ) }
+                                            vertices: {
+                                                [ 0 0 ]
+                                                [ -0.942  0.45 ]
+                                                [  0  0.1 ]
+                                                [ 0.942 0.45 ]
+                                            }
+                                        )             
+                                    }
+                            ) 
+
+            
+            ghosthorizonbar: ( GhostHorizon
+                                color: white
+                                groundColor: adibrown
+                                skyColor: adiblue
+                                
+                                
+                                linewidth: 2
+                                scalingTable: 
+                                        
+                                        ( Table1
+                                            x: [ -90 90 ]
+                                         data: [ 8.28 -8.28 ]
+                                        ) 
+                                components: {
+                                    ( Line
+                                        transform: ( Translation 0 0 0.2 )
+                                        segment: 1
+                                        vertices: {
+                                            [ -2.0 0.0 ] [ -1.75625 0.0 ]
+                                            [ -1.634375 0.0 ] [ -1.390625 0.0 ]
+                                            [ -1.26875 0.0 ] [ -1.025 0.0 ]
+                                            [ -0.903125 0.0 ] [ -0.659375 0.0 ]
+                                            [ -0.5375 0.0 ] [ -0.29375 0.0 ]
+                                            [ -0.171875 0.0 ] [ 0.071875 0.0 ]
+                                            [ 0.19375 0.0 ] [ 0.4375 0.0 ]
+                                            [ 0.559375 0.0 ] [ 0.803125 0.0 ]
+                                            [ 0.925 0.0 ] [ 1.16875 0.0 ]
+                                            [ 1.290625 0.0 ] [ 1.534375 0.0 ]
+                                            [ 1.65625 0.0 ] [ 1.9 0.0 ]
+                                        }
+                                    ) 
+                                }
+                            ) 
+                        }
+                    ) 
+                }
+            ) 
+        }
+
+    )
+#line 1010 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\pfd.epp"
+
+    }
+) 
+
+
+#line 19 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\testpfd.epp"
+                }
+            )
+		}
+    )
+
+#line 113 "inputs/test.epp"
+        #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\testsd.epp"
+
+testsd:
+( TestSD
+    pagingEvent: {
+        n: testpfd
+        p: testpfd
+    }
+    components: {
+        
+		( AsciiText
+			position: [ 26 2 ]
+			color: white
+			text: "testsd.epp"
+		) 
+        ( Graphic
+            transform: ( Scale 2.2 )
+            components: {
+                #line 1 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\situationalDisplay.epp"
+( SituationalDisplay
+    linewidth: 2.0
+    components: {
+        
+        tfollow:
+        ( TerrainFollower
+            transform: ( Translation -3.1 -4.15 )
+            components: {
+                
+                ( Graphic
+                    color: white
+                    components: {
+                        ( Line transform: ( Translation 1 2 ) vertices: { [ 0 0 ] [ 0.2 0 ] } )
+                        ( Line transform: ( Translation 1 1.1 ) vertices: { [ 0 0 ] [ 0.2 0 ] } )
+                        ( Line transform: ( Translation 1 0.2 ) vertices: { [ 0 0 ] [ 0.2 0 ] } ) 
+                        ( Line transform: ( Translation 1 0.65 ) vertices: { [ 0 0 ] [ 0.1 0 ] } ) 
+                        ( Line transform: ( Translation 1 1.55 ) vertices: { [ 0 0 ] [ 0.1 0 ] } )     
+                        ( Line transform: ( Translation 1 0 ) vertices: { [ 0 0 ] [ 0 2.2 ] } )                                                 
+                    }
+                )
+                
+                ( AsciiText
+                    inheritColor: 1
+                    font: pfdnormfont
+                    transform: { ( Translation 0.8 0.13 ) ( Scale 1.4 ) }
+                    text: "0"
+                )
+                
+                middlealt:
+                ( NumericReadout
+                    font: pfdnormfont
+                    inheritColor: 1
+                    transform: { ( Translation 0.28 1.03 ) ( Scale 1.4 ) }
+                    format: "#####"
+                    value: 10000
+                )
+                
+                maxalt:
+                ( NumericReadout
+                    font: pfdnormfont
+                    inheritColor: 1
+                    transform: { ( Translation 0.28 1.93 ) ( Scale 1.4 ) }
+                    format: "#####"
+                    value: 20000
+                )
+                
+                ( Graphic
+                    components: {
+                        ( Line 
+                            segment: 1
+                            transform: ( Translation 1.6 2.1 0.1 ) 
+                            vertices: {
+                                [ 0 0 ] [ 0 -0.1 ]
+                                [ 0 -0.2 ] [ 0 -0.3 ]
+                                [ 0 -0.4 ] [ 0 -0.5 ]
+                                [ 0 -0.6 ] [ 0 -0.7 ]
+                                [ 0 -0.8 ] [ 0 -0.9 ]
+                                [ 0 -1 ] [ 0 -1.1 ]
+                                [ 0 -1.2 ] [ 0 -1.3 ]
+                                [ 0 -1.4 ] [ 0 -1.5 ]
+                                [ 0 -1.6 ] [ 0 -1.7 ]
+                                [ 0 -1.8 ] [ 0 -1.9 ]         
+                            }
+                        )
+                        ( Line 
+                            segment: 1
+                            transform: ( Translation 3.75 2.1 0.1 ) 
+                            vertices: {
+                                [ 0 0 ] [ 0 -0.1 ]
+                                [ 0 -0.2 ] [ 0 -0.3 ]
+                                [ 0 -0.4 ] [ 0 -0.5 ]
+                                [ 0 -0.6 ] [ 0 -0.7 ]
+                                [ 0 -0.8 ] [ 0 -0.9 ]
+                                [ 0 -1 ] [ 0 -1.1 ]
+                                [ 0 -1.2 ] [ 0 -1.3 ]
+                                [ 0 -1.4 ] [ 0 -1.5 ]
+                                [ 0 -1.6 ] [ 0 -1.7 ]
+                                [ 0 -1.8 ] [ 0 -1.9 ]         
+                            }
+                        )
+                        ( Line 
+                            segment: 1
+                            transform: ( Translation 2.675 2.1 0.1 ) 
+                            vertices: {
+                                [ 0 0 ] [ 0 -0.1 ]
+                                [ 0 -0.2 ] [ 0 -0.3 ]
+                                [ 0 -0.4 ] [ 0 -0.5 ]
+                                [ 0 -0.6 ] [ 0 -0.7 ]
+                                [ 0 -0.8 ] [ 0 -0.9 ]
+                                [ 0 -1 ] [ 0 -1.1 ]
+                                [ 0 -1.2 ] [ 0 -1.3 ]
+                                [ 0 -1.4 ] [ 0 -1.5 ]
+                                [ 0 -1.6 ] [ 0 -1.7 ]
+                                [ 0 -1.8 ] [ 0 -1.9 ]         
+                            }
+                        )
+                        ( Line 
+                            segment: 1
+                            transform: ( Translation 4.825 2.1 0.1 ) 
+                            vertices: {
+                                [ 0 0 ] [ 0 -0.1 ]
+                                [ 0 -0.2 ] [ 0 -0.3 ]
+                                [ 0 -0.4 ] [ 0 -0.5 ]
+                                [ 0 -0.6 ] [ 0 -0.7 ]
+                                [ 0 -0.8 ] [ 0 -0.9 ]
+                                [ 0 -1 ] [ 0 -1.1 ]
+                                [ 0 -1.2 ] [ 0 -1.3 ]
+                                [ 0 -1.4 ] [ 0 -1.5 ]
+                                [ 0 -1.6 ] [ 0 -1.7 ]
+                                [ 0 -1.8 ] [ 0 -1.9 ]         
+                            }
+                        )
+                        ( Line 
+                            segment: 1
+                            transform: ( Translation 5.9 2.1 0.1 ) 
+                            vertices: {
+                                [ 0 0 ] [ 0 -0.1 ]
+                                [ 0 -0.2 ] [ 0 -0.3 ]
+                                [ 0 -0.4 ] [ 0 -0.5 ]
+                                [ 0 -0.6 ] [ 0 -0.7 ]
+                                [ 0 -0.8 ] [ 0 -0.9 ]
+                                [ 0 -1 ] [ 0 -1.1 ]
+                                [ 0 -1.2 ] [ 0 -1.3 ]
+                                [ 0 -1.4 ] [ 0 -1.5 ]
+                                [ 0 -1.6 ] [ 0 -1.7 ]
+                                [ 0 -1.8 ] [ 0 -1.9 ]         
+                            }
+                        )
+                        
+                    }
+                )       
+                
+                
+                ( AsciiText font: pfdnormfont transform: { ( Translation 1.55 2.2 ) ( Scale 1.2 ) } color: cyan text: "0" )
+                
+                firstr:
+                ( NumericReadout
+                    font: pfdnormfont
+                    color: cyan
+                    transform: { ( Translation 2.4 2.2 ) ( Scale 1.2 ) }
+                    format: "##.#"
+                    value: 2.5
+                )
+                
+                secondr:
+                ( NumericReadout
+                    font: pfdnormfont
+                    color: cyan
+                    transform: { ( Translation 3.6 2.2 ) ( Scale 1.2 ) }
+                    format: "##"
+                    value: 5
+                )
+                
+                thirdr:
+                ( NumericReadout
+                    font: pfdnormfont
+                    color: cyan
+                    transform: { ( Translation 4.55 2.2 ) ( Scale 1.2 ) }
+                    format: "##.#"
+                    value: 2.5
+                )
+                
+                fourthr:
+                ( NumericReadout
+                    font: pfdnormfont
+                    color: cyan
+                    transform: { ( Translation 5.8 2.2 ) ( Scale 1.2 ) }
+                    format: "##"
+                    value: 10
+                )
+                
+                
+                ( Line
+                    color: white
+                    linewidth: 2
+                    vertices: { [ 0 2.45 ] [ 6.2 2.45 ] }
+                )
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ 0 0 ]
+                        [ 6.2 0 ]
+                        [ 6.2 2.45 ]
+                        [ 0 2.45 ]
+                    }
+                )    
+            }
+        )
+        mainmap:
+        ( MapPage
+            outerRadius: 5
+            range: 80
+            transform: ( Translation 0 -1.32 )
+            components: {
+
+                
+                ( Graphic
+                    transform: ( Translation 1.5 5.25 )    
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            text: "RNG"
+                        )
+                        range:
+                        ( NumericReadout
+                            font: pfdspecfont
+                            color: magenta
+                            transform: ( Translation 0.05 -0.2 )
+                            format: "###"
+                            value: 999
+                        )
+                    }
+                )
+            
+                
+                ( Graphic
+                    transform: ( Translation 0 5.1 ) 
+                    components: {
+                        heading:
+                        ( NumericReadout
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation -0.18 0.05 ) ( Scale 1.4 ) }
+                            format: "###"
+                            value: 999
+                        )
+                        ( Line
+                            color: white
+                            linewidth: 2
+                            segment: 1
+                            vertices: {
+                                [ 0 0 ] [ 0 -0.1 ]
+                                [ 0 0 ] [ 0.23 0.05 ]
+                                [ 0 0 ] [ -0.23 0.05 ]
+                                [ -0.23 0.05 ] [ -0.23 0.25 ]
+                                [ -0.23 0.25 ] [ 0.23 0.25 ]
+                                [ 0.23 0.25 ] [ 0.23 0.05 ]
+                            }
+                        )
+                    }
+                )
+                
+                
+                ( Graphic
+                    transform: ( Translation 2.7 5.25 ) 
+                    components: {
+                        ( AsciiText font: pfdspecfont color: green text: "HDG" )
+                        hdgbug:
+                        ( NumericReadout font: pfdspecfont transform: { ( Translation 0.02 -0.2 ) ( Scale 1.2 ) } color: magenta format: "00#" value: 999 )
+                    }
+                )
+                
+                
+                
+                ( Graphic
+                    color: cyan
+                    linewidth: 2
+                    transform: ( Translation -2.99 4.9 ) 
+                    components: {
+                        ( Line
+                            segment: 1
+                            vertices: {
+                                [ 0 -0.2 ] [ 0 0.2 ]
+                                [ -0.07 -0.2 ] [ 0.07 -0.2 ]
+                                [ -0.1 0.05 ] [ 0 0.2 ]
+                                [ 0.1 0.05 ] [ 0 0.2 ]
+                            }
+                        )
+                        ( AsciiText
+                            inheritColor: 1
+                            font: pfdspecfont
+                            transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
+                            text: "TAC"
+                        )
+                        nav1Id:
+                        ( AsciiText
+                            inheritColor: 1
+                            font: pfdspecfont
+                            transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
+                            text: "XXX"
+                        )
+                        
+                        nav1dme:
+                        ( NumericReadout
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation 0.7 -0.2 ) ( Scale 1.4 ) }
+                            format: "###.#"
+                            value: 15.2
+                        )
+                        
+                        ( AsciiText
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation 0.6 -0.2 ) ( Scale 1.4 ) }
+                            text: "/"
+                        )
+                        
+                        nav1brgro:
+                        ( NumericReadout
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation 0.2 -0.2 ) ( Scale 1.4 ) }
+                            format: "00#"
+                            value: 339
+                        )
+                    }
+                )
+                
+                ( Graphic
+                    color: cyan
+                    linewidth: 2
+                    transform: ( Translation 1.9 0 ) 
+                    components: {
+                        ( Line
+                            segment: 1
+                            vertices: {
+                                [ 0 0.245 ] [ -0.05 0.155 ]
+                                [ 0 0.245 ] [ 0.05 0.155 ]
+                                [ -0.05 0.155 ] [ -0.05 -0.195 ]
+                                [ 0.05 0.155 ] [ 0.05 -0.195 ]
+                                [ -0.05 -0.195 ] [ -0.09 -0.195 ]
+                                [ 0.05 -0.195 ] [ 0.09 -0.195 ]
+                                [ -0.09 -0.195 ] [ -0.09 -0.245 ]
+                                [ 0.09 -0.195 ] [ 0.09 -0.245 ]
+                                [ -0.09 -0.245 ] [ 0.09 -0.245 ]                        
+                            }
+                        )
+                        ( AsciiText
+                            inheritColor: 1
+                            font: pfdspecfont
+                            transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
+                            text: "NAV"
+                        )
+                        nav2Id:
+                        ( AsciiText
+                            inheritColor: 1
+                            font: pfdspecfont
+                            transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
+                            text: "XXXXX"
+                        )
+                        
+                        nav2dme:
+                        ( NumericReadout
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation 0.7 -0.2 ) ( Scale 1.4 ) }
+                            format: "###.#"
+                        )
+                        
+                        ( AsciiText
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation 0.6 -0.2 ) ( Scale 1.4 ) }
+                            text: "/"
+                        )
+                        
+                        nav2brgro:
+                        ( NumericReadout
+                            color: white
+                            font: pfdspecfont
+                            transform: { ( Translation 0.2 -0.2 ) ( Scale 1.4 ) }
+                            format: "00#"
+                        )
+                    }
+                )                      
+            
+
+
+
+
+
+
+
+                                                    
+
+
+            
+                
+                navaids:
+                ( SymbolLoader 
+                    
+                    templates: {
+                    
+                        
+                        1:  ( Graphic
+                                components: {
+                                    name:
+                                    ( AsciiText
+                                        font: pfdnormfont
+                                        color: white
+                                        transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                        text: "XXXXX"
+                                    )
+                                    
+                                    symbol:
+                                    ( Graphic
+                                        transform: ( Scale 1.4 )
+                                        components: {
+                                            ( Line
+                                                color: cyan
+                                                vertices: {
+                                                    [ -0.0325 0.056250 ]
+                                                    [ 0.0325 0.05625  ]
+                                                    [ 0.064750 0 ]
+                                                    [ 0.0325 -0.05625 ]
+                                                    [ -0.0325 -0.05625 ]
+                                                    [ -0.064750 0 ]
+                                                    [ -0.0325 0.05625 ]
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: white
+                                                vertices: {
+                                                    [ 0.0325 0.0565 ]
+                                                    [ 0.064750 0 ]
+                                                    [ 0.0325 -0.05625 ]
+                                                    [ -0.0325 -0.05625 ]
+                                                    [ -0.064750 0 ]
+                                                    [ -0.0325 0.05625 ]
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                            
+                            
+                        2:  ( Graphic
+                                components: {
+                                
+                                    name:
+                                    ( AsciiText
+                                        font: pfdnormfont
+                                        color: white
+                                        transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                        text: "XXXXX"
+                                    )
+                                    
+                                    symbol:
+                                    ( Graphic
+                                        transform: ( Scale 1.4 )
+                                        components: {
+                                            ( Line
+                                                color: cyan
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]    
+                                                    [ 0.0575 0.0575 ]
+                                                    [ 0.08 0.0225 ]
+                                                    [ 0.035 0 ]
+                                                    [ 0.0225 -0.035 ]
+                                                    [ 0.0225 -0.075 ]
+                                                    [ -0.0225 -0.075 ]
+                                                    [ -0.0225 -0.035 ]
+                                                    [ -0.035 0 ]
+                                                    [ -0.08 0.0225 ]
+                                                    [ -0.0575 0.0575 ]
+                                                    [ -0.0225 0.035 ]
+                                                    [ 0.0225 0.035 ]        
+                                                }
+                                            )
+                                            ( Line
+                                                color: cyan
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]        
+                                                    [ 0.035 0 ]                
+                                                }
+                                            )
+                                            ( Line
+                                                color: cyan
+                                                vertices: {
+                                                    [ 0.0225 -0.035 ]
+                                                    [ -0.0225 -0.035 ]            
+                                                }
+                                            )
+                                            ( Line
+                                                color: cyan
+                                                vertices: {
+                                                    [ -0.035 0 ]
+                                                    [ -0.0225 0.035 ]
+                                                }
+                                            )                                
+                                            ( Polygon
+                                                color: white
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]
+                                                    [ 0.035 0 ]
+                                                    [ 0.0225 -0.035 ]
+                                                    [ -0.0225 -0.035 ]
+                                                    [ -0.035 0 ]
+                                                    [ -0.0225 0.035 ]                                       
+                                                }
+                                            )
+                                            ( Polygon  
+                                                color: cyan
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]
+                                                    [ 0.0575 0.0575 ]
+                                                    [ 0.08 0.0225 ]
+                                                    [ 0.035 0 ]
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: cyan
+                                                vertices: {
+                                                    [ 0.0225 -0.035 ]
+                                                    [ 0.0225 -0.075 ]
+                                                    [ -0.0225 -0.075 ]
+                                                    [ -0.0225 -0.035 ]
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: cyan
+                                                vertices: {
+                                                    [ -0.035 0 ]
+                                                    [ -0.08 0.0225 ]
+                                                    [ -0.0575 0.0575 ]
+                                                    [ -0.0225 0.035 ]
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            ) 
+                            
+                            
+                        3:  ( Graphic
+                                components: {
+                                
+                                    name:
+                                    ( AsciiText
+                                        font: pfdnormfont
+                                        color: white
+                                        transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                        text: "XXXXX"
+                                    )
+                                    
+                                    symbol:
+                                    ( Graphic
+                                        transform: ( Scale 1.4 )
+                                        components: {
+                                            ( Line
+                                                color: cyan
+                                                segment: 0
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]    
+                                                    [ 0.0575 0.0575 ]
+                                                    [ 0.08 0.0225 ]
+                                                    [ 0.035 0 ]
+                                                    [ 0.0225 -0.035 ]
+                                                    [ 0.0225 -0.075 ]
+                                                    [ -0.0225 -0.075 ]
+                                                    [ -0.0225 -0.035 ]
+                                                    [ -0.035 0 ]
+                                                    [ -0.08 0.0225 ]
+                                                    [ -0.0575 0.0575 ]
+                                                    [ -0.0225 0.035 ]
+                                                    [ 0.0225 0.035 ]        
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: white
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]
+                                                    [ 0.035 0 ]
+                                                    [ 0.0225 -0.035 ]
+                                                    [ -0.0225 -0.035 ]
+                                                    [ -0.035 0 ]
+                                                    [ -0.0225 0.035 ]                                       
+                                                }
+                                            )
+                                            ( Polygon  
+                                                color: white
+                                                vertices: {
+                                                    [ 0.0225 0.035 ]
+                                                    [ 0.0575 0.0575 ]
+                                                    [ 0.08 0.0225 ]
+                                                    [ 0.035 0 ]
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: white
+                                                vertices: {
+                                                    [ 0.0225 -0.035 ]
+                                                    [ 0.0225 -0.075 ]
+                                                    [ -0.0225 -0.075 ]
+                                                    [ -0.0225 -0.035 ]
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: white
+                                                vertices: {
+                                                    [ -0.035 0 ]
+                                                    [ -0.08 0.0225 ]
+                                                    [ -0.0575 0.0575 ]
+                                                    [ -0.0225 0.035 ]
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            ) 
+                            
+                       4:   ( Graphic
+                                components: {
+                                
+                                    name:
+                                    ( AsciiText
+                                        font: pfdnormfont
+                                        color: white
+                                        transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                        text: "XXXXX"
+                                    )
+                                                                        
+                                    symbol:
+                                    ( Graphic
+                                        transform: ( Scale 1.4 )
+                                        components: {
+                                            ( Line
+                                                color: cyan
+                                                vertices: {
+                                                    [ -0.064750 -0.056250 ]
+                                                    [ -0.064750 0.056250 ]
+                                                    [ 0.064750 0.056250 ]
+                                                    [ 0.064750 -0.056250 ]
+                                                    [ -0.064750 -0.056250 ]
+                                                }
+                                            )
+                                            ( Polygon
+                                                color: white
+                                                vertices: {
+                                                    [ 0.032500 0.056250 ]
+                                                    [ 0.064750 0.000000 ]
+                                                    [ 0.032500 -0.056250 ]
+                                                    [ -0.032500 -0.056250 ]
+                                                    [ -0.064750 0.000000 ]
+                                                    [ -0.032500 0.056250 ]
+                                                    [ 0.032500 0.056250 ]
+                                                }
+                                            )
+                                            (Polygon
+                                                color: black
+                                                vertices: {
+                                                    [ -0.064740 -0.056250 ] 
+                                                    [ -0.064740 0.056250 ] 
+                                                    [ 0.064740 0.056250 ] 
+                                                    [ 0.064740 -0.056250 ]
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                            
+                    }
+                )   
+            
+
+
+
+            
+                
+                airports:
+                ( SymbolLoader 
+                    
+                    templates: {
+                        
+                        1:  
+                        ( Graphic
+                            components: {
+                            
+                                name:
+                                ( AsciiText
+                                    font: pfdnormfont
+                                    color: white
+                                    transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                    text: "XXXXX"
+                                )
+                                
+                                symbol:
+                                ( Graphic
+                                    transform: ( Scale 1.4 )
+                                    components: {
+                                        ( Line
+                                            color: white
+                                            vertices: {
+                                                [ -0.03 -0.03 ] 
+                                                [  0.03  0.03 ] 
+                                            }
+                                        )
+                                        ( Circle
+                                            color: green
+                                            radius: 0.07
+                                            filled: 1
+                                            slices: 12
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        
+                        2:  
+                        ( Graphic
+                            components: {
+                            
+                                name:
+                                ( AsciiText
+                                    font: pfdnormfont
+                                    color: white
+                                    transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                    text: "XXXXX"
+                                )
+                                
+                                symbol:
+                                ( Graphic
+                                    transform: ( Scale 1.4 )
+                                    components: {
+                                        ( Line
+                                            color: white
+                                            vertices: {
+                                                [ -0.03 -0.03 ] 
+                                                [  0.03  0.03 ] 
+                                            }
+                                        )
+                                        ( Circle
+                                            color: cyan
+                                            radius: 0.07
+                                            filled: 1
+                                            slices: 12
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        
+                        3:  
+                        ( Graphic
+                            components: {
+                            
+                                name:
+                                ( AsciiText
+                                    font: pfdnormfont
+                                    color: white
+                                    transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                    text: "XXXXX"
+                                )
+                                
+                                symbol:
+                                ( Graphic
+                                    transform: ( Scale 1.4 )
+                                    components: {
+                                        ( Line
+                                            color: white
+                                            vertices: {
+                                                [ -0.03 -0.03 ] 
+                                                [  0.03  0.03 ] 
+                                            }
+                                        )
+                                        ( Circle
+                                            color: blue
+                                            radius: 0.07
+                                            filled: 1
+                                            slices: 12
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        
+                        4:  
+                        ( Graphic
+                            components: {
+                            
+                                name:
+                                ( AsciiText
+                                    font: pfdnormfont
+                                    color: white
+                                    transform: { ( Translation 0.11 -0.1 ) ( Scale 0.5 ) }
+                                    text: "XXXXX"
+                                )
+                                
+                                symbol:
+                                ( Graphic
+                                    transform: ( Scale 1.4 )
+                                    components: {
+                                        ( Line
+                                            color: white
+                                            vertices: {
+                                                [ -0.03 -0.03 ] 
+                                                [  0.03  0.03 ] 
+                                            }
+                                        )
+                                        ( Circle
+                                            color: yellow
+                                            radius: 0.07
+                                            filled: 1
+                                            slices: 12
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                            
+                    }
+                ) 
+
+
+
+            
+                
+                airTracks:
+                ( SymbolLoader 
+                
+                    
+                    templates: {
+
+                        
+                        1: ( Graphic
+                            color: green
+                            components: {
+                                ( Graphic
+                                    transform: ( Scale 1.8 )
+                                    components: {
+                                        hdg: ( Rotators
+                                            components: {
+                                                ( Line
+                                                    vertices: {
+                                                        [ 0.0  0.0 ]
+                                                        [ 0.0  0.08 ]
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        ( Line
+                                            vertices: {
+                                                [ -0.0402 -0.0402 ]
+                                                [ -0.0402  0.0134 ]
+                                                [ -0.0201  0.0402 ]
+                                                [  0.0201  0.0402 ]
+                                                [  0.0402  0.0134 ]
+                                                [  0.0402 -0.0402 ]
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        
+                        
+                        2: ( Graphic
+                            color: red
+                            components: {
+                                ( Graphic
+                                    transform: ( Scale 1.8 )
+                                    components: {
+                                        hdg: ( Rotators
+                                            components: {
+                                                ( Line
+                                                    vertices: {
+                                                        [ 0.0  0.0 ]
+                                                        [ 0.0  0.08 ]
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        ( Line
+                                            vertices: {
+                                                [ -0.05226  -0.0402 ]
+                                                [  0.0       0.0402 ]
+                                                [  0.05226  -0.0402 ]
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        
+                        
+                        
+                        3: ( Graphic
+                            color: white
+                            components: {
+                                ( Graphic
+                                    transform: ( Scale 1.8 )
+                                    components: {
+                                        hdg: ( Rotators
+                                            components: {
+                                                ( Line
+                                                    vertices: {
+                                                        [ 0.0  0.0 ]
+                                                        [ 0.0  0.08 ]
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        ( Line
+                                            vertices: {
+                                                [ -0.02747  -0.03149 ]
+                                                [ -0.05226  -0.00871 ]
+                                                [  0.0       0.0402 ]
+                                                [  0.05226  -0.00871 ]
+                                                [  0.02747  -0.03149 ]
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                       
+                        
+                        4: ( Graphic
+                            color: ( rgba 1.0 0.5 0.0 1.0 )
+                            components: {
+                                ( Graphic
+                                    transform: ( Scale 1.8 )
+                                    components: {
+                                        hdg: ( Rotators
+                                            components: {
+                                                ( Line
+                                                    vertices: {
+                                                        [ 0.0  0.0 ]
+                                                        [ 0.0  0.08 ]
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        ( Line
+                                            vertices: {
+                                                [ -0.02747  -0.03149 ]
+                                                [ -0.05226  -0.00871 ]
+                                                [  0.0       0.0402 ]
+                                                [  0.05226  -0.00871 ]
+                                                [  0.02747  -0.03149 ]
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                    } 
+                ) 
+                            
+                
+                compassrose:
+                ( CompassRose
+                    color: green
+                    centeredRad: 5
+                    components: {                    
+                        
+                        longticks:
+                        ( DialTickMarks
+                            startAngle: 0
+                            quantity: 36
+                            length: 0.2
+                        )
+                        shortticks:
+                        ( DialTickMarks
+                            startAngle: 5
+                            quantity: 36
+                            length: 0.1 
+                        )
+                        dial: 
+                        ( DialArcSegment
+                            color: green
+                            dialRadius: 1
+                            outerRadius: 1.025
+                        )
+                        txtgraphic:
+                        ( Graphic
+                            components: {
+                                
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: ( Translation -0.05 4.6 ) 
+                                    text: "N"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation 1.57 ) ( Translation -0.05 4.6 ) }
+                                    text: "W"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation -1.57 ) ( Translation -0.05 4.6 ) }
+                                    text: "E"
+                                )           
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation 3.14 ) ( Translation -0.05 4.6 ) }
+                                    text: "S"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation -0.5234 ) ( Translation -0.09 4.6 ) }
+                                    text: "03"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation -1.0468 ) ( Translation -0.09 4.6 ) }
+                                    text: "06"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation -2.0936 ) ( Translation -0.09 4.6 ) }
+                                    text: "12"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation -2.618 ) ( Translation -0.09 4.6 ) }
+                                    text: "15"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation 2.618 ) ( Translation -0.09 4.6 ) }
+                                    text: "21"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation 2.0963 ) ( Translation -0.09 4.6 ) }
+                                    text: "24"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation 1.0468 ) ( Translation -0.09 4.6 ) }
+                                    text: "30"
+                                )
+                                
+                                ( AsciiText
+                                    font: pfdspecfont
+                                    transform: { ( Rotation 0.5234 ) ( Translation -0.09 4.6 ) }
+                                    text: "33"
+                                )
+                            }
+                        )       
+
+                        nav2brgptr:
+                        ( Rotators
+                            components: {
+                                
+                                ( Line
+                                    transform: ( Translation 0 5 )
+                                    color: cyan
+                                    linewidth: 2
+                                    segment: 1
+                                    vertices: {
+                                        [ 0 0 ] [ -0.05 -0.09 ]
+                                        [ 0 0 ] [ 0.05 -0.09 ]
+                                            [ 0.05 -0.44 ] [ 0.05 -0.09 ]
+                                        [ -0.05 -0.44 ] [ -0.05 -0.09 ]
+                                        [ -0.05 -0.44 ] [ 0.05 -0.44 ]
+                                    }
+                                )
+                                
+                                ( Line
+                                    linewidth: 2
+                                    transform: ( Translation 0 -5 )
+                                    color: cyan
+                                    segment: 1
+                                    vertices: {
+                                        [ -0.05 0.42 ] [ 0.05 0.42 ]
+                                        [ -0.05 0.07 ] [ -0.05 0.42 ]
+                                        [ 0.05 0.07 ] [ 0.05 0.42 ]
+                                        [ 0.05 0.07 ] [ 0.14 0 ]
+                                        [ 0.05 0.02 ] [ 0.15 0 ]
+                                        [ -0.05 0.07 ] [ -0.14 0 ] 
+                                        [ -0.05 0.02 ] [ -0.15 0 ] 
+                                        [ -0.05 0.02 ] [ 0.05 0.02 ]
+                                    
+                                    }
+                                )                            
+                            }
+                        )
+                
+                        nav1brgptr:
+                        
+                        ( Rotators
+                            components: {
+                                ( Line
+                                    transform: ( Translation 0 5 )
+                                    linewidth: 2
+                                    color: cyan
+                                    segment: 1
+                                    vertices: {
+                                        [ 0 0 ] [ 0 -0.4 ]
+                                        [ -0.1 -0.15 ] [ 0 0 ]
+                                        [ 0.1 -0.15 ] [ 0 0 ]
+                                        [ -0.07 -0.4 ] [ 0.07 -0.4 ]
+                                    }
+                                )
+                                ( Line
+                                    linewidth: 2
+                                    color: cyan
+                                    transform: ( Translation 0 -5 ) 
+                                    segment: 1
+                                    vertices: {
+                                        [ 0 0 ] [ 0 0.4 ]
+                                        [ 0 0.13 ] [ -0.146 0.08 ]
+                                        [ 0 0.13 ] [ 0.146 0.08 ]
+                                    }
+                                )   
+                            }
+                        )
+
+                        
+            selhdg:     ( Rotators
+                            components: {
+                                ( Graphic
+                                    color: magenta
+                                    linewidth: 2
+                                    transform: ( Translation 0 5 )
+                                    components: {
+                                        ( LineLoop 
+                                            vertices: {
+                                                [ -0.12 0 ]
+                                                [ -0.12 0.08 ]
+                                                [ -0.08 0.08 ]
+                                                [ -0.02 0 ]
+                                            }
+                                        )
+                                        ( LineLoop 
+                                            vertices: {
+                                                [ 0.12 0 ]
+                                                [ 0.12 0.08 ]
+                                                [ 0.08 0.08 ]
+                                                [ 0.02 0 ]
+                                            }
+                                        )                                
+                                    }
+                                )
+                            }
+                        )        
+                    }
+                )
+            }
+        )        
+    }
+)
+
+
+#line 19 "c:\\oe\\openeaaglesexamples\\mainfd1\\inputs\\testsd.epp"
+            }
+        )
+    }
+)
+
+#line 114 "inputs/test.epp"
+    }
+)

@@ -1,0 +1,375 @@
+#line 1 "inputs\\test1.epp"
+
+
+
+
+
+
+
+
+( TestIoDisplay
+
+   
+   
+   
+   ioHandler: ( IoHandler
+      inputData: ( IoData numAI: 10   numDI: 40 )	
+      devices: {
+         #line 1 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\UsbJoystickTest.epp"
+
+
+
+
+
+
+
+
+( UsbJoystick
+   deviceIndex: 0
+   adapters: {
+
+      
+      
+      
+      ( AnalogInput ai:  1      channel: 0  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  2      channel: 1  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  3      channel: 2  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  4      channel: 3  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  5      channel: 4  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  6      channel: 5  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  7      channel: 6  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  8      channel: 7  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  9      channel: 8  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 10      channel: 9  offset: 0.0  gain: 1.0 )
+
+      
+      
+      
+      ( DiscreteInput di:  1     port: 0  channel:  0   num: 10  )
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+      ( DiscreteInput di: 11     port: 0  channel: 10 )
+      ( DiscreteInput di: 12     port: 0  channel: 11 )
+      ( DiscreteInput di: 13     port: 0  channel: 12 )
+      ( DiscreteInput di: 14     port: 0  channel: 13 )
+      ( DiscreteInput di: 15     port: 0  channel: 14 )
+      ( DiscreteInput di: 16     port: 0  channel: 15 )
+      ( DiscreteInput di: 17     port: 0  channel: 16 )
+      ( DiscreteInput di: 18     port: 0  channel: 17 )
+      ( DiscreteInput di: 19     port: 0  channel: 18 )
+      ( DiscreteInput di: 20     port: 0  channel: 19 )
+
+      ( DiscreteInput di: 21     port: 0  channel: 20 )
+      ( DiscreteInput di: 22     port: 0  channel: 21 )
+      ( DiscreteInput di: 23     port: 0  channel: 22 )
+      ( DiscreteInput di: 24     port: 0  channel: 23 )
+      ( DiscreteInput di: 25     port: 0  channel: 24 )
+      ( DiscreteInput di: 26     port: 0  channel: 25 )
+      ( DiscreteInput di: 27     port: 0  channel: 26 )
+      ( DiscreteInput di: 28     port: 0  channel: 27 )
+      ( DiscreteInput di: 29     port: 0  channel: 28 )
+      ( DiscreteInput di: 30     port: 0  channel: 29 )
+
+      ( DiscreteInput di: 31     port: 0  channel: 30 )
+      ( DiscreteInput di: 32     port: 0  channel: 31 )
+      ( DiscreteInput di: 33     port: 0  channel: 32 )
+      ( DiscreteInput di: 34     port: 0  channel: 33 )
+      ( DiscreteInput di: 35     port: 0  channel: 34 )
+      ( DiscreteInput di: 36     port: 0  channel: 35 )
+      ( DiscreteInput di: 37     port: 0  channel: 36 )
+      ( DiscreteInput di: 38     port: 0  channel: 37 )
+      ( DiscreteInput di: 39     port: 0  channel: 38 )
+      ( DiscreteInput di: 40     port: 0  channel: 39 )
+
+   }
+)
+
+#line 18 "inputs\\test1.epp"
+      }
+   )
+
+   
+   
+   
+   #line 1 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\mappingTest.epp"
+
+
+
+
+
+
+
+item:  1   ai: 1
+item:  2   ai: 2
+item:  3   ai: 3
+item:  4   ai: 4
+item:  5   ai: 5
+item:  6   ai: 6
+item:  7   ai: 7
+item:  8   ai: 8
+item:  9   ai: 9
+item:  10   ai: 10
+
+
+item: 21   di: 1
+item: 22   di: 2
+item: 23   di: 3
+item: 24   di: 4
+item: 25   di: 5
+item: 26   di: 6
+item: 27   di: 7
+item: 28   di: 8
+item: 29   di: 9
+item: 30   di: 10
+
+item: 31   di: 11
+item: 32   di: 12
+item: 33   di: 13
+item: 34   di: 14
+item: 35   di: 15
+item: 36   di: 16
+item: 37   di: 17
+item: 38   di: 18
+item: 39   di: 19
+item: 40   di: 20
+
+item: 41   di: 21
+item: 42   di: 22
+item: 43   di: 23
+item: 44   di: 24
+item: 45   di: 25
+item: 46   di: 26
+item: 47   di: 27
+item: 48   di: 28
+item: 49   di: 29
+item: 50   di: 30
+
+item: 51   di: 31
+item: 52   di: 32
+item: 53   di: 33
+item: 54   di: 34
+item: 55   di: 35
+item: 56   di: 36
+item: 57   di: 37
+item: 58   di: 38
+item: 59   di: 39
+item: 60   di: 40
+#line 25 "inputs\\test1.epp"
+
+   
+   
+   
+   #line 1 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\display.epp"
+
+
+
+
+
+fullScreen: 0
+
+left:        -17.5
+right:       622.5
+bottom:      -2.5
+top:        477.5
+near:        -2.0
+far:          2.0
+
+vpWidth:    640
+vpHeight:   480
+
+#line 1 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\colors.epp"
+
+
+
+
+colorTable: {
+    black:     ( rgba 0 0 0 )
+    red:       ( rgb 1 0 0 )
+    green:     ( rgb 0 1 0 )
+    yellow:    ( rgb 1 1 0 )
+    blue:      ( rgb 0 0 1 )
+    magenta:   ( rgb 1 0 1 )
+    cyan:      ( rgb 0 1 1 )
+    white:     ( rgb 1 1 1 )
+    NormalText:    ( hsva 100.0 1.0 0.65 1.0 )
+    HighlightText: ( hsva 100.0 1.0 1.0  1.0 )
+}
+
+#line 19 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\display.epp"
+#line 1 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\fonts.epp"
+
+
+
+
+
+
+
+
+
+normalFont: normal
+
+fonts: {
+
+    normal:
+    ( BitmapFont
+        fontPosition: [ 0  476 ]
+        bitmapWidth: 11
+        bitmapHeight: 19
+        characterSpacing: 11
+        lineSpacing: 19
+        path: "../../OpenEaaglesExamples/data/fonts/11x19/normal/"
+        reverse: false
+    )
+
+    underlined:
+    ( BitmapFont
+        fontPosition: [ 0  476 ]
+        bitmapWidth: 11
+        bitmapHeight: 19
+        characterSpacing: 11
+        lineSpacing: 19
+        path: "../../OpenEaaglesExamples/data/fonts/11x19/underline/"
+        reverse: false
+    )
+
+    reversed:
+    ( BitmapFont
+        fontPosition: [ 0  476 ]
+        bitmapWidth: 11
+        bitmapHeight: 19
+        characterSpacing: 11
+        lineSpacing: 19
+        path: "../../OpenEaaglesExamples/data/fonts/11x19/normal/"
+        reverse: true
+    )
+
+    special:
+    ( BitmapFont
+        fontPosition: [ 0  476 ]
+        bitmapWidth: 11
+        bitmapHeight: 19
+        characterSpacing: 11
+        lineSpacing: 19
+        path: "../../OpenEaaglesExamples/data/fonts/11x19/special/"
+        reverse: false
+    )
+
+    specialRv:
+    ( BitmapFont
+        fontPosition: [ 0  476 ]
+        bitmapWidth: 11
+        bitmapHeight: 19
+        characterSpacing: 11
+        lineSpacing: 19
+        path: "../../OpenEaaglesExamples/data/fonts/11x19/special/"
+        reverse: true
+    )
+}
+
+
+
+
+
+#line 20 "c:\\oe\\openeaaglesexamples\\testio\\inputs\\display.epp"
+
+components: {
+
+   
+   
+   
+   ( AsciiText position: [ 2 1 ] width: 55  justification: center  text: "I/O DEVICE TEST PROGRAM" )
+
+
+   
+   
+   
+   column1: ( Table
+      position: [ 4 1 ]
+      rows: 20
+      columns: {
+
+         label: ( AsciiText text: "12345678:" width: 11  justification: right )
+         
+         ( AsciiText text: " " )   
+
+         typeRo: ( Rotary
+            width: 6
+            components: {
+               ( AsciiText text: " " )   
+               ai: ( NumericReadout format: "+#.###" )
+               ( AsciiText text: "0" )
+               ( AsciiText text: "1" )
+            }
+         )
+
+      }
+   )
+
+   
+   
+   
+   column2: ( Table
+      position: [ 4  20 ]
+      rows: 20
+      columns: {
+
+         label: ( AsciiText text: "12345678:" width: 11  justification: right )
+         
+         ( AsciiText text: " " )   
+
+         typeRo: ( Rotary
+            width: 6
+            components: {
+               ( AsciiText text: " " )   
+               ai: ( NumericReadout format: "+#.###" )
+               ( AsciiText text: "0" )
+               ( AsciiText text: "1" )
+            }
+         )
+
+      }
+   )
+
+   
+   
+   
+   column3: ( Table
+      position: [ 4 39 ]
+      rows: 20
+      columns: {
+
+         label: ( AsciiText text: "12345678:" width: 11  justification: right )
+         
+         ( AsciiText text: " " )   
+
+         typeRo: ( Rotary
+            width: 6
+            components: {
+               ( AsciiText text: " " )   
+               ai: ( NumericReadout format: "+#.###" )
+               ( AsciiText text: "0" )
+               ( AsciiText text: "1" )
+            }
+         )
+
+      }
+   )
+
+   
+   
+   
+   ( AsciiText position: [ 25 1 ] width: 55  justification: center  text: "ESC to exit!" )
+
+}
+
+#line 30 "inputs\\test1.epp"
+
+)

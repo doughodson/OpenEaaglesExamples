@@ -1,0 +1,94 @@
+// Efis primary course pointer
+//( EfisEHsiCrsPntr
+primarycoursepointer:
+( Rotators
+    transform: ( Translation 0 -1.175 )
+    linewidth: 2
+    color: white
+    components: {
+        ( Graphic
+            components: { 
+                ( Line
+                    vertices: {
+                        [ 0 -2.55 ]
+                        [ 0 -0.95 ]
+                    }
+                )
+                ( Line
+                    vertices: {
+                        [ 0 0.95 ]
+                        [ 0 2.2 ]
+                    }
+                )                
+                ( Line
+                    vertices: {
+                        [ -0.11 2.2 ]
+                        [ 0 2.625 ]
+                        [ 0.11 2.2 ]
+                        [ -0.11 2.2 ]
+                    }
+                )
+            }        
+        )   
+
+        ( Graphic
+            components: {
+                // primary course deviation  
+                primarycoursedev:                 
+                ( Translator
+                    linewidth: 2
+                    components: {
+                        ( Line
+                            vertices: {
+                                [ 0 -0.95 ]
+                                [ 0  0.95 ]
+                            }
+                        )
+                    }
+                )    
+                                  
+                // course deviation scale   
+                ( Graphic
+                    components: {
+                        ( Line
+                            vertices: {
+                                [ -0.86 -0.04 ]
+                                [ -0.9 0 ]
+                                [ -0.86 0.04 ]
+                                [ -0.82 0 ]
+                                [ -0.86 -0.04 ]
+                            }
+                        )
+                        ( Line
+                            vertices: {
+                                [ -0.43 -0.04 ]
+                                [ -0.47 0 ]
+                                [ -0.43 0.04 ]
+                                [ -0.39 0 ]
+                                [ -0.43 -0.04 ]
+                            }
+                        )
+                        ( Line
+                            vertices: {
+                                [ 0.43 -0.04 ]
+                                [ 0.39 0 ]
+                                [ 0.43 0.04 ]
+                                [ 0.47 0 ]
+                                [ 0.43 -0.04 ]
+                            }
+                        )
+                        ( Line
+                            vertices: {
+                                [ 0.86 -0.04 ]
+                                [ 0.82 0 ]
+                                [ 0.86 0.04 ]
+                                [ 0.9 0 ]
+                                [ 0.86 -0.04 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+    }
+) 

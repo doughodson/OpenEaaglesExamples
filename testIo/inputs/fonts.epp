@@ -1,0 +1,73 @@
+// =============================================================================
+//  Fonts
+// =============================================================================
+
+#define FONT_X  0
+#define FONT_Y  476
+#define FONT_HEIGHT 19
+#define FONT_WIDTH  11
+
+normalFont: normal
+
+fonts: {
+
+    normal:
+    ( BitmapFont
+        fontPosition: [ FONT_X  FONT_Y ]
+        bitmapWidth: FONT_WIDTH
+        bitmapHeight: FONT_HEIGHT
+        characterSpacing: FONT_WIDTH
+        lineSpacing: FONT_HEIGHT
+        path: FONT_11_19_NORMAL_PATH
+        reverse: false
+    )
+
+    underlined:
+    ( BitmapFont
+        fontPosition: [ FONT_X  FONT_Y ]
+        bitmapWidth: FONT_WIDTH
+        bitmapHeight: FONT_HEIGHT
+        characterSpacing: FONT_WIDTH
+        lineSpacing: FONT_HEIGHT
+        path: FONT_11_19_UNDERLINE_PATH
+        reverse: false
+    )
+
+    reversed:
+    ( BitmapFont
+        fontPosition: [ FONT_X  FONT_Y ]
+        bitmapWidth: FONT_WIDTH
+        bitmapHeight: FONT_HEIGHT
+        characterSpacing: FONT_WIDTH
+        lineSpacing: FONT_HEIGHT
+        path: FONT_11_19_NORMAL_PATH
+        reverse: true
+    )
+
+    special:
+    ( BitmapFont
+        fontPosition: [ FONT_X  FONT_Y ]
+        bitmapWidth: FONT_WIDTH
+        bitmapHeight: FONT_HEIGHT
+        characterSpacing: FONT_WIDTH
+        lineSpacing: FONT_HEIGHT
+        path: FONT_11_19_SPECIAL_PATH
+        reverse: false
+    )
+
+    specialRv:
+    ( BitmapFont
+        fontPosition: [ FONT_X  FONT_Y ]
+        bitmapWidth: FONT_WIDTH
+        bitmapHeight: FONT_HEIGHT
+        characterSpacing: FONT_WIDTH
+        lineSpacing: FONT_HEIGHT
+        path: FONT_11_19_SPECIAL_PATH
+        reverse: true
+    )
+}
+
+#undef FONT_X
+#undef FONT_Y
+#undef FONT_HEIGHT
+#undef FONT_WIDTH

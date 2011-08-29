@@ -1,0 +1,296 @@
+// ---
+// Simple radar test; ownship vs. 3 targets 
+//
+//   1) Ownship has a radar, a track manager, and four A/A missiles,
+//      and is looking at three target players.  You need to select
+//      A/A mode ('A') before launching a missile ('L').  Step to next
+//      target track using 'S'.
+//
+//   2) Each target players has a radar receiver.
+//
+//   3) You can select the target players as 'ownship' using the mouse
+//      on the situation display or using the '+' key.
+//
+// ---
+
+#define PFRZ false
+#define REF_LAT  45.0
+#define REF_LON -90.0
+
+( TestStation
+
+   tcPriority: 1
+   bgRate: 10
+
+   // ---
+   // Graphics
+   // ---
+   glutDisplay:
+      #include "displays.epp"
+
+   // ---
+   // Simulation scenario
+   // ---
+   ownship: ownship
+   simulation: ( Simulation
+   
+     latitude:  REF_LAT
+     longitude: REF_LON
+   
+      //gamingAreaRange: ( KiloMeters 200.0 )
+
+      //simulationTime: ( Seconds ( + ( * 13 3600 ) ( * 29 60 )  0 ) )
+      //day: 13
+      //month: 11
+      //year: 1973
+
+      players: {
+
+         // --
+         // Ownship players
+         // ---
+         ownship:
+         ( Aircraft
+
+            id: 1
+            side: blue
+            type: "F-16"
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 0 0 -10000 ]
+            initHeading: ( Degrees 45 )
+            initVelocity: 250
+            positionFreeze: PFRZ
+
+            components: {
+
+               // R/F Antenna: RWR and Radar
+               antennas: ( Gimbal
+                  components: {
+
+                     rwr: ( Antenna 
+                        scanMode: manual
+                        polarization: horizontal
+                        gain: ( dB 12 )
+                     )
+
+                     radar: ( Antenna
+                        polarization: horizontal
+                        gain: ( dB 42 )
+                        #include "gainPattern.epp"
+
+                        initPosition: [ 0 0 ]
+                        maxRates: [ 0.8727 0.8727 ]
+                        commandRateAzimuth:   ( Degrees 60 ) // per second
+                        commandRateElevation: ( Degrees 60 ) // per second
+                        reference: [ 0 0 ]
+                        searchVolume: [ 1.0472 0.05 ]
+                        numBars: 2
+
+                        maxPlayersOfInterest: 6
+                        playerOfInterestTypes: { air weapon }
+                        maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                        maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                        localPlayersOfInterestOnly: false
+                        useWorldCoordinates: false
+                     )
+
+                  }
+               )
+
+               // R/F sensors: Radar (TWS mode only) and RWR
+               sensors: ( SensorMgr
+                  components: {
+                     ( Tws
+                        trackManagerName: twsTrkMgr
+                        antennaName: radar
+                        powerPeak:  ( KiloWatts 500.0 )
+                        frequency:  ( GigaHertz 3.0 )
+                        bandwidth:  ( GigaHertz 2.0 )
+                        PRF:        ( Hertz 500.0 ) 
+                        pulseWidth: ( MilliSeconds 0.01 )
+                        threshold:  ( dB 0.0 )
+                        igain: ( dB 0 )
+                        ranges:     [ 10 20 40 80 160 ]
+                        initRangeIdx: 2
+                     )
+                     ( Rwr 
+                        antennaName: rwr  
+                        threshold:  ( dB 0.0 )
+                        frequency:  ( GigaHertz 3.0 )
+                        bandwidth:  ( GigaHertz 2.0 )
+                     )
+                  }
+               )
+
+               // Computer owns a track manager
+               obc: ( OnboardComputer
+                  components: {
+                     twsTrkMgr: ( AirTrkMgr
+                        maxTracks: 50
+                        alpha: 1.0
+                        beta:  0.5
+                        gamma: 0.0
+                        positionGate: 1500
+                        rangeGate:     500
+                        velocityGate:   10
+                        firstTrackId: 2000
+                     )
+                  }
+               )
+
+               // Four A/A missles
+               sms: ( StoresMgr
+                  numStations: 4
+                  stores: {
+                     1: ( AamMissile
+                        id: 201
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     2: ( AamMissile
+                        id: 202
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     3: ( AamMissile
+                        id: 203
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     4: ( AamMissile
+                        id: 204
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                  }
+               )
+
+            }
+         )
+
+         // --
+         // Target players
+         // ---
+         p00:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1000
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 10000 15000 -10000 ]
+            initHeading: ( Degrees 220 )
+            initVelocity: 80
+            positionFreeze: PFRZ
+            killRemoval: true
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 12 )
+               )
+               ( Rwr 
+                  antennaName: rwr  
+                  threshold:  ( dB 0.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+               )
+            }
+         )
+
+         p01:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1001
+            camouflageType: 1
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 12000 16000 -10000 ]
+            initHeading: ( Degrees 220 )
+            initVelocity: 80
+            positionFreeze: PFRZ
+            killRemoval: true
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 12 )
+               )
+               ( Rwr 
+                  antennaName: rwr  
+                  threshold:  ( dB 0.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+               )
+            }
+         )
+
+         p02:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1002
+            camouflageType: 2
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 12000 14000 -10000 ]
+            initHeading: ( Degrees 45 )
+            initVelocity: 80
+            positionFreeze: PFRZ
+            killRemoval: true
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 12 )
+               )
+               ( Rwr 
+                  antennaName: rwr  
+                  threshold:  ( dB 0.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+               )
+            }
+         )
+
+      }
+   )
+)

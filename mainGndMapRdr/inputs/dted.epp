@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// Terrain data
+// -----------------------------------------------------------------------------
+terrain:
+( QuadMap
+    path: DATA_PATH
+    components: {
+        ( QuadMap
+            components: {            
+                ( QuadMap
+                    components: {
+                        ( DtedFile file: "dted/W119/N37.DT1" ) 
+                        ( DtedFile file: "dted/W120/N37.DT1" )
+                        ( DtedFile file: "dted/W119/N36.DT1" ) 
+                        ( DtedFile file: "dted/W120/N36.DT1" )
+                    }
+                )
+                ( QuadMap
+                    components: {
+                        ( DedFile file: "ded/W117_N37.ded" )
+                        ( DedFile file: "ded/W118_N37.ded" )
+                        ( DedFile file: "ded/W117_N36.ded" )
+                        ( DedFile file: "ded/W118_N36.ded" )
+                    }
+                )
+            }
+        )
+            
+    }
+)
+

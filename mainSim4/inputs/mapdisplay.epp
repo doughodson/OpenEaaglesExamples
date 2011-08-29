@@ -1,0 +1,289 @@
+display: ( MapTestDisplay
+    
+    name: "Map Test"
+  
+    left:        -10
+    right:        10
+    bottom:      -10
+    top:          10
+    near:        -2.0
+    far:          2.0
+    vpX:          0
+    vpY:          0 
+    vpWidth:  800
+    vpHeight: 800
+
+
+    clearDepth: 20.0
+    clearColor: ( rgb 0.321 0.321 0.321 )
+    
+    normalFont: normal
+
+    fonts: {
+        // normal font for most display stuff
+        normal:
+        ( FTGLHaloFonts
+            fontPosition: [ -10 10 ]
+            path: FONT_PATH
+            file: "arialn.ttf"
+            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+            linewidth: 3
+            fontWidth: 0.35
+            fontHeight: 0.35
+        )        
+    }
+
+    // here our the buttons, and other stuff that will "overlay" the map page
+    components: {
+        // range up
+        ( Button
+            transform: ( Translation 9 9.25 )
+            selectName: 1
+            eventId: 1000
+            components: {
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.45 -0.45 ]
+                        [  0.45 -0.45 ]
+                        [  0 0.45 ]
+                    }
+                )
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.5 -0.5 ]
+                        [ -0.5  0.5 ]
+                        [  0.5  0.5 ]
+                        [  0.5 -0.5 ]
+                    }
+                )
+            }
+        )
+        // range down
+        ( Button
+            transform: ( Translation 9 7.5 )
+            selectName: 2
+            eventId: 1001
+            components: {
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.45 0.45 ]
+                        [  0.45 0.45 ]
+                        [  0 -0.45 ]
+                    }
+                )
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.5 -0.5 ]
+                        [ -0.5  0.5 ]
+                        [  0.5  0.5 ]
+                        [  0.5 -0.5 ]
+                    }
+                )
+            }
+        )
+        
+        // range value
+        range:
+        ( NumericReadout
+            color: white
+            format: "###"
+            transform: { ( Translation 8.5 8.2 ) ( Scale 2 ) }
+            value: 999
+        )
+    }
+
+    // name of the current page we want    
+    page: mappage
+
+    // list of pages we could display, although for this test we just have one, so we
+    // will just put it here.
+    pages: {
+        mappage:
+        ( MapTestMapPage
+            range: 60
+            outerRadius: 10  // same size as display ortho, so it fits nicely
+            components: {
+                // symbol loader
+                sloader:
+                ( SymbolLoader
+                    templates: {
+                         // good guy
+                         ( Graphic
+                            components: {
+                                hdg:
+                                ( Rotators
+                                    components: {
+                                         symbol:
+                                        ( Graphic
+                                            components: {
+                                                ( Polygon
+                                                    color: blue
+                                                    vertices: {
+                                                        [ -0.15 -0.25 ]
+                                                        [  0.15 -0.25 ]
+                                                        [  0  0.25 ]
+                                                    }
+                                                )
+                                                // outline
+                                                ( LineLoop
+                                                    color: black
+                                                    linewidth: 2
+                                                    vertices: {
+                                                        [ -0.15 -0.25 ]
+                                                        [  0.15 -0.25 ]
+                                                        [  0  0.25 ]
+                                                    }
+                                                )
+                                            }
+                                        )
+                                    }
+                                )
+                                name:
+                                ( AsciiText
+                                    color: white
+                                    transform: ( Translation -0.5 -0.5 )
+                                    text: "XXXXX"
+                                )                                
+                            }
+                        )
+                        // bad guy
+                         ( Graphic
+                            components: {
+                                hdg:
+                                ( Rotators
+                                    components: {
+                                         symbol:
+                                        ( Graphic
+                                            components: {
+                                                ( Polygon
+                                                    color: red
+                                                    vertices: {
+                                                        [ -0.15 -0.25 ]
+                                                        [  0.15 -0.25 ]
+                                                        [  0  0.25 ]
+                                                    }
+                                                )
+                                                // outline
+                                                ( LineLoop
+                                                    color: black
+                                                    linewidth: 2
+                                                    vertices: {
+                                                        [ -0.15 -0.25 ]
+                                                        [  0.15 -0.25 ]
+                                                        [  0  0.25 ]
+                                                    }
+                                                )
+                                            }
+                                        )
+                                    }
+                                )
+                                name:
+                                ( AsciiText
+                                    color: white
+                                    transform: ( Translation -0.5 -0.5 )
+                                    text: "XXXXX"
+                                )                                
+                            }
+                        )
+                    }
+                )
+
+                // here is the outer circle, to show range
+                ( OcclusionCircle
+                    color: white
+                    radius: 9.9
+                    outerRadius: 10
+                    slices: 1000
+                )
+                
+                // here are our lat/lon lines text readouts
+                // LAT READOUTS
+                line1:
+                ( Translator components: { text1: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line2:
+                ( Translator components: { text2: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line3:
+                ( Translator components: { text3: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line4:
+                ( Translator components: { text4: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line5:
+                ( Translator components: { text5: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line6:
+                ( Translator components: { text6: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line7:
+                ( Translator components: { text7: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line8:
+                ( Translator components: { text8: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line9:
+                ( Translator components: { text9: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line10:
+                ( Translator components: { text10: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line11:
+                ( Translator components: { text11: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line12:
+                ( Translator components: { text12: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line13:
+                ( Translator components: { text13: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line14:
+                ( Translator components: { text14: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line15:
+                ( Translator components: { text15: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line16:
+                ( Translator components: { text16: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line17:
+                ( Translator components: { text17: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line18:
+                ( Translator components: { text18: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line19:
+                ( Translator components: { text19: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                line20:
+                ( Translator components: { text20: ( LatitudeReadout color: cyan format: "+DD" ) } )
+                // LON READOUTS
+                lonline1:
+                ( Translator components: { lontext1: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline2:
+                ( Translator components: { lontext2: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline3:
+                ( Translator components: { lontext3: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline4:
+                ( Translator components: { lontext4: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline5:
+                ( Translator components: { lontext5: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline6:
+                ( Translator components: { lontext6: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline7:
+                ( Translator components: { lontext7: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline8:
+                ( Translator components: { lontext8: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline9:
+                ( Translator components: { lontext9: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline10:
+                ( Translator components: { lontext10: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline11:
+                ( Translator components: { lontext11: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline12:
+                ( Translator components: { lontext12: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline13:
+                ( Translator components: { lontext13: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline14:
+                ( Translator components: { lontext14: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline15:
+                ( Translator components: { lontext15: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline16:
+                ( Translator components: { lontext16: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline17:
+                ( Translator components: { lontext17: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline18:
+                ( Translator components: { lontext18: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline19:
+                ( Translator components: { lontext19: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+                lonline20:
+                ( Translator components: { lontext20: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            }
+        )
+    }
+)

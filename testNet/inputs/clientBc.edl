@@ -1,0 +1,13 @@
+
+// Client side for the Broadcast handler tests
+
+( ClientSide
+    noWait: false
+    
+// Single handler test
+    netHandler:   ( BroadcastHandler localIpAddress: "172.17.162.43"  networkMask: "255.255.248.0" port: 3001 localPort: 3002 shared: true)
+
+// Double handler test
+    //netInput:   ( BroadcastHandler localIpAddress: "172.17.162.43"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3002 shared: true )
+    //netOutput:  ( BroadcastHandler localIpAddress: "172.17.162.43"  networkMask: "255.255.248.0" port: 3000  localPort: 3002 shared: true )
+)

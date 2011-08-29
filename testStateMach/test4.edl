@@ -1,0 +1,9 @@
+// Test #4
+
+( TestStateMachine04 
+   stateMachines: {
+      s01: ( TestStateMachine04A )
+      s04: ( TestStateMachine04B )
+      s13: ( TestStateMachine04C )
+   }
+)

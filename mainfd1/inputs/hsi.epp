@@ -1,0 +1,505 @@
+// HSI
+( Graphic
+    transform: ( Translation -0.25 -2.75 )
+    components: {        
+        hsi:
+        ( Hsi
+            components: {
+                // navaid 2 course pointer 
+                nav2brgptr:
+                ( Rotators 
+                    components: {
+                        ( Line
+                            linewidth: 2
+                            color: cyan
+                            segment: 1
+                            vertices: {
+                                // top
+                                [ 0 1.25 ] [ -0.05 1.16 ]
+                                [ 0 1.25 ] [ 0.05 1.16 ]
+                                [ 0.05 0.81 ] [ 0.05 1.16 ]
+                                [ -0.05 0.81 ] [ -0.05 1.16 ]
+                                [ -0.05 0.81 ] [ 0.05 0.81 ]
+                                // bottom
+                                [ -0.05 -0.83 ] [ 0.05 -0.83 ]
+                                [ -0.05 -1.18 ] [ -0.05 -0.83 ]
+                                [ 0.05 -1.18 ] [ 0.05 -0.83 ]
+                                [ 0.05 -1.18 ] [ 0.14 -1.25 ]
+                                [ 0.05 -1.23 ] [ 0.15 -1.25 ]
+                                [ -0.05 -1.18 ] [ -0.14 -1.25 ]
+                                [ -0.05 -1.23 ] [ -0.15 -1.25 ]    
+                                [ -0.05 -1.23 ] [ 0.05 -1.23 ]                           
+                            }
+                        )
+                            
+                    }
+                )
+            
+                nav1brgptr:
+                // navaid 1 course pointer 
+                ( Rotators 
+                    components: {
+                        ( Line
+                            linewidth: 2
+                            color: cyan
+                            segment: 1
+                            vertices: {
+                                [ 0 1.25 ] [ 0  0.85 ]
+                                [ -0.1 1.1 ] [ 0 1.25 ]
+                                [ 0.1 1.1 ] [ 0 1.25 ]
+                                [ -0.07 0.85 ] [ 0.07 0.85 ]
+                                [ 0 -0.85 ] [ 0 -1.25 ]
+                                [ 0 -1.12 ] [ -0.146 -1.17 ]
+                                [ 0 -1.12 ] [ 0.146 -1.17 ]
+                            }
+                        )
+                            
+                    }
+                )
+                pricrsptr:
+                // course pointer
+                ( CrsPntr 
+                    numDots: 4
+                    showCdi: 1
+                    showCrsPntr: 1
+                    components: {
+                        // Cdi scale
+                        ( Graphic
+                            color: ( rgb 0.0235 0.647 0.0235 )
+                            components: {
+                                ( Circle
+                                    transform: ( Translation -0.88 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )
+                                ( Circle
+                                    transform: ( Translation -0.44 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )
+                                ( Circle
+                                    transform: ( Translation 0.88 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )
+                                ( Circle
+                                    transform: ( Translation 0.44 0 ) 
+                                    filled: 1
+                                    slices: 1000
+                                    radius: 0.1
+                                )                                
+                            }
+                        )                                                              
+                    }
+                )   
+
+                // here are the readouts, with occlusion boxes
+                // N
+                ( Graphic
+                    transform: ( Translation 0 1.05 )
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.07 0 ) ( Scale 1.2 ) }
+                            text: "N"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // 03 
+                ( Graphic
+                    transform: { ( Rotation -0.5236 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "03"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // 06 
+                ( Graphic
+                    transform: { ( Rotation -1.0472 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "06"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                
+                // E
+                ( Graphic
+                    transform: { ( Rotation -1.57 )( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.052 0 ) ( Scale 1.2 ) }
+                            text: "E"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // 12
+                ( Graphic
+                    transform: { ( Rotation -2.0944 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "12"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                                        
+                // 15
+                ( Graphic
+                    transform: { ( Rotation -2.618 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "15"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                        
+                // S
+                ( Graphic
+                    transform: { ( Rotation 3.14 )( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.052 0 ) ( Scale 1.2 ) }
+                            text: "S"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // 21
+                ( Graphic
+                    transform: { ( Rotation 2.618 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "21"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                             
+                // 24
+                ( Graphic
+                    transform: { ( Rotation 2.094 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "24"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )                                                        
+                // W
+                ( Graphic
+                    transform: { ( Rotation 1.57 )( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.09 -0.04 ) ( Scale 1.2 ) }
+                            text: "W"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.04725 -0.01 ]
+                                [ -0.04725 0.14 ]
+                                [ 0.05  0.14 ]
+                                [ 0.05 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // 30
+                ( Graphic
+                    transform: { ( Rotation 1.0472 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "30"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // 33 
+                ( Graphic
+                    transform: { ( Rotation 0.5236 ) ( Translation 0 1.05 ) }
+                    components: {
+                        ( AsciiText
+                            font: pfdspecfont
+                            transform: { ( Translation -0.10 0 ) ( Scale 1.2 ) }
+                            text: "33"
+                        )
+                        ( Polygon
+                            color: black
+                            vertices: {
+                                [ -0.15 -0.01 ]
+                                [ -0.15 0.14 ]
+                                [ 0.15  0.14 ]
+                                [ 0.15 -0.01 ]
+                            }
+                        )
+                    }
+                )
+                // selected heading bug
+    selhdg:     ( Rotators
+                    components: {
+                        ( Graphic
+                            color: magenta
+                            linewidth: 2
+                            transform: ( Translation 0 1.25 )
+                            components: {
+                                ( LineLoop 
+                                    vertices: {
+                                        [ -0.12 0 ]
+                                        [ -0.12 0.08 ]
+                                        [ -0.08 0.08 ]
+                                        [ -0.02 0 ]
+                                    }
+                                )
+                                ( LineLoop 
+                                    vertices: {
+                                        [ 0.12 0 ]
+                                        [ 0.12 0.08 ]
+                                        [ 0.08 0.08 ]
+                                        [ 0.02 0 ]
+                                    }
+                                )                                
+                            }
+                        )
+                    }
+                )        
+      
+                ( DialTickMarks
+                    linewidth: 2
+                    color: green
+                    length: 0.17
+                    quantity: 36
+                    startAngle: 0
+                    sweepAngle: 360
+                    dialRadius: 1.25
+                )
+                ( DialTickMarks
+                    linewidth: 2
+                    color: green
+                    length: 0.1
+                    quantity: 36
+                    startAngle: 5
+                    sweepAngle: 360
+                    dialRadius: 1.25
+                )         
+            }
+        )
+        ( Line
+            color: white
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation 1.57 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation 0.785 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation 2.355  )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation -0.785 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation -2.355  )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )     
+        ( Line
+            color: white
+            transform: ( Rotation 3.14 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation -1.57 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        ( Line
+            color: white
+            transform: ( Rotation -3.14 )
+            vertices: {
+                [ 0 1.26 ] [ 0 1.46 ]
+            }
+        )
+        // here is the heading readout
+thdg:   ( NumericReadout
+            font: pfdspecfont
+            color: white
+            transform: { ( Translation -0.18 1.48 ) ( Scale 1.4 ) }
+            format: "00#"
+        )
+        // outline for the heading readout
+        ( LineLoop
+            color: white
+            vertices: {
+               [ 0 1.4 ]
+               [ -0.2 1.45 ]
+               [ -0.2  1.7 ]
+               [ 0.2 1.7 ]
+               [ 0.2 1.45 ]
+            }
+        )
+        ( Line
+            color: white
+            linewidth: 2
+            vertices: { [ -0.05 1.4 ] [ 0.05 1.4 ] }
+        )
+
+        // commanded course and heading readout
+        ( AsciiText
+            color: green
+            font: pfdspecfont
+            transform: ( Translation -1.4 1.48 ) 
+            text: "CRS"
+        )
+cmdcrs: ( NumericReadout
+            color: magenta
+            font: pfdspecfont
+            transform: { ( Translation -1.39 1.29 ) ( Scale 1.2 ) }
+            format: "00#"
+            value: 999
+        )
+            
+        ( AsciiText
+            color: green
+            font: pfdspecfont
+            transform: ( Translation 1.15 1.48 ) 
+            text: "HDG"
+        )
+cmdhdg: ( NumericReadout
+            color: magenta
+            font: pfdspecfont
+            transform: { ( Translation 1.17 1.29 ) ( Scale 1.2 ) }
+            format: "00#"
+            value: 999
+        )            
+    }
+)
+

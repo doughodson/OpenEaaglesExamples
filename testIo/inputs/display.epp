@@ -1,0 +1,110 @@
+//------------------------------------------------------------------------------
+// I/O Device Test Display --
+//   2 columns, 20 rows each, of AI and DI channels (see Display.h)
+//------------------------------------------------------------------------------
+
+fullScreen: 0
+
+left:        -17.5
+right:       622.5
+bottom:      -2.5
+top:        477.5
+near:        -2.0
+far:          2.0
+
+vpWidth:    640
+vpHeight:   480
+
+#include "colors.epp"
+#include "fonts.epp"
+
+components: {
+
+   // ---
+   // Title line
+   // ---
+   ( AsciiText position: [ 2 1 ] width: 55  justification: center  text: "I/O DEVICE TEST PROGRAM" )
+
+
+   // ---
+   // First column of 20 entries (1 ... 20)
+   // ---
+   column1: ( Table
+      position: [ 4 1 ]
+      rows: 20
+      columns: {
+
+         label: ( AsciiText text: "12345678:" width: 11  justification: right )
+         
+         ( AsciiText text: " " )   /* Seperator */
+
+         typeRo: ( Rotary
+            width: 6
+            components: {
+               ( AsciiText text: " " )   /* Blank */
+               ai: ( NumericReadout format: "+#.###" )
+               ( AsciiText text: "0" )
+               ( AsciiText text: "1" )
+            }
+         )
+
+      }
+   )
+
+   // ---
+   // Second column of 20 entries (21 ... 40)
+   // ---
+   column2: ( Table
+      position: [ 4  20 ]
+      rows: 20
+      columns: {
+
+         label: ( AsciiText text: "12345678:" width: 11  justification: right )
+         
+         ( AsciiText text: " " )   /* Seperator */
+
+         typeRo: ( Rotary
+            width: 6
+            components: {
+               ( AsciiText text: " " )   /* Blank */
+               ai: ( NumericReadout format: "+#.###" )
+               ( AsciiText text: "0" )
+               ( AsciiText text: "1" )
+            }
+         )
+
+      }
+   )
+
+   // ---
+   // thrid column of 20 entries (41 ... 60)
+   // ---
+   column3: ( Table
+      position: [ 4 39 ]
+      rows: 20
+      columns: {
+
+         label: ( AsciiText text: "12345678:" width: 11  justification: right )
+         
+         ( AsciiText text: " " )   /* Seperator */
+
+         typeRo: ( Rotary
+            width: 6
+            components: {
+               ( AsciiText text: " " )   /* Blank */
+               ai: ( NumericReadout format: "+#.###" )
+               ( AsciiText text: "0" )
+               ( AsciiText text: "1" )
+            }
+         )
+
+      }
+   )
+
+   // ---
+   // Exit Instructions
+   // ---
+   ( AsciiText position: [ 25 1 ] width: 55  justification: center  text: "ESC to exit!" )
+
+}
+

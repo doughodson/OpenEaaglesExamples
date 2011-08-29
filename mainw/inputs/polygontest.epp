@@ -1,0 +1,232 @@
+// test polygons
+( Polygon   
+    mask: MASK
+    transform: ( Translation -10 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -9 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -8 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -7 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -6 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -5 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -4 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -3 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -2 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation -1 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 0 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 1 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 2 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 3 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 4 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    noDisplayList: NO_DISPLAY_LIST
+    mask: MASK
+    transform: ( Translation 5 0 )
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    noDisplayList: NO_DISPLAY_LIST
+    transform: ( Translation 6 0 )
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 7 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 8 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 9 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)
+( Polygon   
+    mask: MASK
+    transform: ( Translation 10 0 )
+    noDisplayList: NO_DISPLAY_LIST
+    vertices: {
+        [ -0.25 -0.25 ]
+        [ -0.25 0.25 ]
+        [  0.25 0.25 ]
+        [  0.25 -0.25 ]
+    }
+)

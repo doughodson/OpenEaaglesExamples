@@ -1,0 +1,55 @@
+#define WINDOWS   /* Windows if defined; else linux */
+
+( TerrainDisplay
+    
+    name: "My Main Window"
+    
+    //minElevation: ( Feet     0 )    // Min elevation (default: use min elevation from files)
+    //maxElevation: ( Feet 15000 )    // Max elevation (default: use max elevation from files)
+    altitude:     ( Feet 30000 )    // Ref altitude
+    
+    colorScale:      1              // gray(0), color(1), green(2)
+    interpolate:    false           // True to interpolate between elevation posts, else use nearest
+    shadows:        false            // True to compute shadows (and VBW if beamWidth & lookAngle are set)
+    aac:            true            // True to compute aspect angle cosines
+    earthCurvature: false            // True apply earth curvature effect to elevations
+    textureTest:    true            // True to load & draw a texture, else use glDrawPixels()
+    
+    //lookAngle:  ( Degrees -5 )    // beam look angle
+    //beamWidth:  ( Degrees 6 )     // beam width
+    
+    vpHeight:   1180    // This viewport height is set my 1600 by 1200 display
+    vpWidth:     944    // This viewport width is set for cos(latitude) times height: (cos(37)*1180)
+
+    left:           0.0
+    right:          1.0
+    bottom:         0.0
+    top:            1.0
+    
+    // Test terrain data
+    terrain:
+    ( QuadMap
+        path: DATA_PATH
+        components: {
+            
+            ( QuadMap
+                components: {
+//                    ( DedFile file: "ded/W119_N37.ded" )
+//                    ( DedFile file: "ded/W118_N37.ded" )
+                      ( SrtmHgtFile file: "srtm3/N38W115.hgt" ) 
+                      ( SrtmHgtFile file: "srtm3/N38W114.hgt" )
+              }
+            )
+
+            ( QuadMap
+                components: {
+//                    ( DedFile file: "ded/W119_N36.ded" )
+//                    ( DedFile file: "ded/W118_N36.ded" )
+                      ( SrtmHgtFile file: "srtm3/N39W115.hgt" ) 
+                      ( SrtmHgtFile file: "srtm3/N39W114.hgt" )
+                }
+            )
+            
+        }
+    )
+)

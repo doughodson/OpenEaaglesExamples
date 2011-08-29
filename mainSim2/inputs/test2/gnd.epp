@@ -1,0 +1,23 @@
+       
+antenna:
+( Antenna
+       gain: ( dB 32 )
+       initPosition: [ 0 0 ]
+       maxRates: [ 0.8727 0.6981 ]
+       reference: [ 0 0 ]
+       scanMode: circular
+       commandRateAzimuth: ( Degrees 50 )
+       commandRateElevation: ( Degrees 0 )
+)
+
+sensors:
+( Radar
+  antennaName: antenna
+  powerPeak:  ( KiloWatts 500.0 )
+  frequency:  ( GigaHertz 3.0 )
+  PRF:        ( Hertz 500.0 ) 
+  pulseWidth: ( MilliSeconds 0.01 )
+  threshold:  ( dB 2.0 )
+  ranges:     [ 3 6 12 25 50 100 ]
+  initRangeIdx: 4
+)

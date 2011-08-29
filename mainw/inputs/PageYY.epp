@@ -1,0 +1,63 @@
+// ---
+// Example page YY
+// ---
+
+yy:
+( MfdPage
+    pagingEvent: {
+        n: zz
+        p: xx
+        btest: worms
+    }
+    
+    components: {
+        ( AsciiText  font: bigfont position: [  1   1 ]   text: "ABCDEFG"  reversed: 1   selectName: 1401)
+        ( AsciiText  font: bigfont position: [  2   2 ]   text: "ABCDEFG"  color: white  selectName: 1402 brackets: 1 )
+        ( AsciiText  font: bigfont position: [  3   3 ]   text: "ABCDEFG"  color: cyan   selectName: 1403 )
+        ( AsciiText  font: bigfont position: [  4   4 ]   text: "ABCDEFG"  color: cyan   selectName: 1404 )
+        ( AsciiText  font: bigfont position: [  5   5 ]   text: "ABCDEFG"  color: red    selectName: 1405 reversed: 1 )
+        ( AsciiText  font: bigfont position: [  6   6 ]   text: "ABCDEFG"  color: cyan   selectName: 1406 )
+        ( AsciiText  font: bigfont position: [  7   7 ]   text: "ABCDEFG"  color: cyan   selectName: 1407 )
+        ( AsciiText  font: bigfont position: [  8   8 ]   text: "ABCDEFG"  color: cyan   selectName: 1408 )
+        ( AsciiText  font: bigfont position: [  9   9 ]   text: "ABCDEFG"  color: cyan   selectName: 1409  brackets: 1 )
+        ( AsciiText  font: bigfont position: [ 10  10 ]   text: "ABCDEFG"  color: green  selectName: 1410 reversed: 1 )
+        ( Polygon
+            selectName: 401
+            transform: { ( Translation -2.0 -2.0 -1.0 ) }
+            color: yellow
+            texture: t2
+            linewidth: 1
+            vertices: {
+                [  4.5  4.5 ]
+                [ -4.5  4.5 ]
+                [ -4.5 -4.5 ]
+                [  4.5 -4.5 ]
+            }
+            texCoord: {
+                [  1.0  1.0 ]
+                [  0.0  1.0 ]
+                [  0.0  0.0 ]
+                [  1.0  0.0 ]
+            }
+        )
+        ( Polygon
+            selectName: 402
+            transform: { ( Translation 1.0 1.0 2.0 ) }
+            color: yellow
+            texture: t3
+            linewidth: 1
+            vertices: {
+                [  2.5  2.5 ]
+                [ -2.5  2.5 ]
+                [ -2.5 -2.5 ]
+                [  2.5 -2.5 ]
+            }
+            texCoord: {
+                [  1.0  1.0 ]
+                [  0.0  1.0 ]
+                [  0.0  0.0 ]
+                [  1.0  0.0 ]
+            }
+        )
+    }
+)

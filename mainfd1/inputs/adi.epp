@@ -1,0 +1,409 @@
+ 
+// This is the stuff that does not need rotated and translated
+    ( Graphic
+        transform: ( Translation -0.3135 0.95 0.1 )
+        components: {
+        // draw the aircraft symbol
+            ( Graphic
+                components: {
+                    // left wing
+                    ( Line
+                        linewidth: 2
+                        color: black
+                        segment: 1
+                        vertices: {
+                            [ -0.339 0.02 ] [ -1.089 0.02 ]
+                            [ -1.089 -0.02 ] [ -0.39 -0.02 ]
+                            [ -1.089 -0.02 ] [ -1.089 0.02 ]
+                            [ -0.347 0.02 ] [ -0.347 -0.115 ]
+                            [ -0.34 -0.115 ] [ -0.395 -0.115 ]
+                            [ -0.395 -0.115 ] [ -0.395 -0.02 ]
+                        }
+                    )                        
+                    ( Line 
+                        linewidth: 4
+                        color: white
+                        vertices: { 
+                            [ -0.339 0 ]
+                            [ -1.089 0 ]
+                        }
+                    )
+                    ( Line
+                        linewidth: 6
+                        color: white
+                        vertices: {
+                            [ -0.365 0 ]
+                            [ -0.365 -0.106 ]
+                        }
+                    )
+                    // right wing
+                    ( Line
+                        linewidth: 2
+                        color: black
+                        segment: 1
+                        vertices: {
+                            [ 0.339 0.02 ] [ 1.089 0.02 ]
+                            [ 1.089 -0.02 ] [ 0.39 -0.02 ]
+                            [ 1.089 -0.02 ] [ 1.089 0.02 ]
+                            [ 0.347 0.02 ] [ 0.347 -0.115 ]
+                            [ 0.34 -0.115 ] [ 0.395 -0.115 ]
+                            [ 0.395 -0.115 ] [ 0.395 -0.02 ]
+                        }
+                    )
+                    ( Line 
+                        linewidth: 4
+                        color: white
+                        vertices: { 
+                            [ 0.339 0 ]
+                            [ 1.089 0 ]
+                        }
+                    )  
+                    ( Line
+                        linewidth: 6
+                        color: white
+                        vertices: {
+                            [ 0.365 0 ]
+                            [ 0.365 -0.106 ]
+                        }
+                    )
+                    // body                       
+                    ( LineLoop
+                        color: black
+                        linewidth: 2
+                        vertices: {
+                            [ -0.0485 0.02425 ]
+                            [  0.0485 0.02425 ]
+                            [  0.0485 -0.07275 ]
+                            [ -0.0485 -0.07275 ]
+                        }
+                    )
+                    ( Polygon
+                        color: white        
+                        vertices: {
+                            [ -0.0485 0.02425 ]
+                            [  0.0485 0.02425 ]
+                            [  0.0485 -0.07275 ]
+                            [ -0.0485 -0.07275 ]
+                        }
+                    )
+                }
+            ) // end of the aircraft symbol
+
+            // here are the flight director bars
+            // flight director bank angle
+            fdirbnkang: 
+            ( GaugeSlider
+                vertical: 0
+                scalingTable: 
+                    ( Table1
+                        // degrees roll
+                        x: [ -90 90 ]
+                        // inches to move
+                     data: [ 0.56 -0.56 ]
+                    )
+                components: {
+                    ( Line
+                        linewidth: 4
+                        color: magenta
+                        vertices: { [ 0 -0.56 ] [ 0 0.56 ] }
+                    )
+                }
+            )
+            
+            // flight director pitch 
+            fdirpitch:
+            ( GaugeSlider
+                vertical: 1
+                scalingTable: 
+                    ( Table1
+                        // degrees pitch
+                        x: [ -90 90 ]
+                        // inches to move
+                     data: [ 0.56 -0.56 ]
+                    )
+                components: {
+                    ( Line
+                        linewidth: 4
+                        color: magenta
+                        vertices: { [ -0.56 0 ] [ 0.56 0 ] }
+                    )
+                }
+            )
+            
+            // here is the bank angle scale
+            bankscale:     
+            ( Graphic 
+                color: white
+                components: {   
+                    // here are the angle tick marks
+                    // 0 degree
+                    ( Polygon
+                        vertices: {
+                            [ -0.05 1.57 ]
+                            [ 0.05 1.57 ]
+                            [ 0 1.49 ]
+                        }
+                    )
+                    // +- 10
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation 0.1745 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation -0.1745 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    // +- 20
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation 0.349 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation -0.349 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.6 ] }
+                    )
+                    // +- 30
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation 0.5235 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    ( Line
+                        linewidth: 2
+                        transform: ( Rotation -0.5235 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    // +- 45
+                    ( Line
+                        linewidth: 4
+                        transform: ( Rotation 0.78525 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    ( Line
+                        linewidth: 4
+                        transform: ( Rotation -0.78525 ) 
+                        vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                    )
+                    // these only display if we go over +-45 degrees of roll
+                    60indices:
+                    ( Graphic
+                        color: yellow
+                        components: {
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation 1.047 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation -1.047 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                        }
+                    )
+                    // these only display if we go over +-60 degrees of roll
+                    90indices:
+                    ( Graphic
+                        color: yellow
+                        components: {
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation 1.5705 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                            ( Line
+                                linewidth: 4
+                                transform: ( Rotation -1.5705 ) 
+                                vertices: { [ 0 1.49 ] [ 0 1.7 ] }
+                            )
+                        }
+                    )
+                }
+            )          
+
+        
+bankangle: ( DialPointer
+            allowComponentPass: 0
+            color: ( ColorRotary
+                        breakpoints: {
+                            -35
+                            -34
+                            0 
+                            35
+                        }
+                        breakcolors: {
+                            ( rgb 1 1 0 )
+                            ( rgb 1 1 1 )
+                            ( rgb 1 1 1 )
+                            ( rgb 1 1 0 )
+                        }
+                    )
+            components: {
+                ( Polygon
+                    transform: ( Translation 0 1.4 ) 
+                    vertices: {
+                        [ 0 0.085 ]
+                        [ 0.085 -0.085 ]
+                        [ -0.085 -0.085 ]
+                    }
+                )
+    sideslip:   ( GaugeSlider
+                    vertical: 0
+                    transform: ( Translation 0 1.27 ) 
+                    scalingTable:
+                        ( Table1
+                            // sideslip deviation
+                            x: [ -21 21 ]
+                            data: [ -0.15 0.15 ]
+                        )
+                        
+                    components: {
+                        ( Polygon
+                            vertices: {
+                                [ -0.11 -0.035 ]
+                                [ 0.11 -0.035 ]  
+                                [ 0.085 0.035 ]
+                                [ -0.085 0.035 ]
+                                
+                            }
+                        )
+                    }
+                )                
+            }
+        )        
+    }                                       
+)// end of the other stuff graphic
+// This is the adi
+( Graphic
+    scissorX: -1.825
+    scissorWidth: 3.65
+    scissorY: -1.5855
+    scissorHeight: 3.171
+    transform: ( Translation -0.3135 0.95 )
+    components: {    
+        adi:
+        ( Adi
+            scalingTable: 
+                ( Table1
+                    // degrees pitch
+                    x: [ -90 90 ]
+                    // inches
+                    data: [ 8.28 -8.28 ]
+                )
+            
+            components: {
+                  
+        rollladder:    ( Graphic
+                            components: {
+                                // this rotates with our bank angle
+
+                                
+                                /*
+            climbdivemarker: ( ClimbDiveMarker
+                                    linewidth: 1
+                                    scalingTable: 
+                                        ( Table1
+                                            x: [ -90 90 ]
+                                        data: [ -2.6325 2.6325 ]
+                                        ) 
+                                    color: white
+                                    components: {
+                                        ( Arc
+                                            linewidth: 1
+                                            radius: 0.06703125
+                                            startAngle: 210.0
+                                            arcLength: 300.0                        
+                                        )
+                                        ( Circle
+                                            radius: 0.0121875
+                                            filled: 1
+                                        )
+                                        ( Line
+                                            vertices: { [ 0.06703125 0.0 ] [ 0.22550625 0.0 ] }
+                                        )
+                                        ( Line
+                                            vertices: { [ 0.0 0.06703125 ] [ 0.0 0.22550625 ] }
+                                        )   
+                                        ( Line
+                                            vertices: { [ -0.06703125 0.0 ] [ -0.22550625 0.0 ] }   
+                                        )                
+                                }
+                            )  // end of cdm graphic    
+                            */
+           
+         
+                                
+                pitchladder:   ( Graphic 
+                                components: {
+                                    #include "pitchtape.epp"      
+                                    // here is the red chevron (appear at 30 degrees nose high or 20 degrees nose low
+                                    nosehigh:
+                                        ( Polygon   
+                                            color: red
+                                            transform: ( Translation 0 2.76 )
+                                            vertices: {
+                                                [ 0 0 ]
+                                                [ -0.942  0.45 ]
+                                                [  0  0.1 ]
+                                                [ 0.942 0.45 ]
+                                            }
+                                        )             
+                                    noselow:
+                                        ( Polygon   
+                                            color: red
+                                            transform: { ( Translation 0 -1.84 ) ( Rotation 3.14 ) }
+                                            vertices: {
+                                                [ 0 0 ]
+                                                [ -0.942  0.45 ]
+                                                [  0  0.1 ]
+                                                [ 0.942 0.45 ]
+                                            }
+                                        )             
+                                    }
+                            ) // end of pitch ladder
+
+            // drawn when the horizon line disappears                    
+            ghosthorizonbar: ( GhostHorizon
+                                color: white
+                                groundColor: adibrown
+                                skyColor: adiblue
+                                //pitchLimit: 15
+                                //margin: 1.4
+                                linewidth: 2
+                                scalingTable: 
+                                        // same as the pitchladder, although we will never get past +- 40 degrees pitch before going visible
+                                        ( Table1
+                                            x: [ -90 90 ]
+                                         data: [ 8.28 -8.28 ]
+                                        ) 
+                                components: {
+                                    ( Line
+                                        transform: ( Translation 0 0 0.2 )
+                                        segment: 1
+                                        vertices: {
+                                            [ -2.0 0.0 ] [ -1.75625 0.0 ]
+                                            [ -1.634375 0.0 ] [ -1.390625 0.0 ]
+                                            [ -1.26875 0.0 ] [ -1.025 0.0 ]
+                                            [ -0.903125 0.0 ] [ -0.659375 0.0 ]
+                                            [ -0.5375 0.0 ] [ -0.29375 0.0 ]
+                                            [ -0.171875 0.0 ] [ 0.071875 0.0 ]
+                                            [ 0.19375 0.0 ] [ 0.4375 0.0 ]
+                                            [ 0.559375 0.0 ] [ 0.803125 0.0 ]
+                                            [ 0.925 0.0 ] [ 1.16875 0.0 ]
+                                            [ 1.290625 0.0 ] [ 1.534375 0.0 ]
+                                            [ 1.65625 0.0 ] [ 1.9 0.0 ]
+                                        }
+                                    ) 
+                                }
+                            ) // end of ghost horizon instance                             
+                        }
+                    ) // end of roll ladder graphic 
+                }
+            ) // end of our adi
+        }
+
+    )

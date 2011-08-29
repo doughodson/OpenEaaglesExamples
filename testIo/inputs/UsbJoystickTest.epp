@@ -1,0 +1,76 @@
+
+// =============================================================================
+// Simple USB Joystick device mapping
+//   1) simple, one-to-one mapping of DIs and AIs
+//   2) UsbJoystick channels are zero(0) based.
+//   3) using standard IoDevice::IoData, so its AI & DI channels are one(1) based.
+// =============================================================================
+
+( UsbJoystick
+   deviceIndex: 0
+   adapters: {
+
+      // ---
+      // AIs 
+      // ---
+      ( AnalogInput ai:  1      channel: 0  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  2      channel: 1  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  3      channel: 2  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  4      channel: 3  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  5      channel: 4  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  6      channel: 5  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  7      channel: 6  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  8      channel: 7  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai:  9      channel: 8  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 10      channel: 9  offset: 0.0  gain: 1.0 )
+
+      // ---
+      // DIs
+      // ---
+      ( DiscreteInput di:  1     port: 0  channel:  0   num: 10  )
+    //( DiscreteInput di:  2     port: 0  channel:  1 )
+    //( DiscreteInput di:  3     port: 0  channel:  2 )
+    //( DiscreteInput di:  4     port: 0  channel:  3 )
+    //( DiscreteInput di:  5     port: 0  channel:  4 )
+    //( DiscreteInput di:  6     port: 0  channel:  5 )
+    //( DiscreteInput di:  7     port: 0  channel:  6 )
+    //( DiscreteInput di:  8     port: 0  channel:  7 )
+    //( DiscreteInput di:  9     port: 0  channel:  8 )
+    //( DiscreteInput di: 10     port: 0  channel:  9 )
+
+      ( DiscreteInput di: 11     port: 0  channel: 10 )
+      ( DiscreteInput di: 12     port: 0  channel: 11 )
+      ( DiscreteInput di: 13     port: 0  channel: 12 )
+      ( DiscreteInput di: 14     port: 0  channel: 13 )
+      ( DiscreteInput di: 15     port: 0  channel: 14 )
+      ( DiscreteInput di: 16     port: 0  channel: 15 )
+      ( DiscreteInput di: 17     port: 0  channel: 16 )
+      ( DiscreteInput di: 18     port: 0  channel: 17 )
+      ( DiscreteInput di: 19     port: 0  channel: 18 )
+      ( DiscreteInput di: 20     port: 0  channel: 19 )
+
+      ( DiscreteInput di: 21     port: 0  channel: 20 )
+      ( DiscreteInput di: 22     port: 0  channel: 21 )
+      ( DiscreteInput di: 23     port: 0  channel: 22 )
+      ( DiscreteInput di: 24     port: 0  channel: 23 )
+      ( DiscreteInput di: 25     port: 0  channel: 24 )
+      ( DiscreteInput di: 26     port: 0  channel: 25 )
+      ( DiscreteInput di: 27     port: 0  channel: 26 )
+      ( DiscreteInput di: 28     port: 0  channel: 27 )
+      ( DiscreteInput di: 29     port: 0  channel: 28 )
+      ( DiscreteInput di: 30     port: 0  channel: 29 )
+
+      ( DiscreteInput di: 31     port: 0  channel: 30 )
+      ( DiscreteInput di: 32     port: 0  channel: 31 )
+      ( DiscreteInput di: 33     port: 0  channel: 32 )
+      ( DiscreteInput di: 34     port: 0  channel: 33 )
+      ( DiscreteInput di: 35     port: 0  channel: 34 )
+      ( DiscreteInput di: 36     port: 0  channel: 35 )
+      ( DiscreteInput di: 37     port: 0  channel: 36 )
+      ( DiscreteInput di: 38     port: 0  channel: 37 )
+      ( DiscreteInput di: 39     port: 0  channel: 38 )
+      ( DiscreteInput di: 40     port: 0  channel: 39 )
+
+   }
+)
+
