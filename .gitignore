@@ -1,0 +1,6 @@
+vs2008/
+vs2010/
+*.idb
+*.ilk
+*.pdb
+*.exe
