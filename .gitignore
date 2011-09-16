@@ -1,4 +1,3 @@
-
 # visual studio directories
 vs2008/
 vs2010/
@@ -7,8 +6,11 @@ vs2010/
 *.idb
 *.ilk
 *.pdb
-*.exe            # ignore all executables
-!premake4.exe    # except for premake tool
+
+# executables
+*.exe
+# except for premake tool
+!premake4.exe
 
 # compiled object files
 *.[oa]
