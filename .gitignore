@@ -7,8 +7,6 @@ vs2010/
 *.idb
 *.ilk
 *.pdb
-
-# executables
 *.exe            # ignore all executables
 !premake4.exe    # except for premake tool
 
