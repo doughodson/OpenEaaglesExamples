@@ -1,3 +1,4 @@
+#
 # visual studio directories
 vs2008/
 vs2010/
@@ -7,11 +8,51 @@ vs2010/
 *.ilk
 *.pdb
 
-# executables
+# gcc compiled object files
+*.[oa]
+
+# windows executables
 *.exe
-# except for premake tool
+# keep premake executable
 !premake4.exe
 
-# compiled object files
-*.[oa]
+# linux executables
+mainEfis/mainEfis
+mainGL/mainGL
+mainGndMapRdr/mainGndMapRdr
+mainIr/mainIr
+mainNonRT1/mainNonRT1
+mainPuzzle1/mainPuzzle1
+mainPuzzle2/mainPuzzle2
+mainSim1/mainSim1
+mainSim2/mainSim2
+mainSim3/mainSim3
+mainSim4/mainSim4
+mainTerrain/mainTerrain
+mainVmap/mainvmap
+mainfd1/mainfd1
+mainfd2/mainfd2
+mainw/mainw
+mainx9/mainx9
+mainy1/mainy1
+mainz1/mainz1
+mainz2/mainz2
+testEvents/testEvents
+testIo/testIo
+testLinearSys/testLinearSys
+testMatrix/testMatrix
+testNav/testNav
+testNet/testNet
+testRng/testRng
+testStateMach/testStateMach
+testTables/testTables
+tutorial01/tutorial
+tutorial02/tutorial
+tutorial03/tutorial
+tutorial04/tutorial
+tutorial05/tutorial
+tutorial06/tutorial
+tutorial07/tutorial
+tutorial08/tutorial
+
 
