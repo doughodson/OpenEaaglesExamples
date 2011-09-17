@@ -222,10 +222,13 @@ BasicGL::Graphic* Display::pick(const int mouseX, const int mouseY, const int it
   glMatrixMode(GL_PROJECTION);
   glPushMatrix();
   glLoadIdentity();  
-  gluPickMatrix(x, y, 10, 10, viewport);  
-  glOrtho(oLeft, oRight, oTop, oBottom, oFar, oNear);
-	//std::cout << "viewport is " << viewport[2] << " " << viewport[3] << std::endl; 
-	glMatrixMode(GL_MODELVIEW);
+  gluPickMatrix(x, y, 10, 10, viewport);
+  GLdouble tl = 0, tr = 0, tb = 0, tt = 0, tn = 0, tf = 0;
+  getOrtho(tl, tr, tb, tt, tn, tf);
+  glOrtho(tl, tr, tb, tt, tn, tf);
+
+  //std::cout << "viewport is " << viewport[2] << " " << viewport[3] << std::endl; 
+  glMatrixMode(GL_MODELVIEW);
 
   GLuint sbuff[100];
   clearSelectBuffer(sbuff,100);

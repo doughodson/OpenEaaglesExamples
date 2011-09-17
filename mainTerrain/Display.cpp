@@ -304,7 +304,12 @@ bool Display::setSlotTextureTest(const Basic::Number* const msg)
 // updateData() -- update background data here
 //------------------------------------------------------------------------------
 void Display::updateData(const LCreal dt)
-{         
+{
+   // Get Viewport width and height
+   GLsizei vpWidth = 0;
+   GLsizei vpHeight = 0;
+   getViewportSize(&vpWidth, &vpHeight);
+
    // Generate an image when we have the terrain, a view port and we dont' have an image
    if ( terrain != 0 && terrain->isDataLoaded() &&
         vpWidth > 0 && vpHeight > 0 &&

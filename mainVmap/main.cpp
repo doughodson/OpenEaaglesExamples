@@ -276,7 +276,7 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
                     Vpf::VMAP0RefCoverageDirectory* rDir = ref->getCoverage(Vpf::VMAP0ReferenceDirectory::CVG_PLACENAM);
                     if (rDir != 0) {
                         // query our place name by reference latitutde
-                        numVerts = rDir->getPlacenameCoordsByRange(mapRange, mapRange, refLat, refLon, verts, 0, 500);
+                        numVerts = rDir->getPlacenameCoordsByRange((float)mapRange, (float)mapRange, (float)refLat, (float)refLon, verts, 0, 500);
                         // update points
                         updatePoints();
                         // now get our placenames
