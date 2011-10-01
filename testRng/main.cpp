@@ -16,7 +16,7 @@ namespace Eaagles {
 // this test is to match original Mersenne Twister output
 void testValidation()
 {
-  unsigned long init[4] = {0x123, 0x234, 0x345, 0x456}, length = 4;
+  unsigned int init[4] = {0x123, 0x234, 0x345, 0x456}, length = 4;
   Basic::Rng irand(init, length); // 32-bit int generator
   Basic::Rng drand; // double in [0, 1) generator, already init
 
