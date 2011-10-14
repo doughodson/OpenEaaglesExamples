@@ -5,7 +5,7 @@ PGM = testNet
 
 OBJS = ClientSide.o testNet.o NetTester.o ServerSide.o ServerTcpMulti.o
 
-LDFLAGS += -lpthread -loeBasic -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+LDFLAGS += -loeBasic -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 

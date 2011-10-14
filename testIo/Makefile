@@ -5,8 +5,8 @@ PGM = testIo
 
 OBJS = Display.o Table.o formFunc.o main.o
 
-LDFLAGS += -lpthread -loeIoDevice -loeGlut -loeBasicGL -loeBasic
-LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+LDFLAGS += -loeIoDevice -loeGlut -loeBasicGL -loeBasic
+LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 

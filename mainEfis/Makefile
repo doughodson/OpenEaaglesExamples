@@ -5,8 +5,8 @@ PGM = mainEfis
 
 OBJS = TestElectronic.o TestMechanical.o main.o 
 
-LDFLAGS += -lpthread -loeGlut -loeInstruments -loeBasicGL -loeBasic
-LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+LDFLAGS += -loeGlut -loeInstruments -loeBasicGL -loeBasic
+LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 

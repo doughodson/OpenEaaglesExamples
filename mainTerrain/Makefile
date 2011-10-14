@@ -4,9 +4,9 @@ include ../makedefs
 PGM = mainTerrain
 OBJS =  Display.o formFunc.o main.o
 
-LDFLAGS += -lpthread -loeSimulation -loeTerrain
+LDFLAGS += -loeSimulation -loeTerrain
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic
-LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 

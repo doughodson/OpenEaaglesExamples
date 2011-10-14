@@ -25,8 +25,8 @@ OBJS =  \
 	TestVVI.o \
 	testz.o
 
-LDFLAGS += -lpthread -loeInstruments -loeGlut -loeBasicGL -loeBasic
-LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+LDFLAGS += -loeInstruments -loeGlut -loeBasicGL -loeBasic
+LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 

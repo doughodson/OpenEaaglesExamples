@@ -5,8 +5,8 @@ PGM = mainGL
 
 OBJS = mainGL.o 
 
-LDFLAGS += -lpthread -loeGlut -loeBasicGL -loeBasic
-LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
+LDFLAGS += -loeGlut -loeBasicGL -loeBasic
+LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 
