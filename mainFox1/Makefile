@@ -10,7 +10,7 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-PGM = mainfox
+PGM = mainFox1
 
 OBJS = mainFox1.o Application.o Display.o formFunc.o MainWindow.o Station.o Worm.o
 
