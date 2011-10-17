@@ -2,6 +2,8 @@
 include ../makedefs
 
 
+#
+CPPFLAGS += -DFOX_1_6
 CPPFLAGS += -I/usr/include/fox-1.6
 
 EPPFLAGS += -I$(DATA_DIR) \
@@ -13,9 +15,10 @@ PGM = mainfox
 OBJS = mainFox1.o Application.o Display.o formFunc.o MainWindow.o Station.o Worm.o
 
 LDFLAGS += -loeSimulation -loeDafif -loeInstruments -loeBasicGL -loeBasic
+LDFLAGS += -lFOX-1.6
 LDFLAGS += -lftgl -lfreetype
-LDFLAGS += -lGLU -lGL
-LDFLAGS += -lX11 -lXi -lXmu
+LDFLAGS += -lGLU -lGL -lX11
+#LDFLAGS += -lXi -lXmu
 
 all: $(PGM)
 
