@@ -1,6 +1,9 @@
 #
 include ../makedefs
 
+
+CPPFLAGS += -I/usr/include/fox-1.6
+
 EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"

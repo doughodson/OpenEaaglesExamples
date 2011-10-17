@@ -3,6 +3,8 @@ include ../makedefs
 
 PGM = mainFltk1
 
+CPPFLAGS += -I/usr/include/Fl
+
 OBJS = Display.o MainWindow.o GLWindow.o Station.o mainFltk1.o
 
 LDFLAGS += -loeSimulation -loeInstruments -loeDafif  -loeBasicGL -loeBasic 

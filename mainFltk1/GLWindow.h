@@ -8,7 +8,7 @@
 #ifndef __EAAGLES_FLTK1_GLWINDOW_H__
 #define __EAAGLES_FLTK1_GLWINDOW_H__
 
-#include <Fl/Fl_Gl_Window.h>
+#include <Fl/Fl_Gl_Window.H>
 
 namespace Eaagles {
 namespace Fltk1 {
