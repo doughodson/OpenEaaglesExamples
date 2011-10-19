@@ -25,7 +25,7 @@
 //#define JAMMER p135
 #define BLUE_HDG 40
 #define RED_HDG 220
-#define REF_LAT  45.0
+#define REF_LAT  45.05
 #define REF_LON -90.0
 
 #define NUM_BARS 1
@@ -35,9 +35,13 @@
 
    tcPriority: 1.0
 
+  bgPriority: 0.5
+  bgRate: 10.0
+
+
 #if 1 /* network test -- replaces test3a */
    netPriority: 1.0
-   netRate: 10
+  netRate: 5.0
 
    networks: {
       ( DisNetIO
@@ -57,8 +61,19 @@
                emitterFunction: 1
                sensor: ( Radar )
                antenna: ( Antenna
-                  localPlayersOfInterestOnly: true
+                  polarization: horizontal
+                  gain: ( dB 36 )
                   #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
                )
                defaultIn:  true
                defaultOut:  true
@@ -79,9 +94,6 @@
     // ---
     ownship: p011
     simulation: ( Simulation
-
-        //numTcThreads: 1
-        //numBgThreads: 1
 
         latitude:  REF_LAT
         longitude: REF_LON

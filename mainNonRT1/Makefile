@@ -14,12 +14,6 @@ LDFLAGS += -lpthread
 
 CPPFLAGS += -I/usr/local/include
 
-EPPFLAGS =  -I. \
-	   -I$(DATA_DIR) \
-	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" 
-	   -DFONT_11_19_PATH=\"$(DATA_DIR)/fonts/11x19/normal/\" \
-	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
-
 all: $(PGM)
 
 edl:

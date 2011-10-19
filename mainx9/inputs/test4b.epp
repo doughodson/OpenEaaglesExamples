@@ -13,9 +13,13 @@
 
 ( TestStation
 
-   tcPriority: 0.8
-   netPriority: 0.8
-   netRate: 50
+   tcPriority: 1
+
+   bgPriority: 0.5
+   bgRate: 10.0
+
+   netPriority: 1.0
+   netRate: 5.0
 
    networks: {
       ( DisNetIO
@@ -36,8 +40,19 @@
                emitterFunction: 1
                sensor: ( Radar )
                antenna: ( Antenna
-                  localPlayersOfInterestOnly: true
+                  polarization: horizontal
+                  gain: ( dB 36 )
                   #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
                )
                defaultIn:  true
                defaultOut:  true
@@ -58,9 +73,6 @@
    ownship: p00
    simulation: ( Simulation
 
-      //numTcThreads: 1
-      //numBgThreads: 1
-
       latitude:  REF_LAT
       longitude: REF_LON
 
@@ -77,7 +89,7 @@
             signature: ( SigSphere radius: 2.0 )
             //initPosition: [ 10000 -6000 -10000 ]
             //initPosition: [ 0 0 -10000 ]
-             initXPos:  ( Meters  0 )
+             initXPos:  ( Meters  10000 )
              initYPos:  ( Meters -6000 )
              initAlt:   ( Meters  10000 )
             //initHeading: ( Degrees 100 )
