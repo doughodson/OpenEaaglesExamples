@@ -1,0 +1,733 @@
+#line 1 "inputs\\test1.epp"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+( TestStation
+
+   tcPriority: 1
+   bgRate: 10
+
+   
+   
+   
+   glutDisplay:
+      #line 1 "c:\\oe\\openeaaglesexamples\\mainx9\\inputs\\displays.epp"
+
+
+
+
+
+
+( TestDisplay
+
+   idleSleepTime: 50
+
+   left:       -2.8
+   right:       2.8
+   bottom:     -2.1
+   top:         2.1
+   near:       -2.0
+   far:         2.0
+
+   vpWidth:    720
+   vpHeight:   540
+
+   colorTable: {
+      black:      ( rgb 0 0 0 )
+      red:        ( hsv 0.0 0.9 0.9 )
+      green:      ( rgb 0 1 0 )
+      yellow:     ( rgb 1 1 0 )
+      blue:       ( hsv 240.0 0.7 0.7 )
+      magenta:    ( rgb 1 0 1 )
+      cyan:       ( rgb 0 1 1 )
+      white:      ( hsv 240.0 0.0 0.9 )
+   }
+
+   clearColor: ( hsv 240.0 0.6 0.1 )
+   clearDepth: 1.0
+
+   fonts: {
+
+      font1: ( FTGLPolygonFonts 
+         fontPosition: [ -2.7 2.0 ]
+         path: "../data/fonts/"
+         file: "arialn.ttf"        
+         fontWidth: 0.2
+         fontHeight: 0.2
+         faceSize: 1
+         characterSpacing: 0.1
+         lineSpacing: 0.16
+      )
+
+      font2: ( FTGLPolygonFonts 
+         path: "../data/fonts/"
+         file: "arialn.ttf"
+         fontWidth: 1
+         fontHeight: 1
+         faceSize: 1
+         characterSpacing: 0.08
+         lineSpacing: 0.16
+      )
+
+   }
+   normalFont: font1
+
+   linewidth: 2.0
+
+   
+   
+   
+   components: {
+      
+      ( AsciiText color: white  position: [ 20 43 ]   text: "RWR" )
+      ( AsciiText color: white  position: [ 21 39 ]   text: "Signal(log10)" )
+
+      ( AsciiText color: white  position: [ 14  4 ] text: "-30" )
+      ( AsciiText color: white  position: [ 14 30 ] text: "30" )
+      ( AsciiText color: white  position: [ 1 33 ] text: "B-Scan" )
+      rangeRO: ( NumericReadout color: white position: [ 3 35 ] format: "0##" )
+      ( AsciiText color: white  position: [ 3 33 ] vertical: 1  text: "RANGE" )
+   
+
+      ( Graphic       
+         
+         transform: ( Translation 1.6 0.0 )
+         components: {
+            ( Graphic   
+               transform: ( Translation 0.0 0.0 -0.5 ) 
+               components: {
+                  ( Circle color: ( hsv 120.0 0.5 0.0 ) radius: 1.0  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+                  ( Circle color: white radius: 0.01 slices: 4 )
+                  ( Circle color: white radius: 0.2  slices: 25 )
+                  ( Circle color: white radius: 0.4  slices: 25 )
+                  ( Circle color: white radius: 0.6  slices: 25 )
+                  ( Circle color: white radius: 0.8  slices: 25 )
+                  ( Circle color: white radius: 1.0  slices: 50 )
+                  ( Line   color: white  vertices: { [ 0 0 ] [ 0 1 ] } )
+               }
+            )
+            ( DspRwr  color: red )
+         }
+      )
+
+      ( Graphic       
+         
+         transform: { ( Translation -1.0 0.0 ) ( Scale 1.4 1.0 ) }
+         components: {
+            ( Line
+               color: white
+               segment: 1
+               vertices: {
+                  [ -1.0   0.0 ] [ -1.0    2.0 ]      
+                  [  1.0   0.0 ] [  1.0    2.0 ]      
+                  [ -1.0   0.0 ] [  1.0    0.0 ]      
+                  [ -1.0   0.0 ] [ -1.0   -0.05 ]     
+                  [ -0.67  0.0 ] [ -0.67  -0.05 ]     
+                  [ -0.33  0.0 ] [ -0.33  -0.05 ]     
+                  [  0.0   0.0 ] [  0.0   -0.05 ]     
+                  [  1.0   0.0 ] [  1.0   -0.05 ]     
+                  [  0.67  0.0 ] [  0.67  -0.05 ]     
+                  [  0.33  0.0 ] [  0.33  -0.05 ]     
+                  [ -1.0   1.0 ] [ -1.05   1.0 ]      
+               }
+            )
+            ( DspRadar 
+               color: red
+               components: {
+                  azPtr: ( TdAzPtr
+                     transform: ( Translation 0.0 -0.03 )
+                     components: {
+                        ( Line color: blue vertices: { [ 0 0 ] [ 0 -0.07 ] } )
+                     }
+                  )
+                  elPtr: ( TdElevPtr
+                     transform: ( Translation -1.03 1.0 )
+                     components: {
+                        ( Line color: blue vertices: { [ -0.07 0 ] [ 0 0 ] } )
+                     }
+                  )
+               }
+            )
+         }
+      )
+      
+      
+
+
+
+      ( Graphic
+         transform: ( Translation -1.0 -1.9 -0.5 )
+         components: {
+         
+            ( Circle selectName: 0x1001 color: ( hsv 100.0 0.9 0.0 ) radius: 1.8  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+            ( Circle selectName: 0x1002 color: white radius: 1.8  slices: 50  )
+            ( Circle selectName: 0x1003 color: white radius: 0.9  slices: 50  )
+            
+            hsi:  ( Rotators
+               color: white
+               components: {
+                  ( DialTickMarks
+                        color: white
+                        quantity: 36
+                        length:  0.1
+                        dialRadius: 1.8
+                  )
+                  ( DialTickMarks
+                        color: white
+                        startAngle: 5
+                        sweepAngle: 360
+                        quantity: 36
+                        length: 0.05
+                        dialRadius: 1.8
+                  )
+                  ( Graphic 
+                        components: {
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "N"
+                           ) 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -0.523598 ) ( Translation -0.05 1.5 ) ( Scale 0.14 ) }
+                              text: "3"
+                           )             
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -1.0471975 ) ( Translation -0.05 1.5 ) ( Scale 0.14 ) }
+                              text: "6"
+                           )                         
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -1.570796 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "E"
+                           )
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -2.094395 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "12"
+                           )                                     
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -2.617993 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "15"
+                           )                                                 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -3.141592 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "S"
+                           )
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -3.665191 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "21"
+                           )                                                 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -4.188790 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "24"
+                           )                                                 
+                            
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -4.712388 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "W"
+                           )     
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -5.235987 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "30"
+                           )  
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -5.759586 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "33"
+                           )             
+                        }    
+                  )                                                                                         
+               }
+            )
+            ( Line
+               segment: 1
+               vertices: {
+                  [  0.0  -0.15 ]  [  0.0  0.05 ]
+                  [  0.1   0.0  ]  [ -0.1  0.0  ]
+               }
+            )
+         }
+      )
+            
+      
+      airTracks:
+      ( SymbolLoader 
+         outerRadius: 1.8
+         transform: ( Translation -1.0 -1.9 )
+     
+         
+         templates: {
+
+            
+            1: ( Graphic
+                  color: green
+                  components: {
+                     ( Graphic
+                        transform: ( Scale 0.8 )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.0402 -0.0402 ]
+                                    [ -0.0402  0.0134 ]
+                                    [ -0.0201  0.0402 ]
+                                    [  0.0201  0.0402 ]
+                                    [  0.0402  0.0134 ]
+                                    [  0.0402 -0.0402 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+            
+            
+            2: ( Graphic
+                  color: red
+                  components: {
+                     ( Graphic
+                        transform: ( Scale 0.8 )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.05226  -0.0402 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.0402 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+            
+            
+            
+            3: ( Graphic
+                  color: white
+                  components: {
+                     ( Graphic
+                        transform: ( Scale 0.8 )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.02747  -0.03149 ]
+                                    [ -0.05226  -0.00871 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.00871 ]
+                                    [  0.02747  -0.03149 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+            
+            
+            4: ( Graphic
+                  color: ( rgba 1.0 0.5 0.0 1.0 )
+                  components: {
+                     ( Graphic
+                        transform: ( Scale 0.8 )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.02747  -0.03149 ]
+                                    [ -0.05226  -0.00871 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.00871 ]
+                                    [  0.02747  -0.03149 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+
+            
+            5: ( Graphic
+                  color: white
+                  components: {
+                     ( Graphic
+                        transform: ( Scale 0.8 )
+                        components: {
+                           hdg: ( Rotators
+                              components: {
+                                 ( Line
+                                       vertices: {
+                                          [ 0.0 -0.05 ]
+                                          [ 0.0  0.05 ]
+                                       }
+                                 )
+                              }
+                           )
+                        }
+                     )
+                  }
+            )
+         } 
+      ) 
+      
+   }
+
+)
+
+#line 30 "inputs\\test1.epp"
+
+   
+   
+   
+   ownship: ownship
+   simulation: ( Simulation
+   
+     latitude:  45.0
+     longitude: -90.0
+   
+      
+
+      
+      
+      
+      
+
+      players: {
+
+         
+         
+         
+         ownship:
+         ( Aircraft
+
+            id: 1
+            side: blue
+            type: "F-16"
+            signature: ( SigSphere radius: 2.0 )
+
+            initLatitude:  ( Degrees  45.0 )
+            initLongitude: ( Degrees  -90.0 )
+            initAlt: ( Meters 10000 )
+            initHeading: ( Degrees 45 )
+            initVelocity: 250
+            positionFreeze: false
+
+            components: {
+
+               
+               antennas: ( Gimbal
+                  components: {
+
+                     rwr: ( Antenna 
+                        scanMode: manual
+                        polarization: horizontal
+                        gain: ( dB 12 )
+                     )
+
+                     radar: ( Antenna
+                        polarization: horizontal
+                        gain: ( dB 42 )
+                        #line 1 "c:\\oe\\openeaaglesexamples\\mainx9\\inputs\\gainPattern.epp"
+
+
+
+
+gainPattern:
+( Func1
+   table: ( Table1
+           
+       x:    [ 0.0   0.01745  0.02618   0.04363     0.05236    0.061087   0.06981    0.07854 ]   
+       data: [ 0.0  -3.0    -10.0     -30.0       -20.0      -14.0      -25.0      -80.0 ]       
+   )
+)
+
+#line 83 "inputs\\test1.epp"
+
+                        initPosition: [ 0 0 ]
+                        maxRates: [ 0.8727 0.8727 ]
+                        commandRateAzimuth:   ( Degrees 60 ) 
+                        commandRateElevation: ( Degrees 60 ) 
+                        reference: [ 0 0 ]
+                        searchVolume: [ 1.0472 0.05 ]
+                        numBars: 2
+
+                        maxPlayersOfInterest: 6
+                        playerOfInterestTypes: { air weapon }
+                        maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                        maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                        localPlayersOfInterestOnly: false
+                        useWorldCoordinates: false
+                     )
+
+                  }
+               )
+
+               
+               sensors: ( SensorMgr
+                  components: {
+                     ( Tws
+                        trackManagerName: twsTrkMgr
+                        antennaName: radar
+                        powerPeak:  ( KiloWatts 500.0 )
+                        frequency:  ( GigaHertz 3.0 )
+                        bandwidth:  ( GigaHertz 2.0 )
+                        PRF:        ( Hertz 500.0 ) 
+                        pulseWidth: ( MilliSeconds 0.01 )
+                        threshold:  ( dB 0.0 )
+                        igain: ( dB 0 )
+                        ranges:     [ 10 20 40 80 160 ]
+                        initRangeIdx: 2
+                     )
+                     ( Rwr 
+                        antennaName: rwr  
+                        threshold:  ( dB 0.0 )
+                        frequency:  ( GigaHertz 3.0 )
+                        bandwidth:  ( GigaHertz 2.0 )
+                     )
+                  }
+               )
+
+               
+               obc: ( OnboardComputer
+                  components: {
+                     twsTrkMgr: ( AirTrkMgr
+                        maxTracks: 50
+                        alpha: 1.0
+                        beta:  0.5
+                        gamma: 0.0
+                        positionGate: 1500
+                        rangeGate:     500
+                        velocityGate:   10
+                        firstTrackId: 2000
+                     )
+                  }
+               )
+
+               
+               sms: ( StoresMgr
+                  numStations: 4
+                  stores: {
+                     1: ( AamMissile
+                        id: 201
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     2: ( AamMissile
+                        id: 202
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     3: ( AamMissile
+                        id: 203
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     4: ( AamMissile
+                        id: 204
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                  }
+               )
+
+            }
+         )
+
+         
+         
+         
+         p00:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1000
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 10000 15000 -10000 ]
+            initHeading: ( Degrees 220 )
+            initVelocity: 80
+            positionFreeze: false
+            killRemoval: true
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 12 )
+               )
+               ( Rwr 
+                  antennaName: rwr  
+                  threshold:  ( dB 0.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+               )
+            }
+         )
+
+         p01:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1001
+            camouflageType: 1
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 12000 16000 -10000 ]
+            initHeading: ( Degrees 220 )
+            initVelocity: 80
+            positionFreeze: false
+            killRemoval: true
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 12 )
+               )
+               ( Rwr 
+                  antennaName: rwr  
+                  threshold:  ( dB 0.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+               )
+            }
+         )
+
+         p02:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1002
+            camouflageType: 2
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 12000 14000 -10000 ]
+            initHeading: ( Degrees 45 )
+            initVelocity: 80
+            positionFreeze: false
+            killRemoval: true
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 12 )
+               )
+               ( Rwr 
+                  antennaName: rwr  
+                  threshold:  ( dB 0.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+               )
+            }
+         )
+
+      }
+   )
+)
