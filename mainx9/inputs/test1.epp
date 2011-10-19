@@ -56,7 +56,10 @@
             side: blue
             type: "F-16"
             signature: ( SigSphere radius: 2.0 )
-            initPosition: [ 0 0 -10000 ]
+
+            initLatitude:  ( Degrees  REF_LAT )
+            initLongitude: ( Degrees  REF_LON )
+            initAlt: ( Meters 10000 )
             initHeading: ( Degrees 45 )
             initVelocity: 250
             positionFreeze: PFRZ

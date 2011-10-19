@@ -30,8 +30,19 @@
                emitterFunction: 1
                sensor: ( Radar )
                antenna: ( Antenna
-                  localPlayersOfInterestOnly: true
+                  polarization: horizontal
+                  gain: ( dB 36 )
                   #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
                )
                defaultIn:  true
                defaultOut:  true
