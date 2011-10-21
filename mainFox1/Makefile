@@ -1,16 +1,13 @@
 #
 include ../makedefs
 
+PGM = mainFox1
 
-#
-CPPFLAGS += -DFOX_1_6
-CPPFLAGS += -I/usr/include/fox-1.6
+CPPFLAGS += -DFOX_1_6 -I/usr/include/fox-1.6
 
 EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
-
-PGM = mainFox1
 
 OBJS = mainFox1.o Application.o Display.o formFunc.o MainWindow.o Station.o Worm.o
 
@@ -18,7 +15,6 @@ LDFLAGS += -loeSimulation -loeDafif -loeInstruments -loeBasicGL -loeBasic
 LDFLAGS += -lFOX-1.6
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL -lX11
-#LDFLAGS += -lXi -lXmu
 
 all: $(PGM)
 

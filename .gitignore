@@ -16,6 +16,9 @@ vs2010/
 # keep premake executable
 !premake4.exe
 
+# backup files
+*.bak
+
 # linux executables
 mainEfis/mainEfis
 mainGL/mainGL
@@ -32,6 +35,8 @@ mainTerrain/mainTerrain
 mainVmap/mainvmap
 mainfd1/mainfd1
 mainfd2/mainfd2
+mainFltk1/mainFltk1
+mainFox1/mainFox1
 mainw/mainw
 mainx9/mainx9
 mainy1/mainy1
