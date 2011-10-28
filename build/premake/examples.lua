@@ -11,7 +11,8 @@ project "mainEfis"
    files {
       "../../mainEfis/**.cpp",
       "../../mainEfis/**.h",
-      "../../mainEfis/**.epp"
+      "../../mainEfis/**.epp",
+      "../../mainEfis/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -38,7 +39,8 @@ project "mainfd1"
    files {
       "../../mainfd1/**.cpp",
       "../../mainfd1/**.h",
-      "../../mainfd1/**.epp"
+      "../../mainfd1/**.epp",
+      "../../mainfd1/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -65,7 +67,8 @@ project "mainfd2"
    files {
       "../../mainfd2/**.cpp",
       "../../mainfd2/**.h",
-      "../../mainfd2/**.epp"
+      "../../mainfd2/**.epp",
+      "../../mainfd2/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -92,7 +95,8 @@ project "mainGL"
    files {
       "../../mainGL/**.cpp",
       "../../mainGL/**.h",
-      "../../mainGL/**.epp"
+      "../../mainGL/**.epp",
+      "../../mainGL/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -119,7 +123,8 @@ project "mainGndMapRdr"
    files {
       "../../mainGndMapRdr/**.cpp",
       "../../mainGndMapRdr/**.h",
-      "../../mainGndMapRdr/**.epp"
+      "../../mainGndMapRdr/**.epp",
+      "../../mainGndMapRdr/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -148,7 +153,8 @@ project "mainIr"
    files {
       "../../mainIr/**.cpp",
       "../../mainIr/**.h",
-      "../../mainIr/**.epp"
+      "../../mainIr/**.epp",
+      "../../mainIr/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -181,7 +187,8 @@ project "mainNonRT1"
    files {
       "../../mainNonRT1/**.cpp",
       "../../mainNonRT1/**.h",
-      "../../mainNonRT1/**.epp"
+      "../../mainNonRT1/**.epp",
+      "../../mainNonRT1/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -210,7 +217,8 @@ project "mainPuzzle1"
    files {
       "../../mainPuzzle1/**.cpp",
       "../../mainPuzzle1/**.h",
-      "../../mainPuzzle1/**.epp"
+      "../../mainPuzzle1/**.epp",
+      "../../mainPuzzle1/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -237,7 +245,8 @@ project "mainPuzzle2"
    files {
       "../../mainPuzzle2/**.cpp",
       "../../mainPuzzle2/**.h",
-      "../../mainPuzzle2/**.epp"
+      "../../mainPuzzle2/**.epp",
+      "../../mainPuzzle2/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -264,7 +273,8 @@ project "mainSim1"
    files {
       "../../mainSim1/**.cpp",
       "../../mainSim1/**.h",
-      "../../mainSim1/**.epp"
+      "../../mainSim1/**.epp",
+      "../../mainSim1/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -295,7 +305,8 @@ project "mainSim2"
    files {
       "../../mainSim2/**.cpp",
       "../../mainSim2/**.h",
-      "../../mainSim2/**.epp"
+      "../../mainSim2/**.epp",
+      "../../mainSim2/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -326,7 +337,8 @@ project "mainSim3"
    files {
       "../../mainSim3/**.cpp",
       "../../mainSim3/**.h",
-      "../../mainSim3/**.epp"
+      "../../mainSim3/**.epp",
+      "../../mainSim3/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -359,7 +371,8 @@ project "mainSim4"
    files {
       "../../mainSim4/**.cpp",
       "../../mainSim4/**.h",
-      "../../mainSim4/**.epp"
+      "../../mainSim4/**.epp",
+      "../../mainSim4/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -392,7 +405,8 @@ project "mainTerrain"
    files {
       "../../mainTerrain/**.cpp",
       "../../mainTerrain/**.h",
-      "../../mainTerrain/**.epp"
+      "../../mainTerrain/**.epp",
+      "../../mainTerrain/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -419,7 +433,8 @@ project "mainVmap"
    files {
       "../../mainVmap/**.cpp",
       "../../mainVmap/**.h",
-      "../../mainVmap/**.epp"
+      "../../mainVmap/**.epp",
+      "../../mainVmap/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -446,7 +461,8 @@ project "mainw"
    files {
       "../../mainw/**.cpp",
       "../../mainw/**.h",
-      "../../mainw/**.epp"
+      "../../mainw/**.epp",
+      "../../mainw/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -473,7 +489,8 @@ project "mainx9"
    files {
       "../../mainx9/**.cpp",
       "../../mainx9/**.h",
-      "../../mainx9/**.epp"
+      "../../mainx9/**.epp",
+      "../../mainx9/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -508,7 +525,8 @@ project "mainy1"
    files {
       "../../mainy1/**.cpp",
       "../../mainy1/**.h",
-      "../../mainy1/**.epp"
+      "../../mainy1/**.epp",
+      "../../mainy1/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -541,7 +559,8 @@ project "mainz1"
    files {
       "../../mainz1/**.cpp",
       "../../mainz1/**.h",
-      "../../mainz1/**.epp"
+      "../../mainz1/**.epp",
+      "../../mainz1/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",
@@ -568,7 +587,8 @@ project "mainz2"
    files {
       "../../mainz2/**.cpp",
       "../../mainz2/**.h",
-      "../../mainz2/**.epp"
+      "../../mainz2/**.epp",
+      "../../mainz2/**.edl"
    }
    includedirs {
       "../../../OpenEaagles/include",

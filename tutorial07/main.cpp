@@ -11,6 +11,7 @@
 
 #include "Worm.h"
 
+namespace Eaagles {
 namespace Example07 {
 
 // Description (input) File -- After being processed by the C preprocessor
@@ -20,7 +21,7 @@ const char* inputFileName = "file0.edl";
 const int frameRate = 20;
 
 // System descriptions
-static class Eaagles::Glut::GlutDisplay* sys = 0;
+static class Glut::GlutDisplay* sys = 0;
 
 // timerFunc() -- Time critical stuff)
 static void timerFunc(int)
@@ -30,24 +31,24 @@ static void timerFunc(int)
     unsigned int millis = (unsigned int)(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
-    Eaagles::Basic::Timer::updateTimers((float)dt);
-    Eaagles::BasicGL::Graphic::flashTimer((Eaagles::LCreal)dt);
-    sys->tcFrame((Eaagles::LCreal)dt);
+    Basic::Timer::updateTimers((float)dt);
+    BasicGL::Graphic::flashTimer((LCreal)dt);
+    sys->tcFrame((LCreal)dt);
 }
 
 // Test Form Function
-static Eaagles::Basic::Object* exampleFormFunc(const char* const formname)
+static Basic::Object* exampleFormFunc(const char* const formname)
 {
-  Eaagles::Basic::Object* newform = 0;
+  Basic::Object* newform = 0;
 
   if ( strcmp(formname, Worm::getFormName()) == 0 ) {
     newform = new Worm;
   }
    
   // Default to base classes
-  if (newform == 0) newform = Eaagles::Glut::glutFormFunc(formname);
-  if (newform == 0) newform = Eaagles::BasicGL::basicGLFormFunc(formname);
-  if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
+  if (newform == 0) newform = Glut::glutFormFunc(formname);
+  if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
+  if (newform == 0) newform = Basic::basicFormFunc(formname);
   return newform;
 }
 
@@ -56,7 +57,7 @@ static void readTest()
 {
   // Read the description file
   int errors = 0;
-  Eaagles::Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
+  Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
     exit(1);
@@ -67,14 +68,14 @@ static void readTest()
   if (q1 != 0) {
 
     // When we were given a Pair, get the pointer to its object.
-    Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
+    Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
     if (pp != 0) {
       q1 = pp->object();
     }
 
     // What we should have here is the description object and
     // it should be of type 'TestDisplay'.
-    sys = dynamic_cast<Eaagles::Glut::GlutDisplay*>(q1);
+    sys = dynamic_cast<Glut::GlutDisplay*>(q1);
   }
 
   // Make sure we did get a valid object (we must have one!)
@@ -105,12 +106,13 @@ int exec(int argc, char* argv[])
 }
 
 } // namespace Example07
+} // namespace Eaagles
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Example07::exec(argc, argv);
+  Eaagles::Example07::exec(argc, argv);
 }
 

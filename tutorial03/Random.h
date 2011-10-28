@@ -10,24 +10,20 @@
 #include "openeaagles/basic/Object.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class Number;
-  }
-}
 
-namespace Eaagles {
+namespace Basic { class Number; }
+
 namespace Example03 {
-
 
 class Random : public Basic::Object
 {
-  DECLARE_SUBCLASS(Random,Object)
+  DECLARE_SUBCLASS(Random, Basic::Object)
 
 public:
 
-  Random(void);
+  Random();
 
-  int getNum(void) const;
+  int getNum() const;
   bool setSeed(const unsigned int);
 
   // slot table functions

@@ -13,12 +13,9 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class Angle;
-  }
-}
 
-namespace Eaagles {
+namespace Basic { class Angle; }
+
 namespace Example08 {
 
 class Worm : public BasicGL::Graphic

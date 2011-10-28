@@ -10,12 +10,9 @@
 #include "openeaagles/basic/Component.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class String;
-  }
-}
 
-namespace Eaagles {
+namespace Basic { class String; }
+
 namespace Example06 {
 
 class MyComp : public Basic::Component
@@ -24,7 +21,7 @@ class MyComp : public Basic::Component
 
 public:
 
-  MyComp(void);
+  MyComp();
 
   // data access functions
   bool setStr(const Basic::String* const);

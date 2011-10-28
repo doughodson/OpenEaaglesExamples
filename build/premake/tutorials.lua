@@ -49,6 +49,7 @@ project "tutorial03"
     files {
         "../../tutorial03/**.cpp",
         "../../tutorial03/**.h",
+        "../../tutorial03/**.epp",
         "../../tutorial03/**.edl"
     }
     includedirs {
@@ -70,6 +71,7 @@ project "tutorial04"
     files {
         "../../tutorial04/**.cpp",
         "../../tutorial04/**.h",
+        "../../tutorial04/**.epp",
         "../../tutorial04/**.edl"
     }
     includedirs {
@@ -91,6 +93,7 @@ project "tutorial05"
     files {
         "../../tutorial05/**.cpp",
         "../../tutorial05/**.h",
+        "../../tutorial05/**.epp",
         "../../tutorial05/**.edl"
     }
     includedirs {
@@ -112,6 +115,7 @@ project "tutorial06"
     files {
         "../../tutorial06/**.cpp",
         "../../tutorial06/**.h",
+        "../../tutorial06/**.epp",
         "../../tutorial06/**.edl"
     }
     includedirs {
@@ -133,6 +137,7 @@ project "tutorial07"
     files {
         "../../tutorial07/**.cpp",
         "../../tutorial07/**.h",
+        "../../tutorial07/**.epp",
         "../../tutorial07/**.edl"
     }
     includedirs {
@@ -160,6 +165,7 @@ project "tutorial08"
     files {
         "../../tutorial08/**.cpp",
         "../../tutorial08/**.h",
+        "../../tutorial08/**.epp",
         "../../tutorial08/**.edl"
     }
     includedirs {

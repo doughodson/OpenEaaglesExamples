@@ -14,13 +14,13 @@ namespace Example02 {
 
 class Random : public Basic::Object
 {
-  DECLARE_SUBCLASS(Random,Object)
+  DECLARE_SUBCLASS(Random, Basic::Object)
 
 public:
 
-  Random(void);   // constructor
+  Random();
 
-  int getNum(void) const;
+  int getNum() const;
   void setSeed(const unsigned int);
 };
 

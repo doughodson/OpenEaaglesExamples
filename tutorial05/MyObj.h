@@ -10,16 +10,10 @@
 #include "openeaagles/basic/Object.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class PairStream;
-    class List;
-    class String;
-    class Number;
-    class Identifier;
-  }
-}
 
-namespace Eaagles {
+namespace Basic { class PairStream; class List; class String;
+                  class Number; class Identifier; }
+
 namespace Example05 {
 
 class MyObj : public Basic::Object
@@ -28,7 +22,7 @@ class MyObj : public Basic::Object
 
 public:
 
-  MyObj(void);
+  MyObj();
 
   // data access functions
   bool setColorTable(const Basic::PairStream* const);
@@ -42,7 +36,7 @@ public:
   const Basic::List* getVector(void) const;
 
   bool setVisible(bool);
-  bool getVisible(void) const;
+  bool getVisible() const;
 
   bool setMessage(const Basic::String* const);
   const Basic::String* getMessage(void) const;

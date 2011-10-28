@@ -13,69 +13,70 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class Angle;
-  }
-}
+
+namespace Basic { class Angle; }
 
 namespace Example07 {
 
-class Worm : public Eaagles::BasicGL::Graphic
+class Worm : public BasicGL::Graphic
 {
-  DECLARE_SUBCLASS(Worm, Eaagles::BasicGL::Graphic)
+  DECLARE_SUBCLASS(Worm, BasicGL::Graphic)
 
 public:
+
   Worm();
 
-  void getPosition(Eaagles::LCreal& xx, Eaagles::LCreal& yy) const      { xx = xPos; yy = yPos; }
-  void setPosition(const Eaagles::LCreal xx, const Eaagles::LCreal yy)  { xPos = xx; yPos = yy; }
+  void getPosition(LCreal& xx, Eaagles::LCreal& yy) const      { xx = xPos; yy = yPos; }
+  void setPosition(const LCreal xx, const LCreal yy)  { xPos = xx; yPos = yy; }
 
-  virtual bool realSpeed(const Eaagles::Basic::Number* const rsobj);
-  virtual bool setAngle(const Eaagles::Basic::Angle* const saobj);
-  virtual bool setAngle(const Eaagles::Basic::Number* const saobj);
+  virtual bool realSpeed(const Basic::Number* const rsobj);
+  virtual bool setAngle(const Basic::Angle* const saobj);
+  virtual bool setAngle(const Basic::Number* const saobj);
 
-  Eaagles::LCreal leftLimit() const                { return left; }
-  void leftLimit(const Eaagles::LCreal ll)         { left = ll; }
+  LCreal leftLimit() const                { return left; }
+  void leftLimit(const LCreal ll)         { left = ll; }
 
-  Eaagles::LCreal rightLimit() const               { return right; }
-  void rightLimit(const Eaagles::LCreal rr)        { right = rr; }
+  LCreal rightLimit() const               { return right; }
+  void rightLimit(const LCreal rr)        { right = rr; }
 
-  Eaagles::LCreal bottomLimit() const              { return bottom; }
-  void bottomLimit(const Eaagles::LCreal bb)       { bottom = bb; }
+  LCreal bottomLimit() const              { return bottom; }
+  void bottomLimit(const LCreal bb)       { bottom = bb; }
 
-  Eaagles::LCreal topLimit() const                 { return top; }
-  void topLimit(const Eaagles::LCreal tt)          { top = tt; }
+  LCreal topLimit() const                 { return top; }
+  void topLimit(const LCreal tt)          { top = tt; }
 
-  void setStartAngle(const Eaagles::LCreal deg);
-  void setSpeed(const Eaagles::LCreal xx);
+  void setStartAngle(const LCreal deg);
+  void setSpeed(const LCreal xx);
 
   // Graphic class Interface
   virtual void drawFunc();
 
   // Component class Interface
-  virtual void updateTC(const Eaagles::LCreal dt = 0.0);
-  virtual void updateData(const Eaagles::LCreal dt = 0.0);
-  virtual bool event(const int event, Eaagles::Basic::Object* const obj = 0);
+  virtual void updateTC(const LCreal dt = 0.0);
+  virtual void updateData(const LCreal dt = 0.0);
+  virtual bool event(const int event, Basic::Object* const obj = 0);
   virtual void reset();
 
 private:
     
   enum { maxHist = 10 };
-  Eaagles::LCreal left, right;         // X limits
-  Eaagles::LCreal bottom, top;         // Y limits
-  Eaagles::LCreal xPos, yPos;          // Position
-  Eaagles::LCreal xOld, yOld;          // Previous Position
-  Eaagles::LCreal dx, dy;              // Delta position
-  Eaagles::LCreal speed;               // Speed
-  Eaagles::LCreal sangle;              // Starting angle (radians)
-  Eaagles::osg::Vec2 trail[maxHist];   // Display trail
-  int    nTrails;                      // Trail size
-  int    index;                        // Trail index
-  const Eaagles::Basic::Angle* iangle; // Input angle
+  LCreal left, right;         // X limits
+  LCreal bottom, top;         // Y limits
+  LCreal xPos, yPos;          // Position
+  LCreal xOld, yOld;          // Previous Position
+  LCreal dx, dy;              // Delta position
+  LCreal speed;               // Speed
+  LCreal sangle;              // Starting angle (radians)
+  osg::Vec2 trail[maxHist];   // Display trail
+  int    nTrails;             // Trail size
+  int    index;               // Trail index
+  const Basic::Angle* iangle; // Input angle
 
 };
 
 } // namespace Example07
+} // namespace Eaagles
+
 
 #endif
 

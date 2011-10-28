@@ -9,7 +9,8 @@ project "testEvents"
     files {
         "../../testEvents/**.cpp",
         "../../testEvents/**.h",
-        "../../testEvents/**.epp"
+        "../../testEvents/**.epp",
+        "../../testEvents/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include",
@@ -36,7 +37,8 @@ project "testIo"
     files {
         "../../testIo/**.cpp",
         "../../testIo/**.h",
-        "../../testIo/**.epp"
+        "../../testIo/**.epp",
+        "../../testIo/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include",
@@ -63,7 +65,8 @@ project "testLinearSys"
     files {
         "../../testLinearSys/**.cpp",
         "../../testLinearSys/**.h",
-        "../../testLinearSys/**.epp"
+        "../../testLinearSys/**.epp",
+        "../../testLinearSys/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"
@@ -84,7 +87,8 @@ project "testNav"
     files {
         "../../testNav/**.cpp",
         "../../testNav/**.h",
-        "../../testNav/**.epp"
+        "../../testNav/**.epp",
+        "../../testNav/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"
@@ -105,7 +109,8 @@ project "testMatrix"
     files {
         "../../testMatrix/**.cpp",
         "../../testMatrix/**.h",
-        "../../testMatrix/**.epp"
+        "../../testMatrix/**.epp",
+        "../../testMatrix/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"
@@ -126,7 +131,8 @@ project "testNet"
     files {
         "../../testNet/**.cpp",
         "../../testNet/**.h",
-        "../../testNet/**.epp"
+        "../../testNet/**.epp",
+        "../../testNet/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"
@@ -147,7 +153,8 @@ project "testRng"
     files {
         "../../testRng/**.cpp",
         "../../testRng/**.h",
-        "../../testRng/**.epp"
+        "../../testRng/**.epp",
+        "../../testRng/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"
@@ -168,7 +175,8 @@ project "testStateMach"
     files {
         "../../testStateMach/**.cpp",
         "../../testStateMach/**.h",
-        "../../testStateMach/**.epp"
+        "../../testStateMach/**.epp",
+        "../../testStateMach/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"
@@ -189,7 +197,8 @@ project "testTables"
     files {
         "../../testTables/**.cpp",
         "../../testTables/**.h",
-        "../../testTables/**.epp"
+        "../../testTables/**.epp",
+        "../../testTables/**.edl"
     }
     includedirs {
         "../../../OpenEaagles/include"

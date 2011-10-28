@@ -13,9 +13,10 @@ namespace Example08 {
 
 class MyPager : public BasicGL::Page {
 
-  DECLARE_SUBCLASS(MyPager,Page)
+  DECLARE_SUBCLASS(MyPager, BasicGL::Page)
 
 public:
+
   MyPager();
 
   // Page Interface
@@ -26,3 +27,4 @@ public:
 } // namespace Eaagles
 
 #endif
+
