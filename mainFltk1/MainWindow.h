@@ -6,9 +6,9 @@
 #ifndef __EAAGLES_FLTK1_MAINWINDOW_H
 #define __EAAGLES_FLTK1_MAINWINDOW_H
 
-#include <Fl/Fl_Window.H>
-#include <Fl/Fl_Menu_Bar.H>
-#include <Fl/Fl_Roller.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Menu_Bar.H>
+#include <FL/Fl_Roller.H>
 
 namespace Eaagles {
 namespace Fltk1 {

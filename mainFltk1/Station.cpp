@@ -1,8 +1,9 @@
+
 #include "Station.h"
 #include "Display.h"
 
-#include "Fl/Fl_Window.H"
-#include "Fl/Fl_Gl_Window.H"
+#include "FL/Fl_Window.H"
+#include "FL/Fl_Gl_Window.H"
 
 #include "MainWindow.h"
 

@@ -15,11 +15,12 @@ LDFLAGS += -loeSimulation -loeDafif -loeInstruments -loeBasicGL -loeBasic
 LDFLAGS += -lFOX-1.6
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL -lX11
+LDFLAGS += -lpthread -lrt
 
 all: $(PGM)
 
 edl:
-	cpp testfox.epp >testfox.edl  $(EPPFLAGS)
+	cpp inputs/testfox.epp >testfox.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)

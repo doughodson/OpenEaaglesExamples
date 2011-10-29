@@ -1,7 +1,8 @@
+
 #include "GLWindow.h"
 #include "Display.h"
 
-#include <Fl/Fl.H>
+#include <FL/Fl.H>
 
 // ----------------------------------------------------------------------------
 // drawCallBack() - this is a static callback made from the GLWindow that tells

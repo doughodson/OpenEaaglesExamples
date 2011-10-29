@@ -33,8 +33,8 @@ static void update(void* pData)
 namespace Eaagles {
 namespace Fltk1 {
 
-static class Station* sys = 0;
-static char* testFileName = "test.edl";
+static Station* sys = 0;
+const char* testFileName = "test.edl";
 
 // Test Form Function
 static Basic::Object* testFormFunc(const char* formname)

@@ -1,8 +1,9 @@
+
 #include "MainWindow.h"
 #include "GLWindow.h"
 #include "Display.h"
 
-#include <Fl/fl_ask.H>
+#include <FL/fl_ask.H>
 
 namespace Eaagles {
 namespace Fltk1 {
