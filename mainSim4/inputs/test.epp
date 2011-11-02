@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------------------------------------
 ( MapTestStation 
 
-//    #include "networkSetup.epp"
+    #include "networkSetup.epp"
 
     // ownship flag, we will define this player in scenario.epp
     ownship: player1

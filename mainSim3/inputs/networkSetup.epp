@@ -6,8 +6,8 @@ networks: {
 
     ( DisNetIO
     
-       siteID: 2
-       applicationID: 3
+       siteID: 3
+       applicationID: 1
        exerciseID: 1
        enableInput: 1
        enableOutput: 1
@@ -17,8 +17,8 @@ networks: {
        
        timeline: EXEC
        
-       netInput:  ( BroadcastHandler localIpAddress: "192.168.1.100" networkMask: "255.255.255.0" port: 3000 ignoreSourcePort: 3001 shared: true )
-       netOutput: ( BroadcastHandler localIpAddress: "192.168.1.100" networkMask: "255.255.255.0" port: 3000 localPort: 3001        shared: true )
+    netInput:  ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  ignoreSourcePort: 3003 shared: true )
+    netOutput: ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  localPort: 3003        shared: true )
 
        // Example emission handler list
        emissionPduHandlers: {
