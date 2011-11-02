@@ -2,15 +2,15 @@
 simulation:
 ( Simulation 
     // just random lat / lon to start our simulation at.
-    latitude: 32.87
-    longitude: 64.78
+    latitude: 37.0 
+    longitude: -116.0
     players: {
         // ownship
         player1:
         ( Aircraft
             id: 1
             side: blue
-            type: "F-16"
+            type: "F-16C"
             signature: ( SigSphere radius: 2.0 )
             initPosition: [ -15000 0 -10000 ]
             initHeading: ( Degrees 45 )
@@ -26,7 +26,7 @@ simulation:
         ( Aircraft
             id: 2
             side: red
-            type: "F-16"
+            type: "F-16C"
             signature: ( SigSphere radius: 2.0 )
             initPosition: [ 15000 0 -10000 ]
             initHeading: ( Degrees 275 )
