@@ -4,7 +4,7 @@
   tcPriority: 0.5
 
 
-#line 1 "c:\\oe\\openeaaglesexamples\\mainsim1\\inputs\\networkSetup.epp"
+#line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim1\\inputs\\networkSetup.epp"
 
 
 networks: {
@@ -15,8 +15,8 @@ networks: {
     enableInput: 1
     enableOutput: 1
     enableRelay: 0
-    netInput:  ( BroadcastHandler localIpAddress: "192.168.1.100" networkMask: "255.255.255.0" port: 3000 ignoreSourcePort: 3001 shared: true )
-    netOutput: ( BroadcastHandler localIpAddress: "192.168.1.100" networkMask: "255.255.255.0" port: 3000 localPort: 3001        shared: true )
+    netInput:  ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  ignoreSourcePort: 3001 shared: true )
+    netOutput: ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  localPort: 3001        shared: true )
 
     
     emissionPduHandlers: {
@@ -1497,7 +1497,7 @@ inputEntityTypes: {
 
 }
 
-#line 30 "c:\\oe\\openeaaglesexamples\\mainsim1\\inputs\\networkSetup.epp"
+#line 30 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim1\\inputs\\networkSetup.epp"
     #line 1 "..\\data\\../data/DisOutgoingEntityTypes.epp"
 
 
@@ -1795,7 +1795,7 @@ outputEntityTypes: {
 ( DisNtm  disEntityType: [ 2  9  225  1  19  2  0 ]   template: ( Missile type: "BGM-109" ) )
 
 }
-#line 31 "c:\\oe\\openeaaglesexamples\\mainsim1\\inputs\\networkSetup.epp"
+#line 31 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim1\\inputs\\networkSetup.epp"
 
   ) 
 }

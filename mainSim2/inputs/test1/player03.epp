@@ -7,11 +7,11 @@ p03:
 
     id: 3
     side: blue
-    type: "B-747"
+    type: "F-16C"
     signature: ( SigSphere radius: 2.0 )
 
-    //initLatitude:  ( LatLon direction: "n" degrees: 34 minutes: 28.0 )
-    //initLongitude: ( LatLon direction: "w" degrees: 113 minutes: 58.0 )
+    initLatitude:  ( LatLon direction: "n" degrees: 37.0 minutes: 5.0 )
+    initLongitude: ( LatLon direction: "w" degrees: 116.0 minutes: 30.0 )
    
     initAlt: ( Feet 10000 )
     initHeading: ( Degrees 30.0 )      // Initial heading

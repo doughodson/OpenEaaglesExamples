@@ -18,13 +18,13 @@
    netPriority: 1.0
    netRate: 5.0
 
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
 
 networks: {
   ( DisNetIO
 
-   siteID: 69
-   applicationID: 1
+   siteID: 2
+   applicationID: 2
    exerciseID: 1
 
    enableInput: true
@@ -34,20 +34,20 @@ networks: {
     maxTimeDR: { K1D01: ( Seconds 20 ) }
 
     netInput:  ( BroadcastHandler 
-      localIpAddress:   "172.17.160.92"
-      networkMask:      "255.255.248.0"
+      localIpAddress:   localhost
+      networkMask:      "255.0.0.0"
       port: 3000 
-      ignoreSourcePort: 3002 
+      ignoreSourcePort: 3022 
       shared: true
       sendBuffSizeKb: 256
       recvBuffSizeKb: 256
     )
    
     netOutput: ( BroadcastHandler
-      localIpAddress: "172.17.160.92"
-      networkMask:    "255.255.248.0"
+      localIpAddress: localhost
+      networkMask:    "255.0.0.0"
       port: 3000
-      localPort: 3002
+      localPort: 3022
       shared: true 
       sendBuffSizeKb: 256
       recvBuffSizeKb: 256
@@ -79,7 +79,7 @@ networks: {
          sensor: ( Radar  typeId: "TWS" )
          antenna: ( Antenna
             
-            #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\test2\\./gainPattern.epp"
+            #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\test2\\./gainPattern.epp"
 
 
 
@@ -93,7 +93,7 @@ gainPattern:
    )
 )
 
-#line 62 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
+#line 62 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
             initPosition: [ 0 0 ]
             maxRates: [ 0.8727 0.6981 ]
             reference: [ 0 0 ]
@@ -1582,7 +1582,7 @@ inputEntityTypes: {
 
 }
 
-#line 87 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
+#line 87 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
     #line 1 "..\\data\\DisOutgoingEntityTypes.epp"
 
 
@@ -1880,12 +1880,12 @@ outputEntityTypes: {
 ( DisNtm  disEntityType: [ 2  9  225  1  19  2  0 ]   template: ( Missile type: "BGM-109" ) )
 
 }
-#line 88 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
+#line 88 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test2/networkSetup.epp"
 
   ) 
 }
 #line 21 "inputs/test2.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test2/scenario.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test2/scenario.epp"
 
 
 
@@ -1905,7 +1905,7 @@ simulation: ( Simulation
 
    
    players: {
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\test2\\./players.epp"
+      #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\test2\\./players.epp"
 
 p1:
 ( Aircraft
@@ -50280,7 +50280,7 @@ p6061:
    initVelocity:  250
 )
 
-#line 21 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test2/scenario.epp"
+#line 21 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test2/scenario.epp"
       
   }
 )

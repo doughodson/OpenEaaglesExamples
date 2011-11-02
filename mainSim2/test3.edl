@@ -18,7 +18,7 @@
    netPriority: 1.0
    netRate: 5.0
 
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
 
 networks: {
   ( DisNetIO
@@ -61,7 +61,7 @@ networks: {
          sensor: ( Radar )
          antenna: ( Antenna
             localPlayersOfInterestOnly: true
-            #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\test3\\gainPattern.epp"
+            #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\test3\\gainPattern.epp"
 
 
 
@@ -75,7 +75,7 @@ gainPattern:
    )
 )
 
-#line 44 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
+#line 44 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
          )
          defaultIn:  true
          defaultOut:  true
@@ -1547,7 +1547,7 @@ inputEntityTypes: {
 
 }
 
-#line 52 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
+#line 52 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
     #line 1 "..\\data\\DisOutgoingEntityTypes.epp"
 
 
@@ -1845,12 +1845,12 @@ outputEntityTypes: {
 ( DisNtm  disEntityType: [ 2  9  225  1  19  2  0 ]   template: ( Missile type: "BGM-109" ) )
 
 }
-#line 53 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
+#line 53 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test3/networkSetup.epp"
 
   ) 
 }
 #line 21 "inputs/test3.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test3/scenario.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test3/scenario.epp"
 
 
 
@@ -1869,7 +1869,7 @@ simulation: ( Simulation
 
    
    players: {
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\test3\\./spinner.epp"
+      #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\test3\\./spinner.epp"
 
 ew:
 ( GroundStation
@@ -1892,7 +1892,7 @@ ew:
              scanMode: circular
              commandRateAzimuth: ( Degrees 36 )
              commandRateElevation: ( Degrees 0 )
-             #line 1 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\test3\\gainPattern.epp"
+             #line 1 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\test3\\gainPattern.epp"
 
 
 
@@ -1906,7 +1906,7 @@ gainPattern:
    )
 )
 
-#line 24 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\test3\\./spinner.epp"
+#line 24 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\test3\\./spinner.epp"
       )
 
       sensors:
@@ -1919,7 +1919,7 @@ gainPattern:
       )
    }
 )
-#line 20 "c:\\oe\\openeaaglesexamples\\mainsim2\\inputs\\./test3/scenario.epp"
+#line 20 "c:\\users\\gehldp\\projects\\github\\openeaaglesexamples\\mainsim2\\inputs\\./test3/scenario.epp"
   }
 )
 #line 22 "inputs/test3.epp"

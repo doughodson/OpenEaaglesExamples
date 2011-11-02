@@ -3,13 +3,13 @@
   tcPriority: 0.5
 
 //#include "otwSetupPC.epp"
-//#include "networkSetup.epp"
+#include "networkSetup.epp"
 
   // Simulation scenario
   ownship: xper
   simulation: ( Simulation
-                latitude:   41.0  
-                longitude: -112
+                latitude:   37.0  
+                longitude: -116.0
 
        players: {
             xper: ( Aircraft
