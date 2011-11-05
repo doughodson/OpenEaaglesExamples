@@ -1,13 +1,16 @@
-
-// Application class, which handles the data events between Fox and Eaagles displays
+//------------------------------------------------------------------------------
+// Class: Application
+//
+// Description: Application class which processes GUI events
+//------------------------------------------------------------------------------
+#ifndef __Eaagles_mainFox_Application_H__
+#define __Eaagles_mainFox_Application_H__
 
 #include "fx.h"
 
-namespace Eaagles {
+#include "FoxStation.h"
 
-namespace Basic {
-  class Object;
-}
+namespace Eaagles {
 
 namespace mainFox {
 
@@ -15,41 +18,41 @@ class Station;
 
 class Application : public FX::FXApp {
 
-  FXDECLARE(Application)
+   FXDECLARE(Application)
 
 public: 
-  // We define additional ID's, starting from the last one used by the base class+1.
-  // This way, we know the ID's are all unique for this particular target.
-  enum{
-    ID_TIMEOUT=FX::FXApp::ID_LAST,      // Timer ID
-    ID_LAST,
-  };
+
+   // We define additional ID's, starting from the last one used by the base class+1.
+   // This way, we know the ID's are all unique for this particular target.
+   enum{
+      ID_TIMEOUT=FX::FXApp::ID_LAST,      // Timer ID
+      ID_LAST,
+   };
 
 public:
-  Application(const FXString& name, const FXString& vendor);
-  virtual ~Application();
-   
-  // Message handlers
-  long onTimeout(FXObject*,FXSelector,void*);
-    
-  // FXApp interface
-  virtual void init(int& argc, char** argv, bool connect=true);
-    
-  Station* getStation() { return station; }
-	    
+
+   Application(const FXString& name, const FXString& vendor);
+   virtual ~Application();
+
+   // FXApp interface
+   virtual void init(int& argc, char** argv, bool connect=true);
+
+   // Message handlers
+   long onTimeout(FXObject*,FXSelector,void*);
+
+   void setStation(FoxStation* s)           { station = s; station->ref();  }
+   FoxStation* getStation()                 { return station; }
+
 protected:
 
-  Application() {}
+   Application() {}
 
 private:
 
-  // read configuration file
-  Station* readConfigFile(const char* const fileName = "testfox.eil");
-    
-  Station* station;        // holds our station
-
+  FoxStation* station;
 };
 
 } // end mainFox namespace
 } // end Eaagles namespace
 
+#endif

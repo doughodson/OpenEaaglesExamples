@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>60</x>
+      <y>150</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Application
+--
+Station* station
+--
+getStation()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>60</x>
+      <y>40</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>FX::FXApp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>110</x>
+      <y>50</y>
+      <w>50</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>60</x>
+      <y>340</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>BasicGL::Display
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>40</x>
+      <y>450</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Display
+--
+FX::FXGLCanvas* glCanvas
+FX::FXGLVisual* glVisual
+FX::FXComposite* myComp
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>110</x>
+      <y>350</y>
+      <w>50</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>310</x>
+      <y>40</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>FX::FXMainWindow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>300</x>
+      <y>130</y>
+      <w>180</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>MainWindow
+--
+Display* display
+FXMenuBar* menuBar
+FXComposite* leftFrame
+FXComposite* rightFrame
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>360</x>
+      <y>50</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>330</x>
+      <y>340</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Simulation::Station
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>330</x>
+      <y>450</y>
+      <w>170</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>FoxStation
+--
+Display* display
+--
+getMainDisplay()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>380</x>
+      <y>350</y>
+      <w>50</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;100</additional_attributes>
+  </element>
+</diagram>

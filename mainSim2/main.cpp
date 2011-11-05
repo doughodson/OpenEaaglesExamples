@@ -61,7 +61,7 @@ static void readTest()
 
     // When we were given a Pair, get the pointer to its object.
     Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-    if (pp != NULL) {
+    if (pp != 0) {
       q1 = pp->object();
     }
 

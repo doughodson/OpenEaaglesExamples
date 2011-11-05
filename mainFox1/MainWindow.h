@@ -1,10 +1,12 @@
 //------------------------------------------------------------------
-// Class:  FX::FXMainWindow -> Eaagles::Fox::MainWindow
+// Class: MainWindow
 //
 // Description: Eaagles version of a Fox MainWindow, understands
-// Eaagles::mainFox::Application and Eaagles::mainFox::Display
+// mainFox::Application and mainFox::Display
 //
 //------------------------------------------------------------------
+#ifndef __Eaagles_mainFox_MainWindow_H__
+#define __Eaagles_mainFox_MainWindow_H__
 
 #include "fx.h"
 
@@ -12,58 +14,49 @@ namespace Eaagles {
 namespace mainFox {
 
 class Application;
-class Display;  
-class Station;
+class FoxDisplay;  
 
-//
-// maps events between Fox and OpenEaagles
-//
 class MainWindow : public FX::FXMainWindow {
 
-  FXDECLARE(MainWindow)
+   FXDECLARE(MainWindow)
 
 public:
 
-  MainWindow(Application* a);
-  virtual ~MainWindow();
+   MainWindow(Application* a);
+   virtual ~MainWindow();
 
-  // initialize
-  void create();
+   // initialize
+   void create();
 
-public:
+   // We define additional ID's, starting from the last one used by the base class+1.
+   // This way, we know the ID's are all unique for this particular target.
+   enum {
+      ID_CANVAS=FX::FXMainWindow::ID_LAST,         // Canvas ID for the OpenGL window
+      ID_START_STOP_ROTATE,                        // Start and stop rotating our graphic 
+      ID_START_STOP_TRANSLATE,                     // Start and stop translating our graphic
+      ID_MY_BUTTON,                                // Button 
+      ID_LAST,
+   };
 
-  // We define additional ID's, starting from the last one used by the base class+1.
-  // This way, we know the ID's are all unique for this particular target.
-  enum {
-    ID_CANVAS=FX::FXMainWindow::ID_LAST,         // Canvas ID for the OpenGL window
-    ID_START_STOP_ROTATE,                        // Start and stop rotating our graphic 
-    ID_START_STOP_TRANSLATE,                     // Start and stop translating our graphic
-    ID_MY_BUTTON,                                // Button 
-    ID_LAST,
-  };
+   // Message handlers
+   long onUpdateCanvas(FXObject*,FXSelector,void*);
+   long onPaintCanvas(FXObject*,FXSelector,void*);
+   long onLeftBtnRelease(FXObject*, FXSelector, void*);
+   long onStartStopRotate(FXObject*, FXSelector, void*);
+   long onStartStopTranslate(FXObject*, FXSelector, void*);
 
-  // Message handlers
-  long onUpdateCanvas(FXObject*,FXSelector,void*);
-  long onPaintCanvas(FXObject*,FXSelector,void*);
-  long onLeftBtnRelease(FXObject*, FXSelector, void*);
-  long onStartStopRotate(FXObject*, FXSelector, void*);
-  long onStartStopTranslate(FXObject*, FXSelector, void*);
-  
-  virtual void setupGUI();
+   virtual void setupGUI();
   
 protected:
 
-  MainWindow(){}
-  
+   MainWindow() {}
+
 private:
 
-   // application, station and displays
-   Application* app;
-   Display* display; 
-   Station* station;
+   FoxDisplay* display; 
 
    // menu stuff
-   FXMenuBar*   menuBar;
+   FXMenuBar* menuBar;
    
    // left frame - to get width and height
    FXComposite* leftFrame; 
@@ -73,3 +66,5 @@ private:
 
 } // end mainFox namespace
 } // end Eaagles namespace
+
+#endif
