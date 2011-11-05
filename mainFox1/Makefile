@@ -3,7 +3,8 @@ include ../makedefs
 
 PGM = mainFox1
 
-CPPFLAGS += -DFOX_1_6 -I/usr/include/fox-1.6
+CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR)
+LDFLAGS  += $(FOX_LIBS)
 
 EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
@@ -12,7 +13,6 @@ EPPFLAGS += -I$(DATA_DIR) \
 OBJS = mainFox1.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
 
 LDFLAGS += -loeSimulation -loeDafif -loeInstruments -loeBasicGL -loeBasic
-LDFLAGS += -lFOX-1.6
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL -lX11
 LDFLAGS += -lpthread -lrt
