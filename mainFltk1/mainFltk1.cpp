@@ -8,11 +8,10 @@
 #include "openeaagles/instruments/instrumentsFF.h"
 #include "openeaagles/simulation/simulationFF.h"
 
-// include our fltk library
 #include <FL/Fl.H>
 
-#include "Station.h"
-#include "Display.h"
+#include "FltkStation.h"
+#include "FltkDisplay.h"
 
 
 // ----------------------------------------------------------------------------
@@ -21,7 +20,7 @@
 static void update(void* pData)
 {
     if (pData != NULL) {
-        Eaagles::Fltk1::Station* stn = reinterpret_cast<Eaagles::Fltk1::Station*>(pData);
+        Eaagles::mainFltk1::FltkStation* stn = reinterpret_cast<Eaagles::mainFltk1::FltkStation*>(pData);
         if (stn != 0) {
             double dt = 1 / 20.0f;
             stn->updateData((Eaagles::LCreal)dt);
@@ -31,10 +30,10 @@ static void update(void* pData)
 }
 
 namespace Eaagles {
-namespace Fltk1 {
+namespace mainFltk1 {
 
-static Station* sys = 0;
-const char* testFileName = "test.edl";
+static FltkStation* sys = 0;
+static const char* testFileName = "test.edl";
 
 // Test Form Function
 static Basic::Object* testFormFunc(const char* formname)
@@ -42,18 +41,17 @@ static Basic::Object* testFormFunc(const char* formname)
     Basic::Object* newform = 0;
 
     // This test ...
-    if ( strcmp(formname, Station::getFormName()) == 0 ) {
-        newform = new Station;
+    if ( strcmp(formname, FltkStation::getFormName()) == 0 ) {
+        newform = new FltkStation;
     }
-    else if ( strcmp(formname, Display::getFormName()) == 0 ) {
-        newform = new Display;
+    else if ( strcmp(formname, FltkDisplay::getFormName()) == 0 ) {
+        newform = new FltkDisplay;
     }
     else {
-        //if (newform == 0) newform = Eaagles::Fltk1::fltkFormFunc(formname);
-        if (newform == 0) newform = Eaagles::Simulation::simulationFormFunc(formname);
-        if (newform == 0) newform = Eaagles::Instruments::instrumentsFormFunc(formname);
-        if (newform == 0) newform = Eaagles::BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
+        if (newform == 0) newform = Simulation::simulationFormFunc(formname);
+        if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
+        if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
+        if (newform == 0) newform = Basic::basicFormFunc(formname);
     }
     
     return newform;
@@ -76,20 +74,19 @@ static void readTest()
     sys = 0;
     if (q1 != 0) {
 
-        // When we were given a LcPair, get the pointer to its object.
-        Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
+        // When we were given a Pair, get the pointer to its object.
+        Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
         if (pp != 0) {
-        std::cout << "Form: " << *pp->slot() << std::endl;
+            std::cout << "Form: " << *pp->slot() << std::endl;
             q1 = pp->object();
         }
 
-        // What we should have here is the description object and
-        // it should be of type 'Station'.
-        sys = dynamic_cast<Station*>(q1);
+        // we should have a FltkStation
+        sys = dynamic_cast<FltkStation*>(q1);
 
     }
 
-    // Make sure we did get a valid object (we must have one!)
+    // Make sure we did get a valid object
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
         exit(EXIT_FAILURE);
@@ -97,7 +94,9 @@ static void readTest()
         
 }
 
-int main(int, char* []) {
+int main(int, char* [])
+{
+
     // read our description file
     readTest();
 
@@ -124,5 +123,5 @@ int main(int, char* []) {
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::Fltk1::main(argc,argv);
+   return Eaagles::mainFltk1::main(argc,argv);
 }

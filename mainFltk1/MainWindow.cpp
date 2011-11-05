@@ -1,12 +1,12 @@
 
 #include "MainWindow.h"
 #include "GLWindow.h"
-#include "Display.h"
+#include "FltkDisplay.h"
 
 #include <FL/fl_ask.H>
 
 namespace Eaagles {
-namespace Fltk1 {
+namespace mainFltk1 {
 
 // ----------------------------------------------------------------------------
 // windowCallback() - called when Mainwindow wants to exit
@@ -99,7 +99,7 @@ MainWindow::~MainWindow()
 // ----------------------------------------------------------------------------
 // setupGui() - setup our windows and widgets
 // ----------------------------------------------------------------------------
-void MainWindow::setupGui(Display* dis)
+void MainWindow::setupGui(FltkDisplay* dis)
 {
     // ok, now let's setup our menu bar and items 
     menuBar = new Fl_Menu_Bar(0, 0, w(), 30);
@@ -164,7 +164,7 @@ void MainWindow::setYRotation(const double y)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) {
         if (glWins[i] != 0) {
-            Display* myDis = glWins[i]->getDisplay();
+            FltkDisplay* myDis = glWins[i]->getDisplay();
             if (myDis != 0) myDis->setYRotation(y);
         }
     }
@@ -177,7 +177,7 @@ void MainWindow::setXRotation(const double x)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) {
         if (glWins[i] != 0) {
-            Display* myDis = glWins[i]->getDisplay();
+            FltkDisplay* myDis = glWins[i]->getDisplay();
             if (myDis != 0) myDis->setXRotation(x);
         }
     }
@@ -190,13 +190,13 @@ void MainWindow::setZRotation(const double x)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) {
         if (glWins[i] != 0) {
-            Display* myDis = glWins[i]->getDisplay();
+            FltkDisplay* myDis = glWins[i]->getDisplay();
             if (myDis != 0) myDis->setZRotation(x);
         }
     }
 }
 
 
-}; // end Fltk1 namespace
+}; // end mainFltk1 namespace
 }; // end Eaagles namespace
 

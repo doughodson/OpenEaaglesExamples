@@ -5,7 +5,7 @@ PGM = mainFltk1
 
 CPPFLAGS += -I/usr/include/Fl
 
-OBJS = Display.o MainWindow.o GLWindow.o Station.o mainFltk1.o
+OBJS = FltkDisplay.o MainWindow.o GLWindow.o FltkStation.o mainFltk1.o
 
 LDFLAGS += -loeSimulation -loeInstruments -loeDafif  -loeBasicGL -loeBasic 
 LDFLAGS += -lfltk_images -lfltk_gl -lfltk
@@ -17,7 +17,7 @@ LDFLAGS += -lrt
 all: $(PGM) 
 
 edl:
-	cpp inputs/test.epp > test.edl   $(EPPFLAGS)
+	cpp inputs/test.epp > test.edl $(EPPFLAGS)
 
 
 $(PGM): $(OBJS)

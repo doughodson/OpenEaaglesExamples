@@ -1,6 +1,6 @@
 
 #include "GLWindow.h"
-#include "Display.h"
+#include "FltkDisplay.h"
 
 #include <FL/Fl.H>
 
@@ -12,19 +12,18 @@ void drawCallBack(void* pData)
 {
     if (pData != NULL) {
         // we know GLWindow called this.
-        Eaagles::Fltk1::GLWindow* gl = reinterpret_cast<Eaagles::Fltk1::GLWindow*>(pData);
+        Eaagles::mainFltk1::GLWindow* gl = reinterpret_cast<Eaagles::mainFltk1::GLWindow*>(pData);
         if (gl != 0) gl->redraw();
     }
 }
 
 namespace Eaagles {
-namespace Fltk1 {
+namespace mainFltk1 {
 
 // ----------------------------------------------------------------------------
 // constructor(s) -
 // ----------------------------------------------------------------------------
-GLWindow::GLWindow(int x,int y,int w,int h,const char *l) :
-Fl_Gl_Window(x,y,w,h,l)
+GLWindow::GLWindow(int x,int y,int w,int h,const char *l) : Fl_Gl_Window(x,y,w,h,l)
 {
     display = 0;
     // we can make an idle callback which will call this function
@@ -37,15 +36,14 @@ Fl_Gl_Window(x,y,w,h,l)
     Fl::add_idle(drawCallBack, this);
     glInitialized = false;
 }
-GLWindow::GLWindow(int x,int y) : 
-Fl_Gl_Window(x,y)
+
+GLWindow::GLWindow(int x,int y) : Fl_Gl_Window(x,y)
 {
     display = 0;
     //Fl::add_timeout(1/frameRate, drawCallBack, this);
     Fl::add_idle(drawCallBack, this);
     glInitialized = false;
 }
-
 
 // ----------------------------------------------------------------------------
 // destructor() - just take care of eaagles deletion here, because Fltk
@@ -88,11 +86,11 @@ int GLWindow::handle(int x)
         int yPos = Fl::event_y();
         int button = Fl::event_button();
         if (x == FL_PUSH) {
-            display->mouseEvent(button, Display::MOUSE_DOWN, xPos, yPos);
+            display->mouseEvent(button, FltkDisplay::MOUSE_DOWN, xPos, yPos);
             // return a non-zero to ensure we will get the FL_DRAG event
             return 1;
         }
-        else if (x == FL_RELEASE) display->mouseEvent(button, Display::MOUSE_UP, xPos, yPos);
+        else if (x == FL_RELEASE) display->mouseEvent(button, FltkDisplay::MOUSE_UP, xPos, yPos);
     }
     return Fl_Gl_Window::handle(x);
 }
@@ -100,7 +98,7 @@ int GLWindow::handle(int x)
 // ----------------------------------------------------------------------------
 // setDisplay() - set our Eaagles display
 // ----------------------------------------------------------------------------
-void GLWindow::setDisplay(Display* x)
+void GLWindow::setDisplay(FltkDisplay* x)
 {
     if (display != 0) {
         display->unref();
@@ -146,7 +144,7 @@ void GLWindow::glInit()
     glDisable(GL_STENCIL_TEST);
     glDisable(GL_TEXTURE_1D);
     glDisable(GL_TEXTURE_2D);
-    
+
     // Default pixel transfer settings
     glPixelTransferi(GL_MAP_COLOR, GL_FALSE);
     glPixelTransferi(GL_RED_SCALE, 1);
@@ -165,7 +163,5 @@ void GLWindow::glInit()
     glInitialized = true;
 }
 
-
 };
 };
-

@@ -1,6 +1,6 @@
-( Fltk1Station 
-    display:
-    ( Fltk1Display
+( FltkStation 
+    display1:
+    ( FltkDisplay
         left: -10
         right: 10
         bottom: -10
@@ -190,7 +190,7 @@
 
 #if 1
     display2:
-    ( Fltk1Display
+    ( FltkDisplay
         left: -10
         right: 10
         bottom: -10

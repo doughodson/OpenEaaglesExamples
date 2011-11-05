@@ -1,63 +1,61 @@
-#include "Display.h"
+//
+#include "FltkDisplay.h"
 
 namespace Eaagles {
-namespace Fltk1 {
+namespace mainFltk1 {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display,"Fltk1Display")
-EMPTY_SERIALIZER(Display)
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FltkDisplay, "FltkDisplay")
+EMPTY_SERIALIZER(FltkDisplay)
+EMPTY_DELETEDATA(FltkDisplay)
 
 // ----------------------------------------------------------------------------
 // constructor(s)
 // ----------------------------------------------------------------------------
-Display::Display()
+FltkDisplay::FltkDisplay()
 {
-    STANDARD_CONSTRUCTOR()
-    xRotationSD.empty();
-    yRotationSD.empty();
-    zRotationSD.empty();
+   STANDARD_CONSTRUCTOR()
+   initData();
+}
+
+void FltkDisplay::initData()
+{
+   xRotationSD.empty();
+   yRotationSD.empty();
+   zRotationSD.empty();
 }
 
 // ----------------------------------------------------------------------------
 // copyData() 
 // ----------------------------------------------------------------------------
-void Display::copyData(const Display& org, const bool)
+void FltkDisplay::copyData(const FltkDisplay& org, const bool)
 {
-    BaseClass::copyData(org);
-
-    xRotationSD.empty();
-    yRotationSD.empty();
-    zRotationSD.empty();
+   BaseClass::copyData(org);
+   initData();
 }
-
-// ----------------------------------------------------------------------------
-// deleteData() -
-// ----------------------------------------------------------------------------
-EMPTY_DELETEDATA(Display)
 
 // ----------------------------------------------------------------------------
 // setXRotation() - send our X rotation down to our graphics
 // ----------------------------------------------------------------------------
-void Display::setXRotation(const double x)
+void FltkDisplay::setXRotation(const double x)
 {
-    send("logo", UPDATE_VALUE, x, xRotationSD);
+   send("logo", UPDATE_VALUE, x, xRotationSD);
 }
 
 // ----------------------------------------------------------------------------
 // setYRotation() - send our Y rotation down to our graphics
 // ----------------------------------------------------------------------------
-void Display::setYRotation(const double y)
+void FltkDisplay::setYRotation(const double y)
 {
-    send("logo", UPDATE_VALUE3, y, yRotationSD);
+   send("logo", UPDATE_VALUE3, y, yRotationSD);
 }
 
 // ----------------------------------------------------------------------------
 // setZRotation() - send our Z rotation down to our graphics
 // ----------------------------------------------------------------------------
-void Display::setZRotation(const double z)
+void FltkDisplay::setZRotation(const double z)
 {
-    send("logo", UPDATE_VALUE5, z, zRotationSD);
+   send("logo", UPDATE_VALUE5, z, zRotationSD);
 }
 
-
-};  // end Fltk1 
+};  // end mainFltk1 
 };  // end Eaagles

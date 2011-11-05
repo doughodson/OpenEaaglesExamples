@@ -1,47 +1,47 @@
 //-----------------------------------------------------
-// Classname:   Fl_Gl_Window -> GLWindow
-// 
-// Description: Derived from Fl_Gl_Window, this is our
-// openGL window that we will draw into.
+// Class: GLWindow
+//
+// Description: This is our OpenGL window where
+//              drawing will be done
 //-----------------------------------------------------
 
-#ifndef __EAAGLES_FLTK1_GLWINDOW_H__
-#define __EAAGLES_FLTK1_GLWINDOW_H__
+#ifndef __Eaagles_mainFltk1_GLWindow_H__
+#define __Eaagles_mainFltk1_GLWindow_H__
 
 #include <FL/Fl_Gl_Window.H>
 
 namespace Eaagles {
-namespace Fltk1 {
+namespace mainFltk1 {
 
-class Display;
+class FltkDisplay;
 
 class GLWindow : public Fl_Gl_Window 
 {
-    
 public:
-    GLWindow(int x,int y,int w,int h,const char *l = 0); 
-    GLWindow(int x,int y);
-    
-    ~GLWindow();
 
-    // set function(s)
-    virtual void setDisplay(Display* x);
+   GLWindow(int x,int y,int w,int h,const char *l = 0); 
+   GLWindow(int x,int y);
+   virtual ~GLWindow();
 
-    // get function(s)
-    Display* getDisplay()   { return display; }
-    
-    // Fltk interface
-    virtual void draw();
-    virtual int handle(int x);
-    virtual void resize(int x, int y, int w, int h);
+   virtual void setDisplay(FltkDisplay* x);
+
+   // get function(s)
+   FltkDisplay* getDisplay()   { return display; }
+
+   // Fltk interface
+   virtual void draw();
+   virtual int handle(int x);
+   virtual void resize(int x, int y, int w, int h);
 
 private:
-    void glInit();
-    bool glInitialized;     // initialize our open GL settings
-    Display* display;       // our eaagles display
+
+   void glInit();
+   bool glInitialized;     // OpenGL initialization flag
+
+   FltkDisplay* display;
 };
 
 };
 };
 
-#endif // __EAAGLES_FLTK1_GLWINDOW_H__
+#endif

@@ -1,7 +1,7 @@
 #line 1 "inputs/test.epp"
-( Fltk1Station 
-    display:
-    ( Fltk1Display
+( FltkStation 
+    display1:
+    ( FltkDisplay
         left: -10
         right: 10
         bottom: -10
@@ -191,7 +191,7 @@
 
 
     display2:
-    ( Fltk1Display
+    ( FltkDisplay
         left: -10
         right: 10
         bottom: -10
