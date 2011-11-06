@@ -25,8 +25,17 @@ EMPTY_SERIALIZER(MyComp)
 //------------------------------------------------------------------------------
 MyComp::MyComp(void)
 {
-  STANDARD_CONSTRUCTOR()
-  str = 0;
+   STANDARD_CONSTRUCTOR()
+   initData();
+   std::cout << "MyComp::MyComp() called\n";
+}
+
+//
+//
+//
+void MyComp::initData()
+{
+   str = 0;
 }
 
 //------------------------------------------------------------------------------
@@ -34,14 +43,16 @@ MyComp::MyComp(void)
 //------------------------------------------------------------------------------
 void MyComp::copyData(const MyComp& org, const bool cc)
 {
-  BaseClass::copyData(org);
+   BaseClass::copyData(org);
 
-  if (cc) {
-    str = 0;
-  }
+   if (cc) {
+      initData();
+   }
 
-  if (str != 0) { str->unref(); str = 0; }
-  if (org.str != 0) str = dynamic_cast<const Basic::String*>(org.str->clone());
+   if (str != 0) { str->unref(); str = 0; }
+   if (org.str != 0) str = dynamic_cast<const Basic::String*>(org.str->clone());
+
+   std::cout << "MyComp::copyData() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -49,7 +60,8 @@ void MyComp::copyData(const MyComp& org, const bool cc)
 //------------------------------------------------------------------------------
 void MyComp::deleteData()
 {
-  setStr( 0 );
+   setStr( 0 );
+   std::cout << "MyComp::deleteData() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -57,15 +69,15 @@ void MyComp::deleteData()
 //------------------------------------------------------------------------------
 bool MyComp::setStr(const Basic::String* const x)
 {
-  if (str != 0) str->unref();
-  str = x;
-  if (str != 0) str->ref();
-  return true;
+   if (str != 0) str->unref();
+   str = x;
+   if (str != 0) str->ref();
+   return true;
 }
 
 const Basic::String* MyComp::getStr(void) const
 {
-  return str;
+   return str;
 }
 
 //------------------------------------------------------------------------------
@@ -73,16 +85,16 @@ const Basic::String* MyComp::getStr(void) const
 //------------------------------------------------------------------------------
 Basic::Object* MyComp::getSlotByIndex(const int si)
 {
-  return BaseClass::getSlotByIndex(si);
+   return BaseClass::getSlotByIndex(si);
 }
 
 bool MyComp::setSlotStr(const Basic::String* const x)
 {
-  bool ok = false;
-  if(x != 0) {
-    ok = setStr(x);
-  }
-  return ok;
+   bool ok = false;
+   if(x != 0) {
+      ok = setStr(x);
+   }
+   return ok;
 }
 
 //------------------------------------------------------------------------------
@@ -90,33 +102,34 @@ bool MyComp::setSlotStr(const Basic::String* const x)
 //------------------------------------------------------------------------------
 void MyComp::reset()
 {
-  // as an example, I'm going to dump string
-  setStr(0);
-  std::cout << "I've been reset!\n";
+   // as an example, I'm going to dump string
+   setStr(0);
+   std::cout << "I've been reset!\n";
 
-  BaseClass::reset();
+   BaseClass::reset();
 }
 
 void MyComp::updateTC(const LCreal dt)
 {
-  unsigned int millis = (unsigned int)(dt * 1000);
-  std::cout << "Time has moved forward by " << millis << " milliseconds\n";
+   unsigned int millis = (unsigned int)(dt * 1000);
+   std::cout << "Time has moved forward by " << millis << " milliseconds\n";
 
-  // Update base classes stuff
-  BaseClass::updateTC(dt);
+   // Update base classes stuff
+   BaseClass::updateTC(dt);
 }
 
 void MyComp::updateData(const LCreal dt)
 {
-  // print out string info if a string has been defined
-  if (str != 0)
-    std::cout << "BG Str: " << str->getString() << "\n";
-  else
-    std::cout << "BG Str: Nothing to print\n";
+   // print out string info if a string has been defined
+   if (str != 0)
+      std::cout << "BG Str: " << str->getString() << "\n";
+   else
+      std::cout << "BG Str: Nothing to print\n";
 
-  // Update base classes stuff
-  BaseClass::updateData(dt);
+   // Update base classes stuff
+   BaseClass::updateData(dt);
 }
 
 } // namespace Example06
 } // namespace Eaagles
+

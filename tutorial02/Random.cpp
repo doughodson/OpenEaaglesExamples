@@ -18,10 +18,12 @@ EMPTY_SERIALIZER(Random)
 //------------------------------------------------------------------------------
 Random::Random(void)
 {
-  STANDARD_CONSTRUCTOR()
+   STANDARD_CONSTRUCTOR()
 
-  // seed the random number generator
-  setSeed(100);
+   // seed the random number generator
+   setSeed(100);
+
+   std::cout << "Random::Random() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -29,7 +31,9 @@ Random::Random(void)
 //------------------------------------------------------------------------------
 void Random::copyData(const Random& org, const bool)
 {
-	BaseClass::copyData(org);
+   BaseClass::copyData(org);
+
+   std::cout << "Random::copyData() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -37,6 +41,7 @@ void Random::copyData(const Random& org, const bool)
 //------------------------------------------------------------------------------
 void Random::deleteData()
 {
+   std::cout << "Random::deleteData() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -44,13 +49,14 @@ void Random::deleteData()
 //------------------------------------------------------------------------------
 int Random::getNum(void) const
 {
-  return rand();
+   return rand();
 }
 
 void Random::setSeed(const unsigned int seed)
 {
-  srand(seed);
+   srand(seed);
 }
 
 } // namespace Example02
 } // namespace Eaagles
+

@@ -26,7 +26,9 @@ EMPTY_SERIALIZER(Random)
 //------------------------------------------------------------------------------
 Random::Random(void)
 {
-  STANDARD_CONSTRUCTOR()
+   STANDARD_CONSTRUCTOR()
+
+   std::cout << "Random::Random() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -34,7 +36,8 @@ Random::Random(void)
 //------------------------------------------------------------------------------
 void Random::copyData(const Random& org, const bool)
 {
-	BaseClass::copyData(org);
+   BaseClass::copyData(org);
+   std::cout << "Random::copyData() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -42,6 +45,7 @@ void Random::copyData(const Random& org, const bool)
 //------------------------------------------------------------------------------
 void Random::deleteData()
 {
+   std::cout << "Random::deleteData() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -49,8 +53,8 @@ void Random::deleteData()
 //------------------------------------------------------------------------------
 bool Random::setSeed(const unsigned int seed)
 {
-  srand(seed);
-  return true;
+   srand(seed);
+   return true;
 }
 
 //------------------------------------------------------------------------------
@@ -58,16 +62,17 @@ bool Random::setSeed(const unsigned int seed)
 //------------------------------------------------------------------------------
 Basic::Object* Random::getSlotByIndex(const int si)
 {
-  return BaseClass::getSlotByIndex(si);
+   return BaseClass::getSlotByIndex(si);
 }
 
 bool Random::setSlotSeed(const Basic::Number* const seed)
 {
-  bool ok = false;
-  if(seed != 0)
-    ok = setSeed(seed->getInt());
-  return ok;
+   bool ok = false;
+   if(seed != 0)
+      ok = setSeed(seed->getInt());
+   return ok;
 }
 
 } // namespace Example04
 } // namespace Eaagles
+

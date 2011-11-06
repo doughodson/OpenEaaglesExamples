@@ -17,29 +17,35 @@ namespace Example06 {
 
 class MyComp : public Basic::Component
 {
-  DECLARE_SUBCLASS(MyComp, Basic::Component)
+   DECLARE_SUBCLASS(MyComp, Basic::Component)
 
 public:
 
-  MyComp();
+   MyComp();
 
-  // data access functions
-  bool setStr(const Basic::String* const);
-  const Basic::String* getStr(void) const;
+   // data access functions
+   bool setStr(const Basic::String* const);
+   const Basic::String* getStr(void) const;
 
-  // slot table functions
-  bool setSlotStr(const Basic::String* const);
+   // slot table functions
+   bool setSlotStr(const Basic::String* const);
 
-  // Component class methods
-  virtual void reset();
-  virtual void updateTC(const LCreal dt = 0.0);
-  virtual void updateData(const LCreal dt = 0.0);
+   // Component class methods
+   virtual void reset();
+   virtual void updateTC(const LCreal dt = 0.0);
+   virtual void updateData(const LCreal dt = 0.0);
+
+protected:
+
+   void initData();
 
 private:
-  const Basic::String* str;
+
+   const Basic::String* str;
 };
 
 } // namespace Example06
 } // namespace Eaagles
 
 #endif
+

@@ -7,15 +7,20 @@ namespace Example02 {
 
 int exec (int, char **)
 {
-  Random* rgen = new Random();
-  rgen->setSeed(25);
+   std::cout << "Creating Random object\n";
+   Random* rgen = new Random();
+   std::cout << "Random object created\n";
 
-  for( int i=0; i<10; i++)
-    std::cout << rgen->getNum() << std::endl;
+   rgen->setSeed(25);
 
-  rgen->unref();
+   for( int i=0; i<10; i++)
+      std::cout << rgen->getNum() << std::endl;
 
-  return 0;
+   std::cout << "Unref'ing random object\n";
+   rgen->unref();
+   std::cout << "Random object unrefed\n";
+
+   return 0;
 }
 
 } // namespace Example02
@@ -26,5 +31,6 @@ int exec (int, char **)
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example02::exec(argc, argv);
+   Eaagles::Example02::exec(argc, argv);
 }
+
