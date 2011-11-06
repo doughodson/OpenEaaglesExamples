@@ -25,7 +25,7 @@ endif
 # ---
 # Fox GUI library settings
 # ---
-FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.6
+FOX_INC_DIR = /usr/include/fox-1.6
 FOX_DEFINES = -DFOX_1_6
 FOX_LIBS    = -lFOX-1.6
 
