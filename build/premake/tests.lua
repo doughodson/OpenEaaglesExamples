@@ -211,3 +211,24 @@ project "testTables"
         links {"oebasic"}
     configuration "Debug"
         links {"oebasic_d"}
+
+-- testTimer
+project "testTimer"
+    targetname "testTimer"
+    targetdir "../../testTimer"
+    files {
+        "../../testTimer/*.cpp",
+        "../../testTimer/*.h",
+        "../../testTimer/*.edl"
+    }
+    includedirs {
+        "../../../OpenEaagles/include"
+    }
+    libdirs {
+        "../../../OpenEaagles/lib/".._ACTION
+    }
+    links {"Ws2_32", "Winmm", "comctl32"}
+    configuration "Release"
+        links {"oebasic"}
+    configuration "Debug"
+        links {"oebasic_d"}

@@ -31,10 +31,11 @@ APPLICATIONS += mainVmap
 #
 APPLICATIONS += mainy1
 
-# test table, state machines and events
+# test table, state machines, events and timer
 APPLICATIONS += testTables
 APPLICATIONS += testStateMach
 APPLICATIONS += testEvents
+APPLICATIONS += testTimer
 
 # device I/O test program
 APPLICATIONS += testIo
