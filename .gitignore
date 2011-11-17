@@ -51,6 +51,7 @@ testNet/testNet
 testRng/testRng
 testStateMach/testStateMach
 testTables/testTables
+testTimer/testTimer
 tutorial01/tutorial
 tutorial02/tutorial
 tutorial03/tutorial
