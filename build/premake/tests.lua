@@ -17,9 +17,7 @@ project "testEvents"
         "../../../OpenEaagles3rdParty/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION,
-        "../../../OpenEaagles3rdParty/lib",
-        "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     links {"opengl32", "glu32"}
@@ -45,9 +43,7 @@ project "testIo"
         "../../../OpenEaagles3rdParty/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION,
-        "../../../OpenEaagles3rdParty/lib",
-        "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     links {"opengl32", "glu32"}
@@ -72,7 +68,7 @@ project "testLinearSys"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -94,7 +90,7 @@ project "testNav"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -116,7 +112,7 @@ project "testMatrix"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -138,7 +134,7 @@ project "testNet"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -160,7 +156,7 @@ project "testRng"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -182,7 +178,7 @@ project "testStateMach"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -204,7 +200,7 @@ project "testTables"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -225,7 +221,7 @@ project "testTimer"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"

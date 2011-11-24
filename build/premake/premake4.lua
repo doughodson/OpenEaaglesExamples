@@ -10,10 +10,21 @@
 
 if (_ACTION == nil) then
   return
-else
-  OE3rdPartyLibPath = "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
-  print (OE3rdPartyLibPath)
 end
+
+--
+-- set library paths based on compiler
+--
+if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
+  OELibPath         = "../../../OpenEaagles/lib/".._ACTION
+  OE3rdPartyLibPath = "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+end
+if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
+  OELibPath         = "../../../OpenEaagles/lib/mingw"
+  OE3rdPartyLibPath = "../../../OpenEaagles3rdParty/lib/mingw-32"
+end
+print ("OpenEaagles library path: "..OELibPath)
+print ("OpenEaagles 3rd party library path:"..OE3rdPartyLibPath)
 
 solution "examples"
 

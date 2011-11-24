@@ -19,18 +19,18 @@ project "mainEfis"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"ftgl", "freetype2", "freeglut" }
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
+      links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"ftgl_d", "freetype2_d", "freeglut_d" }
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Flight Display 1 example
 project "mainfd1"
@@ -47,18 +47,18 @@ project "mainfd1"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut" }
-      links {"ftgl", "freetype2", "freeglut" }
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
+      links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d" }
-      links {"ftgl_d", "freetype2_d", "freeglut_d" }
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Flight Display 2 example
 project "mainfd2"
@@ -75,20 +75,20 @@ project "mainfd2"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut" }
-      links {"ftgl", "freetype2", "freeglut" }
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
+      links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d" }
-      links {"ftgl_d", "freetype2_d", "freeglut_d" }
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- openGL example
+-- OpenGL example
 project "mainGL"
    targetname "mainGL"
    targetdir "../../mainGL"
@@ -103,18 +103,18 @@ project "mainGL"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
     }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut" }
-      links {"ftgl", "freetype2", "freeglut" }
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
+      links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d" }
-      links {"ftgl_d", "freetype2_d", "freeglut_d" }
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Ground Mapping Radar example
 project "mainGndMapRdr"
@@ -131,20 +131,20 @@ project "mainGndMapRdr"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"oeterrain", "oesimulation", "oedafif" }
-      links {"ftgl", "freetype2", "freeglut" }
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
+      links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"oeterrain_d", "oesimulation_d", "oedafif_d" }
-      links {"ftgl_d", "freetype2_d", "freeglut_d" }
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainIr example
 project "mainIr"
@@ -161,24 +161,24 @@ project "mainIr"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"oeiodevice", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"oeiodevice_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Non-RealTime 1 example
 project "mainNonRT1"
@@ -195,20 +195,20 @@ project "mainNonRT1"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedafif" }
+      links {"oevehicles", "oesensors", "oesimulation"}
+      links {"oedafif", "oebasic"}
       links {"jsbsim"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedafif_d" }
+      links {"oevehicles_d", "oesensors_d", "oesimulation_d"}
+      links {"oedafif_d", "oebasic_d"}
       links {"jsbsim_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Puzzle 1 example
 project "mainPuzzle1"
@@ -225,18 +225,18 @@ project "mainPuzzle1"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeglut"}
+      links {"oeglut", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeglut_d"}
+      links {"oeglut_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Puzzle 2 example
 project "mainPuzzle2"
@@ -253,20 +253,20 @@ project "mainPuzzle2"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeglut"}
+      links {"oeglut", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeglut_d"}
+      links {"oeglut_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- simple Simulation 1 example
+ -- simple Simulation 1 example
 project "mainSim1"
    targetname "mainSim1"
    targetdir "../../mainSim1"
@@ -281,22 +281,24 @@ project "mainSim1"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 2 example
 project "mainSim2"
@@ -313,22 +315,24 @@ project "mainSim2"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 3 example
 project "mainSim3"
@@ -345,24 +349,24 @@ project "mainSim3"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"oeioDevice", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors", "oeioDevice"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"oeioDevice_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d", "oeioDevice_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 4 example
 project "mainSim4"
@@ -379,24 +383,24 @@ project "mainSim4"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"oeioDevice", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"oeioDevice_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Terrain loading example
 project "mainTerrain"
@@ -413,18 +417,20 @@ project "mainTerrain"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeterrain", "oeglut"}
+      links {"oeterrain"}
+      links {"oeglut", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeterrain_d", "oeglut_d"}
+      links {"oeterrain_d"}
+      links {"oeglut_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Vmap example
 project "mainVmap"
@@ -441,18 +447,21 @@ project "mainVmap"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oemaps", "oeglut"}
+      links {"oemaps"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oemaps_d", "oeglut_d"}
+      links {"oemaps_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
 
 -- mainw : basic graphics example
 project "mainw"
@@ -469,18 +478,18 @@ project "mainw"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeglut"}
+      links {"oeglut", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeglut_d"}
+      links {"oeglut_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainx9
 project "mainx9"
@@ -497,26 +506,24 @@ project "mainx9"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
-      links {"Ws2_32", "Winmm", "comctl32"}
-   end
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"oeioDevice", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors", "oeioDevice"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"oeioDevice_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d", "oeioDevice_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainy1
 project "mainy1"
@@ -533,24 +540,24 @@ project "mainy1"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
-      links {"oeioDevice", "oesimulation", "oesensors"}
-      links {"oevehicles", "oedis", "oedafif", "oeotw"}
+      links {"oevehicles", "oedis", "oeotw", "oesensors", "oeioDevice"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
       links {"jsbsim", "ccl_lib"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
-      links {"oeioDevice_d", "oesimulation_d", "oesensors_d"}
-      links {"oevehicles_d", "oedis_d", "oedafif_d", "oeotw_d"}
+      links {"oevehicles_d", "oedis_d", "oeotw_d", "oesensors_d", "oeioDevice_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
       links {"jsbsim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainz1
 project "mainz1"
@@ -567,18 +574,18 @@ project "mainz1"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainz2
 project "mainz2"
@@ -595,16 +602,16 @@ project "mainz2"
       "../../../OpenEaagles3rdParty/include"
    }
    libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
    }
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments", "oeglut"}
+      links {"oeglut", "oeinstruments", "oebasicGL", "oebasic"}
       links {"ftgl", "freetype2", "freeglut"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d", "oeglut_d"}
+      links {"oeglut_d", "oeinstruments_d", "oebasicGL_d", "oebasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 

@@ -14,7 +14,7 @@ project "tutorial01"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -34,7 +34,7 @@ project "tutorial02"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -56,7 +56,7 @@ project "tutorial03"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -78,7 +78,7 @@ project "tutorial04"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -100,7 +100,7 @@ project "tutorial05"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -122,7 +122,7 @@ project "tutorial06"
         "../../../OpenEaagles/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION
+      OELibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     configuration "Release"
@@ -145,9 +145,7 @@ project "tutorial07"
         "../../../OpenEaagles3rdParty/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION,
-        "../../../OpenEaagles3rdParty/lib",
-        "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
     }
     links {"Ws2_32", "Winmm", "comctl32"}
     links {"opengl32", "glu32"}
@@ -173,9 +171,7 @@ project "tutorial08"
         "../../../OpenEaagles3rdParty/include"
     }
     libdirs {
-        "../../../OpenEaagles/lib/".._ACTION,
-        "../../../OpenEaagles3rdParty/lib",
-        "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+      OELibPath, OE3rdPartyLibPath
     }
     links {"Ws2_32", "Winmm", "comctl32" }
     links {"opengl32", "glu32"}
