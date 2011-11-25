@@ -12,26 +12,20 @@ project "mainFltk1"
       "../../mainFltk1/**.h",
       "../../mainFltk1/**.epp"
    }
-   includedirs {
-      "../../../OpenEaagles/include",
-      "../../../OpenEaagles3rdParty/include"
-   }
-   libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
-   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+--
    links {"Ws2_32", "Winmm", "comctl32"}
    links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments" }
-      links {"oesimulation", "oedafif"}
+      links {"oeBasic", "oeBasicGL", "oeInstruments" }
+      links {"oeSimulation", "oeDafif"}
       links {"ftgl", "freetype2"}
       links {"fltk", "fltkforms", "fltkgl", "fltkimages"}
       links {"fltkjpeg", "fltkpng", "fltkz"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d"}
-      links {"oesimulation_d", "oedafif_d"}
+      links {"oeBasic_d", "oeBasicGL_d", "oeInstruments_d"}
+      links {"oeSimulation_d", "oeDafif_d"}
       links {"ftgl_d", "freetype2_d"}
       links {"fltk_d",  "fltkforms_d", "fltkgl_d", "fltkimages_d"}
       links {"fltkjpeg_d", "fltkpng_d", "fltkz_d"}
@@ -45,27 +39,22 @@ project "mainFox1"
       "../../mainFox1/**.h",
       "../../mainFox1/**.epp"
    }
-   includedirs {
-      "../../../OpenEaagles/include",
-      "../../../OpenEaagles3rdParty/include",
+   includedirs { OEIncPath, OE3rdPartyIncPath, 
       "../../../OpenEaagles3rdParty/include/fox-1.6"
    }
-   libdirs {
-      "../../../OpenEaagles/lib/".._ACTION,
-      "../../../OpenEaagles3rdParty/lib",
-      "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
-   }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+
    links {"Ws2_32", "Winmm", "comctl32"}
    links {"opengl32", "glu32"}
    defines {"FOX_1_6"}
    configuration "Release"
-      links {"oebasic", "oebasicGL", "oeinstruments" }
-      links {"oesimulation", "oedafif"}
+      links {"oeBasic", "oeBasicGL", "oeInstruments" }
+      links {"oeSimulation", "oeDafif"}
       links {"ftgl", "freetype2"}
       links {"fox-1.6"}
    configuration "Debug"
-      links {"oebasic_d", "oebasicGL_d", "oeinstruments_d"}
-      links {"oesimulation_d", "oedafif_d"}
+      links {"oeBasic_d", "oeBasicGL_d", "oeInstruments_d"}
+      links {"oeSimulation_d", "oeDafif_d"}
       links {"ftgl_d", "freetype2_d"}
       links {"fox-1.6_d"}
 

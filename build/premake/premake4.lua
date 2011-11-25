@@ -8,23 +8,46 @@
 --     codelite   (CodeLite)
 --
 
+-- we must have an ide/compiler specified
 if (_ACTION == nil) then
   return
 end
 
 --
--- set library paths based on compiler
+-- directory locations for framework and 3rd party dependencies
+--
+OE_ROOT           = "../../../OpenEaagles"
+OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
+if (os.is("linux")) then
+   OE_3RD_PARTY_ROOT = "/usr/local"
+end
+--
+-- set include and library paths
 --
 if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
-  OELibPath         = "../../../OpenEaagles/lib/".._ACTION
-  OE3rdPartyLibPath = "../../../OpenEaagles3rdParty/lib/".._ACTION.."-32"
+   OEIncPath         = OE_ROOT.."/include"
+   OELibPath         = OE_ROOT.."/lib/".._ACTION
+   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
+   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
 end
 if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
-  OELibPath         = "../../../OpenEaagles/lib/mingw"
-  OE3rdPartyLibPath = "../../../OpenEaagles3rdParty/lib/mingw-32"
+   OEIncPath         = OE_ROOT.."/include"
+   OELibPath         = OE_ROOT.."/lib/mingw"
+   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
+   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/mingw-32"
 end
-print ("OpenEaagles library path: "..OELibPath)
-print ("OpenEaagles 3rd party library path:"..OE3rdPartyLibPath)
+if (os.is("linux")) then
+   OEIncPath         = OE_ROOT.."/include"
+   OELibPath         = OE_ROOT.."/lib/linux"
+   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
+   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib"
+end
+print ("OpenEaagles Paths:")
+print ("  Include   : "..OEIncPath)
+print ("  Libraries : "..OELibPath)
+print ("OpenEaagles3rdParty Paths:")
+print ("  Include   :"..OE3rdPartyIncPath)
+print ("  Libraries :"..OE3rdPartyLibPath)
 
 solution "examples"
 
