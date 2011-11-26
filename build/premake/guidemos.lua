@@ -17,23 +17,22 @@ project "mainFltk1"
    configuration "Release"
       links {"oeSimulation", "oeDafif"}
       links {"oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"fltk_images", "fltk_gl", "fltk"}
+--    links {"fltk_jpeg", "fltk_png", "fltk_z"}
       links {"ftgl", LibFreetype, LibGLU, LibGL}
       if (os.is("linux")) then
-         links {"fltk_images", "fltk_gl", "fltk"}
          links {"X11", "Xft", "pthread", "rt"}
       else
-         links {"fltkimages", "fltkgl", "fltk"}
---         links {"fltkjpeg", "fltkpng", "fltkz"}
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+         links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
       end
    configuration "Debug"
       links {"oeSimulation_d", "oeDafif_d"}
       links {"oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
-      links {"fltkimages_d", "fltkgl_d", "fltk_d"}
---      links {"fltkjpeg_d", "fltkpng_d", "fltkz_d"}
+      links {"fltk_images_d", "fltk_gl_d", "fltk_d"}
+--      links {"fltk_jpeg_d", "fltk_png_d", "fltk_z_d"}
       links {"ftgl_d", "freetype2_d"}
       links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
 
 
 -- mainFox1: Fox-based GUI
@@ -56,7 +55,7 @@ project "mainFox1"
       if (os.is("linux")) then
          links {"X11", "pthread", "rt"}
       else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+         links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
       end
    configuration "Debug"
       links {"oeSimulation_d", "oeDafif_d", "oeInstruments_d"}
@@ -64,6 +63,5 @@ project "mainFox1"
       links {"FOX-1.6_d"}
       links {"ftgl_d", "freetype2_d"}
       links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-
+      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
 
