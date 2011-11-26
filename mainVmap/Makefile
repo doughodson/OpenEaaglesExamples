@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = mainvmap
+PGM = mainVmap
 
 OBJS = main.o 
 

@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = tutorial
+PGM = tutorial07
 
 OBJS = main.o Worm.o 
 

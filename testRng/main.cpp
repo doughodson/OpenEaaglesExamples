@@ -22,7 +22,7 @@ void testValidation()
 
   std::printf("1000 32-bit integer random numbers:\n");
   for (int i = 0; i < 1000; ++i) {
-    std::printf("%10lu ", irand.drawInt32());
+    std::printf("%10u ", irand.drawInt32());
     if ((i % 5) == 4) std::printf("\n");
   }
   std::printf("\n1000 random numbers in [0, 1):\n");

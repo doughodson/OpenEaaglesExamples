@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = tutorial
+PGM = tutorial08
 
 OBJS = main.o Worm.o MyPager.o
 

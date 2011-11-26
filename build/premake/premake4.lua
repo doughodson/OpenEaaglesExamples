@@ -49,6 +49,23 @@ print ("OpenEaagles3rdParty Paths:")
 print ("  Include   :"..OE3rdPartyIncPath)
 print ("  Libraries :"..OE3rdPartyLibPath)
 
+--
+-- library names
+--
+LibCigi     = "ccl_lib"
+LibFreetype = "freetype2"
+LibGlut     = "freeglut"
+LibGLU      = "glu32"
+LibGL       = "opengl32"
+if (os.is("linux")) then
+   LibCigi     = "cigicl"
+   LibFreetype = "freetype"
+   LibGlut     = "glut"
+   LibGLU      = "GLU"
+   LibGL       = "GL"
+end
+
+
 solution "examples"
 
    -- destination directory for generated solution/project files
@@ -93,3 +110,4 @@ solution "examples"
    dofile "tutorials.lua"
    -- gui demos
    dofile "guidemos.lua"
+

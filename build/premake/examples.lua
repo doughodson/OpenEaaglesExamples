@@ -18,9 +18,12 @@ project "mainEfis"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -41,9 +44,12 @@ project "mainfd1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -64,9 +70,12 @@ project "mainfd2"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -87,9 +96,12 @@ project "mainGL"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -111,9 +123,12 @@ project "mainGndMapRdr"
    configuration "Release"
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
@@ -134,15 +149,21 @@ project "mainIr"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
-      links {"oeVehicles", "oeDis", "oeOtw", "oeSensors"}
+      links {"oeVehicles", "JSBSim"}
+      links {"oeOtw", LibCigi}
+      links {"oeDis", "oeSensors"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"JSBSim", "ccl_lib"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
-      links {"oeVehicles_d", "oeDis_d", "oeOtw_d", "oeSensors_d"}
+      links {"oeVehicles_d", "JSBSim_d"}
+      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -163,16 +184,26 @@ project "mainNonRT1"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
-      links {"oeVehicles", "oeSensors", "oeSimulation"}
-      links {"oeDafif", "oeBasic"}
-      links {"JSBSim"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"oeVehicles", "JSBSim"}
+      links {"oeOtw", LibCigi}
+      links {"oeDis", "oeSensors"}
+      links {"oeSimulation", "oeDafif", "oeTerrain"}
+      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
-      links {"oeVehicles_d", "oeSensors_d", "oeSimulation_d"}
-      links {"oeDafif_d", "oeBasic_d"}
-      links {"JSBSim_d"}
+      links {"oeVehicles_d", "JSBSim_d"}
+      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeDis_d", "oeSensors_d"}
+      links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
+      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Puzzle 1 example
@@ -189,9 +220,12 @@ project "mainPuzzle1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -212,9 +246,12 @@ project "mainPuzzle2"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -235,21 +272,25 @@ project "mainSim1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", "ccl_lib"}
-      links {"oeDis", "oeSensors", "oeIoDevice"}
+      links {"oeOtw", LibCigi}
+      links {"oeDis", "oeSensors"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", "ccl_lib_d"}
-      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
+      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 2 example
@@ -266,21 +307,25 @@ project "mainSim2"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", "ccl_lib"}
-      links {"oeDis", "oeSensors", "oeIoDevice"}
+      links {"oeOtw", LibCigi}
+      links {"oeDis", "oeSensors"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", "ccl_lib_d"}
-      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
+      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 3 example
@@ -297,21 +342,25 @@ project "mainSim3"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", "ccl_lib"}
+      links {"oeOtw", LibCigi}
       links {"oeDis", "oeSensors", "oeIoDevice"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", "ccl_lib_d"}
+      links {"oeOtw_d","ccl_lib_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 4 example
@@ -328,21 +377,25 @@ project "mainSim4"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", "ccl_lib"}
-      links {"oeDis", "oeSensors", "oeIoDevice"}
+      links {"oeOtw", LibCigi}
+      links {"oeDis", "oeSensors"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", "ccl_lib_d"}
-      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
+      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Terrain loading example
@@ -360,9 +413,12 @@ project "mainTerrain"
    configuration "Release"
       links {"oeTerrain"}
       links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeTerrain_d"}
       links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
@@ -383,13 +439,16 @@ project "mainVmap"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
-      links {"oemaps"}
+      links {"oeMaps"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
-      links {"oemaps_d"}
+      links {"oeMaps_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
@@ -410,9 +469,12 @@ project "mainw"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -433,21 +495,25 @@ project "mainx9"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", "ccl_lib"}
+      links {"oeOtw", LibCigi}
       links {"oeDis", "oeSensors", "oeIoDevice"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", "ccl_lib_d"}
+      links {"oeOtw_d","ccl_lib_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainy1
@@ -464,21 +530,25 @@ project "mainy1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", "ccl_lib"}
+      links {"oeOtw", LibCigi}
       links {"oeDis", "oeSensors", "oeIoDevice"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", "ccl_lib_d"}
+      links {"oeOtw_d","ccl_lib_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainz1
@@ -495,9 +565,12 @@ project "mainz1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -518,9 +591,12 @@ project "mainz2"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}

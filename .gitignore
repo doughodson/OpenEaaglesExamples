@@ -23,6 +23,10 @@ codelite/
 
 # linux executables
 mainEfis/mainEfis
+mainfd1/mainfd1
+mainfd2/mainfd2
+mainFltk1/mainFltk1
+mainFox1/mainFox1
 mainGL/mainGL
 mainGndMapRdr/mainGndMapRdr
 mainIr/mainIr
@@ -34,11 +38,7 @@ mainSim2/mainSim2
 mainSim3/mainSim3
 mainSim4/mainSim4
 mainTerrain/mainTerrain
-mainVmap/mainvmap
-mainfd1/mainfd1
-mainfd2/mainfd2
-mainFltk1/mainFltk1
-mainFox1/mainFox1
+mainVmap/mainVmap
 mainw/mainw
 mainx9/mainx9
 mainy1/mainy1
@@ -54,13 +54,12 @@ testRng/testRng
 testStateMach/testStateMach
 testTables/testTables
 testTimer/testTimer
-tutorial01/tutorial
-tutorial02/tutorial
-tutorial03/tutorial
-tutorial04/tutorial
-tutorial05/tutorial
-tutorial06/tutorial
-tutorial07/tutorial
-tutorial08/tutorial
-
+tutorial01/tutorial01
+tutorial02/tutorial02
+tutorial03/tutorial03
+tutorial04/tutorial04
+tutorial05/tutorial05
+tutorial06/tutorial06
+tutorial07/tutorial07
+tutorial08/tutorial08
 

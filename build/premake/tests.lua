@@ -16,9 +16,12 @@ project "testEvents"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -39,9 +42,12 @@ project "testIo"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
       links {"oeIoDevice", "oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", "freetype2", "freeglut"}
-      links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeIoDevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
@@ -62,7 +68,11 @@ project "testLinearSys"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeLinearSys", "oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeLinearSys_d", "oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -81,7 +91,11 @@ project "testNav"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -100,7 +114,11 @@ project "testMatrix"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -119,7 +137,11 @@ project "testNet"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -138,7 +160,11 @@ project "testRng"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -157,7 +183,11 @@ project "testStateMach"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -176,7 +206,11 @@ project "testTables"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -194,7 +228,12 @@ project "testTimer"
    libdirs     { OELibPath }
    configuration "Release"
       links {"oeBasic"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
+

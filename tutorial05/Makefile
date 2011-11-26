@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = tutorial
+PGM = tutorial05
 
 OBJS = main.o MyObj.o
 

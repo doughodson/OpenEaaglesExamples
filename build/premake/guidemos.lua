@@ -14,21 +14,27 @@ project "mainFltk1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
---
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    configuration "Release"
-      links {"oeBasic", "oeBasicGL", "oeInstruments" }
       links {"oeSimulation", "oeDafif"}
-      links {"ftgl", "freetype2"}
-      links {"fltk", "fltkforms", "fltkgl", "fltkimages"}
-      links {"fltkjpeg", "fltkpng", "fltkz"}
+      links {"oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"ftgl", LibFreetype, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"fltk_images", "fltk_gl", "fltk"}
+         links {"X11", "Xft", "pthread", "rt"}
+      else
+         links {"fltkimages", "fltkgl", "fltk"}
+--         links {"fltkjpeg", "fltkpng", "fltkz"}
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
-      links {"oeBasic_d", "oeBasicGL_d", "oeInstruments_d"}
       links {"oeSimulation_d", "oeDafif_d"}
+      links {"oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"fltkimages_d", "fltkgl_d", "fltk_d"}
+--      links {"fltkjpeg_d", "fltkpng_d", "fltkz_d"}
       links {"ftgl_d", "freetype2_d"}
-      links {"fltk_d",  "fltkforms_d", "fltkgl_d", "fltkimages_d"}
-      links {"fltkjpeg_d", "fltkpng_d", "fltkz_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
 
 -- mainFox1: Fox-based GUI
 project "mainFox1"
@@ -39,22 +45,25 @@ project "mainFox1"
       "../../mainFox1/**.h",
       "../../mainFox1/**.epp"
    }
-   includedirs { OEIncPath, OE3rdPartyIncPath, 
-      "../../../OpenEaagles3rdParty/include/fox-1.6"
-   }
+   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.6" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
-
-   links {"Ws2_32", "Winmm", "comctl32"}
-   links {"opengl32", "glu32"}
    defines {"FOX_1_6"}
    configuration "Release"
-      links {"oeBasic", "oeBasicGL", "oeInstruments" }
-      links {"oeSimulation", "oeDafif"}
-      links {"ftgl", "freetype2"}
-      links {"fox-1.6"}
+      links {"oeSimulation", "oeDafif", "oeInstruments"}
+      links {"oeBasicGL", "oeBasic"}
+      links {"FOX-1.6"}
+      links {"ftgl", LibFreetype, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
    configuration "Debug"
-      links {"oeBasic_d", "oeBasicGL_d", "oeInstruments_d"}
-      links {"oeSimulation_d", "oeDafif_d"}
+      links {"oeSimulation_d", "oeDafif_d", "oeInstruments_d"}
+      links {"oeBasicGL_d", "oeBasic_d"}
+      links {"FOX-1.6_d"}
       links {"ftgl_d", "freetype2_d"}
-      links {"fox-1.6_d"}
+      links {"glu32", "opengl32"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
 
