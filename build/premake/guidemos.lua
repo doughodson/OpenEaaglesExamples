@@ -7,6 +7,7 @@
 project "mainFltk1"
    targetname "mainFltk1"
    targetdir "../../mainFltk1"
+   debugdir "../../mainFltk1"
    files {
       "../../mainFltk1/**.cpp",
       "../../mainFltk1/**.h",
@@ -39,6 +40,7 @@ project "mainFltk1"
 project "mainFox1"
    targetname "mainFox1"
    targetdir "../../mainFox1"
+   debugdir "../../mainFox1"
    files {
       "../../mainFox1/**.cpp",
       "../../mainFox1/**.h",

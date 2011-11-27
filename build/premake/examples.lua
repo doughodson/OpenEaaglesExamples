@@ -8,6 +8,7 @@ project "mainEfis"
    -- base filename for compiled binary target
    targetname "mainEfis"
    targetdir "../../mainEfis"
+   debugdir "../../mainEfis"
    files {
       "../../mainEfis/**.cpp",
       "../../mainEfis/**.h",
@@ -34,6 +35,7 @@ project "mainEfis"
 project "mainfd1"
    targetname "mainfd1"
    targetdir "../../mainfd1"
+   debugdir "../../mainfd1"
    files {
       "../../mainfd1/**.cpp",
       "../../mainfd1/**.h",
@@ -60,6 +62,7 @@ project "mainfd1"
 project "mainfd2"
    targetname "mainfd2"
    targetdir "../../mainfd2"
+   debugdir "../../mainfd2"
    files {
       "../../mainfd2/**.cpp",
       "../../mainfd2/**.h",
@@ -86,6 +89,7 @@ project "mainfd2"
 project "mainGL"
    targetname "mainGL"
    targetdir "../../mainGL"
+   debugdir "../../mainGL"
    files {
       "../../mainGL/**.cpp",
       "../../mainGL/**.h",
@@ -112,6 +116,7 @@ project "mainGL"
 project "mainGndMapRdr"
    targetname "mainGndMapRdr"
    targetdir "../../mainGndMapRdr"
+   debugdir "../../mainGndMapRdr"
    files {
       "../../mainGndMapRdr/**.cpp",
       "../../mainGndMapRdr/**.h",
@@ -140,6 +145,7 @@ project "mainGndMapRdr"
 project "mainIr"
    targetname "mainIr"
    targetdir "../../mainIr"
+   debugdir "../../mainIr"
    files {
       "../../mainIr/**.cpp",
       "../../mainIr/**.h",
@@ -175,6 +181,7 @@ project "mainIr"
 project "mainNonRT1"
    targetname "mainNonRT1"
    targetdir "../../mainNonRT1"
+   debugdir "../../mainNonRT1"
    files {
       "../../mainNonRT1/**.cpp",
       "../../mainNonRT1/**.h",
@@ -210,6 +217,7 @@ project "mainNonRT1"
 project "mainPuzzle1"
    targetname "mainPuzzle1"
    targetdir "../../mainPuzzle1"
+   debugdir "../../mainPuzzle1"
    files {
       "../../mainPuzzle1/**.cpp",
       "../../mainPuzzle1/**.h",
@@ -236,6 +244,7 @@ project "mainPuzzle1"
 project "mainPuzzle2"
    targetname "mainPuzzle2"
    targetdir "../../mainPuzzle2"
+   debugdir "../../mainPuzzle2"
    files {
       "../../mainPuzzle2/**.cpp",
       "../../mainPuzzle2/**.h",
@@ -262,6 +271,7 @@ project "mainPuzzle2"
 project "mainSim1"
    targetname "mainSim1"
    targetdir "../../mainSim1"
+   debugdir "../../mainSim1"
    files {
       "../../mainSim1/**.cpp",
       "../../mainSim1/**.h",
@@ -297,6 +307,7 @@ project "mainSim1"
 project "mainSim2"
    targetname "mainSim2"
    targetdir "../../mainSim2"
+   debugdir "../../mainSim2"
    files {
       "../../mainSim2/**.cpp",
       "../../mainSim2/**.h",
@@ -332,6 +343,7 @@ project "mainSim2"
 project "mainSim3"
    targetname "mainSim3"
    targetdir "../../mainSim3"
+   debugdir "../../mainSim3"
    files {
       "../../mainSim3/**.cpp",
       "../../mainSim3/**.h",
@@ -367,6 +379,7 @@ project "mainSim3"
 project "mainSim4"
    targetname "mainSim4"
    targetdir "../../mainSim4"
+   debugdir "../../mainSim4"
    files {
       "../../mainSim4/**.cpp",
       "../../mainSim4/**.h",
@@ -402,6 +415,7 @@ project "mainSim4"
 project "mainTerrain"
    targetname "mainTerrain"
    targetdir "../../mainTerrain"
+   debugdir "../../mainTerrain"
    files {
       "../../mainTerrain/**.cpp",
       "../../mainTerrain/**.h",
@@ -430,6 +444,7 @@ project "mainTerrain"
 project "mainVmap"
    targetname "mainVmap"
    targetdir "../../mainVmap"
+   debugdir "../../mainVmap"
    files {
       "../../mainVmap/**.cpp",
       "../../mainVmap/**.h",
@@ -459,6 +474,7 @@ project "mainVmap"
 project "mainw"
    targetname "mainw"
    targetdir "../../mainw"
+   debugdir "../../mainw"
    files {
       "../../mainw/**.cpp",
       "../../mainw/**.h",
@@ -485,6 +501,7 @@ project "mainw"
 project "mainx9"
    targetname "mainx9"
    targetdir "../../mainx9"
+   debugdir "../../mainx9"
    files {
       "../../mainx9/**.cpp",
       "../../mainx9/**.h",
@@ -520,6 +537,7 @@ project "mainx9"
 project "mainy1"
    targetname "mainy1"
    targetdir "../../mainy1"
+   debugdir "../../mainy1"
    files {
       "../../mainy1/**.cpp",
       "../../mainy1/**.h",
@@ -555,6 +573,7 @@ project "mainy1"
 project "mainz1"
    targetname "mainz1"
    targetdir "../../mainz1"
+   debugdir "../../mainz1"
    files {
       "../../mainz1/**.cpp",
       "../../mainz1/**.h",
@@ -581,6 +600,7 @@ project "mainz1"
 project "mainz2"
    targetname "mainz2"
    targetdir "../../mainz2"
+   debugdir "../../mainz2"
    files {
       "../../mainz2/**.cpp",
       "../../mainz2/**.h",
