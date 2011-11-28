@@ -28,8 +28,7 @@ simulation: ( Simulation
          // Starting position (relative to ref point)
          initXPos: ( NauticalMiles 0 )
          initYPos: ( NauticalMiles 0 )
-
-         initAlt: ( Feet 15000 )
+         initAlt: ( Feet 5000 )
          initHeading: ( Degrees 0.0 )      // Initial heading
          initVelocity: 250
          
