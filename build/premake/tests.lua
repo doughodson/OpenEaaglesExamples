@@ -6,6 +6,7 @@
 project "testEvents"
    targetname "testEvents"
    targetdir "../../testEvents"
+   debugdir "../../testEvents"
    files {
       "../../testEvents/**.cpp",
       "../../testEvents/**.h",
@@ -32,6 +33,7 @@ project "testEvents"
 project "testIo"
    targetname "testIo"
    targetdir "../../testIo"
+   debugdir "../../testIo"
    files {
       "../../testIo/**.cpp",
       "../../testIo/**.h",
@@ -58,6 +60,7 @@ project "testIo"
 project "testLinearSys"
    targetname "testLinearSys"
    targetdir "../../testLinearSys"
+   debugdir "../../testLinearSys"
    files {
       "../../testLinearSys/**.cpp",
       "../../testLinearSys/**.h",
@@ -81,6 +84,7 @@ project "testLinearSys"
 project "testNav"
    targetname "testNav"
    targetdir "../../testNav"
+   debugdir "../../testNav"
    files {
       "../../testNav/**.cpp",
       "../../testNav/**.h",
@@ -104,6 +108,7 @@ project "testNav"
 project "testMatrix"
    targetname "testMatrix"
    targetdir "../../testMatrix"
+   debugdir "../../testMatrix"
    files {
       "../../testMatrix/**.cpp",
       "../../testMatrix/**.h",
@@ -127,6 +132,7 @@ project "testMatrix"
 project "testNet"
    targetname "testNet"
    targetdir "../../testNet"
+   debugdir "../../testNet"
    files {
       "../../testNet/**.cpp",
       "../../testNet/**.h",
@@ -150,6 +156,7 @@ project "testNet"
 project "testRng"
    targetname "testRng"
    targetdir "../../testRng"
+   debugdir "../../testRng"
    files {
       "../../testRng/**.cpp",
       "../../testRng/**.h",
@@ -173,6 +180,7 @@ project "testRng"
 project "testStateMach"
    targetname "testStateMach"
    targetdir "../../testStateMach"
+   debugdir "../../testStateMach"
    files {
       "../../testStateMach/**.cpp",
       "../../testStateMach/**.h",
@@ -196,6 +204,7 @@ project "testStateMach"
 project "testTables"
    targetname "testTables"
    targetdir "../../testTables"
+   debugdir "../../testTables"
    files {
       "../../testTables/**.cpp",
       "../../testTables/**.h",
@@ -219,6 +228,7 @@ project "testTables"
 project "testTimer"
    targetname "testTimer"
    targetdir "../../testTimer"
+   debugdir "../../testTimer"
    files {
       "../../testTimer/*.cpp",
       "../../testTimer/*.h",
