@@ -14,8 +14,20 @@
     vpX: 0
     vpY: 0
     clearDepth: 1.0
-    clearColor: (rgb 0 0 0)
+    clearColor: (rgb 0.1 0.1 0.1 )
     //fullScreen: 0
+    resizeSubwindows: true
+
+	components: { 
+		( Line
+			segment: true
+			color: red
+			vertices: {
+				[  0.0 10.0 ]  [   0.0 -10.0 ]
+				[ 10.0  0.0 ]  [ -10.0   0.0 ] 
+			}
+		)
+	}
 
 	// here our our displays
 	displays: {

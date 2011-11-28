@@ -15,8 +15,20 @@
     vpX: 0
     vpY: 0
     clearDepth: 1.0
-    clearColor: (rgb 0 0 0)
+    clearColor: (rgb 0.1 0.1 0.1 )
     
+    resizeSubwindows: true
+
+	components: { 
+		( Line
+			segment: true
+			color: red
+			vertices: {
+				[  0.0 10.0 ]  [   0.0 -10.0 ]
+				[ 10.0  0.0 ]  [ -10.0   0.0 ] 
+			}
+		)
+	}
 
 	
 	displays: {
@@ -9141,7 +9153,7 @@ climbdivemarker:
 #line 134 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display1.epp"
      }
 )
-#line 23 "inputs/test.epp"
+#line 35 "inputs/test.epp"
 		#line 1 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display2.epp"
 ( GlutDisplay
 
@@ -18264,7 +18276,7 @@ climbdivemarker:
 #line 135 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display2.epp"
      }
 )
-#line 24 "inputs/test.epp"
+#line 36 "inputs/test.epp"
 		#line 1 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display3.epp"
 ( GlutDisplay
 
@@ -27387,7 +27399,7 @@ climbdivemarker:
 #line 135 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display3.epp"
      }
 )
-#line 25 "inputs/test.epp"
+#line 37 "inputs/test.epp"
 		#line 1 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display4.epp"
 ( GlutDisplay
 
@@ -36509,6 +36521,6 @@ climbdivemarker:
 #line 134 "c:\\oe\\openeaaglesexamples\\mainz2\\inputs\\display4.epp"
      }
 )
-#line 26 "inputs/test.epp"
+#line 38 "inputs/test.epp"
 	}
 )

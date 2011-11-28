@@ -8,12 +8,14 @@ simulation:
         // ownship
         player1:
         ( Aircraft
-            id: 1
+            id: 11
             side: blue
             type: "F-16C"
             signature: ( SigSphere radius: 2.0 )
-            initPosition: [ -15000 0 -10000 ]
-            initHeading: ( Degrees 45 )
+            initXPos: ( NauticalMiles 0.25 )
+            initYPos: ( NauticalMiles 0 )
+            initAlt: ( Feet 5000 )
+            initHeading: ( Degrees 0.0 )      // Initial heading
             initVelocity: 250
             positionFreeze: 0
             components: {
@@ -24,7 +26,7 @@ simulation:
          
          player2:
         ( Aircraft
-            id: 2
+            id: 12
             side: red
             type: "F-16C"
             signature: ( SigSphere radius: 2.0 )
