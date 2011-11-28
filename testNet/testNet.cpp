@@ -51,7 +51,7 @@ static NetTester* readTest(const char* const testFile)
 
     // When we were given a Pair, get the pointer to its object.
     Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
-    if (pp != NULL) {
+    if (pp != 0) {
       q1 = pp->object();
     }
 
@@ -60,7 +60,7 @@ static NetTester* readTest(const char* const testFile)
     sys = dynamic_cast<NetTester*>(q1);
 
   }
-  
+
   return sys;
 }
 
@@ -94,7 +94,7 @@ int exec(int argc, char* argv[])
     std::cout << "Reset event; which will establish the networks." << std::endl;
     sys->event(Eaagles::Basic::Component::RESET_EVENT);
 
-    // System Time of Day 
+    // System Time of Day
     double dt = 1.0/double(UPDATE_RATE);             // Delta time
     double simTime = 0.0;                            // Simulator time reference
     double startTime = Eaagles::getComputerTime();   // Time of day (sec) run started

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // Class:  Exponential
-// Base class:  Object-> Random -> Exp 
+// Base class:  Object-> Random -> Exp
 // Description:  Generates Random Numbers
 //------------------------------------------------------------------------------
 
@@ -9,7 +9,7 @@
 
 #include "Random.h"
 
-namespace Eaagle {
+namespace Eaagles {
   namespace Basic {
     class Number;
   }
