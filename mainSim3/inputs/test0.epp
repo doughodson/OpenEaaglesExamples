@@ -10,7 +10,7 @@
    netPriority: 0.0
    
    #include "ioHandler.epp"
-//   #include "otwSetupCIGI.epp"
+   #include "otwSetupCIGI.epp"
    #include "networkSetup.epp"
    #include "scenario.epp"
    #include "instrumentPanel.epp"
