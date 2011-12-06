@@ -4,14 +4,14 @@
 
 networks: {
    ( DisNetIO
-      siteID: 1
+      siteID: 25
       applicationID: 1
       exerciseID: 1
       enableInput: 1
       enableOutput: 1
       enableRelay: 0
-      netInput:   ( BroadcastHandler localIpAddress: "192.168.1.100"  networkMask: "255.255.255.0" port: 3000  ignoreSourcePort: 3001 shared: true )
-      netOutput:  ( BroadcastHandler localIpAddress: "192.168.1.100"  networkMask: "255.255.255.0" port: 3000  localPort: 3001        shared: true )
+      netInput:  ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  ignoreSourcePort: 3251 shared: true )
+      netOutput: ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  localPort: 3251        shared: true )
 
       // Example emission handler list
       emissionPduHandlers: {

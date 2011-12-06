@@ -5,6 +5,7 @@
 ioHandler: ( SimIoHandler
    inputData: ( IoData numAI: 10   numDI: 40 )	
    devices: {
-      #include "ThrustMaster.epp"
+      //#include "ThrustMaster.epp"
+      #include "Warthog.epp"
    }
 )

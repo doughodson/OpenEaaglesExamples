@@ -8,7 +8,7 @@
 
 ( MapTestStation 
 
-    #line 1 "c:\\oe\\openeaaglesexamples\\mainsim4\\inputs\\networkSetup.epp"
+    #line 1 "d:\\projects\\openeaaglesexamples\\mainsim4\\inputs\\networkSetup.epp"
 
 networks: {
   ( DisNetIO
@@ -1501,7 +1501,7 @@ inputEntityTypes: {
 
 }
 
-#line 30 "c:\\oe\\openeaaglesexamples\\mainsim4\\inputs\\networkSetup.epp"
+#line 30 "d:\\projects\\openeaaglesexamples\\mainsim4\\inputs\\networkSetup.epp"
     #line 1 "..\\data\\DisOutgoingEntityTypes.epp"
 
 
@@ -1799,7 +1799,7 @@ outputEntityTypes: {
 ( DisNtm  disEntityType: [ 2  9  225  1  19  2  0 ]   template: ( Missile type: "BGM-109" ) )
 
 }
-#line 31 "c:\\oe\\openeaaglesexamples\\mainsim4\\inputs\\networkSetup.epp"
+#line 31 "d:\\projects\\openeaaglesexamples\\mainsim4\\inputs\\networkSetup.epp"
 
   ) 
 }
@@ -1809,7 +1809,7 @@ outputEntityTypes: {
     ownship: player1
 
     
-    #line 1 "c:\\oe\\openeaaglesexamples\\mainsim4\\inputs\\mapdisplay.epp"
+    #line 1 "d:\\projects\\openeaaglesexamples\\mainsim4\\inputs\\mapdisplay.epp"
 display: ( MapTestDisplay
     
     name: "Map Test"
@@ -2103,7 +2103,7 @@ display: ( MapTestDisplay
 
 
     
-    #line 1 "c:\\oe\\openeaaglesexamples\\mainsim4\\inputs\\scenario.epp"
+    #line 1 "d:\\projects\\openeaaglesexamples\\mainsim4\\inputs\\scenario.epp"
 
 simulation:
 ( Simulation 
