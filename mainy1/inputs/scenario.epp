@@ -15,11 +15,8 @@ simulation: ( Simulation
    // The initial player list
    players: {
       #include "player01.epp"
-
-#if 0
       #include "player02.epp"
       #include "player03.epp"
-#endif
   }
 )
 
