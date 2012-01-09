@@ -67,6 +67,7 @@ void test23_convertPosVec2LL();
 void test24_convertLL2PosVec();
 void test25_convertEcef2Geod();
 void test26_convertGeod2Ecef();
+void test27_convertUtm();
 
 void test99_printAllExamples();
 
@@ -121,6 +122,8 @@ int testNavFns()
          case 25: test25_convertEcef2Geod();             break;
          case 26: test26_convertGeod2Ecef();             break;
 
+         case 27: test27_convertUtm();                   break;
+
          // Print All Results
          case 99: test99_printAllExamples();             break;
          
@@ -152,36 +155,37 @@ void displayNavTestFunctions()
    std::cout << "=====================================================" << std::endl;
    
    // Direct and Inverse Methods
-   std::cout << "   1)  test01_fbd2llE()"                      << std::endl
-             << "   2)  test02_fll2bdE()"                      << std::endl
-             << "   3)  test03_fbd2llS()"                      << std::endl
-             << "   4)  test04_fll2bdS()"                      << std::endl
-             << "   5)  test05_aer2xyz()"                      << std::endl
-             << "   6)  test06_aer2xyz()"                      << std::endl
-             << "   7)  test07_xyz2aer()"                      << std::endl
-             << "   8)  test08_xyz2aer()"                      << std::endl
-             << "   9)  test09_gbd2ll()"                       << std::endl
-             << "  10)  test10_gll2bd()"                       << std::endl
-             << "  11)  test11_gbd2llS()"                      << std::endl
-             << "  12)  test12_gll2bdS()"                      << std::endl
-             << "  13)  test13_glla2bd()"                      << std::endl
-             << "  14)  test14_glla2bdS()"                     << std::endl
-             << "  15)  test15_vbd2ll()"                       << std::endl
-             << "  16)  test16_vll2bd()"                       << std::endl
+   std::cout << "   1)  test fbd2llE()"                      << std::endl
+             << "   2)  test fll2bdE()"                      << std::endl
+             << "   3)  test fbd2llS()"                      << std::endl
+             << "   4)  test fll2bdS()"                      << std::endl
+             << "   5)  test aer2xyz()"                      << std::endl
+             << "   6)  test aer2xyz()"                      << std::endl
+             << "   7)  test xyz2aer()"                      << std::endl
+             << "   8)  test xyz2aer()"                      << std::endl
+             << "   9)  test gbd2ll()"                       << std::endl
+             << "  10)  test gll2bd()"                       << std::endl
+             << "  11)  test gbd2llS()"                      << std::endl
+             << "  12)  test gll2bdS()"                      << std::endl
+             << "  13)  test glla2bd()"                      << std::endl
+             << "  14)  test glla2bdS()"                     << std::endl
+             << "  15)  test vbd2ll()"                       << std::endl
+             << "  16)  test vll2bd()"                       << std::endl
                                                              
    // Matrix Generators                                      
-             << "  17)  test17_computeWorldMatrix()"           << std::endl
-             << "  18)  test18_computeEulerAnglesDeg()"        << std::endl
+             << "  17)  test computeWorldMatrix()"           << std::endl
+             << "  18)  test computeEulerAnglesDeg()"        << std::endl
              
-             << "  19)  test19_computeRotationalMatrix()"      << std::endl
-             << "  20)  test20_computeRotationalMatrix()"      << std::endl
-             << "  21)  test21_computeRotationalMatrixDeg()"   << std::endl
-             << "  22)  test22_computeRotationalMatrixDeg()"   << std::endl
+             << "  19)  test computeRotationalMatrix()"      << std::endl
+             << "  20)  test computeRotationalMatrix()"      << std::endl
+             << "  21)  test computeRotationalMatrixDeg()"   << std::endl
+             << "  22)  test computeRotationalMatrixDeg()"   << std::endl
              
-             << "  23)  test23_convertPosVec2LL()"             << std::endl
-             << "  24)  test24_convertLL2PosVec()"             << std::endl
-             << "  25)  test25_convertEcef2Geod()"             << std::endl
-             << "  26)  test26_convertGeod2Ecef()"             << std::endl
+             << "  23)  test convertPosVec2LL()"             << std::endl
+             << "  24)  test convertLL2PosVec()"             << std::endl
+             << "  25)  test convertEcef2Geod()"             << std::endl
+             << "  26)  test convertGeod2Ecef()"             << std::endl
+             << "  27)  test UTM conversion"                 << std::endl
 
    // Print all example results to output file
              << "  99)  Print all examples to an output file"  << std::endl
@@ -223,6 +227,7 @@ void test99_printAllExamples()
    test25_convertEcef2Geod();
    test26_convertGeod2Ecef();
 
+   test27_convertUtm();
 }
 
 
@@ -4421,6 +4426,65 @@ int showMatrix(const osg::Matrixd M)
    return 0;
 }
 
+
+
+//--------
+// #27
+//--------
+void test27_convertUtm()
+{
+
+   const unsigned int ARRAY_SIZE = 38;
+   double lat[ARRAY_SIZE] = { -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0, 
+                                0.0,  10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0,
+                              -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0, 
+                                0.0,  10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0 };
+                                
+   double lon[ARRAY_SIZE] = {  0.0,   10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0,
+                             100.0,  110.0,  120.0,  130.0,  140.0,  150.0,  160.0,  170.0,  180.0,
+                               0.0,  -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0, -90.0,
+                            -100.0, -110.0, -120.0, -130.0, -140.0, -150.0, -160.0, -170.0, -180.0};
+
+   char   Zone[6];
+   char*  pZone = Zone;
+   
+   //===========================================================================
+   double latitude  = 0.0;
+   double longitude = 0.0;
+   
+   char   latZone   = '*';
+   int    lonZone   = 0;
+   double N         = 0.0;
+   double E         = 0.0;
+   
+   const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
+
+
+   for (int i=0; i<ARRAY_SIZE; i++) {
+   
+      std::cout << "==============================================" << std::endl;
+      std::cout << "lat       = " << std::setw(14) << lat[i] << std::endl;
+      std::cout << "lon       = " << std::setw(14) << lon[i] << std::endl << std::endl;
+
+
+      std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
+      Basic::Nav::convertLL2Utm(lat[i], lon[i], &latZone, &lonZone, &N, &E, pEM);
+      std::cout << "latZone   = " << std::setw(14) << latZone << std::endl;
+      std::cout << "lonZone   = " << std::setw(14) << lonZone << std::endl;
+      std::cout << "N         = " << std::setw(14) << N       << std::endl;
+      std::cout << "E         = " << std::setw(14) << E       << std::endl << std::endl;
+            
+      std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
+      Basic::Nav::convertUtm2LL(N, E, latZone, lonZone, &latitude, &longitude, pEM);
+
+      std::cout << "latitude  = " << std::setw(14) << latitude  << std::endl;
+      std::cout << "longitude = " << std::setw(14) << longitude << std::endl << std::endl;
+      
+      std::cout << "latitude  error = " << std::setw(14) << latitude  - lat[i] << std::endl;
+      std::cout << "longitude error = " << std::setw(14) << longitude - lon[i] << std::endl;
+
+   }
+}
 
 } // end namespace TestNav 
 } // end namespace Eaagles
