@@ -31,6 +31,8 @@ Uniform::Uniform(void)
   STANDARD_CONSTRUCTOR()
   setMin(0);
   setMax(1);
+
+  std::cout << "Uniform::Uniform() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -49,6 +51,7 @@ void Uniform::copyData(const Uniform& org, const bool)
 //------------------------------------------------------------------------------
 void Uniform::deleteData()
 {
+   std::cout << "Uniform::deleteData() called\n";
 }
 
 //------------------------------------------------------------------------------
