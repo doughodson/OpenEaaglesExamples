@@ -1,0 +1,21 @@
+// ---
+// Example simulation
+// ---
+
+//
+#define REF_LATITUDE     0
+#define REF_LONGITUDE    0
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( SimStation
+
+   tcPriority: 1
+
+   //#include "networkSetup.epp"
+   //#include "otwSetup.epp"
+   //#include "otwSetupCIGI.epp"
+   #include "scenario.epp"
+   #include "instrumentPanel.epp"
+   #include "agents.epp"
+)

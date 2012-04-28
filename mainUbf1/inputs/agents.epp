@@ -1,0 +1,32 @@
+// ---
+// List of agents
+// ---
+
+agents: {
+
+   ubf1: ( PlaneAgent 
+           ownship: p01
+           behavior: ( PriorityArbiter
+                       behaviors: { ( PlaneFlyStraight )
+                                    ( PlaneFire )
+                                    ( PlaneFollowEnemy )
+                                    ( PlaneTurn )
+                                    ( PlaneTrim )
+                                  }
+                      )
+         )
+
+   ubf2: ( PlaneAgent
+           ownship: duck11
+           behavior: ( PriorityArbiter
+                       behaviors: { ( PlaneFlyStraight )
+                                    ( PlaneFire )
+                                    ( PlaneFollowEnemy )
+                                    ( PlaneTurn )
+                                    ( PlaneTrim )
+                                  }
+                      )
+         )
+
+}
+

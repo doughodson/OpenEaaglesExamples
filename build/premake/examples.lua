@@ -440,6 +440,44 @@ project "mainTerrain"
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
+-- mainUbf1
+project "mainUbf1"
+   targetname "mainUbf1"
+   targetdir "../../mainUbf1"
+   debugdir "../../mainUbf1"
+   files {
+      "../../mainUbf1/**.cpp",
+      "../../mainUbf1/**.h",
+      "../../mainUbf1/**.epp",
+      "../../mainUbf1/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   configuration "Release"
+      links {"oeUbf"}
+      links {"oeVehicles", "JSBSim"}
+      links {"oeOtw", LibCigi}
+      links {"oeDis", "oeSensors", "oeIoDevice"}
+      links {"oeSimulation", "oeDafif", "oeTerrain"}
+      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
+   configuration "Debug"
+      links {"oeUbf_d"}
+      links {"oeVehicles_d", "JSBSim_d"}
+      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
+      links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
+      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_lib_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
 -- Vmap example
 project "mainVmap"
    targetname "mainVmap"
@@ -622,4 +660,3 @@ project "mainz2"
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-

@@ -26,6 +26,9 @@ APPLICATIONS += mainSim1 mainSim2 mainSim3 mainSim4
 # radar and ground mapping radar examples
 APPLICATIONS += mainx9 mainGndMapRdr
 
+# ubf example
+APPLICATIONS += mainUbf1
+
 #
 APPLICATIONS += mainVmap
 #
