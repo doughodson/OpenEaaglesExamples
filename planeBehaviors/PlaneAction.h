@@ -1,17 +1,17 @@
 //------------------------------------------------------------------------------
 // Class: PlaneAction
 //------------------------------------------------------------------------------
-#ifndef PlaneAction_H
-#define PlaneAction_H
 
-//#include "newUbf2/UbfAction.h"
+#ifndef __Eaagles_PlaneBehaviors_PlaneAction_H__
+#define __Eaagles_PlaneBehaviors_PlaneAction_H__
+
 #include "openeaagles/basic/ubf/Action.h"
 
 namespace Eaagles {
 
 namespace Simulation { class Player; }
 
-namespace PlaneAgent {
+namespace PlaneBehaviors {
 
 //
 // Class: PlaneAction
@@ -89,7 +89,8 @@ private:
 };
 
 }
-} // end Eaagles namespace
+}
 
-#endif // PlaneAction_H
+#endif
+
 

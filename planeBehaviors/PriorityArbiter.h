@@ -1,24 +1,20 @@
 //------------------------------------------------------------------------------
 // Class: PriorityArbiter
 //------------------------------------------------------------------------------
-#ifndef PriorityArbiter_H
-#define PriorityArbiter_H
 
-//#include "newUbf2/UbfArbiter.h"
+#ifndef __Eaagles_PlaneBehaviors_PriorityArbiter_H__
+#define __Eaagles_PlaneBehaviors_PriorityArbiter_H__
+
 #include "openeaagles/basic/ubf/Arbiter.h"
 
 namespace Eaagles {
 
-namespace Basic { class List; }
+namespace Basic { class List; class Action; }
 
-namespace NewUbf { class UbfAction; }
-
-namespace PlaneAgent {
+namespace PlaneBehaviors {
 
 //
 // Class: PriorityArbiter
-//
-// Base class: Basic::Component -> UbfBehavior -> UbfArbiter -> PriorityArbiter
 //
 // Description: Example fusion arbiter for a plane
 //
@@ -42,6 +38,7 @@ private:
 };
 
 }
-} // end Eaagles namespace
+}
 
-#endif // PriorityArbiter_H
+#endif
+

@@ -17,8 +17,7 @@
 #include "openeaagles/simulation/Simulation.h"
 
 namespace Eaagles {
-namespace PlaneAgent {
-
+namespace PlaneBehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneState, "PlaneState")
 EMPTY_SLOTTABLE(PlaneState)
@@ -277,4 +276,5 @@ double PlaneState::getDistanceToTracked(const unsigned int trackNumber) const
 
 
 }
-} // end Eaagles namespace
+}
+

@@ -1,11 +1,11 @@
 #
 include ../makedefs
 
-LIB = libubfBehaviors
+LIB = libPlaneBehaviors.a
 
 # form function
 OBJS = \
-	$(LIB)(ubfBehaviorsFF.o)
+	$(LIB)(planeBehaviorsFF.o)
 
 # PlaneBehavior family
 OBJS += \

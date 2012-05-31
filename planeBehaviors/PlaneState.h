@@ -1,17 +1,16 @@
 //------------------------------------------------------------------------------
 // Class: PlaneState
 //------------------------------------------------------------------------------
-#ifndef PlaneState_H
-#define PlaneState_H
+#ifndef __Eaagles_PlaneBehaviors_PlaneState_H__
+#define __Eaagles_PlaneBehaviors_PlaneState_H__
 
-//#include "newUbf2/UbfState.h"
 #include "openeaagles/basic/ubf/State.h"
 
 namespace Eaagles {
 
 namespace Simulation { class Player; }
 
-namespace PlaneAgent {
+namespace PlaneBehaviors {
 
 //
 // Class: PlaneState
@@ -123,8 +122,9 @@ private:
 
 };
 
-
 }
-} // end Eaagles namespace
+}
 
-#endif // PlaneState_H
+#endif
+
+

@@ -1,6 +1,6 @@
-//
-// PlaneAction
-//
+//------------------------------------------------------------------------------
+// Class: PlaneAction
+//------------------------------------------------------------------------------
 
 #include "PlaneAction.h"
 
@@ -8,7 +8,7 @@
 #include "openeaagles/simulation/StoresMgr.h"
 
 namespace Eaagles {
-namespace PlaneAgent {
+namespace PlaneBehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneAction, "PlaneAction")
 EMPTY_SLOTTABLE(PlaneAction)
@@ -137,6 +137,6 @@ bool PlaneAction::execute(Basic::Component* actor)
    return false;
 }
 
-
 }
-} // end Eaagles namespace
+}
+

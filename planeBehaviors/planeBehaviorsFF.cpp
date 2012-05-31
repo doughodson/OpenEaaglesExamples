@@ -1,21 +1,17 @@
 //------------------------------------------------------------------------------
-// Class:    formFunc
-//
-// Base class:    
-//
-// Description: formFunc for  program
+// Form function for the 'planeBehaviors' library
 //------------------------------------------------------------------------------
 
-#include "planeAgentFF.h"
+#include "planeBehaviorsFF.h"
 
 #include "PlaneState.h"
 #include "PlaneBehaviors.h"
 #include "PriorityArbiter.h"
 
 namespace Eaagles {
-namespace PlaneAgent {
+namespace PlaneBehaviors {
 
-Basic::Object* planeAgentFormFunc(const char* formname)
+Basic::Object* planeBehaviorsFormFunc(const char* formname)
 {
    Basic::Object* newform = 0;
 
@@ -65,5 +61,7 @@ Basic::Object* planeAgentFormFunc(const char* formname)
    return newform;
 }
 
-} // End Fox namespace
-} // End Eaagles namespace
+}
+}
+
+

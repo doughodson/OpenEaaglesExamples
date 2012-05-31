@@ -1,30 +1,30 @@
 //------------------------------------------------------------------------------
 // Class: PlaneFire, PlaneTurn, PlaneClimb
 //------------------------------------------------------------------------------
-#ifndef PlaneBehaviors_H
-#define PlaneBehaviors_H
 
-//#include "newUbf2/UbfBehavior.h"
+#ifndef __Eaagles_PlaneBehaviors_PlaneBehaviors_H__
+#define __Eaagles_PlaneBehaviors_PlaneBehaviors_H__
+
 #include "openeaagles/basic/ubf/Behavior.h"
 
 namespace Eaagles {
-   namespace Basic { class Distance; }
 
-namespace PlaneAgent {
+namespace Basic { class Distance; }
 
+namespace PlaneBehaviors {
 
 // test code for a base class for PlaneBehaviors, implements some common slots
 class PlaneBehaviorBase : public Basic::Behavior
 {
   DECLARE_SUBCLASS(PlaneBehaviorBase, Basic::Behavior)
 public:
-	PlaneBehaviorBase();
-	Basic::Action* genAction(const Basic::State* const state, const LCreal dt)=0;
+   PlaneBehaviorBase();
+   Basic::Action* genAction(const Basic::State* const state, const LCreal dt)=0;
 protected:
    bool setSlotCriticalAltitude(const Basic::Distance* const msg);
    bool setSlotVoteOnCriticalAltitude(const Basic::Number* const num);
    bool setSlotVoteOnIncomingMissile(const Basic::Number* const num);
-//private:
+
    unsigned int voteOnIncomingMissile;
    unsigned int voteOnCriticalAltitude;
    LCreal criticalAltitude;
@@ -33,16 +33,14 @@ protected:
 
 // Class: PlaneFire
 //
-// Base class: Basic::Component -> UbfBehavior -> PlaneFire
-//
 // Description: Behavior class that shoots missiles at enemy planes
 //
 class PlaneFire : public PlaneBehaviorBase   //Basic::Behavior
 {
-  DECLARE_SUBCLASS(PlaneFire, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneFire, PlaneBehaviorBase)   //Basic::Behavior)
 public:
-	PlaneFire();
-	Basic::Action* genAction(const Basic::State* const state, const LCreal dt);
+   PlaneFire();
+   Basic::Action* genAction(const Basic::State* const state, const LCreal dt);
 protected:
    bool setSlotMaxDistance(const Basic::Distance* const msg);
 private:
@@ -63,10 +61,10 @@ private:
 
 class PlaneFollowEnemy : public PlaneBehaviorBase   //Basic::Behavior
 {
-  DECLARE_SUBCLASS(PlaneFollowEnemy, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneFollowEnemy, PlaneBehaviorBase)   //Basic::Behavior)
 public:
-	PlaneFollowEnemy();
-	Basic::Action* genAction(const Basic::State* const state, const LCreal dt);
+   PlaneFollowEnemy();
+   Basic::Action* genAction(const Basic::State* const state, const LCreal dt);
 };
 
 
@@ -150,9 +148,8 @@ private:
    bool keepGoing;
 };
 
-
 }
-} // end Eaagles namespace
+}
 
-#endif // PlaneBehaviors_H
+#endif
 

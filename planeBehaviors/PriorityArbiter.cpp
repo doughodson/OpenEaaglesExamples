@@ -8,7 +8,7 @@
 #include "PlaneAction.h"
 
 namespace Eaagles {
-namespace PlaneAgent {
+namespace PlaneBehaviors {
 
 IMPLEMENT_SUBCLASS(PriorityArbiter, "PriorityArbiter")
 EMPTY_SLOTTABLE(PriorityArbiter)
@@ -103,4 +103,6 @@ void PriorityArbiter::trimChangeValidation(Basic::Action* const complexAction)
 }
 
 }
-} // end Eaagles namespace
+}
+
+

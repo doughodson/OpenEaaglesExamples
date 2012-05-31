@@ -1,6 +1,7 @@
-//
-// PlaneFire
-//
+//------------------------------------------------------------------------------
+// Class: PlaneFire, PlaneTurn, PlaneClimb
+//------------------------------------------------------------------------------
+
 #include "PlaneBehaviors.h"
 #include "PlaneAction.h"
 #include "PlaneState.h"
@@ -8,9 +9,7 @@
 #include "openeaagles/basic/units/Distances.h"
 
 namespace Eaagles {
-namespace PlaneAgent {
-
-
+namespace PlaneBehaviors {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(PlaneBehaviorBase, "PlaneBehaviorBase")
 EMPTY_COPYDATA(PlaneBehaviorBase)
@@ -517,5 +516,6 @@ Basic::Action* PlaneLoop::genAction(const Basic::State* const state, const LCrea
 
 
 }
-} // end Eaagles namespace
+}
+
 
