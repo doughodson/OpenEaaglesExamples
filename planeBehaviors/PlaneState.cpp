@@ -274,7 +274,6 @@ double PlaneState::getDistanceToTracked(const unsigned int trackNumber) const
    return trackNumber;
 }
 
-
 }
 }
 

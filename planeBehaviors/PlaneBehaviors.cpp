@@ -7,6 +7,7 @@
 #include "PlaneState.h"
 
 #include "openeaagles/basic/units/Distances.h"
+#include "openeaagles/basic/ubf/State.h"
 
 namespace Eaagles {
 namespace PlaneBehaviors {
@@ -183,7 +184,7 @@ Basic::Action* PlaneFlyStraight::genAction(const Basic::State* const state, cons
 
       double heading = 1;
       action->setHeading(heading);
-      double pitchTrim = 0;
+      //double pitchTrim = 0;
       action->setThrottle(2.0);
 
       if (voteOnCriticalAltitude!=0 && pState->getAltitude() < criticalAltitude)
@@ -300,7 +301,7 @@ Basic::Action* PlaneSlowTurn::genAction(const Basic::State* const state, const L
       //double currentAlt = pState->getAltitude();
       //double changeInAlt = currentAlt - prevAlt;
 
-      double pitch = 1;//.5;
+      //double pitch = 1;//.5;
       //action->setPitch(pitch);
 
       double roll;

@@ -15,10 +15,8 @@ namespace PlaneBehaviors {
 //
 // Class: PlaneState
 //
-// Base class: Basic::Object -> UbfState -> PlaneState
-//
-// Description: State of aircraft
-// some parts of this class assume that a/c has only one missile to fire
+// Description: State of aircraft - some parts of this class assume
+//              that the a/c has only one missile to fire
 //
 class PlaneState : public Basic::State
 {

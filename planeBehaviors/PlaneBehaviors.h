@@ -9,7 +9,7 @@
 
 namespace Eaagles {
 
-namespace Basic { class Distance; }
+namespace Basic { class Distance; class State; }
 
 namespace PlaneBehaviors {
 
