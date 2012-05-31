@@ -1,0 +1,642 @@
+/*
+Scenario description:
+two blue platforms are configured to flock, but with evade behavior configured to override;
+red platform configured to pursue and fire missile
+
+need to be using sensors for detection of menace in opensteerstate
+*/
+
+#include "Station_Settings.def"
+
+( SimStation
+
+   //tcPriority: 0.9	// 0.8 is def
+   //netPriority: 0.8	// 0.5 is def
+   tcRate: 60.0
+   netRate: 20.0
+   //bgRate: 20.0   // if no bg thread rate, then main thread does the bg processing
+ 
+#include "otwSetup.epp"
+#include "networkSetup.epp"
+#include "instrumentPanel.epp"
+   
+   components: {
+		agent: ( MultiActorAgent
+		   enableMessageType: INFO
+		   //enableMessageType: DEBUG
+		   
+		   // test of new component state - either version below should be equivalent
+
+		   state: ( OpenSteerState
+		      components: {
+		         substate: ( PlaneState )
+		      }
+		   )
+/*
+		   state: ( PlaneState
+		      components: {
+		         substate: ( OpenSteerState )
+		      }
+		   )
+*/
+         agentList: {
+
+				   p1: ( Arbiter
+				      behaviors: {
+                     ( SteerForEvasion
+                        vote: 20
+                        maxTime: (Seconds 100)
+                     )
+                     ( FlockingArbiter
+                        vote: 10
+                        behaviors: {
+                          ( SteerForSeparation
+                              maxDistance: ( NauticalMiles 1 )
+                              maxAngle: ( Degrees 135 )
+                              vote: 12
+                          )
+                          ( SteerForAlignment
+                              maxDistance: ( NauticalMiles 7.5 )
+                              maxAngle: ( Degrees 135 )
+                              vote: 8
+                          )
+                          ( SteerForCohesion
+                              maxDistance: ( NauticalMiles 9 )
+                              maxAngle: ( Degrees 135 )
+                              vote: 8
+                          )
+                        }
+                     )
+				      }
+               )
+
+				   p2: ( Arbiter
+				      behaviors: {
+                     ( SteerForEvasion
+                        vote: 20
+                        maxTime: (Seconds 100)
+                     )
+                     ( FlockingArbiter
+                        vote: 10
+                        behaviors: {
+                          ( SteerForSeparation
+                              maxDistance: ( NauticalMiles 1 )
+                              maxAngle: ( Degrees 135 )
+                              vote: 12
+                          )
+                          ( SteerForAlignment
+                              maxDistance: ( NauticalMiles 7.5 )
+                              maxAngle: ( Degrees 135 )
+                              vote: 8
+                          )
+                          ( SteerForCohesion
+                              maxDistance: ( NauticalMiles 9 )
+                              maxAngle: ( Degrees 135 )
+                              vote: 8
+                          )
+                        }
+                     )
+				      }
+               )
+				   
+				   p3: ( Arbiter     // generic arbiter operates only on vote values
+                     behaviors: {
+                       ( SteerForPursuit 
+                           quarry: p2 
+                           vote: 1 
+                        )
+                       ( PlaneFire 
+                           vote: 51
+                           maxDistance: ( NauticalMiles 10 )
+                       )
+                     }
+               )
+               
+				   //p4: ( PlaneTurn vote: 51 )
+               
+         }
+		)
+
+   } // components
+
+	ownship: p1
+	
+	simulation: ( Simulation
+
+		latitude:  DB_LAT
+		longitude: DB_LONG
+		
+		enableMessageType: INFO
+		
+      enableTimingStats: true
+      //printTimingStats: true
+      //logger: ( TabLogger path: "./" file: "radar.log" )
+    
+		players: {
+#if 1
+			p1:
+			( UnmannedAirVehicle
+            id: 1                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: blue                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initAlt: ( Feet MY_ALT )
+            initHeading: ( Degrees 10.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            killRemoval: true
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+
+               antennas: ( Gimbal
+                  components: {
+
+                     rwr: ( Antenna 
+                           //scanMode: circular   //manual
+                           polarization: horizontal
+                           gain: ( dB 0 )
+                     )
+                  }
+               )
+               
+               sensors: ( SensorMgr
+                  components: {
+
+                     ( Rwr 
+                         trackManagerName: rwrTrkMgr
+                         antennaName: rwr  
+                         threshold:  ( dB 0.0 )
+                         frequency:  ( GigaHertz 3.0 )
+                         bandwidth:  ( GigaHertz 2.0 )
+                     )
+                  }
+               )
+               
+               obc: ( OnboardComputer
+                  components: {
+
+                     rwrTrkMgr: ( RwrTrkMgr
+                         maxTracks: 50
+                         alpha: 1.0
+                         beta:  0.5
+                         gamma: 0.0
+                         //positionGate: 1500
+                        // rangeGate:     500
+                        // velocityGate:   10
+                         firstTrackId: 2000
+                     )
+                  }
+               )
+
+				} // components
+			) // Player
+			
+			p11:
+			( UnmannedAirVehicle
+            id: 11                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: red                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initAlt: ( Feet MY_ALT )
+            initHeading: ( Degrees 10.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            killRemoval: true
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 0 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+
+               antennas: ( Gimbal
+                  components: {
+
+                     rwr11: ( Antenna 
+                           //scanMode: circular   //manual
+                           polarization: horizontal
+                           gain: ( dB 0 )
+                     )
+                  }
+               )
+               
+               sensors: ( SensorMgr
+                  components: {
+
+                     ( Rwr 
+                         trackManagerName: rwrTrkMgr11
+                         antennaName: rwr11  
+                         threshold:  ( dB 0.0 )
+                         frequency:  ( GigaHertz 3.0 )
+                         bandwidth:  ( GigaHertz 2.0 )
+                     )
+                  }
+               )
+               
+               obc: ( OnboardComputer
+                  components: {
+
+                     rwrTrkMgr11: ( RwrTrkMgr
+                         maxTracks: 50
+                         alpha: 1.0
+                         beta:  0.5
+                         gamma: 0.0
+                         //positionGate: 1500
+                        // rangeGate:     500
+                        // velocityGate:   10
+                         firstTrackId: 2000
+                     )
+                  }
+               )
+
+				} // components
+			) // Player
+#endif
+
+#if 1
+			p2:
+			( UnmannedAirVehicle
+            id: 2                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: blue                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initXPos: ( Meters 1852 ) // 1 nm
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees 10.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            killRemoval: true
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+
+               antennas: ( Gimbal
+                  components: {
+                     
+                     rwr2: ( Antenna 
+                           //scanMode: circular   //manual
+                           polarization: horizontal
+                           gain: ( dB 0 )
+                     )
+                  }
+               )
+               
+               sensors: ( SensorMgr
+                  components: {
+                  
+                     ( Rwr 
+                         trackManagerName: rwrTrkMgr2
+                         antennaName: rwr2
+                         threshold:  ( dB 0.0 )
+                         frequency:  ( GigaHertz 3.0 )
+                         bandwidth:  ( GigaHertz 2.0 )
+                     )
+                  }
+               )
+               
+               obc: ( OnboardComputer
+                  components: {
+                     
+                     rwrTrkMgr2: ( RwrTrkMgr
+                         maxTracks: 50
+                         alpha: 1.0
+                         beta:  0.5
+                         gamma: 0.0
+                         //positionGate: 1500
+                        // rangeGate:     500
+                        // velocityGate:   10
+                         firstTrackId: 2000
+                     )
+                  }
+               )
+				
+				} // components
+			) // Player
+			
+			p22:
+			( UnmannedAirVehicle
+            id: 22                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: red                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initXPos: ( Meters 1852 ) // 1 nm
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees 10.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            killRemoval: true
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 0 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+
+               antennas: ( Gimbal
+                  components: {
+                     
+                     rwr22: ( Antenna 
+                           //scanMode: circular   //manual
+                           polarization: horizontal
+                           gain: ( dB 0 )
+                     )
+                  }
+               )
+               
+               sensors: ( SensorMgr
+                  components: {
+                  
+                     ( Rwr 
+                         trackManagerName: rwrTrkMgr22
+                         antennaName: rwr22  
+                         threshold:  ( dB 0.0 )
+                         frequency:  ( GigaHertz 3.0 )
+                         bandwidth:  ( GigaHertz 2.0 )
+                     )
+                  }
+               )
+               
+               obc: ( OnboardComputer
+                  components: {
+                     
+                     rwrTrkMgr22: ( RwrTrkMgr
+                         maxTracks: 50
+                         alpha: 1.0
+                         beta:  0.5
+                         gamma: 0.0
+                         //positionGate: 1500
+                        // rangeGate:     500
+                        // velocityGate:   10
+                         firstTrackId: 2000
+                     )
+                  }
+               )
+				
+				} // components
+			) // Player
+#endif
+
+#if 1
+			p3:
+			( UnmannedAirVehicle
+            id: 3                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: red                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initXPos: ( NauticalMiles -11 )
+            initYPos: ( Meters 1000 )
+            initAlt: ( Feet MY_ALT )
+            initHeading: ( Degrees MY_HEAD )        // Initial heading
+            initVelocity: 280                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+#if 1
+              antennas: ( Gimbal
+               components: {
+                  radar3: ( Antenna
+                        polarization: horizontal
+                        gain: ( dB 42 )
+                        #include "gainPattern3.epp"
+                        initPosition: [ 0 0 ]
+                        maxRates: [ 0.8727 0.8727 ]
+                        commandRates: [ 0.43633 0.6981 ]
+                        reference: [ 0 0 ]
+                        searchVolume: [ 1.0472 0.15 ] // this sets scanmode to bar scan  // important to match vertical volume with gain pattern's coverage
+
+                        playerOfInterestTypes: { air  }
+                        maxPlayersOfInterest: 6
+                        maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                        maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                        localPlayersOfInterestOnly: false
+                        useWorldCoordinates: false
+                        ownHeadingOnly: true
+                  )
+                     rwr3: ( Antenna 
+                           //scanMode: circular   //manual
+                           polarization: horizontal
+                           gain: ( dB 0 )
+                     )
+               }
+            )
+            sensors: ( SensorMgr
+               components: {
+                  ( Radar
+                     trackManagerName: twsTrkMgr3
+                     antennaName: radar3
+                     powerPeak:  ( KiloWatts 500.0 )
+                     frequency:  ( GigaHertz 3.0 )
+                     bandwidth:  ( GigaHertz 2.0 )
+                     PRF:        ( Hertz 500.0 ) 
+                     pulseWidth: ( MilliSeconds 0.01 )
+                     threshold:  ( dB -10.0 )
+                     ranges:     [ 20 ]
+                     initRangeIdx: 1
+                  )
+                  ( Rwr 
+                         trackManagerName: rwrTrkMgr3
+                         antennaName: rwr3  
+                         threshold:  ( dB 0.0 )
+                         frequency:  ( GigaHertz 3.0 )
+                         bandwidth:  ( GigaHertz 2.0 )
+                  )
+                     
+               }
+            )
+            obc3: ( OnboardComputer
+               components: {
+                  twsTrkMgr3: ( AirTrkMgr
+                      maxTracks: 6
+                      alpha: 1.0
+                      beta:  0.5
+                      gamma: 0.0
+                      positionGate: 1500
+                      rangeGate:     500
+                      velocityGate:   10
+                      firstTrackId: 2000
+                  )
+                  rwrTrkMgr3: ( RwrTrkMgr
+                         maxTracks: 50
+                         alpha: 1.0
+                         beta:  0.5
+                         gamma: 0.0
+                         //positionGate: 1500
+                        // rangeGate:     500
+                        // velocityGate:   10
+                         firstTrackId: 2000
+                     )
+               }
+            )				
+#endif
+#if 1
+            sms: ( StoresMgr
+               numStations: 1
+               stores: {
+                     1: ( AamMissile
+                        id: 201
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        //maxg: 2
+                        //maxAccel: 50
+                        maxBurstRng: 50
+                        maxTOF: 60  //35
+                        eobt: 90
+                        tsg: 0
+                        
+                        enableMessageType: INFO
+		                  //enableMessageType: DEBUG
+		   
+                        components: {
+                        
+#if 1
+
+              antennas: ( Gimbal
+               components: {
+                  radarM: ( Antenna
+                        polarization: horizontal
+                        gain: ( dB 42 )
+                        #include "gainPattern3.epp"
+                        initPosition: [ 0 0 ]
+                        maxRates: [ 0.8727 0.8727 ]
+                        commandRates: [ 0.43633 0.6981 ]
+                        reference: [ 0 0 ]
+                        searchVolume: [ 1.0472 0.15 ] // important to match vertical volume with gain pattern's coverage
+                        //numBars: 2
+                        playerOfInterestTypes: { air }
+                        maxPlayersOfInterest: 6
+                        maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                        maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                        localPlayersOfInterestOnly: false
+                        useWorldCoordinates: false
+                        ownHeadingOnly: true
+                  )
+               }
+            )
+            sensors: ( SensorMgr
+               components: {
+                  ( Radar
+                     trackManagerName: twsTrkMgrM
+                     antennaName: radarM
+                     powerPeak:  ( KiloWatts 500.0 )
+                     frequency:  ( GigaHertz 3.0 )
+                     bandwidth:  ( GigaHertz 2.0 )
+                     PRF:        ( Hertz 500.0 ) 
+                     pulseWidth: ( MilliSeconds 0.01 )
+                     threshold:  ( dB 0.0 )
+                     ranges:     [ 20 ]
+                     initRangeIdx: 1
+                  )
+               }
+            )
+            obcM: ( OnboardComputer
+               components: {
+                  twsTrkMgrM: ( AirTrkMgr
+                      maxTracks: 6
+                      alpha: 1.0
+                      beta:  0.5
+                      gamma: 0.0
+                      positionGate: 1500
+                      rangeGate:     500
+                      velocityGate:   10
+                      firstTrackId: 2000
+                  )
+               }
+            )				
+#endif
+                        }
+                     )
+                  }
+              )
+#endif
+				} // components
+			) // Player
+#endif
+
+#if 0
+			p4:
+			( UnmannedAirVehicle
+            id: 4                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: blue                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initXPos: ( Meters 1852 ) // 1 nm
+            //initXPos: ( Meters -1000 )
+            //initYPos: ( Meters 1000 )
+            
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees 20.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				} // components
+			) // Player
+#endif
+			
+		} // players
+	) // simulation
+) // ConsoleStation
+

@@ -1,0 +1,207 @@
+// ---
+// Example entity type table the CIGI interface to Out-The-Window system
+// ---
+
+otwModelTypes: {
+
+    // ( Otm  formName  typeName  modelId )
+
+
+    // =================================================================
+    // Air vehicles
+    // =================================================================
+    
+    // ------------------------------------------------------
+    // Aircraft ...
+    // ------------------------------------------------------
+    
+    ( Otm Aircraft  "Cessna-172"    101 )
+
+    ( Otm Aircraft  "Cessna-310"    102 )
+    
+    ( Otm Aircraft  "Gulfstream"    206 )
+
+    ( Otm Aircraft  "B-727"         202 )
+
+    ( Otm Aircraft  "B-747"         203 )
+    
+    ( Otm Aircraft  "Learjet"       204 )
+
+    ( Otm Aircraft  "B-777"         205 )
+    
+    ( Otm Aircraft  "F-15"          301 )
+    ( Otm Aircraft  "F15"           301 )
+    
+    ( Otm Aircraft  "F-16"          302 )
+    ( Otm Aircraft  "F16"           302 )
+
+    
+    ( Otm Aircraft     modelTypeId: 302 )       // Default 
+
+    // ------------------------------------------------------
+    // Helicopters ...
+    // ------------------------------------------------------
+
+    ( Otm Helicopter  "SH-60"               501 )
+    
+    ( Otm Helicopter  "UH-1"                502 )
+    
+    ( Otm Helicopter  "CH-53"               503 )
+    
+    ( Otm Helicopter  "AH-64"               504 )
+    
+    ( Otm Helicopter  "MD-500"              550 )
+
+    ( Otm Helicopter           modelTypeId: 501 )       // Default 
+
+    // ------------------------------------------------------
+    // Air Vehicles ...
+    // ------------------------------------------------------
+    ( Otm AirVehicle    modelTypeId: 302 )  // Default all air vehicles
+
+
+    // =================================================================
+    // Ground vehicles
+    // =================================================================
+
+    // ------------------------------------------------------
+    // Tank, Artillery & Armored Vehicles
+    // ------------------------------------------------------
+    
+    ( Otm Tank  "M1126"         600 )
+
+    ( Otm Tank  "T-55"          601 )
+    
+    ( Otm Tank  "T-72"          602 )
+    
+    ( Otm Tank  "M1A2"          603 )
+    
+
+    ( Otm Tank              modelTypeId:    602 )       // default: using T-72
+    ( Otm ArmoredVehicle    modelTypeId:    600 )       // default using M1126
+
+
+    // ------------------------------------------------------
+    // Sams Vehicles ...
+    // ------------------------------------------------------
+        
+    ( Otm SamVehicle    modelTypeId: 959 )          // default: use SA-10 TEL
+
+    // ------------------------------------------------------
+    // Wheeled Vehicles ...
+    // ------------------------------------------------------
+    ( Otm WheeledVehicle  "ToyotaTruck"                 700 )
+    ( Otm WheeledVehicle  "ZIL-131"                     701 )
+    ( Otm WheeledVehicle  "ZIL-131CalibVeh"             702 )
+    ( Otm WheeledVehicle  "ZIL-131Oxidizer"             703 )
+    ( Otm WheeledVehicle  "GAZ-69"                      704 )
+    
+    ( Otm WheeledVehicle                   modelTypeId: 600 )   // default 
+
+    // ------------------------------------------------------
+    // General Ground Vehicles ...
+    // ------------------------------------------------------
+    ( Otm GroundVehicle   "MK48FuelTruck"  705 ) 
+    ( Otm GroundVehicle   "TRAAD_PrimePowerUnit"  706 ) 
+    ( Otm GroundVehicle   "TRAAD_ElectronicsEquipmentUnit"  707 ) 
+    ( Otm GroundVehicle   "M1097_AM_General"  708 ) 
+
+    ( Otm GroundVehicle   "Locomotive"  709 ) 
+    ( Otm GroundVehicle   "BoxCar"      710 )
+    ( Otm GroundVehicle   "FlatCar"     711 )
+    ( Otm GroundVehicle   "BM24"        712 )
+    ( Otm GroundVehicle   "M270_MLRS"   713 )
+
+    ( Otm GroundVehicle modelTypeId:    602)        // default for all ground vehicles
+
+
+    // =================================================================
+    // Ships
+    // =================================================================
+
+    ( Otm Ship  "CG-53"                     800 )
+    
+    ( Otm Ship  "CigaretteBoat"             801 )
+
+    ( Otm Ship  "Tanker"                    802 )
+    
+    ( Otm Ship  "Nimitz"                    803 )
+
+    ( Otm Ship  "CVN-76"                    804 )
+    ( Otm Ship  "CVN-75"                    805 )
+    ( Otm Ship  "CVN-71"                    806 )
+    ( Otm Ship  "CVN-65"                    807 )
+    
+    ( Otm Ship                 modelTypeId: 800  )          // default for all ships
+
+
+    // =================================================================
+    // Life Form
+    // =================================================================
+
+
+    ( Otm LifeForm   "Soldier1" 1400 )
+    ( Otm LifeForm   "Soldier2" 1400 )
+    ( Otm LifeForm   "Soldier3" 1400 )
+    ( Otm LifeForm   modelTypeId: 1400  )          // default for all life forms
+
+    // =================================================================
+    // Buildings
+    // =================================================================
+
+    ( Otm Building  "Hanger"      1800 )
+    ( Otm Building  "BermedBunker" 1800 )   // Using Hanger
+    
+    ( Otm Building   modelTypeId: 1800  )   // default for all Buildings
+
+    // =================================================================
+    // Weapons, Bombs, Missiles and Effects
+    // =================================================================
+
+    // ------------------------------------------------------
+    // Missiles, Bombs ...
+    // ------------------------------------------------------
+    
+    ( Otm Missile  "AGM-114"            900 )
+    
+    ( Otm Missile  "AIM-120"            901 )
+    
+    ( Otm Missile  "SLAMRAAM"           903 )
+
+    ( Otm Missile  "Stinger"            904 )
+
+    
+    ( Otm Missile  "Exocet"             905 )
+    
+    ( Otm Missile  "AGM-88"             906 )
+    
+    ( Otm Missile  "AIM-7"              907 )
+    
+    ( Otm Missile  "AIM-9"              909 )
+    
+    ( Otm Missile  "AA-6"               910 )
+    
+    ( Otm Missile  "AA-10C"             911 )
+    ( Otm Missile  "AA-10"              912 )
+    
+    ( Otm Missile  "AA-11"              913 )
+    
+    ( Otm Missile  "BGM-109"            914 )
+
+    ( Otm Missile  "AGM-158"            915 )
+
+    ( Otm Missile  "PGSM"               916 )
+
+    ( Otm Missile  "ScudB"              917 )
+
+    ( Otm Missile   modelTypeId: 901  )  // Default: using AIM-120
+    ( Otm Bomb      modelTypeId: 902 )   // Default: (GBU-12)
+    
+    ( Otm Weapon    modelTypeId: 902 )      // Default for all weapons (GBU-12)
+    
+    // ------------------------------------------------------
+    // All other players ...
+    // ------------------------------------------------------
+    ( Otm Player    modelTypeId: 302 )        // Default for all players (F-16)
+
+}

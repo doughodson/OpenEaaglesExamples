@@ -1,0 +1,170 @@
+
+/*
+Scenario description:
+blue player 1 uses opensteer pursuit behavior to pursue
+red player 2 that is using opensteer evade behavior.
+both change heading and accelerate as dictated by agents
+*/
+
+#include "Station_Settings.def"
+
+( SimStation
+
+   //tcPriority: 0.9	// 0.8 is def
+   //netPriority: 0.8	// 0.5 is def
+   tcRate: 120.0
+   netRate: 60.0
+   //bgRate: 20.0   // if no bg thread rate, then main thread does the bg processing
+ 
+#include "otwSetup.epp"
+#include "networkSetup.epp"
+#include "instrumentPanel.epp"
+
+   components: {
+		agent: ( MultiActorAgent
+		   state: ( OpenSteerState )
+
+         agentList: {
+				// using slotname to specify the player name to connect the agent/behavior to
+			   p1: ( SteerForPursuit
+					quarry: p2
+					)
+				p2: ( SteerForEvasion
+					menace: p1
+					)
+         }
+		)
+   } // components
+
+	ownship: p1
+	simulation: ( Simulation
+
+		latitude:  DB_LAT
+		longitude: DB_LONG
+		
+        enableTimingStats: true
+        //printTimingStats: true
+        //logger: ( TabLogger path: "./" file: "radar.log" )
+    
+		players: {
+			p1:
+			( UnmannedAirVehicle
+            id: 1                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: blue                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees -45.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+				} // components
+			) // Player
+			
+			p11:
+			( UnmannedAirVehicle
+            id: 11                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: blue                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees -45.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+				} // components
+			) // Player		
+#if 1
+			p2:
+			( UnmannedAirVehicle
+            id: 2                               // Unique ID
+            type: "RQ-1K"   // Type name
+            side: red                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initXPos: ( Meters 1852 )
+            //initXPos: ( Meters -1000 )
+            //initYPos: ( Meters 1000 )
+            
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees 0.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+				} // components
+			) // Player
+
+			p22:
+			( UnmannedAirVehicle
+            id: 22                                // Unique ID
+            type: "RQ-1K"   // Type name
+            side: red                          // Side
+            
+            // Starting position (relative to ref point)
+            //initLatitude: ( Degrees MY_LAT )
+            //initLongitude: ( Degrees MY_LONG )
+            initXPos: ( Meters 1852 )
+            //initXPos: ( Meters -1000 )
+            //initYPos: ( Meters 1000 )
+            
+            initAlt: ( Feet MY_ALT )
+            
+            initHeading: ( Degrees 0.0 )        // Initial heading
+            initVelocity: MY_VEL                   // Initial velocity (m/s)
+            
+            // positionFreeze: false	 // do not use in distributed tests
+            
+            // Misc parameters
+            //dataLogTime: ( Seconds 1.0 )        // Data logger rate
+            //logger: ( TabLogger path: "./" file: "radar.log" )
+   
+            signature: ( SigConstant rcs: 9 )
+            
+				components: {
+				   dynamicsModel: ( RacModel )
+				} // components
+			) // Player
+#endif
+			
+		} // players
+	) // simulation
+) // ConsoleStation
+
