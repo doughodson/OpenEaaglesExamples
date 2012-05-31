@@ -7,4 +7,5 @@ namespace Eaagles {
    namespace MainUbf1 {
       extern Basic::Object* formFunc(const char* formname);
    } 
-} 
+}
+

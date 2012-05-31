@@ -9,7 +9,7 @@ OBJS += Hsi.o DspRadar.o DspRwr.o SimStation.o
 OBJS += SpdLines.o TdAzPtr.o TdElevPtr.o TestDisplay.o
 OBJS += TestIoHandler.o formFunc.o Pfd.o
 
-LDFLAGS += -lnewUbf -loeOpenSteer -lAutopilotController -lOpenSteer -lPlaneAgent
+LDFLAGS += -loePlaneBehaviors
 LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -lJSBSim -loeBasic
@@ -18,7 +18,7 @@ LDFLAGS += -lcigicl
 LDFLAGS += -lpthread -lrt
 
 CPPFLAGS += -I../
-LDFLAGS  += -L../lib/linux -L$(OPENEAAGLES_LIB_DIR)
+LDFLAGS  += -L../planeBehaviors -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS += -I.
 

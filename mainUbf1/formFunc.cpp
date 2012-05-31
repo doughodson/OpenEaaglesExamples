@@ -1,3 +1,4 @@
+
 #include "formFunc.h"
 
 #include "TestDisplay.h"
@@ -22,12 +23,8 @@
 #include "openeaagles/simulation/simulationFF.h"
 #include "openeaagles/vehicles/vehiclesFF.h"
 
-// Behavior Families used in the example scripts
-#include "oeOpenSteer/oeOpenSteerFF.h"
-#include "PlaneAgent/planeAgentFF.h"
-#include "AutopilotController/autopilotControllerFF.h"
-//#include "BayesAgent/bayesAgentFF.h"
-
+// behavior family used in the example scripts
+#include "../planeBehaviors/planeBehaviorsFF.h"
 
 namespace Eaagles {
 namespace MainUbf1 {
@@ -69,15 +66,11 @@ Basic::Object* formFunc(const char* formname)
      newform = new SpdLines();
    }
 
-   if (newform == 0) newform = oeOpenSteer::oeOpenSteerFormFunc(formname);
 
-   if (newform == 0) newform = PlaneAgent::planeAgentFormFunc(formname);
+   // plane behavior family
+   if (newform == 0) newform = PlaneBehaviors::planeBehaviorsFormFunc(formname);
 
-   if (newform == 0) newform = AutopilotController::autopilotControllerFormFunc(formname);
-
-   //if (newform == 0) newform = Eaagles::bayesAgentFormFunc(formname);
-
-    // OpenEaagles packages
+   // OpenEaagles packages
    if (newform == 0) newform = Simulation::simulationFormFunc(formname);
    if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
    if (newform == 0) newform = IoDevice::ioDeviceFormFunc(formname);

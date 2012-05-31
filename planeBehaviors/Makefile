@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-LIB = libPlaneBehaviors.a
+LIB = liboePlaneBehaviors.a
 
 # form function
 OBJS = \
