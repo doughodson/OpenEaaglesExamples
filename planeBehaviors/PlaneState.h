@@ -15,8 +15,10 @@ namespace PlaneBehaviors {
 //
 // Class: PlaneState
 //
-// Description: State of aircraft - some parts of this class assume
-//              that the a/c has only one missile to fire
+// Description: State of aircraft
+//
+// This implementation of PlaneState:.
+// assumes that player using this state has only one missile (or is ok with firing all missiles at first target)
 //
 class PlaneState : public Basic::State
 {
@@ -75,8 +77,8 @@ public:
    virtual void setMissileFired(const bool x)          { missileFired = x; return; }
    virtual bool isMissileFired() const                 { return missileFired; }
 
-   virtual void setTargetTrack(const int x)   { targetTrack = x; return; }
-   virtual int getTargetTrack() const         { return targetTrack; }
+   virtual void setTargetTrack(const unsigned int x)   { targetTrack = x; return; }
+   virtual unsigned int getTargetTrack() const         { return targetTrack; }
 
    virtual void setNumEngines(const unsigned int x)    { numEngines = x; return; }
    virtual int getNumEngines() const                   { return numEngines; }
@@ -94,6 +96,9 @@ public:
    virtual void setDistanceToTracked(const unsigned int track, const double distance);
    virtual double getDistanceToTracked(const unsigned int track) const;
 
+public:
+   static const int MAX_TRACKS = 50;
+
 private:
 
    bool alive;
@@ -107,7 +112,6 @@ private:
    double throttle;
    double speed;
    double pitchTrim;
-   static const int MAX_TRACKS = 50;
    double pitchToTracked[MAX_TRACKS];
    double headingToTracked[MAX_TRACKS];
    double distanceToTracked[MAX_TRACKS];
