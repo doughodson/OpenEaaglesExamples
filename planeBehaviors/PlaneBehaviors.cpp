@@ -110,7 +110,8 @@ Basic::Action* PlaneFire::genAction(const Basic::State* const state, const LCrea
    PlaneAction* action = 0;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
    
-   if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()>=0) {
+   //if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()>=0) {
+   if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
       if (!pState->isMissileFired() && pState->getDistanceToTracked(pState->getTargetTrack()) < maxDistance) {
          action = new PlaneAction();
          action->setFireMissile(true);
@@ -208,7 +209,7 @@ Basic::Action* PlaneFollowEnemy::genAction(const Basic::State* const state, cons
    PlaneAction* action = 0;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive() && pState->isTracking()) {
+   if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
       action = new PlaneAction();
 
       double pitch = -1 * pState->getPitch()+ .02;// pState->getPitchToEnemy() * 10;	

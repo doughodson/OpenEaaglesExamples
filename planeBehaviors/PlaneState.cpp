@@ -2,6 +2,10 @@
 // PlaneState
 //
 
+// this implementation of PlaneState:
+// assumes that player using this state has only one missile (or is ok with firing all missiles at first target)
+//
+
 #include "PlaneState.h"
 
 #include "openeaagles/basic/List.h"
@@ -43,7 +47,7 @@ PlaneState::PlaneState()
    numTracks      = 0;
    tracking       = false;
    missileFired   = false;
-   targetTrack    = -1;  // 0 is a valid target track
+   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal "no tgt track"
    numEngines     = 0;
 }
 
@@ -63,7 +67,7 @@ void PlaneState::reset()
    numTracks      = 0;
    tracking       = false;
    missileFired   = false;
-   targetTrack    = -1;  // 0 is a valid target track
+   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal "no tgt track"
    numEngines     = 0;
 
    BaseClass::reset();
@@ -84,18 +88,17 @@ void PlaneState::updateState(const Basic::Component* const actor)
       setPitchRate(angularVels.y());
       setYawRate(angularVels.z());      
       setTracking(false);
-      setTargetTrack(-1);  // 0 is a valid target track
+      setTargetTrack(MAX_TRACKS);  // 0 is a valid target track, use MAX_TRACKS to signal "no tgt track"
       setSpeed(airVehicle->getCalibratedAirspeed());
       setNumEngines(airVehicle->getNumberOfEngines());
       setIncomingMissile(false);
       setMissileFired(false);
 
       // determine if we have a missile to fire 
-      // -some parts of PlaneState assume that this a/c has only one missile
+      // this state class has no way to determine whether we've fired a missile other than checking to see if sms is out of missiles to fire.
+      // which means, it will fire all its missiles at first target.
       const Simulation::StoresMgr* stores = airVehicle->getStoresManagement();
       if (stores != 0) {
-         // whether i fired is a matter of fact, not perception
-         // (whether a missile is incoming is a matter of perception)
          const Simulation::Missile* wpn = stores->getNextMissile();
          if (!wpn)
 		      setMissileFired(true);
@@ -115,31 +118,33 @@ void PlaneState::updateState(const Basic::Component* const actor)
          if (radar != 0) {
             const Simulation::TrackManager* trackManager = radar->getTrackManager();
             SPtr<Simulation::Track> trackList[50];
-            unsigned int numTracks = trackManager->getTrackList(trackList, 50);
+            unsigned int nTracks = trackManager->getTrackList(trackList, 50);
 
-            for (int trackIndex = numTracks -1; trackIndex >= 0; trackIndex--) {
+            for (int trackIndex = nTracks -1; trackIndex >= 0; trackIndex--) {
                setHeadingToTracked(trackIndex, trackList[trackIndex]->getRelAzimuth());
                setPitchToTracked(trackIndex, trackList[trackIndex]->getElevation());
                setDistanceToTracked(trackIndex, trackList[trackIndex]->getRange());
-               // track's shootlist is 1-based?
-               if (trackList[trackIndex]->getShootListIndex() == 1) {
+               
+               // do we have a "target track"? (shootlist is 1-based)
+               if (getTargetTrack()==MAX_TRACKS && trackList[trackIndex]->getShootListIndex() == 1) {
                   setTargetTrack(trackIndex);
                }
                setTracking(true);
-               setNumTracks(numTracks);
+               setNumTracks(nTracks);
 
+               // hack to implement "missile warning"
+               if (isIncomingMissile() == false) {
+                  // is this track a weapon, and if so, is it targeting me?
+                  Simulation::Player* target = trackList[trackIndex]->getTarget();
+                  Simulation::Weapon* weapon = dynamic_cast<Simulation::Weapon*> (target);
+                  if (weapon!=0 && !weapon->isDead()) {
+                     Simulation::Player* wpntgt = weapon->getTargetPlayer();
+                     if (wpntgt == airVehicle) {
+                        setIncomingMissile(true);
+                     }
+                  }
+               }
 
-			      //temporary hack to replace OE's lack of missile warning
-               Simulation::Player* target = trackList[trackIndex]->getTarget();
-               char* targetName = target->getName()->getCopyString();
-               //DRAC-FAB - if there is a third player, it is the  missile.
-			   // determine if i am the launcher or the target, and update state accordingly.
-			   if(strncmp(targetName,"duck",4)!=0 && strncmp(targetName,"p",1)!=0 ) {
-                  if(strncmp(playerName->getCopyString(),"duck",4)!=0)
-					   setIncomingMissile(true);
-			      else
-					   setMissileFired(true);
-               } //end hack
             }
          }
       }
@@ -149,78 +154,53 @@ void PlaneState::updateState(const Basic::Component* const actor)
          const Simulation::TrackManager* rtm = oc->getTrackManagerByType(typeid(Simulation::RwrTrkMgr));
          if(rtm !=0) {
             SPtr<Simulation::Track> trackList[50];
-            unsigned int numTracks = rtm->getTrackList(trackList, 50);
+            unsigned int nTracks = rtm->getTrackList(trackList, 50);
             int newTracks = 0;
-            for (unsigned int trackIndex = 0; trackIndex < numTracks; trackIndex++) {
-               //Simulation::Track* trk = trackList[trackIndex];
+            for (unsigned int trackIndex = 0; trackIndex < nTracks; trackIndex++) {
                Simulation::Player* target = trackList[trackIndex]->getTarget();
                bool alreadyTracked = false;
-               for(int currTracks = 0; currTracks>getNumTracks();currTracks++) {
-                  //tracks are the same if the associated players are the same
+               for (int currTracks = 0; currTracks>getNumTracks(); currTracks++) {
+                  // tracks are the same if the associated players are the same
                   if(trackList[currTracks]->getTarget()==target) {
                      alreadyTracked = true;
                      break;
                   }
                }
-               if(alreadyTracked) {
-                  continue;
+
+               if (!alreadyTracked && (getNumTracks() + newTracks) < MAX_TRACKS) {
+                  int newTrackIndex = getNumTracks() + newTracks;
+                  newTracks++;
+                  setHeadingToTracked(newTrackIndex, trackList[trackIndex]->getRelAzimuth());
+                  setPitchToTracked(newTrackIndex, trackList[trackIndex]->getElevation());
+                  setDistanceToTracked(newTrackIndex, trackList[trackIndex]->getRange());
+                  setTracking(true);
+
+                  // update numTracks to new sum of radar + rwr tracks
+                  setNumTracks(getNumTracks()+newTracks);
                }
-               newTracks++;
-      			
-               int newTrackIndex= getNumTracks()-1 + newTracks;
-               setHeadingToTracked(newTrackIndex, trackList[trackIndex]->getRelAzimuth());
-               setPitchToTracked(newTrackIndex, trackList[trackIndex]->getElevation());
-               setDistanceToTracked(newTrackIndex, trackList[trackIndex]->getRange());
-               // track's shootlist is 1-based?
-               if (trackList[trackIndex]->getShootListIndex() == 1) {
+
+               // do we have a "target track"? (shootlist is 1-based)
+               if (getTargetTrack()==MAX_TRACKS && trackList[trackIndex]->getShootListIndex() == 1) {
                   setTargetTrack(trackIndex);
                }
-               setTracking(true);
-               setNumTracks(numTracks);
+               else if (getTargetTrack() == MAX_TRACKS) {
+                  setTargetTrack(trackIndex); // in absence of any target, make the first rwr track the target?
+               }
 
+               // hack to implement "missile warning"
+               if (isIncomingMissile() == false) {
+                  // is this track a weapon, and if so, is it targeting me?
+                  Simulation::Weapon* weapon = dynamic_cast<Simulation::Weapon*> (target);
+                  if (weapon!=0 && !weapon->isDead()) {
+                     Simulation::Player* wpntgt = weapon->getTargetPlayer();
+                     if (wpntgt == airVehicle) {
+                        setIncomingMissile(true);
+                     }
+                  }
+               }
 
-		       //temporary hack to replace OE's lack of missile warning
-               char *targetName = target->getName()->getCopyString();
-                  //DRAC-FAB - if there is a third player, it is the  missile.
-			      // determine if i am the launcher or the target, and update state accordingly.
-			      if(strncmp(targetName,"duck",4)!=0 && strncmp(targetName,"p",1)!=0 ) {
-                     if(strncmp(playerName->getCopyString(),"duck",4)!=0)
-					      setIncomingMissile(true);
-		         else
-				      setMissileFired(true);
-               } //end hack
             }
          }
-      }
-
-      // DRAC-FAB this does nothing currently, but is possibly supposed to be a different implementation of missile warning ?
-      const Basic::PairStream* players = airVehicle->getSimulation()->getPlayers(); 
-      const Basic::List::Item* p = players->getFirstItem();
-      while(p != 0) {
-         Basic::Pair* pair = (Basic::Pair*)(p->getValue());
-         Simulation::Player* playa = (Simulation::Player*)(pair->object());
-         Simulation::OnboardComputer* obc = playa->getOnboardComputer();
-         Simulation::Player* tgt = 0;
-         if ( obc!=0 ) {
-            Simulation::Track* tgttrk = obc->getNextTarget();
-            if( tgttrk!=0 ) {
-               tgt = tgttrk->getTarget();
-            }
-         } 
-         else if (playa->isMajorType(Simulation::Player::WEAPON)) {
-            Simulation::Weapon* missile = (Simulation::Weapon*)playa;
-            tgt = missile->getTargetPlayer();
-            //if its not the player we're updating, they're not dead and they're targetting the player in question
-            if( (airVehicle->getName()!=missile->getName()) && !missile->isDead() && (tgt==airVehicle) ) {
-            }
-         }
-         if ( tgt!=0 ) {   //numShootList>0)
-            //std::cout<<tgt->getName()->getCopyString()<<std::endl;//shootlist[0]->getTarget()->getName()->getCopyString()<<std::endl;
-         }
-         if( (airVehicle->getName()!=playa->getName()) && !playa->isDead() ) {
-            //playa->get
-         }
-         p = p->getNext();
       }
    }
    BaseClass::updateState(actor);
