@@ -12,8 +12,46 @@
 ( SimStation
 
    tcPriority: 1
+
+   components: {
+
+      ubf1: ( SimAgent
+         actorPlayerName: p01
+         state: ( PlaneState )
+         behavior: ( PriorityArbiter
+            behaviors: {
+               ( PlaneFlyStraight 
+                  vote: 10
+                  voteOnCriticalAltitude: 100
+                  criticalAltitude: ( Meters 3500 ) 
+               )
+               ( PlaneFire vote: 50 )
+               ( PlaneFollowEnemy vote: 50 )
+               ( PlaneTurn vote: 15 )
+               ( PlaneTrim vote: 100 )
+            }
+         )
+      )
+      
+      ubf2: ( SimAgent
+         actorPlayerName: duck11
+         behavior: ( PriorityArbiter
+            behaviors: {
+               ( PlaneFlyStraight 
+                  vote: 10
+                  voteOnCriticalAltitude: 100
+                  criticalAltitude: ( Meters 3500 ) 
+               )
+               ( PlaneFollowEnemy vote: 50 )
+               ( PlaneTurn vote: 15 )
+               ( PlaneTrim vote: 100 )
+            }
+         )
+      )
+         
+   }
    
-#include "networkSetup.epp"
+//#include "networkSetup.epp"
 //#include "otwSetup.epp"
 
 // ---
@@ -62,25 +100,7 @@ simulation: ( Simulation
                 rootDir: "../data/JSBSim/"
                 model: "f16"
             )
-
-            ubf1: ( Agent
-               // our container is our "actor"
-               state: ( PlaneState )
-               behavior: ( PriorityArbiter
-                  behaviors: {
-                     ( PlaneFlyStraight 
-                        vote: 10
-                        voteOnCriticalAltitude: 100
-                        criticalAltitude: ( Meters 3500 ) 
-                     )
-                     ( PlaneFire vote: 50 )
-                     ( PlaneFollowEnemy vote: 50 )
-                     ( PlaneTurn vote: 15 )
-                     ( PlaneTrim vote: 100 )
-                  }
-               )
-            )
-      
+           
             pilot: ( Autopilot
                navMode: false
                altitudeHoldMode: false
@@ -269,23 +289,9 @@ simulation: ( Simulation
 
             dynamicsModel: ( JSBSimModel
                 rootDir: "../data/JSBSim/"
-                model: "F15"
+                model: "f15"
             )
-
-            ubf2: ( Agent
-               behavior: ( PriorityArbiter
-                  behaviors: {
-                     ( PlaneFlyStraight 
-                        vote: 10
-                        voteOnCriticalAltitude: 100
-                        criticalAltitude: ( Meters 3500 ) 
-                     )
-                     ( PlaneFollowEnemy vote: 50 )
-                     ( PlaneTurn vote: 15 )
-                     ( PlaneTrim vote: 100 )
-                  }
-               )
-            )
+           
             pilot: ( Autopilot
                navMode: false
                altitudeHoldMode: false

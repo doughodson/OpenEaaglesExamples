@@ -28,7 +28,8 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/test1.epp >test1.edl   $(EPPFLAGS)
+	cpp inputs/agentTest.epp    >test1.edl   $(EPPFLAGS)
+#	cpp inputs/simAgentTest.epp >test1.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o
