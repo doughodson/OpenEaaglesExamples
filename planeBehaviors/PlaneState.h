@@ -97,7 +97,7 @@ public:
    virtual double getDistanceToTracked(const unsigned int track) const;
 
 public:
-   static const int MAX_TRACKS = 50;
+   static const unsigned int MAX_TRACKS = 50;
 
 private:
 

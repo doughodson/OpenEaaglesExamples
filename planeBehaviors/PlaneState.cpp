@@ -108,7 +108,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
          setMissileFired(true);
       }
 
-      const Basic::String* playerName = airVehicle->getName();
+      //const Basic::String* playerName = airVehicle->getName();
       // DH - DOES NOT COMPILE WITH CONST -- ????
       Simulation::AirVehicle* airVehicleX = const_cast<Simulation::AirVehicle*>(airVehicle);
       const Basic::Pair* sensorPair = airVehicleX->getSensorByType(typeid(Simulation::Radar));
