@@ -94,7 +94,32 @@ void PlaneState::updateState(const Basic::Component* const actor)
       setIncomingMissile(false);
       setMissileFired(false);
 
-      // determine if we have a missile to fire 
+      // determine if we have a missile to fire
+#if 1
+      Simulation::StoresMgr* stores = airVehicle->getStoresManagement();
+      if (stores == 0 || stores->getNextMissile() == 0) {
+         // either we have no SMS, or we have no more missile
+         setMissileFired(true);
+      }
+      else {
+         // we have an sms, and we have a missile available
+         // loop through player list and attempt to find out if one of our missiles is active
+         // if there is an active missile, then for the time being, we do not have a missile to fire
+         Simulation::Simulation* sim = airVehicle->getSimulation();
+         Basic::PairStream* players = getSimulation()->getPlayers();
+         bool finished = false;
+         for (Basic::List::Item* item = players->getFirstItem(); item != 0 && !finished; item = item->getNext()) {
+            // Get the pointer to the target player
+            Basic::Pair* pair = (Basic::Pair*)(item->getValue());
+            Simulation::Player* player = (Player*)(pair->object());
+            if (player->isMajorType(WEAPON) && player->isActive() && (player->getSide() == airVehicle->getSide()) {
+               // our side has a weapon in the air;
+               setMissileFired(true);
+               finished=true;
+            }
+         }
+      }
+#else
       // this state class has no way to determine whether we've fired a missile other than checking to see if sms is out of missiles to fire.
       // which means, it will fire all its missiles at first target.
       const Simulation::StoresMgr* stores = airVehicle->getStoresManagement();
@@ -107,6 +132,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
          // we have no SMS, we can't fire a missile;
          setMissileFired(true);
       }
+#endif
 
       const Basic::String* playerName = airVehicle->getName();
       // DH - DOES NOT COMPILE WITH CONST -- ????
