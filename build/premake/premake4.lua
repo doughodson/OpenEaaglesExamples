@@ -65,7 +65,6 @@ if (os.is("linux")) then
    LibGL       = "GL"
 end
 
-
 solution "examples"
 
    -- destination directory for generated solution/project files
@@ -110,4 +109,6 @@ solution "examples"
    dofile "tutorials.lua"
    -- gui demos
    dofile "guidemos.lua"
+   -- libraries
+   dofile "libraries.lua"
 
