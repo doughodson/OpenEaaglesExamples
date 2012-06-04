@@ -3,7 +3,8 @@
 //
 
 // this implementation of PlaneState:
-// assumes that player using this state has only one missile (or is ok with firing all missiles at first target)
+// assumes that player using this state has only one missile
+// (or is ok with firing all missiles at first target)
 //
 
 #include "PlaneState.h"
@@ -47,7 +48,8 @@ PlaneState::PlaneState()
    numTracks      = 0;
    tracking       = false;
    missileFired   = false;
-   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal "no tgt track"
+   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal
+                                 // "no tgt track"
    numEngines     = 0;
 }
 
@@ -67,7 +69,8 @@ void PlaneState::reset()
    numTracks      = 0;
    tracking       = false;
    missileFired   = false;
-   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal "no tgt track"
+   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to
+                                 // signal "no tgt track"
    numEngines     = 0;
 
    BaseClass::reset();
@@ -88,13 +91,39 @@ void PlaneState::updateState(const Basic::Component* const actor)
       setPitchRate(angularVels.y());
       setYawRate(angularVels.z());      
       setTracking(false);
-      setTargetTrack(MAX_TRACKS);  // 0 is a valid target track, use MAX_TRACKS to signal "no tgt track"
+      setTargetTrack(MAX_TRACKS);  // 0 is a valid target track, use MAX_TRACKS to
+                                   // signal "no tgt track"
       setSpeed(airVehicle->getCalibratedAirspeed());
       setNumEngines(airVehicle->getNumberOfEngines());
       setIncomingMissile(false);
       setMissileFired(false);
 
-      // determine if we have a missile to fire 
+      // determine if we have a missile to fire
+#if 1
+      const Simulation::StoresMgr* stores = airVehicle->getStoresManagement();
+      if (stores == 0 || stores->getNextMissile() == 0) {
+         // either we have no SMS, or we have no more missile
+         setMissileFired(true);
+      }
+      else {
+         // we have an sms, and we have a missile available
+         // loop through player list and attempt to find out if one of our missiles is active
+         // if there is an active missile, then for the time being, we do not have a missile to fire
+         const Simulation::Simulation* sim = airVehicle->getSimulation();
+         const Basic::PairStream* players = sim->getPlayers();
+         bool finished = false;
+         for (const Basic::List::Item* item = players->getFirstItem(); item != 0 && !finished; item = item->getNext()) {
+            // Get the pointer to the target player
+            Basic::Pair* pair = (Basic::Pair*)(item->getValue());
+            Simulation::Player* player = (Simulation::Player*)(pair->object());
+            if (player->isMajorType(Simulation::Player::WEAPON) && (player->isActive() || player->isMode(Simulation::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
+               // our side has a weapon on-the-way/in-the-air;
+               setMissileFired(true);
+               finished=true;
+            }
+         }
+      }
+#else
       // this state class has no way to determine whether we've fired a missile other than checking to see if sms is out of missiles to fire.
       // which means, it will fire all its missiles at first target.
       const Simulation::StoresMgr* stores = airVehicle->getStoresManagement();
@@ -107,6 +136,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
          // we have no SMS, we can't fire a missile;
          setMissileFired(true);
       }
+#endif
 
       //const Basic::String* playerName = airVehicle->getName();
       // DH - DOES NOT COMPILE WITH CONST -- ????
@@ -125,8 +155,8 @@ void PlaneState::updateState(const Basic::Component* const actor)
                setPitchToTracked(trackIndex, trackList[trackIndex]->getElevation());
                setDistanceToTracked(trackIndex, trackList[trackIndex]->getRange());
                
-               // do we have a "target track"? (shootlist is 1-based)
-               if (getTargetTrack()==MAX_TRACKS && trackList[trackIndex]->getShootListIndex() == 1) {
+               // do we have a live "target track"? (shootlist is 1-based)
+               if (getTargetTrack()==MAX_TRACKS && (trackList[trackIndex]->getShootListIndex() == 1) && trackList[trackIndex]->getTarget()->isActive()  ) {
                   setTargetTrack(trackIndex);
                }
                setTracking(true);
@@ -179,12 +209,9 @@ void PlaneState::updateState(const Basic::Component* const actor)
                   setNumTracks(getNumTracks()+newTracks);
                }
 
-               // do we have a "target track"? (shootlist is 1-based)
-               if (getTargetTrack()==MAX_TRACKS && trackList[trackIndex]->getShootListIndex() == 1) {
+               // do we have a live "target track"? (shootlist is 1-based)
+               if (getTargetTrack()==MAX_TRACKS && (trackList[trackIndex]->getShootListIndex() == 1) && trackList[trackIndex]->getTarget()->isActive()  ) {
                   setTargetTrack(trackIndex);
-               }
-               else if (getTargetTrack() == MAX_TRACKS) {
-                  setTargetTrack(trackIndex); // in absence of any target, make the first rwr track the target?
                }
 
                // hack to implement "missile warning"
