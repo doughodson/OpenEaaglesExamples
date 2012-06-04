@@ -9,7 +9,8 @@ OBJS = \
 
 # PlaneBehavior family
 OBJS += \
-	$(LIB)(PlaneAction.o) $(LIB)(PlaneBehaviors.o) \
+	$(LIB)(PlaneAction.o) \
+	$(LIB)(PlaneBehaviors.o) \
 	$(LIB)(PriorityArbiter.o) \
 	$(LIB)(PlaneState.o) 
 
