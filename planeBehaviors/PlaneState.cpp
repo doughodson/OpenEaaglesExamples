@@ -209,10 +209,6 @@ void PlaneState::updateState(const Basic::Component* const actor)
                if (getTargetTrack()==MAX_TRACKS && (trackList[trackIndex]->getShootListIndex() == 1) && trackList[trackIndex]->getTarget()->isActive()  ) {
                   setTargetTrack(trackIndex);
                }
-               //else if (getTargetTrack() == MAX_TRACKS) {
-                  // this doesn't work, sms doesn't know the target if it isn't in the shootlist.
-                  ;//setTargetTrack(trackIndex); // in absence of any target, make the first rwr track the target?
-               //}
 
                // hack to implement "missile warning"
                if (isIncomingMissile() == false) {
