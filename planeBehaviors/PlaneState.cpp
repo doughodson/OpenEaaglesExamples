@@ -112,8 +112,8 @@ void PlaneState::updateState(const Basic::Component* const actor)
             // Get the pointer to the target player
             Basic::Pair* pair = (Basic::Pair*)(item->getValue());
             Simulation::Player* player = (Simulation::Player*)(pair->object());
-            if (player->isMajorType(Simulation::Player::WEAPON) && player->isActive() && (player->getSide() == airVehicle->getSide())) {
-               // our side has a weapon in the air;
+            if (player->isMajorType(Simulation::Player::WEAPON) && (player->isActive() || player->isMode(Simulation::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
+               // our side has a weapon on-the-way/in-the-air;
                setMissileFired(true);
                finished=true;
             }
@@ -151,8 +151,8 @@ void PlaneState::updateState(const Basic::Component* const actor)
                setPitchToTracked(trackIndex, trackList[trackIndex]->getElevation());
                setDistanceToTracked(trackIndex, trackList[trackIndex]->getRange());
                
-               // do we have a "target track"? (shootlist is 1-based)
-               if (getTargetTrack()==MAX_TRACKS && trackList[trackIndex]->getShootListIndex() == 1) {
+               // do we have a live "target track"? (shootlist is 1-based)
+               if (getTargetTrack()==MAX_TRACKS && (trackList[trackIndex]->getShootListIndex() == 1) && trackList[trackIndex]->getTarget()->isActive()  ) {
                   setTargetTrack(trackIndex);
                }
                setTracking(true);
@@ -205,13 +205,14 @@ void PlaneState::updateState(const Basic::Component* const actor)
                   setNumTracks(getNumTracks()+newTracks);
                }
 
-               // do we have a "target track"? (shootlist is 1-based)
-               if (getTargetTrack()==MAX_TRACKS && trackList[trackIndex]->getShootListIndex() == 1) {
+               // do we have a live "target track"? (shootlist is 1-based)
+               if (getTargetTrack()==MAX_TRACKS && (trackList[trackIndex]->getShootListIndex() == 1) && trackList[trackIndex]->getTarget()->isActive()  ) {
                   setTargetTrack(trackIndex);
                }
-               else if (getTargetTrack() == MAX_TRACKS) {
-                  setTargetTrack(trackIndex); // in absence of any target, make the first rwr track the target?
-               }
+               //else if (getTargetTrack() == MAX_TRACKS) {
+                  // this doesn't work, sms doesn't know the target if it isn't in the shootlist.
+                  ;//setTargetTrack(trackIndex); // in absence of any target, make the first rwr track the target?
+               //}
 
                // hack to implement "missile warning"
                if (isIncomingMissile() == false) {
