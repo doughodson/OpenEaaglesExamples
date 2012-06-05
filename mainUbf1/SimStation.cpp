@@ -3,6 +3,7 @@
 
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/AirVehicle.h"
+#include "openeaagles/gui/glut/GlutDisplay.h"
 #include "openeaagles/basic/Identifier.h"
 #include "openeaagles/basic/Boolean.h"
 #include "openeaagles/basic/NetHandler.h"
@@ -13,8 +14,6 @@
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/units/Times.h"
 #include "openeaagles/basic/osg/Vec4"
-
-#include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
 namespace MainUbf1 {

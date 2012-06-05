@@ -1,4 +1,22 @@
 // ---
+// Example simulation
+// ---
+#include "Station_Settings.def"
+
+//
+#define REF_LATITUDE     DB_LAT
+#define REF_LONGITUDE    DB_LONG
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( SimStation
+
+   tcPriority: 1
+   
+//#include "networkSetup.epp"
+//#include "otwSetup.epp"
+
+// ---
 // Simulation scenario
 // ---
 
@@ -24,15 +42,15 @@ simulation: ( Simulation
 
           id: 1
           side: blue
-          type: "F-16"
+          type: "F-15"
           signature: ( SigSphere radius: 2.0 )
 
           initLatitude:  ( LatLon direction: "n" degrees: 39 minutes: 54.0 )
           initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.5 )
         
-          initAlt: ( Feet 15000 )
+          initAlt: ( Feet 5000 )
           initHeading: ( Degrees 0.0 )      // Initial heading
-          initVelocity: 300  //was 250
+          initVelocity: 250  //was 250
           
           positionFreeze: false
           killRemoval: true
@@ -43,9 +61,26 @@ simulation: ( Simulation
             dynamicsModel: ( JSBSimModel
                 rootDir: "../data/JSBSim/"
                 model: "f16"
-               // model: "F15"
             )
-           
+
+            ubf1: ( Agent
+               // our container is our "actor"
+               state: ( PlaneState )
+               behavior: ( PriorityArbiter
+                  behaviors: {
+                     ( PlaneFlyStraight 
+                        vote: 10
+                        voteOnCriticalAltitude: 100
+                        criticalAltitude: ( Meters 3500 ) 
+                     )
+                     ( PlaneFire vote: 50 )
+                     ( PlaneFollowEnemy vote: 50 )
+                     ( PlaneTurn vote: 15 )
+                     ( PlaneTrim vote: 100 )
+                  }
+               )
+            )
+      
             pilot: ( Autopilot
                navMode: false
                altitudeHoldMode: false
@@ -214,7 +249,7 @@ simulation: ( Simulation
               
           }
       )
-#if 1
+
       duck11:
       ( Aircraft
           side: red
@@ -234,9 +269,23 @@ simulation: ( Simulation
 
             dynamicsModel: ( JSBSimModel
                 rootDir: "../data/JSBSim/"
-                model: "f16"
+                model: "f15"
             )
-           
+
+            ubf2: ( Agent
+               behavior: ( PriorityArbiter
+                  behaviors: {
+                     ( PlaneFlyStraight 
+                        vote: 10
+                        voteOnCriticalAltitude: 100
+                        criticalAltitude: ( Meters 3500 ) 
+                     )
+                     ( PlaneFollowEnemy vote: 50 )
+                     ( PlaneTurn vote: 15 )
+                     ( PlaneTrim vote: 100 )
+                  }
+               )
+            )
             pilot: ( Autopilot
                navMode: false
                altitudeHoldMode: false
@@ -347,8 +396,8 @@ simulation: ( Simulation
           killRemoval: true
           fuelFreeze: true
       )
-#endif
   }
 )
 
-
+   #include "instrumentPanel.epp"
+)

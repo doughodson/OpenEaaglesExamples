@@ -1,13 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //
-// Base class: Simulation::Station -> Ubf::AgentStation -> SimStation
+// Base class: Simulation::Station -> Simulation::AgentStation -> SimStation
 //------------------------------------------------------------------------------
 
 #ifndef __SimStation_H__
 #define __SimStation_H__
 
-#include "openeaagles/ubf/AgentStation.h"
+//#include "agent/AgentStation.h"
+#include "openeaagles/simulation/Station.h"
 
 namespace Eaagles {
 
@@ -31,9 +32,9 @@ namespace MainUbf1 {
 //
 //------------------------------------------------------------------------------
 
-class SimStation : public Ubf::AgentStation
+class SimStation : public Simulation::Station
 {
-    DECLARE_SUBCLASS(SimStation, Ubf::AgentStation)
+   DECLARE_SUBCLASS(SimStation, Simulation::Station)
 
 public:
 
@@ -57,9 +58,9 @@ private:
 
 };
 
-}
-}
+} // End MainUbf1 namespace
+} // End Eaagles namespace
 
-#endif
+#endif // __SimStation_H__
 
 

@@ -1,0 +1,30 @@
+
+   ubf1: ( QAgent
+           ownship: p01
+           behavior: ( QArbiter
+                       behaviors: { ( PlaneFlyStraight )
+                                    ( PlaneBarrelRoll )
+                                    ( PlaneRoll )
+                                    ( PlaneDive )
+                                    ( PlaneClimb )
+                                    ( PlaneLoop )
+                                    ( PlaneTurn )
+                                  }
+                      )
+         )
+
+
+//   ubf1: ( QAgent
+//           ownship: p01
+//           behavior: ( QArbiter
+//                       behaviors: { ( PlaneFlyStraight )
+//                                    ( PlaneBarrelRoll )
+//                                    ( PlaneRoll )
+//                                    ( PlaneDive )
+//                                    ( PlaneClimb )
+//                                    ( PlaneLoop )
+//                                    ( PlaneTurn )
+//                                  }
+//                      )
+//         )
+//

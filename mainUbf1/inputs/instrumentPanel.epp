@@ -26,8 +26,8 @@ display:
    near:       -2.0
    far:         2.0
 
-   vpWidth:    800
-   vpHeight:   500
+   vpWidth:    1280
+   vpHeight:   768
         
     colorTable: {
         black:      ( rgba 0 0 0 )

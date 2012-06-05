@@ -281,7 +281,7 @@ bool TestDisplay::onIncRngKey()
    if (getOwnship() != 0) {
       Simulation::Radar* rdr = 0;
       {
-         Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
+         Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Simulation::Radar));
          if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
       }
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
@@ -308,7 +308,7 @@ bool TestDisplay::onDecRngKey()
    if (getOwnship() != 0) {
       Simulation::Radar* rdr = 0;
       {
-         Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
+         Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Simulation::Radar));
          if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
       }
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
@@ -354,10 +354,10 @@ void TestDisplay::updateData(const LCreal dt)
       if (p != 0) rdrDisplay = dynamic_cast<MainUbf1::DspRadar*>( p->object() );
    }
    if (rdrDisplay != 0 && getOwnship() != 0) {
-      // Default is TWS
+      // Default is TWS - no, Simulation::Radar
       Simulation::Radar* rdr = 0;
       {
-         Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
+         Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Simulation::Radar));
          if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
       }
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
@@ -389,7 +389,7 @@ void TestDisplay::updateData(const LCreal dt)
       {
          Simulation::Radar* rdr = 0;
          {
-            Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
+            Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Simulation::Radar));
             if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
          }
          Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();

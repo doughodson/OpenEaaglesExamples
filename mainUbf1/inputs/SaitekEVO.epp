@@ -7,7 +7,7 @@
 
 ( UsbJoystick
    deviceIndex: 0
-   components: {
+   adapters: {
 
       // ---
       // AIs (stick & throttle)

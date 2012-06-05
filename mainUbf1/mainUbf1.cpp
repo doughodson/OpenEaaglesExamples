@@ -10,6 +10,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include <GL/glut.h>
+#include <fstream>
 
 // Form function
 static Eaagles::Basic::ParserFormFunc myFormFunc = Eaagles::MainUbf1::formFunc;
@@ -81,7 +82,7 @@ static void updateDataCB(int msecs)
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   glutInit(&argc, argv); 
+  glutInit(&argc, argv); 
 
    // Config file file
    const char* configFile = DEFAULT_CONFIG_FILE;
@@ -105,9 +106,7 @@ int main(int argc, char* argv[])
    // ---
    // Reset the Simulation
    // ---
-   std::cout << "Before reset\n";
    station->event(Eaagles::Basic::Component::RESET_EVENT);
-   std::cout << "After reset\n";
 
    // ---
    // Set timer for the background tasks
@@ -119,6 +118,7 @@ int main(int argc, char* argv[])
    station->updateData(dt);
    station->updateTC(dt);
    station->event(Eaagles::Basic::Component::RESET_EVENT);
+   station->reset();
 
    glutTimerFunc(msecs, updateDataCB, msecs);
 
@@ -127,9 +127,17 @@ int main(int argc, char* argv[])
    // ---
    station->createTimeCriticalProcess();
 
+   //Eaagles::LCreal dt = (Eaagles::LCreal)1.0/Eaagles::LCreal(50);//.1;
+   //for(int i = 0 ;;i++)
+   //{
+	  // std::cout << std::endl << "Step: " << i << std::endl;
+	//   station->tcFrame(dt);
+	//   station->updateData(dt);
+   //}
    // ---
    // Main loop
    // ---
    glutMainLoop();
+
    return EXIT_SUCCESS;
 }

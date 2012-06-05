@@ -1,15 +1,15 @@
-////------------------------------------------------------------------------------
-//// Example F-16 Stick/Throttle I/O definitions -- 
-////
-//// Notes:
-////    1) Numbering of both analog and bit channels start at one(1).
-////    2) This file defines channels for both the C++ code and the Eaagles
-////       input files, so use only C pre-processor directives only.
-////------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Example F-16 Stick/Throttle I/O definitions -- 
+//
+// Notes:
+//    1) Numbering of both analog and bit channels start at one(1).
+//    2) This file defines channels for both the C++ code and the Eaagles
+//       input files, so use only C pre-processor directives only.
+//------------------------------------------------------------------------------
 #ifndef __F16_HOTAS_IO_DEF_H__
 #define __F16_HOTAS_IO_DEF_H__
-//
-//// analog input channels
+
+// analog input channels
 #define ROLL_AI            1
 #define PITCH_AI           2
 #define THROTTLE_AI        3

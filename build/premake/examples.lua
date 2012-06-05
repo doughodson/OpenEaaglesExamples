@@ -1,4 +1,3 @@
-
 --------------------------------------------------------
 -- Example applications
 --------------------------------------------------------
@@ -452,9 +451,9 @@ project "mainUbf1"
       "../../mainUbf1/**.edl"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath, "../../planeBehaviors" }
    configuration "Release"
-      links {"oeUbf"}
+      links {"planeBehaviors"}
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
       links {"oeDis", "oeSensors", "oeIoDevice"}
@@ -467,7 +466,7 @@ project "mainUbf1"
          links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
       end
    configuration "Debug"
-      links {"oeUbf_d"}
+      links {"planeBehaviors"}
       links {"oeVehicles_d", "JSBSim_d"}
       links {"oeOtw_d","ccl_lib_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}

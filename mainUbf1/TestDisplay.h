@@ -47,7 +47,7 @@ namespace MainUbf1 {
 //------------------------------------------------------------------------------
 class TestDisplay : public Glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay, Glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay,Glut::GlutDisplay)
 
 public:
     enum { MAX_TRACKS = 60 };

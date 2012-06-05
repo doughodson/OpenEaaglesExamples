@@ -1,0 +1,18 @@
+
+//   ubf2: ( PlaneAgent 
+//           ownship: duck11
+//           behavior: ( PlaneFlyStraight )
+//          )
+
+   ubf2: ( PlaneAgent
+           ownship: duck11
+           behavior: ( PriorityArbiter
+                       behaviors: { ( PlaneFlyStraight )
+                                    ( PlaneFollowEnemy )
+                                    ( PlaneTurn )
+                                    ( PlaneTrim )
+                                  }
+                      )
+         )
+
+

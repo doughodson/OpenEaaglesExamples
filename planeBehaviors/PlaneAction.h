@@ -1,24 +1,31 @@
+//------------------------------------------------------------------------------
+// Class: PlaneAction
+//------------------------------------------------------------------------------
+
+#ifndef __Eaagles_PlaneBehaviors_PlaneAction_H__
+#define __Eaagles_PlaneBehaviors_PlaneAction_H__
+
+#include "openeaagles/basic/ubf/Action.h"
+
+namespace Eaagles {
+
+namespace Simulation { class Player; }
+
+namespace PlaneBehaviors {
+
 //
 // Class: PlaneAction
 //
-// Base Class: Basic::Object -> Ubf::Action -> PlaneAction
+// Base Class: Basic::Object -> UbfAction -> PlaneAction
 //
-
-#ifndef __Eaagles_MainUbf1_PlaneAction_H__
-#define __Eaagles_MainUbf1_PlaneAction_H__
-
-#include "openeaagles/ubf/Action.h"
-
-namespace Eaagles {
-namespace MainUbf1 {
-
-class PlaneAction : public Ubf::Action
+class PlaneAction : public Basic::Action
 {
-   DECLARE_SUBCLASS(PlaneAction, Ubf::Action)
+   DECLARE_SUBCLASS(PlaneAction, Basic::Action)
 
 public:
-
    PlaneAction();
+
+   virtual bool execute(Basic::Component* actor);
 
    // get/set methods
    void setPitch(const double);
@@ -46,7 +53,7 @@ public:
    bool isSpeedChanged() const         { return speedChanged;       }
 
    void setFireMissile(const bool);
-   bool getFireMissile() const         { return fireMissile;        }
+   bool getFireMissile() const          { return fireMissile;       }
    bool isFireMissileChanged() const   { return fireMissileChanged; }
 
    void setPitchTrim(const double);
@@ -85,4 +92,5 @@ private:
 }
 
 #endif
+
 

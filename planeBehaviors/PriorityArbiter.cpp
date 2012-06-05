@@ -1,31 +1,23 @@
 //
 // PriorityArbiter
 //
-
 #include "PriorityArbiter.h"
 
 #include "openeaagles/basic/List.h"
-#include "openeaagles/basic/Pair.h"
 
-#include "openeaagles/ubf/State.h"
-#include "openeaagles/ubf/Action.h"
 #include "PlaneAction.h"
 
 namespace Eaagles {
-namespace MainUbf1 {
+namespace PlaneBehaviors {
 
 IMPLEMENT_SUBCLASS(PriorityArbiter, "PriorityArbiter")
 EMPTY_SLOTTABLE(PriorityArbiter)
+EMPTY_CONSTRUCTOR(PriorityArbiter)
 EMPTY_COPYDATA(PriorityArbiter)
 EMPTY_SERIALIZER(PriorityArbiter)
 EMPTY_DELETEDATA(PriorityArbiter)
 
-PriorityArbiter::PriorityArbiter()
-{
-   STANDARD_CONSTRUCTOR()
-}
-
-Ubf::Action* PriorityArbiter::genComplexAction(const Basic::List* const actionSet)
+Basic::Action* PriorityArbiter::genComplexAction(const Basic::List* const actionSet)
 {
    PlaneAction* complexAction = new PlaneAction;
 
@@ -39,40 +31,40 @@ Ubf::Action* PriorityArbiter::genComplexAction(const Basic::List* const actionSe
    // process entire action set
    const Basic::List::Item* item = actionSet->getFirstItem();
    while (item != 0) {
-
       const PlaneAction* action = dynamic_cast<const PlaneAction*>(item->getValue());
-      if (action==0) {
+      if (action!=0) {
+         if (action->isHeadingChanged() && action->getVote() > maxHeadingVote) {
+            complexAction->setHeading(action->getHeading());
+            maxHeadingVote = action->getVote();
+         }
+
+         if (action->isPitchChanged() && action->getVote() > maxPitchVote) {
+            complexAction->setPitch(action->getPitch());
+            maxPitchVote = action->getVote();
+         }
+
+         if (action->isRollChanged() && action->getVote() > maxRollVote) {
+            complexAction->setRoll(action->getRoll());
+            maxRollVote = action->getVote();
+         }
+
+         if (action->isFireMissileChanged() && action->getVote() > maxFireVote) {
+            complexAction->setFireMissile(action->getFireMissile());
+            maxFireVote = action->getVote();
+         }
+
+         if (action->isThrottleChanged() && action->getVote() > maxThrottleVote) {
+            complexAction->setThrottle(action->getThrottle());
+            maxThrottleVote = action->getVote();
+         }
+
+         if (action->isPitchTrimChanged() && action->getVote() > maxPitchTrimVote) {
+            complexAction->setPitchTrim(action->getPitchTrim());
+            maxPitchTrimVote = action->getVote();
+         }
+      }
+      else {
          std::cout << "Action NOT a PlaneAction\n";
-      }
-
-      if (action->isHeadingChanged() && action->getVote() > maxHeadingVote) {
-         complexAction->setHeading(action->getHeading());
-         maxHeadingVote = action->getVote();
-      }
-
-      if (action->isPitchChanged() && action->getVote() > maxPitchVote) {
-         complexAction->setPitch(action->getPitch());
-         maxPitchVote = action->getVote();
-      }
-
-      if (action->isRollChanged() && action->getVote() > maxRollVote) {
-         complexAction->setRoll(action->getRoll());
-         maxRollVote = action->getVote();
-      }
-
-      if (action->isFireMissileChanged() && action->getVote() > maxFireVote) {
-         complexAction->setFireMissile(action->getFireMissile());
-         maxFireVote = action->getVote();
-      }
-
-      if (action->isThrottleChanged() && action->getVote() > maxThrottleVote) {
-         complexAction->setThrottle(action->getThrottle());
-         maxThrottleVote = action->getVote();
-      }
-
-      if (action->isPitchTrimChanged() && action->getVote() > maxPitchTrimVote) {
-         complexAction->setPitchTrim(action->getPitchTrim());
-         maxPitchTrimVote = action->getVote();
       }
 
       // next action
@@ -85,7 +77,7 @@ Ubf::Action* PriorityArbiter::genComplexAction(const Basic::List* const actionSe
    return complexAction;
 }
 
-void PriorityArbiter::trimChangeValidation(Ubf::Action* const complexAction)
+void PriorityArbiter::trimChangeValidation(Basic::Action* const complexAction)
 {
    PlaneAction* action = (PlaneAction*)(complexAction);
 
@@ -112,3 +104,5 @@ void PriorityArbiter::trimChangeValidation(Ubf::Action* const complexAction)
 
 }
 }
+
+

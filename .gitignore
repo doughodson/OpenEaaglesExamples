@@ -15,11 +15,16 @@ codelite/
 
 # windows executables
 *.exe
+# windows libraries
+*.lib
 # keep premake executable
 !premake4.exe
 
 # backup files
 *.bak
+
+# preprocessed scenarios
+*.edl
 
 # linux executables
 mainEfis/mainEfis
@@ -44,6 +49,7 @@ mainx9/mainx9
 mainy1/mainy1
 mainz1/mainz1
 mainz2/mainz2
+mainUbf1/mainUbf1
 testEvents/testEvents
 testIo/testIo
 testLinearSys/testLinearSys
@@ -63,3 +69,5 @@ tutorial06/tutorial06
 tutorial07/tutorial07
 tutorial08/tutorial08
 
+# linux executables
+planeBehaviors/liboePlaneBehaviors.a
