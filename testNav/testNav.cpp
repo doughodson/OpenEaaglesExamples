@@ -36,7 +36,7 @@ namespace TestNav {
 //------------------------------------------------------------------------------
 int showVec2(const osg::Vec2d V);
 int showVec3(const osg::Vec3d V);
-int showMatrix(const osg::Matrixd M);
+int displayMatrix(const osg::Matrixd M);
 
 void test01_fbd2llE();
 void test02_fll2bdE();
@@ -63,8 +63,8 @@ void test20_computeRotationalMatrix();
 void test21_computeRotationalMatrixDeg();
 void test22_computeRotationalMatrixDeg();
 
-void test23_convertPosVec2LL();
-void test24_convertLL2PosVec();
+void test23_convertPosVec2llE();
+void test24_convertLL2PosVecE();
 void test25_convertEcef2Geod();
 void test26_convertGeod2Ecef();
 void test27_convertUtm();
@@ -81,9 +81,7 @@ void selectNavTestFunction(int n);
 int testNavFns()
 {
    while (ynCont != 'n') {
-      if (ynMenu != 'n') {
          displayNavTestFunctions();
-      }
       
       std::cout << "Enter a Nav function test number: ";
       std::cin  >> testNumber; 
@@ -91,6 +89,7 @@ int testNavFns()
       
       switch (testNumber) {
          // Direct and Inverse Methods
+         case  0: exit(0);
          case  1: test01_fbd2llE();                      break;
          case  2: test02_fll2bdE();                      break;
          case  3: test03_fbd2llS();                      break;
@@ -117,8 +116,8 @@ int testNavFns()
          case 21: test21_computeRotationalMatrixDeg();   break;
          case 22: test22_computeRotationalMatrixDeg();   break;
 
-         case 23: test23_convertPosVec2LL();             break;
-         case 24: test24_convertLL2PosVec();             break;
+         case 23: test23_convertPosVec2llE();             break;
+         case 24: test24_convertLL2PosVecE();             break;
          case 25: test25_convertEcef2Geod();             break;
          case 26: test26_convertGeod2Ecef();             break;
 
@@ -134,10 +133,6 @@ int testNavFns()
       
       std::cout << "Continue?  (y/n)";
       std::cin  >> ynCont;
-      if (ynCont != 'n') {
-         std::cout << "Show menu? (y/n)";
-         std::cin  >> ynMenu;
-      }
       std::cout << std::endl;
    }
 
@@ -155,7 +150,8 @@ void displayNavTestFunctions()
    std::cout << "=====================================================" << std::endl;
    
    // Direct and Inverse Methods
-   std::cout << "   1)  test fbd2llE()"                      << std::endl
+   std::cout << "   0)  exit()"                              << std::endl
+             << "   1)  test fbd2llE()"                      << std::endl
              << "   2)  test fll2bdE()"                      << std::endl
              << "   3)  test fbd2llS()"                      << std::endl
              << "   4)  test fll2bdS()"                      << std::endl
@@ -181,8 +177,8 @@ void displayNavTestFunctions()
              << "  21)  test computeRotationalMatrixDeg()"   << std::endl
              << "  22)  test computeRotationalMatrixDeg()"   << std::endl
              
-             << "  23)  test convertPosVec2LL()"             << std::endl
-             << "  24)  test convertLL2PosVec()"             << std::endl
+             << "  23)  test convertPosVec2llE()"             << std::endl
+             << "  24)  test convertLL2PosVecE()"             << std::endl
              << "  25)  test convertEcef2Geod()"             << std::endl
              << "  26)  test convertGeod2Ecef()"             << std::endl
              << "  27)  test UTM conversion"                 << std::endl
@@ -222,8 +218,8 @@ void test99_printAllExamples()
    test21_computeRotationalMatrixDeg();
    test22_computeRotationalMatrixDeg();
 
-   test23_convertPosVec2LL();
-   test24_convertLL2PosVec();
+   test23_convertPosVec2llE();
+   test24_convertLL2PosVecE();
    test25_convertEcef2Geod();
    test26_convertGeod2Ecef();
 
@@ -979,14 +975,14 @@ void test06_aer2xyz()
    //-----------------------------------
    std::cout << "  expected rotation matrix" << std::endl;
    std::cout << "  E(rm) = " << std::endl;
-   showMatrix(ER);
+   displayMatrix(ER);
 
    std::cout << "  calculated rotation matrix" << std::endl;
    std::cout << "  rm = " << std::endl;
-   showMatrix(rm);
+   displayMatrix(rm);
 
    std::cout << "Errors = rm - E(rm):" << std::endl;
-   showMatrix(rm - ER);
+   displayMatrix(rm - ER);
 
    //-----------------------------------
    // begin phase 2 - calculate position
@@ -1020,8 +1016,8 @@ void test06_aer2xyz()
    // show test inputs
    //-----------------------------------
    std::cout << "Test Inputs:" << std::endl
-             << "rm     = "    << std::endl;
-             showMatrix(rm);
+             << "rm matrix = "    << std::endl;
+             displayMatrix(rm);
    std::cout << "azim   = " << std::setw(10) << azim << "  [DEG]" << std::endl
              << "elev   = " << std::setw(10) << elev << "  [DEG]" << std::endl
              << "ranj   = " << std::setw(10) << ranj << "  [M]  " << std::endl
@@ -1036,7 +1032,7 @@ void test06_aer2xyz()
    //-----------------------------------
    // show expected results
    //-----------------------------------
-   std::cout << "Expected Results (position vector):" << std::endl   
+   std::cout << "Position Vector (Expected Results):" << std::endl   
              << "pos[0] = " << std::setw(10) << NORTH  << "  [M]  // north " << std::endl
              << "pos[1] = " << std::setw(10) << EAST   << "  [M]  // east  " << std::endl
              << "pos[2] = " << std::setw(10) << DOWN   << "  [M]  // down  " << std::endl
@@ -1050,7 +1046,7 @@ void test06_aer2xyz()
    //-----------------------------------
    // show actual results
    //-----------------------------------
-   std::cout << "Actual Results (position vector):" << std::endl
+   std::cout << "Position Vector (Actual Results):" << std::endl
              << "pos[0] = " << std::setw(10) << pos[0] << "  [M]  // north " << std::endl
              << "pos[1] = " << std::setw(10) << pos[1] << "  [M]  // east  " << std::endl
              << "pos[2] = " << std::setw(10) << pos[2] << "  [M]  // down  " << std::endl
@@ -1059,7 +1055,7 @@ void test06_aer2xyz()
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
-   std::cout << "Errors (position vector):" << std::endl   
+   std::cout << "Position Vector (Errors):" << std::endl   
              << std::setw(10) << pos[0] - NORTH << std::endl
              << std::setw(10) << pos[1] - EAST  << std::endl
              << std::setw(10) << pos[2] - DOWN  << std::endl
@@ -1102,7 +1098,7 @@ void test06_aer2xyz()
          std::cout << "Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);" << std::endl;
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
          std::cout << "=> rm  = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
 
          std::cout << "Enter azimuth    [DEG] : "; std::cin >> azim;
          std::cout << "Enter elevation  [DEG] : "; std::cin >> elev;
@@ -1356,7 +1352,7 @@ void test08_xyz2aer()
    //-----------------------------------
    std::cout << "Expected Rotation Matrix:" << std::endl
              << "  erm = " << std::endl;
-             showMatrix(erm);
+             displayMatrix(erm);
              
              //<< "    0.8138    0.4698   -0.3420 " << std::endl
              //<< "   -0.4410    0.8826    0.1632 " << std::endl
@@ -1368,13 +1364,13 @@ void test08_xyz2aer()
    //-----------------------------------
    std::cout << "Actual Rotation Matrix:" << std::endl
              << "  rm = " << std::endl;
-             showMatrix(rm);
+             displayMatrix(rm);
              
    //-----------------------------------
    // show rotation matrix errors
    //-----------------------------------
    std::cout << "Errors = rm - erm = " << std::endl;
-             showMatrix(rm - erm);
+             displayMatrix(rm - erm);
 
 
    //-----------------------------------
@@ -1456,7 +1452,7 @@ void test08_xyz2aer()
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
          
          std::cout << "=> rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
 
          std::cout << "Basic::Nav::xyz2aer(&aer, rm, x, y, z);" << std::endl
                    << std::endl;
@@ -2693,7 +2689,7 @@ void test17_computeWorldMatrix()
    // show errors between actual and expected results
    //-----------------------------------
    std::cout << "Errors: " << std::endl;
-   showMatrix(wm - worldMatrix);
+   displayMatrix(wm - worldMatrix);
   
 
    //---------------------------------------------------------------------------
@@ -2717,7 +2713,7 @@ void test17_computeWorldMatrix()
          
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "wm = " << std::endl;
-         showMatrix(wm);
+         displayMatrix(wm);
       }
    }
 }
@@ -2803,7 +2799,7 @@ void test18_computeEulerAnglesDeg()
    Basic::Nav::computeRotationalMatrixDeg(ROLL, PITCH, YAW, &testRotationMatrix);
 
    std::cout << "  testRotationMatrix = " << std::endl;
-             showMatrix(testRotationMatrix);
+             displayMatrix(testRotationMatrix);
 
    //-----------------------------------
    // show expected results
@@ -2884,7 +2880,7 @@ void test18_computeEulerAnglesDeg()
          Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);
 
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
 
          std::cout << "Basic::Nav::computeEulerAnglesDeg(rm, &angles, &scPhi, &scTht, &scPsi);" << std::endl
                    << std::endl;
@@ -2999,7 +2995,7 @@ void test19_computeRotationalMatrix()
    std::cout << "Expected Results: " << std::endl;
 
    std::cout << "  testRotMatrix = " << std::endl;
-   showMatrix(testRotMatrix);
+   displayMatrix(testRotMatrix);
 
    std::cout << "  scPhi[0]  = " << std::setw(12) << SIN_PHI << std::endl
              << "  scPhi[1]  = " << std::setw(12) << COS_PHI << std::endl
@@ -3020,7 +3016,7 @@ void test19_computeRotationalMatrix()
    std::cout << "Actual Results: " << std::endl;
 
    std::cout << "  rm = " << std::endl;
-   showMatrix(rm);
+   displayMatrix(rm);
    
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
@@ -3036,7 +3032,7 @@ void test19_computeRotationalMatrix()
    std::cout << "Errors: " << std::endl;
 
    std::cout << "  rm error = " << std::endl;
-   showMatrix(rm - testRotMatrix);
+   displayMatrix(rm - testRotMatrix);
  
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
@@ -3072,7 +3068,7 @@ void test19_computeRotationalMatrix()
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
 
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
       }
    }
 }
@@ -3168,7 +3164,7 @@ void test20_computeRotationalMatrix()
    std::cout << "Expected Results: " << std::endl;
 
    std::cout << "  testRotMatrix = " << std::endl;
-   showMatrix(testRotMatrix);
+   displayMatrix(testRotMatrix);
 
    std::cout << "  scPhi[0]  = " << std::setw(12) << SIN_PHI << std::endl
              << "  scPhi[1]  = " << std::setw(12) << COS_PHI << std::endl
@@ -3189,7 +3185,7 @@ void test20_computeRotationalMatrix()
    std::cout << "Actual Results: " << std::endl;
 
    std::cout << "  rm = " << std::endl;
-   showMatrix(rm);
+   displayMatrix(rm);
    
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
@@ -3205,7 +3201,7 @@ void test20_computeRotationalMatrix()
    std::cout << "Errors: " << std::endl;
 
    std::cout << "  rm error = " << std::endl;
-   showMatrix(rm - testRotMatrix);
+   displayMatrix(rm - testRotMatrix);
  
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
@@ -3246,7 +3242,7 @@ void test20_computeRotationalMatrix()
          std::cout << "Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);" << std::endl;
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
                
          angles[0] = roll;
          angles[1] = pitch;
@@ -3265,7 +3261,7 @@ void test20_computeRotationalMatrix()
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
          
          std::cout << "scPhi = " << std::endl;
          showVec2(scPhi);
@@ -3371,7 +3367,7 @@ void test21_computeRotationalMatrixDeg()
    std::cout << "Expected Results: " << std::endl;
 
    std::cout << "  testRotMatrix = " << std::endl;
-   showMatrix(testRotMatrix);
+   displayMatrix(testRotMatrix);
 
    std::cout << "  scPhi[0]  = " << std::setw(12) << SIN_PHI << std::endl
              << "  scPhi[1]  = " << std::setw(12) << COS_PHI << std::endl
@@ -3392,7 +3388,7 @@ void test21_computeRotationalMatrixDeg()
    std::cout << "Actual Results: " << std::endl;
 
    std::cout << "  rm = " << std::endl;
-   showMatrix(rm);
+   displayMatrix(rm);
    
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
@@ -3408,7 +3404,7 @@ void test21_computeRotationalMatrixDeg()
    std::cout << "Errors: " << std::endl;
 
    std::cout << "  rm error = " << std::endl;
-   showMatrix(rm - testRotMatrix);
+   displayMatrix(rm - testRotMatrix);
  
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
@@ -3444,7 +3440,7 @@ void test21_computeRotationalMatrixDeg()
          Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm, &scPhi, &scTht, &scPsi);
 
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
          
          std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
                    << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
@@ -3493,11 +3489,22 @@ void test22_computeRotationalMatrixDeg()
    //-----------------------------------
    // declare function parameters
    //-----------------------------------
+   const double ROLL    = 10.0;
+   const double PITCH   = 20.0;
+   const double YAW     = 30.0;
+
+   const double SIN_PHI = std::sin(ROLL  * Basic::Angle::D2RCC);
+   const double COS_PHI = std::cos(ROLL  * Basic::Angle::D2RCC);
+   const double SIN_THT = std::sin(PITCH * Basic::Angle::D2RCC);
+   const double COS_THT = std::cos(PITCH * Basic::Angle::D2RCC);
+   const double SIN_PSI = std::sin(YAW   * Basic::Angle::D2RCC);
+   const double COS_PSI = std::cos(YAW   * Basic::Angle::D2RCC);
+   
    // inputs
    osg::Vec3d angles;
-   angles[0] = 10.0;  // [RAD]
-   angles[1] = 20.0;  // [RAD]
-   angles[2] = 30.0;  // [RAD]
+   angles[0] = 10.0;  // [DEG]
+   angles[1] = 20.0;  // [DEG]
+   angles[2] = 30.0;  // [DEG]
 
    // outputs
    osg::Matrixd rm;   
@@ -3505,10 +3512,6 @@ void test22_computeRotationalMatrixDeg()
    osg::Vec2d scTht;
    osg::Vec2d scPsi;
     
-   const double ROLL    = 10.0;
-   const double PITCH   = 20.0;
-   const double YAW     = 30.0;
-   
    osg::Matrixd testRotMatrix;   
    testRotMatrix(0,0) =  0.8138;
    testRotMatrix(0,1) =  0.4698;
@@ -3520,13 +3523,6 @@ void test22_computeRotationalMatrixDeg()
    testRotMatrix(2,1) =  0.0180;
    testRotMatrix(2,2) =  0.9254;
 
-   const double SIN_PHI = std::sin(ROLL  * Basic::Angle::D2RCC);
-   const double COS_PHI = std::cos(ROLL  * Basic::Angle::D2RCC);
-   const double SIN_THT = std::sin(PITCH * Basic::Angle::D2RCC);
-   const double COS_THT = std::cos(PITCH * Basic::Angle::D2RCC);
-   const double SIN_PSI = std::sin(YAW   * Basic::Angle::D2RCC);
-   const double COS_PSI = std::cos(YAW   * Basic::Angle::D2RCC);
-   
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -3548,7 +3544,7 @@ void test22_computeRotationalMatrixDeg()
    std::cout << "Expected Results: " << std::endl;
 
    std::cout << "  testRotMatrix = " << std::endl;
-   showMatrix(testRotMatrix);
+   displayMatrix(testRotMatrix);
 
    std::cout << "  scPhi[0]  = " << std::setw(12) << SIN_PHI << std::endl
              << "  scPhi[1]  = " << std::setw(12) << COS_PHI << std::endl
@@ -3569,7 +3565,7 @@ void test22_computeRotationalMatrixDeg()
    std::cout << "Actual Results: " << std::endl;
 
    std::cout << "  rm = " << std::endl;
-   showMatrix(rm);
+   displayMatrix(rm);
    
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
@@ -3585,7 +3581,7 @@ void test22_computeRotationalMatrixDeg()
    std::cout << "Errors: " << std::endl;
 
    std::cout << "  rm error = " << std::endl;
-   showMatrix(rm - testRotMatrix);
+   displayMatrix(rm - testRotMatrix);
  
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
@@ -3630,7 +3626,7 @@ void test22_computeRotationalMatrixDeg()
          std::cout << "Basic::Nav::computeRotationalMatrixDeg(angles, &rm, &scPhi, &scTht, &scPsi);" << std::endl;
          Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
                
          angles[0] = roll;
          angles[1] = pitch;
@@ -3649,7 +3645,7 @@ void test22_computeRotationalMatrixDeg()
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "rm = " << std::endl;
-         showMatrix(rm);
+         displayMatrix(rm);
          
          std::cout << "scPhi = " << std::endl;
          showVec2(scPhi);
@@ -3664,13 +3660,13 @@ void test22_computeRotationalMatrixDeg()
 //--------
 // #23
 //--------
-void test23_convertPosVec2LL()
+void test23_convertPosVec2llE()
 {
    //---------------------------------------------------------------------------
    // introduction
    //---------------------------------------------------------------------------
    std::cout << "=============================================" << std::endl
-             << "test23_convertPosVec2LL" << std::endl
+             << "test23_convertPosVec2llE" << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3678,7 +3674,7 @@ void test23_convertPosVec2LL()
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
-             << "  bool convertPosVec2LL( " << std::endl
+             << "  bool convertPosVec2llE( " << std::endl
              << "       const double slat,      // IN: source latitude     [DEG] " << std::endl
              << "       const double slon,      // IN: source longitude    [DEG] " << std::endl
              << "       const osg::Vec3d& pos,  // IN: NED position vector   [M] " << std::endl
@@ -3692,7 +3688,7 @@ void test23_convertPosVec2LL()
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Usage:" << std::endl
-             << "  Basic::Nav::convertPosVec2LL(rlat, rlon, pos, &lat, &lon, &alt);" << std::endl
+             << "  Basic::Nav::convertPosVec2llE(rlat, rlon, pos, &lat, &lon, &alt);" << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3711,7 +3707,7 @@ void test23_convertPosVec2LL()
    double alt = 0.0;    // OUT: Altitude    [M]
 
    const double LAT =    40.0090;
-   const double LON =    50.0235;
+   const double LON =    50.0234;
    const double ALT = -3000.0000;
    
    //-----------------------------------
@@ -3743,7 +3739,7 @@ void test23_convertPosVec2LL()
    //-----------------------------------
    // compute actual results
    //-----------------------------------
-   Basic::Nav::convertPosVec2LL(rlat, rlon, pos, &lat, &lon, &alt);
+   Basic::Nav::convertPosVec2llE(rlat, rlon, pos, &lat, &lon, &alt);
    
    //-----------------------------------
    // show actual results
@@ -3790,7 +3786,7 @@ void test23_convertPosVec2LL()
          std::cout << "Enter z  [M] : "; std::cin >> pos[2];
          std::cout << std::endl;
 
-         Basic::Nav::convertPosVec2LL(rlat, rlon, pos, &lat, &lon, &alt);
+         Basic::Nav::convertPosVec2llE(rlat, rlon, pos, &lat, &lon, &alt);
          
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
@@ -3805,13 +3801,13 @@ void test23_convertPosVec2LL()
 //--------
 // #24
 //--------
-void test24_convertLL2PosVec()
+void test24_convertLL2PosVecE()
 {
    //---------------------------------------------------------------------------
    // introduction
    //---------------------------------------------------------------------------
    std::cout << "=============================================" << std::endl
-             << "test24_convertLL2PosVec" << std::endl
+             << "test24_convertLL2PosVecE" << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3819,7 +3815,7 @@ void test24_convertLL2PosVec()
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
-             << "  bool convertLL2PosVec( " << std::endl
+             << "  bool convertLL2PosVecE( " << std::endl
              << "       const double rlat,      // IN: Reference latitude   [DEG]   " << std::endl
              << "       const double rlon,      // IN: Reference longitude  [DEG]   " << std::endl
              << "       const double tlat,      // IN: Target latitude      [DEG]   " << std::endl
@@ -3833,7 +3829,7 @@ void test24_convertLL2PosVec()
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Usage:" << std::endl
-             << "  Basic::Nav::convertLL2PosVec(rlat, rlon, tlat, tlon, talt, &pos);" << std::endl
+             << "  Basic::Nav::convertLL2PosVecE(rlat, rlon, tlat, tlon, talt, &pos);" << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3848,8 +3844,11 @@ void test24_convertLL2PosVec()
      
    osg::Vec3d pos;        // OUT: NED position vector  [M,M,M]
 
-   const double NORTH = 111120.0000;
-   const double EAST  =  85122.8585;
+   //const double NORTH = 111120.0000;
+   //const double EAST  =  85122.8585;
+   //const double DOWN  =  -5000.0000;
+   const double NORTH = 111034.6326;
+   const double EAST  =  85393.8570;
    const double DOWN  =  -5000.0000;
    
    //-----------------------------------
@@ -3862,8 +3861,8 @@ void test24_convertLL2PosVec()
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
              << "Test Inputs: " << std::endl
-             << "  rlat = " << std::setw(12) << rlat << "  [M]" << std::endl
-             << "  rlon = " << std::setw(12) << rlon << "  [M]" << std::endl
+             << "  rlat = " << std::setw(12) << rlat << "  [DEG]" << std::endl
+             << "  rlon = " << std::setw(12) << rlon << "  [DEG]" << std::endl
              << std::endl
              << "  tlat = " << std::setw(12) << tlat << "  [M]" << std::endl
              << "  tlon = " << std::setw(12) << tlon << "  [M]" << std::endl
@@ -3882,7 +3881,7 @@ void test24_convertLL2PosVec()
    //-----------------------------------
    // compute actual results
    //-----------------------------------
-   Basic::Nav::convertLL2PosVec(rlat, rlon, tlat, tlon, talt, &pos);
+   Basic::Nav::convertLL2PosVecE(rlat, rlon, tlat, tlon, talt, &pos);
    
    //-----------------------------------
    // show actual results
@@ -3928,7 +3927,7 @@ void test24_convertLL2PosVec()
          std::cout << "Enter target altitude   [M] : "; std::cin >> talt;
          std::cout << std::endl;
 
-         Basic::Nav::convertLL2PosVec(rlat, rlon, tlat, tlon, talt, &pos);
+         Basic::Nav::convertLL2PosVecE(rlat, rlon, tlat, tlon, talt, &pos);
          
          // output results
          std::cout << std::setprecision(2) << std::setiosflags(std::ios::fixed);
@@ -4405,7 +4404,7 @@ int showVec3(const osg::Vec3d V)
    return 0;
 }
 
-int showMatrix(const osg::Matrixd M)
+int displayMatrix(const osg::Matrixd M)
 {
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
    //std::cout << "Matrix: " << std::endl
