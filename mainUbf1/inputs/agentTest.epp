@@ -63,7 +63,7 @@ simulation: ( Simulation
                 model: "f16"
             )
 
-            ubf1: ( Agent
+            ubf1: ( UbfAgent
                // our container is our "actor"
                state: ( PlaneState )
                behavior: ( PriorityArbiter
@@ -272,7 +272,7 @@ simulation: ( Simulation
                 model: "f15"
             )
 
-            ubf2: ( Agent
+            ubf2: ( UbfAgent
                behavior: ( PriorityArbiter
                   behaviors: {
                      ( PlaneFlyStraight 

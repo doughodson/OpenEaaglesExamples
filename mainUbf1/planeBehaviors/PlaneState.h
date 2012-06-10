@@ -20,9 +20,9 @@ namespace PlaneBehaviors {
 // This implementation of PlaneState:.
 // assumes that player using this state has only one missile (or is ok with firing all missiles at first target)
 //
-class PlaneState : public Basic::State
+class PlaneState : public Basic::Ubf::State
 {
-   DECLARE_SUBCLASS(PlaneState, Basic::State)
+   DECLARE_SUBCLASS(PlaneState, Basic::Ubf::State)
 public:
    PlaneState();
 

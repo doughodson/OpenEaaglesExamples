@@ -1,5 +1,5 @@
 #
-include ../makedefs
+include ../../makedefs
 
 LIB = liboePlaneBehaviors.a
 

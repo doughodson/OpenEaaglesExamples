@@ -16,7 +16,7 @@
 static Eaagles::Basic::ParserFormFunc myFormFunc = Eaagles::MainUbf1::formFunc;
 
 // Default configuration file
-static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
+static const char* const DEFAULT_CONFIG_FILE = "agentTest.edl";
 
 // default background frame rate
 static const int BG_RATE = 10;
