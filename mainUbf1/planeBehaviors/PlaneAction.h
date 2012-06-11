@@ -18,9 +18,9 @@ namespace PlaneBehaviors {
 //
 // Base Class: Basic::Object -> UbfAction -> PlaneAction
 //
-class PlaneAction : public Basic::Action
+class PlaneAction : public Basic::Ubf::Action
 {
-   DECLARE_SUBCLASS(PlaneAction, Basic::Action)
+   DECLARE_SUBCLASS(PlaneAction, Basic::Ubf::Action)
 
 public:
    PlaneAction();

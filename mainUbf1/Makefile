@@ -3,6 +3,8 @@ include ../makedefs
 
 PGM = mainUbf1
 
+SUBDIRS = planeBehaviors
+
 #
 OBJS = mainUbf1.o
 OBJS += Hsi.o DspRadar.o DspRwr.o SimStation.o
@@ -18,20 +20,30 @@ LDFLAGS += -lcigicl
 LDFLAGS += -lpthread -lrt
 
 CPPFLAGS += -I../
-LDFLAGS  += -L../planeBehaviors -L$(OPENEAAGLES_LIB_DIR)
+LDFLAGS  += -L./planeBehaviors -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS += -I.
 
-all: $(PGM)
+all: subdirs $(PGM)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/agentTest.epp    >test1.edl   $(EPPFLAGS)
-#	cpp inputs/simAgentTest.epp >test1.edl   $(EPPFLAGS)
+	cpp inputs/agentTest.epp    >agentTest.edl   $(EPPFLAGS)
+	cpp inputs/simAgentTest.epp >simAgentTest.edl   $(EPPFLAGS)
+
+subdirs:
+	for subdir in $(SUBDIRS); do \
+	  echo making $@ in $$subdir; \
+	  (cd $$subdir && $(MAKE)) || exit 1; \
+	done
 
 clean:
 	-rm -f *.o
+	for subdir in $(SUBDIRS); do \
+	    echo making $@ in $$subdir; \
+	    (cd $$subdir && $(MAKE) $@) || exit 1; \
+	done
 	-rm -f $(PGM)
 

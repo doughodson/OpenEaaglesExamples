@@ -26,8 +26,7 @@ APPLICATIONS += mainSim1 mainSim2 mainSim3 mainSim4
 # radar and ground mapping radar examples
 APPLICATIONS += mainx9 mainGndMapRdr
 
-# plane behavior library and ubf example
-APPLICATIONS += planeBehaviors
+# ubf example
 APPLICATIONS += mainUbf1
 
 #

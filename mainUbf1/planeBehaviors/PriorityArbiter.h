@@ -18,15 +18,15 @@ namespace PlaneBehaviors {
 //
 // Description: Example fusion arbiter for a plane
 //
-class PriorityArbiter : public Basic::Arbiter
+class PriorityArbiter : public Basic::Ubf::Arbiter
 {
-   DECLARE_SUBCLASS(PriorityArbiter, Basic::Arbiter)
+   DECLARE_SUBCLASS(PriorityArbiter, Basic::Ubf::Arbiter)
 
 public:
    PriorityArbiter();
 
    // generates an action based upon the recommended actions in the actionSet
-   virtual Basic::Action* genComplexAction(const Basic::List* const actionSet);
+   virtual Basic::Ubf::Action* genComplexAction(const Basic::List* const actionSet);
 
 private:
 
@@ -34,7 +34,7 @@ private:
    // and the change would go against the intended control stick action.  If so,
    // invalidate the trim change.
    // Returns nothing, but modifies what the action object points to
-   void trimChangeValidation(Basic::Action* const);
+   void trimChangeValidation(Basic::Ubf::Action* const);
 };
 
 }

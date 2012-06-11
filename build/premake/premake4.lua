@@ -103,12 +103,13 @@ solution "examples"
 
    -- examples
    dofile "examples.lua"
+
    -- tests
    dofile "tests.lua"
+
    -- tutorial
    dofile "tutorials.lua"
+
    -- gui demos
    dofile "guidemos.lua"
-   -- libraries
-   dofile "libraries.lua"
 

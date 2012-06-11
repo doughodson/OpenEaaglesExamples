@@ -24,7 +24,7 @@
 #include "openeaagles/vehicles/vehiclesFF.h"
 
 // behavior family used in the example scripts
-#include "../planeBehaviors/planeBehaviorsFF.h"
+#include "./planeBehaviors/planeBehaviorsFF.h"
 
 namespace Eaagles {
 namespace MainUbf1 {
