@@ -1,0 +1,47 @@
+# 1 "inputs/test.epp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "inputs/test.epp"
+
+# 1 "/home/dave/projects/OpenEaagles/include/openeaagles/simulation/dataRecorderTokens.h" 1
+# 3 "inputs/test.epp" 2
+
+( DataRecordTest
+
+
+
+   inputHandler:
+   ( RecorderFileReader
+      filename: "../mainy1/zFileWriter.ebd"
+   )
+# 25 "inputs/test.epp"
+   outputHandler:
+   ( RecorderOutputHandler
+      components: {
+
+         ( TabPrinter
+
+            msgHdrOptn: NEW_MSG
+            filename: "./zTabPrinter2.csv"
+         )
+         ( TabPrinter
+            disabledList: [ 43 ]
+            msgHdrOptn: NEW_MSG
+            filename: "./zTabPrinter2a.csv"
+         )
+         ( PrintPlayer
+            playerName: "duck11"
+            filename: "./zPrintPlayer2.csv"
+         )
+         ( PrintSelected
+            filename: "./zPrintSelected2.csv"
+            messageToken: 43
+            fieldName: "Eaagles.Recorder.Pb.PlayerId.name"
+            compareToValS: "duck12"
+         )
+         ( PrintPlayer
+            playerName: "duck12"
+         )
+      }
+   )
+)

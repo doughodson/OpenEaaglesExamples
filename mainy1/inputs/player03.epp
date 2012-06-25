@@ -14,6 +14,8 @@ duck12:
     initVelocity: 300
     positionFreeze: false
     killRemoval: true
+ 
+    dataLogTime: ( Seconds 0.5 )      // test data recorder at 2hz
 
     components: {
 

@@ -38,7 +38,9 @@ Example applications:
 
    mainx9       -- General example application (and test) program
 
-   mainy1
+   mainy1       -- Simple flight simulation program; and generates a sample
+                   data recorder (use -f recordTest.edl) that can be read by 
+                   the 'testRecordRead' application.
    
    mainSim1     -- A very simple simulation built with and only with Eaagles classes
 
@@ -70,7 +72,7 @@ Example applications:
 Test applications:
 ------------------
 
-   testEvent    -- Example & test of the Component class send() functions
+   testEvent         -- Example & test of the Component class send() functions
 
    testIo
 
@@ -78,19 +80,25 @@ Test applications:
 
    testNav
 
-   testTimer    -- Tests the functionality of the Timer class.
+   testTimer         -- Tests the functionality of the Timer class.
 
-   testNet      -- Tests the network handlers (derived from NetHandler).  Includes
-                    client and server side tests/examples for the UDP, TCP, broadcast,
-                    and multicast handlers.
+   testNet           -- Tests the network handlers (derived from NetHandler).  Includes
+                        client and server side tests/examples for the UDP, TCP, broadcast,
+                        and multicast handlers.
 
-   testMatrix   -- a test of Matrix class functionality
+   testMatrix        -- a test of Matrix class functionality
 
-   testRng      -- Random number generator and distribution test program
+   testRng           -- Random number generator and distribution test program
 
    testStateMach
 
-   testTables   -- Collection of Table tests programs
+   testTables        -- Collection of Table tests programs
+
+   testRecorderRead  -- Reads and prints recorder data streams or binary files.
+                     -- Can be used with 'mainy1' or 'testRecorderWrite'.
+
+   testRecorderWrite -- Write test data recorder files.
+
 
 
 Tutorial applications:

@@ -69,6 +69,10 @@ public:
     virtual bool event(const int event, Basic::Object* const obj = 0);
     virtual void updateData(const LCreal dt = 0.0f);
 
+protected:
+   // Basic::Component protected interface
+   virtual bool shutdownNotification();
+
 private:
     // Key event handlers
     bool onResetKey();
