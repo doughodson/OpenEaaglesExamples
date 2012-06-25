@@ -340,6 +340,17 @@ bool TestDisplay::onStepOwnshipKey()
 }
 
 //------------------------------------------------------------------------------
+// shutdownNotification() -- Shutdown the simulation
+//------------------------------------------------------------------------------
+bool TestDisplay::shutdownNotification()
+{
+   Basic::Component* parent = container();
+   if (parent != 0) parent->event(SHUTDOWN_EVENT);
+
+   return BaseClass::shutdownNotification();
+}
+
+//------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
 void TestDisplay::updateData(const LCreal dt)

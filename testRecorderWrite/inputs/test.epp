@@ -1,0 +1,50 @@
+// ---
+// test.epp file for testRecorder
+// ---
+//    enum MsgHdrOptions { NO_HDR, ALL_MSGS, NEW_MSG, ON_CHANGE };
+//#include "openeaagles/recorder/recorderTokens.h"
+#include "openeaagles/simulation/dataRecorderTokens.h"
+
+( DataRecordTest
+   // Tab Printer
+   tabPrinter: ( TabPrinter
+      filename: "./fileWrite.txt"
+      msgHdrOptn: "ON_CHANGE"
+   )
+   // print player
+   //   printPlayer: ( PrintPlayer
+    //     filename: "./filePlayer.txt"
+    //     pathname: "C:/projects/log files"
+    //  )
+
+   printSelected: ( PrintSelected
+      filename: "./fileSelected.txt"
+  //    enabledList: { REID_NEW_PLAYER }  // only enable messages will be checked
+
+      // for selection:
+      messageToken: REID_WEAPON_DETONATION
+   //   fieldName:   "Eaagles.Recorder.Pb.PlayerId.id"
+      fieldName:   "Eaagles.Recorder.Pb.WeaponDetonationEventMsg.det_type"
+    //  compareToVal: "player123"
+      compareToValI: 3
+      condition: "EQ"
+   )
+   // same as printSelected, but std::cout only
+   printSelected2: ( PrintSelected
+      // for selection:
+      messageToken: REID_WEAPON_DETONATION
+      fieldName:   "Eaagles.Recorder.Pb.WeaponDetonationEventMsg.det_type"
+      compareToValI: 3
+      condition: "EQ"
+   )
+   // serialize wire-format output to a file
+   dataFileWriter: ( RecorderFileWriter
+      filename: "./wireFile.bin"
+   )
+   // parse wire-format output from a file
+   dataFileReader: ( RecorderFileReader
+      filename: "./wireFile.bin"
+   )
+
+)  // end DataRecordTest
+

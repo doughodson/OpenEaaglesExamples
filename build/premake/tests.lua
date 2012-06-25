@@ -152,6 +152,54 @@ project "testNet"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
+-- testRecorderRead
+project "testRecorderRead"
+   targetname "testRecorderRead"
+   targetdir "../../testRecorderRead"
+   debugdir "../../testRecorderRead"
+   files {
+      "../../testRecorderRead/**.cpp",
+      "../../testRecorderRead/**.h",
+      "../../testRecorderRead/**.epp",
+      "../../testRecorderRead/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   configuration "Release"
+      links {"oeBasic", "oeRecorder", "libprotobuf"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
+   configuration "Debug"
+      links {"oeIoDevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d", "oeRecorder_d" }
+      links {"oeBasic_d", "Ws2_32", "Winmm", "comctl32", "oesimulation_d", "oedafif_d", "libprotobuf_d" }
+
+-- testRecorderWrite
+project "testRecorderWrite"
+   targetname "testRecorderWrite"
+   targetdir "../../testRecorderWrite"
+   debugdir "../../testRecorderWrite"
+   files {
+      "../../testRecorderWrite/**.cpp",
+      "../../testRecorderWrite/**.h",
+      "../../testRecorderWrite/**.epp",
+      "../../testRecorderWrite/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   configuration "Release"
+      links {"oeBasic", "oeRecorder", "libprotobuf"}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
+   configuration "Debug"
+      links {"oeIoDevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d", "oeRecorder_d" }
+      links {"oeBasic_d", "Ws2_32", "Winmm", "comctl32", "oesimulation_d", "oedafif_d", "libprotobuf_d" }
+
 -- testRng
 project "testRng"
    targetname "testRng"

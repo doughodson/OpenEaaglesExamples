@@ -8,11 +8,13 @@ OBJS += SpdLines.o TdAzPtr.o TdElevPtr.o TestDisplay.o
 OBJS += TestIoHandler.o
 OBJS += formFunc.o Pfd.o testy.o
 
-LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation -loeInstruments -lJSBSim
-LDFLAGS += -loeIoDevice -loeOtw -loeDafif 
-LDFLAGS += -loeGlut -loeBasicGL -loeBasic -lftgl -lfreetype -lcigicl 
+LDFLAGS += -loeRecorder -loeSensors -loeVehicles
+LDFLAGS += -loeSimulation -loeInstruments -loeDis
+LDFLAGS += -loeIoDevice -loeOtw -loeDafif
+LDFLAGS += -loeGlut -loeBasicGL -loeBasic
+LDFLAGS += -lprotobuf -lJSBSim
+LDFLAGS += -lftgl -lfreetype -lcigicl 
 LDFLAGS += -lglut -lGLU -lGL -lX11
-#LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread -lrt
 
 CPPFLAGS += -I/usr/local/include
@@ -26,6 +28,7 @@ $(PGM): $(OBJS)
 
 edl:
 	cpp inputs/test1.epp >test1.edl   $(EPPFLAGS)
+	cpp inputs/recordTest.epp >recordTest.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

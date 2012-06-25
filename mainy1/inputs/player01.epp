@@ -1,6 +1,5 @@
 p01:
 ( Aircraft
-
     id: 1
     side: blue
     type: "F-16"
@@ -14,6 +13,8 @@ p01:
     initVelocity: 300
     
     positionFreeze: false
+
+    dataLogTime: ( Seconds 0.1 )      // test recording at 10hz
 
     components: {
 
@@ -113,6 +114,7 @@ p01:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) // record missile at 5hz
                )
                2: ( AamMissile
                   id: 202
@@ -128,6 +130,7 @@ p01:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) // record missile at 5hz
                )
                3: ( AamMissile
                   id: 203
@@ -143,6 +146,7 @@ p01:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) // record missile at 5hz
                )
                4: ( AamMissile
                   id: 204
@@ -158,6 +162,7 @@ p01:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) // record missile at 5hz
                )
             }
         )

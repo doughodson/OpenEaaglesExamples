@@ -58,6 +58,10 @@ APPLICATIONS += testNet
 # linear systems package
 APPLICATIONS += testLinearSys
 
+# data recorder read/write tests
+APPLICATIONS += testRecorderRead
+APPLICATIONS += testRecorderWrite
+
 # tutorial examples
 APPLICATIONS += tutorial01
 APPLICATIONS += tutorial02

@@ -13,7 +13,7 @@
 
    tcPriority: 1
 
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\ioHandler.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\ioHandler.epp"
 
 
 
@@ -21,15 +21,14 @@
 ioHandler: ( TestIoHandler
    inputData: ( IoData numAI: 10   numDI: 40 )	
    devices: {
-      
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\Warthog.epp"
+      #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\ThrustMaster.epp"
 
 
 
 
 
 
-#line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\f16HotasIo.h"
+#line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\f16HotasIo.h"
 
 
 
@@ -100,8 +99,8 @@ ioHandler: ( TestIoHandler
 
 
 
-#line 72 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\f16HotasIo.h"
-#line 8 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\Warthog.epp"
+#line 72 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\f16HotasIo.h"
+#line 8 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\ThrustMaster.epp"
 
 ( UsbJoystick
    deviceIndex: 0
@@ -113,7 +112,18 @@ ioHandler: ( TestIoHandler
       ( AnalogInput ai: 1           channel: 0  offset: 0.0  gain: 1.0 )
       ( AnalogInput ai: 2          channel: 1  offset: 0.0  gain: 1.0 )
 
+      ( AnalogInput ai: 3       channel: 2  offset: 0.0  gain: 1.0
+                                                       table: ( Table1
+                                                            x:    [  1.0 -1.0 ]
+                                                            data: [  0.0  1.0 ]
+                                                        )
+      )
 
+      ( AnalogInput ai: 6          channel: 3  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 5       channel: 4  offset: 0.0  gain: 1.0 )
+      ( AnalogInput ai: 7       value: 0.0 )
+      ( AnalogInput ai: 8       value: 0.0 )
+      ( AnalogInput ai: 4         value: 0.0 )
 
       
       
@@ -143,66 +153,37 @@ ioHandler: ( TestIoHandler
       ( DiscreteInput di: 20     port: 0  channel:  17 )
       ( DiscreteInput di: 21     value: false ) 
 
-      ( Ai2DiSwitch   di: 24  channel: 6  level:  0.5  inverted: false )   
-      ( Ai2DiSwitch   di: 25   channel: 6  level: -0.5  inverted: true )    
-      ( Ai2DiSwitch   di: 23    channel: 7  level:  0.5  inverted: false )   
-      ( Ai2DiSwitch   di: 22  channel: 7  level: -0.5  inverted: true )    
-      ( DiscreteInput di: 26        value: false ) 
+      
+      
+      
+      ( DiscreteInput di: 27  port: 0  channel:  18 )
+      ( DiscreteInput di: 35          port: 0  channel:  19 )
+      ( DiscreteInput di: 36          port: 0  channel:  20 )
+      ( DiscreteInput di: 33       port: 0  channel:  21 )
+      ( DiscreteInput di: 34      port: 0  channel:  22 )
+      ( DiscreteInput di: 28   port: 0  channel:  23 )
+      ( DiscreteInput di: 30     port: 0  channel:  24 )
+      ( DiscreteInput di: 29     port: 0  channel:  25 )
+      ( DiscreteInput di: 31       port: 0  channel:  26 )
+      ( DiscreteInput di: 32       port: 0  channel:  27 )
 
       
       
       
       ( DiscreteInput di: 34   port: 0  channel:   2 )  
-      ( DiscreteInput di: 32       port: 0  channel:  4 )   
-      ( DiscreteInput di: 31        port: 0  channel:  3 )  
-      ( DiscreteInput di: 33       value: false ) 
+      ( DiscreteInput di: 32       port: 0  channel:  23 )  
+      ( DiscreteInput di: 31        port: 0  channel:  22 )  
+      ( DiscreteInput di: 33       port: 0  channel:  21 )  
 
    }
 )
 
-( UsbJoystick
-   deviceIndex: 1
-   adapters: {
-
+#line 9 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\ioHandler.epp"
       
-      
-      
-      ( AnalogInput ai: 3       channel: 2  offset: 0.0  gain: 1.0
-                                                       table: ( Table1
-                                                            x:    [  1.0 -1.0 ]
-                                                            data: [  0.0  1.0 ]
-                                                        )
-      )
-      ( AnalogInput ai: 4         value: 0.0 )
-
-      ( AnalogInput ai: 6          value: 0.0 )
-      ( AnalogInput ai: 5       channel: 4  offset: 0.0  gain: 1.0 )
-      ( AnalogInput ai: 7       channel: 0  offset: 0.0  gain: 1.0 )
-      ( AnalogInput ai: 8       channel: 1  offset: 0.0  gain: 1.0 )
-
-
-      
-      
-      
-      ( DiscreteInput di: 27  port: 0  channel:  0 )
-      ( DiscreteInput di: 35          value: 0.0 )
-      ( DiscreteInput di: 36          value: 0.0 )
-      ( DiscreteInput di: 33       value: 0.0 )
-      ( DiscreteInput di: 34      value: 0.0 )
-      ( DiscreteInput di: 28   value: 0.0 )
-      ( DiscreteInput di: 30     value: 0.0 )
-      ( DiscreteInput di: 29     value: 0.0 )
-      ( DiscreteInput di: 31       port: 0  channel:  7 )
-      ( DiscreteInput di: 32       port: 0  channel:  6 )
-
-   }
-)
-
-#line 10 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\ioHandler.epp"
    }
 )
 #line 16 "inputs\\test1.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
 
 
 
@@ -226,7 +207,7 @@ networks: {
             sensor: ( Radar )
             antenna: ( Antenna
                localPlayersOfInterestOnly: true
-               #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
+               #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
 
 
 
@@ -240,7 +221,7 @@ gainPattern:
    )
 )
 
-#line 25 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
+#line 25 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
             )
             defaultIn:  true
             defaultOut:  true
@@ -1711,7 +1692,7 @@ inputEntityTypes: {
 
 }
 
-#line 32 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
+#line 32 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
       #line 1 "..\\data\\DisOutgoingEntityTypes.epp"
 
 
@@ -2009,11 +1990,11 @@ outputEntityTypes: {
 ( DisNtm  disEntityType: [ 2  9  225  1  19  2  0 ]   template: ( Missile type: "BGM-109" ) )
 
 }
-#line 33 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
+#line 33 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\networkSetup.epp"
    )
 }
 #line 17 "inputs\\test1.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\otwSetup.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\otwSetup.epp"
 
 
 
@@ -2242,12 +2223,12 @@ otwModelTypes: {
     ( Otm Player    modelTypeId: 302 )        
 
 }
-#line 22 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\otwSetup.epp"
+#line 22 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\otwSetup.epp"
    )
 }
 
 #line 18 "inputs\\test1.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\otwSetupCIGI.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\otwSetupCIGI.epp"
 
 
 
@@ -2475,13 +2456,13 @@ otwModelTypes: {
     ( Otm Player    modelTypeId: 302 )        
 
 }
-#line 21 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\otwSetupCIGI.epp"
+#line 21 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\otwSetupCIGI.epp"
    )
    
 }
 
 #line 19 "inputs\\test1.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
 
 
 
@@ -2498,10 +2479,9 @@ simulation: ( Simulation
 
    
    players: {
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\player01.epp"
+      #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\player01.epp"
 p01:
 ( Aircraft
-
     id: 1
     side: blue
     type: "F-16"
@@ -2515,6 +2495,8 @@ p01:
     initVelocity: 300
     
     positionFreeze: false
+
+    dataLogTime: ( Seconds 0.1 )      
 
     components: {
 
@@ -2537,7 +2519,7 @@ p01:
                   playerOfInterestTypes: { "air" "weapon" }
                   polarization: horizontal
                   gain: ( dB 42 )
-                  #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
+                  #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
 
 
 
@@ -2551,7 +2533,7 @@ gainPattern:
    )
 )
 
-#line 40 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\player01.epp"
+#line 41 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\player01.epp"
                   initPosition: [ 0 0 ]
                   maxRates: [ 0.8727 0.8727 ]
                   commandRates: [ 0.43633 0.6981 ]
@@ -2628,6 +2610,7 @@ gainPattern:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) 
                )
                2: ( AamMissile
                   id: 202
@@ -2643,6 +2626,7 @@ gainPattern:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) 
                )
                3: ( AamMissile
                   id: 203
@@ -2658,6 +2642,7 @@ gainPattern:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) 
                )
                4: ( AamMissile
                   id: 204
@@ -2673,14 +2658,15 @@ gainPattern:
                   maxTOF: 30
                   eobt: 90
                   tsg: 0
+                  dataLogTime: ( Seconds 0.2 ) 
                )
             }
         )
         
     }
 )
-#line 18 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\player02.epp"
+#line 18 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
+      #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\player02.epp"
 duck11:
 ( Aircraft
 
@@ -2698,6 +2684,8 @@ duck11:
     positionFreeze: false
     killRemoval: true
 
+    dataLogTime: ( Seconds 0.5 )      
+
     components: {
 
       dynamicsModel: ( JSBSimModel
@@ -2719,7 +2707,7 @@ duck11:
                   playerOfInterestTypes: { "air" "weapon" }
                   polarization: horizontal
                   gain: ( dB 42 )
-                  #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
+                  #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
 
 
 
@@ -2733,7 +2721,7 @@ gainPattern:
    )
 )
 
-#line 40 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\player02.epp"
+#line 42 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\player02.epp"
                   initPosition: [ 0 0 ]
                   maxRates: [ 0.8727 0.8727 ]
                   commandRates: [ 0.43633 0.6981 ]
@@ -2861,8 +2849,8 @@ gainPattern:
         
     }
 )
-#line 19 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\player03.epp"
+#line 19 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
+      #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\player03.epp"
 duck12:
 ( Aircraft
 
@@ -2879,6 +2867,8 @@ duck12:
     initVelocity: 300
     positionFreeze: false
     killRemoval: true
+ 
+    dataLogTime: ( Seconds 0.5 )      
 
     components: {
 
@@ -2901,7 +2891,7 @@ duck12:
                   playerOfInterestTypes: { "air" "weapon" }
                   polarization: horizontal
                   gain: ( dB 42 )
-                  #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
+                  #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\gainPattern.epp"
 
 
 
@@ -2915,7 +2905,7 @@ gainPattern:
    )
 )
 
-#line 40 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\player03.epp"
+#line 42 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\player03.epp"
                   initPosition: [ 0 0 ]
                   maxRates: [ 0.8727 0.8727 ]
                   commandRates: [ 0.43633 0.6981 ]
@@ -3043,12 +3033,12 @@ gainPattern:
         
     }
 )
-#line 20 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
+#line 20 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\scenario.epp"
   }
 )
 
 #line 20 "inputs\\test1.epp"
-   #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\instrumentPanel.epp"
+   #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\instrumentPanel.epp"
 
 
 
@@ -3226,7 +3216,7 @@ display:
 		( Graphic
 		    transform: { ( Translation 0.5 -0.5 ) ( Scale 0.6 ) }
 		    components: {
-                #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
+                #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
 
 ( Pfd
     components: {
@@ -3548,7 +3538,7 @@ display:
                         )
                         
                     components: { 
-                        #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd\\airspdtape.epp"
+                        #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd\\airspdtape.epp"
 ( Graphic
     
     transform: ( Translation 0 2.1 )
@@ -3626,7 +3616,7 @@ display:
     }
 )
 
-#line 323 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
+#line 323 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
                     }
                 )
             }
@@ -3887,7 +3877,7 @@ display:
                         )
                     
                     components: {    
-                        #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd\\alttape.epp"
+                        #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd\\alttape.epp"
 
 ( Graphic
     
@@ -4964,7 +4954,7 @@ display:
 )
 
 
-#line 584 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
+#line 584 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
                     }
                 )
             }
@@ -5093,7 +5083,7 @@ display:
             }
         )        
         
-        #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd\\hsi.epp"
+        #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd\\hsi.epp"
 
 ( Graphic
     scissorX: -2.5
@@ -5432,9 +5422,9 @@ display:
     }
 )
 
-#line 713 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
+#line 713 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
         
-        #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd\\adi.epp"
+        #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd\\adi.epp"
 ( Graphic
     scissorX: -1.5855
     scissorWidth: 3.171
@@ -5739,7 +5729,7 @@ bankangle: ( DialPointer
                     components: {       
         pitchladder:    ( Graphic 
                             components: { 
-                                #line 1 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd\\pitchtape.epp"
+                                #line 1 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd\\pitchtape.epp"
 
 ( Graphic
     linewidth: 2
@@ -6415,7 +6405,7 @@ horizonbar: ( Line
     }
 )
 
-#line 306 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd\\adi.epp"
+#line 306 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd\\adi.epp"
                             }
                         ) 
             
@@ -6460,12 +6450,12 @@ horizonbar: ( Line
     }
 )
 
-#line 715 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
+#line 715 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\pfd/pfd.epp"
 
     }
 ) 
 
-#line 179 "c:\\oe\\openeaaglesexamples\\mainy1\\inputs\\instrumentPanel.epp"
+#line 179 "c:\\users\\gehldp\\projects\\openeaaglesexamples\\mainy1\\inputs\\instrumentPanel.epp"
             }
         )
 
