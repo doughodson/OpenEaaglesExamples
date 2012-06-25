@@ -487,13 +487,13 @@ void DataRecordTest::readSerialFromFile()
 
       // Close whichever output handler we're using for test
       if (outType == 1) {
-         myRecPrint->closeFile();
+         if (myRecPrint != 0) myRecPrint->closeFile();
       }
       if (outType == 2) {
-         myPrintPlayer->closeFile();
+         if (myPrintPlayer != 0) myPrintPlayer->closeFile();
       }
       if (outType == 3) {
-         myPrintSelected->closeFile();
+         if (myPrintSelected != 0) myPrintSelected->closeFile();
       }
 
    }
@@ -1528,3 +1528,5 @@ double DataRecordTest::getUtcTime()
 
 }
 } // End namespace
+
+

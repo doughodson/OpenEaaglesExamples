@@ -56,6 +56,8 @@ testLinearSys/testLinearSys
 testMatrix/testMatrix
 testNav/testNav
 testNet/testNet
+testRecorderRead/testRecorderRead
+testRecorderWrite/testRecorderWrite
 testRng/testRng
 testStateMach/testStateMach
 testTables/testTables
