@@ -166,15 +166,15 @@ project "testRecorderRead"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
-      links {"oeBasic", "oeRecorder", "libprotobuf"}
+      links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
       if (os.is("linux")) then
          links {"X11", "pthread", "rt"}
       else
          links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
       end
    configuration "Debug"
-      links {"oeIoDevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d", "oeRecorder_d" }
-      links {"oeBasic_d", "Ws2_32", "Winmm", "comctl32", "oesimulation_d", "oedafif_d", "libprotobuf_d" }
+      links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
+      links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRecorderWrite
 project "testRecorderWrite"
@@ -190,15 +190,15 @@ project "testRecorderWrite"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    configuration "Release"
-      links {"oeBasic", "oeRecorder", "libprotobuf"}
+      links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
       if (os.is("linux")) then
          links {"X11", "pthread", "rt"}
       else
          links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
       end
    configuration "Debug"
-      links {"oeIoDevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d", "oeRecorder_d" }
-      links {"oeBasic_d", "Ws2_32", "Winmm", "comctl32", "oesimulation_d", "oedafif_d", "libprotobuf_d" }
+      links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
+      links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRng
 project "testRng"
