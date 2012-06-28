@@ -1,9 +1,9 @@
-#line 1 "inputs/test1.epp"
+#line 1 "C:/oe/OpenEaaglesExamples/mainNonRT1/inputs/test1.epp"
 
 ( Simulation
 
-    
-    latitude:   41.0  
+
+    latitude: 41.0
     longitude: -112
 
     players: {
@@ -18,8 +18,7 @@
                     initVelocity: 250
                     side: blue
               )
-              
-    } 
 
-) 
+    }
 
+)
