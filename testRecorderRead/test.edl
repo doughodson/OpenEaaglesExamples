@@ -1,10 +1,7 @@
-# 1 "inputs/test.epp"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "inputs/test.epp"
-
-# 1 "/home/dave/projects/OpenEaagles/include/openeaagles/simulation/dataRecorderTokens.h" 1
-# 3 "inputs/test.epp" 2
+#line 1 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
+#line 2 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
+#line 1 "C:/oe/openeaagles/include/openeaagles/simulation/dataRecorderTokens.h"
+#line 3 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
 
 ( DataRecordTest
 
@@ -14,7 +11,7 @@
    ( RecorderFileReader
       filename: "../mainy1/zFileWriter.ebd"
    )
-# 25 "inputs/test.epp"
+#line 25 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
    outputHandler:
    ( RecorderOutputHandler
       components: {
@@ -25,7 +22,7 @@
             filename: "./zTabPrinter2.csv"
          )
          ( TabPrinter
-            disabledList: [ 43 ]
+            disabledList: [  43  ]
             msgHdrOptn: NEW_MSG
             filename: "./zTabPrinter2a.csv"
          )
@@ -35,7 +32,7 @@
          )
          ( PrintSelected
             filename: "./zPrintSelected2.csv"
-            messageToken: 43
+            messageToken:  43
             fieldName: "Eaagles.Recorder.Pb.PlayerId.name"
             compareToValS: "duck12"
          )

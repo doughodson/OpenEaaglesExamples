@@ -1,4 +1,4 @@
-#line 1 "inputs/testfox.epp"
+#line 1 "C:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
 
 
 
@@ -7,28 +7,29 @@
 
 ( FoxStation
    maindisplay:
-      #line 1 "c:\\oe\\openeaaglesexamples\\mainfox1\\inputs\\foxdisplay.epp"
-( FoxDisplay 
+#line 9 "C:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
+#line 1 "foxdisplay.epp"
+( FoxDisplay
 
     clearColor: ( rgb 0 0 0 )
     clearDepth: 1.0
-   
-    colorTable: { 
-        black:      ( rgb 0 0 0 )
-        red:        ( rgb 1 0 0 )
-        green:      ( rgb 0 1 0 )
-        yellow:     ( rgb 1 1 0 )
-        blue:       ( rgb 0 0 1 )
-        magenta:    ( rgb 1 0 1 )
-        cyan:       ( rgb 0 1 1 )
-        gray:       ( rgb 0.1 0.1 0.1 )
-        white:      ( rgb 1 1 1 )
-        brown:      ( rgb 0.392 0.270 0.156 )
-        textbg:     ( rgb 0.576 0.776 0.780 )
-        orange:     ( rgb 0.847 0.486 0.152 )
-        tgtorange:  ( rgb 0.947 0.586 0.252 )
+
+    colorTable: {
+        black: ( rgb 0 0 0 )
+        red: ( rgb 1 0 0 )
+        green: ( rgb 0 1 0 )
+        yellow: ( rgb 1 1 0 )
+        blue: ( rgb 0 0 1 )
+        magenta: ( rgb 1 0 1 )
+        cyan: ( rgb 0 1 1 )
+        gray: ( rgb 0.1 0.1 0.1 )
+        white: ( rgb 1 1 1 )
+        brown: ( rgb 0.392 0.270 0.156 )
+        textbg: ( rgb 0.576 0.776 0.780 )
+        orange: ( rgb 0.847 0.486 0.152 )
+        tgtorange: ( rgb 0.947 0.586 0.252 )
     }
-    
+
     vpX: 0
     vpY: 0
     vpWidth: 600
@@ -45,40 +46,40 @@
 
     near: 2
     far: -2
-    
+
     textures: {
-        logo:  ( BitmapTexture width: 256 height: 256 path: "../data/textures/"  file: "logo.bmp" )
+        logo: ( BitmapTexture width: 256 height: 256 path:  "../data/textures/"  file: "logo.bmp" )
     }
-	
-    normalFont: 
+
+    normalFont:
       ( FTGLPolygonFonts
           fontPosition: [ -10 9.4 ]
-          path: "../data/fonts/"
+          path:  "../data/fonts/"
           file: "arialn.ttf"
-          
+
           fontWidth: 1
           fontHeight: 1
           lineSpacing: 0.2
           characterSpacing: 0.2
-      )        
-    
-    	
+      )
+
+
     components: {
 
         ( Worm selectName: 111 color: green
           speed: 10 startAngle: ( Degrees 30 ) )
         ( Worm selectName: 112 color: blue
-          speed: 5  startAngle: ( Degrees 155 ) )
+          speed: 5 startAngle: ( Degrees 155 ) )
         ( Worm selectName: 113 color: red
-          speed: 5  startAngle: ( Degrees 85 ) )
+          speed: 5 startAngle: ( Degrees 85 ) )
         ( Worm selectName: 114 color: yellow
-          speed: 5  startAngle: ( Degrees -110 ) )
+          speed: 5 startAngle: ( Degrees -110 ) )
         ( Worm selectName: 115 color: magenta
-          speed: 5  startAngle: ( Degrees -92 ) )
+          speed: 5 startAngle: ( Degrees -92 ) )
         ( Worm selectName: 116 color: white
-          speed: 5  startAngle: ( Degrees -57 ) )
+          speed: 5 startAngle: ( Degrees -57 ) )
         ( Worm selectName: 117 color: orange
-          speed: 5  startAngle: ( Degrees -20 ) )
+          speed: 5 startAngle: ( Degrees -20 ) )
 
 		( AsciiText
 			position: [ 1 1 ]
@@ -92,20 +93,19 @@
 			texture: logo
 			selectName: 100
             vertices: {
-                [  4.0  4.0 ]
-                [ -4.0  4.0 ]
+                [ 4.0 4.0 ]
+                [ -4.0 4.0 ]
                 [ -4.0 -4.0 ]
-                [  4.0 -4.0 ]
+                [ 4.0 -4.0 ]
             }
             texCoord: {
-                [  1.0  1.0 ]
-                [  0.0  1.0 ]
-                [  0.0  0.0 ]
-                [  1.0  0.0 ]
+                [ 1.0 1.0 ]
+                [ 0.0 1.0 ]
+                [ 0.0 0.0 ]
+                [ 1.0 0.0 ]
             }
 		)
     }
 )
-
-#line 10 "inputs/testfox.epp"
+#line 10 "C:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
 )

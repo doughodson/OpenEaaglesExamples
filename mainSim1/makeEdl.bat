@@ -1,2 +1,6 @@
-cl /E inputs/test.epp >test.edl  /I ..\data
-cl /E inputs/testH.epp >testH.edl  /I ..\data
+rem
+call ..\makedefs.bat
+rem
+%mcpp% inputs/test.epp  > test.edl   -I ..\data
+%mcpp% inputs/testH.epp > testH.edl  -I ..\data
+

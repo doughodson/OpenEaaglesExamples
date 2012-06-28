@@ -1,5 +1,5 @@
-#line 1 "inputs/test.epp"
-( FltkStation 
+#line 1 "C:/oe/OpenEaaglesExamples/mainFltk1/inputs/test.epp"
+( FltkStation
     display1:
     ( FltkDisplay
         left: -10
@@ -8,38 +8,38 @@
         top: 10
         near: -50
         far: 50
-        
+
         clearDepth: 1.0
         clearColor: ( rgb 1 1 0 )
-        
-        vpX:        30
-        vpY:        60
-        vpWidth:    350
-        vpHeight:   350
-        
+
+        vpX: 30
+        vpY: 60
+        vpWidth: 350
+        vpHeight: 350
+
         textures: {
-            t1: ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "logo.bmp" )
+            t1: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "logo.bmp" )
         }
-        
+
         materials: {
-            m1: ( Material diffuseColor: { 0 0.3 1 } emissiveColor: { 0 0 0 } specularColor: { 1 1 1 } shininess: 128 )             
+            m1: ( Material diffuseColor: { 0 0.3 1 } emissiveColor: { 0 0 0 } specularColor: { 1 1 1 } shininess: 128 )
         }
 
         normalFont: normal
 
         fonts: {
-            
+
             normal:
             ( FTGLPolygonFonts
                 fontPosition: [ -10 9.4 ]
-                path: "../data/fonts/"
+                path:  "../data/fonts/"
                 file: "arialn.ttf"
-                
+
                 fontWidth: 1
                 fontHeight: 1
                 lineSpacing: 0.2
                 characterSpacing: 0.2
-            )        
+            )
         }
 
         components: {
@@ -48,12 +48,12 @@
                 position: [ 1 1 ]
                 text: "WINDOW 2"
             )
-            
+
             logo:
             ( Rotators
                 components: {
-                    
-                    
+
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -64,7 +64,7 @@
                             [ 5 -5 5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -75,7 +75,7 @@
                             [ 5 5 5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -86,18 +86,18 @@
                             [ 5 -5 -5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
                         vertices: {
                             [ -5 -5 -5 ]
                             [ -5 5 -5 ]
-                            [ -5 5  5 ]
+                            [ -5 5 5 ]
                             [ -5 -5 5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -108,7 +108,7 @@
                             [ 5 -5 -5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -119,7 +119,7 @@
                             [ 5 -5 -5 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
@@ -135,13 +135,13 @@
                             [ 1 0 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
                             [ -5 -5 -5 ]
                             [ -5 5 -5 ]
-                            [ -5 5  5 ]
+                            [ -5 5 5 ]
                             [ -5 -5 5 ]
                         }
                         texCoord: {
@@ -151,7 +151,7 @@
                             [ 1 0 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
@@ -167,7 +167,7 @@
                             [ 1 0 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
@@ -184,9 +184,9 @@
                         }
                     )
                 }
-            )   
+            )
         }
-               
+
     )
 
 
@@ -198,48 +198,48 @@
         top: 10
         near: -50
         far: 50
-        
+
         clearDepth: 1.0
         clearColor: ( rgb 0 0 0.3 )
-        
-        vpX:        420
-        vpY:        60
-        vpWidth:    350
-        vpHeight:   350
-        
+
+        vpX: 420
+        vpY: 60
+        vpWidth: 350
+        vpHeight: 350
+
         textures: {
-            t1: ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "logo.bmp" )
+            t1: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "logo.bmp" )
         }
-        
+
         normalFont: normal
 
         fonts: {
-            
+
             normal:
             ( FTGLPolygonFonts
                 fontPosition: [ -10 9.4 ]
-                path: "../data/fonts/"
+                path:  "../data/fonts/"
                 file: "arialn.ttf"
-                
+
                 fontWidth: 1
                 fontHeight: 1
                 lineSpacing: 0.2
                 characterSpacing: 0.2
-            )        
+            )
         }
-                
+
         components: {
             ( AsciiText
                 color: white
                 position: [ 1 1 ]
                 text: "WINDOW 2"
             )
-            
+
             logo:
             ( Rotators
                 components: {
-                    
-                    
+
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -250,7 +250,7 @@
                             [ 5 -5 5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -261,7 +261,7 @@
                             [ 5 5 5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -272,18 +272,18 @@
                             [ 5 -5 -5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
                         vertices: {
                             [ -5 -5 -5 ]
                             [ -5 5 -5 ]
-                            [ -5 5  5 ]
+                            [ -5 5 5 ]
                             [ -5 -5 5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -294,7 +294,7 @@
                             [ 5 -5 -5 ]
                         }
                     )
-                    
+
                     ( LineLoop
                         linewidth: 2
                         color: cyan
@@ -305,7 +305,7 @@
                             [ 5 -5 -5 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
@@ -321,13 +321,13 @@
                             [ 1 0 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
                             [ -5 -5 -5 ]
                             [ -5 5 -5 ]
-                            [ -5 5  5 ]
+                            [ -5 5 5 ]
                             [ -5 -5 5 ]
                         }
                         texCoord: {
@@ -337,7 +337,7 @@
                             [ 1 0 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
@@ -353,7 +353,7 @@
                             [ 1 0 ]
                         }
                     )
-                    
+
                     ( Polygon
                         texture: t1
                         vertices: {
@@ -370,8 +370,8 @@
                         }
                     )
                 }
-            )   
+            )
         }
-    )    
-    #line 376 "inputs/test.epp"
+    )
+
 )

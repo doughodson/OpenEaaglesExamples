@@ -1,2 +1,5 @@
-cl /E inputs/puzzle.epp >puzzle.edl
+rem
+call ..\makedefs.bat
+rem
+%mcpp% inputs/puzzle.epp > puzzle.edl
 

@@ -1,71 +1,72 @@
-#line 1 "inputs/test.epp"
+#line 1 "C:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
 
 
 
 
 
 ( TestDisplay
-    pickWidth:  14
+    pickWidth: 14
     pickHeight: 14
 
     name: "My Main Window"
 
-    left:       -10.5
-    right:       10.5
-    bottom:     -10.5
-    top:         10.5
-    near:        -50.0
-    far:          50.0
-    
+    left: -10.5
+    right: 10.5
+    bottom: -10.5
+    top: 10.5
+    near: -50.0
+    far: 50.0
+
     clearDepth: 1.0
     clearColor: ( hsv 180.0 0.4 0.2 )
-    
-    vpX:        300
-    vpY:        200
-    
-    vpWidth:    ( + 200 100 100 50 25 10 10 5)
-    vpHeight:   500
 
-    page:   materials 
-    #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
+    vpX: 300
+    vpY: 200
+
+    vpWidth: ( + 200 100 100 50 25 10 10 5)
+    vpHeight: 500
+
+    page: materials
+#line 29 "C:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
+#line 1 "testBasic.epp"
 
 
 
 
 
 textures: {
-  t1:  ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "Mesh.bmp" )
-  t2: ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "Coffee_Bean.bmp" )
-  t3: ( BitmapTexture width: 256 height: 256 path: "../data/textures/"  file: "icp_256_256.bmp" )
-  t4: ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "Hsi_128_128.bmp" )
-  mfd256: ( BitmapTexture width: 256 height: 256 path: "../data/textures/"  file: "Mfd_256_256.bmp" )
-  mfd512: ( BitmapTexture width: 512 height: 512 path: "../data/textures/"  file: "Mfd_512_512.bmp" )
-  icp256: ( BitmapTexture width: 256 height: 256 path: "../data/textures/"  file: "icp_256_256.bmp" )
-  icp512: ( BitmapTexture width: 512 height: 512 path: "../data/textures/"  file: "icp_512_512.bmp" )
-  rwr128: ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "RWR_128_128.bmp" )
-  rwr256: ( BitmapTexture width: 256 height: 256 path: "../data/textures/"  file: "RWR_256_256.bmp" )
-  hsi128: ( BitmapTexture width: 128 height: 128 path: "../data/textures/"  file: "Hsi_128_128.bmp" )
-  hsi256: ( BitmapTexture width: 256 height: 256 path: "../data/textures/"  file: "Hsi_256_256.bmp" )
+  t1: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "Mesh.bmp" )
+  t2: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "Coffee_Bean.bmp" )
+  t3: ( BitmapTexture width: 256 height: 256 path:  "../data/textures/"  file: "icp_256_256.bmp" )
+  t4: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "Hsi_128_128.bmp" )
+  mfd256: ( BitmapTexture width: 256 height: 256 path:  "../data/textures/"  file: "Mfd_256_256.bmp" )
+  mfd512: ( BitmapTexture width: 512 height: 512 path:  "../data/textures/"  file: "Mfd_512_512.bmp" )
+  icp256: ( BitmapTexture width: 256 height: 256 path:  "../data/textures/"  file: "icp_256_256.bmp" )
+  icp512: ( BitmapTexture width: 512 height: 512 path:  "../data/textures/"  file: "icp_512_512.bmp" )
+  rwr128: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "RWR_128_128.bmp" )
+  rwr256: ( BitmapTexture width: 256 height: 256 path:  "../data/textures/"  file: "RWR_256_256.bmp" )
+  hsi128: ( BitmapTexture width: 128 height: 128 path:  "../data/textures/"  file: "Hsi_128_128.bmp" )
+  hsi256: ( BitmapTexture width: 256 height: 256 path:  "../data/textures/"  file: "Hsi_256_256.bmp" )
 }
 
 
 materials: {
-  m1: ( Material diffuseColor: { 0 0.5 1 } emissiveColor: { 0.25 0 0 } specularColor: { 1 1 1 } shininess: 128 ) 
-  m2: ( Material diffuseColor: { 1 0.5 0.2 } specularColor: { 0.4 0.3 0.4 } shininess: 50 ) 
-  m3: ( Material diffuseColor: { 0.2 0.6 0.1 } specularColor: { 0.2 0.4 0.4 } shininess: 50 ) 
-  m4: ( Material diffuseColor: { 1 1 1 } specularColor: { 1 1 1 } emissiveColor: { 0.1 0 0 } shininess: 50 ) 
-  m5: ( Material ambientColor: { 0 0 0 } diffuseColor: { 0.7 0.29 0.8 } specularColor: { 0.5 0.5 0.5 } shininess: 128 ) 
-  m6: ( Material diffuseColor: { 0.2 0.2 0.2 } specularColor: { 0.5 0.5 0.5 } shininess: 50 ) 
-  m7: ( Material diffuseColor: { 0.1 0.5 1 } specularColor: { 0.8 0.8 0.8 } shininess: 50 ) 
-  m8: ( Material diffuseColor: { 0.8 0.9 0.3 } specularColor: { 1 1 1 } shininess: 128 ) 
-  m9: ( Material diffuseColor: { 1 0.5 1 } emissiveColor: { 0 0.75 0 } specularColor: { 0.5 1 1 } shininess: 25 ) 
+  m1: ( Material diffuseColor: { 0 0.5 1 } emissiveColor: { 0.25 0 0 } specularColor: { 1 1 1 } shininess: 128 )
+  m2: ( Material diffuseColor: { 1 0.5 0.2 } specularColor: { 0.4 0.3 0.4 } shininess: 50 )
+  m3: ( Material diffuseColor: { 0.2 0.6 0.1 } specularColor: { 0.2 0.4 0.4 } shininess: 50 )
+  m4: ( Material diffuseColor: { 1 1 1 } specularColor: { 1 1 1 } emissiveColor: { 0.1 0 0 } shininess: 50 )
+  m5: ( Material ambientColor: { 0 0 0 } diffuseColor: { 0.7 0.29 0.8 } specularColor: { 0.5 0.5 0.5 } shininess: 128 )
+  m6: ( Material diffuseColor: { 0.2 0.2 0.2 } specularColor: { 0.5 0.5 0.5 } shininess: 50 )
+  m7: ( Material diffuseColor: { 0.1 0.5 1 } specularColor: { 0.8 0.8 0.8 } shininess: 50 )
+  m8: ( Material diffuseColor: { 0.8 0.9 0.3 } specularColor: { 1 1 1 } shininess: 128 )
+  m9: ( Material diffuseColor: { 1 0.5 1 } emissiveColor: { 0 0.75 0 } specularColor: { 0.5 1 1 } shininess: 25 )
 }
 
 
 
 normalFont: default
 fonts: {
-  default: 
+  default:
   ( BitmapFont
       fontPosition: [ -9.5 9.5 ]
       fontWidth: 0.462
@@ -74,21 +75,21 @@ fonts: {
       bitmapHeight: 19
       characterSpacing: 0.462
       lineSpacing: 0.798
-      path: "../data/fonts/11x19/normal/"
+      path:  "../data/fonts/11x19/normal/"
   )
-  bigfont:  
-  ( FTGLPolygonFonts 
+  bigfont:
+  ( FTGLPolygonFonts
       fontPosition: [ -10.5 10.5 ]
-      fontWidth: 2.0          
-      fontHeight: 2.0         
-      characterSpacing: 1.2   
+      fontWidth: 2.0
+      fontHeight: 2.0
+      characterSpacing: 1.2
       lineSpacing: 2
-      path: "../data/fonts/"  
+      path:  "../data/fonts/"
       file: "arialn.ttf"
   )
 }
 
-leftBracketChar:  "*"
+leftBracketChar: "*"
 rightBracketChar: "*"
 reverseVideoBrackets: 0
 
@@ -97,19 +98,19 @@ reverseVideoBrackets: 0
 
 
 components: {
-  
+
   ( AsciiText
       color: white
       transform: ( Translation -10 -10.5 5 )
-      text: "Press 'p' to page back, 'n' to page forward." 
+      text: "Press 'p' to page back, 'n' to page forward."
   )
   ( LineLoop
       color: blue
       vertices: {
           [ -10 -10 ]
-          [ -10  10 ]
-          [  10  10 ]
-          [  10 -10 ]
+          [ -10 10 ]
+          [ 10 10 ]
+          [ 10 -10 ]
       }
   )
 }
@@ -118,7 +119,8 @@ components: {
 
 
 pages: {
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageXX.epp"
+#line 91 "testBasic.epp"
+#line 1 "PageXX.epp"
 
 
 
@@ -137,16 +139,16 @@ xx:
             linewidth: 1
             texture: t1
             vertices: {
-                [  5  5 ]
-                [ -5  5 ]
+                [ 5 5 ]
+                [ -5 5 ]
                 [ -5 -5 ]
-                [  5 -5 ]
+                [ 5 -5 ]
             }
             texCoord: {
-                [  1.0  1.0 ]
-                [  0.0  1.0 ]
-                [  0.0  0.0 ]
-                [  1.0  0.0 ]
+                [ 1.0 1.0 ]
+                [ 0.0 1.0 ]
+                [ 0.0 0.0 ]
+                [ 1.0 0.0 ]
             }
         )
         ( Polygon
@@ -155,16 +157,16 @@ xx:
             color: ( rgba 1.0 1.0 0.1 0.2 )
             linewidth: 1
             vertices: {
-                [  5  5 ]
-                [ -5  5 ]
+                [ 5 5 ]
+                [ -5 5 ]
                 [ -5 -5 ]
-                [  5 -5 ]
+                [ 5 -5 ]
             }
         )
     }
 )
-#line 92 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageYY.epp"
+#line 92 "testBasic.epp"
+#line 1 "PageYY.epp"
 
 
 
@@ -176,18 +178,18 @@ yy:
         p: xx
         btest: worms
     }
-    
+
     components: {
-        ( AsciiText  font: bigfont position: [  1   1 ]   text: "ABCDEFG"  reversed: 1   selectName: 1401)
-        ( AsciiText  font: bigfont position: [  2   2 ]   text: "ABCDEFG"  color: white  selectName: 1402 brackets: 1 )
-        ( AsciiText  font: bigfont position: [  3   3 ]   text: "ABCDEFG"  color: cyan   selectName: 1403 )
-        ( AsciiText  font: bigfont position: [  4   4 ]   text: "ABCDEFG"  color: cyan   selectName: 1404 )
-        ( AsciiText  font: bigfont position: [  5   5 ]   text: "ABCDEFG"  color: red    selectName: 1405 reversed: 1 )
-        ( AsciiText  font: bigfont position: [  6   6 ]   text: "ABCDEFG"  color: cyan   selectName: 1406 )
-        ( AsciiText  font: bigfont position: [  7   7 ]   text: "ABCDEFG"  color: cyan   selectName: 1407 )
-        ( AsciiText  font: bigfont position: [  8   8 ]   text: "ABCDEFG"  color: cyan   selectName: 1408 )
-        ( AsciiText  font: bigfont position: [  9   9 ]   text: "ABCDEFG"  color: cyan   selectName: 1409  brackets: 1 )
-        ( AsciiText  font: bigfont position: [ 10  10 ]   text: "ABCDEFG"  color: green  selectName: 1410 reversed: 1 )
+        ( AsciiText font: bigfont position: [ 1 1 ] text: "ABCDEFG" reversed: 1 selectName: 1401)
+        ( AsciiText font: bigfont position: [ 2 2 ] text: "ABCDEFG" color: white selectName: 1402 brackets: 1 )
+        ( AsciiText font: bigfont position: [ 3 3 ] text: "ABCDEFG" color: cyan selectName: 1403 )
+        ( AsciiText font: bigfont position: [ 4 4 ] text: "ABCDEFG" color: cyan selectName: 1404 )
+        ( AsciiText font: bigfont position: [ 5 5 ] text: "ABCDEFG" color: red selectName: 1405 reversed: 1 )
+        ( AsciiText font: bigfont position: [ 6 6 ] text: "ABCDEFG" color: cyan selectName: 1406 )
+        ( AsciiText font: bigfont position: [ 7 7 ] text: "ABCDEFG" color: cyan selectName: 1407 )
+        ( AsciiText font: bigfont position: [ 8 8 ] text: "ABCDEFG" color: cyan selectName: 1408 )
+        ( AsciiText font: bigfont position: [ 9 9 ] text: "ABCDEFG" color: cyan selectName: 1409 brackets: 1 )
+        ( AsciiText font: bigfont position: [ 10 10 ] text: "ABCDEFG" color: green selectName: 1410 reversed: 1 )
         ( Polygon
             selectName: 401
             transform: { ( Translation -2.0 -2.0 -1.0 ) }
@@ -195,16 +197,16 @@ yy:
             texture: t2
             linewidth: 1
             vertices: {
-                [  4.5  4.5 ]
-                [ -4.5  4.5 ]
+                [ 4.5 4.5 ]
+                [ -4.5 4.5 ]
                 [ -4.5 -4.5 ]
-                [  4.5 -4.5 ]
+                [ 4.5 -4.5 ]
             }
             texCoord: {
-                [  1.0  1.0 ]
-                [  0.0  1.0 ]
-                [  0.0  0.0 ]
-                [  1.0  0.0 ]
+                [ 1.0 1.0 ]
+                [ 0.0 1.0 ]
+                [ 0.0 0.0 ]
+                [ 1.0 0.0 ]
             }
         )
         ( Polygon
@@ -214,26 +216,26 @@ yy:
             texture: t3
             linewidth: 1
             vertices: {
-                [  2.5  2.5 ]
-                [ -2.5  2.5 ]
+                [ 2.5 2.5 ]
+                [ -2.5 2.5 ]
                 [ -2.5 -2.5 ]
-                [  2.5 -2.5 ]
+                [ 2.5 -2.5 ]
             }
             texCoord: {
-                [  1.0  1.0 ]
-                [  0.0  1.0 ]
-                [  0.0  0.0 ]
-                [  1.0  0.0 ]
+                [ 1.0 1.0 ]
+                [ 0.0 1.0 ]
+                [ 0.0 0.0 ]
+                [ 1.0 0.0 ]
             }
         )
     }
 )
-#line 93 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageZZ.epp"
+#line 93 "testBasic.epp"
+#line 1 "PageZZ.epp"
 
 
 
-        
+
 zz:
 ( MfdPage
     pagingEvent: {
@@ -241,7 +243,7 @@ zz:
         p: yy
         btest: sample
     }
-    
+
     components: {
         ( Polygon
             selectName: 501
@@ -249,24 +251,24 @@ zz:
             linewidth: 1
             texture: t4
             vertices: {
-                [  1.5  1.5 ]
-                [ -1.5  1.5 ]
+                [ 1.5 1.5 ]
+                [ -1.5 1.5 ]
                 [ -1.5 -1.5 ]
-                [  1.5 -1.5 ]
+                [ 1.5 -1.5 ]
             }
             texCoord: {
-                [  1.0  1.0 ]
-                [  0.0  1.0 ]
-                [  0.0  0.0 ]
-                [  1.0  0.0 ]
+                [ 1.0 1.0 ]
+                [ 0.0 1.0 ]
+                [ 0.0 0.0 ]
+                [ 1.0 0.0 ]
             }
         )
-        ( AsciiText selectName: 302  position: [ 1  5 ]  text: "VERTICAL1"  vertical: 1 )
-        ( AsciiText selectName: 303  position: [ 1 10 ]  text: "VERTICAL2"  vertical: 1 )
+        ( AsciiText selectName: 302 position: [ 1 5 ] text: "VERTICAL1" vertical: 1 )
+        ( AsciiText selectName: 303 position: [ 1 10 ] text: "VERTICAL2" vertical: 1 )
     }
 )
-#line 94 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\worms.epp"
+#line 94 "testBasic.epp"
+#line 1 "worms.epp"
 
 
 
@@ -322,9 +324,8 @@ worms:
         )
     }
 )
-
-#line 95 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\sample.epp"
+#line 95 "testBasic.epp"
+#line 1 "sample.epp"
 
 
 
@@ -338,13 +339,13 @@ sample:
     }
     components: {
 
-        
-        
-        
+
+
+
         ( TestTwo
 
             transform: { ( Translation 0.0 -2.0 ) ( Scale 4.0 ) }
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 1
@@ -352,7 +353,7 @@ sample:
 
             v2: 0.5
             v2Rate: -0.5
-            v2Max:  1
+            v2Max: 1
             v2Min: -1
 
             components: {
@@ -361,17 +362,17 @@ sample:
                     color: white
                     segment: 1
                     vertices: {
-                        [ -1.0   0.0 ] [ -1.0    2.0 ]      
-                        [  1.0   0.0 ] [  1.0    2.0 ]      
-                        [ -1.0   0.0 ] [  1.0    0.0 ]      
-                        [ -1.0   0.0 ] [ -1.0   -0.05 ]     
-                        [ -0.67  0.0 ] [ -0.67  -0.05 ]     
-                        [ -0.33  0.0 ] [ -0.33  -0.05 ]     
-                        [  0.0   0.0 ] [  0.0   -0.05 ]     
-                        [  1.0   0.0 ] [  1.0   -0.05 ]     
-                        [  0.67  0.0 ] [  0.67  -0.05 ]     
-                        [  0.33  0.0 ] [  0.33  -0.05 ]     
-                        [ -1.0   1.0 ] [ -1.05   1.0 ]      
+                        [ -1.0 0.0 ] [ -1.0 2.0 ]
+                        [ 1.0 0.0 ] [ 1.0 2.0 ]
+                        [ -1.0 0.0 ] [ 1.0 0.0 ]
+                        [ -1.0 0.0 ] [ -1.0 -0.05 ]
+                        [ -0.67 0.0 ] [ -0.67 -0.05 ]
+                        [ -0.33 0.0 ] [ -0.33 -0.05 ]
+                        [ 0.0 0.0 ] [ 0.0 -0.05 ]
+                        [ 1.0 0.0 ] [ 1.0 -0.05 ]
+                        [ 0.67 0.0 ] [ 0.67 -0.05 ]
+                        [ 0.33 0.0 ] [ 0.33 -0.05 ]
+                        [ -1.0 1.0 ] [ -1.05 1.0 ]
                     }
                 )
                 v1: ( TdAzPtr
@@ -379,7 +380,7 @@ sample:
                     transform: ( Translation 0.0 -0.03 )
                     components: {
                         ( Line color: blue vertices: { [ 0 0 ] [ 0 -0.1 ] } )
-                        ( AsciiText 
+                        ( AsciiText
                             transform: { ( Translation -0.05 -0.3 ) ( Scale 0.1 ) }
                             text: "AZ"
                         )
@@ -399,12 +400,12 @@ sample:
             }
         )
 
-        
-        
-        
+
+
+
         ( TestTwo
             selectName: 201
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 5
@@ -412,39 +413,39 @@ sample:
 
             v2: 0
             v2Rate: -5
-            v2Max:  10
+            v2Max: 10
             v2Min: -10
 
             components: {
 
-                
+
                 v1Title: ( Rotary2
                     position: [ 1 1 ]
                     components: {
-                        ( AsciiText text: "V1-UP:" )       
-                        ( AsciiText text: "V1-DN:" )       
+                        ( AsciiText text: "V1-UP:" )
+                        ( AsciiText text: "V1-DN:" )
                     }
                 )
 
-                
+
                 v1: ( NumericReadout
                     color: blue
                     position: [ 1 8 ]
                     format: "###.#"
                 )
 
-                
+
                 v2Title: ( Rotary
                     position: [ 2 1 ]
                     components: {
-                        ( AsciiText text: "V2-UP:" )                  
-                        ( AsciiText text: "V2-UP:" color: red )       
-                        ( AsciiText text: "V2-DN:" )                  
-                        ( AsciiText text: "V2-DN:" color: red )       
+                        ( AsciiText text: "V2-UP:" )
+                        ( AsciiText text: "V2-UP:" color: red )
+                        ( AsciiText text: "V2-DN:" )
+                        ( AsciiText text: "V2-DN:" color: red )
                     }
                 )
 
-                
+
                 v2: ( NumericReadout
                     color: blue
                     position: [ 2 8 ]
@@ -454,12 +455,12 @@ sample:
             }
         )
 
-        
-        
-        
+
+
+
         ( TestTwo
             selectName: 202
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 90
@@ -467,7 +468,7 @@ sample:
 
             v2: 0
             v2Rate: -1
-            v2Max:  180
+            v2Max: 180
             v2Min: -180
 
             components: {
@@ -487,12 +488,12 @@ sample:
             }
         )
 
-        
-        
-        
+
+
+
         ( TestTwo
             selectName: 203
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 3600
@@ -500,7 +501,7 @@ sample:
 
             v2: 0
             v2Rate: 1
-            v2Max:  180
+            v2Max: 180
             v2Min: -180
 
             components: {
@@ -521,8 +522,8 @@ sample:
         )
     }
 )
-#line 96 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageHSVColors.epp"
+#line 96 "testBasic.epp"
+#line 1 "PageHSVColors.epp"
 
 
 
@@ -540,10 +541,10 @@ hsvcolors:
             color: (hsv 0 0 0.2)
             linewidth: 5
             vertices: {
-                [  0.2  0.2 ]
-                [ -0.2  0.2 ]
+                [ 0.2 0.2 ]
+                [ -0.2 0.2 ]
                 [ -0.2 -0.2 ]
-                [  0.2 -0.2 ]
+                [ 0.2 -0.2 ]
             }
         )
         ( LineLoop
@@ -551,10 +552,10 @@ hsvcolors:
             color: (hsv 0 0 0.4)
             linewidth: 5
             vertices: {
-                [  0.4  0.4 ]
-                [ -0.4  0.4 ]
+                [ 0.4 0.4 ]
+                [ -0.4 0.4 ]
                 [ -0.4 -0.4 ]
-                [  0.4 -0.4 ]
+                [ 0.4 -0.4 ]
             }
         )
         ( LineLoop
@@ -562,10 +563,10 @@ hsvcolors:
             color: (hsv 0 0 0.6)
             linewidth: 5
             vertices: {
-                [  0.6  0.6 ]
-                [ -0.6  0.6 ]
+                [ 0.6 0.6 ]
+                [ -0.6 0.6 ]
                 [ -0.6 -0.6 ]
-                [  0.6 -0.6 ]
+                [ 0.6 -0.6 ]
             }
         )
         ( LineLoop
@@ -573,10 +574,10 @@ hsvcolors:
             color: (hsv 0 0 0.8)
             linewidth: 5
             vertices: {
-                [  0.8  0.8 ]
-                [ -0.8  0.8 ]
+                [ 0.8 0.8 ]
+                [ -0.8 0.8 ]
                 [ -0.8 -0.8 ]
-                [  0.8 -0.8 ]
+                [ 0.8 -0.8 ]
             }
         )
         ( LineLoop
@@ -584,10 +585,10 @@ hsvcolors:
             color: (hsv 0 0 1)
             linewidth: 5
             vertices: {
-                [  1  1 ]
-                [ -1  1 ]
+                [ 1 1 ]
+                [ -1 1 ]
                 [ -1 -1 ]
-                [  1 -1 ]
+                [ 1 -1 ]
             }
         )
         ( LineLoop
@@ -595,10 +596,10 @@ hsvcolors:
             color: (hsv 60 1 0.2)
             linewidth: 5
             vertices: {
-                [  1.2  1.2 ]
-                [ -1.2  1.2 ]
+                [ 1.2 1.2 ]
+                [ -1.2 1.2 ]
                 [ -1.2 -1.2 ]
-                [  1.2 -1.2 ]
+                [ 1.2 -1.2 ]
             }
         )
         ( LineLoop
@@ -606,10 +607,10 @@ hsvcolors:
             color: (hsv 60 1 0.4)
             linewidth: 5
             vertices: {
-                [  1.4  1.4 ]
-                [ -1.4  1.4 ]
+                [ 1.4 1.4 ]
+                [ -1.4 1.4 ]
                 [ -1.4 -1.4 ]
-                [  1.4 -1.4 ]
+                [ 1.4 -1.4 ]
             }
         )
         ( LineLoop
@@ -617,10 +618,10 @@ hsvcolors:
             color: (hsv 60 1 0.6)
             linewidth: 5
             vertices: {
-                [  1.6  1.6 ]
-                [ -1.6  1.6 ]
+                [ 1.6 1.6 ]
+                [ -1.6 1.6 ]
                 [ -1.6 -1.6 ]
-                [  1.6 -1.6 ]
+                [ 1.6 -1.6 ]
             }
         )
         ( LineLoop
@@ -628,10 +629,10 @@ hsvcolors:
             color: (hsv 60 1 0.8)
             linewidth: 5
             vertices: {
-                [  1.8  1.8 ]
-                [ -1.8  1.8 ]
+                [ 1.8 1.8 ]
+                [ -1.8 1.8 ]
                 [ -1.8 -1.8 ]
-                [  1.8 -1.8 ]
+                [ 1.8 -1.8 ]
             }
         )
         ( LineLoop
@@ -639,10 +640,10 @@ hsvcolors:
             color: (hsv 60 1 1)
             linewidth: 5
             vertices: {
-                [  2  2 ]
-                [ -2  2 ]
+                [ 2 2 ]
+                [ -2 2 ]
                 [ -2 -2 ]
-                [  2 -2 ]
+                [ 2 -2 ]
             }
         )
         ( LineLoop
@@ -650,10 +651,10 @@ hsvcolors:
             color: (hsv 120 1 0.2)
             linewidth: 5
             vertices: {
-                [  2.2  2.2 ]
-                [ -2.2  2.2 ]
+                [ 2.2 2.2 ]
+                [ -2.2 2.2 ]
                 [ -2.2 -2.2 ]
-                [  2.2 -2.2 ]
+                [ 2.2 -2.2 ]
             }
         )
         ( LineLoop
@@ -661,10 +662,10 @@ hsvcolors:
             color: (hsv 120 1 0.4)
             linewidth: 5
             vertices: {
-                [  2.4  2.4 ]
-                [ -2.4  2.4 ]
+                [ 2.4 2.4 ]
+                [ -2.4 2.4 ]
                 [ -2.4 -2.4 ]
-                [  2.4 -2.4 ]
+                [ 2.4 -2.4 ]
             }
         )
         ( LineLoop
@@ -672,10 +673,10 @@ hsvcolors:
             color: (hsv 120 1 0.6)
             linewidth: 5
             vertices: {
-                [  2.6  2.6 ]
-                [ -2.6  2.6 ]
+                [ 2.6 2.6 ]
+                [ -2.6 2.6 ]
                 [ -2.6 -2.6 ]
-                [  2.6 -2.6 ]
+                [ 2.6 -2.6 ]
             }
         )
         ( LineLoop
@@ -683,10 +684,10 @@ hsvcolors:
             color: (hsv 120 1 0.8)
             linewidth: 5
             vertices: {
-                [  2.8  2.8 ]
-                [ -2.8  2.8 ]
+                [ 2.8 2.8 ]
+                [ -2.8 2.8 ]
                 [ -2.8 -2.8 ]
-                [  2.8 -2.8 ]
+                [ 2.8 -2.8 ]
             }
         )
         ( LineLoop
@@ -694,10 +695,10 @@ hsvcolors:
             color: (hsv 120 1 1)
             linewidth: 5
             vertices: {
-                [  3  3 ]
-                [ -3  3 ]
+                [ 3 3 ]
+                [ -3 3 ]
                 [ -3 -3 ]
-                [  3 -3 ]
+                [ 3 -3 ]
             }
         )
         ( LineLoop
@@ -705,10 +706,10 @@ hsvcolors:
             color: (hsv 180 1 0.2)
             linewidth: 5
             vertices: {
-                [  3.2  3.2 ]
-                [ -3.2  3.2 ]
+                [ 3.2 3.2 ]
+                [ -3.2 3.2 ]
                 [ -3.2 -3.2 ]
-                [  3.2 -3.2 ]
+                [ 3.2 -3.2 ]
             }
         )
         ( LineLoop
@@ -716,10 +717,10 @@ hsvcolors:
             color: (hsv 180 1 0.4)
             linewidth: 5
             vertices: {
-                [  3.4  3.4 ]
-                [ -3.4  3.4 ]
+                [ 3.4 3.4 ]
+                [ -3.4 3.4 ]
                 [ -3.4 -3.4 ]
-                [  3.4 -3.4 ]
+                [ 3.4 -3.4 ]
             }
         )
         ( LineLoop
@@ -727,10 +728,10 @@ hsvcolors:
             color: (hsv 180 1 0.6)
             linewidth: 5
             vertices: {
-                [  3.6  3.6 ]
-                [ -3.6  3.6 ]
+                [ 3.6 3.6 ]
+                [ -3.6 3.6 ]
                 [ -3.6 -3.6 ]
-                [  3.6 -3.6 ]
+                [ 3.6 -3.6 ]
             }
         )
         ( LineLoop
@@ -738,10 +739,10 @@ hsvcolors:
             color: (hsv 180 1 0.8)
             linewidth: 5
             vertices: {
-                [  3.8  3.8 ]
-                [ -3.8  3.8 ]
+                [ 3.8 3.8 ]
+                [ -3.8 3.8 ]
                 [ -3.8 -3.8 ]
-                [  3.8 -3.8 ]
+                [ 3.8 -3.8 ]
             }
         )
         ( LineLoop
@@ -749,10 +750,10 @@ hsvcolors:
             color: (hsv 180 1 1)
             linewidth: 5
             vertices: {
-                [  4  4 ]
-                [ -4  4 ]
+                [ 4 4 ]
+                [ -4 4 ]
                 [ -4 -4 ]
-                [  4 -4 ]
+                [ 4 -4 ]
             }
         )
         ( LineLoop
@@ -760,10 +761,10 @@ hsvcolors:
             color: (hsv 240 1 0.2)
             linewidth: 5
             vertices: {
-                [  4.2  4.2 ]
-                [ -4.2  4.2 ]
+                [ 4.2 4.2 ]
+                [ -4.2 4.2 ]
                 [ -4.2 -4.2 ]
-                [  4.2 -4.2 ]
+                [ 4.2 -4.2 ]
             }
         )
         ( LineLoop
@@ -771,10 +772,10 @@ hsvcolors:
             color: (hsv 240 1 0.4)
             linewidth: 5
             vertices: {
-                [  4.4  4.4 ]
-                [ -4.4  4.4 ]
+                [ 4.4 4.4 ]
+                [ -4.4 4.4 ]
                 [ -4.4 -4.4 ]
-                [  4.4 -4.4 ]
+                [ 4.4 -4.4 ]
             }
         )
         ( LineLoop
@@ -782,10 +783,10 @@ hsvcolors:
             color: (hsv 240 1 0.6)
             linewidth: 5
             vertices: {
-                [  4.6  4.6 ]
-                [ -4.6  4.6 ]
+                [ 4.6 4.6 ]
+                [ -4.6 4.6 ]
                 [ -4.6 -4.6 ]
-                [  4.6 -4.6 ]
+                [ 4.6 -4.6 ]
             }
         )
         ( LineLoop
@@ -793,10 +794,10 @@ hsvcolors:
             color: (hsv 240 1 0.8)
             linewidth: 5
             vertices: {
-                [  4.8  4.8 ]
-                [ -4.8  4.8 ]
+                [ 4.8 4.8 ]
+                [ -4.8 4.8 ]
                 [ -4.8 -4.8 ]
-                [  4.8 -4.8 ]
+                [ 4.8 -4.8 ]
             }
         )
         ( LineLoop
@@ -804,10 +805,10 @@ hsvcolors:
             color: (hsv 240 1 1)
             linewidth: 5
             vertices: {
-                [  5  5 ]
-                [ -5  5 ]
+                [ 5 5 ]
+                [ -5 5 ]
                 [ -5 -5 ]
-                [  5 -5 ]
+                [ 5 -5 ]
             }
         )
         ( LineLoop
@@ -815,10 +816,10 @@ hsvcolors:
             color: (hsv 300 1 0.2)
             linewidth: 5
             vertices: {
-                [  5.2  5.2 ]
-                [ -5.2  5.2 ]
+                [ 5.2 5.2 ]
+                [ -5.2 5.2 ]
                 [ -5.2 -5.2 ]
-                [  5.2 -5.2 ]
+                [ 5.2 -5.2 ]
             }
         )
         ( LineLoop
@@ -826,10 +827,10 @@ hsvcolors:
             color: (hsv 300 1 0.4)
             linewidth: 5
             vertices: {
-                [  5.4  5.4 ]
-                [ -5.4  5.4 ]
+                [ 5.4 5.4 ]
+                [ -5.4 5.4 ]
                 [ -5.4 -5.4 ]
-                [  5.4 -5.4 ]
+                [ 5.4 -5.4 ]
             }
         )
         ( LineLoop
@@ -837,10 +838,10 @@ hsvcolors:
             color: (hsv 300 1 0.6)
             linewidth: 5
             vertices: {
-                [  5.6  5.6 ]
-                [ -5.6  5.6 ]
+                [ 5.6 5.6 ]
+                [ -5.6 5.6 ]
                 [ -5.6 -5.6 ]
-                [  5.6 -5.6 ]
+                [ 5.6 -5.6 ]
             }
         )
         ( LineLoop
@@ -848,10 +849,10 @@ hsvcolors:
             color: (hsv 300 1 0.8)
             linewidth: 5
             vertices: {
-                [  5.8  5.8 ]
-                [ -5.8  5.8 ]
+                [ 5.8 5.8 ]
+                [ -5.8 5.8 ]
                 [ -5.8 -5.8 ]
-                [  5.8 -5.8 ]
+                [ 5.8 -5.8 ]
             }
         )
         ( LineLoop
@@ -859,10 +860,10 @@ hsvcolors:
             color: (hsv 300 1 1)
             linewidth: 5
             vertices: {
-                [  6  6 ]
-                [ -6  6 ]
+                [ 6 6 ]
+                [ -6 6 ]
                 [ -6 -6 ]
-                [  6 -6 ]
+                [ 6 -6 ]
             }
         )
         ( LineLoop
@@ -870,10 +871,10 @@ hsvcolors:
             color: (hsv 360 1 0.2)
             linewidth: 5
             vertices: {
-                [  6.2  6.2 ]
-                [ -6.2  6.2 ]
+                [ 6.2 6.2 ]
+                [ -6.2 6.2 ]
                 [ -6.2 -6.2 ]
-                [  6.2 -6.2 ]
+                [ 6.2 -6.2 ]
             }
         )
         ( LineLoop
@@ -881,10 +882,10 @@ hsvcolors:
             color: (hsv 360 1 0.4)
             linewidth: 5
             vertices: {
-                [  6.4  6.4 ]
-                [ -6.4  6.4 ]
+                [ 6.4 6.4 ]
+                [ -6.4 6.4 ]
                 [ -6.4 -6.4 ]
-                [  6.4 -6.4 ]
+                [ 6.4 -6.4 ]
             }
         )
         ( LineLoop
@@ -892,10 +893,10 @@ hsvcolors:
             color: (hsv 360 1 0.6)
             linewidth: 5
             vertices: {
-                [  6.6  6.6 ]
-                [ -6.6  6.6 ]
+                [ 6.6 6.6 ]
+                [ -6.6 6.6 ]
                 [ -6.6 -6.6 ]
-                [  6.6 -6.6 ]
+                [ 6.6 -6.6 ]
             }
         )
         ( LineLoop
@@ -903,10 +904,10 @@ hsvcolors:
             color: (hsv 360 1 0.8)
             linewidth: 5
             vertices: {
-                [  6.8  6.8 ]
-                [ -6.8  6.8 ]
+                [ 6.8 6.8 ]
+                [ -6.8 6.8 ]
                 [ -6.8 -6.8 ]
-                [  6.8 -6.8 ]
+                [ 6.8 -6.8 ]
             }
         )
         ( LineLoop
@@ -914,16 +915,16 @@ hsvcolors:
             color: (hsv 360 1 1)
             linewidth: 5
             vertices: {
-                [  7  7 ]
-                [ -7  7 ]
+                [ 7 7 ]
+                [ -7 7 ]
                 [ -7 -7 ]
-                [  7 -7 ]
+                [ 7 -7 ]
             }
         )
     }
 )
-#line 97 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageHLSColors.epp"
+#line 97 "testBasic.epp"
+#line 1 "PageHLSColors.epp"
 
 
 
@@ -941,10 +942,10 @@ hlscolors:
             color: (hls 0 0.2 0)
             linewidth: 5
             vertices: {
-                [  0.2  0.2 ]
-                [ -0.2  0.2 ]
+                [ 0.2 0.2 ]
+                [ -0.2 0.2 ]
                 [ -0.2 -0.2 ]
-                [  0.2 -0.2 ]
+                [ 0.2 -0.2 ]
             }
         )
         ( LineLoop
@@ -952,10 +953,10 @@ hlscolors:
             color: (hls 0 0.4 0)
             linewidth: 5
             vertices: {
-                [  0.4  0.4 ]
-                [ -0.4  0.4 ]
+                [ 0.4 0.4 ]
+                [ -0.4 0.4 ]
                 [ -0.4 -0.4 ]
-                [  0.4 -0.4 ]
+                [ 0.4 -0.4 ]
             }
         )
         ( LineLoop
@@ -963,10 +964,10 @@ hlscolors:
             color: (hls 0 0.6 0)
             linewidth: 5
             vertices: {
-                [  0.6  0.6 ]
-                [ -0.6  0.6 ]
+                [ 0.6 0.6 ]
+                [ -0.6 0.6 ]
                 [ -0.6 -0.6 ]
-                [  0.6 -0.6 ]
+                [ 0.6 -0.6 ]
             }
         )
         ( LineLoop
@@ -974,10 +975,10 @@ hlscolors:
             color: (hls 0 0.8 0)
             linewidth: 5
             vertices: {
-                [  0.8  0.8 ]
-                [ -0.8  0.8 ]
+                [ 0.8 0.8 ]
+                [ -0.8 0.8 ]
                 [ -0.8 -0.8 ]
-                [  0.8 -0.8 ]
+                [ 0.8 -0.8 ]
             }
         )
         ( LineLoop
@@ -985,10 +986,10 @@ hlscolors:
             color: (hls 0 1 0)
             linewidth: 5
             vertices: {
-                [  1  1 ]
-                [ -1  1 ]
+                [ 1 1 ]
+                [ -1 1 ]
                 [ -1 -1 ]
-                [  1 -1 ]
+                [ 1 -1 ]
             }
         )
         ( LineLoop
@@ -996,10 +997,10 @@ hlscolors:
             color: (hls 60 0.2 1)
             linewidth: 5
             vertices: {
-                [  1.2  1.2 ]
-                [ -1.2  1.2 ]
+                [ 1.2 1.2 ]
+                [ -1.2 1.2 ]
                 [ -1.2 -1.2 ]
-                [  1.2 -1.2 ]
+                [ 1.2 -1.2 ]
             }
         )
         ( LineLoop
@@ -1007,10 +1008,10 @@ hlscolors:
             color: (hls 60 0.35 1)
             linewidth: 5
             vertices: {
-                [  1.4  1.4 ]
-                [ -1.4  1.4 ]
+                [ 1.4 1.4 ]
+                [ -1.4 1.4 ]
                 [ -1.4 -1.4 ]
-                [  1.4 -1.4 ]
+                [ 1.4 -1.4 ]
             }
         )
         ( LineLoop
@@ -1018,10 +1019,10 @@ hlscolors:
             color: (hls 60 0.5 1)
             linewidth: 5
             vertices: {
-                [  1.6  1.6 ]
-                [ -1.6  1.6 ]
+                [ 1.6 1.6 ]
+                [ -1.6 1.6 ]
                 [ -1.6 -1.6 ]
-                [  1.6 -1.6 ]
+                [ 1.6 -1.6 ]
             }
         )
         ( LineLoop
@@ -1029,10 +1030,10 @@ hlscolors:
             color: (hls 60 0.6 1)
             linewidth: 5
             vertices: {
-                [  1.8  1.8 ]
-                [ -1.8  1.8 ]
+                [ 1.8 1.8 ]
+                [ -1.8 1.8 ]
                 [ -1.8 -1.8 ]
-                [  1.8 -1.8 ]
+                [ 1.8 -1.8 ]
             }
         )
         ( LineLoop
@@ -1040,10 +1041,10 @@ hlscolors:
             color: (hls 60 0.7 1)
             linewidth: 5
             vertices: {
-                [  2  2 ]
-                [ -2  2 ]
+                [ 2 2 ]
+                [ -2 2 ]
                 [ -2 -2 ]
-                [  2 -2 ]
+                [ 2 -2 ]
             }
         )
         ( LineLoop
@@ -1051,10 +1052,10 @@ hlscolors:
             color: (hls 120 0.2 1)
             linewidth: 5
             vertices: {
-                [  2.2  2.2 ]
-                [ -2.2  2.2 ]
+                [ 2.2 2.2 ]
+                [ -2.2 2.2 ]
                 [ -2.2 -2.2 ]
-                [  2.2 -2.2 ]
+                [ 2.2 -2.2 ]
             }
         )
         ( LineLoop
@@ -1062,10 +1063,10 @@ hlscolors:
             color: (hls 120 0.35 1)
             linewidth: 5
             vertices: {
-                [  2.4  2.4 ]
-                [ -2.4  2.4 ]
+                [ 2.4 2.4 ]
+                [ -2.4 2.4 ]
                 [ -2.4 -2.4 ]
-                [  2.4 -2.4 ]
+                [ 2.4 -2.4 ]
             }
         )
         ( LineLoop
@@ -1073,10 +1074,10 @@ hlscolors:
             color: (hls 120 0.5 1)
             linewidth: 5
             vertices: {
-                [  2.6  2.6 ]
-                [ -2.6  2.6 ]
+                [ 2.6 2.6 ]
+                [ -2.6 2.6 ]
                 [ -2.6 -2.6 ]
-                [  2.6 -2.6 ]
+                [ 2.6 -2.6 ]
             }
         )
         ( LineLoop
@@ -1084,10 +1085,10 @@ hlscolors:
             color: (hls 120 0.6 1)
             linewidth: 5
             vertices: {
-                [  2.8  2.8 ]
-                [ -2.8  2.8 ]
+                [ 2.8 2.8 ]
+                [ -2.8 2.8 ]
                 [ -2.8 -2.8 ]
-                [  2.8 -2.8 ]
+                [ 2.8 -2.8 ]
             }
         )
         ( LineLoop
@@ -1095,10 +1096,10 @@ hlscolors:
             color: (hls 120 0.7 1)
             linewidth: 5
             vertices: {
-                [  3  3 ]
-                [ -3  3 ]
+                [ 3 3 ]
+                [ -3 3 ]
                 [ -3 -3 ]
-                [  3 -3 ]
+                [ 3 -3 ]
             }
         )
         ( LineLoop
@@ -1106,10 +1107,10 @@ hlscolors:
             color: (hls 180 0.2 1)
             linewidth: 5
             vertices: {
-                [  3.2  3.2 ]
-                [ -3.2  3.2 ]
+                [ 3.2 3.2 ]
+                [ -3.2 3.2 ]
                 [ -3.2 -3.2 ]
-                [  3.2 -3.2 ]
+                [ 3.2 -3.2 ]
             }
         )
         ( LineLoop
@@ -1117,10 +1118,10 @@ hlscolors:
             color: (hls 180 0.35 1)
             linewidth: 5
             vertices: {
-                [  3.4  3.4 ]
-                [ -3.4  3.4 ]
+                [ 3.4 3.4 ]
+                [ -3.4 3.4 ]
                 [ -3.4 -3.4 ]
-                [  3.4 -3.4 ]
+                [ 3.4 -3.4 ]
             }
         )
         ( LineLoop
@@ -1128,10 +1129,10 @@ hlscolors:
             color: (hls 180 0.5 1)
             linewidth: 5
             vertices: {
-                [  3.6  3.6 ]
-                [ -3.6  3.6 ]
+                [ 3.6 3.6 ]
+                [ -3.6 3.6 ]
                 [ -3.6 -3.6 ]
-                [  3.6 -3.6 ]
+                [ 3.6 -3.6 ]
             }
         )
         ( LineLoop
@@ -1139,10 +1140,10 @@ hlscolors:
             color: (hls 180 0.6 1)
             linewidth: 5
             vertices: {
-                [  3.8  3.8 ]
-                [ -3.8  3.8 ]
+                [ 3.8 3.8 ]
+                [ -3.8 3.8 ]
                 [ -3.8 -3.8 ]
-                [  3.8 -3.8 ]
+                [ 3.8 -3.8 ]
             }
         )
         ( LineLoop
@@ -1150,10 +1151,10 @@ hlscolors:
             color: (hls 180 0.7 1)
             linewidth: 5
             vertices: {
-                [  4  4 ]
-                [ -4  4 ]
+                [ 4 4 ]
+                [ -4 4 ]
                 [ -4 -4 ]
-                [  4 -4 ]
+                [ 4 -4 ]
             }
         )
         ( LineLoop
@@ -1161,10 +1162,10 @@ hlscolors:
             color: (hls 240 0.2 1)
             linewidth: 5
             vertices: {
-                [  4.2  4.2 ]
-                [ -4.2  4.2 ]
+                [ 4.2 4.2 ]
+                [ -4.2 4.2 ]
                 [ -4.2 -4.2 ]
-                [  4.2 -4.2 ]
+                [ 4.2 -4.2 ]
             }
         )
         ( LineLoop
@@ -1172,10 +1173,10 @@ hlscolors:
             color: (hls 240 0.35 1)
             linewidth: 5
             vertices: {
-                [  4.4  4.4 ]
-                [ -4.4  4.4 ]
+                [ 4.4 4.4 ]
+                [ -4.4 4.4 ]
                 [ -4.4 -4.4 ]
-                [  4.4 -4.4 ]
+                [ 4.4 -4.4 ]
             }
         )
         ( LineLoop
@@ -1183,10 +1184,10 @@ hlscolors:
             color: (hls 240 0.5 1)
             linewidth: 5
             vertices: {
-                [  4.6  4.6 ]
-                [ -4.6  4.6 ]
+                [ 4.6 4.6 ]
+                [ -4.6 4.6 ]
                 [ -4.6 -4.6 ]
-                [  4.6 -4.6 ]
+                [ 4.6 -4.6 ]
             }
         )
         ( LineLoop
@@ -1194,10 +1195,10 @@ hlscolors:
             color: (hls 240 0.6 1)
             linewidth: 5
             vertices: {
-                [  4.8  4.8 ]
-                [ -4.8  4.8 ]
+                [ 4.8 4.8 ]
+                [ -4.8 4.8 ]
                 [ -4.8 -4.8 ]
-                [  4.8 -4.8 ]
+                [ 4.8 -4.8 ]
             }
         )
         ( LineLoop
@@ -1205,10 +1206,10 @@ hlscolors:
             color: (hls 240 0.7 1)
             linewidth: 5
             vertices: {
-                [  5  5 ]
-                [ -5  5 ]
+                [ 5 5 ]
+                [ -5 5 ]
                 [ -5 -5 ]
-                [  5 -5 ]
+                [ 5 -5 ]
             }
         )
         ( LineLoop
@@ -1216,10 +1217,10 @@ hlscolors:
             color: (hls 300 0.2 1)
             linewidth: 5
             vertices: {
-                [  5.2  5.2 ]
-                [ -5.2  5.2 ]
+                [ 5.2 5.2 ]
+                [ -5.2 5.2 ]
                 [ -5.2 -5.2 ]
-                [  5.2 -5.2 ]
+                [ 5.2 -5.2 ]
             }
         )
         ( LineLoop
@@ -1227,10 +1228,10 @@ hlscolors:
             color: (hls 300 0.35 1)
             linewidth: 5
             vertices: {
-                [  5.4  5.4 ]
-                [ -5.4  5.4 ]
+                [ 5.4 5.4 ]
+                [ -5.4 5.4 ]
                 [ -5.4 -5.4 ]
-                [  5.4 -5.4 ]
+                [ 5.4 -5.4 ]
             }
         )
         ( LineLoop
@@ -1238,10 +1239,10 @@ hlscolors:
             color: (hls 300 0.5 1)
             linewidth: 5
             vertices: {
-                [  5.6  5.6 ]
-                [ -5.6  5.6 ]
+                [ 5.6 5.6 ]
+                [ -5.6 5.6 ]
                 [ -5.6 -5.6 ]
-                [  5.6 -5.6 ]
+                [ 5.6 -5.6 ]
             }
         )
         ( LineLoop
@@ -1249,10 +1250,10 @@ hlscolors:
             color: (hls 300 0.6 1)
             linewidth: 5
             vertices: {
-                [  5.8  5.8 ]
-                [ -5.8  5.8 ]
+                [ 5.8 5.8 ]
+                [ -5.8 5.8 ]
                 [ -5.8 -5.8 ]
-                [  5.8 -5.8 ]
+                [ 5.8 -5.8 ]
             }
         )
         ( LineLoop
@@ -1260,10 +1261,10 @@ hlscolors:
             color: (hls 300 0.7 1)
             linewidth: 5
             vertices: {
-                [  6  6 ]
-                [ -6  6 ]
+                [ 6 6 ]
+                [ -6 6 ]
                 [ -6 -6 ]
-                [  6 -6 ]
+                [ 6 -6 ]
             }
         )
         ( LineLoop
@@ -1271,10 +1272,10 @@ hlscolors:
             color: (hls 360 0.2 1)
             linewidth: 5
             vertices: {
-                [  6.2  6.2 ]
-                [ -6.2  6.2 ]
+                [ 6.2 6.2 ]
+                [ -6.2 6.2 ]
                 [ -6.2 -6.2 ]
-                [  6.2 -6.2 ]
+                [ 6.2 -6.2 ]
             }
         )
         ( LineLoop
@@ -1282,10 +1283,10 @@ hlscolors:
             color: (hls 360 0.35 1)
             linewidth: 5
             vertices: {
-                [  6.4  6.4 ]
-                [ -6.4  6.4 ]
+                [ 6.4 6.4 ]
+                [ -6.4 6.4 ]
                 [ -6.4 -6.4 ]
-                [  6.4 -6.4 ]
+                [ 6.4 -6.4 ]
             }
         )
         ( LineLoop
@@ -1293,10 +1294,10 @@ hlscolors:
             color: (hls 360 0.5 1)
             linewidth: 5
             vertices: {
-                [  6.6  6.6 ]
-                [ -6.6  6.6 ]
+                [ 6.6 6.6 ]
+                [ -6.6 6.6 ]
                 [ -6.6 -6.6 ]
-                [  6.6 -6.6 ]
+                [ 6.6 -6.6 ]
             }
         )
         ( LineLoop
@@ -1304,10 +1305,10 @@ hlscolors:
             color: (hls 360 0.6 1)
             linewidth: 5
             vertices: {
-                [  6.8  6.8 ]
-                [ -6.8  6.8 ]
+                [ 6.8 6.8 ]
+                [ -6.8 6.8 ]
                 [ -6.8 -6.8 ]
-                [  6.8 -6.8 ]
+                [ 6.8 -6.8 ]
             }
         )
         ( LineLoop
@@ -1315,16 +1316,16 @@ hlscolors:
             color: (hls 360 0.7 1)
             linewidth: 5
             vertices: {
-                [  7  7 ]
-                [ -7  7 ]
+                [ 7 7 ]
+                [ -7 7 ]
                 [ -7 -7 ]
-                [  7 -7 ]
+                [ 7 -7 ]
             }
         )
     }
 )
-#line 98 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageCMYColors.epp"
+#line 98 "testBasic.epp"
+#line 1 "PageCMYColors.epp"
 
 
 
@@ -1342,10 +1343,10 @@ cmycolors:
             color: (cmy 0.8 0.8 0.8)
             linewidth: 5
             vertices: {
-                [  0.2  0.2 ]
-                [ -0.2  0.2 ]
+                [ 0.2 0.2 ]
+                [ -0.2 0.2 ]
                 [ -0.2 -0.2 ]
-                [  0.2 -0.2 ]
+                [ 0.2 -0.2 ]
             }
         )
         ( LineLoop
@@ -1353,10 +1354,10 @@ cmycolors:
             color: (cmy 0.6 0.6 0.6)
             linewidth: 5
             vertices: {
-                [  0.4  0.4 ]
-                [ -0.4  0.4 ]
+                [ 0.4 0.4 ]
+                [ -0.4 0.4 ]
                 [ -0.4 -0.4 ]
-                [  0.4 -0.4 ]
+                [ 0.4 -0.4 ]
             }
         )
         ( LineLoop
@@ -1364,10 +1365,10 @@ cmycolors:
             color: (cmy 0.4 0.4 0.4)
             linewidth: 5
             vertices: {
-                [  0.6  0.6 ]
-                [ -0.6  0.6 ]
+                [ 0.6 0.6 ]
+                [ -0.6 0.6 ]
                 [ -0.6 -0.6 ]
-                [  0.6 -0.6 ]
+                [ 0.6 -0.6 ]
             }
         )
         ( LineLoop
@@ -1375,10 +1376,10 @@ cmycolors:
             color: (cmy 0.2 0.2 0.2)
             linewidth: 5
             vertices: {
-                [  0.8  0.8 ]
-                [ -0.8  0.8 ]
+                [ 0.8 0.8 ]
+                [ -0.8 0.8 ]
                 [ -0.8 -0.8 ]
-                [  0.8 -0.8 ]
+                [ 0.8 -0.8 ]
             }
         )
         ( LineLoop
@@ -1386,10 +1387,10 @@ cmycolors:
             color: (cmy 0 0 0)
             linewidth: 5
             vertices: {
-                [  1  1 ]
-                [ -1  1 ]
+                [ 1 1 ]
+                [ -1 1 ]
                 [ -1 -1 ]
-                [  1 -1 ]
+                [ 1 -1 ]
             }
         )
         ( LineLoop
@@ -1397,10 +1398,10 @@ cmycolors:
             color: (cmy 0.4 0.4 1)
             linewidth: 5
             vertices: {
-                [  1.2  1.2 ]
-                [ -1.2  1.2 ]
+                [ 1.2 1.2 ]
+                [ -1.2 1.2 ]
                 [ -1.2 -1.2 ]
-                [  1.2 -1.2 ]
+                [ 1.2 -1.2 ]
             }
         )
         ( LineLoop
@@ -1408,10 +1409,10 @@ cmycolors:
             color: (cmy 0.2 0.2 1)
             linewidth: 5
             vertices: {
-                [  1.4  1.4 ]
-                [ -1.4  1.4 ]
+                [ 1.4 1.4 ]
+                [ -1.4 1.4 ]
                 [ -1.4 -1.4 ]
-                [  1.4 -1.4 ]
+                [ 1.4 -1.4 ]
             }
         )
         ( LineLoop
@@ -1419,10 +1420,10 @@ cmycolors:
             color: (cmy 0 0 1)
             linewidth: 5
             vertices: {
-                [  1.6  1.6 ]
-                [ -1.6  1.6 ]
+                [ 1.6 1.6 ]
+                [ -1.6 1.6 ]
                 [ -1.6 -1.6 ]
-                [  1.6 -1.6 ]
+                [ 1.6 -1.6 ]
             }
         )
         ( LineLoop
@@ -1430,10 +1431,10 @@ cmycolors:
             color: (cmy 0 0 0.8)
             linewidth: 5
             vertices: {
-                [  1.8  1.8 ]
-                [ -1.8  1.8 ]
+                [ 1.8 1.8 ]
+                [ -1.8 1.8 ]
                 [ -1.8 -1.8 ]
-                [  1.8 -1.8 ]
+                [ 1.8 -1.8 ]
             }
         )
         ( LineLoop
@@ -1441,10 +1442,10 @@ cmycolors:
             color: (cmy 0 0 0.6)
             linewidth: 5
             vertices: {
-                [  2  2 ]
-                [ -2  2 ]
+                [ 2 2 ]
+                [ -2 2 ]
                 [ -2 -2 ]
-                [  2 -2 ]
+                [ 2 -2 ]
             }
         )
         ( LineLoop
@@ -1452,10 +1453,10 @@ cmycolors:
             color: (cmy 1 0.4 1)
             linewidth: 5
             vertices: {
-                [  2.2  2.2 ]
-                [ -2.2  2.2 ]
+                [ 2.2 2.2 ]
+                [ -2.2 2.2 ]
                 [ -2.2 -2.2 ]
-                [  2.2 -2.2 ]
+                [ 2.2 -2.2 ]
             }
         )
         ( LineLoop
@@ -1463,10 +1464,10 @@ cmycolors:
             color: (cmy 1 0.2 1)
             linewidth: 5
             vertices: {
-                [  2.4  2.4 ]
-                [ -2.4  2.4 ]
+                [ 2.4 2.4 ]
+                [ -2.4 2.4 ]
                 [ -2.4 -2.4 ]
-                [  2.4 -2.4 ]
+                [ 2.4 -2.4 ]
             }
         )
         ( LineLoop
@@ -1474,10 +1475,10 @@ cmycolors:
             color: (cmy 1 0 1)
             linewidth: 5
             vertices: {
-                [  2.6  2.6 ]
-                [ -2.6  2.6 ]
+                [ 2.6 2.6 ]
+                [ -2.6 2.6 ]
                 [ -2.6 -2.6 ]
-                [  2.6 -2.6 ]
+                [ 2.6 -2.6 ]
             }
         )
         ( LineLoop
@@ -1485,10 +1486,10 @@ cmycolors:
             color: (cmy 0.8 0 0.8)
             linewidth: 5
             vertices: {
-                [  2.8  2.8 ]
-                [ -2.8  2.8 ]
+                [ 2.8 2.8 ]
+                [ -2.8 2.8 ]
                 [ -2.8 -2.8 ]
-                [  2.8 -2.8 ]
+                [ 2.8 -2.8 ]
             }
         )
         ( LineLoop
@@ -1496,10 +1497,10 @@ cmycolors:
             color: (cmy 0.6 0 0.6)
             linewidth: 5
             vertices: {
-                [  3  3 ]
-                [ -3  3 ]
+                [ 3 3 ]
+                [ -3 3 ]
                 [ -3 -3 ]
-                [  3 -3 ]
+                [ 3 -3 ]
             }
         )
         ( LineLoop
@@ -1507,10 +1508,10 @@ cmycolors:
             color: (cmy 1 0.4 0.4)
             linewidth: 5
             vertices: {
-                [  3.2  3.2 ]
-                [ -3.2  3.2 ]
+                [ 3.2 3.2 ]
+                [ -3.2 3.2 ]
                 [ -3.2 -3.2 ]
-                [  3.2 -3.2 ]
+                [ 3.2 -3.2 ]
             }
         )
         ( LineLoop
@@ -1518,10 +1519,10 @@ cmycolors:
             color: (cmy 1 0.2 0.2)
             linewidth: 5
             vertices: {
-                [  3.4  3.4 ]
-                [ -3.4  3.4 ]
+                [ 3.4 3.4 ]
+                [ -3.4 3.4 ]
                 [ -3.4 -3.4 ]
-                [  3.4 -3.4 ]
+                [ 3.4 -3.4 ]
             }
         )
         ( LineLoop
@@ -1529,10 +1530,10 @@ cmycolors:
             color: (cmy 1 0 0)
             linewidth: 5
             vertices: {
-                [  3.6  3.6 ]
-                [ -3.6  3.6 ]
+                [ 3.6 3.6 ]
+                [ -3.6 3.6 ]
                 [ -3.6 -3.6 ]
-                [  3.6 -3.6 ]
+                [ 3.6 -3.6 ]
             }
         )
         ( LineLoop
@@ -1540,10 +1541,10 @@ cmycolors:
             color: (cmy 0.8 0 0)
             linewidth: 5
             vertices: {
-                [  3.8  3.8 ]
-                [ -3.8  3.8 ]
+                [ 3.8 3.8 ]
+                [ -3.8 3.8 ]
                 [ -3.8 -3.8 ]
-                [  3.8 -3.8 ]
+                [ 3.8 -3.8 ]
             }
         )
         ( LineLoop
@@ -1551,10 +1552,10 @@ cmycolors:
             color: (cmy 0.6 0 0)
             linewidth: 5
             vertices: {
-                [  4  4 ]
-                [ -4  4 ]
+                [ 4 4 ]
+                [ -4 4 ]
                 [ -4 -4 ]
-                [  4 -4 ]
+                [ 4 -4 ]
             }
         )
         ( LineLoop
@@ -1562,10 +1563,10 @@ cmycolors:
             color: (cmy 1 1 0.4)
             linewidth: 5
             vertices: {
-                [  4.2  4.2 ]
-                [ -4.2  4.2 ]
+                [ 4.2 4.2 ]
+                [ -4.2 4.2 ]
                 [ -4.2 -4.2 ]
-                [  4.2 -4.2 ]
+                [ 4.2 -4.2 ]
             }
         )
         ( LineLoop
@@ -1573,10 +1574,10 @@ cmycolors:
             color: (cmy 1 1 0.2)
             linewidth: 5
             vertices: {
-                [  4.4  4.4 ]
-                [ -4.4  4.4 ]
+                [ 4.4 4.4 ]
+                [ -4.4 4.4 ]
                 [ -4.4 -4.4 ]
-                [  4.4 -4.4 ]
+                [ 4.4 -4.4 ]
             }
         )
         ( LineLoop
@@ -1584,10 +1585,10 @@ cmycolors:
             color: (cmy 1 1 0)
             linewidth: 5
             vertices: {
-                [  4.6  4.6 ]
-                [ -4.6  4.6 ]
+                [ 4.6 4.6 ]
+                [ -4.6 4.6 ]
                 [ -4.6 -4.6 ]
-                [  4.6 -4.6 ]
+                [ 4.6 -4.6 ]
             }
         )
         ( LineLoop
@@ -1595,10 +1596,10 @@ cmycolors:
             color: (cmy 0.8 0.8 0)
             linewidth: 5
             vertices: {
-                [  4.8  4.8 ]
-                [ -4.8  4.8 ]
+                [ 4.8 4.8 ]
+                [ -4.8 4.8 ]
                 [ -4.8 -4.8 ]
-                [  4.8 -4.8 ]
+                [ 4.8 -4.8 ]
             }
         )
         ( LineLoop
@@ -1606,10 +1607,10 @@ cmycolors:
             color: (cmy 0.6 0.6 0)
             linewidth: 5
             vertices: {
-                [  5  5 ]
-                [ -5  5 ]
+                [ 5 5 ]
+                [ -5 5 ]
                 [ -5 -5 ]
-                [  5 -5 ]
+                [ 5 -5 ]
             }
         )
         ( LineLoop
@@ -1617,10 +1618,10 @@ cmycolors:
             color: (cmy 0.4 1 0.4)
             linewidth: 5
             vertices: {
-                [  5.2  5.2 ]
-                [ -5.2  5.2 ]
+                [ 5.2 5.2 ]
+                [ -5.2 5.2 ]
                 [ -5.2 -5.2 ]
-                [  5.2 -5.2 ]
+                [ 5.2 -5.2 ]
             }
         )
         ( LineLoop
@@ -1628,10 +1629,10 @@ cmycolors:
             color: (cmy 0.2 1 0.2)
             linewidth: 5
             vertices: {
-                [  5.4  5.4 ]
-                [ -5.4  5.4 ]
+                [ 5.4 5.4 ]
+                [ -5.4 5.4 ]
                 [ -5.4 -5.4 ]
-                [  5.4 -5.4 ]
+                [ 5.4 -5.4 ]
             }
         )
         ( LineLoop
@@ -1639,10 +1640,10 @@ cmycolors:
             color: (cmy 0 1 0)
             linewidth: 5
             vertices: {
-                [  5.6  5.6 ]
-                [ -5.6  5.6 ]
+                [ 5.6 5.6 ]
+                [ -5.6 5.6 ]
                 [ -5.6 -5.6 ]
-                [  5.6 -5.6 ]
+                [ 5.6 -5.6 ]
             }
         )
         ( LineLoop
@@ -1650,10 +1651,10 @@ cmycolors:
             color: (cmy 0 0.8 0)
             linewidth: 5
             vertices: {
-                [  5.8  5.8 ]
-                [ -5.8  5.8 ]
+                [ 5.8 5.8 ]
+                [ -5.8 5.8 ]
                 [ -5.8 -5.8 ]
-                [  5.8 -5.8 ]
+                [ 5.8 -5.8 ]
             }
         )
         ( LineLoop
@@ -1661,10 +1662,10 @@ cmycolors:
             color: (cmy 0 0.6 0)
             linewidth: 5
             vertices: {
-                [  6  6 ]
-                [ -6  6 ]
+                [ 6 6 ]
+                [ -6 6 ]
                 [ -6 -6 ]
-                [  6 -6 ]
+                [ 6 -6 ]
             }
         )
         ( LineLoop
@@ -1672,10 +1673,10 @@ cmycolors:
             color: (cmy 0.4 1 1)
             linewidth: 5
             vertices: {
-                [  6.2  6.2 ]
-                [ -6.2  6.2 ]
+                [ 6.2 6.2 ]
+                [ -6.2 6.2 ]
                 [ -6.2 -6.2 ]
-                [  6.2 -6.2 ]
+                [ 6.2 -6.2 ]
             }
         )
         ( LineLoop
@@ -1683,10 +1684,10 @@ cmycolors:
             color: (cmy 0.2 1 1)
             linewidth: 5
             vertices: {
-                [  6.4  6.4 ]
-                [ -6.4  6.4 ]
+                [ 6.4 6.4 ]
+                [ -6.4 6.4 ]
                 [ -6.4 -6.4 ]
-                [  6.4 -6.4 ]
+                [ 6.4 -6.4 ]
             }
         )
         ( LineLoop
@@ -1694,10 +1695,10 @@ cmycolors:
             color: (cmy 0 1 1)
             linewidth: 5
             vertices: {
-                [  6.6  6.6 ]
-                [ -6.6  6.6 ]
+                [ 6.6 6.6 ]
+                [ -6.6 6.6 ]
                 [ -6.6 -6.6 ]
-                [  6.6 -6.6 ]
+                [ 6.6 -6.6 ]
             }
         )
         ( LineLoop
@@ -1705,10 +1706,10 @@ cmycolors:
             color: (cmy 0 0.8 0.8)
             linewidth: 5
             vertices: {
-                [  6.8  6.8 ]
-                [ -6.8  6.8 ]
+                [ 6.8 6.8 ]
+                [ -6.8 6.8 ]
                 [ -6.8 -6.8 ]
-                [  6.8 -6.8 ]
+                [ 6.8 -6.8 ]
             }
         )
         ( LineLoop
@@ -1716,16 +1717,16 @@ cmycolors:
             color: (cmy 0 0.6 0.6)
             linewidth: 5
             vertices: {
-                [  7  7 ]
-                [ -7  7 ]
+                [ 7 7 ]
+                [ -7 7 ]
                 [ -7 -7 ]
-                [  7 -7 ]
+                [ 7 -7 ]
             }
         )
     }
 )
-#line 99 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\PageYIQColors.epp"
+#line 99 "testBasic.epp"
+#line 1 "PageYIQColors.epp"
 
 
 
@@ -1743,10 +1744,10 @@ yiqcolors:
             color: (yiq 0.2 0 0)
             linewidth: 5
             vertices: {
-                [  0.2  0.2 ]
-                [ -0.2  0.2 ]
+                [ 0.2 0.2 ]
+                [ -0.2 0.2 ]
                 [ -0.2 -0.2 ]
-                [  0.2 -0.2 ]
+                [ 0.2 -0.2 ]
             }
         )
         ( LineLoop
@@ -1754,10 +1755,10 @@ yiqcolors:
             color: (yiq 0.4 0 0)
             linewidth: 5
             vertices: {
-                [  0.4  0.4 ]
-                [ -0.4  0.4 ]
+                [ 0.4 0.4 ]
+                [ -0.4 0.4 ]
                 [ -0.4 -0.4 ]
-                [  0.4 -0.4 ]
+                [ 0.4 -0.4 ]
             }
         )
         ( LineLoop
@@ -1765,10 +1766,10 @@ yiqcolors:
             color: (yiq 0.6 0 0)
             linewidth: 5
             vertices: {
-                [  0.6  0.6 ]
-                [ -0.6  0.6 ]
+                [ 0.6 0.6 ]
+                [ -0.6 0.6 ]
                 [ -0.6 -0.6 ]
-                [  0.6 -0.6 ]
+                [ 0.6 -0.6 ]
             }
         )
         ( LineLoop
@@ -1776,10 +1777,10 @@ yiqcolors:
             color: (yiq 0.8 0 0)
             linewidth: 5
             vertices: {
-                [  0.8  0.8 ]
-                [ -0.8  0.8 ]
+                [ 0.8 0.8 ]
+                [ -0.8 0.8 ]
                 [ -0.8 -0.8 ]
-                [  0.8 -0.8 ]
+                [ 0.8 -0.8 ]
             }
         )
         ( LineLoop
@@ -1787,10 +1788,10 @@ yiqcolors:
             color: (yiq 1 0 0)
             linewidth: 5
             vertices: {
-                [  1  1 ]
-                [ -1  1 ]
+                [ 1 1 ]
+                [ -1 1 ]
                 [ -1 -1 ]
-                [  1 -1 ]
+                [ 1 -1 ]
             }
         )
         ( LineLoop
@@ -1798,10 +1799,10 @@ yiqcolors:
             color: (yiq .532 .193 -.187)
             linewidth: 5
             vertices: {
-                [  1.2  1.2 ]
-                [ -1.2  1.2 ]
+                [ 1.2 1.2 ]
+                [ -1.2 1.2 ]
                 [ -1.2 -1.2 ]
-                [  1.2 -1.2 ]
+                [ 1.2 -1.2 ]
             }
         )
         ( LineLoop
@@ -1809,10 +1810,10 @@ yiqcolors:
             color: (yiq .709 .257 -.249)
             linewidth: 5
             vertices: {
-                [  1.4  1.4 ]
-                [ -1.4  1.4 ]
+                [ 1.4 1.4 ]
+                [ -1.4 1.4 ]
                 [ -1.4 -1.4 ]
-                [  1.4 -1.4 ]
+                [ 1.4 -1.4 ]
             }
         )
         ( LineLoop
@@ -1820,10 +1821,10 @@ yiqcolors:
             color: (yiq .886 .321 -.311)
             linewidth: 5
             vertices: {
-                [  1.6  1.6 ]
-                [ -1.6  1.6 ]
+                [ 1.6 1.6 ]
+                [ -1.6 1.6 ]
                 [ -1.6 -1.6 ]
-                [  1.6 -1.6 ]
+                [ 1.6 -1.6 ]
             }
         )
         ( LineLoop
@@ -1831,10 +1832,10 @@ yiqcolors:
             color: (yiq .909 .257 -.247)
             linewidth: 5
             vertices: {
-                [  1.8  1.8 ]
-                [ -1.8  1.8 ]
+                [ 1.8 1.8 ]
+                [ -1.8 1.8 ]
                 [ -1.8 -1.8 ]
-                [  1.8 -1.8 ]
+                [ 1.8 -1.8 ]
             }
         )
         ( LineLoop
@@ -1842,10 +1843,10 @@ yiqcolors:
             color: (yiq .932 .193 -.183)
             linewidth: 5
             vertices: {
-                [  2  2 ]
-                [ -2  2 ]
+                [ 2 2 ]
+                [ -2 2 ]
                 [ -2 -2 ]
-                [  2 -2 ]
+                [ 2 -2 ]
             }
         )
         ( LineLoop
@@ -1853,10 +1854,10 @@ yiqcolors:
             color: (yiq .352 -.165 -.311)
             linewidth: 5
             vertices: {
-                [  2.2  2.2 ]
-                [ -2.2  2.2 ]
+                [ 2.2 2.2 ]
+                [ -2.2 2.2 ]
                 [ -2.2 -2.2 ]
-                [  2.2 -2.2 ]
+                [ 2.2 -2.2 ]
             }
         )
         ( LineLoop
@@ -1864,10 +1865,10 @@ yiqcolors:
             color: (yiq .470 -.220 -.415)
             linewidth: 5
             vertices: {
-                [  2.4  2.4 ]
-                [ -2.4  2.4 ]
+                [ 2.4 2.4 ]
+                [ -2.4 2.4 ]
                 [ -2.4 -2.4 ]
-                [  2.4 -2.4 ]
+                [ 2.4 -2.4 ]
             }
         )
         ( LineLoop
@@ -1875,10 +1876,10 @@ yiqcolors:
             color: (yiq .587 -.275 -.52)
             linewidth: 5
             vertices: {
-                [  2.6  2.6 ]
-                [ -2.6  2.6 ]
+                [ 2.6 2.6 ]
+                [ -2.6 2.6 ]
                 [ -2.6 -2.6 ]
-                [  2.6 -2.6 ]
+                [ 2.6 -2.6 ]
             }
         )
         ( LineLoop
@@ -1886,10 +1887,10 @@ yiqcolors:
             color: (yiq .670 -.220 -.413)
             linewidth: 5
             vertices: {
-                [  2.8  2.8 ]
-                [ -2.8  2.8 ]
+                [ 2.8 2.8 ]
+                [ -2.8 2.8 ]
                 [ -2.8 -2.8 ]
-                [  2.8 -2.8 ]
+                [ 2.8 -2.8 ]
             }
         )
         ( LineLoop
@@ -1897,10 +1898,10 @@ yiqcolors:
             color: (yiq .752 -.165 -.307)
             linewidth: 5
             vertices: {
-                [  3  3 ]
-                [ -3  3 ]
+                [ 3 3 ]
+                [ -3 3 ]
                 [ -3 -3 ]
-                [  3 -3 ]
+                [ 3 -3 ]
             }
         )
         ( LineLoop
@@ -1908,10 +1909,10 @@ yiqcolors:
             color: (yiq .421 -.358 -.121)
             linewidth: 5
             vertices: {
-                [  3.2  3.2 ]
-                [ -3.2  3.2 ]
+                [ 3.2 3.2 ]
+                [ -3.2 3.2 ]
                 [ -3.2 -3.2 ]
-                [  3.2 -3.2 ]
+                [ 3.2 -3.2 ]
             }
         )
         ( LineLoop
@@ -1919,10 +1920,10 @@ yiqcolors:
             color: (yiq .561 -.479 -.162)
             linewidth: 5
             vertices: {
-                [  3.4  3.4 ]
-                [ -3.4  3.4 ]
+                [ 3.4 3.4 ]
+                [ -3.4 3.4 ]
                 [ -3.4 -3.4 ]
-                [  3.4 -3.4 ]
+                [ 3.4 -3.4 ]
             }
         )
         ( LineLoop
@@ -1930,10 +1931,10 @@ yiqcolors:
             color: (yiq .701 -.596 -.202)
             linewidth: 5
             vertices: {
-                [  3.6  3.6 ]
-                [ -3.6  3.6 ]
+                [ 3.6 3.6 ]
+                [ -3.6 3.6 ]
                 [ -3.6 -3.6 ]
-                [  3.6 -3.6 ]
+                [ 3.6 -3.6 ]
             }
         )
         ( LineLoop
@@ -1941,10 +1942,10 @@ yiqcolors:
             color: (yiq .761 -.477 -.160)
             linewidth: 5
             vertices: {
-                [  3.8  3.8 ]
-                [ -3.8  3.8 ]
+                [ 3.8 3.8 ]
+                [ -3.8 3.8 ]
                 [ -3.8 -3.8 ]
-                [  3.8 -3.8 ]
+                [ 3.8 -3.8 ]
             }
         )
         ( LineLoop
@@ -1952,10 +1953,10 @@ yiqcolors:
             color: (yiq .821 -.358 -.117)
             linewidth: 5
             vertices: {
-                [  4  4 ]
-                [ -4  4 ]
+                [ 4 4 ]
+                [ -4 4 ]
                 [ -4 -4 ]
-                [  4 -4 ]
+                [ 4 -4 ]
             }
         )
         ( LineLoop
@@ -1963,10 +1964,10 @@ yiqcolors:
             color: (yiq .068 -.193 .193)
             linewidth: 5
             vertices: {
-                [  4.2  4.2 ]
-                [ -4.2  4.2 ]
+                [ 4.2 4.2 ]
+                [ -4.2 4.2 ]
                 [ -4.2 -4.2 ]
-                [  4.2 -4.2 ]
+                [ 4.2 -4.2 ]
             }
         )
         ( LineLoop
@@ -1974,10 +1975,10 @@ yiqcolors:
             color: (yiq .091 -.257 .257)
             linewidth: 5
             vertices: {
-                [  4.4  4.4 ]
-                [ -4.4  4.4 ]
+                [ 4.4 4.4 ]
+                [ -4.4 4.4 ]
                 [ -4.4 -4.4 ]
-                [  4.4 -4.4 ]
+                [ 4.4 -4.4 ]
             }
         )
         ( LineLoop
@@ -1985,10 +1986,10 @@ yiqcolors:
             color: (yiq .114 -.321 .321)
             linewidth: 5
             vertices: {
-                [  4.6  4.6 ]
-                [ -4.6  4.6 ]
+                [ 4.6 4.6 ]
+                [ -4.6 4.6 ]
                 [ -4.6 -4.6 ]
-                [  4.6 -4.6 ]
+                [ 4.6 -4.6 ]
             }
         )
         ( LineLoop
@@ -1996,10 +1997,10 @@ yiqcolors:
             color: (yiq .291 -.257 .259)
             linewidth: 5
             vertices: {
-                [  4.8  4.8 ]
-                [ -4.8  4.8 ]
+                [ 4.8 4.8 ]
+                [ -4.8 4.8 ]
                 [ -4.8 -4.8 ]
-                [  4.8 -4.8 ]
+                [ 4.8 -4.8 ]
             }
         )
         ( LineLoop
@@ -2007,10 +2008,10 @@ yiqcolors:
             color: (yiq .468 -.193 .197)
             linewidth: 5
             vertices: {
-                [  5  5 ]
-                [ -5  5 ]
+                [ 5 5 ]
+                [ -5 5 ]
                 [ -5 -5 ]
-                [  5 -5 ]
+                [ 5 -5 ]
             }
         )
         ( LineLoop
@@ -2018,10 +2019,10 @@ yiqcolors:
             color: (yiq .248 .165 .307)
             linewidth: 5
             vertices: {
-                [  5.2  5.2 ]
-                [ -5.2  5.2 ]
+                [ 5.2 5.2 ]
+                [ -5.2 5.2 ]
                 [ -5.2 -5.2 ]
-                [  5.2 -5.2 ]
+                [ 5.2 -5.2 ]
             }
         )
         ( LineLoop
@@ -2029,10 +2030,10 @@ yiqcolors:
             color: (yiq .330 .220 .413)
             linewidth: 5
             vertices: {
-                [  5.4  5.4 ]
-                [ -5.4  5.4 ]
+                [ 5.4 5.4 ]
+                [ -5.4 5.4 ]
                 [ -5.4 -5.4 ]
-                [  5.4 -5.4 ]
+                [ 5.4 -5.4 ]
             }
         )
         ( LineLoop
@@ -2040,10 +2041,10 @@ yiqcolors:
             color: (yiq .413 .275 .52)
             linewidth: 5
             vertices: {
-                [  5.6  5.6 ]
-                [ -5.6  5.6 ]
+                [ 5.6 5.6 ]
+                [ -5.6 5.6 ]
                 [ -5.6 -5.6 ]
-                [  5.6 -5.6 ]
+                [ 5.6 -5.6 ]
             }
         )
         ( LineLoop
@@ -2051,10 +2052,10 @@ yiqcolors:
             color: (yiq .530 .220 .415)
             linewidth: 5
             vertices: {
-                [  5.8  5.8 ]
-                [ -5.8  5.8 ]
+                [ 5.8 5.8 ]
+                [ -5.8 5.8 ]
                 [ -5.8 -5.8 ]
-                [  5.8 -5.8 ]
+                [ 5.8 -5.8 ]
             }
         )
         ( LineLoop
@@ -2062,10 +2063,10 @@ yiqcolors:
             color: (yiq .648 .165 .311)
             linewidth: 5
             vertices: {
-                [  6  6 ]
-                [ -6  6 ]
+                [ 6 6 ]
+                [ -6 6 ]
                 [ -6 -6 ]
-                [  6 -6 ]
+                [ 6 -6 ]
             }
         )
         ( LineLoop
@@ -2073,10 +2074,10 @@ yiqcolors:
             color: (yiq .179 .358 .127)
             linewidth: 5
             vertices: {
-                [  6.2  6.2 ]
-                [ -6.2  6.2 ]
+                [ 6.2 6.2 ]
+                [ -6.2 6.2 ]
                 [ -6.2 -6.2 ]
-                [  6.2 -6.2 ]
+                [ 6.2 -6.2 ]
             }
         )
         ( LineLoop
@@ -2084,10 +2085,10 @@ yiqcolors:
             color: (yiq .239 .477 .170)
             linewidth: 5
             vertices: {
-                [  6.4  6.4 ]
-                [ -6.4  6.4 ]
+                [ 6.4 6.4 ]
+                [ -6.4 6.4 ]
                 [ -6.4 -6.4 ]
-                [  6.4 -6.4 ]
+                [ 6.4 -6.4 ]
             }
         )
         ( LineLoop
@@ -2095,10 +2096,10 @@ yiqcolors:
             color: (yiq .299 .596 .212)
             linewidth: 5
             vertices: {
-                [  6.6  6.6 ]
-                [ -6.6  6.6 ]
+                [ 6.6 6.6 ]
+                [ -6.6 6.6 ]
                 [ -6.6 -6.6 ]
-                [  6.6 -6.6 ]
+                [ 6.6 -6.6 ]
             }
         )
         ( LineLoop
@@ -2106,10 +2107,10 @@ yiqcolors:
             color: (yiq .439 .477 .172)
             linewidth: 5
             vertices: {
-                [  6.8  6.8 ]
-                [ -6.8  6.8 ]
+                [ 6.8 6.8 ]
+                [ -6.8 6.8 ]
                 [ -6.8 -6.8 ]
-                [  6.8 -6.8 ]
+                [ 6.8 -6.8 ]
             }
         )
         ( LineLoop
@@ -2117,16 +2118,16 @@ yiqcolors:
             color: (yiq .579 .358 .131)
             linewidth: 5
             vertices: {
-                [  7  7 ]
-                [ -7  7 ]
+                [ 7 7 ]
+                [ -7 7 ]
                 [ -7 -7 ]
-                [  7 -7 ]
+                [ 7 -7 ]
             }
         )
     }
 )
-#line 100 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
-  #line 1 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\MaterialPage.epp"
+#line 100 "testBasic.epp"
+#line 1 "MaterialPage.epp"
 
 
 
@@ -2139,52 +2140,52 @@ materials:
         p: yiqcolors
     }
     components: {
-        
+
 
         ( Teapot
-            
-            material: 
+
+            material:
             ( Material
-                diffuseColor: { 0.8 0.3 0.1 } 
-                specularColor: { 0.8 0.8 0.8 } 
+                diffuseColor: { 0.8 0.3 0.1 }
+                specularColor: { 0.8 0.8 0.8 }
                 shininess: 20
             )
-            filled: 1
+            filled:  1
             size: 2
         )
         ( Octahedron
             material: m9
-            filled: 1
+            filled:  1
             transform: { ( Translation 7 -4 ) ( Rotation 2 2 8 8 ) }
         )
         ( Icosahedron
             material: m8
-            filled: 1
-            transform: ( Translation 5 8 ) 
+            filled:  1
+            transform: ( Translation 5 8 )
         )
-        
+
         ( Tetrahedron
             material: m7
-            filled: 1
-            transform: { ( Translation -8 0 )  ( Rotation 3.1 2 1 1 ) ( Scale 2 2 2 2 ) }
-        )            
+            filled:  1
+            transform: { ( Translation -8 0 ) ( Rotation 3.1 2 1 1 ) ( Scale 2 2 2 2 ) }
+        )
         ( Dodecahedron
             material: m6
-            filled: 1
+            filled:  1
             transform: { ( Translation 0 -8 ) ( Rotation 1 2 1 8 ) }
         )
         ( Torus
             material: m6
-            filled: 1
+            filled:  1
             slices: 50
             stacks: 50
             radius: 1
             outerRadius: 2
-            transform: { ( Translation 0 8 ) ( Rotation 1 2 3 2 )  }
+            transform: { ( Translation 0 8 ) ( Rotation 1 2 3 2 ) }
         )
-        
+
         ( Cube
-            filled: 1
+            filled:  1
             size: 3
             material: m5
             transform: { ( Translation 7 0 ) ( Rotation 3 1 1 20 ) }
@@ -2193,277 +2194,123 @@ materials:
             material: m3
             height: 5
             topRadius: 1
-            filled: 1
+            filled:  1
             transform: { ( Translation 8 8 ) ( Rotation 1 0 0 1 ) }
         )
         ( Sphere
             slices: 100
             stacks: 100
             transform: ( Translation -7 7 )
-            filled: 1
+            filled:  1
             radius: 4
             material: m1
         )
         ( Cone
             slices: 50
             stacks: 20
-            filled: 1
+            filled:  1
             material: m4
             transform: { ( Translation 7 -7 ) ( Rotation 2 0 0 1 ) }
             height: 4
             radius: 2
         )
-        ( TestRotator 
+        ( TestRotator
             transform: ( Translation -20 0 )
             material: m2
         )
-        
-    
+
+
         rotator:
         ( Graphic
             transform: { ( Translation -8 -8 )( Rotation 1.5 1 1 1 ) }
             components: {
-            
+
                 ( Polygon
                     material: m1
                     noDisplayList: 1
-                    
+
                     vertices: {
-                        
-                        [ -3  3  3 ]
-                        [  3  3  3 ]
-                        [  3 -3  3 ]
-                        [ -3 -3  3 ] 
+
+                        [ -3 3 3 ]
+                        [ 3 3 3 ]
+                        [ 3 -3 3 ]
+                        [ -3 -3 3 ]
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
                     texture: t1
                     vertices: {
-                        
+
                         [ -3 -3 -3 ]
-                        [  3 -3 -3 ]
-                        [  3 -3  3 ]
-                        [ -3 -3  3 ]
+                        [ 3 -3 -3 ]
+                        [ 3 -3 3 ]
+                        [ -3 -3 3 ]
                     }
                     texCoord: {
                         [ 0 0 ]
                         [ 0 1 ]
                         [ 1 1 ]
-                        [ 1 0 ] 
+                        [ 1 0 ]
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
-                    
+
                     material: m2
                     vertices: {
-                        
-                        [ -3  3  3 ]
-                        [ -3  3 -3 ]
+
+                        [ -3 3 3 ]
+                        [ -3 3 -3 ]
                         [ -3 -3 -3 ]
-                        [ -3 -3  3 ]
+                        [ -3 -3 3 ]
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
-                    
+
                     material: m3
                     vertices: {
-                        
-                        [  3 -3  3 ]
-                        [  3  3  3 ]
-                        [  3  3 -3 ]
-                        [  3 -3 -3 ]
+
+                        [ 3 -3 3 ]
+                        [ 3 3 3 ]
+                        [ 3 3 -3 ]
+                        [ 3 -3 -3 ]
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
-                    
+
                     material: m4
                     vertices: {
-                        
-                        [ -3 -3  -3 ]
-                        [ -3  3  -3 ]
-                        [  3  3  -3 ]
-                        [  3 -3  -3 ]
+
+                        [ -3 -3 -3 ]
+                        [ -3 3 -3 ]
+                        [ 3 3 -3 ]
+                        [ 3 -3 -3 ]
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
-                    
+
                     material: m2
                     vertices: {
-                        
-                        [ -3  3  3 ]
-                        [  3  3  3 ]
-                        [  3  3  -3 ]
-                        [  -3  3  -3 ]
+
+                        [ -3 3 3 ]
+                        [ 3 3 3 ]
+                        [ 3 3 -3 ]
+                        [ -3 3 -3 ]
                     }
                 )
-                
-                        
+
+
             }
         )
-#line 180 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\MaterialPage.epp"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 331 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\MaterialPage.epp"
-    }   
+#line 331 "MaterialPage.epp"
+    }
 )
-
-#line 101 "c:\\oe\\openeaaglesexamples\\mainw\\inputs\\testBasic.epp"
+#line 101 "testBasic.epp"
 }
-
-
-#line 30 "inputs/test.epp"
+#line 30 "C:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
 
 )

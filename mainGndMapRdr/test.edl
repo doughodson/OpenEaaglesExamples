@@ -1,36 +1,37 @@
-#line 1 "inputs/test.epp"
+#line 1 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
 
 
 
 
 ( TestStation
-    #line 1 "c:\\oe\\openeaaglesexamples\\maingndmaprdr\\inputs\\displays.epp"
+#line 6 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+#line 1 "displays.epp"
 
 
 display:
 ( RbrDisplay
-    
+
     name: "Ground Mapping Radar Example"
-    
-    textureTest:    true            
-    
-    vpHeight:   1024    
-    vpWidth:    1024    
 
-    left:          -0.1
-    right:          1.1
-    bottom:        -0.1
-    top:            1.1
+    textureTest: true
+
+    vpHeight: 1024
+    vpWidth: 1024
+
+    left: -0.1
+    right: 1.1
+    bottom: -0.1
+    top: 1.1
 )
-#line 7 "inputs/test.epp"
-    #line 1 "c:\\oe\\openeaaglesexamples\\maingndmaprdr\\inputs\\scenario.epp"
+#line 7 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+#line 1 "scenario.epp"
 
-ownship: ownship    
+ownship: ownship
 
 simulation:
 ( Simulation
 
-    latitude:    39.0
+    latitude: 39.0
     longitude: -114.0
     freeze: false
 
@@ -44,7 +45,7 @@ simulation:
             type: "F-16"
             signature: ( SigSphere radius: 1.0 )
 
-            initLatitude:  ( LatLon direction: "n" degrees:  38 minutes: 0.0 )
+            initLatitude: ( LatLon direction: "n" degrees: 38 minutes: 0.0 )
             initLongitude: ( LatLon direction: "w" degrees: 114 minutes: 0.0 )
             initAlt: ( Feet 20000 )
 
@@ -59,36 +60,33 @@ simulation:
                 radar:
                 ( Antenna
                     initPosition: [ 0 0 ]
-                    commandRateAzimuth:   ( Degrees 180 )
+                    commandRateAzimuth: ( Degrees 180 )
                     commandRateElevation: ( Degrees 180 )
-                    reference: [ 0 -0.05236 ]                
-                    searchVolume: [ 1.570796 0.087266 ]     
+                    reference: [ 0 -0.05236 ]
+                    searchVolume: [ 1.570796 0.087266 ]
                     numBars: 4
                 )
                 sensors: ( RealBeamRadar
                     antennaName: radar
-                    powerPeak:  ( KiloWatts 500.0 )
-                    frequency:  ( GigaHertz 3.0 )
-                    PRF:        ( Hertz 500.0 ) 
+                    powerPeak: ( KiloWatts 500.0 )
+                    frequency: ( GigaHertz 3.0 )
+                    PRF: ( Hertz 500.0 )
                     pulseWidth: ( MilliSeconds 0.01 )
-                    threshold:  ( dB 2.0 )
-                    ranges:     [ 60 120 ]
+                    threshold: ( dB 2.0 )
+                    ranges: [ 60 120 ]
                     initRangeIdx: 1
-    
-                    interpolate: true       
+
+                    interpolate: true
 
                 )
 
-            } 
+            }
 
-        ) 
+        )
 
-    } 
-
-
-    
-
-    #line 1 "c:\\oe\\openeaaglesexamples\\maingndmaprdr\\inputs\\srtm.epp"
+    }
+#line 65 "scenario.epp"
+#line 1 "srtm.epp"
 
 
 
@@ -96,26 +94,22 @@ simulation:
 terrain:
 ( QuadMap
 
-    path: "../data"
+    path:  "../data"
 
     components: {
         ( QuadMap
             components: {
-                ( SrtmHgtFile file: "srtm3/N39W115.hgt" ) 
+                ( SrtmHgtFile file: "srtm3/N39W115.hgt" )
                 ( SrtmHgtFile file: "srtm3/N39W114.hgt" )
-                ( SrtmHgtFile file: "srtm3/N38W115.hgt" ) 
+                ( SrtmHgtFile file: "srtm3/N38W115.hgt" )
                 ( SrtmHgtFile file: "srtm3/N38W114.hgt" )
             }
         )
     }
 )
+#line 66 "scenario.epp"
 
 
-#line 66 "c:\\oe\\openeaaglesexamples\\maingndmaprdr\\inputs\\scenario.epp"
-
-
-) 
-
-#line 8 "inputs/test.epp"
 )
-
+#line 8 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+)

@@ -1,41 +1,41 @@
-#line 1 "inputs/test.epp"
+#line 1 "C:/oe/OpenEaaglesExamples/testEvents/inputs/test.epp"
 
 ( SendDataDisplay
-    
+
     name: "Test Events"
-            
-    left:       -10
-    right:       10
-    bottom:     -10
-    top:         10
-    near:        -50.0
-    far:          50.0
-    
+
+    left: -10
+    right: 10
+    bottom: -10
+    top: 10
+    near: -50.0
+    far: 50.0
+
     clearDepth: 1.0
     clearColor: ( rgb 0 0 0 )
-    
-    vpX:        100
-    vpY:        100
-    vpWidth:    500
-    vpHeight:   500
-    
+
+    vpX: 100
+    vpY: 100
+    vpWidth: 500
+    vpHeight: 500
+
     normalFont: default
-    
+
     fonts: {
-        default:  
-        ( FTGLPolygonFonts 
+        default:
+        ( FTGLPolygonFonts
             fontPosition: [ -10 10 ]
-            fontWidth: 1.0       
-            fontHeight: 1.0         
-            characterSpacing: 0.5   
+            fontWidth: 1.0
+            fontHeight: 1.0
+            characterSpacing: 0.5
             lineSpacing: 1
-            path: "../data/fonts/"
-            file: "arialn.ttf"        
-        )   
+            path:  "../data/fonts/"
+            file: "arialn.ttf"
+        )
     }
-    
+
     components: {
-        
+
         ( Line
             segment: 1
             linewidth: 2
@@ -45,7 +45,7 @@
                 [ 0 -10 ] [ 0 10 ]
             }
         )
-            
+
         ( AsciiText
             color: white
             reversed: 1
@@ -53,9 +53,9 @@
             position: [ 1 1 ]
         )
 
-        
-        
-        ( AsciiText 
+
+
+        ( AsciiText
             position: [ 2 1 ]
             text: "BOOLEAN:"
         )
@@ -65,8 +65,8 @@
             position: [ 2 10 ]
         )
 
-        
-        ( AsciiText 
+
+        ( AsciiText
             position: [ 3 1 ]
             text: "INTEGER:"
         )
@@ -76,9 +76,9 @@
             value: 999
             position: [ 3 9 ]
         )
-        
-        
-        ( AsciiText 
+
+
+        ( AsciiText
             position: [ 4 1 ]
             text: "FLOAT:"
         )
@@ -88,9 +88,9 @@
             value: 99.9999
             position: [ 4 10 ]
         )
-        
-        
-        ( AsciiText 
+
+
+        ( AsciiText
             position: [ 5 1 ]
             text: "DOUBLE:"
         )
@@ -101,8 +101,8 @@
             position: [ 5 10 ]
         )
 
-        
-        ( AsciiText 
+
+        ( AsciiText
             position: [ 6 1 ]
             text: "LCREAL:"
         )
@@ -112,28 +112,28 @@
             value: 999.12345
             position: [ 6 10 ]
         )
-        
-        
+
+
         ascii:
         ( AsciiText
             text: "XXXXXX"
             position: [ 7 1 ]
         )
-        
-        
-        ( AsciiText 
+
+
+        ( AsciiText
             reversed: 1
             color: cyan
             position: [ 11 1 ]
             text: "OBJECT DATA:"
         )
-        
+
         objtest:
-        ( ObjectHandler 
+        ( ObjectHandler
             components: {
-                
-                
-                ( AsciiText 
+
+
+                ( AsciiText
                     color: cyan
                     position: [ 12 1 ]
                     text: "BOOLEAN:"
@@ -144,9 +144,9 @@
                     format: "#"
                     position: [ 12 10 ]
                 )
-                
-                
-                ( AsciiText 
+
+
+                ( AsciiText
                     color: cyan
                     position: [ 13 1 ]
                     text: "INTEGER:"
@@ -158,8 +158,8 @@
                     value: 999
                     position: [ 13 9 ]
                 )
-                
-                ( AsciiText 
+
+                ( AsciiText
                     color: cyan
                     position: [ 14 1 ]
                     text: "FLOAT:"
@@ -171,9 +171,9 @@
                     value: 99.9999
                     position: [ 14 10 ]
                 )
-                
-                
-                ( AsciiText 
+
+
+                ( AsciiText
                     color: cyan
                     position: [ 15 1 ]
                     text: "DOUBLE:"
@@ -186,8 +186,8 @@
                     position: [ 15 10 ]
                 )
 
-                
-                ( AsciiText 
+
+                ( AsciiText
                     color: cyan
                     position: [ 16 1 ]
                     text: "LCREAL:"
@@ -200,29 +200,29 @@
                     position: [ 16 10 ]
                 )
 
-                
+
                 objascii:
                 ( AsciiText
                     color: cyan
                     text: "XXXXXX"
                     position: [ 17 1 ]
                 )
-                
+
             }
         )
-        
-        
+
+
         colors:
         ( Graphic
             color: red
-            components: {        
+            components: {
                 ( Polygon
                     transform: ( Translation 5 5 )
                     vertices: {
                         [ -1.9 -1.9 ]
-                        [ -1.9  1.9 ]
-                        [  1.9  1.9 ]
-                        [  1.9 -1.9 ]
+                        [ -1.9 1.9 ]
+                        [ 1.9 1.9 ]
+                        [ 1.9 -1.9 ]
                     }
                 )
                 ( AsciiText
@@ -232,8 +232,8 @@
                 )
             }
         )
-        
-        
+
+
         ( AsciiText
             color: white
             position: [ 11 27 ]
@@ -245,24 +245,24 @@
             components: {
                 matarray1:
                 ( Sphere
-                    material: 
-                    ( Material ) 
+                    material:
+                    ( Material )
                     radius: 1
                     slices: 100
                     stacks: 100
                     filled: 1
-                    transform: ( Translation 5 -5 ) 
+                    transform: ( Translation 5 -5 )
                 )
             }
         )
-        
+
         rotators2:
         ( Rotators
             components: {
                 matarray2:
                 ( Torus
-                    material: 
-                    ( Material ) 
+                    material:
+                    ( Material )
                     radius: 0.5
                     outerRadius: 1.6
                     slices: 100
@@ -272,14 +272,14 @@
                 )
             }
         )
-        
+
         rotators3:
         ( Rotators
             components: {
                 matarray3:
                 ( Torus
-                    material: 
-                    ( Material ) 
+                    material:
+                    ( Material )
                     radius: 0.5
                     outerRadius: 3
                     slices: 100
@@ -289,7 +289,7 @@
                 )
             }
         )
-            
+
 
     }
 )
