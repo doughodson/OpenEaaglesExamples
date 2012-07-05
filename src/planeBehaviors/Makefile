@@ -1,11 +1,11 @@
 #
 include ../../makedefs
 
-LIB = liboePlaneBehaviors.a
+LIB = $(OE_EXAMPLES_LIB_DIR)/libPlaneBehaviors.a
 
 # form function
 OBJS = \
-	$(LIB)(planeBehaviorsFF.o)
+	$(LIB)(formFunc.o)
 
 # PlaneBehavior family
 OBJS += \

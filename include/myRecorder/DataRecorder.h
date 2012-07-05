@@ -4,7 +4,7 @@
 #ifndef __Eaagles_MyRecorder_DataRecorder_H__
 #define __Eaagles_MyRecorder_DataRecorder_H__
 
-#include "openeaagles/Recorder/DataRecorder.h"
+#include "openeaagles/recorder/DataRecorder.h"
 
 namespace Eaagles {
 namespace MyRecorder {

@@ -12,6 +12,10 @@ include ${OE_ROOT}/src/makedefs
 # ---
 DATA_DIR = ${OE_ROOT}/../OpenEaaglesExamples/data
 
+# ---
+# Library path
+# ---
+OE_EXAMPLES_LIB_DIR = ${OE_EXAMPLES_ROOT}/lib/linux
 
 # ---
 # Modify the standard loader flags
@@ -30,10 +34,16 @@ FOX_DEFINES = -DFOX_1_6
 FOX_LIBS    = -lFOX-1.6
 
 # ---
+# CPP flags
+# ---
+CPPFLAGS += -I${OE_EXAMPLES_ROOT}/include
+
+# ---
 # EPP flags
 # ---
 EPPFLAGS = \
 	-I$(DATA_DIR) \
+        -I${OE_ROOT}/../OpenEaaglesExamples/include \
 	-I$(OE_ROOT)/include \
 	-DDATA_PATH=\"$(DATA_DIR)\" \
 	-DFONT_PATH=\"$(DATA_DIR)/fonts/\" \

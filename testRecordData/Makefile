@@ -1,13 +1,13 @@
 #
 include ../makedefs
 
-PGM = mainy1
+PGM = testRecordData
 
-OBJS  = Hsi.o DspRadar.o DspRwr.o SimStation.o
-OBJS += SpdLines.o TdAzPtr.o TdElevPtr.o TestDisplay.o
+OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
-OBJS += formFunc.o Pfd.o testy.o
+OBJS += formFunc.o main.o
 
+LDFLAGS += -lMyRecorder -lY1Panel
 LDFLAGS += -loeRecorder -loeSensors -loeVehicles
 LDFLAGS += -loeSimulation -loeInstruments -loeDis
 LDFLAGS += -loeIoDevice -loeOtw -loeDafif
@@ -18,6 +18,7 @@ LDFLAGS += -lglut -lGLU -lGL -lX11
 LDFLAGS += -lpthread -lrt
 
 CPPFLAGS += -I/usr/local/include
+LDFLAGS  += -L../lib/linux -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS += -I.
 
@@ -27,8 +28,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/test1.epp >test1.edl   $(EPPFLAGS)
-	cpp inputs/recordTest.epp >recordTest.edl   $(EPPFLAGS)
+	cpp inputs/test.epp >test.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

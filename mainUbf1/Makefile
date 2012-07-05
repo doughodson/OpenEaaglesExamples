@@ -3,15 +3,12 @@ include ../makedefs
 
 PGM = mainUbf1
 
-SUBDIRS = planeBehaviors
-
 #
 OBJS = mainUbf1.o
-OBJS += Hsi.o DspRadar.o DspRwr.o SimStation.o
-OBJS += SpdLines.o TdAzPtr.o TdElevPtr.o TestDisplay.o
-OBJS += TestIoHandler.o formFunc.o Pfd.o
+OBJS += SimStation.o TestDisplay.o
+OBJS += TestIoHandler.o formFunc.o
 
-LDFLAGS += -loePlaneBehaviors
+LDFLAGS += -lPlaneBehaviors -lY1Panel
 LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -lJSBSim -loeBasic
@@ -20,11 +17,11 @@ LDFLAGS += -lcigicl
 LDFLAGS += -lpthread -lrt
 
 CPPFLAGS += -I../
-LDFLAGS  += -L./planeBehaviors -L$(OPENEAAGLES_LIB_DIR)
+LDFLAGS  += -L../lib/linux -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS += -I.
 
-all: subdirs $(PGM)
+all: $(PGM)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
@@ -33,17 +30,7 @@ edl:
 	cpp inputs/agentTest.epp    >agentTest.edl   $(EPPFLAGS)
 	cpp inputs/simAgentTest.epp >simAgentTest.edl   $(EPPFLAGS)
 
-subdirs:
-	for subdir in $(SUBDIRS); do \
-	  echo making $@ in $$subdir; \
-	  (cd $$subdir && $(MAKE)) || exit 1; \
-	done
-
 clean:
 	-rm -f *.o
-	for subdir in $(SUBDIRS); do \
-	    echo making $@ in $$subdir; \
-	    (cd $$subdir && $(MAKE) $@) || exit 1; \
-	done
 	-rm -f $(PGM)
 
