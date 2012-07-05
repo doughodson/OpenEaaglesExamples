@@ -24,9 +24,9 @@ Example applications:
 
    mainfd2           -- Example flight display
 
-   mainGL
+   mainGL            -- Example alignment pattern drawn using only configuration file graphics.
 
-   mainGndMapRdr
+   mainGndMapRdr     -- Simple ground mapping radar example
 
    mainNonRT1   -- Example that demostrates executing the simulation as fast as possible
 
@@ -34,14 +34,6 @@ Example applications:
 
    mainPuzzle2  -- Another problem solver example (15 block puzzle)
 
-   mainTerrain
-
-   mainx9       -- General example application (and test) program
-
-   mainy1       -- Simple flight simulation program; and generates a sample
-                   data recorder (use -f recordTest.edl) that can be read by 
-                   the 'testRecordRead' application.
-   
    mainSim1     -- A very simple simulation built with and only with Eaagles classes
 
    mainSim2     -- Same as mainSim1 except multiple vehicles flying routes 
@@ -51,6 +43,10 @@ Example applications:
 
    mainSim4     -- simulation that display all players on a map
 
+   mainTerrain       -- Displays terrain elevation data
+
+   mainUbf1          -- A version of 'mainy1' used to test UBF behaviors
+
    mainw        -- Example Graphics framework test program
                    1) Contains several test MFD pages with common background
                       graphics:
@@ -58,6 +54,10 @@ Example applications:
                    3) OpenGL selection test: use cursor and left mouse button
                       to select a graphic item.  The selected item will flash.
                    4) use ESC to exit
+
+   mainx9            -- General example application (and test) program
+
+   mainy1            -- Simple flight simulation program
 
    mainz1       -- Instrument library demo program
                    1) Contains several test instrment pages 
@@ -94,8 +94,11 @@ Test applications:
 
    testTables        -- Collection of Table tests programs
 
+   testRecordData    -- Variation of 'mainy1' that has a DataRecorder attached and
+                        records a data file that can be read by 'testRecordRead'.
+
    testRecorderRead  -- Reads and prints recorder data streams or binary files.
-                     -- Can be used with 'mainy1' or 'testRecorderWrite'.
+                     -- Can be used with 'testRecordData' or 'testRecorderWrite'.
 
    testRecorderWrite -- Write test data recorder files.
 
@@ -145,3 +148,12 @@ Tutorial applications:
    tutorial08 : Slightly more complicated graphics application that demonstrates multiple
                 pages of graphics.
 
+
+
+Libraries:
+---------------------
+   libMyRecorder     Example extension of the Data Recorder
+
+   libPlaneBehaviors Example UBF behaviors
+
+   libY1             Common components from 'mainy1' used by other example programs.

@@ -1,9 +1,7 @@
 
-#include "DataRecordTest.h"
+#include "./DataRecordTest.h"
+#include "./formFunc.h"
 
-#include "openeaagles/recorder/recorderFF.h"
-#include "openeaagles/simulation/simulationFF.h"
-#include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
@@ -12,27 +10,6 @@ namespace TestRecorder {
 //=============================================================================
 // Main test functions
 //=============================================================================
-
-//-----------------------------------------------------------------------------
-// testFormFunc() -- our form function used by the parser
-//-----------------------------------------------------------------------------
-static Eaagles::Basic::Object* testFormFunc(const char* formname)
-{
-   Eaagles::Basic::Object* newform = 0;
-
-   // This test:
-   if ( strcmp(formname, DataRecordTest::getFormName()) == 0 ) {
-      newform = new DataRecordTest();
-   }
-
-    else {
-       if (newform == 0) newform = Eaagles::Simulation::simulationFormFunc(formname);
-       if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
-       if (newform == 0) newform = Eaagles::Recorder::recorderFormFunc(formname);
-    }
-
-   return newform;
-}
 
 //-----------------------------------------------------------------------------
 // readTest() -- function to the read description files
@@ -45,7 +22,7 @@ static DataRecordTest* readTest(const char* const testFile)
 
    // Read the description file
    int errors = 0;
-   Eaagles::Basic::Object* q1 = lcParser(testFile, testFormFunc, &errors);
+   Eaagles::Basic::Object* q1 = lcParser(testFile, mainFormFunc, &errors);
    if (errors > 0) {
       std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
    }

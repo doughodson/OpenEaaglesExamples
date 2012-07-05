@@ -450,8 +450,9 @@ project "mainUbf1"
       "../../mainUbf1/**.epp",
       "../../mainUbf1/**.edl"
    }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
+   includedirs { OEIncPath, OE3rdPartyIncPath, "../../include/" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   links { "libPlaneBehaviors",  "libY1Panel" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -579,8 +580,9 @@ project "mainy1"
       "../../mainy1/**.epp",
       "../../mainy1/**.edl"
    }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
+   includedirs { OEIncPath, OE3rdPartyIncPath, "../../include/" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   links { "libY1Panel" }
    configuration "Release"
       links {"oeVehicles", "JSBSim" }
       links {"oeOtw", LibCigi }

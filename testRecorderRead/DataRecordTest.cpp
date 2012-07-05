@@ -4,7 +4,7 @@
 #include "openeaagles/recorder/InputHandler.h"
 #include "openeaagles/recorder/OutputHandler.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
-#include "openeaagles/recorder/DataRecord.pb.h"
+#include "myRecorder/DataRecord.pb.h"
 
 namespace TestRecorder {
 
