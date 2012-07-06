@@ -29,18 +29,24 @@ if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
    OELibPath         = OE_ROOT.."/lib/".._ACTION
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
+   OEExamplesIncPath = "../../include"
+   OEExamplesLibPath = "../../lib/".._ACTION
 end
 if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/mingw"
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/mingw-32"
+   OEExamplesIncPath = "../../include"
+   OEExamplesLibPath = "../../lib/mingw"
 end
 if (os.is("linux")) then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/linux"
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib"
+   OEExamplesIncPath = "../../include"
+   OEExamplesLibPath = "../../lib/linux"
 end
 print ("OpenEaagles Paths:")
 print ("  Include   : "..OEIncPath)
@@ -48,6 +54,9 @@ print ("  Libraries : "..OELibPath)
 print ("OpenEaagles3rdParty Paths:")
 print ("  Include   :"..OE3rdPartyIncPath)
 print ("  Libraries :"..OE3rdPartyLibPath)
+print ("OpenEaaglesExamples Paths:")
+print ("  Include   :"..OEExamplesIncPath)
+print ("  Libraries :"..OEExamplesLibPath)
 
 --
 -- library names

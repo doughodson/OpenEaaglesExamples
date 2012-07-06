@@ -2,11 +2,11 @@
 -- creating the example libraries
 --------------------------------------------------------------------------------
 
-    --  Example extended data recorder
-    project "LibMyRecorder"
+    --  Example extended data recorder library
+    project "libMyRecorder"
       kind "StaticLib"
-      includedirs { OEIncPath, OE3rdPartyIncPath, "../../include/" }
-      targetdir ("../../lib/".._ACTION)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      targetdir (OEExamplesLibPath)
       files {
          "../../src/myRecorder/*.cpp",
          "../../src/myRecorder/*.cc",
@@ -19,11 +19,11 @@
          targetname "libMyRecorder_d"
 
 
-    --  Example UBF plane behaviors
+    --  Example UBF plane behaviors library
     project "libPlaneBehaviors"
       kind "StaticLib"
-      targetdir ("../../lib/".._ACTION)
-      includedirs { OEIncPath, OE3rdPartyIncPath, "../../include/" }
+      targetdir (OEExamplesLibPath)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
          "../../src/planeBehaviors/*.cpp",
          "../../include/planeBehaviors/*.h",
@@ -34,12 +34,11 @@
          targetname "libPlaneBehaviors_d"
 
 
-
     --  Y1 Panel library -- common instrument panel code for several examples
     project "libY1Panel"
       kind "StaticLib"
-      targetdir ("../../lib/".._ACTION)
-      includedirs { OEIncPath, OE3rdPartyIncPath, "../../include/" }
+      targetdir (OEExamplesLibPath)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
          "../../src/y1panel/*.cpp",
          "../../include/y1panel/*.h",
@@ -49,5 +48,3 @@
          targetname "libY1Panel"
       configuration "Debug"
          targetname "libY1Panel_d"
-
-
