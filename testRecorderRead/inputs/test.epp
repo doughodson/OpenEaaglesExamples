@@ -7,7 +7,7 @@
    // Input from mainy1's file
    inputHandler:
    ( RecorderFileReader
-      filename: "../mainy1/zFileWriter.ebd"
+      filename: "../data/recorder/zFileWriter.ebd"
    )
 
 #else
@@ -46,9 +46,7 @@
             fieldName:   "Eaagles.Recorder.Pb.PlayerId.name"
             compareToValS: "duck12"
          )
-         ( PrintPlayer
-            playerName: "duck12"
-         )
+         ( PrintMyData )
       }
    )
 )

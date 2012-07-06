@@ -1,8 +1,11 @@
 
 include makedefs
 
+# Libraries are first
+APPLICATIONS = src
+
 # graphic oriented examples
-APPLICATIONS =  mainw
+APPLICATIONS +=  mainw
 APPLICATIONS += mainz1 mainz2 
 APPLICATIONS += mainfd1 mainfd2
 APPLICATIONS += mainEfis

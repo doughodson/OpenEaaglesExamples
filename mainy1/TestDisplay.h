@@ -7,21 +7,11 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-
-namespace Simulation {
-   class Missile;
-   class Player;
-   class Simulation;
-   class Station;
-}
-
-namespace BasicGL {
-   class SymbolLoader;
-}
+   namespace Simulation { class Missile; class Player; class Simulation; class Station; }
+   namespace BasicGL { class SymbolLoader; }
+   namespace Y1 { class DspRadar; class DspRwr; }
 
 namespace Mainy1 {
-   class DspRadar;
-   class DspRwr;
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -88,8 +78,8 @@ private:
 
     void updatePfd(const LCreal dt);
 
-    DspRadar*       rdrDisplay;     // Test RADAR display
-    DspRwr*         rwrDisplay;     // Test RWR display
+    Y1::DspRadar*   rdrDisplay;     // Test RADAR display
+    Y1::DspRwr*     rwrDisplay;     // Test RWR display
     LCreal          range;          // SD range
 
     SendData        headingSD;

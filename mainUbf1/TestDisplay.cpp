@@ -1,9 +1,9 @@
 
 #include "TestDisplay.h"
 #include "SimStation.h"
-#include "DspRadar.h"
-#include "DspRwr.h"
-#include "Pfd.h"
+#include "y1panel/DspRadar.h"
+#include "y1panel/DspRwr.h"
+#include "y1panel/Pfd.h"
 
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Missile.h"
@@ -350,8 +350,8 @@ void TestDisplay::updateData(const LCreal dt)
    // Find and update the test RADAR display
    {
       rdrDisplay = 0;
-      Basic::Pair* p = findByType(typeid(MainUbf1::DspRadar));
-      if (p != 0) rdrDisplay = dynamic_cast<MainUbf1::DspRadar*>( p->object() );
+      Basic::Pair* p = findByType(typeid(Y1::DspRadar));
+      if (p != 0) rdrDisplay = dynamic_cast<Y1::DspRadar*>( p->object() );
    }
    if (rdrDisplay != 0 && getOwnship() != 0) {
       // Default is TWS - no, Simulation::Radar
@@ -374,8 +374,8 @@ void TestDisplay::updateData(const LCreal dt)
    // Find and update the test RWR display
    {
       rwrDisplay = 0;
-      Basic::Pair* p = findByType(typeid(DspRwr));
-      if (p != 0) rwrDisplay = dynamic_cast<DspRwr*>( p->object() );
+      Basic::Pair* p = findByType(typeid(Y1::DspRwr));
+      if (p != 0) rwrDisplay = dynamic_cast<Y1::DspRwr*>( p->object() );
    }
    if (rwrDisplay != 0 && getOwnship() != 0) {
       Simulation::Rwr* rwr = 0;
@@ -680,9 +680,9 @@ void TestDisplay::updatePfd(const LCreal)
     // barometric pressure (selected)
     baro = 29.92;    
         
-    Basic::Pair* pair = findByType(typeid(Pfd));
+    Basic::Pair* pair = findByType(typeid(Y1::Pfd));
     if (pair != 0) {
-        Pfd* p = (Pfd*)(pair->object());
+        Y1::Pfd* p = (Y1::Pfd*)(pair->object());
         if (p != 0) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);

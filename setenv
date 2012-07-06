@@ -5,6 +5,12 @@
 # ---------------------------------------------------------------------
 
 # ---
+# OpenEaagles Examples root
+# ---
+OE_EXAMPLES_ROOT=$PWD
+export OE_EXAMPLES_ROOT
+
+# ---
 # OpenEaagles root
 # ---
 OE_ROOT=$PWD/../OpenEaagles
@@ -13,8 +19,7 @@ export OE_ROOT
 # ---
 # OpenEaagles 3rd party (e.g. cigi, JSBSim) root
 # ---
-#OE_3RD_PARTY_ROOT=$HOME/projects
-OE_3RD_PARTY_ROOT=/usr/local
+OE_3RD_PARTY_ROOT=$PWD/../OpenEaagles3rdParty
 export OE_3RD_PARTY_ROOT
 
 # ---

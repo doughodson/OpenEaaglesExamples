@@ -101,6 +101,10 @@ solution "examples"
          defines { "WIN32", "_LIB", "_DEBUG" }
       end
 
+
+   -- libraries
+   dofile "libs.lua"
+
    -- examples
    dofile "examples.lua"
 

@@ -2,14 +2,16 @@ include ../makedefs
 
 PGM = testRecorderRead
 
-OBJS = main.o DataRecordTest.o
+OBJS = main.o DataRecordTest.o formFunc.o PrintMyData.o
 
+LDFLAGS += -lMyRecorder
 LDFLAGS += -loeRecorder -loeSimulation
 LDFLAGS += -loeDafif -loeBasic
 LDFLAGS += -lprotobuf
 LDFLAGS += -lrt -lpthread 
 
 CPPFLAGS += -I/usr/local/include
+LDFLAGS  += -L../lib/linux -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS +=  -I.
 
