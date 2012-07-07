@@ -1,5 +1,5 @@
 #
-# visual studio directories
+# windows specific directories
 vs2008/
 vs2010/
 codeblocks/
@@ -56,6 +56,7 @@ testLinearSys/testLinearSys
 testMatrix/testMatrix
 testNav/testNav
 testNet/testNet
+testRecordData/testRecordData
 testRecorderRead/testRecorderRead
 testRecorderWrite/testRecorderWrite
 testRng/testRng
@@ -71,5 +72,4 @@ tutorial06/tutorial06
 tutorial07/tutorial07
 tutorial08/tutorial08
 
-# linux executables
-planeBehaviors/liboePlaneBehaviors.a
+
