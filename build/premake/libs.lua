@@ -14,9 +14,9 @@
          "../../include/myRecorder/*.proto",
       }
       configuration "Release"
-         targetname "libMyRecorder"
+         targetname "myRecorder"
       configuration "Debug"
-         targetname "libMyRecorder_d"
+         targetname "myRecorder_d"
 
 
     --  Example UBF plane behaviors library
@@ -29,9 +29,9 @@
          "../../include/planeBehaviors/*.h",
       }
       configuration "Release"
-         targetname "libPlaneBehaviors"
+         targetname "planeBehaviors"
       configuration "Debug"
-         targetname "libPlaneBehaviors_d"
+         targetname "planeBehaviors_d"
 
 
     --  Y1 Panel library -- common instrument panel code for several examples
@@ -45,6 +45,6 @@
          "../../include/y1panel/**.epp",
       }
       configuration "Release"
-         targetname "libY1Panel"
+         targetname "y1Panel"
       configuration "Debug"
-         targetname "libY1Panel_d"
+         targetname "y1Panel_d"

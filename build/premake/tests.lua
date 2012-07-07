@@ -166,8 +166,8 @@ project "testRecordData"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
+   links       { "libMyRecorder", "libY1Panel" }
    configuration "Release"
-      links { "libMyRecorder", "libY1Panel" }
       links {"oeVehicles", "JSBSim" }
       links {"oeOtw", LibCigi }
       links {"oeDis", "oeRecorder", "oeSensors", "oeIoDevice" }
@@ -180,7 +180,6 @@ project "testRecordData"
          links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
       end
    configuration "Debug"
-      links { "libMyRecorder_d", "libY1Panel_d" }
       links {"oeVehicles_d", "JSBSim_d" }
       links {"oeOtw_d", "ccl_lib_d" }
       links {"oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
@@ -205,8 +204,8 @@ project "testRecorderRead"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
+   links       { "libMyRecorder" }
    configuration "Release"
-      links { "libMyRecorder" }
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
       if (os.is("linux")) then
          links {"X11", "pthread", "rt"}
@@ -214,7 +213,6 @@ project "testRecorderRead"
          links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
       end
    configuration "Debug"
-      links { "libMyRecorder_d" }
       links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
@@ -231,8 +229,8 @@ project "testRecorderWrite"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
+   links       { "libMyRecorder" }
    configuration "Release"
-      links { "libMyRecorder" }
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
       if (os.is("linux")) then
          links {"X11", "pthread", "rt"}
@@ -240,7 +238,6 @@ project "testRecorderWrite"
          links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
       end
    configuration "Debug"
-      links { "libMyRecorder_d" }
       links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
