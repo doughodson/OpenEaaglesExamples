@@ -5,7 +5,7 @@ include makedefs
 APPLICATIONS = src
 
 # graphic oriented examples
-APPLICATIONS +=  mainw
+APPLICATIONS += mainw
 APPLICATIONS += mainz1 mainz2 
 APPLICATIONS += mainfd1 mainfd2
 APPLICATIONS += mainEfis
@@ -62,6 +62,7 @@ APPLICATIONS += testNet
 APPLICATIONS += testLinearSys
 
 # data recorder read/write tests
+APPLICATIONS += testRecordData
 APPLICATIONS += testRecorderRead
 APPLICATIONS += testRecorderWrite
 
