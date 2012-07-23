@@ -26,7 +26,7 @@ public:
    PriorityArbiter();
 
    // generates an action based upon the recommended actions in the actionSet
-   virtual Basic::Ubf::Action* genComplexAction(const Basic::List* const actionSet);
+   virtual Basic::Ubf::Action* genComplexAction(Basic::List* const actionSet);
 
 private:
 
