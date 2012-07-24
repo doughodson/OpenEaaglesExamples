@@ -20,6 +20,8 @@ all:
 	  (cd $$subdir && $(MAKE)) || exit 1; \
 	done
 
+edl:
+
 clean:
 	-rm -f *.o
 	for subdir in $(LIBRARIES); do \
