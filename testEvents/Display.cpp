@@ -3,7 +3,7 @@
 
 #include "openeaagles/basic/Color.h"
 #include "openeaagles/basicGL/Material.h"
-#include "openeaagles/basic/Rand.h"
+#include "openeaagles/basic/Rng.h"
 #include "openeaagles/basic/Number.h"
 
 // disable all deprecation warnings for now, until we fix
@@ -44,7 +44,7 @@ Display::Display()
     myColor->setGreen(0.0f);
 
     // setup a random number generator to start our colors
-    Basic::Rand* rnd = new Basic::Rand();
+    Basic::Rng* rng = new Basic::Rng();
     osg::Vec4 diffColor[MAX_MATERIALS];
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator
@@ -55,13 +55,13 @@ Display::Display()
 
     // go through x amount of numbers before we get our next random number
     // this will allow for some pseudo-randomness.
-    for (int i = 0; i < seed; i++) rnd->getNextRand();
+    for (int i = 0; i < seed; i++) rng->drawClosed();
 
     float startX = 0, startY = 0, startZ = 0;
     for (int i = 0; i < MAX_MATERIALS; i++) {
         materials[i] = new BasicGL::Material();
         materialSD[i].empty();
-        diffColor[i].set((LCreal)rnd->getNextRand(), (LCreal)rnd->getNextRand(), (LCreal)rnd->getNextRand(), 1);
+        diffColor[i].set((LCreal)rng->drawClosed(), (LCreal)rng->drawClosed(), (LCreal)rng->drawClosed(), 1);
         //std::cout << "DIFF COLOR = " << diffColor[i].x() << ", " << diffColor[i].y() << ", " << diffColor[i].z() << std::endl;
         materials[i]->setDiffuseColor(diffColor[i]);
         // set up initial different colors
@@ -71,7 +71,7 @@ Display::Display()
     }
 
 
-    rnd->unref();
+    rng->unref();
     counter = 0;
 }
 

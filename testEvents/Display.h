@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Class:	BasicGL::GlutDisplay -> Display
+// Class: BasicGL::GlutDisplay -> Display
 // Description: This class will send down data to it's components in different
 // ways, showing how the SendData class works and testing our send commands.
 //------------------------------------------------------------------------------
@@ -71,3 +71,4 @@ private:
 } // End Eaagles namespace
 
 #endif
+
