@@ -23,7 +23,7 @@ OE_EXAMPLES_LIB_DIR = ${OE_EXAMPLES_ROOT}/lib/linux
 LDFLAGS += -L$(OE_ROOT)/lib/linux
 
 ifdef OE_3RD_PARTY_ROOT
-   LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib
+   LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib/linux
 endif
 
 # ---

@@ -1,7 +1,7 @@
-#line 1 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
-#line 2 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/simulation/dataRecorderTokens.h"
-#line 3 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
+#line 1 "C:/Users/gehldp/projects/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
+#line 2 "C:/Users/gehldp/projects/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/simulation/dataRecorderTokens.h"
+#line 3 "C:/Users/gehldp/projects/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
 
 ( DataRecordTest
 
@@ -9,9 +9,9 @@
 
    inputHandler:
    ( RecorderFileReader
-      filename: "../mainy1/zFileWriter.ebd"
+      filename: "../data/recorder/zFileWriter.ebd"
    )
-#line 25 "C:/oe/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
+#line 25 "C:/Users/gehldp/projects/OpenEaaglesExamples/testRecorderRead/inputs/test.epp"
    outputHandler:
    ( RecorderOutputHandler
       components: {
@@ -36,9 +36,7 @@
             fieldName: "Eaagles.Recorder.Pb.PlayerId.name"
             compareToValS: "duck12"
          )
-         ( PrintPlayer
-            playerName: "duck12"
-         )
+         ( PrintMyData )
       }
    )
 )
