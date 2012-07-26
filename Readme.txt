@@ -3,11 +3,11 @@
 Notes:
 
   1) Use makeEdl.bat to generate the example *.edl files under windows, and
-     use 'make edl" to generate the *.edl files under linux. 
+     use 'make edl' to generate the *.edl files under linux. 
 
-  2) Most of the examples are under the 'Eaagles' namespace because they're
-     part of the Eaagles package.  However, user wouldn't typically do this.  See
-     the 'mainNetText' for an example that isn't under the Eaagles namespace.
+  2) Most of the examples are under the 'Eaagles' namespace because they consisted to
+     to be part of the OpenEaagles package.  However, user wouldn't typically do this.  See
+     the 'mainNetText' for an example that is not under the Eaagles namespace.
 
   3) Most of the time, examples are run from the command prompt. If you plan to run them
      from within Visual C++, you need to set the working directory so that they can
@@ -74,11 +74,11 @@ Test applications:
 
    testEvent         -- Example & test of the Component class send() functions
 
-   testIo
+   testIo            -- Example & test of I/O device library
 
    testLinearSys
 
-   testNav
+   testNav           -- Extensive set of navigation test routines
 
    testTimer         -- Tests the functionality of the Timer class.
 
@@ -90,7 +90,7 @@ Test applications:
 
    testRng           -- Random number generator and distribution test program
 
-   testStateMach
+   testStateMach     -- Example and test of state machine class
 
    testTables        -- Collection of Table tests programs
 
@@ -101,7 +101,6 @@ Test applications:
                      -- Can be used with 'testRecordData' or 'testRecorderWrite'.
 
    testRecorderWrite -- Write test data recorder files.
-
 
 
 Tutorial applications:
@@ -157,3 +156,5 @@ Libraries:
    libPlaneBehaviors Example UBF behaviors
 
    libY1             Common components from 'mainy1' used by other example programs.
+
+
