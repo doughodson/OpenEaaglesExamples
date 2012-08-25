@@ -4,10 +4,9 @@ A general purpose test program.
 To run:
   mainx9 -f filename.edl
 
-
 Example Files:
 
-    "test1.edl" ->  Simple radar test; ownship vs. 3 targets
+    "test1.edl"  ->  Simple radar test; ownship vs. 3 targets
     
     "test2a.edl" ->  N-squared test: total 48 players (24 blue vs 24 red targets)
                   Each with a RADAR and a RWR. Plus one player with a noise jammer
@@ -23,7 +22,7 @@ Example Files:
 
     "test4a.edl" -> 2nd networked test, part #a: basically the same as test2a, but with DIS added
     "test4b.edl" -> 2nd networked test, part #b: basically the same as test3b
-                   ## Change IP addresses and subnet masks in test3a.epp and test3b.epp, and run guffit.bat
+                   ## Change IP addresses and subnet masks in test3a.epp and test3b.epp, and run makeEdl.bat
 
 
 mainx9 keyboard controls:
