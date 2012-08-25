@@ -19,11 +19,11 @@ Example Files:
 
     "test3a.edl" -> Networked test, part #a: player with a radar and missiles
     "test3b.edl" -> Networked test, part #b: target player
-                   ## Change IP addresses and subnet masks in test3a.d and test3b.d, and run guffit.bat
+                   ## Change IP addresses and subnet masks in test3a.epp and test3b.epp, and run makeEdl.bat
 
-    "test4a.edl" -> 2nd netwokred test, part #a: basically the same as test2a, but with DIS added
+    "test4a.edl" -> 2nd networked test, part #a: basically the same as test2a, but with DIS added
     "test4b.edl" -> 2nd networked test, part #b: basically the same as test3b
-                   ## Change IP addresses and subnet masks in test3a.d and test3b.d, and run guffit.bat
+                   ## Change IP addresses and subnet masks in test3a.epp and test3b.epp, and run guffit.bat
 
 
 mainx9 keyboard controls:
