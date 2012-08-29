@@ -15,6 +15,7 @@ project "mainFltk1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeSimulation", "oeDafif"}
       links {"oeInstruments", "oeBasicGL", "oeBasic"}
@@ -48,6 +49,7 @@ project "mainFox1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.6" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    defines {"FOX_1_6"}
    configuration "Release"
       links {"oeSimulation", "oeDafif", "oeInstruments"}

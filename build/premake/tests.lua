@@ -15,6 +15,7 @@ project "testEvents"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -42,6 +43,7 @@ project "testIo"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeIoDevice", "oeGlut", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -69,6 +71,7 @@ project "testLinearSys"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeLinearSys", "oeBasic"}
       if (os.is("linux")) then
@@ -93,6 +96,7 @@ project "testNav"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -117,6 +121,7 @@ project "testMatrix"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -141,6 +146,7 @@ project "testNet"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -167,6 +173,7 @@ project "testRecordData"
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
    links       { "libMyRecorder", "libY1Panel" }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim" }
       links {"oeOtw", LibCigi }
@@ -190,7 +197,6 @@ project "testRecordData"
       links {"JSBSim_d", "ccl_lib_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
 
-
 -- testRecorderRead
 project "testRecorderRead"
    targetname "testRecorderRead"
@@ -205,6 +211,7 @@ project "testRecorderRead"
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
    links       { "libMyRecorder" }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
       if (os.is("linux")) then
@@ -230,6 +237,7 @@ project "testRecorderWrite"
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
    links       { "libMyRecorder" }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
       if (os.is("linux")) then
@@ -254,6 +262,7 @@ project "testRng"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -278,6 +287,7 @@ project "testStateMach"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -302,6 +312,7 @@ project "testTables"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -325,6 +336,7 @@ project "testTimer"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -335,4 +347,3 @@ project "testTimer"
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
-

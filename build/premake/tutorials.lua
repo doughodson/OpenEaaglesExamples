@@ -13,6 +13,7 @@ project "tutorial01"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -35,6 +36,7 @@ project "tutorial02"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -59,6 +61,7 @@ project "tutorial03"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -83,6 +86,7 @@ project "tutorial04"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -107,6 +111,7 @@ project "tutorial05"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -131,6 +136,7 @@ project "tutorial06"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
       if (os.is("linux")) then
@@ -155,6 +161,7 @@ project "tutorial07"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -182,6 +189,7 @@ project "tutorial08"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}

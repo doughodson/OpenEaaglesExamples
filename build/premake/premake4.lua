@@ -98,7 +98,7 @@ solution "examples"
       if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
          -- enable compilier intrinsics and favor speed over size
          buildoptions { "/Oi", "/Ot" }
-         defines { "WIN32", "_LIB", "NDEBUG" }
+         defines { "WIN32", "NDEBUG" }
       end
 
    -- common debug configuration flags and symbols
@@ -107,7 +107,7 @@ solution "examples"
       if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
          -- enable compilier intrinsics
          buildoptions { "/Oi" }
-         defines { "WIN32", "_LIB", "_DEBUG" }
+         defines { "WIN32", "_DEBUG" }
       end
 
 

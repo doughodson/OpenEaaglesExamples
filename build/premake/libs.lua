@@ -13,6 +13,7 @@
          "../../include/myRecorder/*.h",
          "../../include/myRecorder/*.proto",
       }
+      defines { "_LIB" }
       configuration "Release"
          targetname "myRecorder"
       configuration "Debug"
@@ -28,6 +29,7 @@
          "../../src/planeBehaviors/*.cpp",
          "../../include/planeBehaviors/*.h",
       }
+      defines { "_LIB" }
       configuration "Release"
          targetname "planeBehaviors"
       configuration "Debug"
@@ -44,6 +46,7 @@
          "../../include/y1panel/*.h",
          "../../include/y1panel/**.epp",
       }
+      defines { "_LIB" }
       configuration "Release"
          targetname "y1Panel"
       configuration "Debug"

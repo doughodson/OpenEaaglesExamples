@@ -16,6 +16,7 @@ project "mainEfis"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -43,6 +44,7 @@ project "mainfd1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -70,6 +72,7 @@ project "mainfd2"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -97,6 +100,7 @@ project "mainGL"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -124,6 +128,7 @@ project "mainGndMapRdr"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
@@ -153,6 +158,7 @@ project "mainIr"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -189,6 +195,7 @@ project "mainNonRT1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -225,6 +232,7 @@ project "mainPuzzle1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -252,6 +260,7 @@ project "mainPuzzle2"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -279,6 +288,7 @@ project "mainSim1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -315,6 +325,7 @@ project "mainSim2"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -351,6 +362,7 @@ project "mainSim3"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -387,6 +399,7 @@ project "mainSim4"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -423,6 +436,7 @@ project "mainTerrain"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeTerrain"}
       links {"oeGlut", "oeBasicGL", "oeBasic"}
@@ -453,6 +467,7 @@ project "mainUbf1"
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
    links { "libPlaneBehaviors",  "libY1Panel" }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -489,6 +504,7 @@ project "mainVmap"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeMaps"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
@@ -519,6 +535,7 @@ project "mainw"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -546,6 +563,7 @@ project "mainx9"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
       links {"oeOtw", LibCigi}
@@ -583,6 +601,7 @@ project "mainy1"
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
    links       { "libY1Panel" }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim" }
       links {"oeOtw", LibCigi }
@@ -619,6 +638,7 @@ project "mainz1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
@@ -646,6 +666,7 @@ project "mainz2"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
