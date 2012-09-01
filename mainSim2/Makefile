@@ -5,12 +5,10 @@ PGM = mainSim2
 
 OBJS = main.o
 
-LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation -lJSBSim 
-LDFLAGS += -loeInstruments -loeOtw -loeDafif
-LDFLAGS += -loeBasicGL -loeBasic -lrt -lcigicl 
-LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
-#LDFLAGS += -lXi -lXmu
-LDFLAGS += -lpthread 
+LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation
+LDFLAGS += -loeOtw -loeDafif -loeBasic
+LDFLAGS += -lcigicl -lJSBSim 
+LDFLAGS += -lrt -lpthread 
 
 CPPFLAGS += -I/usr/local/include
 

@@ -18,18 +18,18 @@ namespace TestNav {
 // -----------------------------------------------------------------------------
 // Global Variables (and Constants)
 // -----------------------------------------------------------------------------
-   double slat = 0.0;
-   double slon = 0.0;
-   double tlat = 1.0;
-   double tlon = 1.0;
-   double brng = 45.0;
-   double dist = 100.0;
-   const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
+static double slat = 0.0;
+static double slon = 0.0;
+static double tlat = 1.0;
+static double tlon = 1.0;
+static double brng = 45.0;
+static double dist = 100.0;
+static const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
 
-   int testNumber = 0;
-   char ynCont = 'y';
-   char ynMenu = 'y';
-   const char* enterYourOwnData = "Enter your own data? (y/n) : ";
+static int testNumber = 0;
+static char ynCont = 'y';
+static char ynMenu = 'y';
+static const char* enterYourOwnData = "Enter your own data? (y/n) : ";
    
 //------------------------------------------------------------------------------
 // prototype functions
@@ -4434,14 +4434,24 @@ void test27_convertUtm()
 {
 
    const unsigned int ARRAY_SIZE = 38;
-   double lat[ARRAY_SIZE] = { -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0, 
-                                0.0,  10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0,
-                              -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0, 
-                                0.0,  10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0 };
+   //double lat[ARRAY_SIZE] = { -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0,   0.0,
+   //                            10.0,  20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,   90.0,
+   //                           -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0,   0.0,
+   //                            10.0,  20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,   90.0 };
+   //                             
+   //double lon[ARRAY_SIZE] = {  0.0,   10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0,
+   //                          100.0,  110.0,  120.0,  130.0,  140.0,  150.0,  160.0,  170.0,  180.0,
+   //                            0.0,  -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0, -90.0,
+   //                         -100.0, -110.0, -120.0, -130.0, -140.0, -150.0, -160.0, -170.0, -180.0 };
+
+   double lat[ARRAY_SIZE] = { -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0,    0.0,
+                               10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,    0.0,
+                              -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0,    0.0,
+                               10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,    0.0 };
                                 
-   double lon[ARRAY_SIZE] = {  0.0,   10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0,
+   double lon[ARRAY_SIZE] = {  10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,   90.0,
                              100.0,  110.0,  120.0,  130.0,  140.0,  150.0,  160.0,  170.0,  180.0,
-                               0.0,  -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0, -90.0,
+                              -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0,  -90.0,
                             -100.0, -110.0, -120.0, -130.0, -140.0, -150.0, -160.0, -170.0, -180.0};
 
    char   Zone[6];
@@ -4491,7 +4501,38 @@ void test27_convertUtm()
 //==============================================================================
 int main(int argc, char* argv[])
 {
-   return Eaagles::TestNav::testNavFns();
+   bool runAll = false;
+   bool imode = false;
 
+   for (int i = 1; i < argc; i++) {
+      if (strcmp(argv[i],"-a") == 0) {
+         runAll = true;
+      }
+      else if (strcmp(argv[i],"-i") == 0) {
+         imode = true;
+      }
+   }
+
+   if (runAll) {
+      // Run all tests
+      Eaagles::TestNav::testNumber = 99;
+      Eaagles::TestNav::test99_printAllExamples();
+   }
+   else if (imode) {
+      // Interactive mode
+      Eaagles::TestNav::testNavFns();
+   }
+   else {
+      std::cout                                             << std::endl;
+      std::cout << "Test Basic::Nav functions ---"          << std::endl;
+      std::cout                                             << std::endl;
+      std::cout << "testNav [-i] [-a]"                      << std::endl;
+      std::cout << " where:"                                << std::endl;
+      std::cout << "    -i    Interactive mode"             << std::endl;
+      std::cout << "    -a    Batch mode (Run all tests)"   << std::endl;
+      std::cout                                             << std::endl;
+   }
+
+   return EXIT_SUCCESS;
 }
 

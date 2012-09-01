@@ -1,14 +1,7 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainSim2/inputs/test2.epp"
-
-
-
-
-
-
-
-
-
-
+# 1 "inputs/test2.epp"
+# 1 "<command-line>"
+# 1 "inputs/test2.epp"
+# 11 "inputs/test2.epp"
 ( Station
 
 
@@ -17,8 +10,8 @@
 
    netPriority: 1.0
    netRate: 5.0
-#line 20 "C:/oe/OpenEaaglesExamples/mainSim2/inputs/test2.epp"
-#line 1 "./test2/networkSetup.epp"
+
+# 1 "inputs/./test2/networkSetup.epp" 1
 
 networks: {
   ( DisNetIO
@@ -78,8 +71,8 @@ networks: {
          emitterFunction: 2
          sensor: ( Radar typeId: "TWS" )
          antenna: ( Antenna
-#line 61 "./test2/networkSetup.epp"
-#line 1 "./gainPattern.epp"
+
+# 1 "inputs/./test2/./gainPattern.epp" 1
 
 
 
@@ -92,7 +85,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 62 "./test2/networkSetup.epp"
+# 62 "inputs/./test2/networkSetup.epp" 2
             initPosition: [ 0 0 ]
             maxRates: [ 0.8727 0.6981 ]
             reference: [ 0 0 ]
@@ -115,15 +108,16 @@ gainPattern:
          defaultOut: true
       )
    }
-#line 86 "./test2/networkSetup.epp"
-#line 1 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+
+
+# 1 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp" 1
 
 
 
 
 
 inputEntityTypes: {
-#line 21 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 21 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 1 1 225 1 1 3 0 ]
         template: ( Tank type: "M1A2" signature: ( SigConstant rcs: ( dB 20 ) ) )
@@ -255,7 +249,7 @@ inputEntityTypes: {
         disEntityType: [ 1 1 225 100 0 0 0 ]
         template: ( GroundStationUav signature: ( SigConstant rcs: ( dB 20 ) ) )
     )
-#line 165 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 165 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 1 1 222 1 1 0 0 ]
         template: ( Tank type: "T-80" signature: ( SigConstant rcs: ( dB 20 ) ) )
@@ -567,7 +561,7 @@ inputEntityTypes: {
         disEntityType: [ 1 1 222 38 0 0 0 ]
         template: ( GroundStation type: "MissileDefenseFacility" signature: ( SigConstant rcs: ( dB 20 ) ) )
     )
-#line 490 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 490 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 1 2 225 1 2 1 0 ]
         template: ( Aircraft type: "F-14A" signature: ( SigConstant rcs: ( dB 10 ) ) )
@@ -1219,7 +1213,7 @@ inputEntityTypes: {
         disEntityType: [ 1 2 225 57 0 0 0 ]
         template: ( Aircraft type: "B-727" signature: ( SigConstant rcs: ( dB 10 ) ) )
     )
-#line 1153 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1153 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 1 3 225 3 0 0 0 ]
         template: ( Ship type: "MissileCruiser" signature: ( SigConstant rcs: ( dB 100 ) ) )
@@ -1245,7 +1239,7 @@ inputEntityTypes: {
         disEntityType: [ 1 4 225 3 0 0 0 ]
         template: ( Ship type: "AttackSubmarine" signature: ( SigConstant rcs: ( dB 100 ) ) )
     )
-#line 1196 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1196 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 2 1 225 1 1 1 0 ]
         template: ( Missile type: "AIM-9B" signature: ( SigConstant rcs: ( dB 1 ) ) )
@@ -1324,7 +1318,7 @@ inputEntityTypes: {
         disEntityType: [ 2 1 225 1 0 0 0 ]
         template: ( Missile type: "AIM-120" signature: ( SigConstant rcs: ( dB 1 ) ) )
     )
-#line 1291 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1291 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 2 2 225 1 3 0 0 ]
         template: ( Missile type: "AGM-114" signature: ( SigConstant rcs: ( dB 1 ) ) )
@@ -1338,7 +1332,7 @@ inputEntityTypes: {
         disEntityType: [ 2 2 225 1 4 0 0 ]
         template: ( Missile type: "AGM-65" signature: ( SigConstant rcs: ( dB 1 ) ) )
     )
-#line 1321 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1321 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 2 4 225 1 1 1 0 ]
         template: ( Missile type: "AGM-88A" signature: ( SigConstant rcs: ( dB 1 ) ) )
@@ -1355,26 +1349,17 @@ inputEntityTypes: {
         disEntityType: [ 2 4 225 1 1 0 0 ]
         template: ( Missile type: "AGM-88" signature: ( SigConstant rcs: ( dB 1 ) ) )
     )
-#line 1354 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1354 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 2 6 225 1 1 15 0 ]
         template: ( Missile type: "Harpoon" signature: ( SigConstant rcs: ( dB 1 ) ) )
     )
-
-
-
-
-
-
-
-
-
-
+# 1368 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 2 6 71 1 1 0 0 ]
         template: ( Missile type: "Exocet" signature: ( SigConstant rcs: ( dB 1 ) ) )
     )
-#line 1388 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1388 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 2 9 225 1 14 0 0 ]
         template: ( Bomb type: "GBU-12" signature: ( SigConstant rcs: ( dB 1 ) ) )
@@ -1404,7 +1389,7 @@ inputEntityTypes: {
         disEntityType: [ 2 9 225 1 19 0 0 ]
         template: ( Missile type: "BGM-109" signature: ( SigConstant rcs: ( dB 1 ) ) )
     )
-#line 1428 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1428 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 3 1 222 1 41 1 0 ]
         template: ( LifeForm type: "Soldier1" signature: ( SigConstant rcs: ( dB 5 ) ) )
@@ -1421,7 +1406,7 @@ inputEntityTypes: {
         disEntityType: [ 3 1 222 1 41 0 0 ]
         template: ( LifeForm type: "LifeForm" signature: ( SigConstant rcs: ( dB 5 ) ) )
     )
-#line 1455 "C:/oe/OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
+# 1455 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisIncomingEntityTypes.epp"
     ( DisNtm
         disEntityType: [ 5 1 222 2 1 3 0 ]
         template: ( Building type: "BermedBunker" signature: ( SigConstant rcs: ( dB 10 ) ) )
@@ -1430,23 +1415,14 @@ inputEntityTypes: {
 
 
 }
-#line 87 "./test2/networkSetup.epp"
-#line 1 "C:/oe/OpenEaaglesExamples/data/DisOutgoingEntityTypes.epp"
+# 87 "inputs/./test2/networkSetup.epp" 2
+# 1 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisOutgoingEntityTypes.epp" 1
 
 
 
 
 outputEntityTypes: {
-
-
-
-
-
-
-
-
-
-
+# 16 "/home/dave/projects/OpenEaaglesExamples/../OpenEaagles/../OpenEaaglesExamples/data/DisOutgoingEntityTypes.epp"
 ( DisNtm disEntityType: [ 1 2 225 1 2 1 0 ] template: ( Aircraft type: "F-14A" ) )
 ( DisNtm disEntityType: [ 1 2 225 1 2 2 0 ] template: ( Aircraft type: "F-14D" ) )
 ( DisNtm disEntityType: [ 1 2 225 1 2 0 0 ] template: ( Aircraft type: "F-14" ) )
@@ -1728,12 +1704,12 @@ outputEntityTypes: {
 ( DisNtm disEntityType: [ 2 9 225 1 19 2 0 ] template: ( Missile type: "BGM-109" ) )
 
 }
-#line 88 "./test2/networkSetup.epp"
+# 88 "inputs/./test2/networkSetup.epp" 2
 
   )
 }
-#line 21 "C:/oe/OpenEaaglesExamples/mainSim2/inputs/test2.epp"
-#line 1 "./test2/scenario.epp"
+# 21 "inputs/test2.epp" 2
+# 1 "inputs/./test2/scenario.epp" 1
 
 
 
@@ -1748,13 +1724,12 @@ simulation: ( Simulation
    freeze: false
 
 
-   latitude:  37.0
-   longitude:  -116.0
+   latitude: 37.0
+   longitude: -116.0
 
 
    players: {
-#line 20 "./test2/scenario.epp"
-#line 1 "./players.epp"
+# 1 "inputs/./test2/./players.epp" 1
 
 p1:
 ( Aircraft
@@ -50128,9 +50103,9 @@ p6061:
    initHeading: ( Degrees 0 )
    initVelocity: 250
 )
-#line 21 "./test2/scenario.epp"
+# 21 "inputs/./test2/scenario.epp" 2
 
   }
 )
-#line 22 "C:/oe/OpenEaaglesExamples/mainSim2/inputs/test2.epp"
+# 22 "inputs/test2.epp" 2
 )
