@@ -2,8 +2,8 @@
 networks: {
   ( DisNetIO
 
-   siteID: 69
-   applicationID: 1
+   siteID: 2
+   applicationID: 3
    exerciseID: 1
 
    enableInput: true
@@ -13,8 +13,8 @@ networks: {
     maxTimeDR: { K1D01: ( Seconds 20 ) }
 
     netInput:  ( BroadcastHandler 
-      localIpAddress:   "172.17.160.92"
-      networkMask:      "255.255.248.0"
+      localIpAddress:   localhost
+      networkMask:      "255.0.0.0"
       port: 3000 
       ignoreSourcePort: 3002 
       shared: true
@@ -23,8 +23,8 @@ networks: {
     )
    
     netOutput: ( BroadcastHandler
-      localIpAddress: "172.17.160.92"
-      networkMask:    "255.255.248.0"
+      localIpAddress:   localhost
+      networkMask:      "255.0.0.0"
       port: 3000
       localPort: 3002
       shared: true 

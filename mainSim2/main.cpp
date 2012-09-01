@@ -131,6 +131,7 @@ int exec(int argc, char* argv[])
 */
 
   }
+  return 0;
 }
 
 } // namespace Sim2
@@ -141,5 +142,5 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Sim2::exec(argc, argv);
+  return Eaagles::Sim2::exec(argc, argv);
 }

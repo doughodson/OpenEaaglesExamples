@@ -4,8 +4,7 @@ include ../makedefs
 PGM = testNav
 OBJS =  testNav.o
 
-LDFLAGS += -loeBasic -lX11
-#LDFLAGS += -lXi -lXmu
+LDFLAGS += -loeBasic
 
 all: $(PGM)
 
