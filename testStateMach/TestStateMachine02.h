@@ -13,7 +13,7 @@ namespace TestStateMach {
 // Class: TestStateMachine02
 // Description: State Machine Test #2 -- 
 //
-//    Same as Test #1 except that we're using seperate state specific functions.
+//    Same as Test #1 except that we're using separate state specific functions.
 //
 //------------------------------------------------------------------------------
 class TestStateMachine02 : public Basic::StateMachine {

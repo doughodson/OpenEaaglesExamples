@@ -32,7 +32,7 @@ TestIoHandler::TestIoHandler()
 }
 
 //------------------------------------------------------------------------------
-// initData -- initalize our data for the first time
+// initData -- initialize our data for the first time
 //------------------------------------------------------------------------------
 void TestIoHandler::initData()
 {

@@ -87,7 +87,7 @@ void RdrAlt::updateData(const LCreal dt)
     bool tooLow = false;
     if (rAlt < rAltMin) tooLow = true;
        
-    // we have to find each readout seperately, get it's individual display, and 
+    // we have to find each readout separately, get it's individual display, and 
     // change the color
     // here is the minimum readout display
     Basic::Pair* pair = findByName("rmin");

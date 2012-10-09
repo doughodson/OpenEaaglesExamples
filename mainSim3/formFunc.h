@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// icpFormFunc() -- parser form function for ICP pages
+// sim3FormFunc() -- parser form function
 //------------------------------------------------------------------------------
 
 #include "openeaagles/basic/support.h"

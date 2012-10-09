@@ -25,7 +25,7 @@ public:
 private:
     LCreal heading;             // our heading 
     SendData headingSD;
-    LCreal  headingRate;           // rate which are going (up or down)
+    LCreal  headingRate;        // rate which are going (up or down)
     SendData headingROSD;
     SendData dmeROSD;           // dme
     LCreal dme;

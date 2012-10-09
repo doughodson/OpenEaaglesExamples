@@ -107,7 +107,7 @@ int main(int, char* [])
     // test our real time process (not needed here)
     //sys->createRealTimeProcess();
 
-    // run at 20 HZ roughly, backround thread
+    // run at 20 HZ roughly, background thread
     double dt = 1 / 20.f;
     // create our update data timer
     Fl::add_timeout(dt, update, sys);

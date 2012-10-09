@@ -310,7 +310,7 @@ void Display::updateData(const LCreal dt)
    GLsizei vpHeight = 0;
    getViewportSize(&vpWidth, &vpHeight);
 
-   // Generate an image when we have the terrain, a view port and we dont' have an image
+   // Generate an image when we have the terrain, a view port and we don't have an image
    if ( terrain != 0 && terrain->isDataLoaded() &&
         vpWidth > 0 && vpHeight > 0 &&
         image == 0) {
@@ -337,7 +337,7 @@ void Display::updateData(const LCreal dt)
          const int NUM_COLUMNS = imgWidth;
          const int NUM_ROWS = imgHeight;
 
-         // Allocatin space for 'multi-point' tests 
+         // Allocating space for 'multi-point' tests 
          LCreal* elevations = 0;
          LCreal* aacData = 0;
          bool* validFlgs = 0;
@@ -364,7 +364,7 @@ void Display::updateData(const LCreal dt)
          double deltaLat = terrain->getLatitudeNE()  - terrain->getLatitudeSW();
          double deltaLon = terrain->getLongitudeNE() - terrain->getLongitudeSW();
 
-         // Compute center positin (degs)
+         // Compute center position (degs)
          double cLat = terrain->getLatitudeSW()  + deltaLat / 2.0;
          double cLon = terrain->getLongitudeSW() + deltaLon / 2.0;
 
@@ -450,11 +450,11 @@ void Display::updateData(const LCreal dt)
                LCreal maxRng = (LCreal)(deltaLat * 60.0f * Basic::Distance::NM2M);
 
                // Direction
-               //LCreal direciton = 30.0f * LCreal(icol - NUM_COLUMNS/2)/LCreal(NUM_COLUMNS/2);
-               LCreal direciton = 0;
+               //LCreal direction = 30.0f * LCreal(icol - NUM_COLUMNS/2)/LCreal(NUM_COLUMNS/2);
+               LCreal direction = 0;
 
                // get a strip of elevations from south to north
-               unsigned int num = terrain->getElevations(elevations, validFlgs, NUM_ROWS, latitude, longitude, direciton, maxRng, interpolate);
+               unsigned int num = terrain->getElevations(elevations, validFlgs, NUM_ROWS, latitude, longitude, direction, maxRng, interpolate);
 
                // Apply earth curvature effects to terrain elevations
                if (testEarthCurv) {
@@ -498,7 +498,7 @@ void Display::updateData(const LCreal dt)
                   valid = terrain->getElevation(&elev, latitude, longitude, interpolate);
                }
 
-               // If valid and not masked, convert the elevatin to a color (or gray) value
+               // If valid and not masked, convert the elevation to a color (or gray) value
                if (valid && !(testShadows && maskFlgs[irow])) {
                   if (colorScale == GRAY_SCALE)
                      Basic::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);

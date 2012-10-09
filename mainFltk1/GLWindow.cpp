@@ -47,7 +47,7 @@ GLWindow::GLWindow(int x,int y) : Fl_Gl_Window(x,y)
 
 // ----------------------------------------------------------------------------
 // destructor() - just take care of eaagles deletion here, because Fltk
-// automatically destroyes it's child windows upon destruction.
+// automatically destroys it's child windows upon destruction.
 // ----------------------------------------------------------------------------
 GLWindow::~GLWindow()
 {

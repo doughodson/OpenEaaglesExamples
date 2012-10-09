@@ -30,7 +30,7 @@ public:
    Block();
 
    unsigned int getX() const        { return x; }              // Blocks X (horizontal) position; one is most left
-   unsigned int getY() const        { return y; }              // blocks Y (vetical) position; one is at the bottom
+   unsigned int getY() const        { return y; }              // blocks Y (vertical) position; one is at the bottom
 
    unsigned int getReferenceID() const { return refId; }       // Block's reference ID number
 
@@ -41,7 +41,7 @@ public:
    // Tests to see if we can move dx, dy; returns true if we can
    virtual bool testMove(const int dx, const int dy, const Puzzle* const puz) const;
 
-   // Trys to move block by dx and dy; returns true if successful
+   // Tries to move block by dx and dy; returns true if successful
    virtual bool move(const int dx, const int dy, const Puzzle* const puz);
 
    // True if we collide with the test block

@@ -23,8 +23,8 @@
          enableInput: true
          enableOutput: true
          enableRelay: false
-         netInput: ( BroadcastHandler localIpAddress: "172.17.160.92" networkMask: "255.255.248.0" port: 3000 ignoreSourcePort: 3002 shared: true )
-         netOutput: ( BroadcastHandler localIpAddress: "172.17.160.92" networkMask: "255.255.248.0" port: 3000 localPort: 3002 shared: true )
+         netInput: ( BroadcastHandler localIpAddress: "10.1.2.98" networkMask: "255.255.248.0" port: 3000 ignoreSourcePort: 3002 shared: true )
+         netOutput: ( BroadcastHandler localIpAddress: "10.1.2.98" networkMask: "255.255.248.0" port: 3000 localPort: 3002 shared: true )
 
 
          emissionPduHandlers: {

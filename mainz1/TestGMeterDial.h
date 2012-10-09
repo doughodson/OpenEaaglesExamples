@@ -27,7 +27,7 @@ private:
     SendData currGsSD;
     SendData currGsROSD;
     LCreal gRate;
-    LCreal timer;       // our timer for reseting the g meter
+    LCreal timer;       // our timer for resetting the g meter
     LCreal timerRate;   
 };
 

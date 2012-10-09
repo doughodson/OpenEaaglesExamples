@@ -34,7 +34,7 @@ public:
 
 protected:
    virtual bool setSlotPuzzle(Puzzle* const s);                       // Sets the Puzzle controller
-   virtual bool setSlotTemplates(const Basic::PairStream* const s); // Sets a list of the graphical templates for the blocks
+   virtual bool setSlotTemplates(const Basic::PairStream* const s);   // Sets a list of the graphical templates for the blocks
    virtual unsigned int setupBlockGraphics();                         // Setup the list of BasicGL::Graphic objects for the initial blocks
    virtual void clearGraphics();                                      // Clears the list of BasicGL::Graphic objects for the blocks
    virtual void updateSolutionPath(const LCreal dt);                  // Updates the solution path graphics
@@ -42,7 +42,7 @@ protected:
    virtual void updateBlockDeltaPositions();                          // Updates the blocks' delta positions
 
 private:
-   const Basic::PairStream* templates;  // Graphical templates for the blocks
+   const Basic::PairStream* templates;    // Graphical templates for the blocks
    Puzzle*        puzzle;                 // the puzzle
    LCreal         startupTimer;           // Movement timer
 
@@ -56,7 +56,7 @@ private:
    bool           movingFlg;                 // Block is moving
 
    static const unsigned int MAX_BLOCKS = 30;
-   BasicGL::Graphic*  blocks[MAX_BLOCKS];  // Graphcis for each block
+   BasicGL::Graphic*  blocks[MAX_BLOCKS];    // Graphics for each block
    unsigned int         blockId[MAX_BLOCKS]; // Block reference IDs
    LCreal               xp[MAX_BLOCKS];      // Block X positions
    LCreal               yp[MAX_BLOCKS];      // Block Y positions

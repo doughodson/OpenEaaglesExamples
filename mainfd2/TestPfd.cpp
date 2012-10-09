@@ -251,7 +251,7 @@ void TestPfd::updateData(const LCreal dt)
     }
            
     // flight director stuff 
-    // flight diretor bank angle
+    // flight director bank angle
     fDirBank += fDirBankRate * dt;
     if (fDirBank > 90) {
         fDirBank = 90;

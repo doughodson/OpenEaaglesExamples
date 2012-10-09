@@ -9,7 +9,7 @@
 #include "openeaagles/basic/String.h"
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/Identifier.h"
-#include <stdlib.h>
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Example05 {
@@ -237,7 +237,7 @@ bool MyObj::setSlotMessage(const Basic::String* const x)
 
 //------------------------------------------------------------------------------
 // isValid() -- I'm not going to actually check anything - this method is here
-//              to demostrate that the capabilty to check data exists within
+//              to demonstrate that the capability to check data exists within
 //              the framework
 //------------------------------------------------------------------------------
 bool MyObj::isValid() const

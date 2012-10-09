@@ -31,7 +31,7 @@ public:
     virtual bool setAirSpeedKts(const LCreal newAS);    // Sets airspeed (kts)
     virtual bool setCmdAirSpdKts(const LCreal newCAS);  // Sets commanded airspeed (kts)
     virtual bool setAltitudeFt(const LCreal newA);      // Sets pressure altitude (ft)
-    virtual bool setCmdAltFt(const LCreal newCA);       // Sets comanded altitude (ft)
+    virtual bool setCmdAltFt(const LCreal newCA);       // Sets commanded altitude (ft)
     virtual bool setGlideslope(const LCreal newGS);     // Sets glide slope deviation (dots)
     virtual bool setLatDev(const LCreal newLD);         // Sets localizer deviation (dots)
     virtual bool setVVI(const LCreal newVVI);           // Sets vertical velocity (ft/min)
@@ -90,7 +90,7 @@ private:
     SendData bascaleSD;
     
     // heading and nav stuff
-    LCreal trueHdg;         // True heanding (degs)
+    LCreal trueHdg;         // True heading (degs)
     SendData tHdgSD;
 
     LCreal cmdHdg;          // commanded heading (heading bug)

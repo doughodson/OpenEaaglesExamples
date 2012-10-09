@@ -1,8 +1,6 @@
 
 #include "openeaagles/basic/support.h"
 
-class Object;
-
 namespace Eaagles {
   namespace Basic {  class Object; }
 

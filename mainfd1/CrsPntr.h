@@ -4,7 +4,7 @@
 // 
 // Description: Handles the course pointer, cdi, and to from arrow graphic.
 // Inputs:
-//      UPDATE_VALUE 1 and 2 (from rotators) rotate the poitner
+//      UPDATE_VALUE 1 and 2 (from rotators) rotate the pointer
 //      UPDATE_VALUE3  -> cdi dots
 //      UPDATE_VALUE4 -> to from
 //------------------------------------------------------------------------------

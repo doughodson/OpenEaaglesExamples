@@ -42,7 +42,7 @@ private:
    GLWindow* glWins[MAX_GL_WINS];  // our GL window(s)
    Fl_Menu_Bar* menuBar;           // our menu bar
    Fl_Roller* vRoll;               // vertical roller
-   Fl_Roller* hRoll;               // horizonal roller
+   Fl_Roller* hRoll;               // horizontal roller
    Fl_Roller* zRoll;               // roller around the Z-axis
    int numWins;                    // number of GL windows we have.
 };

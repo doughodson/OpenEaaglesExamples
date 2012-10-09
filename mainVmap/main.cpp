@@ -252,7 +252,7 @@ void TestDisplay::updatePoints()
 
 
 //SLS - last update 3/18/08 
-//Now I can query the refernc directory for the placenam coverage, and get placenames and coordinates based on a ref lat lon and range
+//Now I can query the reference directory for the placenam coverage, and get placenames and coordinates based on a ref lat lon and range
 //The next step would be to start querying political boundaries (polbnd) using the indexes they have setup.
 
 // mouseEvent() -- Handle mouse inputs
@@ -410,7 +410,7 @@ int main(int argc, char* argv[])
     
 };  // end MainVmap namespace
 };  // end Maps namespace
-};  // dnd Eaagles namespace
+};  // end Eaagles namespace
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine

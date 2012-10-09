@@ -54,7 +54,7 @@ void TestComputer::copyData(const TestComputer& org, const bool cc)
 
 //------------------------------------------------------------------------------
 // updateTC() -- override the System:: version so that we can get process call to our 
-//               components (our TM) before we do our own process'ing
+//               components (our TM) before we do our own processing
 //------------------------------------------------------------------------------
 void TestComputer::updateTC(const LCreal dt0)
 {

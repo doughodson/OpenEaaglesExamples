@@ -30,7 +30,7 @@ public:
 
 // the updateTC interface is re-implemented only to
 //  override the System:: version so that we can get process call to our 
-// components (our TM) before we do our own process'ing
+// components (our TM) before we do our own processing
    virtual void updateTC(const LCreal dt = 0.0);
 
    // Basic::Component interface

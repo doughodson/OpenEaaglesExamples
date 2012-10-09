@@ -62,7 +62,7 @@ void Block::deleteData()
 }
 
 //------------------------------------------------------------------------------
-// Comparision functions
+// Comparison functions
 //------------------------------------------------------------------------------
 
 bool operator>(const Block& b1, const Block& b2)

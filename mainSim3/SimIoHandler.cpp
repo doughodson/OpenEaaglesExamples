@@ -32,7 +32,7 @@ SimIoHandler::SimIoHandler()
 }
 
 //------------------------------------------------------------------------------
-// initData -- initalize our data for the first time
+// initData -- initialize our data for the first time
 //------------------------------------------------------------------------------
 void SimIoHandler::initData()
 {

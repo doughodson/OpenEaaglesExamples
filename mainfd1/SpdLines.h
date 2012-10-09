@@ -43,5 +43,5 @@ private:
 }; // end of MainFlightDisplay1 namespace
 }; // end of Eaagles namespace
 
-#endif	/* __SpdLines_A2EC0759_9950_43f7_A92B_18C162C6574B */
+#endif
 

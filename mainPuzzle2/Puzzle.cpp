@@ -128,7 +128,7 @@ const State* Puzzle::solve()
 }
 
 //------------------------------------------------------------------------------
-// Print the states from a terminal state, tstate, back to the inital state
+// Print the states from a terminal state, tstate, back to the initial state
 //------------------------------------------------------------------------------
 void Puzzle::printPath(const State* tstate) const
 {
@@ -251,7 +251,7 @@ void Puzzle::clearOpenList()
 // Hash table support functions
 //------------------------------------------------------------------------------
 
-// Adds a state to the hash table; returns true if successfull
+// Adds a state to the hash table; returns true if successful
 bool Puzzle::putHash(const State* const s)
 {
    bool added = false;

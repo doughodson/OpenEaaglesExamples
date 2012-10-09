@@ -37,7 +37,7 @@ protected:
 
 private:
 
-   // send datas for our rotations
+   // send data for our rotations
    SendData xRotationSD;
    SendData yRotationSD;
    SendData zRotationSD;

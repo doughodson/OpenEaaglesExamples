@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// f16FormFunc() -- parser form function for Sim simulation & PVI components
+// sim3FormFunc() -- parser form function for Sim simulation & PVI components
 //
 // See parser/Parser.y
 //------------------------------------------------------------------------------

@@ -110,7 +110,7 @@ static void readTest()
 
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
-        std::cout << "testx: invalid description file!" << std::endl;
+        std::cout << "Invalid description file!" << std::endl;
         exit(EXIT_FAILURE);
     }
 }

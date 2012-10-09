@@ -120,7 +120,7 @@ void RealBeamRadar::transmit(const LCreal dt)
    double longitude = 0;
    beamWidth = 7.0f;
 
-   // Get ou 
+   //
    const Simulation::Player* own = getOwnship();
    if (own != 0) {
       // Get our ownship parameters

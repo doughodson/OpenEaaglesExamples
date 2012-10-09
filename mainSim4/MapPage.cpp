@@ -245,7 +245,7 @@ void MapPage::updateData(const LCreal dt)
 
             // ok, go through our new list and match it with our old, and throw
             // away any old players that aren't in the new list, and add any new
-            // players that arent in the old list
+            // players that aren't in the old list
             for (int i = 0; i < MAX_PLAYERS; i++) {
                 if (player[i] != 0) {
                     bool match = false; 

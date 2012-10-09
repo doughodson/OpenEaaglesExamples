@@ -92,7 +92,7 @@ private:
    unsigned int      colorScale;       // Color scale index; gray(0), color(1), green(2)
    bool              haveMaxElev;      // Have a maximum elevation flag
    bool              haveMinElev;      // Have a maximum elevation flag
-   bool              interpolate;      // Interplate flag
+   bool              interpolate;      // Interpolate flag
    bool              testShadows;      // Shadow test enabled
    bool              testAac;          // AAC test enabled
    bool              testEarthCurv;    // Earth curvature test enabled

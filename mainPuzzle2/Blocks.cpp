@@ -63,7 +63,7 @@ void Block::deleteData()
 }
 
 //------------------------------------------------------------------------------
-// Comparision functions
+// Comparison functions
 //------------------------------------------------------------------------------
 
 int compare(const Block& b1, const Block& b2)
@@ -531,7 +531,7 @@ Block10::Block10()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block10::getTypeId() const   { return 10; }
+unsigned int Block10::getTypeId() const     { return 10; }
 unsigned int Block10::getSizeX() const      { return 1; }
 unsigned int Block10::getSizeY() const      { return 1; }
 
@@ -558,7 +558,7 @@ Block11::Block11()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block11::getTypeId() const   { return 11; }
+unsigned int Block11::getTypeId() const     { return 11; }
 unsigned int Block11::getSizeX() const      { return 1; }
 unsigned int Block11::getSizeY() const      { return 1; }
 
@@ -585,7 +585,7 @@ Block12::Block12()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block12::getTypeId() const   { return 12; }
+unsigned int Block12::getTypeId() const     { return 12; }
 unsigned int Block12::getSizeX() const      { return 1; }
 unsigned int Block12::getSizeY() const      { return 1; }
 
@@ -612,7 +612,7 @@ Block13::Block13()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block13::getTypeId() const   { return 13; }
+unsigned int Block13::getTypeId() const     { return 13; }
 unsigned int Block13::getSizeX() const      { return 1; }
 unsigned int Block13::getSizeY() const      { return 1; }
 
@@ -639,7 +639,7 @@ Block14::Block14()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block14::getTypeId() const   { return 14; }
+unsigned int Block14::getTypeId() const     { return 14; }
 unsigned int Block14::getSizeX() const      { return 1; }
 unsigned int Block14::getSizeY() const      { return 1; }
 
@@ -666,11 +666,9 @@ Block15::Block15()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block15::getTypeId() const   { return 15; }
+unsigned int Block15::getTypeId() const     { return 15; }
 unsigned int Block15::getSizeX() const      { return 1; }
 unsigned int Block15::getSizeY() const      { return 1; }
-
-
 
 
 }  // End of Puzzle2 namespace

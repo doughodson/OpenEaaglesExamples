@@ -715,7 +715,7 @@ void TestDisplay::updatePfd(const LCreal)
     vvi = vvMps * 60.0f * Basic::Distance::M2FT;
            
     // flight director stuff 
-    // flight diretor bank angle
+    // flight director bank angle
     fDirBank = 0;
     
     // flight director pitch angle

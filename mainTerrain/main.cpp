@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
    readDescription();
 
 // ---
-// Reseting the system will load the data files
+// Resetting the system will load the data files
 // ---
 
    std::cout << "starting loading files --" << std::endl;

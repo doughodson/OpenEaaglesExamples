@@ -4,7 +4,7 @@
 
 #include "Random.h"
 #include "openeaagles/basic/Number.h"
-#include <stdlib.h>
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Example04 {

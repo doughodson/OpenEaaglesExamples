@@ -46,7 +46,7 @@ private:
     LCreal headingRate;
     bool rtFail;            // our rate of turn indicator failure flag
     // runway stuff
-    bool rwFail;            // runway failure flage
+    bool rwFail;            // runway failure flag
     LCreal locDots;         // localizer dots
     LCreal locDotsRate;
     SendData locDotsSD;     // localizer dots
@@ -80,7 +80,7 @@ private:
     SendData gryoFailSD;
     SendData gsFailSD;
     SendData gsFailVisSD;
-    bool isGSValid;         // is our glideslop value valid?
+    bool isGSValid;         // is our glideslope value valid?
     bool isRWIndValid;      // is our runway data valid?
     bool isSDValid;         // validity check
     SendData mdaModeSD;
@@ -96,4 +96,4 @@ private:
 } // end of MainEfis namespace
 } // end of Eaagles namespace
 
-#endif	// __OPENEAAGLES_MAINEFIS_TESTMECHANICAL_H__
+#endif

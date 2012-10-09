@@ -107,7 +107,7 @@ bool NetTester::initNetworks()
 }
 
 //------------------------------------------------------------------------------
-// Send (transmit) our data buffer; returns true if sucessful.
+// Send (transmit) our data buffer; returns true if successful.
 // 'size' just be less than MAX_SIZE.
 //------------------------------------------------------------------------------
 bool NetTester::sendData(const char* const msg, const unsigned int size)

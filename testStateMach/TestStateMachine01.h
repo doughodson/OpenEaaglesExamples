@@ -15,7 +15,7 @@ namespace TestStateMach {
 //
 //    Tests the standard state transition functions (e.g., next(), goTo(), call(),
 //    and rtn()), as well as arguments passed and returned.   There's one common
-//    state function thats using the standard 'switch' and 'case' statements to
+//    state function that's using the standard 'switch' and 'case' statements to
 //    select each state's specific code.
 //
 //------------------------------------------------------------------------------

@@ -66,7 +66,7 @@ private:
    LCreal            antElAngle;       // Antenna elevation angle (degs)
    int               ray0;             // Last ray generated
    LCreal            beamWidth;        // Antenna beam width (degs)
-   bool              interpolate;      // Interplate flag
+   bool              interpolate;      // Interpolate flag
    bool              fpass;            // First pass flag
 
    LCreal*           elevations;       // Terrain elevations

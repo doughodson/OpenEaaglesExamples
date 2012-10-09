@@ -74,7 +74,7 @@ static TestStation* readConfigFile(const char* const fileName)
 }
 
 //-----------------------------------------------------------------------------
-// Station's background tasks -- a callback from a GLUT timer, it's basicly the
+// Station's background tasks -- a callback from a GLUT timer, it's basically the
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------

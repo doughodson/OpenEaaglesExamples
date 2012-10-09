@@ -17,7 +17,7 @@ namespace Mainx9 {
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 // Description: Test GLUT-display that will manage a simple real-beam, b-scan radar
-//              display, plus a Radar receiver display, which shows recieved
+//              display, plus a Radar receiver display, which shows received
 //              signal strength and angle of arrival, and a simple situation
 //              display that shows the 'truth' location of the players.
 //

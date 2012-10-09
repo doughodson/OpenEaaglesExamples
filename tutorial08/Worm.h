@@ -65,10 +65,10 @@ private:
   LCreal dx, dy;                  // Delta position
   LCreal speed;                   // Speed
   LCreal sangle;                  // Starting angle (radians)
-  osg::Vec2 trail[maxHist];          // Display trail
+  osg::Vec2 trail[maxHist];       // Display trail
   int    nTrails;                 // Trail size
   int    index;                   // Trail index
-  const Basic::Angle* iangle;          // Input angle
+  const Basic::Angle* iangle;     // Input angle
 
 };
 

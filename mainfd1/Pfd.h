@@ -36,7 +36,7 @@ public:
     virtual bool setAirSpeedKts(const LCreal newAS);    // Sets airspeed (kts)
     virtual bool setCmdAirSpdKts(const LCreal newCAS);  // Sets commanded airspeed (kts)
     virtual bool setAltitudeFt(const LCreal newA);      // Sets pressure altitude (ft)
-    virtual bool setCmdAltFt(const LCreal newCA);       // Sets comanded altitude (ft)
+    virtual bool setCmdAltFt(const LCreal newCA);       // Sets commanded altitude (ft)
     virtual bool setGlideslope(const LCreal newGS);     // Sets glide slope deviation (dots)
     virtual bool setLatDev(const LCreal newLD);         // Sets localizer deviation (dots)
     virtual bool setMstrCtn(const bool newMC);          // Sets "master caution" flag
@@ -122,7 +122,7 @@ private:
     SendData bascaleSD;
     
     // heading and nav stuff
-    LCreal trueHdg;         // True heanding (degs)
+    LCreal trueHdg;         // True heading (degs)
     SendData tHdgSD;
 
     LCreal cmdCrs;          // commanded course (degs)
@@ -263,5 +263,5 @@ private:
 }; // end of MainFlightDisplay1 namespace
 };   //end of Eaagles namespace
 
-#endif  /* __Pfd_H_20776D5E_3C6A_4fc4_8028_EBD768E593E7 */
+#endif
 

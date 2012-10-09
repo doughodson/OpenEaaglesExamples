@@ -41,10 +41,10 @@ public:
    // Solve (or try) the puzzle
    virtual const State* solve();
 
-   // Print the states from a terminal state, tstate, back to the inital state
+   // Print the states from a terminal state, tstate, back to the initial state
    virtual void printPath(const State* tstate) const;
 
-   // Adds a state to the hash table; returns true if successfull
+   // Adds a state to the hash table; returns true if successful
    virtual bool putHash(const State* const s);
 
    // Adds a state to the 'open' list

@@ -92,3 +92,4 @@ Basic::Object* FoxStation::getSlotByIndex(const int si)
 
 } // end mainFox namespace
 } // end Eaagles namespace
+
