@@ -148,13 +148,13 @@ sample:
                 v1: ( LatitudeReadout
                     highLight: 1
                     position: [ 18 2 ]
-	            format: "+0D@MM"
+                    format: "+0D@MM"
                 )
 
                 v2: ( LongitudeReadout
                     color: white
                     position: [ 19 2 ]
-	            format: "+0DD@MM"
+                    format: "+0DD@MM"
                 )
 
             }
@@ -181,13 +181,13 @@ sample:
                 v1: ( TimeReadout
                     color: cyan
                     position: [ 18 11 ]
-	            format: "HH:MM:SS.S"
+                    format: "HH:MM:SS.S"
                 )
 
                 v2: ( DirectionReadout
                     color: cyan
                     position: [ 19 11 ]
-	            format: "0DD@"
+                    format: "0DD@"
                 )
 
             }
