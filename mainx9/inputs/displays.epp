@@ -1,7 +1,7 @@
 //=============================================================================
 // Test display: contains a simple real beam radar "b-sweep" display, with
-// trackes, plus a Radar Warning Receiver (RWR) display, which shows signal
-// stength and angle of arrival, and a simple situation display.
+// tracks, plus a Radar Warning Receiver (RWR) display, which shows signal
+// strength and angle of arrival, and a simple situation display.
 //=============================================================================
 
 ( TestDisplay

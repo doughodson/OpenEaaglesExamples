@@ -15,7 +15,7 @@ namespace Mainx9 {
 //------------------------------------------------------------------------------
 // Class: DspRadar
 // Description: Simple Realbeam B-Scan RADAR.  Displays the real-beam signal,
-//              with color coded doppler shift, and overlayed with trackes.
+//              with color coded doppler shift, and overlayed with tracks.
 // Form Name: DspRadar
 //------------------------------------------------------------------------------
 class DspRadar : public BasicGL::Graphic
