@@ -52,14 +52,14 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
 
    {  // Clone input handler
       Eaagles::Recorder::InputHandler* clone = 0;
-      if (org.inputHandler != 0) clone = (Eaagles::Recorder::InputHandler*) org.inputHandler->clone();
+      if (org.inputHandler != 0) clone = org.inputHandler->clone();
       setSlotInputHandler(clone);
       if (clone != 0) clone->unref();
    }
 
    {  // Clone output handler
       Eaagles::Recorder::OutputHandler* clone = 0;
-      if (org.outputHandler != 0) clone = (Eaagles::Recorder::OutputHandler*) org.outputHandler->clone();
+      if (org.outputHandler != 0) clone = org.outputHandler->clone();
       setSlotOutputHandler(clone);
       if (clone != 0) clone->unref();
    }

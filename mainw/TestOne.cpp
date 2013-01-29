@@ -65,7 +65,7 @@ void TestOne::copyData(const TestOne& org, const bool)
     BaseClass::copyData(org);
 
     if (iangle != 0) iangle->unref();
-    if (org.iangle != 0) iangle = dynamic_cast<Basic::Angle*>(org.iangle->clone());
+    if (org.iangle != 0) iangle = org.iangle->clone();
     else iangle = 0;
    
     left = org.left;

@@ -86,7 +86,7 @@ void Table::copyData(const Table& org, const bool cc)
    spacing = org.spacing;
 
    if (org.columns) {
-      Basic::PairStream* p = (Basic::PairStream*) org.columns->clone();
+      Basic::PairStream* p = org.columns->clone();
       setSlotColumns(p);
    }
    else {
@@ -208,7 +208,7 @@ void Table::build()
             const Basic::Pair* pair = (const Basic::Pair*)(item->getValue());
             const Basic::Object* obj = pair->object();
             if (obj->isClassType(typeid(BasicGL::Graphic))) {
-               Basic::Pair* pp =  (Basic::Pair*) pair->clone();
+               Basic::Pair* pp = pair->clone();
                BasicGL::Graphic* gobj = (BasicGL::Graphic*) pp->object();
                gobj->container(row);
                row->put(pp);

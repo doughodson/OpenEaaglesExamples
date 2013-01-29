@@ -54,7 +54,7 @@ State::State(const State& org, const Block* const nb, const unsigned int idx)
 
    if (nb != 0 && idx < nblocks) {
       if (blocks[idx] != 0) blocks[idx]->unref();
-      blocks[idx] = (Block*) nb->clone();
+      blocks[idx] = nb->clone();
    }
    sortBlocks();
 
@@ -170,7 +170,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
             bool collision = false;
             int dy = 0;
             for (int dx = 1; !collision && endState == 0 && cb->testMove(dx,dy); dx++) {
-               Block* nb = (Block*) cb->clone();
+               Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
                   if ( j != idx ) {
@@ -187,7 +187,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
             bool collision = false;
             int dy = 0;
             for (int dx = -1; !collision && endState == 0 &&  cb->testMove(dx,dy); dx--) {
-               Block* nb = (Block*) cb->clone();
+               Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
                   if ( j != idx ) {
@@ -204,7 +204,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
             bool collision = false;
             int dx = 0;
             for (int dy = 1; !collision && endState == 0 &&  cb->testMove(dx,dy); dy++) {
-               Block* nb = (Block*) cb->clone();
+               Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
                   if ( j != idx ) {
@@ -221,7 +221,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
             bool collision = false;
             int dx = 0;
             for (int dy = -1; !collision && endState == 0 &&  cb->testMove(dx,dy); dy--) {
-               Block* nb = (Block*) cb->clone();
+               Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
                   if ( j != idx ) {
@@ -333,7 +333,7 @@ unsigned int State::setBlocks(const Block* const newBlocks[], const unsigned int
       unsigned int n = numNumBlocks;
       if (n > MAX_BLOCKS) n =MAX_BLOCKS;
       for (unsigned int i = 0; i < n; i++) {
-         blocks[i] = (const Block*) (newBlocks[i]->clone());
+         blocks[i] = newBlocks[i]->clone();
       }
       nblocks = n;
       sortBlocks();

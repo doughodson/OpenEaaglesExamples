@@ -65,19 +65,19 @@ void MyObj::copyData(const MyObj& org, const bool cc)
   }
 
   if (colorTable != 0) { colorTable->unref(); colorTable = 0; }
-  if (org.colorTable != 0) colorTable = dynamic_cast<const Basic::PairStream*>(org.colorTable->clone());
+  if (org.colorTable != 0) colorTable = org.colorTable->clone();
 
   if (textColor != 0) { textColor->unref(); textColor = 0; }
-  if (org.textColor != 0) textColor = dynamic_cast<const Basic::Identifier*>(org.textColor->clone());
+  if (org.textColor != 0) textColor = org.textColor->clone();
 
   if (backColor != 0) { backColor->unref(); backColor = 0; }
-  if (org.backColor != 0) backColor = dynamic_cast<const Basic::Identifier*>(org.backColor->clone());
+  if (org.backColor != 0) backColor = org.backColor->clone();
 
   if (vector != 0) { vector->unref(); vector = 0; }
-  if (org.vector != 0) vector = dynamic_cast<const Basic::List*>(org.vector->clone());
+  if (org.vector != 0) vector = org.vector->clone();
 
   if (message != 0) { message->unref(); message = 0; }
-  if (org.message != 0) message = dynamic_cast<const Basic::String*>(org.message->clone());
+  if (org.message != 0) message = org.message->clone();
 
   visible = org.visible;
 }

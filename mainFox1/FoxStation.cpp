@@ -37,7 +37,7 @@ void FoxStation::copyData(const FoxStation& org, const bool cc)
    BaseClass::copyData(org);
 
    if (org.display != 0)
-      setSlotMainDisplay( dynamic_cast<FoxDisplay*>( org.display->clone() ) );
+      setSlotMainDisplay( org.display->clone() );
    else
       setSlotMainDisplay(0);
 }

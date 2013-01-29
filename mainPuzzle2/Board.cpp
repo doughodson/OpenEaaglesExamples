@@ -79,12 +79,12 @@ void Board::copyData(const Board& org, const bool cc)
 
    setSlotPuzzle(0);
    if (org.puzzle != 0) {
-      setSlotPuzzle( (Puzzle*) (org.puzzle->clone()) );
+      setSlotPuzzle( org.puzzle->clone() );
    }
 
    setSlotTemplates(0);
    if (org.templates != 0) {
-      setSlotTemplates( (const Basic::PairStream*) (org.templates->clone()) );
+      setSlotTemplates( org.templates->clone() );
    }
 
    // Clear the solution path
@@ -191,7 +191,7 @@ unsigned int Board::setupBlockGraphics()
                   const BasicGL::Graphic* g = dynamic_cast<const BasicGL::Graphic*>( pair->object() );
                   if (g != 0) {
                      // Ok, we've found a BasicGL::Graphic to draw this block!
-                     blocks[nblocks] = (BasicGL::Graphic*) g->clone();
+                     blocks[nblocks] = g->clone();
                      blocks[nblocks]->container(this);
                      blockId[nblocks] = b->getReferenceID();
                      xp[nblocks] = (LCreal) b->getX();

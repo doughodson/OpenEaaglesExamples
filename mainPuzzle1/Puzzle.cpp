@@ -61,12 +61,12 @@ void Puzzle::copyData(const Puzzle& org, const bool cc)
 
    setInitState(0);
    if (org.initState != 0) {
-      setInitState( (State*) (org.initState->clone()) );
+      setInitState( org.initState->clone() );
    }
 
    setGoalState(0);
    if (org.goalState != 0) {
-      setGoalState( (const State*) (org.goalState->clone()) );
+      setGoalState( org.goalState->clone() );
    }
 
    // Clear the tables and lists -- we're not going to copy them

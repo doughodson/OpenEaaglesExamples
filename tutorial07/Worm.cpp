@@ -61,7 +61,7 @@ void Worm::copyData(const Worm& org, const bool cc)
   }
 
   if (iangle != 0) { iangle->unref(); iangle = 0; }
-  if (org.iangle != 0) iangle = dynamic_cast<const Eaagles::Basic::Angle*>(org.iangle->clone());
+  if (org.iangle != 0) iangle = org.iangle->clone();
   
   left = org.left;
   right = org.right;
