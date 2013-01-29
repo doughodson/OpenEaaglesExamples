@@ -94,7 +94,7 @@ void Display::copyData(const Display& org, const bool cc)
    }
 
    if (org.terrain != 0)
-      setSlotTerrain( (Basic::Terrain*) org.terrain->clone() );
+      setSlotTerrain( org.terrain->clone() );
    else
       setSlotTerrain( 0 );
 

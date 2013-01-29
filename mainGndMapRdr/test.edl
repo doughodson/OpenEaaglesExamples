@@ -1,10 +1,10 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
 
 
 
 
 ( TestStation
-#line 6 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+#line 6 "c:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
 #line 1 "displays.epp"
 
 
@@ -23,7 +23,7 @@ display:
     bottom: -0.1
     top: 1.1
 )
-#line 7 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+#line 7 "c:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
 #line 1 "scenario.epp"
 
 ownship: ownship
@@ -111,5 +111,5 @@ terrain:
 
 
 )
-#line 8 "C:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
+#line 8 "c:/oe/OpenEaaglesExamples/mainGndMapRdr/inputs/test.epp"
 )

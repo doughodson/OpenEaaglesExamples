@@ -1,4 +1,4 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
 
 
 
@@ -27,7 +27,7 @@
     vpHeight: 500
 
     page: materials
-#line 29 "C:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
+#line 29 "c:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
 #line 1 "testBasic.epp"
 
 
@@ -476,13 +476,13 @@ sample:
                 v1: ( LatitudeReadout
                     highLight: 1
                     position: [ 18 2 ]
-	            format: "+0D@MM"
+                    format: "+0D@MM"
                 )
 
                 v2: ( LongitudeReadout
                     color: white
                     position: [ 19 2 ]
-	            format: "+0DD@MM"
+                    format: "+0DD@MM"
                 )
 
             }
@@ -509,13 +509,13 @@ sample:
                 v1: ( TimeReadout
                     color: cyan
                     position: [ 18 11 ]
-	            format: "HH:MM:SS.S"
+                    format: "HH:MM:SS.S"
                 )
 
                 v2: ( DirectionReadout
                     color: cyan
                     position: [ 19 11 ]
-	            format: "0DD@"
+                    format: "0DD@"
                 )
 
             }
@@ -2311,6 +2311,6 @@ materials:
 )
 #line 101 "testBasic.epp"
 }
-#line 30 "C:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
+#line 30 "c:/oe/OpenEaaglesExamples/mainw/inputs/test.epp"
 
 )

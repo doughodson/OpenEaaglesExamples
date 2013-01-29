@@ -50,7 +50,7 @@ void MyComp::copyData(const MyComp& org, const bool cc)
    }
 
    if (str != 0) { str->unref(); str = 0; }
-   if (org.str != 0) str = dynamic_cast<const Basic::String*>(org.str->clone());
+   if (org.str != 0) str = org.str->clone();
 
    std::cout << "MyComp::copyData() called\n";
 }

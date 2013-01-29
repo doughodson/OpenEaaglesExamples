@@ -1,4 +1,4 @@
-#line 1 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
 
 
 
@@ -12,7 +12,7 @@
    ioHandler: ( IoHandler
       inputData: ( IoData numAI: 10 numDI: 40 )
       devices: {
-#line 14 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 14 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
 #line 1 "ThrustMaster.epp"
 #line 8 "ThrustMaster.epp"
 #line 1 "f16HotasIo.h"
@@ -84,10 +84,10 @@
 
    }
 )
-#line 15 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 15 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
       }
    )
-#line 21 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 21 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
 #line 1 "mappingF16Hotas.epp"
 #line 5 "mappingF16Hotas.epp"
 #line 1 "f16HotasIo.h"
@@ -146,8 +146,8 @@ item: 53 di:  33  label: "IFF In"
 item: 54 di:  34  label: "IFF Out"
 item: 55 di:  35  label: "VHF"
 item: 56 di:  36  label: "UHF"
-#line 22 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
-#line 26 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 22 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 26 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
 #line 1 "display.epp"
 
 
@@ -344,6 +344,6 @@ components: {
    ( AsciiText position: [ 25 1 ] width: 55 justification: center text: "ESC to exit!" )
 
 }
-#line 27 "C:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
+#line 27 "c:/oe/OpenEaaglesExamples/testIo/inputs/test2.epp"
 
 )

@@ -1,4 +1,4 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
 ( GlutDisplay
     name: "Flight Display Test"
     left: -3
@@ -54,7 +54,7 @@
     page: hsimode
 
     pages: {
-#line 58 "C:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
+#line 58 "c:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
 #line 1 "testmechanical.epp"
 
 
@@ -2713,8 +2713,8 @@ cmptr:
 #line 17 "testmechanical.epp"
     }
 )
-#line 59 "C:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
-#line 61 "C:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
+#line 59 "c:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
+#line 61 "c:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
 #line 1 "testhsimode.epp"
 
 hsimode:
@@ -4073,7 +4073,7 @@ secondarycoursepointer:
 
     }
 )
-#line 62 "C:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
+#line 62 "c:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
 #line 1 "testarcmode.epp"
 
 arcmode:
@@ -5451,6 +5451,6 @@ secondarycoursepointer:
         )
     }
 )
-#line 63 "C:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
+#line 63 "c:/oe/OpenEaaglesExamples/mainEfis/inputs/test.epp"
      }
 )

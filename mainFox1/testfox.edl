@@ -1,4 +1,4 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
 
 
 
@@ -7,7 +7,7 @@
 
 ( FoxStation
    maindisplay:
-#line 9 "C:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
+#line 9 "c:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
 #line 1 "foxdisplay.epp"
 ( FoxDisplay
 
@@ -107,5 +107,5 @@
 		)
     }
 )
-#line 10 "C:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
+#line 10 "c:/oe/OpenEaaglesExamples/mainFox1/inputs/testfox.epp"
 )

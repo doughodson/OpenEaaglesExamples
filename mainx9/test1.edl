@@ -1,5 +1,5 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
-#line 20 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
+#line 20 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
 ( TestStation
 
    tcPriority: 1
@@ -9,7 +9,7 @@
 
 
    glutDisplay:
-#line 29 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
+#line 29 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
 #line 1 "displays.epp"
 
 
@@ -428,7 +428,7 @@
    }
 
 )
-#line 30 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
+#line 30 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
 
 
 
@@ -481,7 +481,7 @@
                      radar: ( Antenna
                         polarization: horizontal
                         gain: ( dB 42 )
-#line 82 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
+#line 82 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -495,7 +495,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 83 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
+#line 83 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test1.epp"
 
                         initPosition: [ 0 0 ]
                         maxRates: [ 0.8727 0.8727 ]

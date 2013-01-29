@@ -169,7 +169,7 @@ bool Tester::setSlotTimers(const Basic::PairStream* const msg)
          const Basic::Pair* const pair = (const Basic::Pair*) item->getValue();
          const Basic::Timer* const timer = dynamic_cast<const Basic::Timer*>( pair->object() );
          if (timer != 0) {
-            Basic::Pair* newPair = (Basic::Pair*) pair->clone();
+            Basic::Pair* newPair = pair->clone();
             newList->put(newPair);
          }
          else {

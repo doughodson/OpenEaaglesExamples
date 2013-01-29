@@ -86,7 +86,7 @@ void Display::copyData(const Display& org, const bool cc)
    if (cc) initData();
 
    if (org.ioHandler != 0) {
-      Basic::IoHandler* copy = (Basic::IoHandler*) org.ioHandler->clone();
+      Basic::IoHandler* copy = org.ioHandler->clone();
       setSlotIoHandler(copy);
       copy->unref();
    }

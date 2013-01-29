@@ -1,11 +1,11 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
-#line 33 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 33 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 ( TestStation
 
     bgRate: 10
 
     glutDisplay:
-#line 38 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 38 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "displays.epp"
 
 
@@ -424,7 +424,7 @@
    }
 
 )
-#line 39 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 39 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 
 
 
@@ -464,7 +464,7 @@
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 78 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 78 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -478,7 +478,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 79 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 79 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 0 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -537,7 +537,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 137 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 137 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -551,7 +551,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 138 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 138 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 2 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -608,7 +608,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 194 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 194 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -622,7 +622,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 195 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 195 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 4 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -679,7 +679,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 251 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 251 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -693,7 +693,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 252 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 252 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 6 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -750,7 +750,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 308 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 308 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -764,7 +764,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 309 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 309 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 8 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -821,7 +821,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 365 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 365 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -835,7 +835,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 366 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 366 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 10 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -892,7 +892,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 422 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 422 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -906,7 +906,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 423 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 423 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 12 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -963,7 +963,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 479 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 479 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -977,7 +977,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 480 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 480 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 12 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1038,7 +1038,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 540 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 540 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1052,7 +1052,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 541 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 541 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 14 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1109,7 +1109,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 597 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 597 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1123,7 +1123,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 598 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 598 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 16 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1180,7 +1180,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 654 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 654 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1194,7 +1194,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 655 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 655 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 18 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1251,7 +1251,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 711 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 711 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1265,7 +1265,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 712 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 712 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 20 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1322,7 +1322,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 768 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 768 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1336,7 +1336,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 769 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 769 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 22 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1393,7 +1393,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 825 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 825 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1407,7 +1407,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 826 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 826 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 24 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1464,7 +1464,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 882 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 882 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1478,7 +1478,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 883 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 883 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 26 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1535,7 +1535,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 939 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 939 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1549,7 +1549,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 940 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 940 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 26 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1610,7 +1610,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1000 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1000 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1624,7 +1624,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1001 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1001 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 28 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1681,7 +1681,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1057 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1057 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1695,7 +1695,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1058 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1058 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 30 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1752,7 +1752,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1114 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1114 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1766,7 +1766,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1115 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1115 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 32 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1823,7 +1823,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1171 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1171 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1837,7 +1837,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1172 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1172 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 34 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1894,7 +1894,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1228 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1228 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1908,7 +1908,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1229 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1229 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 36 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -1965,7 +1965,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1285 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1285 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -1979,7 +1979,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1286 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1286 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 38 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -2036,7 +2036,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1342 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1342 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2050,7 +2050,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1343 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1343 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees  40  )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -2107,7 +2107,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1399 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1399 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2121,7 +2121,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1400 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1400 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees  40  )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -2182,7 +2182,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1460 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1460 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2196,7 +2196,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1461 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1461 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosAzimuth: ( Degrees 0 )
                            initPosElevation: ( Degrees 0 )
                            maxRates: [ 0.8727 0.8727 ]
@@ -2253,7 +2253,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1517 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1517 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2267,7 +2267,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1518 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1518 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2323,7 +2323,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1573 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1573 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2337,7 +2337,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1574 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1574 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2393,7 +2393,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1629 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1629 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2407,7 +2407,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1630 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1630 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2463,7 +2463,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1685 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1685 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2477,7 +2477,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1686 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1686 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2533,7 +2533,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1741 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1741 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2547,7 +2547,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1742 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1742 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2603,7 +2603,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1797 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1797 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2617,7 +2617,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1798 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1798 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2673,7 +2673,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1853 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1853 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2687,7 +2687,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1854 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1854 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2748,7 +2748,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1914 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1914 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2762,7 +2762,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1915 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1915 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2818,7 +2818,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 1970 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1970 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2832,7 +2832,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 1971 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 1971 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2888,7 +2888,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2026 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2026 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2902,7 +2902,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2027 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2027 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -2958,7 +2958,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2082 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2082 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -2972,7 +2972,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2083 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2083 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3028,7 +3028,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2138 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2138 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3042,7 +3042,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2139 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2139 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3098,7 +3098,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2194 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2194 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3112,7 +3112,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2195 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2195 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3168,7 +3168,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2250 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2250 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3182,7 +3182,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2251 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2251 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3238,7 +3238,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2306 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2306 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3252,7 +3252,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2307 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2307 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3313,7 +3313,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2367 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2367 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3327,7 +3327,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2368 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2368 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3383,7 +3383,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2423 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2423 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3397,7 +3397,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2424 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2424 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3453,7 +3453,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2479 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2479 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3467,7 +3467,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2480 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2480 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3523,7 +3523,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2535 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2535 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3537,7 +3537,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2536 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2536 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3593,7 +3593,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2591 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2591 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3607,7 +3607,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2592 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2592 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3621,7 +3621,7 @@ gainPattern:
                            gain: ( dB 1 )
                            maxPlayersOfInterest: 0
                         )
-#line 2615 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2615 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                      }
                   )
                   sensors: ( SensorMgr
@@ -3643,7 +3643,7 @@ gainPattern:
                             frequency: ( GigaHertz 3.0 )
                             bandwidth: ( GigaHertz 2.0 )
                         )
-#line 2645 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2645 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                      }
                   )
                }
@@ -3665,7 +3665,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2666 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2666 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3679,7 +3679,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2667 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2667 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3735,7 +3735,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2722 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2722 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3749,7 +3749,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2723 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2723 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
@@ -3805,7 +3805,7 @@ gainPattern:
                         radar: ( Antenna
                            polarization: horizontal
                            gain: ( dB 36 )
-#line 2778 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2778 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
 #line 1 "gainPattern.epp"
 
 
@@ -3819,7 +3819,7 @@ gainPattern:
        data: [ 0.0 -3.0 -10.0 -30.0 -20.0 -14.0 -25.0 -80.0 ]
    )
 )
-#line 2779 "C:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
+#line 2779 "c:/oe/OpenEaaglesExamples/mainx9/inputs/test2a.epp"
                            initPosition: [ 0 0 ]
                            maxRates: [ 0.8727 0.8727 ]
                            commandRates: [ 0.43633 0.6981 ]
