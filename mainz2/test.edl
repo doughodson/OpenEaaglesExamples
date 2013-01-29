@@ -1,4 +1,4 @@
-#line 1 "C:/oe/OpenEaaglesExamples/mainz2/inputs/test.epp"
+#line 1 "C:/Users/gehldp/projects/OpenEaaglesExamples/mainz2/inputs/test.epp"
 
 
 
@@ -32,7 +32,7 @@
 
 
 	displays: {
-#line 34 "C:/oe/OpenEaaglesExamples/mainz2/inputs/test.epp"
+#line 34 "C:/Users/gehldp/projects/OpenEaaglesExamples/mainz2/inputs/test.epp"
 #line 1 "display1.epp"
 ( GlutDisplay
 
@@ -184,8 +184,8 @@ testspeedbrake:
             format: "###.#"
         )
 #line 42 "testspeedbrake.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
-#line 13 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 13 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
 sbrake:
 
 ( Instrument
@@ -409,7 +409,7 @@ testenginedial:
 
     components: {
 #line 11 "testenginedial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
 
 enginedial:
     ( Instrument
@@ -590,7 +590,7 @@ testcas:
 
     components: {
 #line 14 "testcas.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/cas.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/cas.epp"
 
 
 
@@ -854,7 +854,7 @@ testftitdial:
     }
     components: {
 #line 11 "testftitdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
 
 
 
@@ -1022,7 +1022,7 @@ testoilpressure:
 
     components: {
 #line 14 "testoilpressure.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
 oil:
 
 
@@ -1151,7 +1151,7 @@ testnozzle:
 
     components: {
 #line 14 "testnozzle.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
 
 ( Graphic
     components: {
@@ -1293,7 +1293,7 @@ testrpmdial:
 
     components: {
 #line 14 "testrpmdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
 
 ( Graphic
     components: {
@@ -1433,7 +1433,7 @@ testhsi:
     }
     components: {
 #line 10 "testhsi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
 
 
 
@@ -1787,7 +1787,7 @@ testgauge1:
 
     components: {
 #line 14 "testgauge1.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
 
 
 
@@ -1880,7 +1880,7 @@ gauge:
                     }
                 )
         )
-#line 105 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 105 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
         ( GaugeSlider
             vertical: 1
             scalingTable:
@@ -2048,7 +2048,7 @@ testvvi:
     }
     components: {
 #line 11 "testvvi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
 
 ( Graphic
     components: {
@@ -2451,7 +2451,7 @@ testalt:
     }
     components: {
 #line 10 "testalt.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
 ( Graphic
     components: {
 
@@ -2543,8 +2543,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 92 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 92 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -2555,7 +2555,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -2567,7 +2567,7 @@ testalt:
         )
     }
 )
-#line 93 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 93 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -2588,8 +2588,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 113 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 113 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -2600,7 +2600,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -2612,7 +2612,7 @@ testalt:
         )
     }
 )
-#line 114 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 114 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -2633,8 +2633,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 134 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 134 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -2645,7 +2645,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -2657,7 +2657,7 @@ testalt:
         )
     }
 )
-#line 135 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 135 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -2835,7 +2835,7 @@ testcompass:
     }
     components: {
 #line 10 "testcompass.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
 
 
 
@@ -3547,7 +3547,7 @@ testAoAIndexer:
     }
     components: {
 #line 12 "testAoAIndexer.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
 
 
     ( Graphic
@@ -4223,7 +4223,7 @@ testgmeterdial:
             format: "##.#"
         )
 #line 22 "testgmeterdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
 
 
 
@@ -4447,7 +4447,7 @@ testlandinggear:
     }
     components: {
 #line 10 "testlandinggear.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
 
 
 gear:
@@ -4818,7 +4818,7 @@ testeng:
 			text: "testeng.epp"
 		)
 #line 15 "testeng.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
 
 ( EngPage
     components: {
@@ -7029,7 +7029,7 @@ testbuttons:
     }
     components: {
 #line 11 "testbuttons.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
 
 button1:
 ( Button
@@ -7461,7 +7461,7 @@ testadi:
 			text: "testadi.epp"
 		)
 #line 17 "testadi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi.epp"
 ( Graphic
     scissorX: -2
     scissorWidth: 4
@@ -8090,7 +8090,7 @@ testadi2:
 			text: "testadi2.epp"
 		)
 #line 15 "testadi2.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
 
 ( Graphic
     components: {
@@ -8901,7 +8901,7 @@ climbdivemarker:
 #line 134 "display1.epp"
      }
 )
-#line 35 "C:/oe/OpenEaaglesExamples/mainz2/inputs/test.epp"
+#line 35 "C:/Users/gehldp/projects/OpenEaaglesExamples/mainz2/inputs/test.epp"
 #line 1 "display2.epp"
 ( GlutDisplay
 
@@ -9054,8 +9054,8 @@ testspeedbrake:
             format: "###.#"
         )
 #line 42 "testspeedbrake.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
-#line 13 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 13 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
 sbrake:
 
 ( Instrument
@@ -9279,7 +9279,7 @@ testenginedial:
 
     components: {
 #line 11 "testenginedial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
 
 enginedial:
     ( Instrument
@@ -9460,7 +9460,7 @@ testcas:
 
     components: {
 #line 14 "testcas.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/cas.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/cas.epp"
 
 
 
@@ -9724,7 +9724,7 @@ testftitdial:
     }
     components: {
 #line 11 "testftitdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
 
 
 
@@ -9892,7 +9892,7 @@ testoilpressure:
 
     components: {
 #line 14 "testoilpressure.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
 oil:
 
 
@@ -10021,7 +10021,7 @@ testnozzle:
 
     components: {
 #line 14 "testnozzle.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
 
 ( Graphic
     components: {
@@ -10163,7 +10163,7 @@ testrpmdial:
 
     components: {
 #line 14 "testrpmdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
 
 ( Graphic
     components: {
@@ -10303,7 +10303,7 @@ testhsi:
     }
     components: {
 #line 10 "testhsi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
 
 
 
@@ -10657,7 +10657,7 @@ testgauge1:
 
     components: {
 #line 14 "testgauge1.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
 
 
 
@@ -10750,7 +10750,7 @@ gauge:
                     }
                 )
         )
-#line 105 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 105 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
         ( GaugeSlider
             vertical: 1
             scalingTable:
@@ -10918,7 +10918,7 @@ testvvi:
     }
     components: {
 #line 11 "testvvi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
 
 ( Graphic
     components: {
@@ -11321,7 +11321,7 @@ testalt:
     }
     components: {
 #line 10 "testalt.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
 ( Graphic
     components: {
 
@@ -11413,8 +11413,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 92 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 92 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -11425,7 +11425,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -11437,7 +11437,7 @@ testalt:
         )
     }
 )
-#line 93 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 93 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -11458,8 +11458,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 113 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 113 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -11470,7 +11470,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -11482,7 +11482,7 @@ testalt:
         )
     }
 )
-#line 114 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 114 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -11503,8 +11503,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 134 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 134 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -11515,7 +11515,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -11527,7 +11527,7 @@ testalt:
         )
     }
 )
-#line 135 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 135 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -11705,7 +11705,7 @@ testcompass:
     }
     components: {
 #line 10 "testcompass.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
 
 
 
@@ -12417,7 +12417,7 @@ testAoAIndexer:
     }
     components: {
 #line 12 "testAoAIndexer.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
 
 
     ( Graphic
@@ -13093,7 +13093,7 @@ testgmeterdial:
             format: "##.#"
         )
 #line 22 "testgmeterdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
 
 
 
@@ -13317,7 +13317,7 @@ testlandinggear:
     }
     components: {
 #line 10 "testlandinggear.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
 
 
 gear:
@@ -13688,7 +13688,7 @@ testeng:
 			text: "testeng.epp"
 		)
 #line 15 "testeng.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
 
 ( EngPage
     components: {
@@ -15899,7 +15899,7 @@ testbuttons:
     }
     components: {
 #line 11 "testbuttons.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
 
 button1:
 ( Button
@@ -16331,7 +16331,7 @@ testadi:
 			text: "testadi.epp"
 		)
 #line 17 "testadi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi.epp"
 ( Graphic
     scissorX: -2
     scissorWidth: 4
@@ -16960,7 +16960,7 @@ testadi2:
 			text: "testadi2.epp"
 		)
 #line 15 "testadi2.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
 
 ( Graphic
     components: {
@@ -17771,7 +17771,7 @@ climbdivemarker:
 #line 135 "display2.epp"
      }
 )
-#line 36 "C:/oe/OpenEaaglesExamples/mainz2/inputs/test.epp"
+#line 36 "C:/Users/gehldp/projects/OpenEaaglesExamples/mainz2/inputs/test.epp"
 #line 1 "display3.epp"
 ( GlutDisplay
 
@@ -17924,8 +17924,8 @@ testspeedbrake:
             format: "###.#"
         )
 #line 42 "testspeedbrake.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
-#line 13 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 13 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
 sbrake:
 
 ( Instrument
@@ -18149,7 +18149,7 @@ testenginedial:
 
     components: {
 #line 11 "testenginedial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
 
 enginedial:
     ( Instrument
@@ -18330,7 +18330,7 @@ testcas:
 
     components: {
 #line 14 "testcas.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/cas.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/cas.epp"
 
 
 
@@ -18594,7 +18594,7 @@ testftitdial:
     }
     components: {
 #line 11 "testftitdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
 
 
 
@@ -18762,7 +18762,7 @@ testoilpressure:
 
     components: {
 #line 14 "testoilpressure.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
 oil:
 
 
@@ -18891,7 +18891,7 @@ testnozzle:
 
     components: {
 #line 14 "testnozzle.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
 
 ( Graphic
     components: {
@@ -19033,7 +19033,7 @@ testrpmdial:
 
     components: {
 #line 14 "testrpmdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
 
 ( Graphic
     components: {
@@ -19173,7 +19173,7 @@ testhsi:
     }
     components: {
 #line 10 "testhsi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
 
 
 
@@ -19527,7 +19527,7 @@ testgauge1:
 
     components: {
 #line 14 "testgauge1.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
 
 
 
@@ -19620,7 +19620,7 @@ gauge:
                     }
                 )
         )
-#line 105 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 105 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
         ( GaugeSlider
             vertical: 1
             scalingTable:
@@ -19788,7 +19788,7 @@ testvvi:
     }
     components: {
 #line 11 "testvvi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
 
 ( Graphic
     components: {
@@ -20191,7 +20191,7 @@ testalt:
     }
     components: {
 #line 10 "testalt.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
 ( Graphic
     components: {
 
@@ -20283,8 +20283,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 92 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 92 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -20295,7 +20295,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -20307,7 +20307,7 @@ testalt:
         )
     }
 )
-#line 93 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 93 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -20328,8 +20328,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 113 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 113 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -20340,7 +20340,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -20352,7 +20352,7 @@ testalt:
         )
     }
 )
-#line 114 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 114 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -20373,8 +20373,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 134 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 134 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -20385,7 +20385,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -20397,7 +20397,7 @@ testalt:
         )
     }
 )
-#line 135 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 135 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -20575,7 +20575,7 @@ testcompass:
     }
     components: {
 #line 10 "testcompass.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
 
 
 
@@ -21287,7 +21287,7 @@ testAoAIndexer:
     }
     components: {
 #line 12 "testAoAIndexer.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
 
 
     ( Graphic
@@ -21963,7 +21963,7 @@ testgmeterdial:
             format: "##.#"
         )
 #line 22 "testgmeterdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
 
 
 
@@ -22187,7 +22187,7 @@ testlandinggear:
     }
     components: {
 #line 10 "testlandinggear.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
 
 
 gear:
@@ -22558,7 +22558,7 @@ testeng:
 			text: "testeng.epp"
 		)
 #line 15 "testeng.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
 
 ( EngPage
     components: {
@@ -24769,7 +24769,7 @@ testbuttons:
     }
     components: {
 #line 11 "testbuttons.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
 
 button1:
 ( Button
@@ -25201,7 +25201,7 @@ testadi:
 			text: "testadi.epp"
 		)
 #line 17 "testadi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi.epp"
 ( Graphic
     scissorX: -2
     scissorWidth: 4
@@ -25830,7 +25830,7 @@ testadi2:
 			text: "testadi2.epp"
 		)
 #line 15 "testadi2.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
 
 ( Graphic
     components: {
@@ -26641,7 +26641,7 @@ climbdivemarker:
 #line 135 "display3.epp"
      }
 )
-#line 37 "C:/oe/OpenEaaglesExamples/mainz2/inputs/test.epp"
+#line 37 "C:/Users/gehldp/projects/OpenEaaglesExamples/mainz2/inputs/test.epp"
 #line 1 "display4.epp"
 ( GlutDisplay
 
@@ -26793,8 +26793,8 @@ testspeedbrake:
             format: "###.#"
         )
 #line 42 "testspeedbrake.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
-#line 13 "C:/oe/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
+#line 13 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/speedbrake.epp"
 sbrake:
 
 ( Instrument
@@ -27018,7 +27018,7 @@ testenginedial:
 
     components: {
 #line 11 "testenginedial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/enginedial.epp"
 
 enginedial:
     ( Instrument
@@ -27199,7 +27199,7 @@ testcas:
 
     components: {
 #line 14 "testcas.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/cas.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/cas.epp"
 
 
 
@@ -27463,7 +27463,7 @@ testftitdial:
     }
     components: {
 #line 11 "testftitdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/ftitdial.epp"
 
 
 
@@ -27631,7 +27631,7 @@ testoilpressure:
 
     components: {
 #line 14 "testoilpressure.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/oilpressure.epp"
 oil:
 
 
@@ -27760,7 +27760,7 @@ testnozzle:
 
     components: {
 #line 14 "testnozzle.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/nozzle.epp"
 
 ( Graphic
     components: {
@@ -27902,7 +27902,7 @@ testrpmdial:
 
     components: {
 #line 14 "testrpmdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/rpm.epp"
 
 ( Graphic
     components: {
@@ -28042,7 +28042,7 @@ testhsi:
     }
     components: {
 #line 10 "testhsi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/hsi.epp"
 
 
 
@@ -28396,7 +28396,7 @@ testgauge1:
 
     components: {
 #line 14 "testgauge1.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
 
 
 
@@ -28489,7 +28489,7 @@ gauge:
                     }
                 )
         )
-#line 105 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
+#line 105 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/gauge.epp"
         ( GaugeSlider
             vertical: 1
             scalingTable:
@@ -28657,7 +28657,7 @@ testvvi:
     }
     components: {
 #line 11 "testvvi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/vvi.epp"
 
 ( Graphic
     components: {
@@ -29060,7 +29060,7 @@ testalt:
     }
     components: {
 #line 10 "testalt.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
 ( Graphic
     components: {
 
@@ -29152,8 +29152,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 92 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 92 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -29164,7 +29164,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -29176,7 +29176,7 @@ testalt:
         )
     }
 )
-#line 93 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 93 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -29197,8 +29197,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 113 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 113 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -29209,7 +29209,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -29221,7 +29221,7 @@ testalt:
         )
     }
 )
-#line 114 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 114 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -29242,8 +29242,8 @@ testalt:
                                 data: [ 0 9 ]
                             )
                             components: {
-#line 134 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
-#line 1 "C:/oe/openeaagles/include/altTape.epp"
+#line 134 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
 
 
 ( Graphic
@@ -29254,7 +29254,7 @@ testalt:
             transform: ( Translation 0 0.99 )
             text: "901234567890"
         )
-#line 68 "C:/oe/openeaagles/include/altTape.epp"
+#line 68 "C:/Users/gehldp/projects/openeaagles/include/altTape.epp"
         ( Polygon
             color: black
             vertices: {
@@ -29266,7 +29266,7 @@ testalt:
         )
     }
 )
-#line 135 "C:/oe/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
+#line 135 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/altitudedial.epp"
                             }
                         )
                     }
@@ -29444,7 +29444,7 @@ testcompass:
     }
     components: {
 #line 10 "testcompass.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/maps/mappage.epp"
 
 
 
@@ -30156,7 +30156,7 @@ testAoAIndexer:
     }
     components: {
 #line 12 "testAoAIndexer.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/gauges/digaoagauge.epp"
 
 
     ( Graphic
@@ -30832,7 +30832,7 @@ testgmeterdial:
             format: "##.#"
         )
 #line 22 "testgmeterdial.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/dials/gmeter.epp"
 
 
 
@@ -31056,7 +31056,7 @@ testlandinggear:
     }
     components: {
 #line 10 "testlandinggear.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/landingGear/landinggear.epp"
 
 
 gear:
@@ -31427,7 +31427,7 @@ testeng:
 			text: "testeng.epp"
 		)
 #line 15 "testeng.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/eng/engpage.epp"
 
 ( EngPage
     components: {
@@ -33638,7 +33638,7 @@ testbuttons:
     }
     components: {
 #line 11 "testbuttons.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/buttons/buttons.epp"
 
 button1:
 ( Button
@@ -34070,7 +34070,7 @@ testadi:
 			text: "testadi.epp"
 		)
 #line 17 "testadi.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi.epp"
 ( Graphic
     scissorX: -2
     scissorWidth: 4
@@ -34699,7 +34699,7 @@ testadi2:
 			text: "testadi2.epp"
 		)
 #line 15 "testadi2.epp"
-#line 1 "C:/oe/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
+#line 1 "C:/Users/gehldp/projects/openeaagles/include/openeaagles/instruments/adi/adi2.epp"
 
 ( Graphic
     components: {
@@ -35510,6 +35510,6 @@ climbdivemarker:
 #line 134 "display4.epp"
      }
 )
-#line 38 "C:/oe/OpenEaaglesExamples/mainz2/inputs/test.epp"
+#line 38 "C:/Users/gehldp/projects/OpenEaaglesExamples/mainz2/inputs/test.epp"
 	}
 )

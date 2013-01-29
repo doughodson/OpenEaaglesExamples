@@ -100,11 +100,11 @@ void Display::copyData(const Display& org, const bool cc)
     lcrealSD.empty();
     if (obj != 0) obj->unref(); 
     if (org.obj != 0) {
-        obj = (TestObject*)org.obj->clone();
+        obj = org.obj->clone();
     }
     if (myColor != 0) myColor->unref();
     if (org.myColor != 0) {
-        myColor = (Basic::Color*)org.myColor->clone();
+        myColor = org.myColor->clone();
     }
 
     for (int i = 0; i < MAX_MATERIALS; i++) {
@@ -113,7 +113,7 @@ void Display::copyData(const Display& org, const bool cc)
             materials[i] = 0;
         }
         diffColorRate[i] = org.diffColorRate[i];
-        if (org.materials[i] != 0) materials[i] = (BasicGL::Material*)org.materials[i]->clone();
+        if (org.materials[i] != 0) materials[i] = org.materials[i]->clone();
         materialSD[i].empty();
         rotations[i] = org.rotations[i];
         rotationsSD[i].empty();

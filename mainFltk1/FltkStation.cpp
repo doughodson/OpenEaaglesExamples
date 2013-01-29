@@ -52,12 +52,12 @@ void FltkStation::copyData(const FltkStation& org, const bool cc)
 
    if (display1 != 0) { display1->unref();  display1 = 0; }
    if (org.display1 != 0) {
-      display1 = (FltkDisplay*)org.display1->clone();
+      display1 = org.display1->clone();
    }
 
    if (display2 != 0) { display2->unref();  display2 = 0; }
    if (org.display2 != 0) {
-      display2 = (FltkDisplay*)org.display2->clone();
+      display2 = org.display2->clone();
    }
 
    init = false;
