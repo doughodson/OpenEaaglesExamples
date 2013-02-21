@@ -32,6 +32,15 @@ if (_ACTION == "vs2008") or (_ACTION == "vs2010") then
    OEExamplesIncPath = "../../include"
    OEExamplesLibPath = "../../lib/".._ACTION
 end
+-- check to see if we are generating vs2012 files
+if (_ACTION == "vs2010") and (_ARGS[1] == "vs2012") then
+   OEIncPath         = OE_ROOT.."/include"
+   OELibPath         = OE_ROOT.."/lib/vs2012"
+   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
+   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/vs2012-32"
+   OEExamplesIncPath = "../../include"
+   OEExamplesLibPath = "../../lib/vs2012"
+end
 if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/mingw"
@@ -58,6 +67,12 @@ print ("OpenEaaglesExamples Paths:")
 print ("  Include   :"..OEExamplesIncPath)
 print ("  Libraries :"..OEExamplesLibPath)
 
+locationPath  = "../" .. _ACTION
+-- check to see if we are generating vs2012 files
+if (_ACTION == "vs2010") and (_ARGS[1] == "vs2012") then
+   locationPath  = "../vs2012"
+end
+
 --
 -- library names
 --
@@ -77,7 +92,7 @@ end
 solution "examples"
 
    -- destination directory for generated solution/project files
-   location ("../" .. _ACTION)
+   location (locationPath)
 
    -- creating console application
    kind "ConsoleApp"
