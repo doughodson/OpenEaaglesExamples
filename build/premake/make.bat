@@ -22,7 +22,7 @@ rem
 rem create solution/workspace files
 rem
 rem %Premake% codeblocks
-rem %Premake% codelite
+%Premake% codelite
 %Premake% vs2008
 %Premake% vs2010
 %Premake% vs2010 vs2012
