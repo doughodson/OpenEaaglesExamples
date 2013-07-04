@@ -7,6 +7,7 @@ Selected informative quotes from
 
 "Flying Empires  Short 'C' class Empire flying boats",
 Brian Cassidy, Queens Parade Press, 1996-2004. ISBN 0-9529298-2-1
+[Cassidy:2004:FE]
     
   "The Pegasus engine data plates were fixed on the port side panel
   below the fore and aft level. The information on the plates read:
@@ -29,6 +30,10 @@ Brian Cassidy, Queens Parade Press, 1996-2004. ISBN 0-9529298-2-1
   crankshaft speed, through Farman type reduction gearing."
   (pp.91) 
 
+  "The starters were Rotax-Eclipse E 160R direct-cranking starters, capable
+  of turning the crankshaft over at 25 to 30 rev. per min."
+  (pp.92)
+
   "The engines originally fitted to all the Mark I S.23 'boats, one
   of the S.30s and both the S.33 'boats were poppet valved Bristol
   Pegasus XCs. The engines developed 820/900 bhp. (589/611 kW.) at
@@ -43,6 +48,18 @@ Brian Cassidy, Queens Parade Press, 1996-2004. ISBN 0-9529298-2-1
   +2 1/2 lb. sq. in. for 5 minutes in level flight."
   (pp.167)
 
+  "Fuel consumptions varied between individual aircraft. In practice, `normal'
+  four engine fuel consumptions ranged from as little as 107.5 gal. per hr. 
+  (484 litres per hr.), to 119.9 gal. per hr. (540 litre per hr.). A good
+  average consumption was considered to be 115 gal. per hr. (518 litre per hr.).
+  The upper limit of acceptable consumption was set at 141 gal. per hr. (631
+  litre per hr.), and anything over this amount was considered to be excessive.
+  These consumption figures appear to be better than the manufacturer's figure
+  of a maximum of 0,67 pints (0.38 litres) per hhp. per hour. ...
+  [Oil] Consumptions varied from 8 pints to 3 1/2 gal. per hour for a
+  typical Pegasus"
+  (pp.168)
+
 Flight Magazine November 12, 1936:
   Bore:                   146 mm
   Stroke:                 190.5 mm 
@@ -55,6 +72,10 @@ Flight Magazine November 12, 1936:
   Dry weight:                         1,015 lbs
   Remark: Moderately supercharged. Max. power at 5,256ft
 
+http://theflyingboatforum.forumlaunch.net/viewtopic.php?f=19&t=897
+  "... British and Australian CofAs for these aircraft give the Pegasus Xc
+  as 740 hp at 2,250 rpm at rated height of 4,500 ft and 815 hp at 2,475 rpm."
+
 -->
 <piston_engine name="PegasusXc">
 
@@ -65,17 +86,24 @@ Flight Magazine November 12, 1936:
  <cylinders>                  9.0  </cylinders>
  <cycles>                     4.0  </cycles>
 
- <maxhp unit="HP">          920.0 </maxhp> <!-- Boosted. -->
- <!-- bsfc unit="LBS/HP/HR"> 0.52 </bsfc -->  <!-- From Wikipedia. Pegasus XVIII. -->
- <!-- volumetric_efficiency> <volumetric_efficiency -->
- <idlerpm>      400.0 </idlerpm>
+ <maxhp unit="HP">          920.0 </maxhp> <!-- At take-off boost. -->
+ <!-- bsfc unit="LBS/HP*HR"> 0.40 </bsfc -->
+ <!--
+     [Cassidy:2004:FE]: For Pegasus Xc:
+                        0.500 LBS/HP/HR (max cruise + acceptable consumption)
+                        0.605 LBS/HP/HR (manufacturer's figure)
+     Wikipedia:         0.52  LBS/HP/HR for Pegasus XVIII.
+ -->
+ <volumetric-efficiency> 0.65 </volumetric-efficiency> <!-- Default 0.85 -->
+ <idlerpm>      300.0 </idlerpm>
  <maxrpm>      2600.0 </maxrpm>
 
  <numboostspeeds> 1.0 </numboostspeeds>
  <boostoverride>  0 </boostoverride>
+ <boost-loss-factor> 1.20 </boost-loss-factor>
 
  <ratedboost1 unit="PSI">      2.50 </ratedboost1>
- <ratedpower1 unit="HP">     900.00 </ratedpower1>
+ <ratedpower1 unit="HP">     815.00 </ratedpower1>
  <ratedrpm1>                2250.00 </ratedrpm1>
  <ratedaltitude1 unit="FT"> 3500.00 </ratedaltitude1>
 
@@ -83,9 +111,82 @@ Flight Magazine November 12, 1936:
 
  <sparkfaildrop>              0.10 </sparkfaildrop>
 
- <minmp unit="INHG">          6.00 </minmp> <!-- Deprecated -->
+ <minmp unit="INHG">         10.00 </minmp>
  <maxmp unit="INHG">         38.57 </maxmp>
  <maxthrottle>                1.00 </maxthrottle>
- <minthrottle>                0.10 </minthrottle>
+ <minthrottle>                0.05 </minthrottle>
+
+ <!--
+      Engine starter system.
+      Inputs:
+        propulsion/engine[#]/starter-serviceable
+        propulsion/engine[#]/starter-voltage-V
+      Outputs:
+        propulsion/engine[#]/starter-current-A
+        propulsion/engine[#]/starter-running-norm
+ -->
+ <starter-torque unit="LB*FT">368</starter-torque>
+ <starter-rpm>800</starter-rpm>            
+ 
+ <function name="propulsion/engine[#]/starter-max-power-W">
+  <product> 
+   <max> <!-- k_torque -->
+    <value>0.0</value>
+    <difference>
+     <value>1.0</value>
+     <quotient>
+      <property>propulsion/engine[#]/engine-rpm</property>
+      <value>400</value>   <!-- Starter max RPM. -->
+     </quotient>
+    </difference>
+   </max>
+   <value>498.941</value> <!-- Starter max torque in Nm. -->
+   <product>              <!-- Engine speed in radians/sec. -->
+    <value>0.10471976</value>
+    <property>propulsion/engine[#]/engine-rpm</property>
+   </product>
+  </product>
+ </function>
+
+ <function name="propulsion/engine[#]/starter-current-A">
+  <!-- Guess: Set the max current to 120A and let it decrease with rpm. -->
+  <!-- The C-46 POH states that a starter on that aircraft draws 120A.  -->
+  <product>
+   <value>120.0</value>
+   <quotient>
+    <property>propulsion/engine[#]/starter-voltage-V</property>
+    <value>12.0</value>
+   </quotient>
+   <max>
+    <value>0.0</value>
+    <difference>
+     <value>1.0</value>
+     <quotient>
+      <property>propulsion/engine[#]/engine-rpm</property>
+      <value>1000</value>
+     </quotient>
+    </difference>
+   </max>
+  </product>
+ </function>
+
+ <function name="propulsion/engine[#]/starter-running-norm">
+  <min>
+   <value>1.0</value>
+   <product>
+    <property>propulsion/engine[#]/starter-serviceable</property>
+    <quotient>
+     <product> <!-- Power available in W. -->
+      <property>propulsion/engine[#]/starter-voltage-V</property>
+      <property>propulsion/engine[#]/starter-current-A</property>
+     </product>
+     <max>     <!-- Max power in W at the current RPM. -->
+      <value>1.0</value>
+      <property>propulsion/engine[#]/starter-max-power-W</property>
+     </max>
+    </quotient>
+   </product>
+  </min>
+ </function>
 
 </piston_engine>

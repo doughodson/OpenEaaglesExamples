@@ -11,6 +11,7 @@ EXTRA_DIST = \
 	hook.xml \
 	refuel.xml \
 	speedbrakes.xml \
+	sperry-a2-autopilot.xml \
 	GNCUtilities.xml \
 	Autopilot.xml \
 	airship_added_mass.xml \
@@ -18,4 +19,5 @@ EXTRA_DIST = \
 	afcs.xml \
 	fg_glue.xml \
 	jsb_glue.xml \
-	rpm_governor.xml
+	rpm_governor.xml \
+	hydrodynamics.xml
