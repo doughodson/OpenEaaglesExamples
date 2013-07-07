@@ -194,7 +194,7 @@ void FoxDisplay::drawIt()
 //------------------------------------------------------------------------------
 // swapbuffers() --
 //------------------------------------------------------------------------------
-void FoxDisplay::swapbuffers()
+void FoxDisplay::swapBuffers()
 {
    if (glVisual != 0 && glCanvas != 0) {
       if(glVisual->isDoubleBuffer()) glCanvas->swapBuffers();
