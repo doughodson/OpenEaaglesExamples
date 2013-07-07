@@ -9,6 +9,18 @@
   <filecreationdate> 2008-07-26 </filecreationdate>
   <version>$Revison: $</version>
   <description> Models a Fokker Dr.1. </description>
+      <note>
+        This model was created using publicly available data, publicly available
+        technical reports, textbooks, and guesses. It contains no proprietary or
+        restricted data. If this model has been validated at all, it would be
+        only to the extent that it seems to "fly right", and that it possibly
+        complies with published, publicly known, performance data (maximum speed,
+        endurance, etc.). Thus, this model is meant for educational and entertainment
+        purposes only.
+
+        This simulation model is not endorsed by the manufacturer. This model is not
+        to be sold.
+      </note>
  </fileheader>
 
 <!--
@@ -90,7 +102,7 @@
    <damping_coeff unit="LBS/FT/SEC">  500 </damping_coeff>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>NONE</brake_group>
-   <retractable>FIXED</retractable>
+   <retractable>0</retractable>
  </contact>
 
   <contact type="BOGEY" name="RIGHT_MAIN">
@@ -106,7 +118,7 @@
    <damping_coeff unit="LBS/FT/SEC">   500 </damping_coeff>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>NONE</brake_group>
-   <retractable>FIXED</retractable>
+   <retractable>0</retractable>
  </contact>
 
   <contact type="BOGEY" name="TAIL">
@@ -122,7 +134,7 @@
    <damping_coeff unit="LBS/FT/SEC">  100 </damping_coeff>
    <max_steer unit="DEG"> 0.00 </max_steer>
    <brake_group>NONE</brake_group>
-   <retractable>FIXED</retractable>
+   <retractable>0</retractable>
  </contact>
 
   <contact type="STRUCTURE" name="LEFT_WING">
