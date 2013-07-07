@@ -1,2 +1,2 @@
-Stable version v13.07
+Developmental version based upon v13.07
 
