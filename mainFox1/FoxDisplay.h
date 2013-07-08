@@ -36,7 +36,7 @@ public:
    // Display interface
    virtual void reshapeIt(int w, int h);
    virtual void drawIt();
-   virtual void swapbuffers();
+   virtual void swapBuffers();
    virtual bool setCanvasSize(const float newW = 0, const float newH = 0);
     
    // Component interface

@@ -120,7 +120,7 @@ void TestDisplay::drawIt()
     BaseClass::drawIt();
     //clear();
     //draw();
-    //swapbuffers();
+    //swapBuffers();
 }
 
 void TestDisplay::updateData(const LCreal dt)

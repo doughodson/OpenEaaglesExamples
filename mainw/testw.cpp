@@ -83,7 +83,7 @@ void TestDisplay::drawIt()
     BaseClass::drawIt();
     //clear();
     //draw();
-    //swapbuffers();
+    //swapBuffers();
 }
 
 // mouseEvent() -- Handle mouse inputs
