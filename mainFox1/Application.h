@@ -6,7 +6,7 @@
 #ifndef __Eaagles_mainFox_Application_H__
 #define __Eaagles_mainFox_Application_H__
 
-#include "fx.h"
+#include "fox/fx.h"
 
 #include "FoxStation.h"
 

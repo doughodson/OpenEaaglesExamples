@@ -11,11 +11,22 @@ codelite/
 *.ilk
 *.pdb
 
+#
+# Qt not needed directories (created upon build)
+#
+tmp/
+build/qt/*Makefile*
+build/qt/*/*Makefile*
+build/qt/*/*/*Makefile*
+*.pro.user
+
+
 # gcc compiled object files
 *.[oa]
 
 # windows executables
-*.exe
+*.exe*
+
 # windows libraries
 *.lib
 # keep premake executable
