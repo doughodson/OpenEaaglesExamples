@@ -1,8 +1,0 @@
-// Test up/down timers
-
-( Tester
-   timers: {
-      one: ( UpTimer    timerValue: ( Seconds 0 )  alarmTime: ( Seconds 5 )  active: true )
-      two: ( DownTimer  timerValue: ( Seconds 5 )  alarmTime: ( Seconds 2 )  active: false )
-   }
-)

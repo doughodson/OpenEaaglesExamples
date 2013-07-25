@@ -1,9 +1,0 @@
-//
-// Uniform distribution settings
-//
-
-( Uniform
-    seed: 12
-    min: 0 
-    max: 20
-)
