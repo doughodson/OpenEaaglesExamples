@@ -47,14 +47,14 @@ project "mainFox1"
       "../../mainFox1/**.h",
       "../../mainFox1/**.epp"
    }
-   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.6" }
+   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    defines {"FOX_1_6"}
    configuration "Release"
       links {"oeSimulation", "oeDafif", "oeInstruments"}
       links {"oeBasicGL", "oeBasic"}
-      links {"FOX-1.6"}
+      links {"fox"}
       links {"ftgl", LibFreetype, LibGLU, LibGL}
       if (os.is("linux")) then
          links {"X11", "pthread", "rt"}
@@ -64,7 +64,7 @@ project "mainFox1"
    configuration "Debug"
       links {"oeSimulation_d", "oeDafif_d", "oeInstruments_d"}
       links {"oeBasicGL_d", "oeBasic_d"}
-      links {"FOX-1.6_d"}
+      links {"fox_d"}
       links {"ftgl_d", "freetype2_d"}
       links {"glu32", "opengl32"}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}

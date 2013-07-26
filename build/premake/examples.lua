@@ -173,13 +173,13 @@ project "mainIr"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Non-RealTime 1 example
@@ -210,13 +210,13 @@ project "mainNonRT1"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Puzzle 1 example
@@ -303,13 +303,13 @@ project "mainSim1"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 2 example
@@ -340,13 +340,13 @@ project "mainSim2"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 3 example
@@ -377,13 +377,13 @@ project "mainSim3"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- simple Simulation 4 example
@@ -414,13 +414,13 @@ project "mainSim4"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Terrain loading example
@@ -482,13 +482,13 @@ project "mainUbf1"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- Vmap example
@@ -578,13 +578,13 @@ project "mainx9"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d","ccl_lib_d"}
+      links {"oeOtw_d","ccl_d"}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"JSBSim_d", "ccl_lib_d"}
+      links {"JSBSim_d", "ccl_d"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- mainy1
@@ -616,13 +616,13 @@ project "mainy1"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d" }
-      links {"oeOtw_d", "ccl_lib_d" }
+      links {"oeOtw_d", "ccl_d" }
       links {"oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
       links {"ftgl_d", "freetype2_d", "freeglut_d" }
       links {"glu32", "opengl32" }
-      links {"JSBSim_d", "ccl_lib_d", "libprotobuf_d" }
+      links {"JSBSim_d", "ccl_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
 
 -- mainz1

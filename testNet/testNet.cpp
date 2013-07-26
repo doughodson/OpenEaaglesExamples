@@ -66,7 +66,7 @@ static NetTester* readTest(const char* const testFile)
 
 int exec(int argc, char* argv[])
 {
-    const char* testFile = "inputs/clientTcp.edl";
+    const char* testFile = "clientTcp.edl";
 
     // Get the command line arguments
     for (int i = 1; i < argc; i++) {
