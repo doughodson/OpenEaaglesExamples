@@ -1,7 +1,7 @@
 # mainVmap OpenEaaglesExample
 
 # using visual studio 2010 library
-MSVC_VER = vs2010
+include(../config.pri)0
 
 # Package locations
 # OpenEaagles simulation framework

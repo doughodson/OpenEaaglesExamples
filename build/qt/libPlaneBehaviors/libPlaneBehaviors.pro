@@ -1,7 +1,7 @@
 # OpenEaagles planeBehaviors library profile
 
 # Define the Visual studio compiler version we wish to use (Windows only)
-MSVC_VER = vs2010
+include(../config.pri)
 
 # Root directory
 OE_ROOT=$$PWD/../../../../OpenEaagles
