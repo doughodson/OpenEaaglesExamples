@@ -64,7 +64,7 @@ locationPath  = "../" .. _ACTION
 --
 -- library names
 --
-LibCigi     = "ccl_lib"
+LibCigi     = "ccl"
 LibFreetype = "freetype2"
 LibGlut     = "freeglut"
 LibGLU      = "glu32"
