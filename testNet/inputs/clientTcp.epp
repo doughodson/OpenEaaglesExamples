@@ -1,0 +1,8 @@
+
+// Client side for the TCP/IP handler tests
+
+( ClientSide
+    noWait: false
+    netHandler:   ( TcpClient ipAddress: lancer2 port: 3001 )   
+)
+

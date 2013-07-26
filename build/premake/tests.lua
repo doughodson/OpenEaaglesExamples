@@ -188,13 +188,13 @@ project "testRecordData"
       end
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d" }
-      links {"oeOtw_d", "ccl_lib_d" }
+      links {"oeOtw_d", "ccl_d" }
       links {"oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
       links {"ftgl_d", "freetype2_d", "freeglut_d" }
       links {"glu32", "opengl32" }
-      links {"JSBSim_d", "ccl_lib_d", "libprotobuf_d" }
+      links {"JSBSim_d", "ccl_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
 
 -- testRecorderRead
