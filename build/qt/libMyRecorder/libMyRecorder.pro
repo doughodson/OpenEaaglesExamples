@@ -1,14 +1,5 @@
 # OpenEaagles myRecorder library profile
-
-# Define the Visual studio compiler version we wish to use (Windows only)
 include(../config.pri)
-
-# Root directory
-OE_ROOT=$$PWD/../../../../OpenEaagles
-# OpenEaagles3rdParty Root
-OE_3RD_PARTY_ROOT=$$PWD/../../../../OpenEaagles3rdParty
-# Home
-HOME_ROOT=$$PWD/../../../
 
 # Static library configuration
 TEMPLATE = lib
@@ -36,9 +27,12 @@ INCLUDEPATH += \
 
 # Header files
 HEADERS += \
-   $${HOME_ROOT}/include/myRecorder/*.h
+   $${HOME_ROOT}/include/myRecorder/*.h \
+   $${HOME_ROOT}/include/myRecorder/*.proto
+
 
 # Source files
 SOURCES += \
-   $${HOME_ROOT}/src/myRecorder/*.cpp
+   $${HOME_ROOT}/src/myRecorder/*.cpp   \
+   $${HOME_ROOT}/src/myRecorder/*.cc
 

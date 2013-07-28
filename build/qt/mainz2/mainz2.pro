@@ -1,48 +1,38 @@
 # mainz2 OpenEaaglesExample
-
-# using visual studio 2010 library
 include(../config.pri)
 
-# Package locations
-# OpenEaagles simulation framework
-OE_ROOT = $$PWD/../../../../OpenEaagles
-# OpenEaagles 3rd Party dependencies
-OE_3RD_PARTY_ROOT = $$PWD/../../../../OpenEaagles3rdParty
 # our root
-HOME_ROOT = $$PWD/../../../mainz2
+MY_ROOT = $$HOME_ROOT/mainz2
 
 # Configuration settings
 TEMPLATE = app
 CONFIG += console
 
 # destination and working directories
-win32: DESTDIR = $${HOME_ROOT}
-else:unix:!macx:!symbian: DESTDIR = $${HOME_ROOT}
+win32: DESTDIR = $${MY_ROOT}
+else:unix:!macx:!symbian: DESTDIR = $${MY_ROOT}
 
 OBJECTS_DIR = ./tmp/obj
 MOC_DIR = ./tmp/moc
 RCC_DIR = ./tmp/rcc
 
-# remove deprecated windows warnings
-DEFINES += _CRT_SECURE_NO_WARNINGS
 
 # include paths
 INCLUDEPATH +=                          \
-   $${HOME_ROOT}                        \
    $${OE_ROOT}/include                  \
    $${OE_3RD_PARTY_ROOT}/include
 
 # source files
 SOURCES += \
-   $${HOME_ROOT}/*.cpp
+   $${MY_ROOT}/*.cpp
 
 # header files
 HEADERS += \
-   $${HOME_ROOT}/*.h
+   $${MY_ROOT}/*.h
 
 # other files
 OTHER_FILES += \
-   $${HOME_ROOT}/inputs/*.epp         \
+   $${MY_ROOT}/inputs/*.epp         \
 
 
 # Windows (MSVC) release libraries

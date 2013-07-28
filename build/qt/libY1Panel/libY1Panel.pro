@@ -1,14 +1,5 @@
 # OpenEaagles Y1Panel library profile
-
-# Define the Visual studio compiler version we wish to use (Windows only)
 include(../config.pri)
-
-# Root directory
-OE_ROOT=$$PWD/../../../../OpenEaagles
-# OpenEaagles3rdParty Root
-OE_3RD_PARTY_ROOT=$$PWD/../../../../OpenEaagles3rdParty
-# Home
-HOME_ROOT=$$PWD/../../../
 
 # Static library configuration
 TEMPLATE = lib

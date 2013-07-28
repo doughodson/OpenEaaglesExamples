@@ -25,8 +25,31 @@ SUBDIRS       = \
                 mainTerrain         \
                 mainUbf1            \
                 mainVmap            \
+                mainw               \
                 mainx9              \
                 mainy1              \
                 mainz1              \
-                mainz2              
-                
+                mainz2              \
+                testEvents          \
+                testIo              \
+                testLinearSys       \
+                testMatrix          \
+                testNav             \
+                testNet             \
+                testRecordData      \
+                testRecorderRead    \
+                testRecorderWrite   \
+                testRng             \
+                testStateMach       \
+                testTables          \
+                testTimer           \
+                # tutorials
+                tutorial01          \
+                tutorial02          \
+                tutorial03          \
+                tutorial04          \
+                tutorial05          \
+                tutorial06          \
+                tutorial07          \
+                tutorial08
+
