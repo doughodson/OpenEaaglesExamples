@@ -32,9 +32,9 @@
             components: {
                pilot:
                ( Autopilot 
-                  navMode:             0
+                  //navMode:             1
                   loiterMode:          1
-                  followTheLeadMode:   0
+                  //followTheLeadMode:   0
                   loiterPatternLength: 10
                )
                
@@ -53,26 +53,29 @@
                            latitude:   0.1
                            longitude:  0.1
                            altitude: ( Feet 12000 )
+                           airspeed: 400
                         )
                         ( Steerpoint 
                            latitude:   0.1
                            longitude: -0.1
                            altitude: ( Feet 13000 )
+                           airspeed: 450
                         )
                         ( Steerpoint
                            latitude:  -0.1
                            longitude: -0.1
                            altitude: ( Feet 10000 )
+                           airspeed: 350
                         )
                         ( Steerpoint
                            latitude:  -0.1
                            longitude:  0.1
                            altitude: ( Feet 5000 )
+                           airspeed: 300
                         )
                      }
                   )
                )
-
             }
          )
       }      

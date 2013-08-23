@@ -45,8 +45,13 @@ private:
 
    Simulation::Player* player[MAX_PLAYERS];    // player pointer
    int playerIdx[MAX_PLAYERS];                 // index of our symbol for the given player
+   // player symbol loader
    BasicGL::SymbolLoader* loader;              // holds our loader for quick reference
    TestStation* pStn;                           // holds our station (to get the player list quickly)
+
+   // is our route loaded?
+   bool routeLoaded;              
+
 
    // show where our lat/lons are
    SendData latsSD[MAX_READOUTS];

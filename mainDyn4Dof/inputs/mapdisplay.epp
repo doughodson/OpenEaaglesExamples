@@ -70,7 +70,7 @@
             //holdingPattern:
 
             // symbol loader
-            sloader:
+            playerLoader:
             ( SymbolLoader
                templates: {
                   //----------------------------------------
@@ -184,6 +184,29 @@
                   )
                }
             )
+
+            // symbol loader for route points
+            routeLoader:
+            ( SymbolLoader
+               interconnect: 1
+               templates: {
+                  //----------------------------------------
+                  // Steerpoint
+                  //----------------------------------------
+                  ( Graphic
+                     components: {
+                        symbol:
+                        ( Circle
+                           filled: 1
+                           slices: 100
+                           color: green
+                           radius: 0.5
+                        )
+                     }
+                  )
+               }
+            )
+
 
             //----------------------------------------------
             here is the outer circle, to show range

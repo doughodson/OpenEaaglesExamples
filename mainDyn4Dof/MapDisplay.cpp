@@ -176,101 +176,101 @@ void MapDisplay::mouseMotionEvent(const int x, const int y)
 // ----------------------------------------------------------------------------
 void MapDisplay::buttonEvent(const int b)
 {
-   // cmdRange up, down
-   MapPage* page = (MapPage*)(subpage());
+   //// cmdRange up, down
+   //MapPage* page = (MapPage*)(subpage());
 
-   // cmdAirspeed, cmdAltitude, cmdHeading up, down
-   Simulation::Aircraft* pA = getOwnship();
-   Vehicle::Dyn4DofModel* pR = 0;
-   if (pA != 0) {
-      pR = (Vehicle::Dyn4DofModel*)pA->getDynamicsModel();   
-   }
-   //MainDyn4Dof::Dyn4DofModel* pR = getRacModel();
-   //Dyn4DofModel* pR = (Dyn4DofModel*) getOwnship();
+   //// cmdAirspeed, cmdAltitude, cmdHeading up, down
+   //Simulation::Aircraft* pA = getOwnship();
+   //Vehicle::Dyn4DofModel* pR = 0;
+   //if (pA != 0) {
+   //   pR = (Vehicle::Dyn4DofModel*)pA->getDynamicsModel();   
+   //}
+   ////MainDyn4Dof::Dyn4DofModel* pR = getRacModel();
+   ////Dyn4DofModel* pR = (Dyn4DofModel*) getOwnship();
 
 
-   if (page != 0 && pA != 0 && pR != 0) {
+   //if (page != 0 && pA != 0 && pR != 0) {
 
-      switch (b) { 
-         //-------------------------------------------------
-         // decrease range
-         //-------------------------------------------------
-         case 101:   if (page->getRange() > 5) {
-                        page->setRange(page->getRange() - 5);
-                        
-                     }
-                     break;
+   //   switch (b) { 
+   //      //-------------------------------------------------
+   //      // decrease range
+   //      //-------------------------------------------------
+   //      case 101:   if (page->getRange() > 5) {
+   //                     page->setRange(page->getRange() - 5);
+   //                     
+   //                  }
+   //                  break;
 
-         //-------------------------------------------------
-         // increase range
-         //-------------------------------------------------
-         case 102:   if (page->getRange() < 320) {
-                        page->setRange(page->getRange() + 5);
-                     }
-                     break;
+   //      //-------------------------------------------------
+   //      // increase range
+   //      //-------------------------------------------------
+   //      case 102:   if (page->getRange() < 320) {
+   //                     page->setRange(page->getRange() + 5);
+   //                  }
+   //                  break;
 
-         //-------------------------------------------------
-         // decrease cmdAirspeed
-         //-------------------------------------------------
-         case 103:   if (cmdAirspeed > 100) {
-                        cmdAirspeed -= 10;
-                        pR->setCmdVel(cmdAirspeed);
-                     }
-                     break;
+   //      //-------------------------------------------------
+   //      // decrease cmdAirspeed
+   //      //-------------------------------------------------
+   //      case 103:   if (cmdAirspeed > 100) {
+   //                     cmdAirspeed -= 10;
+   //                     pR->setCmdVel(cmdAirspeed);
+   //                  }
+   //                  break;
 
-         //-------------------------------------------------
-         // increase cmdAirspeed
-         //-------------------------------------------------
-         case 104:   if (cmdAirspeed < 400) {
-                        cmdAirspeed += 10;
-                        pR->setCmdVel(cmdAirspeed);
-                     }
-                     break;
+   //      //-------------------------------------------------
+   //      // increase cmdAirspeed
+   //      //-------------------------------------------------
+   //      case 104:   if (cmdAirspeed < 400) {
+   //                     cmdAirspeed += 10;
+   //                     pR->setCmdVel(cmdAirspeed);
+   //                  }
+   //                  break;
 
-         //-------------------------------------------------
-         // decrease cmdAltitude
-         //-------------------------------------------------
-         case 105:   if (cmdAltitude > 1000) {
-                        cmdAltitude -= 500;
-                        pR->setCmdAlt(cmdAltitude);
-                     }
-                     break;
+   //      //-------------------------------------------------
+   //      // decrease cmdAltitude
+   //      //-------------------------------------------------
+   //      case 105:   if (cmdAltitude > 1000) {
+   //                     cmdAltitude -= 500;
+   //                     pR->setCmdAlt(cmdAltitude);
+   //                  }
+   //                  break;
 
-         //-------------------------------------------------
-         // increase cmdAltitude
-         //-------------------------------------------------
-         case 106:   if (cmdAltitude < 40000) {
-                        cmdAltitude += 500;
-                        pR->setCmdAlt(cmdAltitude);
-                     }
-                     break;
+   //      //-------------------------------------------------
+   //      // increase cmdAltitude
+   //      //-------------------------------------------------
+   //      case 106:   if (cmdAltitude < 40000) {
+   //                     cmdAltitude += 500;
+   //                     pR->setCmdAlt(cmdAltitude);
+   //                  }
+   //                  break;
 
-         //-------------------------------------------------
-         // decrease cmdHeading
-         //-------------------------------------------------
-         case 107:   cmdHeading -= 10;
-                     if (cmdHeading < -180.0) cmdHeading += 360;
-                        pR->setCmdHdg(cmdHeading);
-                     break;
+   //      //-------------------------------------------------
+   //      // decrease cmdHeading
+   //      //-------------------------------------------------
+   //      case 107:   cmdHeading -= 10;
+   //                  if (cmdHeading < -180.0) cmdHeading += 360;
+   //                     pR->setCmdHdg(cmdHeading);
+   //                  break;
 
-         //-------------------------------------------------
-         // increase cmdHeading
-         //-------------------------------------------------
-         case 108:   cmdHeading += 10;
-                     if (cmdHeading > 180.0) cmdHeading -= 360;
-                        pR->setCmdHdg(cmdHeading);
-                     break;
+   //      //-------------------------------------------------
+   //      // increase cmdHeading
+   //      //-------------------------------------------------
+   //      case 108:   cmdHeading += 10;
+   //                  if (cmdHeading > 180.0) cmdHeading -= 360;
+   //                     pR->setCmdHdg(cmdHeading);
+   //                  break;
 
-         //-------------------------------------------------
-         case 111:   passiveEnable = true; 
-                     break;
+   //      //-------------------------------------------------
+   //      case 111:   passiveEnable = true; 
+   //                  break;
 
-         case 112:   passiveEnable = false; 
-                     break;
+   //      case 112:   passiveEnable = false; 
+   //                  break;
 
-         default:    break;
-      }
-   }
+   //      default:    break;
+   //   }
+   //}
 }
 
 // ----------------------------------------------------------------------------

@@ -60,6 +60,8 @@ MapPage::MapPage()
         lonReadoutYPosSD[i].empty();
         lonReadoutYPos[i] = 0;
     }
+
+    routeLoaded = false;
 }  
 
 //------------------------------------------------------------------------------
@@ -115,6 +117,8 @@ void MapPage::copyData(const MapPage& org, const bool)
         lonReadoutYPosSD[i].empty();
         lonReadoutYPos[i] = org.lonReadoutYPos[i];
     }
+
+    routeLoaded = org.routeLoaded;
 }
 
 //------------------------------------------------------------------------------
@@ -357,7 +361,7 @@ void MapPage::updateData(const LCreal dt)
     
     // get our pointers
     if (loader == 0) {
-        Basic::Pair* pair = findByType(typeid(BasicGL::SymbolLoader));
+        Basic::Pair* pair = findByName("playerLoader");
         if (pair != 0) {
             loader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
             if (loader != 0) loader->ref();
@@ -379,6 +383,39 @@ void MapPage::updateData(const LCreal dt)
             }
         }
     }
+
+   // go through one time and add our symbols for the route
+   if (!routeLoaded && pStn != 0) {
+      Basic::Pair* pair = findByName("routeLoader");
+      if (pair != 0) {
+         BasicGL::SymbolLoader* routeLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+         if (routeLoader != 0) {
+            // get our player's route
+            Simulation::Player* ply = pStn->getOwnship();
+            if (ply != 0) {
+               Simulation::Navigation* nav = ply->getNavigation();
+               if (nav != 0) {
+                  Simulation::Route* rte = nav->getPriRoute();
+                  if (rte != 0) {
+                     SPtr<Simulation::Steerpoint> stpts[10];
+                     unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
+                     for (unsigned int i = 0; i < numStpts; i++) {
+                        if (stpts[i] != 0) {
+                           int pos = routeLoader->addSymbol(1, "stpt");
+                           // now update the position
+                           routeLoader->updateSymbolPositionLL(pos, stpts[i]->getLatitude(), stpts[i]->getLongitude());
+                           // unref when we are done
+                           stpts[i] = 0;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+      routeLoaded = true;
+   }
+
 
     // let's update our players
     if (loader != 0 && pStn != 0) {
