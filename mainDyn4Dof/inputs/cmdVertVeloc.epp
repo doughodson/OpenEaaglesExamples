@@ -1,0 +1,89 @@
+//----------------------------------------------------------
+// Range button
+//----------------------------------------------------------
+(Graphic
+   transform: { (Translation -2.0 8.5) (Scale 0.5) }
+
+   components: {
+
+      //-----------------------------
+      // decrease vertical velocity
+      //-----------------------------
+      ( Button
+         selectName: 9
+         eventId: 109
+         components: {
+            ( Polygon 
+               transform: { (Translation 0.0 1.0) }
+               color: black
+               vertices: {
+                  [ 0.5   0.0 ]
+                  [ 0.5   1.0 ]
+                  [ 0.0   0.5 ]
+               }
+            )
+         }
+      )
+
+      //-----------------------------
+      // increase vertical velocity
+      //-----------------------------
+      ( Button
+         selectName: 10
+         eventId: 110
+         components: {
+            ( Polygon 
+               transform: { (Translation 3.5 1.0) }
+               color: black
+               vertices: {
+                  [ 0.0   0.0 ]
+                  [ 0.0   1.0 ]
+                  [ 0.5   0.5 ]
+               }
+            )
+         }
+      )
+
+      //-------------------------------------------
+      // label
+      //-------------------------------------------
+      ( AsciiText
+         color: black
+         transform: { (Translation 1.15 1.25) (Scale 2.0) }
+         text: "vertvel"
+      )
+
+      ( Polygon 
+         transform: { (Translation 0.0 1.0) }
+         color: white
+         vertices: {
+            [ 0.0   0.0 ]
+            [ 0.0   1.0 ]
+            [ 4.0   1.0 ]
+            [ 4.0   0.0 ]
+         }
+      )
+
+      //-------------------------------------------
+      // command vertical velocity value
+      //-------------------------------------------
+      cmdVertVeloc: 
+      ( NumericReadout
+         transform: { (Translation 1.0 0.125) (Scale 3.0) }
+         color: white
+         value: 9999
+         format: "####"
+      )
+                                       
+      ( Polygon 
+         transform: { (Translation 0.0 0.0) }
+         color: red
+         vertices: {
+            [ 0.0   0.0 ]
+            [ 0.0   1.0 ]
+            [ 4.0   1.0 ]
+            [ 4.0   0.0 ]
+         }
+      )
+   }
+)

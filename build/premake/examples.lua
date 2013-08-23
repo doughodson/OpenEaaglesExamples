@@ -680,3 +680,38 @@ project "mainz2"
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
+-- mainDyn4Dof
+project "mainDyn4Dof"
+   targetname "mainDyn4Dof"
+   targetdir "../../mainDyn4Dof"
+   debugdir "../../mainDyn4Dof"
+   files {
+      "../../mainDyn4Dof/**.cpp",
+      "../../mainDyn4Dof/**.h",
+      "../../mainDyn4Dof/**.epp",
+      "../../mainDyn4Dof/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   configuration "Release"
+      links {"oeVehicles", "JSBSim"}
+      links {"oeDis", "oeSensors", "oeIoDevice"}
+      links {"oeSimulation", "oeDafif", "oeTerrain"}
+      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
+      if (os.is("linux")) then
+         links {"X11", "pthread", "rt"}
+      else
+         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      end
+   configuration "Debug"
+      links {"oeVehicles_d", "JSBSim_d"}
+      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
+      links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
+      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"ftgl_d", "freetype2_d", "freeglut_d"}
+      links {"glu32", "opengl32"}
+      links {"JSBSim_d", "ccl_d"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}

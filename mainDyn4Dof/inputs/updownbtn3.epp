@@ -1,0 +1,138 @@
+// here are the buttons, and other stuff that will "overlay" the map page
+
+components: {
+
+   //=======================================================
+   (Graphic
+      transform: (Translation 0 0)
+
+      components: {
+         //-----------------------------
+         // b3
+         //-----------------------------
+         ( Button
+            transform: { ( Translation 2.0 1.25 0) (Scale 4) }
+            selectName: 3
+            eventId: 103
+            components: {
+               ( Polygon
+                  color: black
+                  vertices: {
+                     [ 0.0   0.0  ]
+                     [ 0.25  0.25 ]
+                     [ 0.5   0.0  ]
+                  }
+               )
+            }
+         )
+
+         //-----------------------------
+         // b4
+         //-----------------------------
+         ( Button
+            transform: { (Translation 2.0 0 0) (Scale 4) }
+            selectName: 4
+            eventId: 104
+            components: {
+               ( Polygon
+                  color: black
+                  vertices: {
+                     [ 0.0   0.25 ]
+                     [ 0.25  0.0  ]
+                     [ 0.5   0.25 ]
+                  }
+               )
+            }
+         )
+      }
+   )
+   //=======================================================
+
+   //=======================================================
+   (Graphic
+      transform: (Translation 0 0)
+
+      components: {
+         //-----------------------------
+         // b1
+         //-----------------------------
+         ( Button
+            transform: { ( Translation 0 1.25 0) (Scale 4) }
+            selectName: 1
+            eventId: 101
+            components: {
+               ( Polygon
+                  color: black
+                  vertices: {
+                     [ 0.0   0.0  ]
+                     [ 0.25  0.25 ]
+                     [ 0.5   0.0  ]
+                  }
+               )
+            }
+         )
+
+         //-----------------------------
+         // b2
+         //-----------------------------
+         ( Button
+            transform: { (Translation 0 0 0) (Scale 4) }
+            selectName: 2
+            eventId: 102
+            components: {
+               ( Polygon
+                  color: black
+                  vertices: {
+                     [ 0.0   0.25 ]
+                     [ 0.25  0.0  ]
+                     [ 0.5   0.25 ]
+                  }
+               )
+            }
+         )
+
+         // range value
+         ( Graphic
+            transform: ( Translation 3.5 0.0  )
+            components: {
+
+               range: 
+               ( NumericReadout
+                  color: white
+                  value: 999
+                  transform: { ( Scale 2 ) }
+                  format: "###"
+               )                        
+               ( AsciiText
+                  color: white
+                  transform: { ( Translation 0.15 -0.25 ) }
+                  text: "range"
+               )
+
+               ( LineLoop
+                  color: white
+                  linewidth: 2
+                  vertices: {
+                     [ 0.0  0.0 ]
+                     [ 0.0  0.5 ]
+                     [ 1.0  0.5 ] 
+                     [ 1.0  0.0 ]
+                  }
+               )
+               ( Polygon 
+                  color: red
+                  vertices: {
+                     [ 0.0  0.0 ]
+                     [ 0.0  0.5 ]
+                     [ 1.0  0.5 ] 
+                     [ 1.0  0.0 ]
+                  }
+               )
+            }
+         )
+      }
+   )
+   //=======================================================
+
+}
+
