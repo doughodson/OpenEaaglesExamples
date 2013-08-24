@@ -33,8 +33,13 @@
                pilot:
                ( Autopilot 
                   navMode:             1
-                  maxRateOfTurnDps:    10
-                  maxBankAngle:        90
+                  // maximum rate of turn in degrees per second (PILOT limit)
+                  maxRateOfTurnDps:    3  
+                  // maximum bank angle in degrees (PILOT limit)
+                  maxBankAngle:        30
+                  maxClimbRateFpm:     2000.0
+                  //maxClimbRateMps:     10.16
+
                   //loiterMode:          1
                   //followTheLeadMode:   0
                   //loiterPatternLength: 10
