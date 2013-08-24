@@ -32,10 +32,12 @@
             components: {
                pilot:
                ( Autopilot 
-                  //navMode:             1
-                  loiterMode:          1
+                  navMode:             1
+                  maxRateOfTurnDps:    10
+                  maxBankAngle:        90
+                  //loiterMode:          1
                   //followTheLeadMode:   0
-                  loiterPatternLength: 10
+                  //loiterPatternLength: 10
                )
                
                #if 1
