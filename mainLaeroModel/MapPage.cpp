@@ -12,7 +12,7 @@
 #include "openeaagles/basicGL/SymbolLoader.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
-#include "openeaagles/vehicles/Dyn4DofModel.h"
+#include "openeaagles/vehicles/LaeroModel.h"
 #include "openeaagles/basicGL/Display.h"
 #include "openeaagles/basicGL/Shapes.h"
 
@@ -166,7 +166,7 @@ void MapPage::drawHoldingPattern(const double aLat, const double aLon, const dou
    //if (pStn != 0) {
    //   Simulation::Player* pPlr  = pStn->getOwnship();
    //   if (pPlr != 0) {
-   //      Vehicle::Dyn4DofModel* pRac = (Vehicle::Dyn4DofModel*) pPlr->getDynamicsModel();
+   //      Vehicle::LaeroModel* pRac = (Vehicle::LaeroModel*) pPlr->getDynamicsModel();
    //      if (pRac != 0) {
 
    //         pRac->setAnchorLat(aLat);
@@ -183,77 +183,77 @@ void MapPage::drawHoldingPattern(const double aLat, const double aLon, const dou
 
 void MapPage::drawHoldingPattern()
 {
-   //if (pStn != 0) {
-   //   Simulation::Player* pPlr  = pStn->getOwnship();
-   //   if (pPlr != 0) {
-   //      Vehicle::Dyn4DofModel* pRac = (Vehicle::Dyn4DofModel*) pPlr->getDynamicsModel();
-   //      if (pRac != 0) {
+   if (pStn != 0) {
+      Simulation::Player* pPlr  = pStn->getOwnship();
+      if (pPlr != 0) {
+         Simulation::Autopilot* pRac = (Simulation::Autopilot*) pPlr->getPilot();
+         if (pRac != 0) {
 
-   //      //---------------------------------------------------------------------------
-   //      // Draw Holding Pattern
-   //      //---------------------------------------------------------------------------
+         //---------------------------------------------------------------------------
+         // Draw Holding Pattern
+         //---------------------------------------------------------------------------
+            double aLat = 0, aLon = 0, mLat = 0, mLon = 0;
+            pRac->getLoiterPointAnchors(&aLat, &aLon, &mLat, &mLon);
+            //std::cout << "MIRROR LAT/LON = " << mLat << ", " << mLon << std::endl;
+            double ibCrs = pRac->getLoiterCourse();
+            double osVel = pPlr->getTotalVelocityKts();
 
-   //         double aLat = pRac->getAnchorLat();
-   //         double aLon = pRac->getAnchorLon();
-   //         double ibCrs = pRac->getInboundCrs();
-   //         double osVel = pPlr->getTotalVelocityKts();
+            //setReferenceLatDeg(0.0);
+            //setReferenceLonDeg(0.0);
 
-   //         //setReferenceLatDeg(0.0);
-   //         //setReferenceLonDeg(0.0);
+            double refLat = getReferenceLatDeg();
+            double refLon = getReferenceLonDeg();
 
-   //         double refLat = getReferenceLatDeg();
-   //         double refLon = getReferenceLonDeg();
+            double omegaDps = 3.0;                                      //dps
+            double omegaRps = omegaDps * Basic::Angle::D2RCC;           //rps
+            double rocNM = (osVel / Basic::Time::H2S) / omegaRps;       //nm
+            double obTimeMin = 2.0;                                     //min
+            double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
+            double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
 
-   //         double omegaDps = 3.0;                                      //dps
-   //         double omegaRps = omegaDps * Basic::Angle::D2RCC;           //rps
-   //         double rocNM = (osVel / Basic::Time::H2S) / omegaRps;       //nm
-   //         double obTimeMin = 2.0;                                     //min
-   //         double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
-   //         double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
+            double aLatSU = 0.0;
+            double aLonSU = 0.0;
+            latLon2Screen(aLat, aLon, &aLatSU, &aLonSU);
 
-   //         double aLatSU = 0.0;
-   //         double aLonSU = 0.0;
-   //         latLon2Screen(aLat, aLon, &aLatSU, &aLonSU);
+            double rocSU = rocNM * getScale();
+            double obDistSU = obDistNM * getScale();
 
-   //         double rocSU = rocNM * getScale();
-   //         double obDistSU = obDistNM * getScale();
+            //==============================================
+            // begin drawing holding pattern
 
-   //         //==============================================
-   //         // begin drawing holding pattern
+            glPushMatrix();
 
-   //         glPushMatrix();
+               // convert to NED coordinate system
+               glRotated(90.0, 0, 0, 1);
+               glRotated(180.0, 1, 0, 0);
 
-   //            // convert to NED coordinate system
-   //            glRotated(90.0, 0, 0, 1);
-   //            glRotated(180.0, 1, 0, 0);
+               // set anchor waypoint and inbound course
+               glTranslated(aLonSU, aLatSU, 0.0);
+               glRotated(ibCrs, 0.0, 0.0, 1.0);
 
-   //            // set anchor waypoint and inbound course
-   //            glTranslated(aLonSU, aLatSU, 0.0);
-   //            glRotated(ibCrs, 0.0, 0.0, 1.0);
+               // draw holding pattern
+               //glColor3f(1, 1, 0);  // yellow
+               drawLine(-obDistSU, 0.0);  // inbound path
 
-   //            // draw holding pattern
-   //            //glColor3f(1, 1, 0);  // yellow
-   //            drawLine(-obDistSU, 0.0);  // inbound path
+               //glColor3f(1, 0, 0);  // red
+               glTranslated(-obDistSU, rocSU, 0.0);
+               drawSemiCircle(180.0, rocSU);  // inbound turn
 
-   //            //glColor3f(1, 0, 0);  // red
-   //            glTranslated(-obDistSU, rocSU, 0.0);
-   //            drawSemiCircle(180.0, rocSU);  // inbound turn
+               //glColor3f(1, 1, 0);  // yellow
+               glTranslated(0.0, rocSU, 0.0);
+               drawLine(obDistSU, 0.0);  // outbound path
 
-   //            //glColor3f(1, 1, 0);  // yellow
-   //            glTranslated(0.0, rocSU, 0.0);
-   //            drawLine(obDistSU, 0.0);  // outbound path
+               //glColor3f(0, 1, 0);  // green
+               glTranslated(obDistSU, -rocSU, 0.0);
+               drawSemiCircle(0.0, rocSU);  // outbound turn
 
-   //            //glColor3f(0, 1, 0);  // green
-   //            glTranslated(obDistSU, -rocSU, 0.0);
-   //            drawSemiCircle(0.0, rocSU);  // outbound turn
+            glPopMatrix();
 
-   //         glPopMatrix();
-
-   //         // end drawing holding pattern
-   //         //==============================================
-   //      }
-   //   }
-   //}
+            // end drawing holding pattern
+            //==============================================
+         }
+      }
+   }
 }
 
 void MapPage::drawFunc()

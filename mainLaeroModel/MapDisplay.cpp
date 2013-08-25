@@ -3,7 +3,7 @@
 #include "./TestStation.h"
 #include "./MapPage.h"
 
-#include "openeaagles/vehicles/Dyn4DofModel.h"
+#include "openeaagles/vehicles/LaeroModel.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Player.h"
 
@@ -181,12 +181,12 @@ void MapDisplay::buttonEvent(const int b)
 
    //// cmdAirspeed, cmdAltitude, cmdHeading up, down
    //Simulation::Aircraft* pA = getOwnship();
-   //Vehicle::Dyn4DofModel* pR = 0;
+   //Vehicle::LaeroModel* pR = 0;
    //if (pA != 0) {
-   //   pR = (Vehicle::Dyn4DofModel*)pA->getDynamicsModel();   
+   //   pR = (Vehicle::LaeroModel*)pA->getDynamicsModel();   
    //}
-   ////MainDyn4Dof::Dyn4DofModel* pR = getRacModel();
-   ////Dyn4DofModel* pR = (Dyn4DofModel*) getOwnship();
+   ////MainDyn4Dof::LaeroModel* pR = getRacModel();
+   ////LaeroModel* pR = (LaeroModel*) getOwnship();
 
 
    //if (page != 0 && pA != 0 && pR != 0) {
@@ -288,13 +288,13 @@ void MapDisplay::updateData(const LCreal dt)
    }
 
    //// get pointer to Aircraft data
-   //Dyn4DofModel* pR = 0;
+   //LaeroModel* pR = 0;
    //Simulation::Aircraft* pA = (Simulation::Aircraft*)getOwnship();
    //if (pA != 0) {
-   //   pR = (Dyn4DofModel*) pA->getDynamicsModel();
+   //   pR = (LaeroModel*) pA->getDynamicsModel();
    //}
 
-   // get pointer to Dyn4DofModel data
+   // get pointer to LaeroModel data
    send("cmdRange",     UPDATE_VALUE, cmdRange,     cmdRangeSD);
    send("cmdAirspeed",  UPDATE_VALUE, cmdAirspeed,  cmdAirspeedSD);
    send("cmdAltitude",  UPDATE_VALUE, cmdAltitude,  cmdAltitudeSD);

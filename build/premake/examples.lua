@@ -681,16 +681,16 @@ project "mainz2"
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- mainDyn4Dof
-project "mainDyn4Dof"
-   targetname "mainDyn4Dof"
-   targetdir "../../mainDyn4Dof"
-   debugdir "../../mainDyn4Dof"
+-- mainLaeroModel
+project "mainLaeroModel"
+   targetname "mainLaeroModel"
+   targetdir "../../mainLaeroModel"
+   debugdir "../../mainLaeroModel"
    files {
-      "../../mainDyn4Dof/**.cpp",
-      "../../mainDyn4Dof/**.h",
-      "../../mainDyn4Dof/**.epp",
-      "../../mainDyn4Dof/**.edl"
+      "../../mainLaeroModel/**.cpp",
+      "../../mainLaeroModel/**.h",
+      "../../mainLaeroModel/**.epp",
+      "../../mainLaeroModel/**.edl"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }

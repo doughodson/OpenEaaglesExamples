@@ -27,27 +27,29 @@
             initLongitude: ( Degrees  0 )
             initAlt:       ( Feet 10000 )
             initHeading:   ( Degrees 0 )
-            initVelocity:  300
+            initVelocity:  100
 
             components: {
                pilot:
                ( Autopilot 
-                  navMode:             1
+                  //navMode:             1
                   // maximum rate of turn in degrees per second (PILOT limit)
-                  maxRateOfTurnDps:    3  
+                  //maxRateOfTurnDps:    10
                   // maximum bank angle in degrees (PILOT limit)
-                  maxBankAngle:        30
-                  maxClimbRateFpm:     2000.0
+                  //maxBankAngle:        30
+                  //maxClimbRateFpm:     10000.0
+                  // SLS - max pitch angle is currently not implemented
+                  //maxPitchAngle:       85
                   //maxClimbRateMps:     10.16
 
-                  //loiterMode:          1
+                  loiterMode:          1
                   //followTheLeadMode:   0
                   //loiterPatternLength: 10
                )
                
                #if 1
                   dynamicsModel:
-                  ( Dyn4DofModel )
+                  ( LaeroModel )
                #endif
                
                navigation:
@@ -60,16 +62,16 @@
                            latitude:   0.1
                            longitude:  0.1
                            altitude: ( Feet 12000 )
-                           airspeed: 400
+                           airspeed: 300
                         )
                         ( Steerpoint 
                            latitude:   0.1
                            longitude: -0.1
                            altitude: ( Feet 13000 )
-                           airspeed: 450
+                           airspeed: 350
                         )
                         ( Steerpoint
-                           latitude:  -0.1
+                           latitude:  0.2
                            longitude: -0.1
                            altitude: ( Feet 10000 )
                            airspeed: 350
