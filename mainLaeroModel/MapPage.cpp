@@ -207,9 +207,18 @@ void MapPage::drawHoldingPattern()
             double omegaDps = 3.0;                                      //dps
             double omegaRps = omegaDps * Basic::Angle::D2RCC;           //rps
             double rocNM = (osVel / Basic::Time::H2S) / omegaRps;       //nm
-            double obTimeMin = 2.0;                                     //min
-            double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
-            double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
+            //double obTimeMin = 2.0;                                     //min
+            //double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
+            
+            //double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
+
+            double obDistNM = 0;
+            if (pRac->isLoiterTimeBased()) {
+               obDistNM = (osVel / Basic::Time::H2S) * pRac->getLoiterTime();   //nm
+            }
+            else {
+               obDistNM = pRac->getLoiterPatternLengthNM();
+            }
 
             double aLatSU = 0.0;
             double aLonSU = 0.0;

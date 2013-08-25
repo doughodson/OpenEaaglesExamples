@@ -25,7 +25,7 @@
             signature:     ( SigSphere radius: 2.0 )
             initLatitude:  ( Degrees  0 )
             initLongitude: ( Degrees  0 )
-            initAlt:       ( Feet 10000 )
+            initAlt:       ( Feet 20000 )
             initHeading:   ( Degrees 0 )
             initVelocity:  100
 
@@ -44,12 +44,18 @@
 
                   loiterMode:          1
                   //followTheLeadMode:   0
-                  //loiterPatternLength: 10
+                  //loiterPatternTime: ( Minutes 3 )
+                  //loiterPatternLength: 2
                )
                
                #if 1
                   dynamicsModel:
                   ( LaeroModel )
+               #else
+                  //dynamicsModel:
+                  //( RacModel )
+                  dynamicsModel:
+                  ( JSBSimModel )
                #endif
                
                navigation:
