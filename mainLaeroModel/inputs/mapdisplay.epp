@@ -38,10 +38,24 @@
    //====================================================
    // command buttons
    components: {
+      // Buttons that will show up when the autopilot mode is off, and manual control can be tweaked
+      apReqButtons: 
+      ( Graphic
+          components: {
+            #include "cmdAirspeed.epp"
+            #include "cmdAltitude.epp"
+            #include "cmdHeading.epp"
+          }
+      )
+
+      // Changes in pilot limits
+      #include "cmdAccel.epp"
+      #include "cmdClimb.epp"
+      #include "cmdRotBank.epp"
+
+      // Buttons that stay visible      
       #include "cmdRange.epp"
-      #include "cmdAirspeed.epp"
-      #include "cmdAltitude.epp"
-      #include "cmdHeading.epp"
+      #include "cmdMode.epp"
    }
    //====================================================
 

@@ -32,7 +32,7 @@
             components: {
                pilot:
                ( Autopilot 
-                  //navMode:             1
+                  navMode:             0
                   // maximum rate of turn in degrees per second (PILOT limit)
                   //maxRateOfTurnDps:    10
                   // maximum bank angle in degrees (PILOT limit)
@@ -41,8 +41,10 @@
                   // SLS - max pitch angle is currently not implemented
                   //maxPitchAngle:       85
                   //maxClimbRateMps:     10.16
+                  //maxAcceleration:          1.0
 
-                  loiterMode:          1
+                  //loiterMode:          1
+                  //loiterPatternCcwFlag: true
                   //followTheLeadMode:   0
                   //loiterPatternTime: ( Minutes 3 )
                   //loiterPatternLength: 2

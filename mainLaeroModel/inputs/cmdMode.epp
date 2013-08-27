@@ -1,0 +1,74 @@
+//----------------------------------------------------------
+// cmdHeading button
+//----------------------------------------------------------
+(Graphic
+   transform: { (Translation -2.0 8.5) (Scale 0.5) }
+
+   components: {
+      ( Button
+         selectName: 19
+         eventId: 119
+         components: {
+            ( AsciiText
+               transform: { (Translation 0.75 1.2 ) (Scale 3.0) }
+               color: white
+               text: "MODE"
+            )
+            ( Polygon 
+               transform: { (Translation 0.0 1.0) }
+               color: black
+               vertices: {
+                  [ 0.0   0.0 ]
+                  [ 0.0   1.0 ]
+                  [ 4.0   1.0 ]
+                  [ 4.0   0.0 ]
+               }
+            )
+         }
+      )
+
+      //-------------------------------------------
+      // cmdHeading R/O value
+      //-------------------------------------------
+      apMode: 
+      ( Rotary
+         components: {
+            // All modes on the autopilot are off
+            ( AsciiText
+               transform: { (Translation 0.75 0.125 ) (Scale 3.0) }
+               color: white
+               text: "OFF"
+            )
+            // Nav mode on
+            ( AsciiText
+               transform: { (Translation 0.75 0.125 ) (Scale 3.0) }
+               color: white
+               text: "NAV"
+            )
+            // Loiter mode on
+            ( AsciiText
+               transform: { (Translation 0.75 0.125 ) (Scale 3.0) }
+               color: white
+               text: "LTR"
+            )
+            // Follow the lead mode on
+            ( AsciiText
+               transform: { (Translation 0.75 0.125 ) (Scale 3.0) }
+               color: white
+               text: "FLD"
+            )
+         }
+      )
+                                       
+      ( Polygon 
+         transform: { (Translation 0.0 0.0) }
+         color: red
+         vertices: {
+            [ 0.0   0.0 ]
+            [ 0.0   1.0 ]
+            [ 4.0   1.0 ]
+            [ 4.0   0.0 ]
+         }
+      )
+   }
+)
