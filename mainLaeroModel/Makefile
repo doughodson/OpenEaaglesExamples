@@ -1,17 +1,15 @@
 #
-include ./makedefs
+include ../makedefs
 
-PGM = racModelTest
+PGM = mainLaeroModel
 
 OBJS =  \
 	main.o 		\
+	AdiDisplay.o 	\
+	formFunc.o	\
 	MapDisplay.o 	\
 	MapPage.o 	\
-	TestDisplay.o	\
-	TestRacModel.o	\
-	formFunc.o 	\
-	TestStation.o	\
-	Dynamic4dofModel.o 
+	TestStation.o	
 
 LDFLAGS += -loeSimulation -loeVehicles -loeDafif
 LDFLAGS += -loeSensors -loeDis

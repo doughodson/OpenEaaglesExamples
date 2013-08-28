@@ -32,6 +32,9 @@ APPLICATIONS += mainx9 mainGndMapRdr
 # ubf example
 APPLICATIONS += mainUbf1
 
+# Autopilot example
+APPLICATIONS += mainLaeoroModel
+
 #
 APPLICATIONS += mainVmap
 #
