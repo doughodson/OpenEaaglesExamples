@@ -27,9 +27,9 @@ INCLUDEPATH += \
 
 # Header files
 HEADERS += \
-   $${HOME_ROOT}/include/y1Panel/*.h
+   $${HOME_ROOT}/include/y1panel/*.h
 
 # Source files
 SOURCES += \
-   $${HOME_ROOT}/src/y1Panel/*.cpp
+   $${HOME_ROOT}/src/y1panel/*.cpp
 

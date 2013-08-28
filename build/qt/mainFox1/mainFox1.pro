@@ -12,6 +12,10 @@ CONFIG += console
 win32: DESTDIR = $${MY_ROOT}
 else:unix:!macx:!symbian: DESTDIR = $${MY_ROOT}
 
+#include directories and defines for FOX
+unix:!macx:!symbian: \
+DEFINES += FOX_1_6
+
 OBJECTS_DIR = ./tmp/obj
 MOC_DIR = ./tmp/moc
 RCC_DIR = ./tmp/rcc
@@ -70,14 +74,17 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 
 # Linux libraries
 else:unix:!macx:!symbian: LIBS +=                   \
-    # open eaagles
-    -L$${OE_ROOT}/lib/linux/                        \
-    -loeBasicGL -loeBasic                           \
-    # oe 3rd party
-    -L$${OE_3RD_PARTY_ROOT}/lib/linux               \
-    -lftgl -lfreetype -lglut                        \
+   # open eaagles
+   -L$${OE_ROOT}/lib/linux \
+   -loeBasicGL -loeInstruments  -loeBasic \
+   -loeSimulation -loeBasic -loeDafif \
+   # Fox
+   -lFOX-1.6 \
+   # OE 3rd party
+   -L$${OE_3RD_PARTY_ROOT}/lib/linux \
+   -lfreetype -lftgl -lGLU -lGL \
     # system
     -lGLU -lGL -lX11                                \
-    -lglut -lGLU -lGL -lX11 -lpthread -lrt
-
+    -lglut -lGLU -lGL -lX11 -lpthread -lrt   \
+    -lXext
 

@@ -16,7 +16,6 @@
 #include "openeaagles/sensors/sensorsFF.h"
 // interoperability and visual
 #include "openeaagles/dis/disFF.h"
-#include "openeaagles/otw/otwFF.h"
 
 namespace Eaagles {
 namespace MainIR {
@@ -37,7 +36,6 @@ Basic::Object* formFunc(const char* formname)
    }
 
    //if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
-   if (newform == 0) newform = Otw::otwFormFunc(formname);
    if (newform == 0) newform = Simulation::simulationFormFunc(formname);
    if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
    if (newform == 0) newform = Network::Dis::disFormFunc(formname);

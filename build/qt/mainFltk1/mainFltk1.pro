@@ -72,15 +72,18 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     -ladvapi32
 
 # Linux libraries
-else:unix:!macx:!symbian: LIBS +=                   \
-    # open eaagles
-    -L$${OE_ROOT}/lib/linux/                        \
-    -loeBasicGL -loeBasic                           \
-    # oe 3rd party
-    -L$${OE_3RD_PARTY_ROOT}/lib/linux               \
-    -lftgl -lfreetype -lglut                        \
+else:unix:!macx:!symbian: LIBS +=                       \
+   # open eaagles
+   -L$${OE_ROOT}/lib/linux \
+   -loeBasicGL -loeInstruments  -loeBasic \
+   -loeSimulation -loeBasic -loeDafif \
+   # OE 3rd party
+   -L$${OE_3RD_PARTY_ROOT}/lib/linux \
+   -lfltk_images -lfltk_gl -lfltk \
+   -lfreetype -lftgl -lGLU -lGL \
     # system
     -lGLU -lGL -lX11                                \
-    -lglut -lGLU -lGL -lX11 -lpthread -lrt
-
+    -lglut -lGLU -lGL -lX11 -lpthread -lrt         \
+    -ldl \
+    -lXext
 
