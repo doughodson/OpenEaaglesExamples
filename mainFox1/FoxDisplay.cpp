@@ -6,8 +6,8 @@
 
 #include <GL/glu.h>
 
-#include "fx.h"
-#include "fx3d.h"
+#include "fox/fx.h"
+#include "fox/fx3d.h"
 
 namespace Eaagles {
 namespace mainFox {
