@@ -71,7 +71,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 else:unix:!macx:!symbian: LIBS +=                   \
     # open eaagles
     -L$${OE_ROOT}/lib/linux/                        \
-    -loeBasicGL -loeInstruments -loeBasic  \
+    -loeBasicGL -loeInstruments \
     -loeGlut \
     -loeSimulation -loeBasic -loeSensors  -loeDafif \
     -loeDis \

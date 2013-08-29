@@ -68,6 +68,7 @@ else:unix:!macx:!symbian: LIBS +=                   \
     # open eaagles
     -L$${OE_ROOT}/lib/linux/                        \
     -loeBasicGL -loeBasic                           \
+    -loeGlut \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/linux               \
     -lftgl -lfreetype -lglut                        \

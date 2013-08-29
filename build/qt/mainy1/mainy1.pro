@@ -73,12 +73,24 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 
 # Linux libraries
 else:unix:!macx:!symbian: LIBS +=                   \
+    # OE Examples
+    -L$${HOME_ROOT}/lib/linux/                   \
+    -llibPlaneBehaviors \
+    -llibY1Panel \
     # open eaagles
     -L$${OE_ROOT}/lib/linux/                        \
-    -loeBasicGL -loeBasic                           \
+    -loeBasicGL -loeInstruments \
+    -loeSimulation -loeBasic -loeSensors  -loeDafif \
+    -loeIoDevice \
+    -loeVehicles \
+    -loeOtw \
+    -loeGlut \
+    -loeDis \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/linux               \
     -lftgl -lfreetype -lglut                        \
+    -lJSBSim \
+    -lcigicl \
     # system
     -lGLU -lGL -lX11                                \
     -lglut -lGLU -lGL -lX11 -lpthread -lrt

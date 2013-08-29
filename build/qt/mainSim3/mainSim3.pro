@@ -73,12 +73,19 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 else:unix:!macx:!symbian: LIBS +=                   \
     # open eaagles
     -L$${OE_ROOT}/lib/linux/                        \
-    -loeBasicGL -loeBasic                           \
+    -loeBasicGL -loeInstruments                          \
+    -loeSimulation -loeBasic -loeSensors  -loeDafif \
+    -loeVehicles \
+    -loeOtw \
+    -loeDis \
+    -loeIoDevice \
+    -loeGlut \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/linux               \
+    -lJSBSim  \
+    -lcigicl \
     -lftgl -lfreetype -lglut                        \
     # system
     -lGLU -lGL -lX11                                \
     -lglut -lGLU -lGL -lX11 -lpthread -lrt
-
 

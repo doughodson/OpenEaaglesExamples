@@ -68,12 +68,16 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 
 # Linux libraries
 else:unix:!macx:!symbian: LIBS +=                   \
+    # OE Examples
+    -L$${HOME_ROOT}/lib/linux/                   \
+    -llibMyRecorder                                   \
     # open eaagles
-    -L$${OE_ROOT}/lib/linux/                        \
-    -loeBasicGL -loeBasic                           \
+    -L$${OE_ROOT}/lib/linux/                     \
+    -loeBasic -loeRecorder -loeSimulation         \
+    -loeDafif                                         \
     # oe 3rd party
-    -L$${OE_3RD_PARTY_ROOT}/lib/linux               \
-    -lftgl -lfreetype -lglut                        \
+    -L$${OE_3RD_PARTY_ROOT}/lib/linux/        \
+    -lprotobuf                                     \
     # system
     -lGLU -lGL -lX11                                \
     -lglut -lGLU -lGL -lX11 -lpthread -lrt
