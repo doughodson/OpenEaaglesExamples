@@ -73,7 +73,7 @@ else:unix:!macx:!symbian: LIBS +=                   \
     -llibMyRecorder                                   \
     # open eaagles
     -L$${OE_ROOT}/lib/linux/                     \
-    -loeBasic -loeRecorder -loeSimulation         \
+    -loeRecorder -loeSimulation  -loeBasic        \
     -loeDafif                                         \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/linux/        \

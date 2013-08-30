@@ -79,8 +79,8 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 else:unix:!macx:!symbian: LIBS +=                   \
    # OE Examples
     -L$${HOME_ROOT}/lib/linux/                   \
-    -llibPlaneBehaviors -llibY1Panel                \
     -llibMyRecorder \
+    -llibY1Panel                \
      # open eaagles
     -L$${OE_ROOT}/lib/linux/                        \
     -loeBasicGL \
