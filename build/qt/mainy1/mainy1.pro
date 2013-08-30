@@ -37,13 +37,21 @@ OTHER_FILES += \
 
 # Windows (MSVC) release libraries
 win32:CONFIG(release, debug|release): LIBS +=           \
+    # open eaagles examples
+    -L$${HOME_ROOT}/lib/$${MSVC_VER}/                   \
+    -llibY1Panel                                      \
     # open eaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
-    -loeBasicGL -loeBasic                               \
-    -loeGlut                                            \
+    -loeBasicGL -loeBasic                           \
+    -loeDis -loeOtw -loeSensors -loeVehicles    \
+    -loeIoDevice -loeInstruments -loeSimulation   \
+    -loeDafif                                         \
+    -loeGlut                                          \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
-    -lftgl -lfreetype2 -lfreeglut                       \
+    -lftgl -lfreetype2                              \
+    -lfreeglut                                        \
+    -lJSBSim -lccl                                  \
     # system
     -lwinmm                                             \
     -lws2_32                                            \

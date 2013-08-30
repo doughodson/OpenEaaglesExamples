@@ -37,13 +37,16 @@ OTHER_FILES += \
 
 # Windows (MSVC) release libraries
 win32:CONFIG(release, debug|release): LIBS +=           \
+    # OE Examples
+    -L$${HOME_ROOT}/lib/$${MSVC_VER}/                   \
+    -llibMyRecorder                                   \
     # open eaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
-    -loeBasicGL -loeBasic                               \
-    -loeGlut                                            \
+    -loeBasic -loeRecorder -loeSimulation         \
+    -loeDafif                                         \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
-    -lftgl -lfreetype2 -lfreeglut                       \
+    -llibprotobuf                                     \
     # system
     -lwinmm                                             \
     -lws2_32                                            \

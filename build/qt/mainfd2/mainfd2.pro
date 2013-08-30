@@ -40,6 +40,7 @@ win32:CONFIG(release, debug|release): LIBS +=           \
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
     -loeBasicGL -loeBasic                               \
     -loeGlut                                            \
+    -loeInstruments                                   \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
     -lftgl -lfreetype2 -lfreeglut                       \

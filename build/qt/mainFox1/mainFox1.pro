@@ -45,21 +45,22 @@ OTHER_FILES += \
 win32:CONFIG(release, debug|release): LIBS +=           \
     # open eaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
-    -loeBasicGL -loeBasic                               \
-    -loeGlut                                            \
+    -loeBasicGL -loeBasic                           \
+    -loeSimulation -loeDafif -loeInstruments      \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
-    -lftgl -lfreetype2 -lfreeglut                       \
+    -lfox                                             \
+    -lftgl -lfreetype2                              \
     # system
     -lwinmm                                             \
     -lws2_32                                            \
-    -ladvapi32
+    -ladvapi32                                          \
+    -lshell32
 
 # Windows (MSVC) Debug libraries
 else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # open eaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
-#      links {"ftgl", LibFreetype, LibGLU, LibGL}
     -loeBasicGL_d -loeBasic_d                           \
     -loeSimulation_d -loeDafif_d -loeInstruments_d      \
     # oe 3rd party

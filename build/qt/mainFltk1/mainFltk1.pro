@@ -38,13 +38,27 @@ OTHER_FILES += \
 win32:CONFIG(release, debug|release): LIBS +=           \
     # open eaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
-    -loeBasicGL -loeBasic                               \
+    -loeInstruments                                   \
+    -loeBasicGL -loeBasic                           \
+    -loeSimulation                                    \
+    -loeDafif                                         \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
+    -lftgl -lfreetype2                              \
+    -lfltk_images                                     \
+    -lfltk_gl                                         \
+    -lfltk                                            \
     # system
     -lwinmm                                             \
     -lws2_32                                            \
+    -lOle32                                             \
+    -lUuid                                              \
+    -lComCtl32                                          \
+    -lGdi32                                             \
+    -lComDlg32                                          \
+    -lShell32                                           \
     -ladvapi32
+
 
 # Windows (MSVC) Debug libraries
 else:win32:CONFIG(debug, debug|release): LIBS +=        \
