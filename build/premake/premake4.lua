@@ -19,9 +19,7 @@ end
 --
 OE_ROOT           = "../../../OpenEaagles"
 OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
-if (os.is("linux")) then
-   OE_3RD_PARTY_ROOT = "/usr/local"
-end
+
 --
 -- set include and library paths
 --
@@ -41,14 +39,6 @@ if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
    OEExamplesIncPath = "../../include"
    OEExamplesLibPath = "../../lib/mingw"
 end
-if (os.is("linux")) then
-   OEIncPath         = OE_ROOT.."/include"
-   OELibPath         = OE_ROOT.."/lib/linux"
-   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
-   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib"
-   OEExamplesIncPath = "../../include"
-   OEExamplesLibPath = "../../lib/linux"
-end
 print ("OpenEaagles Paths:")
 print ("  Include   : "..OEIncPath)
 print ("  Libraries : "..OELibPath)
@@ -62,20 +52,20 @@ print ("  Libraries :"..OEExamplesLibPath)
 locationPath  = "../" .. _ACTION
 
 --
--- library names
+-- 3rd party library names
 --
-LibCigi     = "ccl_lib"
-LibFreetype = "freetype2"
-LibGlut     = "freeglut"
-LibGLU      = "glu32"
-LibGL       = "opengl32"
-if (os.is("linux")) then
-   LibCigi     = "cigicl"
-   LibFreetype = "freetype"
-   LibGlut     = "glut"
-   LibGLU      = "GLU"
-   LibGL       = "GL"
-end
+LibCigi       = "ccl_lib"
+LibFtgl       = "ftgl"
+LibFreetype   = "freetype2"
+LibGlut       = "freeglut"
+
+LibCigi_d     = LibCigi.."_d"
+LibFtgl_d     = LibFtgl.."_d"
+LibFreetype_d = LibFreetype.."_d"
+LibGlut_d     = LibGlut.."_d"
+
+LibGLU        = "glu32"
+LibGL         = "opengl32"
 
 solution "examples"
 
@@ -126,6 +116,6 @@ solution "examples"
    -- tutorial
    dofile "tutorials.lua"
 
-   -- gui demos
+   -- gui examples
    dofile "guidemos.lua"
 
