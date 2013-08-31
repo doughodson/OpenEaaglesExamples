@@ -1,0 +1,122 @@
+// here are the buttons, and other stuff that will "overlay" the map page
+
+components: {
+   
+   (Graphic
+      transform: (Translation 8.5 9)
+
+      components: {
+
+          // passive motion on/off
+          ( Button
+             transform: { ( Translation 7.0 9.0) (Scale 1) }
+             selectName: 3
+             eventId: 1002
+             components: {
+                ( Polygon
+                   color: black
+                   vertices: {
+                      [ 0.0   0.0 ]
+                      [ 0.0   0.5 ]
+                      [ 0.5   0.5 ]
+                      [ 0.5   0.0 ]
+                   }
+                )
+             }
+          )
+
+
+         // range up
+         ( Button
+            transform: { ( Translation 0.75 0.5) (Scale 1) }
+            selectName: 1
+            eventId: 1000
+            components: {
+               ( Polygon
+                  color: black
+                  vertices: {
+                     [ 0.0   0.0   ]
+                     [ 0.0   0.25  ]
+                     [ 0.25  0.125 ]
+                  }
+               )
+            }
+         )
+
+         // range down
+         ( Button
+            transform: { (Translation 0.25 0.75) (Rotation 3.1416) (Scale 1) }
+            selectName: 2
+            eventId: 1001
+            components: {
+               ( Polygon
+                  color: black
+                  vertices: {
+                     //[ 0.0   0.125 ]
+                     //[ 0.25  0.25  ]
+                     //[ 0.25  0.0   ]
+                     [ 0.0   0.0   ]
+                     [ 0.0   0.25  ]
+                     [ 0.25  0.125 ]
+
+                  }
+               )
+            }
+         )
+
+         ( Polygon
+            transform: { (Translation 0 0.5) (Scale 1) }
+            color: white
+            vertices: {
+               [ 0.0   0.0  ]
+               [ 0.0   0.25 ]
+               [ 1.0  0.25 ]
+               [ 1.0  0.0  ]
+            }
+         )
+
+         // range value
+         ( Graphic
+            transform: ( Translation 0 0  )
+            components: {
+
+               range: 
+               ( NumericReadout
+                  color: white
+                  value: 999
+                  transform: { ( Scale 2 ) }
+                  format: "###"
+               )                        
+               ( AsciiText
+                  color: white
+                  transform: { ( Translation 0.15 -0.25 ) }
+                  text: "range"
+               )
+
+               ( LineLoop
+                  color: white
+                  linewidth: 2
+                  vertices: {
+                     [ 0.0  0.0 ]
+                     [ 0.0  0.5 ]
+                     [ 1.0  0.5 ] 
+                     [ 1.0  0.0 ]
+                  }
+               )
+               ( Polygon 
+                  color: red
+                  vertices: {
+                     [ 0.0  0.0 ]
+                     [ 0.0  0.5 ]
+                     [ 1.0  0.5 ] 
+                     [ 1.0  0.0 ]
+                  }
+               )
+
+            }
+         )
+
+      }
+   )
+}
+

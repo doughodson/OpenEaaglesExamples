@@ -1,0 +1,89 @@
+//----------------------------------------------------------
+// cmdHeading button
+//----------------------------------------------------------
+(Graphic
+   transform: { (Translation -4.5 8.5) (Scale 0.5) }
+
+   components: {
+
+      //-----------------------------
+      // cmdHeading decrease button
+      //-----------------------------
+      ( Button
+         selectName: 7
+         eventId: 107
+         components: {
+            ( Polygon 
+               transform: { (Translation 0.0 1.0) }
+               color: black
+               vertices: {
+                  [ 0.5   0.0 ]
+                  [ 0.5   1.0 ]
+                  [ 0.0   0.5 ]
+               }
+            )
+         }
+      )
+
+      //-----------------------------
+      // cmdHeading increase button
+      //-----------------------------
+      ( Button
+         selectName: 8
+         eventId: 108
+         components: {
+            ( Polygon 
+               transform: { (Translation 3.5 1.0) }
+               color: black
+               vertices: {
+                  [ 0.0   0.0 ]
+                  [ 0.0   1.0 ]
+                  [ 0.5   0.5 ]
+               }
+            )
+         }
+      )
+
+      //-------------------------------------------
+      // cmdHeading label
+      //-------------------------------------------
+      ( AsciiText
+         color: black
+         transform: { (Translation 1.00 1.25) (Scale 2.0) }
+         text: "heading"
+      )
+
+      ( Polygon 
+         transform: { (Translation 0.0 1.0) }
+         color: white
+         vertices: {
+            [ 0.0   0.0 ]
+            [ 0.0   1.0 ]
+            [ 4.0   1.0 ]
+            [ 4.0   0.0 ]
+         }
+      )
+
+      //-------------------------------------------
+      // cmdHeading R/O value
+      //-------------------------------------------
+      cmdHeading: 
+      ( NumericReadout
+         transform: { (Translation 1.0 0.125) (Scale 3.0) }
+         color: white
+         value: 9999
+         format: "####"
+      )
+                                       
+      ( Polygon 
+         transform: { (Translation 0.0 0.0) }
+         color: red
+         vertices: {
+            [ 0.0   0.0 ]
+            [ 0.0   1.0 ]
+            [ 4.0   1.0 ]
+            [ 4.0   0.0 ]
+         }
+      )
+   }
+)
