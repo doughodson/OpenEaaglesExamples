@@ -1,6 +1,6 @@
 ( MapTestDisplay
     
-   name: "Map Test"
+   name: "Map Display"
   
    left:        -10.0
    right:        10.0
