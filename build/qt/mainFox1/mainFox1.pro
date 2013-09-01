@@ -12,10 +12,6 @@ CONFIG += console
 win32: DESTDIR = $${MY_ROOT}
 else:unix:!macx:!symbian: DESTDIR = $${MY_ROOT}
 
-#include directories and defines for FOX
-unix:!macx:!symbian: \
-DEFINES += FOX_1_6
-
 OBJECTS_DIR = ./tmp/obj
 MOC_DIR = ./tmp/moc
 RCC_DIR = ./tmp/rcc
@@ -49,7 +45,7 @@ win32:CONFIG(release, debug|release): LIBS +=           \
     -loeSimulation -loeDafif -loeInstruments      \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
-    -lfox                                             \
+    -lfox-1.6                                             \
     -lftgl -lfreetype2                              \
     # system
     -lwinmm                                             \
@@ -65,7 +61,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     -loeSimulation_d -loeDafif_d -loeInstruments_d      \
     # oe 3rd party
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
-    -lfox_d                                             \
+    -lfox-1.6_d                                             \
     -lftgl_d -lfreetype2_d                              \
     # system
     -lwinmm                                             \

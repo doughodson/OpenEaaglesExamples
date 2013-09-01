@@ -51,7 +51,7 @@ win32:CONFIG(release, debug|release): LIBS +=           \
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
     -lftgl -lfreetype2                              \
     -lfreeglut                                        \
-    -lJSBSim -lccl                                  \
+    -lJSBSim -lccl_lib                                  \
     # system
     -lwinmm                                             \
     -lws2_32                                            \
@@ -73,7 +73,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MSVC_VER}-32/        \
     -lftgl_d -lfreetype2_d                              \
     -lfreeglut_d                                        \
-    -lJSBSim_d -lccl_d                                  \
+    -lJSBSim_d -lccl_lib_d                                  \
     # system
     -lwinmm                                             \
     -lws2_32                                            \

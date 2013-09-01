@@ -49,7 +49,7 @@ win32:CONFIG(release, debug|release): LIBS +=           \
     -lftgl -lfreetype2                              \
     -lfreeglut                                        \
     -lJSBSim                                          \
-    -lccl                                             \
+    -lccl_lib                                             \
     # system
     -lwinmm                                             \
     -lws2_32                                            \
@@ -71,7 +71,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     -lftgl_d -lfreetype2_d                              \
     -lfreeglut_d                                        \
     -lJSBSim_d                                          \
-    -lccl_d                                             \
+    -lccl_lib_d                                             \
     # system
     -lwinmm                                             \
     -lws2_32                                            \
