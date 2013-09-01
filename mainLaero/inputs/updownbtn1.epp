@@ -1,0 +1,61 @@
+    components: {
+        // range up
+        ( Button
+            transform: ( Translation 9 9.25 )
+            selectName: 1
+            eventId: 1000
+            components: {
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.45 -0.45 ]
+                        [  0.45 -0.45 ]
+                        [  0 0.45 ]
+                    }
+                )
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.5 -0.5 ]
+                        [ -0.5  0.5 ]
+                        [  0.5  0.5 ]
+                        [  0.5 -0.5 ]
+                    }
+                )
+            }
+        )
+        // range down
+        ( Button
+            transform: ( Translation 9 7.5 )
+            selectName: 2
+            eventId: 1001
+            components: {
+                ( Polygon
+                    color: black
+                    vertices: {
+                        [ -0.45 0.45 ]
+                        [  0.45 0.45 ]
+                        [  0 -0.45 ]
+                    }
+                )
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.5 -0.5 ]
+                        [ -0.5  0.5 ]
+                        [  0.5  0.5 ]
+                        [  0.5 -0.5 ]
+                    }
+                )
+            }
+        )
+        
+        // range value
+        range:
+        ( NumericReadout
+            color: white
+            format: "###"
+            transform: { ( Translation 8.5 8.2 ) ( Scale 2 ) }
+            value: 999
+        )
+    }

@@ -18,16 +18,11 @@ project "testEvents"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
       links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
-      links {"ftgl_d", "freetype2_d", "freeglut_d"}
-      links {"glu32", "opengl32"}
+      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- testIo: I/O test
@@ -46,16 +41,11 @@ project "testIo"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeIoDevice", "oeGlut", "oeBasicGL", "oeBasic"}
-      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
       links {"oeIoDevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
-      links {"ftgl_d", "freetype2_d", "freeglut_d"}
-      links {"glu32", "opengl32"}
+      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
 -- testLinearSys: test of linear system components
@@ -74,11 +64,7 @@ project "testLinearSys"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeLinearSys", "oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
       links {"oeLinearSys_d", "oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -99,11 +85,7 @@ project "testNav"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -124,11 +106,7 @@ project "testMatrix"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -149,11 +127,7 @@ project "testNet"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -180,21 +154,17 @@ project "testRecordData"
       links {"oeDis", "oeRecorder", "oeSensors", "oeIoDevice" }
       links {"oeSimulation", "oeDafif", "oeTerrain" }
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
-      links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL, "libprotobuf" }
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
+      links {"libprotobuf" }
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
       links {"oeVehicles_d", "JSBSim_d" }
-      links {"oeOtw_d", "ccl_d" }
+      links {"oeOtw_d",  LibCigi_d }
       links {"oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
-      links {"ftgl_d", "freetype2_d", "freeglut_d" }
-      links {"glu32", "opengl32" }
-      links {"JSBSim_d", "ccl_d", "libprotobuf_d" }
+      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
+      links {"libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
 
 -- testRecorderRead
@@ -214,11 +184,7 @@ project "testRecorderRead"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
@@ -240,11 +206,7 @@ project "testRecorderWrite"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
@@ -265,11 +227,7 @@ project "testRng"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -290,11 +248,7 @@ project "testStateMach"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -315,11 +269,7 @@ project "testTables"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
@@ -339,11 +289,7 @@ project "testTimer"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeBasic"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}

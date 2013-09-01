@@ -1,6 +1,5 @@
-
 --------------------------------------------------------
--- GUI demos
+-- GUI examples
 --------------------------------------------------------
 
 -- mainFltk1: Fltk-based GUI
@@ -21,19 +20,14 @@ project "mainFltk1"
       links {"oeInstruments", "oeBasicGL", "oeBasic"}
       links {"fltk_images", "fltk_gl", "fltk"}
 --    links {"fltk_jpeg", "fltk_png", "fltk_z"}
-      links {"ftgl", LibFreetype, LibGLU, LibGL}
-      if (os.is("linux")) then
-         links {"X11", "Xft", "pthread", "rt"}
-      else
-         links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
-      end
+      links {LibFtgl, LibFreetype, LibGLU, LibGL}
+      links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
    configuration "Debug"
       links {"oeSimulation_d", "oeDafif_d"}
       links {"oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {"fltk_images_d", "fltk_gl_d", "fltk_d"}
 --      links {"fltk_jpeg_d", "fltk_png_d", "fltk_z_d"}
-      links {"ftgl_d", "freetype2_d"}
-      links {"glu32", "opengl32"}
+      links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
 
 
@@ -54,18 +48,13 @@ project "mainFox1"
    configuration "Release"
       links {"oeSimulation", "oeDafif", "oeInstruments"}
       links {"oeBasicGL", "oeBasic"}
-      links {"fox"}
-      links {"ftgl", LibFreetype, LibGLU, LibGL}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
-      end
+      links {"FOX-1.6"}
+      links {LibFtgl, LibFreetype, LibGLU, LibGL}
+      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
    configuration "Debug"
       links {"oeSimulation_d", "oeDafif_d", "oeInstruments_d"}
       links {"oeBasicGL_d", "oeBasic_d"}
-      links {"fox_d"}
-      links {"ftgl_d", "freetype2_d"}
-      links {"glu32", "opengl32"}
+      links {"FOX-1.6_d"}
+      links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
 
