@@ -1,0 +1,29 @@
+//
+// Comments look like this
+//
+
+( MyObj
+
+    // define available colors
+    colorTable: {
+              red: (rgb 1 0 0)
+              green: (rgb 0 1 0)
+              blue: (rgb 0 0 1)
+              black: (rgb 0 0 0)
+              white: (rgb 1 1 1)
+            }
+
+    textColor: green
+    backColor: white
+
+    vector: [ 0 2 3 6 8 3 7 1 ]
+
+    visible: true
+    
+    message: "Hello World"
+    
+    // vertices: { [0.0 0.0] [0 -0.1] }
+    // for a good example of how to convert this
+    // syntax to native types, see
+    // Graphic::setSlotVertices method
+)

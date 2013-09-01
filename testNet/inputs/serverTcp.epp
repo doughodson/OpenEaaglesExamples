@@ -1,0 +1,9 @@
+
+// Server side for the TCP/IP handler single connection test
+
+( ServerSide
+    noWait: false
+    //loops: 20
+    netHandler:   ( TcpServerSingle port: 3001 )
+)
+
