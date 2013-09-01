@@ -15,6 +15,7 @@ SUBDIRS       = \
                 mainGL              \
                 mainGndMapRdr       \
                 mainIr              \
+                mainLaero           \
                 mainNonRT1          \
                 mainPuzzle1         \
                 mainPuzzle2         \
