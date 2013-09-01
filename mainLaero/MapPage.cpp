@@ -161,8 +161,8 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
    gluDeleteQuadric(q1);
 }
 
-void MapPage::drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tas)
-{
+//void MapPage::drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tas)
+//{
    //if (pStn != 0) {
    //   Simulation::Player* pPlr  = pStn->getOwnship();
    //   if (pPlr != 0) {
@@ -178,7 +178,7 @@ void MapPage::drawHoldingPattern(const double aLat, const double aLon, const dou
    //      }
    //   }
    //}
-}
+//}
 
 
 void MapPage::drawHoldingPattern()
@@ -201,8 +201,8 @@ void MapPage::drawHoldingPattern()
             //setReferenceLatDeg(0.0);
             //setReferenceLonDeg(0.0);
 
-            double refLat = getReferenceLatDeg();
-            double refLon = getReferenceLonDeg();
+//            double refLat = getReferenceLatDeg();
+//            double refLon = getReferenceLonDeg();
 
             double omegaDps = 3.0;                                      //dps
             double omegaRps = omegaDps * Basic::Angle::D2RCC;           //rps
@@ -267,8 +267,6 @@ void MapPage::drawHoldingPattern()
 
 void MapPage::drawFunc()
 {
-      // draw a holding pattern
-      drawHoldingPattern();
 
       //-------------------------------------------------------
       // get data pointers 
@@ -276,6 +274,11 @@ void MapPage::drawFunc()
    if (pStn != 0) {
       Simulation::Player* pPlr  = pStn->getOwnship();
       if (pPlr != 0) {
+
+         // get the autopilot
+         Simulation::Autopilot* ap = (Simulation::Autopilot*)pPlr->getPilot();
+         if (ap != 0 && ap->isLoiterModeOn()) drawHoldingPattern();
+
 
          //---------------------------------------------------------------------------
          // get our viewport

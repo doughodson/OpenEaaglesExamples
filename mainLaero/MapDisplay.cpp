@@ -50,7 +50,7 @@ MapDisplay::MapDisplay()
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
 //------------------------------------------------------------------------------
-void MapDisplay::copyData(const MapDisplay& org, const bool cc)
+void MapDisplay::copyData(const MapDisplay& org, const bool)
 {
    // copy base class stuff first
    BaseClass::copyData(org);
