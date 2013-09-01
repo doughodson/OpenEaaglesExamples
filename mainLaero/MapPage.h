@@ -30,15 +30,15 @@ public:
 
    // BasicGL::Graphic interface
    virtual void drawFunc();
-   virtual void drawLine(const double x, const double y);
-   virtual void drawSemiCircle(const double startAngle, const double radius);
-   virtual void drawHoldingPattern();
-   virtual void drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tgs);
+   //virtual void drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tgs);
 
    // Basic::Component interface
    virtual void updateData(const LCreal dt = 0.000000);
 
 private:
+   void drawLine(const double x, const double y);
+   void drawSemiCircle(const double startAngle, const double radius);
+   void drawHoldingPattern();
    // holds our players
    static const int MAX_PLAYERS = 200;
    static const int MAX_READOUTS = 20;
