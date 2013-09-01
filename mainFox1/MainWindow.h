@@ -8,7 +8,7 @@
 #ifndef __Eaagles_mainFox_MainWindow_H__
 #define __Eaagles_mainFox_MainWindow_H__
 
-#include "fox/fx.h"
+#include "fox-1.6/fx.h"
 
 namespace Eaagles {
 namespace mainFox {
