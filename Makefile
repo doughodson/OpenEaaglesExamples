@@ -32,6 +32,9 @@ APPLICATIONS += mainx9 mainGndMapRdr
 # ubf example
 APPLICATIONS += mainUbf1
 
+# example demonstrates Laero model and autopilot functionality
+APPLICATIONS += mainLaero
+
 #
 APPLICATIONS += mainVmap
 #

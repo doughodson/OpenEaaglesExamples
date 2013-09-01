@@ -1,0 +1,325 @@
+( MapTestDisplay
+    
+   name: "Map Display"
+  
+   left:        -10.0
+   right:        10.0
+   bottom:      -10.0
+   top:          10.0
+   near:        -2.0     
+   far:          2.0
+   vpX:          805
+   vpY:          0 
+   vpWidth:      1000
+   vpHeight:     1000
+
+
+   clearDepth: 20.0
+   clearColor: ( rgb 0.321 0.321 0.321 )
+    
+   normalFont: normal
+
+   fonts: {
+      // normal font for most display stuff
+      normal:
+      ( FTGLHaloFonts
+         fontPosition: [ -10 10 ]
+         path: FONT_PATH
+         file: "arialn.ttf"
+         // facesize is default to 1 inch, so you can manipulate the norm with font width and height
+         linewidth: 3
+         fontWidth: 0.35
+         fontHeight: 0.35
+      )        
+   }
+
+   // here are the buttons, and other stuff that will "overlay" the map page
+
+   //====================================================
+   // command buttons
+   components: {
+      // Buttons that will show up when the autopilot mode is off, and manual control can be tweaked
+      apReqButtons: 
+      ( Graphic
+          components: {
+            #include "cmdAirspeed.epp"
+            #include "cmdAltitude.epp"
+            #include "cmdHeading.epp"
+          }
+      )
+
+      // Changes in pilot limits
+      #include "cmdAccel.epp"
+      #include "cmdClimb.epp"
+      #include "cmdRotBank.epp"
+
+      // Buttons that stay visible      
+      #include "cmdRange.epp"
+      #include "cmdMode.epp"
+   }
+   //====================================================
+
+   // name of the current page we want    
+   page: mappage
+
+   // list of pages we could display, although for this test we just have one, so we
+   // will just put it here.
+   pages: {
+      mappage:
+      ( TestMapPage
+         range: 10
+         outerRadius: 10  // same size as display ortho, so it fits nicely
+         components: {
+            //orbitCircle:
+            //( Circle
+            //   color: red
+            //   filled: 1
+            //   slices: 72
+            //)
+            //anchorArc:
+            //( Arc
+            //   color: green
+            //)
+
+            //holdingPattern:
+
+            // symbol loader
+            playerLoader:
+            ( SymbolLoader
+               templates: {
+                  //----------------------------------------
+                  // good guy
+                  //----------------------------------------
+                  ( Graphic
+                     components: {
+                        hdg:
+                        ( Rotators
+                           components: {
+                              symbol:
+                              ( Graphic
+                                 transform: ( Translation 0 0.02 )
+                                 transform: ( Scale 3.0 )
+                                 components: {
+                                    // red dot (acft ctr pnt)
+                                    ( Polygon
+                                       color: red
+                                       vertices: {
+                                          [ -0.01 -0.01 ]
+                                          [  0.0   0.01 ]
+                                          [  0.01 -0.01 ]
+                                       }
+                                    )
+                                    // wing section
+                                    ( Polygon
+                                       color: black
+                                       vertices: {
+                                          [  0.0  -0.09 ]
+                                          [ -0.14 -0.12 ]
+                                          [ -0.14 -0.10 ]
+                                          [  0.0   0.0  ]
+                                          [  0.14 -0.10 ]
+                                          [  0.14 -0.12 ]
+                                          [  0.0  -0.09 ]
+                                       }
+                                    )
+                                    // fuselage section
+                                    ( Polygon
+                                       color: black
+                                       linewidth: 2
+                                       vertices: {
+                                          [ -0.04  -0.08 ]
+                                          [  0.00   0.14 ]
+                                          [  0.04  -0.08 ]
+                                       }
+                                    )
+                                    // tail section
+                                    ( Polygon
+                                       color: black
+                                       linewidth: 2
+                                       vertices: {
+                                          [ -0.05  -0.14 ]
+                                          [  0.00  -0.04 ]
+                                          [  0.05  -0.14 ]
+                                       }
+                                    )
+
+                                 }
+                              )
+                           }
+                        )
+                        name:
+                        ( AsciiText
+                           color: white
+                           transform: ( Translation -0.5 -0.5 )
+                           text: ""
+                        )                                
+                     }
+                  )
+                  //----------------------------------------
+                  // bad guy
+                  //----------------------------------------
+                  ( Graphic
+                     components: {
+                        hdg:
+                        ( Rotators
+                           components: {
+                              symbol:
+                              ( Graphic
+                                 components: {
+                                    ( Polygon
+                                       color: red
+                                       vertices: {
+                                          [ -0.15 -0.25 ]
+                                          [  0.15 -0.25 ]
+                                          [  0  0.25 ]
+                                       }
+                                    )
+                                    // outline
+                                    ( LineLoop
+                                       color: black
+                                       linewidth: 2
+                                       vertices: {
+                                          [ -0.15 -0.25 ]
+                                          [  0.15 -0.25 ]
+                                          [  0  0.25 ]
+                                       }
+                                    )
+                                 }
+                              )
+                           }
+                        )
+                        name:
+                        ( AsciiText
+                           color: white
+                           transform: ( Translation -0.5 -0.5 )
+                           text: "XXXXXX"
+                        )                                
+                     }
+                  )
+               }
+            )
+
+            // symbol loader for route points
+            routeLoader:
+            ( SymbolLoader
+               interconnect: 1
+               templates: {
+                  //----------------------------------------
+                  // Steerpoint
+                  //----------------------------------------
+                  ( Graphic
+                     components: {
+                        symbol:
+                        ( Circle
+                           filled: 1
+                           slices: 100
+                           color: green
+                           radius: 0.5
+                        )
+                     }
+                  )
+               }
+            )
+
+
+            //----------------------------------------------
+            here is the outer circle, to show range
+            //----------------------------------------------
+            ( OcclusionCircle
+               color: white
+               radius: 9.9
+               outerRadius: 10
+               slices: 100
+            )
+                        
+            //----------------------------------------------
+            // LAT READOUTS
+            //----------------------------------------------
+            latline1:
+            ( Translator components: { lattext1: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline2:
+            ( Translator components: { lattext2: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline3:
+            ( Translator components: { lattext3: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline4:
+            ( Translator components: { lattext4: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline5:
+            ( Translator components: { lattext5: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline6:
+            ( Translator components: { lattext6: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline7:
+            ( Translator components: { lattext7: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline8:
+            ( Translator components: { lattext8: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline9:
+            ( Translator components: { lattext9: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline10:
+            ( Translator components: { lattext10: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline11:
+            ( Translator components: { lattext11: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline12:
+            ( Translator components: { lattext12: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline13:
+            ( Translator components: { lattext13: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline14:
+            ( Translator components: { lattext14: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline15:
+            ( Translator components: { lattext15: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline16:
+            ( Translator components: { lattext16: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline17:
+            ( Translator components: { lattext17: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline18:
+            ( Translator components: { lattext18: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline19:
+            ( Translator components: { lattext19: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            latline20:
+            ( Translator components: { lattext20: ( LatitudeReadout color: cyan format: "+DD" ) } )
+            
+            //----------------------------------------------
+            // LON READOUTS
+            //----------------------------------------------
+            lonline1:
+            ( Translator components: { lontext1: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline2:
+            ( Translator components: { lontext2: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline3:
+            ( Translator components: { lontext3: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline4:
+            ( Translator components: { lontext4: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline5:
+            ( Translator components: { lontext5: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline6:
+            ( Translator components: { lontext6: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline7:
+            ( Translator components: { lontext7: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline8:
+            ( Translator components: { lontext8: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline9:
+            ( Translator components: { lontext9: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline10:
+            ( Translator components: { lontext10: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline11:
+            ( Translator components: { lontext11: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline12:
+            ( Translator components: { lontext12: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline13:
+            ( Translator components: { lontext13: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline14:
+            ( Translator components: { lontext14: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline15:
+            ( Translator components: { lontext15: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline16:
+            ( Translator components: { lontext16: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline17:
+            ( Translator components: { lontext17: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline18:
+            ( Translator components: { lontext18: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline19:
+            ( Translator components: { lontext19: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+            lonline20:
+            ( Translator components: { lontext20: ( LongitudeReadout color: yellow format: "+DDD" ) } )
+         }
+      )
+   }
+)
