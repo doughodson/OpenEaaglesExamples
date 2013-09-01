@@ -41,7 +41,7 @@ project "mainFox1"
       "../../mainFox1/**.h",
       "../../mainFox1/**.epp"
    }
-   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.6" }
+   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    defines {"FOX_1_6"}

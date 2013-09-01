@@ -20,7 +20,7 @@
 static void update(void* pData)
 {
     if (pData != NULL) {
-        Eaagles::mainFltk1::FltkStation* stn = reinterpret_cast<Eaagles::mainFltk1::FltkStation*>(pData);
+        Eaagles::mainFltk1 ::FltkStation* stn = reinterpret_cast<Eaagles::mainFltk1::FltkStation*>(pData);
         if (stn != 0) {
             double dt = 1 / 20.0f;
             stn->updateData((Eaagles::LCreal)dt);

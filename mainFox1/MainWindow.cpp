@@ -4,7 +4,7 @@
 #include "FoxDisplay.h"
 #include "FoxStation.h"
 
-#include "fx3d.h"
+#include "fox-1.6/fx3d.h"
 
 namespace Eaagles {
 namespace mainFox {

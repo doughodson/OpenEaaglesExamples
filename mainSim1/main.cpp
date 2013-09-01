@@ -11,7 +11,6 @@
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/osg/Vec3"
-#include "openeaagles/otw/OtwPC.h"         // for OTW
 
 namespace Eaagles {
 namespace Sim1 {
@@ -32,7 +31,6 @@ static Basic::Object* testFormFunc(const char* formname)
 {
   Basic::Object* newform = 0;
 
-  if (newform == 0) newform = Otw::otwFormFunc(formname);
   if (newform == 0) newform = Simulation::simulationFormFunc(formname);
   if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
   if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
