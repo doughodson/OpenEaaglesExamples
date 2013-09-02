@@ -1,6 +1,10 @@
-#include "./MapPage.h"
-#include "./TestStation.h"
-#include "./MapDisplay.h"
+// -------------------------------------------------------------------------------
+// Class: MapPage
+// -------------------------------------------------------------------------------
+
+#include "MapPage.h"
+#include "TestStation.h"
+#include "MapDisplay.h"
 #include "openeaagles/simulation/Player.h"
 #include "openeaagles/simulation/Autopilot.h"
 #include "openeaagles/simulation/AirVehicle.h"
@@ -27,7 +31,7 @@ namespace Eaagles {
       class OcclusionArc;
    }
 
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 IMPLEMENT_SUBCLASS(MapPage,"TestMapPage")
 EMPTY_SLOTTABLE(MapPage)
@@ -362,7 +366,6 @@ void MapPage::drawFunc()
       }
    }
 }
-
 
 //------------------------------------------------------------------------------
 // updateData() -- update background data

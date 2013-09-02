@@ -1,6 +1,6 @@
 //*****************************************************************************
-// MainDyn4Dof -- test program that will test out the Dynamic 4 degree
-// of freedom model.  
+// MainLaero -- test program that will test out the 4 degrees of
+// freedom Laero model
 //*****************************************************************************
 
 #include "openeaagles/basicGL/Graphic.h"
@@ -11,9 +11,8 @@
 #include "formFunc.h"
 #include <GL/glut.h>
 
-
 namespace Eaagles {
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 // Background frame rate
 const int bgRate = 10;
@@ -27,7 +26,6 @@ static Simulation::Station* station = 0;
 static Simulation::Station* readConfigFile(const char* const fileName)
 {
 	Simulation::Station* p = 0;
-
 
    // Read the description file
    int errors = 0;
@@ -77,9 +75,8 @@ static void updateDataCB(int)
    station->updateData(dt);
 }
 
-
 //-----------------------------------------------------------------------------
-// Eaagles::Mainx9::main() -- Main routine
+// Eaagles::MainLaero::main() -- main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
@@ -126,8 +123,6 @@ int main(int argc, char* argv[])
 
    glutTimerFunc(millis, updateDataCB, 1);
 
-
-
 // ---
 // Main loop
 // ---
@@ -135,13 +130,13 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End MainDyn4Dof namespace
-} // End Eaagles namespace
+}
+}
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MainDyn4Dof::main(argc, argv);
+   return Eaagles::MainLaero::main(argc, argv);
 }

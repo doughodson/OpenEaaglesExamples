@@ -1,8 +1,12 @@
-#include "./formFunc.h"
-#include "./TestStation.h"
-#include "./AdiDisplay.h"
-#include "./MapDisplay.h"
-#include "./MapPage.h"
+//------------------------------------------------------------------------------
+// Form function for mainLaero example
+//------------------------------------------------------------------------------
+
+#include "formFunc.h"
+#include "TestStation.h"
+#include "AdiDisplay.h"
+#include "MapDisplay.h"
+#include "MapPage.h"
 
 #include "openeaagles/simulation/simulationFF.h"
 #include "openeaagles/vehicles/vehiclesFF.h"
@@ -14,7 +18,7 @@
 #include "openeaagles/basic/basicFF.h"
 
 namespace Eaagles {
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 Basic::Object* formFunc(const char* formname)
 {

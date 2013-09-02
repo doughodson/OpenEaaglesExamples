@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestStation
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainDyn4Dof_TestStation_H__
-#define __Eaagles_MainDyn4Dof_TestStation_H__
+#ifndef __Eaagles_MainLaero_TestStation_H__
+#define __Eaagles_MainLaero_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -10,7 +10,7 @@ namespace Eaagles {
 namespace Basic { class Number; }
 namespace Glut { class GlutDisplay; }
 
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 //------------------------------------------------------------------------------
 // Class: TestStation

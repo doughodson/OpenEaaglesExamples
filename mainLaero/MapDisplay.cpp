@@ -1,7 +1,10 @@
-#include "./MapDisplay.h"
+// -------------------------------------------------------------------------------
+// Class: MapDisplay
+// -------------------------------------------------------------------------------
 
-#include "./TestStation.h"
-#include "./MapPage.h"
+#include "MapDisplay.h"
+#include "TestStation.h"
+#include "MapPage.h"
 
 #include "openeaagles/vehicles/LaeroModel.h"
 #include "openeaagles/simulation/AirVehicle.h"
@@ -17,11 +20,10 @@
 #include <iomanip>
 
 namespace Eaagles {
-namespace MainDyn4Dof {
+namespace MainLaero {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay,"MapTestDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")
 EMPTY_SERIALIZER(MapDisplay)
-
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -394,8 +396,5 @@ Simulation::Aircraft* MapDisplay::getOwnship()
    return p;
 }
 
-
-
 }  
 }  
-

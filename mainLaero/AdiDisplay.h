@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: AdiDisplay
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainDyn4Dof_AdiDisplay_H__
-#define __Eaagles_MainDyn4Dof_AdiDisplay_H__
+#ifndef __Eaagles_MainLaero_AdiDisplay_H__
+#define __Eaagles_MainLaero_AdiDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -12,7 +12,7 @@ namespace Eaagles {
       class Aircraft; 
    }
 
-namespace MainDyn4Dof {
+namespace MainLaero {
 class AdiDisplay : public Glut::GlutDisplay
 {
    DECLARE_SUBCLASS(AdiDisplay, Glut::GlutDisplay)
@@ -60,4 +60,4 @@ private:
 } 
 } 
 
-#endif 
+#endif

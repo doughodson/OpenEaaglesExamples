@@ -1,12 +1,11 @@
 // -------------------------------------------------------------------------------
 // Class: MapPage
-// Base class:	BasicGL::Graphic -> BasicGL::Page -> BasicGL::MapPage -> MapPage
 // Description:
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-#ifndef _Eaagles_MainDyn4Dof_MapPage_H__
-#define _Eaagles_MainDyn4Dof_MapPage_H__
+#ifndef __Eaagles_MainLaero_MapPage_H__
+#define __Eaagles_MainLaero_MapPage_H__
 
 #include "openeaagles/basicGL/MapPage.h"
 
@@ -18,7 +17,7 @@ namespace BasicGL {
    class SymbolLoader;
 }
 
-namespace MainDyn4Dof {
+namespace MainLaero {
 class TestStation;
 
 class MapPage : public BasicGL::MapPage
@@ -77,5 +76,5 @@ private:
 }  
 }  
 
-#endif // EAAGLES_MAPTEST_MAPPAGE_H__
+#endif
 

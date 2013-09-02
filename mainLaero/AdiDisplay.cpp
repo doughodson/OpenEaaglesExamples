@@ -1,6 +1,10 @@
-#include "./AdiDisplay.h"
+//------------------------------------------------------------------------------
+// Class: AdiDisplay
+//------------------------------------------------------------------------------
 
-#include "./TestStation.h"
+#include "AdiDisplay.h"
+
+#include "TestStation.h"
 
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/basic/osg/Vec3"
@@ -9,7 +13,7 @@
 #include "openeaagles/basic/units/Times.h"
 
 namespace Eaagles {
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay,"AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
@@ -140,6 +144,6 @@ Simulation::Aircraft* AdiDisplay::getOwnship()
    return pA;
 }
 
+} 
+} 
 
-} 
-} 

@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: TestStation
+//------------------------------------------------------------------------------
 
 #include "TestStation.h"
 
@@ -13,7 +16,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
 

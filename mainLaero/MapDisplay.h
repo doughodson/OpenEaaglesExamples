@@ -4,8 +4,8 @@
 // Description:
 //      Derived MapDisplay that will simply make our map page move.
 // -------------------------------------------------------------------------------
-#ifndef __Eaagles_MainDyn4Dof_MapDisplay_H__
-#define __Eaagles_MainDyn4Dof_MapDisplay_H__
+#ifndef __Eaagles_MainLaero_MapDisplay_H__
+#define __Eaagles_MainLaero_MapDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -15,7 +15,7 @@ namespace Eaagles {
       class Aircraft; 
    }
 
-namespace MainDyn4Dof {
+namespace MainLaero {
 
 class MapDisplay : public Glut::GlutDisplay
 {
@@ -26,7 +26,6 @@ public:
 
    Simulation::Aircraft* getOwnship();
    Simulation::Station* getStation();
-
 
    // MapDisplay interface
    virtual void mouseMotionEvent(const int x, const int y);
