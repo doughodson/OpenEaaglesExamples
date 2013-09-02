@@ -28,7 +28,7 @@ codelite/
 *.edl
 
 #
-# Qt not needed directories (created upon build)
+# Qt directories to ignore (created upon build)
 #
 tmp/
 build/qt/*Makefile*
