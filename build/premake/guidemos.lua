@@ -58,3 +58,30 @@ project "mainFox1"
       links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
 
+
+-- mainGlfw : basic display using Glfw example
+project "mainGlfw"
+   targetname "mainGlfw"
+   targetdir "../../mainGlfw"
+   debugdir "../../mainGlfw"
+   files {
+      "../../mainGlfw/**.cpp",
+      "../../mainGlfw/**.h",
+      "../../mainGlfw/**.epp",
+      "../../mainGlfw/**.edl"
+   }
+
+   defines { "GLEW_STATIC" }
+
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   configuration "Release"
+      links {"oeGlfw", "oeBasicGL", "oeBasic"}
+      links {LibFtgl, LibFreetype, LibGLU, LibGL, "glfw3", "glew32s" }
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+   configuration "Debug"
+      links {"oeGlfw_d", "oeBasicGL_d", "oeBasic_d"}
+      links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL, "glew32s_d", "glfw3_d" }
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+

@@ -1,0 +1,105 @@
+// ---
+// Basic description of test.epp and test2.epp displays
+// ---
+
+// Textures
+textures: {
+  t1:  ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "Mesh.bmp" )
+  t2: ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "Coffee_Bean.bmp" )
+  t3: ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "icp_256_256.bmp" )
+  t4: ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "Hsi_128_128.bmp" )
+  mfd256: ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "Mfd_256_256.bmp" )
+  mfd512: ( BitmapTexture width: 512 height: 512 path: TEXTURES_PATH  file: "Mfd_512_512.bmp" )
+  icp256: ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "icp_256_256.bmp" )
+  icp512: ( BitmapTexture width: 512 height: 512 path: TEXTURES_PATH  file: "icp_512_512.bmp" )
+  rwr128: ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "RWR_128_128.bmp" )
+  rwr256: ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "RWR_256_256.bmp" )
+  hsi128: ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "Hsi_128_128.bmp" )
+  hsi256: ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "Hsi_256_256.bmp" )
+}
+
+// Materials
+materials: {
+  m1: ( Material diffuseColor: { 0 0.5 1 } emissiveColor: { 0.25 0 0 } specularColor: { 1 1 1 } shininess: 128 ) 
+  m2: ( Material diffuseColor: { 1 0.5 0.2 } specularColor: { 0.4 0.3 0.4 } shininess: 50 ) 
+  m3: ( Material diffuseColor: { 0.2 0.6 0.1 } specularColor: { 0.2 0.4 0.4 } shininess: 50 ) 
+  m4: ( Material diffuseColor: { 1 1 1 } specularColor: { 1 1 1 } emissiveColor: { 0.1 0 0 } shininess: 50 ) 
+  m5: ( Material ambientColor: { 0 0 0 } diffuseColor: { 0.7 0.29 0.8 } specularColor: { 0.5 0.5 0.5 } shininess: 128 ) 
+  m6: ( Material diffuseColor: { 0.2 0.2 0.2 } specularColor: { 0.5 0.5 0.5 } shininess: 50 ) 
+  m7: ( Material diffuseColor: { 0.1 0.5 1 } specularColor: { 0.8 0.8 0.8 } shininess: 50 ) 
+  m8: ( Material diffuseColor: { 0.8 0.9 0.3 } specularColor: { 1 1 1 } shininess: 128 ) 
+  m9: ( Material diffuseColor: { 1 0.5 1 } emissiveColor: { 0 0.75 0 } specularColor: { 0.5 1 1 } shininess: 25 ) 
+}
+
+// This is the default font table, and all fields will use this font if their
+// page's do not have a font table.
+normalFont: default
+fonts: {
+  default: 
+  ( BitmapFont
+      fontPosition: [ -9.5 9.5 ]
+      fontWidth: 0.462
+      fontHeight: 0.798
+      bitmapWidth: 11
+      bitmapHeight: 19
+      characterSpacing: 0.462
+      lineSpacing: 0.798
+      path: FONT_11_19_PATH
+  )
+  bigfont:  
+  ( FTGLPolygonFonts 
+      fontPosition: [ -10.5 10.5 ]
+      fontWidth: 2.0          // Font width scaling 
+      fontHeight: 2.0         // Font height scaling 
+      characterSpacing: 1.2   // This font is 2:1 (height:widht) or (lineSpaceing:charSpacing)
+      lineSpacing: 2
+      path: FONT_PATH  
+      file: "arialn.ttf"
+  )
+}
+
+leftBracketChar:  "*"
+rightBracketChar: "*"
+reverseVideoBrackets: 0
+
+
+// ---
+// Add a background box to the main display
+// ---
+components: {
+  // forward and backward commands
+  ( AsciiText
+      color: white
+      transform: ( Translation -10 -10.5 5 )
+      text: "Press 'p' to page back, 'n' to page forward."
+  )
+  ( LineLoop
+      color: blue
+      vertices: {
+          [ -10 -10 ]
+          [ -10  10 ]
+          [  10  10 ]
+          [  10 -10 ]
+      }
+  )
+}
+
+#if 0
+// ---
+// All the main page formats are here!
+// ---
+pages: {
+  #include "PageXX.epp"
+  #include "PageYY.epp"
+  #include "PageZZ.epp"
+  #include "worms.epp"
+  #include "sample.epp"
+  #include "PageHSVColors.epp"
+  #include "PageHLSColors.epp"
+  #include "PageCMYColors.epp"
+  #include "PageYIQColors.epp"
+  #include "MaterialPage.epp"
+}
+#endif
+
+
