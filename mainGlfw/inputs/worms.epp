@@ -1,0 +1,52 @@
+// ---
+// Simple example of "worms" moving back and forth
+// ---
+
+worms:
+( MfdPage
+    components: {
+        ( TestOne
+            selectName: 111
+            color: green
+            speed: 10
+            startAngle: ( Degrees 30 )
+        )
+        ( TestOne
+            selectName: 112
+            color: blue
+            speed: 20
+            startAngle: ( Degrees 155 )
+        )
+        ( TestOne
+            selectName: 113
+            color: red
+            speed: 5
+            startAngle: ( Degrees 85 )
+        )
+        ( TestOne
+            selectName: 114
+            color: yellow
+            speed: 5
+            startAngle: ( Degrees -35 )
+        )
+        ( TestOne
+            selectName: 115
+            color: cyan
+            speed: 5
+            startAngle: ( Degrees -85 )
+        )
+        ( TestOne
+            selectName: 116
+            color: magenta
+            speed: 5
+            startAngle: ( Degrees -155 )
+        )
+        ( TestOne
+            selectName: 117
+            color: white
+            speed: 5
+            startAngle: ( Degrees -175 )
+        )
+    }
+)
+

@@ -25,7 +25,7 @@
     vpWidth:    ( + 200 100 100 50 25 10 10 5)
     vpHeight:   500
 
-   // page:   materials // First page
+    page:   worms // First page
     #include "testBasic.epp"
 
 )

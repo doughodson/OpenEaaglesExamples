@@ -67,12 +67,6 @@ reverseVideoBrackets: 0
 // Add a background box to the main display
 // ---
 components: {
-  // forward and backward commands
-  ( AsciiText
-      color: white
-      transform: ( Translation -10 -10.5 5 )
-      text: "Press 'p' to page back, 'n' to page forward."
-  )
   ( LineLoop
       color: blue
       vertices: {
@@ -84,22 +78,11 @@ components: {
   )
 }
 
-#if 0
 // ---
-// All the main page formats are here!
+// Page(s)
 // ---
 pages: {
-  #include "PageXX.epp"
-  #include "PageYY.epp"
-  #include "PageZZ.epp"
   #include "worms.epp"
-  #include "sample.epp"
-  #include "PageHSVColors.epp"
-  #include "PageHLSColors.epp"
-  #include "PageCMYColors.epp"
-  #include "PageYIQColors.epp"
-  #include "MaterialPage.epp"
 }
-#endif
 
 

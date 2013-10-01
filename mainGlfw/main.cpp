@@ -10,6 +10,8 @@
 #include "openeaagles/basicGL/basicGLFF.h"
 #include "openeaagles/gui/glfw/glfwFF.h"
 
+#include "./TestOne.h"
+
 #include "openeaagles/gui/glfw/GlfwDisplay.h"
 #include "GLFW/glfw3.h"
 
@@ -25,7 +27,10 @@ static class Glfw::GlfwDisplay* sys = 0;
 // Test Form Function
 static Basic::Object* testFormFunc(const char* formname)
 {
-    Basic::Object* newform = Glfw::glfwFormFunc(formname);
+   Basic::Object* newform = Glfw::glfwFormFunc(formname);
+   if (strcmp(formname, TestOne::getFormName()) == 0) {
+      newform = new TestOne();  
+   }
 
    if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
    if (newform == 0) newform = Basic::basicFormFunc(formname);
