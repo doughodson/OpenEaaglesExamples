@@ -100,18 +100,10 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
 // reset simulation
 bool TestDisplay::onFrameBufferKey()
 {
-   unsigned int w = 512;
-   unsigned int h = 512;
    BasicGL::Image* image = readFrameBuffer();
-
    image->writeFileBMP("./test.bmp");
-
    return true;
 }
-
-
-
-
 
 //=============================================================================
 // Main test functions
