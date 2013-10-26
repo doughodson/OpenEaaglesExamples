@@ -3,6 +3,6 @@
 
 ( ServerSideTcp
     noWait: false
-    netHandler:   ( TcpServerMulti port: 3000 )
+    netHandler:   ( TcpServerMultiple port: 3000 )
 )
 

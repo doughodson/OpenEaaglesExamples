@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: NetTester
 //------------------------------------------------------------------------------
-#ifndef __NetTester_H_EA9B8119_EEF2_41df_A1E2_A68C4AF43495__
-#define __NetTester_H_EA9B8119_EEF2_41df_A1E2_A68C4AF43495__
+#ifndef __TestNet_NetTester_H__
+#define __TestNet_NetTester_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -12,7 +12,6 @@ namespace TestNet {
 
 //------------------------------------------------------------------------------
 // Class: NetTester
-// Base class:  Object-> Component-> NetTester
 //
 // Description: Common basic class for the server and client side network testers.
 //
@@ -24,10 +23,10 @@ namespace TestNet {
 //      loops       <Number>        Number of messages to send/recv before disconnecting and
 //                                  halting (default: infinite)
 //
-// Guid: {EA9B8119-EEF2-41df-A1E2-A68C4AF43495}
 //------------------------------------------------------------------------------
-class NetTester : public Eaagles::Basic::Component {
-   DECLARE_SUBCLASS(NetTester,Eaagles::Basic::Component)
+class NetTester : public Eaagles::Basic::Component
+{
+   DECLARE_SUBCLASS(NetTester, Eaagles::Basic::Component)
 
 public:
     static const unsigned int MAX_SIZE = 1024;  // Max buffer size

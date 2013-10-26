@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: ClientSide
+//------------------------------------------------------------------------------
 
 #include "ClientSide.h"
 
@@ -17,7 +20,7 @@ namespace TestNet {
 // ClientSide
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(ClientSide,"ClientSide")
+IMPLEMENT_SUBCLASS(ClientSide, "ClientSide")
 EMPTY_SLOTTABLE(ClientSide)
 EMPTY_SERIALIZER(ClientSide)
 
@@ -31,7 +34,6 @@ ClientSide::ClientSide()
     msgCounter = 0;
     recvMode = false;
 }
-
 
 //------------------------------------------------------------------------------
 // copyData() -- copy member data

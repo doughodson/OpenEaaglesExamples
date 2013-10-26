@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = testNet
 
-OBJS = ClientSide.o testNet.o NetTester.o ServerSide.o ServerTcpMulti.o
+OBJS = ClientSide.o testNet.o NetTester.o ServerSide.o ServerTcpMultiple.o
 
 LDFLAGS += -loeBasic -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu

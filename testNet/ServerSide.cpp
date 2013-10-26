@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: ServerSide
+//------------------------------------------------------------------------------
 
 #include "ServerSide.h"
 
@@ -10,7 +13,7 @@ namespace TestNet {
 // ServerSide
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(ServerSide,"ServerSide")
+IMPLEMENT_SUBCLASS(ServerSide, "ServerSide")
 EMPTY_SLOTTABLE(ServerSide)
 EMPTY_SERIALIZER(ServerSide)
 

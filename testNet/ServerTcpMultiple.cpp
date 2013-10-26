@@ -1,5 +1,8 @@
+//------------------------------------------------------------------------------
+// Class: ServerTcpMultiple
+//------------------------------------------------------------------------------
 
-#include "ServerTcpMulti.h"
+#include "ServerTcpMultiple.h"
 
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
@@ -7,17 +10,17 @@
 namespace TestNet {
 
 //==============================================================================
-// ServerTcpMulti
+// ServerTcpMultiple
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(ServerTcpMulti,"ServerTcpMulti")
-EMPTY_SLOTTABLE(ServerTcpMulti)
-EMPTY_SERIALIZER(ServerTcpMulti)
+IMPLEMENT_SUBCLASS(ServerTcpMultiple, "ServerTcpMultiple")
+EMPTY_SLOTTABLE(ServerTcpMultiple)
+EMPTY_SERIALIZER(ServerTcpMultiple)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-ServerTcpMulti::ServerTcpMulti()
+ServerTcpMultiple::ServerTcpMultiple()
 {
     STANDARD_CONSTRUCTOR()
 }
@@ -25,7 +28,7 @@ ServerTcpMulti::ServerTcpMulti()
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
 //------------------------------------------------------------------------------
-void ServerTcpMulti::copyData(const ServerTcpMulti& org, const bool)
+void ServerTcpMultiple::copyData(const ServerTcpMultiple& org, const bool)
 {
    BaseClass::copyData(org);
 }
@@ -33,14 +36,14 @@ void ServerTcpMulti::copyData(const ServerTcpMulti& org, const bool)
 //------------------------------------------------------------------------------
 //deleteData() -- delete member data
 //------------------------------------------------------------------------------
-void ServerTcpMulti::deleteData()
+void ServerTcpMultiple::deleteData()
 {
 }
 
 //------------------------------------------------------------------------------
 // reset()
 //------------------------------------------------------------------------------
-void ServerTcpMulti::reset()
+void ServerTcpMultiple::reset()
 {
     BaseClass::reset();
 }
@@ -48,7 +51,7 @@ void ServerTcpMulti::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void ServerTcpMulti::updateData(const Eaagles::LCreal dt)
+void ServerTcpMultiple::updateData(const Eaagles::LCreal dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);
