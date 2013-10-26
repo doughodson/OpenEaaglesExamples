@@ -37,7 +37,7 @@ END_SLOT_MAP()
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-NetTester::NetTester() : netInput(0), netHandler(0)
+NetTester::NetTester() : netHandler(0), netInput(0) 
 {
    STANDARD_CONSTRUCTOR()
 
