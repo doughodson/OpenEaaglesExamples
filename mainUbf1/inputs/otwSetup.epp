@@ -11,8 +11,8 @@ otw: {
       longitude: DB_LONG  
       async: 5
       cigi: (CigiClNetwork 
-          netInput:  ( UdpHandler localIpAddress: OTW_INPUT_IP ipAddress: OTW_INPUT_IP  port: OTW_INPUT_PORT )
-          netOutput: ( UdpHandler localIpAddress: OTW_INPUT_IP ipAddress: OTW_OUTPUT_IP  port: OTW_OUTPUT_PORT localPort: OTW_OUTPUT_SOURCE_PORT )
+          netInput:  ( UdpUnicastHandler localIpAddress: OTW_INPUT_IP ipAddress: OTW_INPUT_IP  port: OTW_INPUT_PORT )
+          netOutput: ( UdpUnicastHandler localIpAddress: OTW_INPUT_IP ipAddress: OTW_OUTPUT_IP  port: OTW_OUTPUT_PORT localPort: OTW_OUTPUT_SOURCE_PORT )
       )
       
       otwModelTypes: {

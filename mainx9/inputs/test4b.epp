@@ -30,8 +30,8 @@
          enableOutput: true
          enableRelay: false
 
-         netInput:   ( BroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3002 shared: true )
-         netOutput:  ( BroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  localPort: 3002        shared: true )
+         netInput:   ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3002 shared: true )
+         netOutput:  ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  localPort: 3002        shared: true )
 
          // Example emission handler list
          emissionPduHandlers: {

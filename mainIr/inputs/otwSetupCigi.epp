@@ -18,10 +18,10 @@ otw: {
       async: 0
       hideOwnshipModel: 1	// otherwise you are inside the ownship model
       cigi: ( CigiClNetwork
-          netInput: ( UdpHandler localIpAddress: localhost    port: 8010 ) // HOST
-          netOutput: ( UdpHandler localIpAddress: localhost ipAddress: localhost port: 8000 localPort: 8208 ) // IG
-          //netInput:   ( MulticastHandler multicastGroup: "224.1.1.2" port: 8008  ignoreSourcePort: 3002 loopback: true  shared: true )
-          //netOutput:  ( MulticastHandler multicastGroup: "224.1.1.2" port: 8008  localPort: 3002        loopback: true  shared: true )
+          netInput: ( UdpUnicastHandler localIpAddress: localhost    port: 8010 ) // HOST
+          netOutput: ( UdpUnicastHandler localIpAddress: localhost ipAddress: localhost port: 8000 localPort: 8208 ) // IG
+          //netInput:   ( UdpMulticastHandler multicastGroup: "224.1.1.2" port: 8008  ignoreSourcePort: 3002 loopback: true  shared: true )
+          //netOutput:  ( UdpMulticastHandler multicastGroup: "224.1.1.2" port: 8008  localPort: 3002        loopback: true  shared: true )
       )
       #include "CigiModels.epp"
     )

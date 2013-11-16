@@ -27,7 +27,7 @@ dataRecorder: ( MyDataRecorder
 #if 0        
          // Network connection to 'testRecorderRead'
          ( RecorderNetOutput
-            netHandler:( UdpHandler
+            netHandler:( UdpUnicastHandler
                localIpAddress: localhost
                ipAddress: "127.0.0.1"
                port: 4950
