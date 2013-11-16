@@ -1,8 +1,8 @@
 #
 include ../makedefs
 
-PGM = testNav
-OBJS =  testNav.o
+PGM = testNavigation
+OBJS =  testNavigation.o
 
 LDFLAGS += -loeBasic
 

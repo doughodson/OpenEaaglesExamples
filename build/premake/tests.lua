@@ -69,16 +69,16 @@ project "testLinearSys"
       links {"oeLinearSys_d", "oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testNav
-project "testNav"
-   targetname "testNav"
-   targetdir "../../testNav"
-   debugdir "../../testNav"
+-- testNavigation
+project "testNavigation"
+   targetname "testNavigation"
+   targetdir "../../testNavigation"
+   debugdir "../../testNavigation"
    files {
-      "../../testNav/**.cpp",
-      "../../testNav/**.h",
-      "../../testNav/**.epp",
-      "../../testNav/**.edl"
+      "../../testNavigation/**.cpp",
+      "../../testNavigation/**.h",
+      "../../testNavigation/**.epp",
+      "../../testNavigation/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }

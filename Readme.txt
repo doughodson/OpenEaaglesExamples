@@ -78,7 +78,7 @@ Test applications:
 
    testLinearSys
 
-   testNav           -- Extensive set of navigation test routines
+   testNavigation    -- Extensive set of navigation test routines
 
    testTimer         -- Tests the functionality of the Timer class.
 

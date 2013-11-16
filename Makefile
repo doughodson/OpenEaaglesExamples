@@ -55,8 +55,8 @@ APPLICATIONS += testMatrix
 # Random distributions tests
 APPLICATIONS += testRng
 
-# Nav functions tests
-APPLICATIONS += testNav
+# Navigation tests
+APPLICATIONS += testNavigation
 
 # network handler testing
 APPLICATIONS += testNetHandler

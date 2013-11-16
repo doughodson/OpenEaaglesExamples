@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Test Basic::Nav functions
+// Tests navigation routines defined in Basic::Nav class
 //-----------------------------------------------------------------------------
 
 #include "openeaagles/basic/Nav.h"
