@@ -16,6 +16,7 @@ namespace TestNet {
 IMPLEMENT_SUBCLASS(ServerSide, "ServerSide")
 EMPTY_SLOTTABLE(ServerSide)
 EMPTY_SERIALIZER(ServerSide)
+EMPTY_DELETEDATA(ServerSide)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -27,21 +28,13 @@ ServerSide::ServerSide()
     loopCounter = 0;
 }
 
-
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
 //------------------------------------------------------------------------------
 void ServerSide::copyData(const ServerSide& org, const bool)
 {
-   BaseClass::copyData(org);
-   loopCounter = org.loopCounter;
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void ServerSide::deleteData()
-{
+    BaseClass::copyData(org);
+    loopCounter = org.loopCounter;
 }
 
 //------------------------------------------------------------------------------
@@ -89,3 +82,4 @@ void ServerSide::updateData(const Eaagles::LCreal dt)
 }
 
 } // End namespace
+

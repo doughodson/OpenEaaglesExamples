@@ -6,7 +6,9 @@
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles { namespace Basic { class NetHandler; class Number; } }
+namespace Eaagles { 
+    namespace Basic { class NetHandler; class Number; }
+}
 
 namespace TestNet {
 
@@ -72,3 +74,4 @@ private:
 }
 
 #endif
+

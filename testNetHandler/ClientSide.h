@@ -14,11 +14,10 @@ namespace TestNet {
 // Description: Sends an ASCII test message to the server side and accepts the response message.
 //
 // Form name: ClientSide
-//
 //------------------------------------------------------------------------------
 class ClientSide : public NetTester
 {
-   DECLARE_SUBCLASS(ClientSide, NetTester)
+    DECLARE_SUBCLASS(ClientSide, NetTester)
 
 public:
     ClientSide();
@@ -35,3 +34,4 @@ private:
 }
 
 #endif
+

@@ -58,8 +58,8 @@ APPLICATIONS += testRng
 # Nav functions tests
 APPLICATIONS += testNav
 
-# network testing
-APPLICATIONS += testNet
+# network handler testing
+APPLICATIONS += testNetHandler
 
 # linear systems package
 APPLICATIONS += testLinearSys

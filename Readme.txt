@@ -82,7 +82,7 @@ Test applications:
 
    testTimer         -- Tests the functionality of the Timer class.
 
-   testNet           -- Tests the network handlers (derived from NetHandler).  Includes
+   testNetHandler    -- Tests the network handlers (derived from NetHandler).  Includes
                         client and server side tests/examples for the UDP, TCP, broadcast,
                         and multicast handlers.
 

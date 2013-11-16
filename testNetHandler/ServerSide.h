@@ -9,7 +9,7 @@
 namespace TestNet {
 
 //------------------------------------------------------------------------------
-// Class:  ServerSide
+// Class: ServerSide
 //
 // Description:  
 //
@@ -34,3 +34,4 @@ private:
 }
 
 #endif
+

@@ -92,7 +92,6 @@ void NetTester::reset()
    }
 }
 
-
 //------------------------------------------------------------------------------
 // initNetworks() -- Init the networks
 //------------------------------------------------------------------------------
@@ -228,7 +227,6 @@ bool NetTester::setSlotLoops(Eaagles::Basic::Number* const msg)
     return ok;
 }
 
-
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
@@ -238,3 +236,4 @@ Eaagles::Basic::Object* NetTester::getSlotByIndex(const int si)
 }
 
 } // End namespace
+

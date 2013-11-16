@@ -1,3 +1,6 @@
+//-----------------------------------------------------------------------------
+// Description: application to test NetHandler functionality
+//-----------------------------------------------------------------------------
 
 #include "ClientSide.h"
 #include "ServerSide.h"
@@ -77,7 +80,7 @@ int exec(int argc, char* argv[])
 
     // Must have a test file name
     if (testFile == 0) {
-        std::cerr << "usage:  testNet -f testFile" << std::endl;
+        std::cerr << "usage: testNet -f testFile" << std::endl;
         return EXIT_FAILURE;
     }
 
@@ -91,7 +94,7 @@ int exec(int argc, char* argv[])
     }
 
     // Send a reset event
-    std::cout << "Reset event; which will establish the networks." << std::endl;
+    std::cout << "Reset event: which will establish the networks." << std::endl;
     sys->event(Eaagles::Basic::Component::RESET_EVENT);
 
     // System Time of Day
@@ -115,7 +118,7 @@ int exec(int argc, char* argv[])
 
         // wait for the next frame
         if (sleepTime > 0)
-        Eaagles::lcSleep(sleepTime);
+            Eaagles::lcSleep(sleepTime);
     }
 
     return EXIT_SUCCESS;

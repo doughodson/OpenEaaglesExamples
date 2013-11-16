@@ -23,6 +23,7 @@ namespace TestNet {
 IMPLEMENT_SUBCLASS(ClientSide, "ClientSide")
 EMPTY_SLOTTABLE(ClientSide)
 EMPTY_SERIALIZER(ClientSide)
+EMPTY_DELETEDATA(ClientSide)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -44,13 +45,6 @@ void ClientSide::copyData(const ClientSide& org, const bool)
 
     msgCounter = org.msgCounter;
     recvMode = org.recvMode;
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void ClientSide::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------
@@ -109,3 +103,4 @@ void ClientSide::updateData(const Eaagles::LCreal dt)
 }
 
 } // End namespace
+

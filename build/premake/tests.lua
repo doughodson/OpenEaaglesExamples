@@ -111,16 +111,16 @@ project "testMatrix"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testNet
-project "testNet"
-   targetname "testNet"
-   targetdir "../../testNet"
-   debugdir "../../testNet"
+-- testNetHandler
+project "testNetHandler"
+   targetname "testNetHandler"
+   targetdir "../../testNetHandler"
+   debugdir "../../testNetHandler"
    files {
-      "../../testNet/**.cpp",
-      "../../testNet/**.h",
-      "../../testNet/**.epp",
-      "../../testNet/**.edl"
+      "../../testNetHandler/**.cpp",
+      "../../testNetHandler/**.h",
+      "../../testNetHandler/**.epp",
+      "../../testNetHandler/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
@@ -131,7 +131,6 @@ project "testNet"
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
-
 
 -- testRecordData
 project "testRecordData"
