@@ -65,7 +65,7 @@ testEvents/testEvents
 testIo/testIo
 testLinearSys/testLinearSys
 testMatrix/testMatrix
-testNavigation/testNav
+testNavigation/testNavigation
 testNetHandler/testNetHandler
 testRecordData/testRecordData
 testRecorderRead/testRecorderRead
