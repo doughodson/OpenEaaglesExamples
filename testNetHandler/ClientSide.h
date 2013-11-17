@@ -1,23 +1,23 @@
 //------------------------------------------------------------------------------
 // Class: ClientSide
 //------------------------------------------------------------------------------
-#ifndef __TestNet_ClientSide_H__
-#define __TestNet_ClientSide_H__
+#ifndef __Test_ClientSide_H__
+#define __Test_ClientSide_H__
 
-#include "NetTester.h"
+#include "Endpoint.h"
 
-namespace TestNet {
+namespace Test {
 
 //------------------------------------------------------------------------------
-// Class:  ClientSide
+// Class: ClientSide
 //
 // Description: Sends an ASCII test message to the server side and accepts the response message.
 //
 // Form name: ClientSide
 //------------------------------------------------------------------------------
-class ClientSide : public NetTester
+class ClientSide : public Endpoint
 {
-    DECLARE_SUBCLASS(ClientSide, NetTester)
+    DECLARE_SUBCLASS(ClientSide, Endpoint)
 
 public:
     ClientSide();

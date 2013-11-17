@@ -7,7 +7,7 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
 
-namespace TestNet {
+namespace Test {
 
 //==============================================================================
 // ServerSide

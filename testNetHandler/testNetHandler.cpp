@@ -2,6 +2,7 @@
 // Description: application to test NetHandler functionality
 //-----------------------------------------------------------------------------
 
+#include "Endpoint.h"
 #include "ClientSide.h"
 #include "ServerSide.h"
 
@@ -9,7 +10,7 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
-namespace TestNet {
+namespace Test {
 
 const float UPDATE_RATE = 10.0; // Main loop update rate
 
@@ -34,7 +35,7 @@ static Eaagles::Basic::Object* testFormFunc(const char* formname)
 //-----------------------------------------------------------------------------
 // readTest() -- function to the read description files
 //-----------------------------------------------------------------------------
-static NetTester* readTest(const char* const testFile)
+static Endpoint* readTest(const char* const testFile)
 {
   if (testFile == 0) return 0;
 
@@ -49,7 +50,7 @@ static NetTester* readTest(const char* const testFile)
   }
 
   // Set 'sys' to our basic description object.
-  NetTester* sys = 0;
+  Endpoint* sys = 0;
   if (q1 != 0) {
 
     // When we were given a Pair, get the pointer to its object.
@@ -60,7 +61,7 @@ static NetTester* readTest(const char* const testFile)
 
     // What we should have here is the description object and
     // it should be of type 'Station'.
-    sys = dynamic_cast<NetTester*>(q1);
+    sys = dynamic_cast<Endpoint*>(q1);
 
   }
 
@@ -85,7 +86,7 @@ int exec(int argc, char* argv[])
     }
 
     // Read in the description files
-    NetTester* sys = readTest(testFile);
+    Endpoint* sys = readTest(testFile);
 
     // Must have a valid system of type NetTester (e.g., ClientSide or ServerSide)
     if (sys == 0) {
@@ -124,13 +125,13 @@ int exec(int argc, char* argv[])
     return EXIT_SUCCESS;
 }
 
-} // namespace TestNet
+} // namespace
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-    TestNet::exec(argc, argv);
+    Test::exec(argc, argv);
 }
 

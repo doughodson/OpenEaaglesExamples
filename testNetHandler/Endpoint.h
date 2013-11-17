@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Class: NetTester
+// Class: Endpoint
 //------------------------------------------------------------------------------
-#ifndef __TestNet_NetTester_H__
-#define __TestNet_NetTester_H__
+#ifndef __Test_Endpoint_H__
+#define __Test_Endpoint_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -10,10 +10,10 @@ namespace Eaagles {
     namespace Basic { class NetHandler; class Number; }
 }
 
-namespace TestNet {
+namespace Test {
 
 //------------------------------------------------------------------------------
-// Class: NetTester
+// Class: Endpoint
 //
 // Description: Common basic class for the server and client side network testers.
 //
@@ -26,15 +26,15 @@ namespace TestNet {
 //                                  halting (default: infinite)
 //
 //------------------------------------------------------------------------------
-class NetTester : public Eaagles::Basic::Component
+class Endpoint : public Eaagles::Basic::Component
 {
-   DECLARE_SUBCLASS(NetTester, Eaagles::Basic::Component)
+   DECLARE_SUBCLASS(Endpoint, Eaagles::Basic::Component)
 
 public:
     static const unsigned int MAX_SIZE = 1024;  // Max buffer size
 
 public:
-    NetTester();
+    Endpoint();
 
     bool areNetworksEnabled() const;
 

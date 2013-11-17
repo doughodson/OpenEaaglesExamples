@@ -14,7 +14,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace TestNet {
+namespace Test {
 
 //==============================================================================
 // ClientSide

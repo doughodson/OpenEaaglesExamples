@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: ServerTcpMultiple
 //------------------------------------------------------------------------------
-#ifndef __TestNet_ServerTcpMultiple_H__
-#define __TestNet_ServerTcpMultiple_H__
+#ifndef __Test_ServerTcpMultiple_H__
+#define __Test_ServerTcpMultiple_H__
 
-#include "NetTester.h"
+#include "Endpoint.h"
 
-namespace TestNet {
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class:  ServerTcpMultiple
@@ -16,9 +16,9 @@ namespace TestNet {
 // Form name: ServerTcpMulti
 //
 //------------------------------------------------------------------------------
-class ServerTcpMultiple : public NetTester
+class ServerTcpMultiple : public Endpoint
 {
-   DECLARE_SUBCLASS(ServerTcpMultiple, NetTester)
+   DECLARE_SUBCLASS(ServerTcpMultiple, Endpoint)
 
 public:
    ServerTcpMultiple();

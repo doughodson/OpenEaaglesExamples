@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: ServerSide
 //------------------------------------------------------------------------------
-#ifndef __TestNet_ServerSide_H__
-#define __TestNet_ServerSide_H__
+#ifndef __Test_ServerSide_H__
+#define __Test_ServerSide_H__
 
-#include "NetTester.h"
+#include "Endpoint.h"
 
-namespace TestNet {
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: ServerSide
@@ -16,9 +16,9 @@ namespace TestNet {
 // Form name: ServerSide
 //
 //------------------------------------------------------------------------------
-class ServerSide : public NetTester
+class ServerSide : public Endpoint
 {
-   DECLARE_SUBCLASS(ServerSide, NetTester)
+   DECLARE_SUBCLASS(ServerSide, Endpoint)
 
 public:
    ServerSide();

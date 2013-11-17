@@ -1,32 +1,32 @@
 //------------------------------------------------------------------------------
-// Class: NetTester
+// Class: Endpoint
 //------------------------------------------------------------------------------
 
-#include "NetTester.h"
+#include "Endpoint.h"
 
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/nethandlers/TcpHandler.h"
 #include "openeaagles/basic/Number.h"
 
-namespace TestNet {
+namespace Test {
 
 //==============================================================================
-// NetTester
+// Endpoint
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(NetTester, "NetTester")
-EMPTY_SERIALIZER(NetTester)
+IMPLEMENT_SUBCLASS(Endpoint, "Endpoint")
+EMPTY_SERIALIZER(Endpoint)
 
-BEGIN_SLOTTABLE(NetTester)
+BEGIN_SLOTTABLE(Endpoint)
    "netHandler",           // 1) Network handler (input/output, or just output if netInput is defined)
    "netInput",             // 2) Optional input handler (otherwise 'netHandler' is used)
    "netOutput",            // 3) Alias for the 'netHandler' slot to be use when using the 'netInput' slot.
    "noWait",               // 4) No wait (unblocked) I/O flag (default: false -- blocked I/O)
    "loops",                // 5) Number of messages to send/recv before disconnecting and halting (default: infinite)
-END_SLOTTABLE(NetTester)
+END_SLOTTABLE(Endpoint)
 
 // Map slot table to handles 
-BEGIN_SLOT_MAP(NetTester)
+BEGIN_SLOT_MAP(Endpoint)
     ON_SLOT(1, setSlotNetwork,   Eaagles::Basic::NetHandler)
     ON_SLOT(2, setSlotNetInput,  Eaagles::Basic::NetHandler)
     ON_SLOT(3, setSlotNetwork,   Eaagles::Basic::NetHandler)
@@ -37,7 +37,7 @@ END_SLOT_MAP()
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-NetTester::NetTester() : netHandler(0), netInput(0) 
+Endpoint::Endpoint() : netHandler(0), netInput(0) 
 {
    STANDARD_CONSTRUCTOR()
 
@@ -50,7 +50,7 @@ NetTester::NetTester() : netHandler(0), netInput(0)
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
 //------------------------------------------------------------------------------
-void NetTester::copyData(const NetTester& org, const bool cc)
+void Endpoint::copyData(const Endpoint& org, const bool cc)
 {
    BaseClass::copyData(org);
 
@@ -72,7 +72,7 @@ void NetTester::copyData(const NetTester& org, const bool cc)
 //------------------------------------------------------------------------------
 //deleteData() -- delete member data
 //------------------------------------------------------------------------------
-void NetTester::deleteData()
+void Endpoint::deleteData()
 {
    netHandler = 0;
    netInput = 0;
@@ -81,7 +81,7 @@ void NetTester::deleteData()
 //------------------------------------------------------------------------------
 // reset() -- Reset vehicle
 //------------------------------------------------------------------------------
-void NetTester::reset()
+void Endpoint::reset()
 {
    BaseClass::reset();
 
@@ -95,7 +95,7 @@ void NetTester::reset()
 //------------------------------------------------------------------------------
 // initNetworks() -- Init the networks
 //------------------------------------------------------------------------------
-bool NetTester::initNetworks()
+bool Endpoint::initNetworks()
 {
     // Init the main net handler
     bool ok1 = false; // (required)
@@ -112,7 +112,7 @@ bool NetTester::initNetworks()
 // Send (transmit) our data buffer; returns true if successful.
 // 'size' just be less than MAX_SIZE.
 //------------------------------------------------------------------------------
-bool NetTester::sendData(const char* const msg, const unsigned int size)
+bool Endpoint::sendData(const char* const msg, const unsigned int size)
 {
    bool ok = false;
    if (msg != 0 && size > 0 && size < MAX_SIZE  && areNetworksEnabled()) {
@@ -132,7 +132,7 @@ bool NetTester::sendData(const char* const msg, const unsigned int size)
 // Receive a data buffer; returns number of bytes received;
 // 'maxsize' just be less than MAX_SIZE.
 //------------------------------------------------------------------------------
-unsigned int NetTester::recvData(char* const msg, const unsigned int maxsize)
+unsigned int Endpoint::recvData(char* const msg, const unsigned int maxsize)
 {
     int n = 0;
     if (msg != 0 && maxsize > 0 && maxsize <= MAX_SIZE && areNetworksEnabled()) {
@@ -167,7 +167,7 @@ unsigned int NetTester::recvData(char* const msg, const unsigned int maxsize)
 //------------------------------------------------------------------------------
 // Returns true if the networks are initialized and connected
 //------------------------------------------------------------------------------
-bool NetTester::areNetworksEnabled() const
+bool Endpoint::areNetworksEnabled() const
 {
     bool ok = networkInitialized;
     if (ok && netHandler != 0) ok = netHandler->isConnected();
@@ -178,7 +178,7 @@ bool NetTester::areNetworksEnabled() const
 //------------------------------------------------------------------------------
 // close all network connections
 //------------------------------------------------------------------------------
-void NetTester::closeConnections()
+void Endpoint::closeConnections()
 {
     if (netHandler != 0) netHandler->closeConnection();
     if (netInput != 0)   netInput->closeConnection();
@@ -189,21 +189,21 @@ void NetTester::closeConnections()
 //------------------------------------------------------------------------------
 
 // Network Handler
-bool NetTester::setSlotNetwork(Eaagles::Basic::NetHandler* const msg)
+bool Endpoint::setSlotNetwork(Eaagles::Basic::NetHandler* const msg)
 {
     netHandler = msg;
     return true;
 }
 
 // Input Handler
-bool NetTester::setSlotNetInput(Eaagles::Basic::NetHandler* const msg)
+bool Endpoint::setSlotNetInput(Eaagles::Basic::NetHandler* const msg)
 {
     netInput = msg;
     return true;
 }
 
 // No wait (unblocked) I/O flag
-bool NetTester::setSlotNoWait(Eaagles::Basic::Number* const msg)
+bool Endpoint::setSlotNoWait(Eaagles::Basic::Number* const msg)
 {
     bool ok = false;
     if (msg != 0) {
@@ -214,7 +214,7 @@ bool NetTester::setSlotNoWait(Eaagles::Basic::Number* const msg)
 }
 
 // Number of message loops
-bool NetTester::setSlotLoops(Eaagles::Basic::Number* const msg)
+bool Endpoint::setSlotLoops(Eaagles::Basic::Number* const msg)
 {
     bool ok = false;
     if (msg != 0) {
@@ -230,7 +230,7 @@ bool NetTester::setSlotLoops(Eaagles::Basic::Number* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
-Eaagles::Basic::Object* NetTester::getSlotByIndex(const int si)
+Eaagles::Basic::Object* Endpoint::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

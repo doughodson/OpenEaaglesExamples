@@ -1,17 +1,22 @@
-
+//
 // Server side for the UDP/IP handler tests
+//
 
 ( ServerSide
     noWait: false
 
-// Single handler test
-    //netHandler:   ( UdpUnicastHandler  ipAddress: "172.17.160.92"  port: 3002  localPort: 3001 )
+    // Single handler test
+    netHandler:   ( UdpUnicastHandler
+                     ipAddress: "192.168.1.108"
+                     port:      3002
+                     localPort: 3001
+                  )
 
-// Double handler test
+    // Double handler test
     //netInput:       ( UdpUnicastHandler  port: 3001                   shared: true )
     //netOutput:      ( UdpUnicastHandler  ipAddress: "172.17.160.92"  port: 3002  localPort: 3001  shared: true )
 
-// Single handler (localhost) test
-    netHandler:   ( UdpUnicastHandler  localIpAddress: localhost ipAddress: localhost  port: 3002  localPort: 3001 )
+    // Single handler (localhost) test
+    //netHandler:   ( UdpUnicastHandler  localIpAddress: localhost   port: 3002  localPort: 3001  shared: true )
 )
 
