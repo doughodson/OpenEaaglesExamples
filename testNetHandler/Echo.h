@@ -1,27 +1,27 @@
 //------------------------------------------------------------------------------
-// Class: ServerSide
+// Class: Echo
 //------------------------------------------------------------------------------
-#ifndef __Test_ServerSide_H__
-#define __Test_ServerSide_H__
+#ifndef __Test_Echo_H__
+#define __Test_Echo_H__
 
 #include "Endpoint.h"
 
 namespace Test {
 
 //------------------------------------------------------------------------------
-// Class: ServerSide
+// Class: Echo
 //
 // Description:  
 //
-// Form name: ServerSide
+// Form name: Echo
 //
 //------------------------------------------------------------------------------
-class ServerSide : public Endpoint
+class Echo : public Endpoint
 {
-   DECLARE_SUBCLASS(ServerSide, Endpoint)
+   DECLARE_SUBCLASS(Echo, Endpoint)
 
 public:
-   ServerSide();
+   Echo();
 
    // Component interface
    virtual void updateData(const Eaagles::LCreal dt = 0.0f);

@@ -1,7 +1,8 @@
+//
+// Echo endpoint
+//
 
-// Server side for the UDP multicast handler tests
-
-( ServerSide
+( Echo
     noWait: false
     
 // Single handler test

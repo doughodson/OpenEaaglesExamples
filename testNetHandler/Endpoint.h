@@ -15,7 +15,7 @@ namespace Test {
 //------------------------------------------------------------------------------
 // Class: Endpoint
 //
-// Description: Common basic class for the server and client side network testers.
+// Description: Common basic class that contains network handlers
 //
 // Slots:
 //      netHandler  <NetHandler>    Network handler (input/output, or just output if 'netInput' is defined)

@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Class: ServerSide
+// Class: Echo
 //------------------------------------------------------------------------------
 
-#include "ServerSide.h"
+#include "Echo.h"
 
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
@@ -10,18 +10,18 @@
 namespace Test {
 
 //==============================================================================
-// ServerSide
+// Echo
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(ServerSide, "ServerSide")
-EMPTY_SLOTTABLE(ServerSide)
-EMPTY_SERIALIZER(ServerSide)
-EMPTY_DELETEDATA(ServerSide)
+IMPLEMENT_SUBCLASS(Echo, "Echo")
+EMPTY_SLOTTABLE(Echo)
+EMPTY_SERIALIZER(Echo)
+EMPTY_DELETEDATA(Echo)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-ServerSide::ServerSide()
+Echo::Echo()
 {
     STANDARD_CONSTRUCTOR()
 
@@ -31,7 +31,7 @@ ServerSide::ServerSide()
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
 //------------------------------------------------------------------------------
-void ServerSide::copyData(const ServerSide& org, const bool)
+void Echo::copyData(const Echo& org, const bool)
 {
     BaseClass::copyData(org);
     loopCounter = org.loopCounter;
@@ -40,7 +40,7 @@ void ServerSide::copyData(const ServerSide& org, const bool)
 //------------------------------------------------------------------------------
 // reset()
 //------------------------------------------------------------------------------
-void ServerSide::reset()
+void Echo::reset()
 {
     BaseClass::reset();
     loopCounter = 0;
@@ -49,7 +49,7 @@ void ServerSide::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void ServerSide::updateData(const Eaagles::LCreal dt)
+void Echo::updateData(const Eaagles::LCreal dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);

@@ -1,26 +1,26 @@
 //------------------------------------------------------------------------------
-// Class: ClientSide
+// Class: Sender
 //------------------------------------------------------------------------------
-#ifndef __Test_ClientSide_H__
-#define __Test_ClientSide_H__
+#ifndef __Test_Sender_H__
+#define __Test_Sender_H__
 
 #include "Endpoint.h"
 
 namespace Test {
 
 //------------------------------------------------------------------------------
-// Class: ClientSide
+// Class: Sender
 //
-// Description: Sends an ASCII test message to the server side and accepts the response message.
+// Description: Sends an ASCII test message to an endpoint and accepts the response message.
 //
-// Form name: ClientSide
+// Form name: Sender
 //------------------------------------------------------------------------------
-class ClientSide : public Endpoint
+class Sender : public Endpoint
 {
-    DECLARE_SUBCLASS(ClientSide, Endpoint)
+    DECLARE_SUBCLASS(Sender, Endpoint)
 
 public:
-    ClientSide();
+    Sender();
 
     // Component interface
     virtual void updateData(const Eaagles::LCreal dt = 0.0f);

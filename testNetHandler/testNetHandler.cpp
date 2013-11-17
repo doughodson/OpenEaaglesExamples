@@ -3,8 +3,8 @@
 //-----------------------------------------------------------------------------
 
 #include "Endpoint.h"
-#include "ClientSide.h"
-#include "ServerSide.h"
+#include "Sender.h"
+#include "Echo.h"
 
 #include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Parser.h"
@@ -21,11 +21,11 @@ static Eaagles::Basic::Object* testFormFunc(const char* formname)
 {
     Eaagles::Basic::Object* newform = 0;
 
-    if ( strcmp(formname, ClientSide::getFormName()) == 0 ) {
-        newform = new ClientSide();
+    if ( strcmp(formname, Sender::getFormName()) == 0 ) {
+        newform = new Sender();
     }
-    else if ( strcmp(formname, ServerSide::getFormName()) == 0 ) {
-        newform = new ServerSide();
+    else if ( strcmp(formname, Echo::getFormName()) == 0 ) {
+        newform = new Echo();
     }
 
     if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
@@ -70,7 +70,7 @@ static Endpoint* readTest(const char* const testFile)
 
 int exec(int argc, char* argv[])
 {
-    const char* testFile = "inputs/clientTcp.edl";
+    const char* testFile = "inputs/senderUdpBroadcast.edl";
 
     // Get the command line arguments
     for (int i = 1; i < argc; i++) {
@@ -81,16 +81,16 @@ int exec(int argc, char* argv[])
 
     // Must have a test file name
     if (testFile == 0) {
-        std::cerr << "usage: testNet -f testFile" << std::endl;
+        std::cerr << "usage: testNetHandler -f testFile" << std::endl;
         return EXIT_FAILURE;
     }
 
     // Read in the description files
     Endpoint* sys = readTest(testFile);
 
-    // Must have a valid system of type NetTester (e.g., ClientSide or ServerSide)
+    // Must have a valid system of type Endpoint (e.g., Sender or Echo)
     if (sys == 0) {
-        std::cerr << "Invalid test file -- requires a ClientSide or ServerSide component." << std::endl;
+        std::cerr << "Invalid test file -- requires a Sender or Echo component." << std::endl;
         return EXIT_FAILURE;
     }
 

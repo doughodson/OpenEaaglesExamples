@@ -2,7 +2,7 @@
 // Class: ClientSide
 //------------------------------------------------------------------------------
 
-#include "ClientSide.h"
+#include "Sender.h"
 
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
@@ -17,18 +17,18 @@
 namespace Test {
 
 //==============================================================================
-// ClientSide
+// Sender
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(ClientSide, "ClientSide")
-EMPTY_SLOTTABLE(ClientSide)
-EMPTY_SERIALIZER(ClientSide)
-EMPTY_DELETEDATA(ClientSide)
+IMPLEMENT_SUBCLASS(Sender, "Sender")
+EMPTY_SLOTTABLE(Sender)
+EMPTY_SERIALIZER(Sender)
+EMPTY_DELETEDATA(Sender)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-ClientSide::ClientSide()
+Sender::Sender()
 {
     STANDARD_CONSTRUCTOR()
 
@@ -39,7 +39,7 @@ ClientSide::ClientSide()
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
 //------------------------------------------------------------------------------
-void ClientSide::copyData(const ClientSide& org, const bool)
+void Sender::copyData(const Sender& org, const bool)
 {
     BaseClass::copyData(org);
 
@@ -50,7 +50,7 @@ void ClientSide::copyData(const ClientSide& org, const bool)
 //------------------------------------------------------------------------------
 // reset()
 //------------------------------------------------------------------------------
-void ClientSide::reset()
+void Sender::reset()
 {
     BaseClass::reset();
 
@@ -61,7 +61,7 @@ void ClientSide::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void ClientSide::updateData(const Eaagles::LCreal dt)
+void Sender::updateData(const Eaagles::LCreal dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);
