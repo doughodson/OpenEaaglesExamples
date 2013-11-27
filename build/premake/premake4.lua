@@ -23,7 +23,7 @@ OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
 --
 -- set include and library paths
 --
-if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
+if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/".._ACTION
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
@@ -50,6 +50,11 @@ print ("  Include   :"..OEExamplesIncPath)
 print ("  Libraries :"..OEExamplesLibPath)
 
 locationPath  = "../" .. _ACTION
+
+-- for now, premake does not support this action, so use 2012 instead
+if (_ACTION == "vs2013") then
+   _ACTION = "vs2012"
+end
 
 --
 -- 3rd party library names
