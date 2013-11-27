@@ -36,7 +36,7 @@ FOX_LIBS    = -lFOX-1.6
 # ---
 # CPP flags
 # ---
-CPPFLAGS += -I${OE_EXAMPLES_ROOT}/include
+CPPFLAGS += -I${OE_EXAMPLES_ROOT}/shared-libs
 
 # ---
 # EPP flags

@@ -2,7 +2,7 @@
 // Class: PlaneAction
 //------------------------------------------------------------------------------
 
-#include "planeBehaviors/PlaneAction.h"
+#include "PlaneAction.h"
 
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/StoresMgr.h"

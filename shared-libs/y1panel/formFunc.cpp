@@ -2,15 +2,15 @@
 // Form function for common code for several examples
 //------------------------------------------------------------------------------
 
-#include "y1panel/formFunc.h"
+#include "formFunc.h"
 
-#include "y1panel/DspRadar.h"
-#include "y1panel/DspRwr.h"
-#include "y1panel/Hsi.h"
-#include "y1panel/TdAzPtr.h"
-#include "y1panel/TdElevPtr.h"
-#include "y1panel/Pfd.h"
-#include "y1panel/SpdLines.h"
+#include "DspRadar.h"
+#include "DspRwr.h"
+#include "Hsi.h"
+#include "TdAzPtr.h"
+#include "TdElevPtr.h"
+#include "Pfd.h"
+#include "SpdLines.h"
 
 namespace Eaagles {
 namespace Y1 {

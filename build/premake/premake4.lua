@@ -28,7 +28,7 @@ if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_
    OELibPath         = OE_ROOT.."/lib/".._ACTION
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
-   OEExamplesIncPath = "../../include"
+   OEExamplesIncPath = "../../shared-libs"
    OEExamplesLibPath = "../../lib/".._ACTION
 end
 if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
@@ -36,7 +36,7 @@ if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
    OELibPath         = OE_ROOT.."/lib/mingw"
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/mingw-32"
-   OEExamplesIncPath = "../../include"
+   OEExamplesIncPath = "../../shared-libs"
    OEExamplesLibPath = "../../lib/mingw"
 end
 print ("OpenEaagles Paths:")

@@ -1,5 +1,5 @@
 
-#include "y1panel/DspRwr.h"
+#include "DspRwr.h"
 
 #include "openeaagles/simulation/Rwr.h"
 #include "openeaagles/basic/units/Angles.h"

@@ -2,9 +2,9 @@
 // Form function for the example extended data record library
 //------------------------------------------------------------------------------
 
-#include "myRecorder/formFunc.h"
+#include "formFunc.h"
 
-#include "myRecorder/DataRecorder.h"
+#include "DataRecorder.h"
 
 namespace Eaagles {
 namespace MyRecorder {

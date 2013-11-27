@@ -7,7 +7,7 @@
 // (or is ok with firing all missiles at first target)
 //
 
-#include "planeBehaviors/PlaneState.h"
+#include "PlaneState.h"
 
 #include "openeaagles/basic/List.h"
 #include "openeaagles/basic/PairStream.h"

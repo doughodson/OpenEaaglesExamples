@@ -1,5 +1,5 @@
 
-#include "y1panel/DspRadar.h"
+#include "DspRadar.h"
 
 #include "openeaagles/simulation/Antenna.h"
 #include "openeaagles/simulation/Radar.h"

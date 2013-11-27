@@ -1,72 +1,71 @@
 
-#include "y1panel/TdElevPtr.h"
+#include "TdAzPtr.h"
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
 namespace Y1 {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
-EMPTY_SERIALIZER(TdElevPtr)
-EMPTY_DELETEDATA(TdElevPtr)
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
+EMPTY_SERIALIZER(TdAzPtr)
+EMPTY_DELETEDATA(TdAzPtr)
 
-BEGIN_EVENT_HANDLER(TdElevPtr)
+BEGIN_EVENT_HANDLER(TdAzPtr)
     ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)   
 END_EVENT_HANDLER()
-
 
 //------------------------------------------------------------------------------
 // Class support functions
 //------------------------------------------------------------------------------
 
 // Constructor(s)
-TdElevPtr::TdElevPtr()
+TdAzPtr::TdAzPtr()
 {
     STANDARD_CONSTRUCTOR()
-    elev = 0.0;
+    azimuth = 0.0;
 }
 
 // copy member data
-void TdElevPtr::copyData(const TdElevPtr& org, const bool)
+void TdAzPtr::copyData(const TdAzPtr& org, const bool)
 {
     BaseClass::copyData(org);
-    elev = org.elev;
+    azimuth = org.azimuth;
 }
 
 //------------------------------------------------------------------------------
 // Get & Set functions
 //------------------------------------------------------------------------------
-LCreal TdElevPtr::getElevation() const
+LCreal TdAzPtr::getAzimuth() const
 {
-   return elev;
+   return azimuth;
 }
 
-bool TdElevPtr::setElevation(const LCreal v)
+bool TdAzPtr::setAzimuth(const LCreal v)
 {
-   elev = lcAepcDeg(v);
+   azimuth = lcAepcDeg(v);
    return true;
 }
 
 //------------------------------------------------------------------------------
 // Event handlers
 //------------------------------------------------------------------------------
-bool TdElevPtr::onUpdateValue(const Basic::Number* const msg)
+bool TdAzPtr::onUpdateValue(const Basic::Number* const msg)
 {
     bool ok = false;
     if (msg != 0) {
-      ok = setElevation(msg->getReal());
+      ok = setAzimuth(msg->getReal());
     }
     return ok;
 }
 
 //------------------------------------------------------------------------------
-// Translate in Y by the elevation angle and draw.
+// Translate in X by the azimuth angle and draw.
 //------------------------------------------------------------------------------
-void TdElevPtr::draw()
+void TdAzPtr::draw()
 {
    if (isVisible())  {
        lcSaveMatrix();
-       lcTranslate( 0.0, elev/30.0f );
+       lcTranslate( azimuth/30.0f, 0.0 );
        BasicGL::Graphic::draw();
        lcRestoreMatrix();
    }

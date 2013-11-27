@@ -1,4 +1,4 @@
-#include "y1panel/SpdLines.h"
+#include "SpdLines.h"
 #include "openeaagles/basic/Number.h"
 
 namespace Eaagles {

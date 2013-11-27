@@ -1,4 +1,4 @@
-#include "y1panel/Hsi.h"
+#include "Hsi.h"
 
 namespace Eaagles {
 namespace Y1 {

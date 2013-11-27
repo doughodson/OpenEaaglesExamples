@@ -2,9 +2,9 @@
 // Class DataRecorder
 //==============================================================================
 
-#include "myRecorder/DataRecorder.h"
-#include "myRecorder/DataRecord.pb.h"
-#include "myRecorder/dataRecorderTokens.h"
+#include "DataRecorder.h"
+#include "DataRecord.pb.h"
+#include "dataRecorderTokens.h"
 
 #include "openeaagles/simulation/Player.h"
 

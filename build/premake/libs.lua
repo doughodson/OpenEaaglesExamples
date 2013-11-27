@@ -8,10 +8,10 @@
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       targetdir (OEExamplesLibPath)
       files {
-         "../../src/myRecorder/*.cpp",
-         "../../src/myRecorder/*.cc",
-         "../../include/myRecorder/*.h",
-         "../../include/myRecorder/*.proto",
+         "../../shared-libs/myRecorder/*.cpp",
+         "../../shared-libs/myRecorder/*.cc",
+         "../../shared-libs/myRecorder/*.h",
+         "../../shared-libs/myRecorder/*.proto",
       }
       defines { "_LIB" }
       configuration "Release"
@@ -26,8 +26,8 @@
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../src/planeBehaviors/*.cpp",
-         "../../include/planeBehaviors/*.h",
+         "../../shared-libs/planeBehaviors/*.cpp",
+         "../../shared-libs/planeBehaviors/*.h",
       }
       defines { "_LIB" }
       configuration "Release"
@@ -42,9 +42,9 @@
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../src/y1panel/*.cpp",
-         "../../include/y1panel/*.h",
-         "../../include/y1panel/**.epp",
+         "../../shared-libs/y1panel/*.cpp",
+         "../../shared-libs/y1panel/*.h",
+         "../../shared-libs/y1panel/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"

@@ -1,11 +1,11 @@
 //
 // PriorityArbiter
 //
-#include "planeBehaviors/PriorityArbiter.h"
+#include "PriorityArbiter.h"
 
 #include "openeaagles/basic/List.h"
 
-#include "planeBehaviors/PlaneAction.h"
+#include "PlaneAction.h"
 
 namespace Eaagles {
 namespace PlaneBehaviors {

@@ -2,11 +2,11 @@
 // Form function for the 'planeBehaviors' library
 //------------------------------------------------------------------------------
 
-#include "planeBehaviors/formFunc.h"
+#include "formFunc.h"
 
-#include "planeBehaviors/PlaneState.h"
-#include "planeBehaviors/PlaneBehaviors.h"
-#include "planeBehaviors/PriorityArbiter.h"
+#include "PlaneState.h"
+#include "PlaneBehaviors.h"
+#include "PriorityArbiter.h"
 
 namespace Eaagles {
 namespace PlaneBehaviors {

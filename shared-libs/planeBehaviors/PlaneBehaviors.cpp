@@ -2,9 +2,9 @@
 // Class: PlaneFire, PlaneTurn, PlaneClimb
 //------------------------------------------------------------------------------
 
-#include "planeBehaviors/PlaneBehaviors.h"
-#include "planeBehaviors/PlaneAction.h"
-#include "planeBehaviors/PlaneState.h"
+#include "PlaneBehaviors.h"
+#include "PlaneAction.h"
+#include "PlaneState.h"
 
 #include "openeaagles/basic/units/Distances.h"
 #include "openeaagles/basic/ubf/State.h"
