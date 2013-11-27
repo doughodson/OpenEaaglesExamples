@@ -30,7 +30,7 @@
         ( Rotators
             components: {
                 // selected heading bug
-                selhdg:     
+                selhdg:
                 ( Rotators
                     components: {
                         ( Graphic
@@ -53,11 +53,11 @@
                                         [ 0.08 0.08 ]
                                         [ 0.02 0 ]
                                     }
-                                )                                
+                                )
                             }
                         )
                     }
-                )                    
+                )
                 // here are the hsi direction readouts
                 ( AsciiText
                     color: white
@@ -70,13 +70,13 @@
                     color: white
                     transform: { ( Rotation -0.175 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "01"
-                )                
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -0.35 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "02"
-                )                
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -88,13 +88,13 @@
                     color: white
                     transform: { ( Rotation -0.7 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "04"
-                )                
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -0.873 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "05"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -106,13 +106,13 @@
                     color: white
                     transform: { ( Rotation -1.22 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "07"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -1.396 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "08"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -124,13 +124,13 @@
                     color: white
                     transform: { ( Rotation -1.745 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "10"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -1.9195 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "11"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -142,13 +142,13 @@
                     color: white
                     transform: { ( Rotation -2.2685 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "13"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -2.443 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "14"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -160,13 +160,13 @@
                     color: white
                     transform: { ( Rotation -2.792 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "16"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -2.9665 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "17"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -178,13 +178,13 @@
                     color: white
                     transform: { ( Rotation -3.32 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "19"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -3.49 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "20"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -196,13 +196,13 @@
                     color: white
                     transform: { ( Rotation -3.839 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "22"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
                     transform: { ( Rotation -4.014 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "23"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -214,7 +214,7 @@
                     color: white
                     transform: { ( Rotation -4.36 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
                     text: "25"
-                )   
+                )
                 ( AsciiText
                     font: pfdnormfont
                     color: white
@@ -276,7 +276,6 @@
                     text: "35"
                 )
 
-      
                 ( DialTickMarks
                     linewidth: 2
                     color: white
@@ -294,7 +293,7 @@
                     startAngle: 5
                     sweepAngle: 360
                     dialRadius: 2.4
-                )         
+                )
             }
         )
 
@@ -314,9 +313,9 @@
                     font: pfdnormfont
                     transform:  ( Translation -0.3 0 ) 
                     format: "00#"
-                )    
+                )
             }
-        )  
+        )
         // heading source readout
         hdgsrc:
         ( Rotary2
@@ -332,7 +331,7 @@
             color: (rgb 0.1 0.1 0.1)
             radius: 2.4
             slices: 1000
-        )          
+        )
     }
 )
 

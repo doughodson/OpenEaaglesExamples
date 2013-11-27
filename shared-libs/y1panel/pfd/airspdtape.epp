@@ -9,7 +9,7 @@
             components: {
                 // 0 - 80
                 ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.23 0 ) text: "0" )
-                
+
                 ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 0.643 ) text: "20" )
                 ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 1.286 ) text: "40" )
                 ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 1.929 ) text: "60" )
@@ -69,8 +69,8 @@
                 ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 30.864 ) text: "960" )
                 ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 31.507 ) text: "980" )
              }
-        )   
-        // now draw all of the lines 
+        )
+        // now draw all of the lines
         ( SpdLines color: white )
     }
 )

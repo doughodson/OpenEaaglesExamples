@@ -5,7 +5,7 @@
     scissorHeight: 3.171
     transform: ( Translation -0.5 0 )
     components: {
-    
+
         ( Graphic
             transform: ( Translation 0 0 0.1 )
             components: {
@@ -85,13 +85,13 @@
                                 [  0.3 0.1 ]
                                 [  0.3 0.02 ]
                             }
-                        )                    
+                        )
                     }
                 ) // end of the right wing
                     
-                // body                       
+                // body
                 ( Polygon
-                    color: white        
+                    color: white
                     vertices: {
                         [ -0.0485 0.02425 ]
                         [  0.0485 0.02425 ]
@@ -125,7 +125,7 @@
                 fdirpitch:
                 ( GaugeSlider
                     vertical: 1
-                    scalingTable: 
+                    scalingTable:
                         ( Table1
                             // degrees pitch
                             x: [ -90 90 ]
@@ -144,7 +144,7 @@
                 // here is the bank angle scale
 bankscale:     ( Graphic 
                     color: white
-                    components: {   
+                    components: {
                         // here are the angle tick marks
                         // 0 degree
                         ( Polygon
@@ -157,45 +157,45 @@ bankscale:     ( Graphic
                         // +- 10
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation 0.1745 ) 
+                            transform: ( Rotation 0.1745 )
                             vertices: { [ 0 1.49 ] [ 0 1.6 ] }
                         )
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation -0.1745 ) 
+                            transform: ( Rotation -0.1745 )
                             vertices: { [ 0 1.49 ] [ 0 1.6 ] }
                         )
                         // +- 20
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation 0.349 ) 
+                            transform: ( Rotation 0.349 )
                             vertices: { [ 0 1.49 ] [ 0 1.6 ] }
                         )
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation -0.349 ) 
+                            transform: ( Rotation -0.349 )
                             vertices: { [ 0 1.49 ] [ 0 1.6 ] }
                         )
                         // +- 30
                         ( Line
                             linewidth: 4
-                            transform: ( Rotation 0.5235 ) 
+                            transform: ( Rotation 0.5235 )
                             vertices: { [ 0 1.49 ] [ 0 1.7 ] }
                         )
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation -0.5235 ) 
+                            transform: ( Rotation -0.5235 )
                             vertices: { [ 0 1.49 ] [ 0 1.7 ] }
                         )
                         // +- 45
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation 0.78525 ) 
+                            transform: ( Rotation 0.78525 )
                             vertices: { [ 0 1.49 ] [ 0 1.6 ] }
                         )
                         ( Line
                             linewidth: 2
-                            transform: ( Rotation -0.78525 ) 
+                            transform: ( Rotation -0.78525 )
                             vertices: { [ 0 1.49 ] [ 0 1.6 ] }
                         )
                         // +- 60
@@ -204,7 +204,7 @@ bankscale:     ( Graphic
                             components: {
                                 ( Line
                                     linewidth: 2
-                                    transform: ( Rotation 1.047 ) 
+                                    transform: ( Rotation 1.047 )
                                     vertices: { [ 0 1.49 ] [ 0 1.65 ] }
                                 )
                                 ( Line
@@ -215,16 +215,16 @@ bankscale:     ( Graphic
                             }
                         )
                     }
-                )          
+                )
 
-            
+
 bankangle: ( DialPointer
                 allowComponentPass: 0
                 color: white
                 components: {
                     ( LineLoop
                         linewidth: 3
-                        transform: ( Translation 0 1.4 ) 
+                        transform: ( Translation 0 1.4 )
                         vertices: {
                             [ 0 0.085 ]
                             [ 0.085 -0.085 ]
@@ -233,7 +233,7 @@ bankangle: ( DialPointer
                     )
         sideslip:   ( GaugeSlider
                         vertical: 0
-                        transform: ( Translation 0 1.27 ) 
+                        transform: ( Translation 0 1.27 )
                         scalingTable:
                             ( Table1
                                 // sideslip deviation
@@ -246,21 +246,21 @@ bankangle: ( DialPointer
                                 linewidth: 3
                                 vertices: {
                                     [ -0.11 -0.035 ]
-                                    [ 0.11 -0.035 ]  
+                                    [ 0.11 -0.035 ]
                                     [ 0.11 0.035 ]
                                     [ -0.11 0.035 ]
-                                    
+
                                 }
                             )
                         }
-                    )                
+                    )
                 }
             )
 
-            
+
             /*
             Implement this if you get a chance - SLS
-            backcolsel:    
+            backcolsel:
             ( Rotary2
                 components: {
                     // occlusion for the bank angle
@@ -272,7 +272,7 @@ bankangle: ( DialPointer
                             [ 1.2 1.58 ]
                             [ -1.2 1.58 ]
                         }
-                    )               
+                    )
                     ( Polygon
                         color: adibrown
                         vertices: {
@@ -281,12 +281,12 @@ bankangle: ( DialPointer
                             [ 1.2 1.58 ]
                             [ -1.2 1.58 ]
                         }
-                    )               
+                    )
                 }
             )
             */
-        }                                       
-    )// end of the other stuff graphic    
+        }
+    )// end of the other stuff graphic
         adi:
         ( Adi
         scalingTable: 
@@ -295,17 +295,17 @@ bankangle: ( DialPointer
                 x: [ -90 90 ]
                 // inches
                 data: [ 8.28 -8.28 ]
-            )    
-            components: {           
+            )
+            components: {
         rollladder:    
                 ( Graphic
-                    components: {       
+                    components: {
         pitchladder:    ( Graphic 
-                            components: { 
-                                #include "pitchtape.epp"  
+                            components: {
+                                #include "pitchtape.epp"
                             }
                         ) // end of pitch ladder
-            // drawn when the horizon line disappears                    
+            // drawn when the horizon line disappears
             // SLS - make this work right!
             ghosthorizonbar: ( GhostHorizon
                                 color: white
@@ -339,11 +339,11 @@ bankangle: ( DialPointer
                                         }
                                     ) 
                                 }
-                            ) // end of ghost horizon instance                                                
+                            ) // end of ghost horizon instance
                     }
-                ) // end of roll ladder graphic 
+                ) // end of roll ladder graphic
             }
-        ) // end of PfdAdi 
+        ) // end of PfdAdi
     }
 )
 

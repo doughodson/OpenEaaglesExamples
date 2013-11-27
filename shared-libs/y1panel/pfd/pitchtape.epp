@@ -3,7 +3,7 @@
     linewidth: 2
     components: {
 horizonbar: ( Line
-                color: white                
+                color: white
                 linewidth: 2
                 transform: ( Translation 0.0 0.0 )
                 vertices: {
@@ -60,21 +60,21 @@ horizonbar: ( Line
                 transform: ( Translation 0 1.38 )
                 vertices: { [ -0.47 0 ] [ 0.47 0 ] }
             )
-                 
+
             // 17.5 
             ( Line
                 color: white
                 transform: ( Translation 0 1.61 )
                 vertices: { [ -0.17 0 ] [ 0.17 0 ] }
             )
-                 
+
             // 20 degree
             ( Line
                 color: white
                 transform: ( Translation 0 1.84 )
                 vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
             )
-            
+
             // 20 degree readouts
             ( AsciiText
                 color: ( rgb 0.8 0.8 0.8 )
@@ -100,14 +100,14 @@ horizonbar: ( Line
                 transform: ( Translation 0 2.3 )
                 vertices: { [ -0.47 0 ] [ 0.47 0 ] }
             )
-            
+
             // 27.5 degree
             ( Line
                 color: white
                 transform: ( Translation 0 2.53 )
                 vertices: { [ -0.17 0 ] [ 0.17 0 ] }
             )
-            
+
             // 30 degree
             ( Line
                 color: white
@@ -618,7 +618,7 @@ horizonbar: ( Line
                 transform: { ( Translation  -0.9425 -7.44 ) ( Scale 1.4 ) }
                 text: "80" 
             )               
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                        
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     nadir: ( Graphic
                 transform: ( Translation 0.0 -8.28 )
                 color: black
@@ -669,7 +669,7 @@ horizonbar: ( Line
                         [ 12.0 -12.0 ]
                         [ 12.0 0.0 ]
                     }
-                )                         
+                )
     }
 )
 

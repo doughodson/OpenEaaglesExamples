@@ -32,7 +32,7 @@
                     text: "VNAV PTH"
                 )
                 ( Polygon
-                    color: gray1           
+                    color: gray1
                     vertices: {
                         [ -1.75 -0.25 ]
                         [  1.75 -0.25 ]
@@ -91,7 +91,7 @@
                         )
                     }
                 )
-            
+
                 ( Line color: white transform: ( Translation 0 1.5 )  linewidth: 2 vertices: { [ 0 0 ] [ 0.1 0 ] } )
                 ( Line color: white transform: ( Translation 0 -1.5 )  linewidth: 2 vertices: { [ 0 0 ] [ 0.1 0 ] } )
                 ( Line color: white linewidth: 2 vertices: { [ 0 0 ] [ 0.15 0 ] } )
@@ -105,10 +105,10 @@
                 ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 1.44 ) text: "6" )
                 ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 -1.56 ) text: "6" )
                 ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 1.065 ) text: "2" )
-                ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 -1.185 ) text: "2" )                
+                ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 -1.185 ) text: "2" )
                 ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 0.69 ) text: "1" )
                 ( AsciiText font: pfdnormfont color: white transform: ( Translation -0.09 -0.81 ) text: "1" )
-                    
+
                 ( Polygon
                     color: gray1
                     vertices: {
@@ -134,7 +134,7 @@
                 
             }
         )
-        
+
         // commanded airspeed
         cmdspd:
         ( NumericReadout
@@ -143,7 +143,7 @@
             transform: { ( Translation -3.0 2.674 ) ( Scale 1.4 ) }
             format: "###"
         )
-        
+
         // machine airspeed
         mach:
         ( NumericReadout
@@ -153,7 +153,7 @@
             value: 5.23
             format: "#.###"
         )
-        
+
         // selected barometric setting
         ( Graphic
             transform: ( Translation 1 -2.44 )
@@ -164,7 +164,7 @@
                     transform: ( Translation -0.3 0.05 )
                     text: "BARO"
                 )
-                    
+
                 baro:
                 ( NumericReadout
                     color: green
@@ -183,20 +183,20 @@
                 )
             }
         )
-        
+
         // airspeed bug
         spdbug:
         ( GaugeSlider
             vertical: 1
             transform: ( Translation -2.6 0.3 ) 
-            
+
             scalingTable: 
                ( Table1
                     // knots difference
                     x: [ 46.625  -55.625 ]
                  data: [ -2.3  2.3 ]
                 )
-            
+
             components: {
                 ( LineLoop
                     linewidth: 2
@@ -211,7 +211,7 @@
                 )
             }
         )
-        
+
         // airspeed - this is the ones column
         ( Graphic
             transform: ( Translation -2.8 0.001 )
@@ -232,7 +232,7 @@
                                     // inches
                                     data: [ 0 -2.1 ] 
                                 )
-                            components: {       
+                            components: {
                                 ( Graphic
                                     color: white
                                     transform: { ( Translation -0.05 0 ) ( Scale 1.4 ) }
@@ -255,14 +255,14 @@
                         )
                     }
                 )
-            
+
                 // this is the rest of the airspeed
                 spdrest:
                 ( NumericReadout
                     color: white
                     font: pfdnormfont
                     transform: { ( Translation -0.3 0 ) ( Scale 1.4 ) }
-                    format: "0#"                
+                    format: "0#"
                 )
                 // background for the speed tape
                 ( LineLoop  
@@ -279,8 +279,8 @@
                         [  0.1 0 ]
                         [  -0.4 0 ]
                     }
-                )        
-                ( Polygon   
+                )
+                ( Polygon
                     color: black
                     transform: ( Translation 0.02 -0.106 )
                     vertices: {
@@ -293,20 +293,18 @@
                         [  0.09 0 ]
                         [  -0.4 0 ]
                     }
-                )        
+                )
             }
         )
- 
-        
-        
+
         // this is the gauge tape, which includes all the tick marks and such
         ( Graphic
-            transform: ( Translation -3.1 -2 )            
+            transform: ( Translation -3.1 -2 )
             scissorX: 0
             scissorWidth: 0.6
             scissorY: 0
             scissorHeight: 4.6
-            components: {            
+            components: {
                 airspd: 
                 ( GaugeSlider
                     vertical: 1
@@ -317,7 +315,7 @@
                             // inches
                             data: [ 0 -45 ] 
                         )
-                        
+
                     components: { 
                         #include "airspdtape.epp"
                     }
@@ -351,7 +349,7 @@
                     color: (rgb 0.4 0.8 1)
                     text: "M"
                 )
-                
+
                 // Line around the readout
                 ( LineLoop
                     color: white
@@ -372,23 +370,23 @@
                         [  0.5 -0.1 ]
                         [ -0.5 -0.1 ]
                     }
-                )  
+                )
             }
         )
-        
-        
+
+
         // altitude bug
         altbug:
         ( GaugeSlider
             vertical: 1
-            transform: ( Translation 1.6 -0.0665 )             
-            scalingTable: 
+            transform: ( Translation 1.6 -0.0665 )
+            scalingTable:
                ( Table1
                     // knots difference
                     x: [ 493.222  -469.222 ]
                  data: [ -2.1655  2.1655 ]
                 )
-                
+
             components: {
                 ( LineLoop
                     color: magenta
@@ -410,14 +408,14 @@
                 ) 
             }
         )
-        
+
         // altitude readout in meters
         ( Graphic
             transform: ( Translation 1.7 0.22 )
             components: {
                 malt:
                 ( NumericReadout
-                    font: pfdnormfont                  
+                    font: pfdnormfont
                     color: white
                     format: "#####"
                     value: 99999
@@ -437,7 +435,7 @@
                         [ 0.65 0.17 ]
                         [ -0.05 0.17 ]
                     }
-                )                
+                )
                 ( Polygon
                     color: black
                     vertices: {
@@ -449,7 +447,7 @@
                 )
             }
         )
-        
+
         // this is the altitude gauge readout, which actually is 2 tapegauges and a numeric readout put together
         ( Graphic
             transform: ( Translation 2.15 -0.1 )
@@ -471,7 +469,7 @@
                 altones:
                 // this one is always 0
                 ( AsciiText font: pfdnormfont color: white  transform: ( Scale 1.4 ) text: "0" )
-                
+
                 ( Graphic
                     scissorX: 0
                     scissorY: 0
@@ -489,7 +487,7 @@
                                     // inches
                                 data: [ 0 -2.1 ] 
                                 )
-                            components: {        
+                            components: {
                                 ( Graphic
                                     color: white
                                     transform: ( Scale 1.4 )
@@ -505,11 +503,11 @@
                                         ( AsciiText font: pfdnormfont inheritColor: 1  transform: ( Translation 0 1.05 ) text: "7")
                                         ( AsciiText font: pfdnormfont inheritColor: 1  transform: ( Translation 0 1.20 ) text: "8")
                                         ( AsciiText font: pfdnormfont inheritColor: 1  transform: ( Translation 0 1.35 ) text: "9") // end
-                                        ( AsciiText font: pfdnormfont inheritColor: 1  transform: ( Translation 0 1.50 ) text: "0")                        
+                                        ( AsciiText font: pfdnormfont inheritColor: 1  transform: ( Translation 0 1.50 ) text: "0")
                                     }
                                 )
-                            } 
-                        ) // end of the tens alt tape graphic     
+                            }
+                        ) // end of the tens alt tape graphic
                     }
                 )
 
@@ -517,7 +515,7 @@
                 altsel:
                 ( Rotary
                     components: {
-                    altrest1:                          
+                    altrest1:
                             ( NumericReadout
                                 transform: {( Translation -0.24 0 ) ( Scale 1.4 )}
                                 color: white
@@ -563,7 +561,7 @@
 
         // altitude
         ( Graphic
-            transform: ( Translation 1.43 -2.232 )            
+            transform: ( Translation 1.43 -2.232 )
             scissorX: 0
             scissorWidth: 0.879
             scissorY: 0
@@ -579,7 +577,7 @@
                         data: [ 0 -450 ]
                         )
                     
-                    components: {    
+                    components: {
                         #include "alttape.epp"
                     }
                 )
@@ -610,7 +608,7 @@
                 ) 
             }
         )
-                
+
         // Glideslope scale
         ( Graphic
             transform: ( Translation 1.13 0 )
@@ -672,7 +670,7 @@
                 ) 
             }
         )
-        
+
         // Lateral deviation scale
         ( Graphic
             transform: ( Translation -0.5 -1.65 )
@@ -707,7 +705,7 @@
                     slices: 100
                 )
             }
-        )        
+        )
         // draw the hsi
         #include "hsi.epp"
         // adi 

@@ -11,7 +11,7 @@
     clearDepth: 1.0
     clearColor: (rgb 0 0 0)
     fullScreen: 0
-        
+
     colorTable: {
         black:      ( rgba 0 0 0 )
         red:        ( rgb 1 0 0 )
@@ -33,12 +33,12 @@
         gray1:      ( rgb 0.1 0.1 0.1 )
         gray8:      ( rgb 0.8 0.8 0.8 )
     }
-    
+
     fonts: {
         // normal font for the instruments
         instnormfont: 
         ( FTGLPolygonFonts
-			// starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 1
@@ -50,7 +50,7 @@
             path: FONT_PATH
             file: "arialn.ttf"
         )
-        
+
         // reverse font for the instruments
         instrevfont: 
         (FTGLPolygonFonts
@@ -62,7 +62,7 @@
             path: FONT_PATH
             file: "arialn.ttf"
         )
-        
+
         // special font for the instruments
         instspecfont:
         ( FTGLPolygonFonts 
@@ -74,7 +74,7 @@
             path: FONT_PATH
             file: "arialn.ttf"      
         )
-     
+
         // normal font
         pfdnormfont: 
         ( FTGLPolygonFonts 
@@ -88,7 +88,7 @@
             characterSpacing: 0.0945
             lineSpacing: 0.15
         )
-        
+
         // special font 
         pfdspecfont: 
         ( FTGLPolygonFonts 
@@ -104,11 +104,10 @@
     } // end of font list
 
     normalFont: instnormfont
-        
-     page: testpfd
-     
-     
-     pages: {
+
+    page: testpfd
+
+    pages: {
         #include "testpfd.epp"
-     }
+    }
 )
