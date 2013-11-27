@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: TdAzPtr
+//------------------------------------------------------------------------------
 #include "TdAzPtr.h"
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"

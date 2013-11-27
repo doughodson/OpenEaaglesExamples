@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Class: PlaneFire, PlaneTurn, PlaneClimb
+// Classes: Several
 //------------------------------------------------------------------------------
 
 #include "PlaneBehaviors.h"
@@ -82,6 +82,7 @@ Basic::Object* PlaneBehaviorBase::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
+
 
 
 IMPLEMENT_SUBCLASS(PlaneFire, "PlaneFire")

@@ -1,6 +1,6 @@
-//
-// PriorityArbiter
-//
+//------------------------------------------------------------------------------
+// Class: PriorityArbiter
+//------------------------------------------------------------------------------
 #include "PriorityArbiter.h"
 
 #include "openeaagles/basic/List.h"

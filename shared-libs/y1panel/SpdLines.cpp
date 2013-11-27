@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: SpdLines
+//------------------------------------------------------------------------------
 #include "SpdLines.h"
 #include "openeaagles/basic/Number.h"
 
@@ -6,10 +9,11 @@ namespace Y1 {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
+EMPTY_DELETEDATA(SpdLines)
 
 BEGIN_SLOTTABLE(SpdLines)
     "isAlt",              // draw for the altitude scale (instead of making a new class)
-END_SLOTTABLE(SpdLines)       
+END_SLOTTABLE(SpdLines)
 
 BEGIN_SLOT_MAP(SpdLines)
     ON_SLOT(1, setSlotIsAlt, Basic::Number)
@@ -38,14 +42,6 @@ void SpdLines::copyData(const SpdLines& org, const bool)
     BaseClass::copyData(org);
     isAlt = org.isAlt;
 }
-
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void SpdLines::deleteData()
-{
-}
-
 
 //------------------------------------------------------------------------------
 // drawFunc() - draw our objects

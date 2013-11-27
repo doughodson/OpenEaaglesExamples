@@ -12,14 +12,13 @@ namespace Simulation { class Player; }
 
 namespace PlaneBehaviors {
 
-//
+//------------------------------------------------------------------------------
 // Class: PlaneState
 //
-// Description: State of aircraft
-//
-// This implementation of PlaneState:.
-// assumes that player using this state has only one missile (or is ok with firing all missiles at first target)
-//
+// Description: this implementation of PlaneState assumes that player using this
+//              state has only one missile (or is ok with firing all missiles at
+//              first target)
+//------------------------------------------------------------------------------
 class PlaneState : public Basic::Ubf::State
 {
    DECLARE_SUBCLASS(PlaneState, Basic::Ubf::State)

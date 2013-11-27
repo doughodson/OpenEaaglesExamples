@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Class: PlaneFire, PlaneTurn, PlaneClimb
+// Classes: Several
 //------------------------------------------------------------------------------
 
 #ifndef __Eaagles_PlaneBehaviors_PlaneBehaviors_H__
@@ -13,7 +13,9 @@ namespace Basic { class Distance; class State; }
 
 namespace PlaneBehaviors {
 
+//------------------------------------------------------------------------------
 // test code for a base class for PlaneBehaviors, implements some common slots
+//------------------------------------------------------------------------------
 class PlaneBehaviorBase : public Basic::Ubf::Behavior
 {
   DECLARE_SUBCLASS(PlaneBehaviorBase, Basic::Ubf::Behavior)
@@ -31,13 +33,14 @@ protected:
 };
 
 
+//------------------------------------------------------------------------------
 // Class: PlaneFire
 //
 // Description: Behavior class that shoots missiles at enemy planes
-//
-class PlaneFire : public PlaneBehaviorBase   //Basic::Behavior
+//------------------------------------------------------------------------------
+class PlaneFire : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneFire, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneFire, PlaneBehaviorBase)
 public:
    PlaneFire();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
@@ -47,10 +50,9 @@ private:
    LCreal maxDistance;
 };
 
-
-class PlaneFlyStraight : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneFlyStraight : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneFlyStraight, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneFlyStraight, PlaneBehaviorBase)
 public:
    PlaneFlyStraight();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
@@ -58,19 +60,17 @@ private:
    double holdingAltitude;
 };
 
-
-class PlaneFollowEnemy : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneFollowEnemy : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneFollowEnemy, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneFollowEnemy, PlaneBehaviorBase)
 public:
    PlaneFollowEnemy();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
 };
 
-
-class PlaneTurn : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneTurn : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneTurn, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneTurn, PlaneBehaviorBase)
 public:
    PlaneTurn();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
@@ -78,9 +78,9 @@ private:
    //double prevAlt;
 };
 
-class PlaneSlowTurn : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneSlowTurn : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneSlowTurn, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneSlowTurn, PlaneBehaviorBase)
 public:
    PlaneSlowTurn();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
@@ -88,27 +88,27 @@ private:
    //double prevAlt;
 };
 
-class PlaneClimb : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneClimb : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneClimb, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneClimb, PlaneBehaviorBase)
 public:
    PlaneClimb();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
 private:
 };
 
-class PlaneDive : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneDive : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneDive, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneDive, PlaneBehaviorBase)
 public:
    PlaneDive();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
 private:
 };
 
-class PlaneTrim : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneTrim : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneTrim, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneTrim, PlaneBehaviorBase)
 public:
    PlaneTrim();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
@@ -117,20 +117,18 @@ private:
    int count;
 };
 
-
-class PlaneRoll : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneRoll : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneRoll, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneRoll, PlaneBehaviorBase)
 public:
    PlaneRoll();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
 private:
 };
 
-
-class PlaneBarrelRoll : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneBarrelRoll : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneBarrelRoll, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneBarrelRoll, PlaneBehaviorBase)
 public:
    PlaneBarrelRoll();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);
@@ -138,9 +136,9 @@ private:
 };
 
 
-class PlaneLoop : public PlaneBehaviorBase   //Basic::Behavior
+class PlaneLoop : public PlaneBehaviorBase
 {
-   DECLARE_SUBCLASS(PlaneLoop, PlaneBehaviorBase)   //Basic::Behavior)
+   DECLARE_SUBCLASS(PlaneLoop, PlaneBehaviorBase)
 public:
    PlaneLoop();
    Basic::Ubf::Action* genAction(const Basic::Ubf::State* const state, const LCreal dt);

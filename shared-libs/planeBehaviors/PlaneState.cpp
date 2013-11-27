@@ -1,11 +1,6 @@
-//
-// PlaneState
-//
-
-// this implementation of PlaneState:
-// assumes that player using this state has only one missile
-// (or is ok with firing all missiles at first target)
-//
+//------------------------------------------------------------------------------
+// Class: PlaneState
+//------------------------------------------------------------------------------
 
 #include "PlaneState.h"
 

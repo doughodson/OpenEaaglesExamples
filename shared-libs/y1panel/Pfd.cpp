@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: Pfd
+//------------------------------------------------------------------------------
 #include "Pfd.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/units/Distances.h"
@@ -12,7 +15,7 @@ namespace Y1 {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
-                            
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
@@ -47,7 +50,7 @@ Pfd::Pfd()
     altTensSD.empty();
     altSelectSD.empty();
     // side slip
-    
+
     slip = 0;
     slipSD.empty();
     // glideslope

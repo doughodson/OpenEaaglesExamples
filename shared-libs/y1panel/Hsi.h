@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
-// Class:	Hsi
-// Base class: BasicGL::Graphic -> BasicGL::Rotators -> Hsi
+// Class: Hsi
 // 
 // Description: simple Hsi that will rotate the compass and display readouts
 // Inputs:
@@ -12,7 +11,7 @@
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from 
 //------------------------------------------------------------------------------
-#ifndef	__Hsi_4E733FFD_2E1D_485c_AA5F_918613D67B3B
+#ifndef __Hsi_4E733FFD_2E1D_485c_AA5F_918613D67B3B
 #define __Hsi_4E733FFD_2E1D_485c_AA5F_918613D67B3B
 
 #include "openeaagles/basicGL/Rotators.h"
@@ -20,7 +19,8 @@
 namespace Eaagles {
 namespace Y1 {
 
-class Hsi : public BasicGL::Rotators {
+class Hsi : public BasicGL::Rotators
+{
     DECLARE_SUBCLASS(Hsi,BasicGL::Rotators)
     
 public:

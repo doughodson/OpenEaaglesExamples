@@ -13,11 +13,9 @@ namespace Simulation { class Player; }
 
 namespace PlaneBehaviors {
 
-//
+//------------------------------------------------------------------------------
 // Class: PlaneAction
-//
-// Base Class: Basic::Object -> UbfAction -> PlaneAction
-//
+//------------------------------------------------------------------------------
 class PlaneAction : public Basic::Ubf::Action
 {
    DECLARE_SUBCLASS(PlaneAction, Basic::Ubf::Action)
@@ -92,5 +90,4 @@ private:
 }
 
 #endif
-
 

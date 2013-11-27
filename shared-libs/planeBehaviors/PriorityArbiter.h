@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------
 // Class: PriorityArbiter
 //------------------------------------------------------------------------------
-
 #ifndef __Eaagles_PlaneBehaviors_PriorityArbiter_H__
 #define __Eaagles_PlaneBehaviors_PriorityArbiter_H__
 
@@ -13,11 +12,11 @@ namespace Basic { class List; class Action; }
 
 namespace PlaneBehaviors {
 
-//
+//------------------------------------------------------------------------------
 // Class: PriorityArbiter
 //
 // Description: Example fusion arbiter for a plane
-//
+//------------------------------------------------------------------------------
 class PriorityArbiter : public Basic::Ubf::Arbiter
 {
    DECLARE_SUBCLASS(PriorityArbiter, Basic::Ubf::Arbiter)

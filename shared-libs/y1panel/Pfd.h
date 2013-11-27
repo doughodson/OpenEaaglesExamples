@@ -1,8 +1,7 @@
 //------------------------------------------------------------------------------
-// Class:	Pfd
-// Base class:	... -> BasicGL::Page -> Pfd
+// Class: Pfd
 //
-// Description:	Tests the pfd.
+// Description: Tests the pfd.
 //------------------------------------------------------------------------------
 #ifndef	__Pfd_H_37E8E713_43E9_4103_88DB_787151FC0E13
 #define __Pfd_H_37E8E713_43E9_4103_88DB_787151FC0E13
@@ -13,7 +12,8 @@
 namespace Eaagles {
 namespace Y1 {
 
-class Pfd : public BasicGL::Page {
+class Pfd : public BasicGL::Page
+{
    DECLARE_SUBCLASS(Pfd,BasicGL::Page)
 
 public:
@@ -167,7 +167,6 @@ private:
 
     // ghost horizon
     SendData pitchGhostSD;
-
 };
 
 } // End Y1 namespace

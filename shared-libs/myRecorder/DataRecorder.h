@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// OpenEaagles Data Recorder
+// Class: DataRecorder
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_MyRecorder_DataRecorder_H__
 #define __Eaagles_MyRecorder_DataRecorder_H__
@@ -25,7 +25,8 @@ namespace MyRecorder {
 //    REID_MARKER             ! v[0] => id;  v[1] => source id;  v[2] => foo
 //
 //------------------------------------------------------------------------------
-class DataRecorder : public Recorder::DataRecorder {
+class DataRecorder : public Recorder::DataRecorder
+{
    DECLARE_SUBCLASS(DataRecorder, Recorder::DataRecorder)
 
 public:
@@ -39,11 +40,10 @@ protected:
       const double values[4]              // Sample values
    );
 
-
    // Recorder data event handlers
    virtual bool recordMyData(const Basic::Object* objs[4], const double values[4]);
 
-   // Overloaded Recorder::DataRecorder event handlers
+   // Override Recorder::DataRecorder event handlers
    virtual bool recordMarker(const Basic::Object* objs[4], const double values[4]);
 
 private:

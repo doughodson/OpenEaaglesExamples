@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: TdElevPtr
+//------------------------------------------------------------------------------
 #include "TdElevPtr.h"
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"
