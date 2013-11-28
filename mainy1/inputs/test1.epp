@@ -17,5 +17,6 @@
    #include "otwSetup.epp"
    #include "otwSetupCIGI.epp"
    #include "scenario.epp"
-   #include "xPanel/instrumentPanel.epp"
+   #include "xPanel/xPanel.epp"
 )
+
