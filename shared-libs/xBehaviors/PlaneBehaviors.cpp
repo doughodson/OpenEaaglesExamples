@@ -1,7 +1,17 @@
 //------------------------------------------------------------------------------
-// Classes: Several
+// Classes: PlaneBehaviorBase
+//          PlaneBehaviorBase -> PlaneFire
+//          PlaneBehaviorBase -> PlaneFlyStraight
+//          PlaneBehaviorBase -> PlaneFollowEnemy
+//          PlaneBehaviorBase -> PlaneTurn
+//          PlaneBehaviorBase -> PlaneSlowTurn
+//          PlaneBehaviorBase -> PlaneClimb
+//          PlaneBehaviorBase -> PlaneDive
+//          PlaneBehaviorBase -> PlaneTrim
+//          PlaneBehaviorBase -> PlaneRoll
+//          PlaneBehaviorBase -> PlaneBarrelRoll
+//          PlaneBehaviorBase -> PlaneLoop
 //------------------------------------------------------------------------------
-
 #include "PlaneBehaviors.h"
 #include "PlaneAction.h"
 #include "PlaneState.h"
@@ -10,7 +20,7 @@
 #include "openeaagles/basic/ubf/State.h"
 
 namespace Eaagles {
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(PlaneBehaviorBase, "PlaneBehaviorBase")
 EMPTY_COPYDATA(PlaneBehaviorBase)
@@ -82,7 +92,6 @@ Basic::Object* PlaneBehaviorBase::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
 
 
 IMPLEMENT_SUBCLASS(PlaneFire, "PlaneFire")
@@ -516,7 +525,6 @@ Basic::Ubf::Action* PlaneLoop::genAction(const Basic::Ubf::State* const state, c
    }
    return action;
 }
-
 
 }
 }

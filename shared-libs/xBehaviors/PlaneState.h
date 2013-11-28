@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: PlaneState
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_PlaneBehaviors_PlaneState_H__
-#define __Eaagles_PlaneBehaviors_PlaneState_H__
+#ifndef __Eaagles_xBehaviors_PlaneState_H__
+#define __Eaagles_xBehaviors_PlaneState_H__
 
 #include "openeaagles/basic/ubf/State.h"
 
@@ -10,7 +10,7 @@ namespace Eaagles {
 
 namespace Simulation { class Player; }
 
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 //------------------------------------------------------------------------------
 // Class: PlaneState
@@ -66,7 +66,7 @@ public:
    virtual double getPitchTrim() const                 { return pitchTrim; }
 
    virtual void setNumTracks(const unsigned int x)     { numTracks = x; return; }
-   virtual int getNumTracks() const                    { return numTracks; }
+   virtual unsigned int getNumTracks() const           { return numTracks; }
 
    //tracking setter
    virtual void setTracking(const bool x)              { tracking = x; return; }

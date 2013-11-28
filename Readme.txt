@@ -150,7 +150,7 @@ Tutorial applications:
 
 Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
-   libPlaneBehaviors  -- example UBF behaviors
+   libxBehaviors      -- eXample UBF behaviors
 
    libxDataRecorder   -- eXample extension of the Data Recorder
 

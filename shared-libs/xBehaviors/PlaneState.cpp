@@ -17,7 +17,7 @@
 #include "openeaagles/simulation/Simulation.h"
 
 namespace Eaagles {
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneState, "PlaneState")
 EMPTY_SLOTTABLE(PlaneState)
@@ -184,7 +184,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
             for (unsigned int trackIndex = 0; trackIndex < nTracks; trackIndex++) {
                Simulation::Player* target = trackList[trackIndex]->getTarget();
                bool alreadyTracked = false;
-               for (int currTracks = 0; currTracks>getNumTracks(); currTracks++) {
+               for (unsigned int currTracks = 0; currTracks>getNumTracks(); currTracks++) {
                   // tracks are the same if the associated players are the same
                   if(trackList[currTracks]->getTarget()==target) {
                      alreadyTracked = true;

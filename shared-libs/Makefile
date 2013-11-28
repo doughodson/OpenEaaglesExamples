@@ -2,11 +2,11 @@
 
 # Library         : Description
 # -----------------------------------------------------------------
-# planeBehaviors  : eXample UBF behaviors
+# xBehaviors      : eXample UBF behaviors
 # xDataRecorder   : eXample data recorder extension
 # xPanel          : eXample instrument panel
 #
-LIBRARIES = planeBehaviors
+LIBRARIES = xBehaviors
 LIBRARIES += xDataRecorder
 LIBRARIES += xPanel
 

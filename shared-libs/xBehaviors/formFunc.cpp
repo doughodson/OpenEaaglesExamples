@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Form function for the 'planeBehaviors' library
+// Form function for the 'xBehaviors' library
 //------------------------------------------------------------------------------
 
 #include "formFunc.h"
@@ -9,7 +9,7 @@
 #include "PriorityArbiter.h"
 
 namespace Eaagles {
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 Basic::Object* formFunc(const char* formname)
 {

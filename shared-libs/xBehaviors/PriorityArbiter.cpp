@@ -8,7 +8,7 @@
 #include "PlaneAction.h"
 
 namespace Eaagles {
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 IMPLEMENT_SUBCLASS(PriorityArbiter, "PriorityArbiter")
 EMPTY_SLOTTABLE(PriorityArbiter)

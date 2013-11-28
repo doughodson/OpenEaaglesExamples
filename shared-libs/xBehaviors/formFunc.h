@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
-// Form function for the 'planeBehaviors' library
+// Form function for the 'xBehaviors' library
 //------------------------------------------------------------------------------
 
-#ifndef __Eaagles_PlaneBehaviors_FormFunc_H__
-#define __Eaagles_PlaneBehaviors_FormFunc_H__
+#ifndef __Eaagles_xBehaviors_FormFunc_H__
+#define __Eaagles_xBehaviors_FormFunc_H__
 
 namespace Eaagles {
    namespace Basic { class Object; }
-   namespace PlaneBehaviors {
+   namespace xBehaviors {
     extern Basic::Object* formFunc(const char* formname);
    }
 }

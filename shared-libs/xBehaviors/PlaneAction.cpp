@@ -8,7 +8,7 @@
 #include "openeaagles/simulation/StoresMgr.h"
 
 namespace Eaagles {
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneAction, "PlaneAction")
 EMPTY_SLOTTABLE(PlaneAction)
@@ -83,7 +83,7 @@ void PlaneAction::setThrottle(const double x)
    throttle = x;
    throttleChanged = true;
 }
-	
+
 void PlaneAction::setFireMissile(const bool x)
 {
    fireMissile = x;

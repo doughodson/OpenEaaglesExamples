@@ -1,9 +1,19 @@
 //------------------------------------------------------------------------------
-// Classes: Several
+// Classes: PlaneBehaviorBase
+//          PlaneBehaviorBase -> PlaneFire
+//          PlaneBehaviorBase -> PlaneFlyStraight
+//          PlaneBehaviorBase -> PlaneFollowEnemy
+//          PlaneBehaviorBase -> PlaneTurn
+//          PlaneBehaviorBase -> PlaneSlowTurn
+//          PlaneBehaviorBase -> PlaneClimb
+//          PlaneBehaviorBase -> PlaneDive
+//          PlaneBehaviorBase -> PlaneTrim
+//          PlaneBehaviorBase -> PlaneRoll
+//          PlaneBehaviorBase -> PlaneBarrelRoll
+//          PlaneBehaviorBase -> PlaneLoop
 //------------------------------------------------------------------------------
-
-#ifndef __Eaagles_PlaneBehaviors_PlaneBehaviors_H__
-#define __Eaagles_PlaneBehaviors_PlaneBehaviors_H__
+#ifndef __Eaagles_xBehaviors_PlaneBehaviors_H__
+#define __Eaagles_xBehaviors_PlaneBehaviors_H__
 
 #include "openeaagles/basic/ubf/Behavior.h"
 
@@ -11,7 +21,7 @@ namespace Eaagles {
 
 namespace Basic { class Distance; class State; }
 
-namespace PlaneBehaviors {
+namespace xBehaviors {
 
 //------------------------------------------------------------------------------
 // test code for a base class for PlaneBehaviors, implements some common slots

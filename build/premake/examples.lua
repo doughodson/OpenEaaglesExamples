@@ -419,7 +419,7 @@ project "mainUbf1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links { "libPlaneBehaviors",  "libxPanel" }
+   links { "libxBehaviors",  "libxPanel" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim"}
@@ -597,3 +597,4 @@ project "mainz2"
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+

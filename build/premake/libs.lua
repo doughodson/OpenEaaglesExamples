@@ -2,20 +2,20 @@
 -- creating the example libraries
 --------------------------------------------------------------------------------
 
-    --  example UBF plane behaviors library
-    project "libPlaneBehaviors"
+    --  eXample UBF behaviors library
+    project "libxBehaviors"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../shared-libs/planeBehaviors/*.cpp",
-         "../../shared-libs/planeBehaviors/*.h",
+         "../../shared-libs/xBehaviors/*.cpp",
+         "../../shared-libs/xBehaviors/*.h",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "planeBehaviors"
+         targetname "xBehaviors"
       configuration "Debug"
-         targetname "planeBehaviors_d"
+         targetname "xBehaviors_d"
 
     --  eXample library that extends the data recorder
     project "libxDataRecorder"
