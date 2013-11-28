@@ -150,11 +150,11 @@ Tutorial applications:
 
 Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
-   libMyRecorder     Example extension of the Data Recorder
+   libPlaneBehaviors  -- example UBF behaviors
 
-   libPlaneBehaviors Example UBF behaviors
+   libxDataRecorder   -- eXample extension of the Data Recorder
 
-   libxPanel         Common components to display an instrument panel, used by 'mainy1',
-                     'mainUbf1' and 'testRecordData'
+   libxPanel          -- eXample components to display an instrument panel, used by 'mainy1',
+                         'mainUbf1' and 'testRecordData'
 
 

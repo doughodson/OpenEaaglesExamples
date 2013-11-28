@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// My Recorder Event ID (REID) Tokens
+// X Recorder Event ID (REID) Tokens
 //
 // Notes:
 //    1) This file is used by both C++ and Eaagles input files, so only use
@@ -10,11 +10,12 @@
 //       (see "openeaagles/simulation/DataRecorder.h")
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MyRecorder_Id_Tokens_H__
-#define __Eaagles_MyRecorder_Id_Tokens_H__
+#ifndef __Eaagles_xDataRecorder_Id_Tokens_H__
+#define __Eaagles_xDataRecorder_Id_Tokens_H__
 
 #include "openeaagles/simulation/dataRecorderTokens.h"
 
 #define REID_MY_DATA_EVENT       REID_FIRST_USER_EVENT
 
 #endif
+

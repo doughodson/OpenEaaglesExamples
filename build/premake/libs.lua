@@ -2,24 +2,7 @@
 -- creating the example libraries
 --------------------------------------------------------------------------------
 
-    --  Example extended data recorder library
-    project "libMyRecorder"
-      kind "StaticLib"
-      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
-      targetdir (OEExamplesLibPath)
-      files {
-         "../../shared-libs/myRecorder/*.cpp",
-         "../../shared-libs/myRecorder/*.cc",
-         "../../shared-libs/myRecorder/*.h",
-         "../../shared-libs/myRecorder/*.proto",
-      }
-      defines { "_LIB" }
-      configuration "Release"
-         targetname "myRecorder"
-      configuration "Debug"
-         targetname "myRecorder_d"
-
-    --  Example UBF plane behaviors library
+    --  example UBF plane behaviors library
     project "libPlaneBehaviors"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
@@ -33,6 +16,23 @@
          targetname "planeBehaviors"
       configuration "Debug"
          targetname "planeBehaviors_d"
+
+    --  eXample library that extends the data recorder
+    project "libxDataRecorder"
+      kind "StaticLib"
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      targetdir (OEExamplesLibPath)
+      files {
+         "../../shared-libs/xDataRecorder/*.cpp",
+         "../../shared-libs/xDataRecorder/*.cc",
+         "../../shared-libs/xDataRecorder/*.h",
+         "../../shared-libs/xDataRecorder/*.proto",
+      }
+      defines { "_LIB" }
+      configuration "Release"
+         targetname "xDataRecorder"
+      configuration "Debug"
+         targetname "xDataRecorder_d"
 
     --  eXample Panel library -- common instrument panel code for several examples
     project "libxPanel"

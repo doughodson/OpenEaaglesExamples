@@ -1,7 +1,7 @@
 // ---
 // Data Recorder configuration file
 //
-//  1) Attaches an extended data recorder (MyDataRecorder)
+//  1) Attaches an extended data recorder (XDataRecorder)
 //     to the simulation
 //  -- records data to a binary file
 //  -- prints data to text files
@@ -12,7 +12,7 @@
 
 #include "openeaagles/simulation/dataRecorderTokens.h"
 
-dataRecorder: ( MyDataRecorder
+dataRecorder: ( XDataRecorder
 
    outputHandler:
    ( RecorderOutputHandler

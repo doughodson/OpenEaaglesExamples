@@ -2,12 +2,12 @@
 
 # Library         : Description
 # -----------------------------------------------------------------
-# myRecorder      : Example data recorder extension
-# planeBehaviors  : Example UBF behaviors
-# xPanel          : Instrument panel for mainy1, mainUbf1 and testRecordData
+# planeBehaviors  : eXample UBF behaviors
+# xDataRecorder   : eXample data recorder extension
+# xPanel          : eXample instrument panel
 #
-LIBRARIES = myRecorder
-LIBRARIES += planeBehaviors
+LIBRARIES = planeBehaviors
+LIBRARIES += xDataRecorder
 LIBRARIES += xPanel
 
 #

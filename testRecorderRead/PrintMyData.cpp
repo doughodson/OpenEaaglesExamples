@@ -1,8 +1,11 @@
+//------------------------------------------------------------------------------
+// Class: PrintMyData
+//------------------------------------------------------------------------------
 
 #include "./PrintMyData.h"
 
-#include "myRecorder/DataRecord.pb.h"
-#include "myRecorder/dataRecorderTokens.h"
+#include "xDataRecorder/DataRecord.pb.h"
+#include "xDataRecorder/dataRecorderTokens.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 
 
@@ -55,7 +58,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
             if (msg->has_id()) sout << "id= " << msg->id() << ";  ";
             if (msg->has_source_id()) sout << "source_id= " << msg->source_id() << ";  ";
 
-            if (msg->HasExtension( Eaagles::MyRecorder::Pb::foo )) sout << "foo= " << msg->GetExtension( Eaagles::MyRecorder::Pb::foo ) << ";  ";
+            if (msg->HasExtension( Eaagles::xDataRecorder::Pb::foo )) sout << "foo= " << msg->GetExtension( Eaagles::xDataRecorder::Pb::foo ) << ";  ";
 
             printToOutput( sout.str().c_str() );
          }
@@ -64,7 +67,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
 
       // MyData message event
       case REID_MY_DATA_EVENT : {
-         if (dataRecord->HasExtension( Eaagles::MyRecorder::Pb::my_data_msg )) {
+         if (dataRecord->HasExtension( Eaagles::xDataRecorder::Pb::my_data_msg )) {
             std::stringstream sout;
 
             sout << "MY_DATA " << "   ";
@@ -74,7 +77,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
                }
             }
 
-            const Eaagles::MyRecorder::Pb::MyDataMsg* msg = &dataRecord->GetExtension( Eaagles::MyRecorder::Pb::my_data_msg );
+            const Eaagles::xDataRecorder::Pb::MyDataMsg* msg = &dataRecord->GetExtension( Eaagles::xDataRecorder::Pb::my_data_msg );
 
             if (msg->has_fee()) sout << "fee= " << msg->fee() << ";  ";
             if (msg->has_fi()) sout << "fi= " << msg->fi() << ";  ";

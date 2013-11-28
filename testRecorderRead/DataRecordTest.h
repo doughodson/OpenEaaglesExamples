@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#ifndef __DataRecordTest_H__
-#define __DataRecordTest_H__
+#ifndef __TestRecorder_DataRecordTest_H__
+#define __TestRecorder_DataRecordTest_H__
 
 namespace Eaagles {
    namespace Recorder { class InputHandler; class OutputHandler; }
@@ -15,7 +15,8 @@ namespace TestRecorder {
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public Eaagles::Basic::Component {
+class DataRecordTest : public Eaagles::Basic::Component
+{
    DECLARE_SUBCLASS(DataRecordTest,Eaagles::Basic::Component)
 
 public:
@@ -39,3 +40,4 @@ private:
 }
 
 #endif
+

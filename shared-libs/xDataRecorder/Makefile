@@ -1,7 +1,7 @@
 #
 include ../../makedefs
 
-LIB = $(OE_EXAMPLES_LIB_DIR)/libMyRecorder.a
+LIB = $(OE_EXAMPLES_LIB_DIR)/libxDataRecorder.a
 
 OBJS += \
 	$(LIB)(DataRecorder.o) \

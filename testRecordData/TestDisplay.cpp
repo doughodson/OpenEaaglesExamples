@@ -9,8 +9,8 @@
 #include "xPanel/DspRwr.h"
 #include "xPanel/Pfd.h"
 
-#include "myRecorder/DataRecorder.h"
-#include "myRecorder/dataRecorderTokens.h"
+#include "xDataRecorder/DataRecorder.h"
+#include "xDataRecorder/dataRecorderTokens.h"
 
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Missile.h"

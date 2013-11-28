@@ -7,7 +7,7 @@
 #include "DataRecorder.h"
 
 namespace Eaagles {
-namespace MyRecorder {
+namespace xDataRecorder {
 
 Basic::Object* formFunc(const char* formname)
 {

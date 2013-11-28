@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------
 // Class: DataRecorder
 //------------------------------------------------------------------------------
-
 #include "DataRecorder.h"
 #include "DataRecord.pb.h"
 #include "dataRecorderTokens.h"
@@ -9,9 +8,9 @@
 #include "openeaagles/simulation/Player.h"
 
 namespace Eaagles {
-namespace MyRecorder {
+namespace xDataRecorder {
 
-IMPLEMENT_SUBCLASS(DataRecorder,"MyDataRecorder")
+IMPLEMENT_SUBCLASS(DataRecorder,"XDataRecorder")
 EMPTY_SERIALIZER(DataRecorder)
 EMPTY_SLOTTABLE(DataRecorder)
 EMPTY_DELETEDATA(DataRecorder)
@@ -45,8 +44,6 @@ void DataRecorder::copyData(const DataRecorder& org, const bool cc)
    if (cc) initData();
 }
 
-
-
 //------------------------------------------------------------------------------
 // My Data event handler
 //    value[0] => fee
@@ -55,7 +52,7 @@ void DataRecorder::copyData(const DataRecorder& org, const bool cc)
 //------------------------------------------------------------------------------
 bool DataRecorder::recordMyData(const Basic::Object* objs[4], const double values[4])
 {
-   const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
+   //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
    Recorder::Pb::DataRecord* msg = new Recorder::Pb::DataRecord();
    
    // DataRecord header
@@ -83,7 +80,7 @@ bool DataRecorder::recordMyData(const Basic::Object* objs[4], const double value
 //------------------------------------------------------------------------------
 bool DataRecorder::recordMarker(const Basic::Object* objs[4], const double values[4])
 {
-   const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
+   //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
    Recorder::Pb::DataRecord* msg = new Recorder::Pb::DataRecord();
    
    // DataRecord header
@@ -104,6 +101,6 @@ bool DataRecorder::recordMarker(const Basic::Object* objs[4], const double value
    return true;
 }
 
-
-} // End MyRecorder namespace
+} // End xDataRecorder namespace
 } // End Eaagles namespace
+

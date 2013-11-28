@@ -1,19 +1,19 @@
 //------------------------------------------------------------------------------
 // Class: DataRecorder
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MyRecorder_DataRecorder_H__
-#define __Eaagles_MyRecorder_DataRecorder_H__
+#ifndef __Eaagles_xDataRecorder_DataRecorder_H__
+#define __Eaagles_xDataRecorder_DataRecorder_H__
 
 #include "openeaagles/recorder/DataRecorder.h"
 
 namespace Eaagles {
-namespace MyRecorder {
+namespace xDataRecorder {
 
 //------------------------------------------------------------------------------
 // Class: DataRecorder
 // Description: Example of an extended data recorder
 //
-// Form name: MyDataRecorder
+// Form name: XDataRecorder
 //
 //------------------------------------------------------------------------------
 // Recorder events handled ---
@@ -50,7 +50,8 @@ private:
    void initData();
 };
 
-} // End MyRecorder namespace
+} // End xDataRecorder namespace
 } // End Eaagles namespace
 
 #endif
+
