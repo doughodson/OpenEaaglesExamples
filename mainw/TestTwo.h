@@ -1,9 +1,7 @@
 //------------------------------------------------------------------------------
-// Class:	TestTwo
-// Base class:	Object -> Component -> BasicGL::Graphic -> TestTwo
+// Class: TestTwo
 //
 // Description: Control and Send values 'v1' and 'v2' to components 
-//
 //------------------------------------------------------------------------------
 #ifndef __TestTwo_H__
 #define __TestTwo_H__
@@ -55,4 +53,4 @@ private:
 } // End MainW namespace
 } // End Eaagles namespace
 
-#endif // __TestTwo_H__
+#endif

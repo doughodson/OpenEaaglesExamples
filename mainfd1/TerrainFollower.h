@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
-// Class:	TerrainFollower
-// Base class: BasicGL::Graphic -> TerrainFollower
+// Class: TerrainFollower
 //
 // Description: Takes in a series of elevation points and a range, and draws
 // a bar graph type representation of those elevation points in relation to the 
@@ -12,34 +11,35 @@
 //      UPDATE_VALUE4 -> viewable width on screen (inches
 //      The list of points is sent in as an LCreal array 
 //------------------------------------------------------------------------------
-#ifndef	__TerrainFollower_H_966F1AEA_BD44_45c0_BF81_4F0C2415EEE2
-#define __TerrainFollower_H_966F1AEA_BD44_45c0_BF81_4F0C2415EEE2
+#ifndef __Eaagles_MainFlightDisplay1_TerrainFollower_H__
+#define __Eaagles_MainFlightDisplay1_TerrainFollower_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
 namespace MainFlightDisplay1 {
 
-class TerrainFollower : public BasicGL::Graphic {
+class TerrainFollower : public BasicGL::Graphic
+{
     DECLARE_SUBCLASS(TerrainFollower,BasicGL::Graphic)
 
 public:
     TerrainFollower();
-    
+
     // Basic::Component interface
     virtual void updateData(const LCreal dt = 0);
     virtual bool event(const int event, Basic::Object* const obj = 0);
-    
+
     // BasicGL::Graphic interface
-    virtual void drawFunc();    
-    
+    virtual void drawFunc();
+
     // set functions
     virtual bool setPlaneAlt(const LCreal newAlt);
     virtual bool setScanRange(const LCreal newR);
     virtual bool setViewHeight(const LCreal newH);
     virtual bool setViewWidth(const LCreal newW);
     virtual bool setElevPts(const int num, const LCreal newEPts[]);
-    
+
     // Simply steps through the points we have
     void testElevPoints();
 
@@ -49,7 +49,7 @@ private:
     bool onEventSetScanRangeTerrainFollower(const Basic::Number* const x);
     bool onEventSetViewHeightTerrainFollower(const Basic::Number* const x);
     bool onEventSetViewWidthTerrainFollower(const Basic::Number* const x);
-    
+
     enum { MAX_POINTS = 1000 }; // maximum number of terrain elevation points
     LCreal range;               // our scan range ahead of us
     LCreal maxAlt;              // where do we want our max altitude (1)?
@@ -62,14 +62,14 @@ private:
     LCreal aScale;              // our altitude scale to use for drawing
     LCreal planeAlt;            // what is our aircraft elevation?
     LCreal aboveTerr;           // how far above the terrain do we want to be?  (default is 500)
-    
+
     SendData maxAltSD;
     SendData midAltSD;
     SendData firstRSD;
     SendData secRSD;
     SendData tRSD;
     SendData fRSD;
-    
+
     // test data
     LCreal testPA;
     LCreal timer;
@@ -77,8 +77,8 @@ private:
     
 };
 
-}; // end of MainFlightDisplay1  namespace
+}; // end of MainFlightDisplay1 namespace
 }; // end of Eaagles namespace
 
-#endif	/* __TerrainFollower_H_966F1AEA_BD44_45c0_BF81_4F0C2415EEE2 */
+#endif
 

@@ -1,13 +1,13 @@
 // -------------------------------------------------------------------------------
 // Class: Station
-// Base class:	Simulation::Station -> Station
+//
 // Description:
 //      Derived Station that will know it has a display and can be accessed through
 //      it.  This also runs the simulation, and acts as the interface between the
 //      graphics and simulation.
 // -------------------------------------------------------------------------------
-#ifndef __MAPTEST_STATION_H__
-#define __MAPTEST_STATION_H__
+#ifndef __Eaagles_MapTest_Station_H__
+#define __Eaagles_MapTest_Station_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -18,9 +18,9 @@ namespace MapTest {
 class Station : public Simulation::Station
 {
     DECLARE_SUBCLASS(Station, Simulation::Station)
-    
+
 public:
-    Station();  
+    Station();
     
     // Basic::Component interface
     virtual void reset();

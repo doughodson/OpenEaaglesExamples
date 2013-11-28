@@ -1,11 +1,9 @@
 //------------------------------------------------------------------------------
-// Class:	TestMechanical
-// Base class:	Basic::Object > BasicGL::Graphic > BasicGL::Page -> TestMechanical
+// Class: TestMechanical
 //
-// Description:	Simulates a rockwell collins type EFIS Mechanical ADI graphic
-//
+// Description: Simulates a rockwell collins type EFIS Mechanical ADI graphic
 //------------------------------------------------------------------------------
-#ifndef	__OPENEAAGLES_MAINEFIS_TESTMECHANICAL_H__
+#ifndef __OPENEAAGLES_MAINEFIS_TESTMECHANICAL_H__
 #define __OPENEAAGLES_MAINEFIS_TESTMECHANICAL_H__
 
 #include "openeaagles/basicGL/Page.h"
@@ -13,7 +11,8 @@
 namespace Eaagles {
 namespace MainEfis {
 
-class TestMechanical : public BasicGL::Page {
+class TestMechanical : public BasicGL::Page
+{
    DECLARE_SUBCLASS(TestMechanical,BasicGL::Page)
 
 public:
@@ -41,7 +40,7 @@ private:
     SendData cmdRollSD;
     LCreal cmdPitchRate;
     LCreal cmdRollRate;
-    bool inView;         // when our commanded pitch is in view
+    bool inView;            // when our commanded pitch is in view
     LCreal heading;         // heading of our ownship (for rate of turn)
     LCreal headingRate;
     bool rtFail;            // our rate of turn indicator failure flag

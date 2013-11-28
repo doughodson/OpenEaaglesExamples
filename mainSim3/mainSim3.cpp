@@ -16,7 +16,6 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
-
 namespace Eaagles {
 namespace Sim3 {
 
@@ -27,7 +26,7 @@ static const char* const DEFAULT_CONFIG_FILE = "test0.edl";
 static const int BG_RATE = 10;
 
 // System descriptions
-static SimStation* station = 0;	
+static SimStation* station = 0;
 
 //-----------------------------------------------------------------------------
 // readTest() -- function to the read description files

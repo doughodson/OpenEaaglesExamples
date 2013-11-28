@@ -1,4 +1,4 @@
-	( AdiDisplay
+( AdiDisplay
 
       name: "Cockpit Display"
 
@@ -15,7 +15,7 @@
       clearDepth: 1.0
       clearColor: (rgb 0 0 0)
       fullScreen: 0
-        
+
       // color is different.
       colorTable: {
          black:      ( rgba 0 0 0 )
@@ -27,21 +27,20 @@
          brown:      ( rgb 0.39 0.27 0.16 )
          white:      ( rgb 1 1 1 )
          gray:       ( rgb 0.4 0.4 0.4 )
-         adiCyan:    ( rgb 0.79 0.84 0.81 )    
+         adiCyan:    ( rgb 0.79 0.84 0.81 )
          cyan:       ( rgb 0 1 1 )
-         gray2:      ( rgb 0.2 0.2 0.2 )    
-         amber:      ( rgb 1 0.5 0 )   
+         gray2:      ( rgb 0.2 0.2 0.2 )
+         amber:      ( rgb 1 0.5 0 )
          gray1:      ( rgb 0.1 0.1 0.1 )
          gray8:      ( rgb 0.8 0.8 0.8 )
       }
-
 
       // Again, an example of an PairStream, this time setting up our fonts. 
       fonts: {
         // normal font for the instruments
         default: 
         ( FTGLPolygonFonts
-		   // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+           // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 1
@@ -56,7 +55,7 @@
         // smaller font for the instruments
         smallerfont: 
         ( FTGLPolygonFonts
-		   // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+           // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 0.5
@@ -72,7 +71,7 @@
       
       normalFont: default
       
-		components: {
+        components: {
          //-------------------------------------------
          // start of readouts graphic
          //-------------------------------------------
@@ -90,7 +89,7 @@
                              value: 999
                              transform: ( Translation 0 0 )
                              format: "#####"
-                         )                        
+                         )
                          ( LineLoop
                              color: white
                              linewidth: 2
@@ -134,7 +133,7 @@
                              value: 999
                              transform: ( Translation 0 0 ) 
                              format: "#####"
-                         )                        
+                         )
                          ( LineLoop
                              color: white
                              linewidth: 2
@@ -203,7 +202,7 @@
                             text: "hdg"
                          )
                      }
-                 )                    
+                 )
                  //-------------------------------------------
                  // end heading NRO graphic
                  //-------------------------------------------
@@ -238,22 +237,22 @@
                                  [  2.5    0.85 ] 
                                  [  2.5   -0.15 ]
                              }
-                         ) 
+                         )
                          ( AsciiText
                             color: white
                             transform: { ( Translation 0.825 -0.6 ) ( Scale 0.5 ) }
                             text: "vel"
-                         )           
+                         )
                      }
-                 )                             
+                 )
                  //-------------------------------------------
                  // end calibrated airspeed NRO graphic
                  //-------------------------------------------
-                 
+
                  //-------------------------------------------
                  // start altitude NRO graphic
                  //-------------------------------------------
-                 altitude: 
+                 altitude:
                  ( Graphic
                      transform: ( Translation 7.0 9.0 ) 
                      components: {
@@ -299,13 +298,13 @@
                  ( Graphic
                      transform: ( Translation -7.85  -6.875 ) 
                      components: {
-                         pRO: 
+                         pRO:
                          ( NumericReadout
                              color: white
                              value: 999
                              transform: ( Translation 0 0 )
                              format: "##.##"
-                         )                        
+                         )
                          ( LineLoop
                              color: white
                              linewidth: 2
@@ -348,7 +347,7 @@
                              value: 999
                              transform: ( Translation 0 0 )
                              format: "##.##"
-                         )                        
+                         )
                          ( LineLoop
                              color: white
                              linewidth: 2
@@ -391,7 +390,7 @@
                              value: 9
                              transform: ( Translation 0 0 )
                              format: "##.##"
-                         )                        
+                         )
                          ( LineLoop
                              color: white
                              linewidth: 2
@@ -460,8 +459,8 @@
                              }
                          )
                      }
-                 )                                 
-                                          
+                 )
+
                  // these are the tic marks that are ALWAYS visible
                  bankangleticmarks: 
                  ( Graphic
@@ -507,12 +506,12 @@
                          
                      }
                  ) // end of bank angle tic marks graphic 
-         				
-		         // Our test routine TestMfdAdi.cpp will look up each of these graphics by name 
-               // and depending on the roll value, will make them visible or not by sending
-		         // the event message SET_VISIBILITY
-               // 45 and 60 degree tic marks for a roll over 25 degrees                                               
-                 over25: 
+
+                 // Our test routine TestMfdAdi.cpp will look up each of these graphics by name 
+                 // and depending on the roll value, will make them visible or not by sending
+                 // the event message SET_VISIBILITY
+                 // 45 and 60 degree tic marks for a roll over 25 degrees
+                 over25:
                  ( Graphic
                      color: black
                      linewidth: 2
@@ -524,7 +523,7 @@
                          ( Line
                              transform: ( Rotation 1.046667504 )
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
-                         )            
+                         )
                          ( Line
                              transform: ( Rotation -0.785000628 )
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
@@ -535,7 +534,7 @@
                          )
                      }
                  ) // end of over 25 neg graphic
-                            
+
                  // 90 degree tic mark for a roll over 55 degrees 
                  over55: 
                  ( Graphic 
@@ -551,11 +550,10 @@
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
                          )   
                      }
-                 ) // end of over 55 graphic        
-                             
-                  
-                 // 135 degree tic mark for a roll over 85 degrees                                                
-                 over85: 
+                 ) // end of over 55 graphic
+
+                 // 135 degree tic mark for a roll over 85 degrees
+                 over85:
                  ( Graphic
                      linewidth: 2
                      components: {
@@ -566,11 +564,11 @@
                          ( Line
                              transform: ( Rotation -2.355001884 )
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
-                         )           
+                         )
                      }
                  )
              }
-         )              
+         )
 
              // here is our MfdAdi - notice we scissor it instead of giving it an AdiOcclusionCircle
          ( Graphic
@@ -586,7 +584,7 @@
                  // it works exactly like the regular adi.
                  mfdADI:
                  ( Adi
-			         // Every time you pitch over 40 or -40 degrees, the ghost horizon bar will become visible
+                     // Every time you pitch over 40 or -40 degrees, the ghost horizon bar will become visible
                      scalingTable: 
                      ( Table1
                          x:    [ -90  90 ]
@@ -596,8 +594,8 @@
                          //pitchladder:  
                          ( Graphic
                              components: {
-					             // sky background
-					             ( Polygon 
+                                 // sky background
+                                 ( Polygon 
                                      color: ( rgb 0 0 0.5  )
                                      transform: ( Translation 0 0 -1 )
                                      vertices: {
@@ -607,7 +605,7 @@
                                          [  100.0   0.0 ]
                                      }
                                  )
-					             // ground background
+                                 // ground background
                                  ( Polygon
                                      color: gray
                                      transform: ( Translation 0 0 -1 )
@@ -647,10 +645,10 @@
                                              }
                                          )
                                      }
-                                 ) // end of zenith graphic                                  
+                                 ) // end of zenith graphic
                                  horizonbar: 
                                  ( Line
-                                     color: white                
+                                     color: white
                                      linewidth: 2
                                      segment: 1
                                      vertices: {
@@ -668,23 +666,23 @@
                                          [ -2.0 -0.3 ]
                                      }
                                  )
-                                 ( TickMarks  
+                                 ( TickMarks
                                      linewidth: 2
                                      transform: ( Translation 1 0 )
                                      gaugeLength: 20
                                      quantity: 10
                                      tickLength: 0.7
                                      color: white
-                                 )               
-                                 ( TickMarks  
+                                 )
+                                 ( TickMarks
                                      linewidth: 2
                                      transform: ( Translation -1 0 )
                                      gaugeLength: 20
                                      quantity: 10
                                      tickLength: -0.7
                                      color: white
-                                 )   
-                                 ( TickMarks  
+                                 )
+                                 ( TickMarks
                                      linewidth: 2
                                      transform: ( Translation 1.7 0 )
                                      gaugeLength: 20
@@ -692,8 +690,8 @@
                                      tickLength: -0.2
                                      flip: 1
                                      color: white
-                                 )               
-                                 ( TickMarks  
+                                 )
+                                 ( TickMarks
                                      linewidth: 2
                                      transform: ( Translation -1.7 0 )
                                      gaugeLength: 20
@@ -701,9 +699,9 @@
                                      tickLength: -0.2
                                      flip: 1
                                      color: white
-                                 )               
-                     
-                                 30degreetext:   
+                                 )
+
+                                 30degreetext:
                                  ( NumericReadout
                                      color: cyan
                                      font: smallerfont
@@ -711,7 +709,7 @@
                                      value: 30
                                      format: "##"
                                  )
-                                 60degreetext:   
+                                 60degreetext:
                                  ( NumericReadout
                                      color: cyan
                                      font: smallerfont
@@ -719,8 +717,8 @@
                                      value: 60
                                      format: "##"
                                  )
-                                 
-                                 nadir: 
+
+                                 nadir:
                                  ( Graphic
                                      transform: ( Translation 0.0 -20 )
                                      color: white
@@ -750,7 +748,7 @@
                                          )
                                      }
                                  ) // end of nadir graphic
-                                     
+
                                  // negative tick marks
                                  ( TickMarks  
                                      linewidth: 2
@@ -760,7 +758,7 @@
                                      flip: 1
                                      tickLength: 0.3
                                      color: white
-                                 )               
+                                 )
                                  ( TickMarks  
                                      linewidth: 2
                                      transform: ( Translation -1 -2.2 )
@@ -769,9 +767,9 @@
                                      flip: 1
                                      tickLength: 0.3
                                      color: white
-                                 )               
-                                                                                                                                                   
-                                 -10degree:      
+                                 )
+
+                                 -10degree:
                                  ( Graphic 
                                      color: white
                                      transform: ( Translation 0 -2.2 )
@@ -801,7 +799,7 @@
                                  ) // end of -10 degree graphic (small bar)
 
 
-                                 -20degree:      
+                                 -20degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -4.4 )
@@ -829,8 +827,8 @@
                                          )
                                      }
                                  ) // end of -20 degree graphic (small bar)
-                                     
-                                 -30degree:      
+
+                                 -30degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -6.6 )
@@ -868,7 +866,7 @@
                                      format: "##"
                                  )
 
-                                 -40degree:      
+                                 -40degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -8.9 )
@@ -897,9 +895,7 @@
                                      }
                                  ) // end of -40 degree graphic (small bar)
 
-
-
-                                 -50degree:      
+                                 -50degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -11.1 )
@@ -929,7 +925,7 @@
                                  ) // end of -50 degree graphic (small bar)
 
 
-                                 -60degree:      
+                                 -60degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -13.3 )
@@ -966,7 +962,7 @@
                                      format: "##"
                                  )
 
-                                 -70degree:      
+                                 -70degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -15.5 )
@@ -995,7 +991,7 @@
                                      }
                                  ) // end of -70 degree graphic (small bar)
 
-                                 -80degree:      
+                                 -80degree:
                                  ( Graphic
                                      color: white
                                      transform: ( Translation 0 -17.8 )

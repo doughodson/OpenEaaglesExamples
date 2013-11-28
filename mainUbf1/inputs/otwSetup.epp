@@ -22,11 +22,11 @@ otw: {
    )
 }
 /*
-	<!-- HostAddressList is the address to communicate with host that is sending position info to SubrSceneControl -->
-	<!-- HostPort is the port to communicate with host that is sending position info to SubrSceneControl -->
-	<!-- these correspond to netInput line of Otw -->
-	
-	<!-- ControlAddress is automatic, address of machine on which SubrSceneControl is running - IG Ethernet IP -->
-	<!-- ControlPortList is the port on which it listens for input - IG Port -->
+    <!-- HostAddressList is the address to communicate with host that is sending position info to SubrSceneControl -->
+    <!-- HostPort is the port to communicate with host that is sending position info to SubrSceneControl -->
+    <!-- these correspond to netInput line of Otw -->
+
+    <!-- ControlAddress is automatic, address of machine on which SubrSceneControl is running - IG Ethernet IP -->
+    <!-- ControlPortList is the port on which it listens for input - IG Port -->
    <!-- these corresponds to netOutput line of Otw -->
 */

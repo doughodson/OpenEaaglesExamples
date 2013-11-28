@@ -27,8 +27,7 @@ const char* fileName = "test.edl";
 const int bgRate = 20;
 
 // System descriptions
-static class TestStation* sys = 0;	
-
+static class TestStation* sys = 0;
 
 //=============================================================================
 // Main test functions

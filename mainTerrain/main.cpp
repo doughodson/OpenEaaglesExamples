@@ -29,7 +29,7 @@ const char* fileName = "test.edl";
 const int frameRate = 10;
 
 // System descriptions
-static class Display* sys = 0;	
+static class Display* sys = 0;
 
 
 //=============================================================================

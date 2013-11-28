@@ -1,6 +1,5 @@
 //#define OUTLINE
 
-
 // -----------------------------------------------------------------------------
 // Pilot/Vehicle Interface (PVI)
 // -----------------------------------------------------------------------------
@@ -24,7 +23,7 @@ display:
     top:          6.375
     near:        -2.0
     far:          2.0
-   
+
     vpX:        0
     vpY:        0
     vpWidth:    480
@@ -32,12 +31,12 @@ display:
 
     colorTable: {
     }
-            
+
     clearColor: ( rgb 0.0 0.0 0.0 )
     clearDepth: 1.0
    
 
-	// include all of our independent displays and instruments
+    // include all of our independent displays and instruments
     page: eadi3D
     pages: {
         eadi3D: ( Eadi3DPage )

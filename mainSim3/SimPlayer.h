@@ -1,9 +1,7 @@
 //------------------------------------------------------------------------------
-// Class:	SimPlayer
-// Base class:	Basic::Object -> Basic::Component -> Player -> AirVehicle -> xxx -> SimPlayer
+// Class: SimPlayer
 //
-// Description: Sim Player
-//
+// Description: Simulation player
 //------------------------------------------------------------------------------
 #ifndef __SimPlayer__
 #define __SimPlayer__
@@ -15,7 +13,7 @@ namespace Sim3 {
 
 class SimPlayer : public Simulation::Aircraft
 {
-    DECLARE_SUBCLASS(SimPlayer,Simulation::Aircraft)
+    DECLARE_SUBCLASS(SimPlayer, Simulation::Aircraft)
 
 public:
     SimPlayer();
@@ -29,4 +27,4 @@ private:
 } // End Sim3 namespace
 } // End Eaagles namespace
 
-#endif // __SimPlayer__
+#endif

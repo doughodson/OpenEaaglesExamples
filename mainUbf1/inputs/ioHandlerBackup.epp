@@ -3,7 +3,7 @@
 // =============================================================================
 
    ioHandler: ( TestIoHandler
-	   inputData: ( IoData numAI: 10   numDI: 40 )	
+      inputData: ( IoData numAI: 10   numDI: 40 )
       components: {
          #include "ThrustMaster.epp"
       }

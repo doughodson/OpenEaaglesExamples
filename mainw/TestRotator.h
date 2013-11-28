@@ -1,19 +1,18 @@
 //------------------------------------------------------------------------------
-// Class:	TestRotator
-// Base class:	Object > BasicGL::Graphic > Page -> TestRotator
+// Class: TestRotator
 //
-// Description:	Example MFD page
-//
+// Description: Example MFD page
 //------------------------------------------------------------------------------
-#ifndef	__TestRotator_H__B9FF76F9_DCBA_4add_BA8A_294721C9D2BB
-#define __TestRotator_H__B9FF76F9_DCBA_4add_BA8A_294721C9D2BB
+#ifndef __TestRotator_H__
+#define __TestRotator_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
 namespace MainW {
 
-class TestRotator : public BasicGL::Graphic {
+class TestRotator : public BasicGL::Graphic
+{
    DECLARE_SUBCLASS(TestRotator,BasicGL::Graphic)
 
 public:
@@ -38,4 +37,4 @@ private:
 } // End MainW namespace
 } // End Eaagles namespace
 
-#endif	/* __TestRotator_H__B9FF76F9_DCBA_4add_BA8A_294721C9D2BB */
+#endif

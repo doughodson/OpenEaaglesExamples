@@ -23,7 +23,7 @@ namespace MainLaero {
 Basic::Object* formFunc(const char* formname)
 {
     Basic::Object* newform = 0;
-	
+
     // Test classes
     if ( strcmp(formname, TestStation::getFormName()) == 0 ) {
         newform = new TestStation();

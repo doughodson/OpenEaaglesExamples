@@ -7,7 +7,7 @@ route:
    components: {
 
       // NE corner
-      ( Steerpoint	
+      ( Steerpoint
          latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 20.0 )
          longitude: ( LatLon direction: "w"  degrees:  116  minutes: 20.0 )
          altitude: ( Feet 12000 )
@@ -15,7 +15,7 @@ route:
       )
 
       // NW corner
-      ( Steerpoint	
+      ( Steerpoint
          latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 20.0 )
          longitude: ( LatLon direction: "w"  degrees:  116  minutes:  0.0 )
          altitude: ( Feet 10000 )
@@ -23,7 +23,7 @@ route:
       )
 
       // SE corner
-      ( Steerpoint	
+      ( Steerpoint
          latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 0.0 )
          longitude: ( LatLon direction: "w"  degrees:  116  minutes: 0.0 )
          altitude: ( Feet 13000 )
@@ -31,7 +31,7 @@ route:
       )
 
       // SE corner
-      ( Steerpoint	
+      ( Steerpoint
          latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 0.0 )
          longitude: ( LatLon direction: "w"  degrees:  116  minutes: 20.0 )
          altitude: ( Feet 10000 )

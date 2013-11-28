@@ -15,16 +15,16 @@ testgauge1:
         
         // Label to tell us what test we are running
         ( AsciiText
-			position: [ 1 2 ]
-			color: white
-			text: "Analog Guage"
-		)    
-		
-		( AsciiText
-		    position: [ 1 28 ]
-		    color: white
-		    text: "Tape"
-		)    
+            position: [ 1 2 ]
+            color: white
+            text: "Analog Guage"
+        )
+
+        ( AsciiText
+            position: [ 1 28 ]
+            color: white
+            text: "Tape"
+        )
     }
 )
 

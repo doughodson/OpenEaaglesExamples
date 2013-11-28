@@ -21,7 +21,6 @@
 
 #include "openeaagles/basic/osg/Matrixd"
 
-
 #include "MfdPage.h"
 #include "TestOne.h"
 #include "TestTwo.h"
@@ -36,7 +35,7 @@ namespace MainW {
 const int frameRate = 20;
 
 // System descriptions
-static class TestDisplay* sys = 0;	
+static class TestDisplay* sys = 0;
 
 //=============================================================================
 // TestDisplay

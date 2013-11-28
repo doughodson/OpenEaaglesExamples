@@ -19,7 +19,7 @@ namespace MainIR {
 const int bgRate = 10;
 
 // System descriptions
-static TestStation* station = 0;	
+static TestStation* station = 0;
 
 //-----------------------------------------------------------------------------
 // Read the configuration file

@@ -5,21 +5,20 @@
 namespace Eaagles {
 namespace MainW {
 
-
 IMPLEMENT_SUBCLASS(TestTwo,"TestTwo")
 
 //------------------------------------------------------------------------------
 // slot table for this class type
 //------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(TestTwo)
-    "v1",	    // V1 initial value
-    "v1Rate",	// V1 rate
-    "v1Max",	// V1 max value
-    "v1Min",	// V1 min value
-    "v2",	    // V2 initial value
-    "v2Rate",	// V2 rate
-    "v2Max",	// V2 max value
-    "v2Min",	// V2 min value
+    "v1",       // V1 initial value
+    "v1Rate",   // V1 rate
+    "v1Max",    // V1 max value
+    "v1Min",    // V1 min value
+    "v2",       // V2 initial value
+    "v2Rate",   // V2 rate
+    "v2Max",    // V2 max value
+    "v2Min",    // V2 min value
 END_SLOTTABLE(TestTwo)
 
 //------------------------------------------------------------------------------

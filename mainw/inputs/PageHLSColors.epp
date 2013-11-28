@@ -9,7 +9,7 @@ hlscolors:
         p: hsvcolors
     }
     components: {
-		( AsciiText text: "HLS" position: [ 1 1 ] )
+        ( AsciiText text: "HLS" position: [ 1 1 ] )
         ( LineLoop
             selectName: 601
             color: (hls 0 0.2 0)

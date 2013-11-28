@@ -1,10 +1,9 @@
 //------------------------------------------------------------------------------
-// Class:	TestElectronic
-// Base class:	Basic::Object > BasicGL::Graphic > BasicGL::Page -> TestElectronic
+// Class: TestElectronic
 //
-// Description:	Rockwell-Collins Efis test page to stimulate the EFIS arc mode.
+// Description: Rockwell-Collins Efis test page to stimulate the EFIS arc mode.
 //------------------------------------------------------------------------------
-#ifndef	__OPENEAAGLES_MAINEFIS_TESTELECTRONIC_H__
+#ifndef __OPENEAAGLES_MAINEFIS_TESTELECTRONIC_H__
 #define __OPENEAAGLES_MAINEFIS_TESTELECTRONIC_H__
 
 #include "openeaagles/basicGL/Page.h"
@@ -12,7 +11,8 @@
 namespace Eaagles {
 namespace MainEfis {
 
-class TestElectronic : public BasicGL::Page {
+class TestElectronic : public BasicGL::Page
+{
    DECLARE_SUBCLASS(TestElectronic,BasicGL::Page)
 
 public:
@@ -130,5 +130,5 @@ private:
 } // end of MainEfis namespace
 } // end of Eaagles namespace
 
-#endif	// __OPENEAAGLES_MAINEFIS_TESTELECTRONIC_H__
+#endif
 

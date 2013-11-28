@@ -67,20 +67,20 @@ void Block::deleteData()
 
 bool operator>(const Block& b1, const Block& b2)
 {
-  bool gt = false;
-  if (b1.getTypeId() > b2.getTypeId()) {
-    gt = true;
-  }
-  else if (b1.getTypeId() == b2.getTypeId()) {
-    if (b1.x > b2.x) {
+   bool gt = false;
+   if (b1.getTypeId() > b2.getTypeId()) {
       gt = true;
-    }
-    else if (b1.x == b2.x) {
-      if (b1.y > b2.y)
-      	gt = true;
-    }
-  }
-  return gt;
+   }
+   else if (b1.getTypeId() == b2.getTypeId()) {
+      if (b1.x > b2.x) {
+         gt = true;
+      }
+      else if (b1.x == b2.x) {
+         if (b1.y > b2.y)
+            gt = true;
+      }
+   }
+   return gt;
 }
 
 

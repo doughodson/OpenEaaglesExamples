@@ -31,7 +31,7 @@ const char* testFileName = "test.edl";
 const int frameRate = 20;
 
 // System descriptions
-static class Station* sys = 0;	
+static class Station* sys = 0;
 
 
 // timer function, in this case, the background (updateData) function

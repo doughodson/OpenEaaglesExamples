@@ -1,13 +1,10 @@
 //------------------------------------------------------------------------------
-// Class:	RealBeamRadar
-// Base class:	Basic::Object -> ... -> RfSystem -> RfSensor -> Radar -> RealBeamRadar
+// Class: RealBeamRadar
 //
 // Description: Real-Beam Radar Model
-//
-// GUID: {A5A39E9C-D832-4d4a-8DA1-DB42DFBBBE82}
 //------------------------------------------------------------------------------
-#ifndef EAAGLES_MAINGNDMAPRDR_REALBEAMRADAR_H
-#define EAAGLES_MAINGNDMAPRDR_REALBEAMRADAR_H
+#ifndef __Eaagles_MainGndMapRdr_RealBeamRadar_H__
+#define __Eaagles_MainGndMapRdr_RealBeamRadar_H__
 
 #include "openeaagles/simulation/Radar.h"
 
@@ -16,7 +13,7 @@ namespace Eaagles {
 
 namespace MainGndMapRdr {
 
-class RealBeamRadar : public Simulation::Radar  
+class RealBeamRadar : public Simulation::Radar
 {
     DECLARE_SUBCLASS(RealBeamRadar,Simulation::Radar)
 
@@ -90,5 +87,5 @@ private:
 } // end MainGndMapRdr namespace
 } // end Eaagles namespace
 
-#endif // EAAGLES_MAINGNDMAPRDR_REALBEAMRADAR_H
+#endif
 

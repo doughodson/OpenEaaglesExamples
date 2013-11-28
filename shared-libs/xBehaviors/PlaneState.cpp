@@ -125,7 +125,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
       if (stores != 0) {
          const Simulation::Missile* wpn = stores->getNextMissile();
          if (!wpn)
-		      setMissileFired(true);
+            setMissileFired(true);
       }
       else {
          // we have no SMS, we can't fire a missile;
