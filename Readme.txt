@@ -9,11 +9,6 @@ Notes:
   2) Most of the examples are under the 'Eaagles' namespace because they consisted to
      to be part of the OpenEaagles package.  However, user wouldn't typically do this.
 
-  3) Most of the time, examples are run from the command prompt. If you plan to run them
-     from within Visual C++, you need to set the working directory so that they can
-     locate their input files. Go to "Configuration Properties/Debugging" amd set 
-     "Working directory" to $(OutDir).
-
 
 Example applications:
 --------------------------------------------------------------------------------------------
@@ -28,7 +23,7 @@ Example applications:
 
    mainGndMapRdr -- Simple ground mapping radar example
 
-   mainNonRT1    -- Example that demostrates executing the simulation as fast as possible
+   mainNonRT1    -- Example that demonstrates executing the simulation as fast as possible
 
    mainPuzzle1   -- Simple problem solver example (Moves 2x2 block to first row, center position)
 
@@ -60,7 +55,7 @@ Example applications:
    mainy1        -- Simple flight simulation program
 
    mainz1        -- Instrument library demo program
-                    1) Contains several test instrment pages 
+                    1) Contains several test instrument pages 
                     2) Use 'n' and 'p' (next and previous) to move between pages
                     3) use ESC to exit
 
