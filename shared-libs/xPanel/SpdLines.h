@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: SpdLines
 //------------------------------------------------------------------------------
-#ifndef __SpdLines_D6B294BE_63BB_49b0_AF1B_009579C47AB2
-#define __SpdLines_D6B294BE_63BB_49b0_AF1B_009579C47AB2
+#ifndef __Eaagles_XPanel_SpdLines_H__
+#define __Eaagles_XPanel_SpdLines_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace Y1 {
+namespace xPanel {
 
 //------------------------------------------------------------------------------
 // Class: SpdLines
@@ -45,7 +45,7 @@ private:
     bool isAlt;     // are we drawing the altitude lines instead?
 };
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
 
 #endif

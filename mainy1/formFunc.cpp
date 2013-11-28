@@ -4,7 +4,7 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-#include "y1panel/formFunc.h"
+#include "xPanel/formFunc.h"
 
 #include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basicGL/basicGLFF.h"
@@ -36,7 +36,7 @@ Basic::Object* formFunc(const char* formname)
     }
 
     // Example libraries
-    if (newform == 0) newform = Y1::formFunc(formname);
+    if (newform == 0) newform = xPanel::formFunc(formname);
 
     // OpenEaagles packages
     if (newform == 0) newform = Eaagles::Simulation::simulationFormFunc(formname);

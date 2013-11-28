@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Number.h"
 
 namespace Eaagles {
-namespace Y1 {
+namespace xPanel {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
@@ -170,6 +170,6 @@ Basic::Object* SpdLines::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end of Y1 namespace
+}; // end of xPanel namespace
 }; // end of Eaagles namespace
 

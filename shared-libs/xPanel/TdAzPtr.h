@@ -1,14 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
 //------------------------------------------------------------------------------
-#ifndef __TdAzPtr_H_4DEB8B64_B86D_4cd2_94E0_13290A1F4BB2__
-#define __TdAzPtr_H_4DEB8B64_B86D_4cd2_94E0_13290A1F4BB2__
+#ifndef __Eaagles_XPanel_TdAzPtr_H__
+#define __Eaagles_XPanel_TdAzPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
    namespace Basic { class Number; }
-namespace Y1 {
+namespace xPanel {
 
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
@@ -47,7 +47,8 @@ private:
    LCreal azimuth;  // (degs)
 };
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
 
 #endif
+

@@ -19,7 +19,6 @@
       configuration "Debug"
          targetname "myRecorder_d"
 
-
     --  Example UBF plane behaviors library
     project "libPlaneBehaviors"
       kind "StaticLib"
@@ -35,19 +34,20 @@
       configuration "Debug"
          targetname "planeBehaviors_d"
 
-
-    --  Y1 Panel library -- common instrument panel code for several examples
-    project "libY1Panel"
+    --  eXample Panel library -- common instrument panel code for several examples
+    project "libxPanel"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../shared-libs/y1panel/*.cpp",
-         "../../shared-libs/y1panel/*.h",
-         "../../shared-libs/y1panel/**.epp",
+         "../../shared-libs/xPanel/*.cpp",
+         "../../shared-libs/xPanel/*.h",
+         "../../shared-libs/xPanel/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "y1Panel"
+         targetname "xPanel"
       configuration "Debug"
-         targetname "y1Panel_d"
+         targetname "xPanel_d"
+
+

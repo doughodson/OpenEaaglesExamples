@@ -4,7 +4,8 @@
 
 namespace Eaagles {
    namespace Basic { class Object; }
-   namespace Y1 {
+   namespace xPanel {
       extern Basic::Object* formFunc(const char* formname);
    } 
-} 
+}
+

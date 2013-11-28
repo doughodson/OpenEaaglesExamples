@@ -1,7 +1,7 @@
 #
 include ../../makedefs
 
-LIB = $(OE_EXAMPLES_LIB_DIR)/libY1Panel.a
+LIB = $(OE_EXAMPLES_LIB_DIR)/libxPanel.a
 
 OBJS += \
 	$(LIB)(DspRadar.o) \

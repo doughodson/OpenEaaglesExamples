@@ -24,5 +24,5 @@
    #include "networkSetup.epp"
    #include "otwSetup.epp"
    #include "scenario.epp"
-   #include "y1panel/instrumentPanel.epp"
+   #include "xPanel/instrumentPanel.epp"
 )

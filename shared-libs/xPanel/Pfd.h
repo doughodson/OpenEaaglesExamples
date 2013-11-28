@@ -3,14 +3,14 @@
 //
 // Description: Tests the pfd.
 //------------------------------------------------------------------------------
-#ifndef	__Pfd_H_37E8E713_43E9_4103_88DB_787151FC0E13
-#define __Pfd_H_37E8E713_43E9_4103_88DB_787151FC0E13
+#ifndef __Eaagles_XPanel_Pfd_H__
+#define __Eaagles_XPanel_Pfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Y1 {
+namespace xPanel {
 
 class Pfd : public BasicGL::Page
 {
@@ -169,7 +169,8 @@ private:
     SendData pitchGhostSD;
 };
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
 
 #endif
+

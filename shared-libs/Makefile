@@ -4,11 +4,11 @@
 # -----------------------------------------------------------------
 # myRecorder      : Example data recorder extension
 # planeBehaviors  : Example UBF behaviors
-# y1panel         : Instrument panel for mainy1, mainUbf1 and testRecordData
+# xPanel          : Instrument panel for mainy1, mainUbf1 and testRecordData
 #
 LIBRARIES = myRecorder
 LIBRARIES += planeBehaviors
-LIBRARIES += y1panel
+LIBRARIES += xPanel
 
 #
 # Rules

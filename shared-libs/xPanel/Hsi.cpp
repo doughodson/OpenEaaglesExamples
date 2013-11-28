@@ -4,7 +4,7 @@
 #include "Hsi.h"
 
 namespace Eaagles {
-namespace Y1 {
+namespace xPanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
 EMPTY_SERIALIZER(Hsi)
@@ -165,6 +165,6 @@ void Hsi::updateData(const LCreal dt)
     send("selhdgro", UPDATE_VALUE, selHdg, selHdgROSD);
 }
 
-}; // end of Y1 namespace
+}; // end of xPanel namespace
 }; // end of Eaagles namespace
 

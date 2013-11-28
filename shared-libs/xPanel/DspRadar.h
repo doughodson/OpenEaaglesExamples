@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: DspRadar
 //------------------------------------------------------------------------------
-#ifndef __DspRadar_H_76638785_7DDB_4980_90B0_CB4418D57B3F__
-#define __DspRadar_H_76638785_7DDB_4980_90B0_CB4418D57B3F__
+#ifndef __Eaagles_XPanel_DspRadar_H__
+#define __Eaagles_XPanel_DspRadar_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -10,7 +10,7 @@ namespace Eaagles {
    namespace Basic      { class PairStream; }
    namespace Simulation { class Radar; }
 
-namespace Y1 {
+namespace xPanel {
 
 //------------------------------------------------------------------------------
 // Class: DspRadar
@@ -50,7 +50,8 @@ private:
     LCreal      trkRelGndTrk[MAX_TRKS];     // Track's relative ground track (to nearest 45 deg)
 };
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
 
 #endif
+

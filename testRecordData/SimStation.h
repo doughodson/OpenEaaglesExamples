@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-#ifndef __SimStation_H__
-#define __SimStation_H__
+#ifndef __Eaagles_TestRecordData_SimStation_H__
+#define __Eaagles_TestRecordData_SimStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -59,3 +59,4 @@ private:
 } // End Eaagles namespace
 
 #endif
+

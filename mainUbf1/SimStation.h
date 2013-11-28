@@ -1,11 +1,9 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
-//
-// Base class: Simulation::Station -> Simulation::AgentStation -> SimStation
 //------------------------------------------------------------------------------
 
-#ifndef __SimStation_H__
-#define __SimStation_H__
+#ifndef __Eaagles_MainUbf1_SimStation_H__
+#define __Eaagles_MainUbf1_SimStation_H__
 
 //#include "agent/AgentStation.h"
 #include "openeaagles/simulation/Station.h"
@@ -61,6 +59,6 @@ private:
 } // End MainUbf1 namespace
 } // End Eaagles namespace
 
-#endif // __SimStation_H__
+#endif
 
 

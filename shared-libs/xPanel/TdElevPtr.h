@@ -1,14 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
-#ifndef __TdElevPtr_H_74E7E58B_1913_4aa8_B9DD_642F30316A20__
-#define __TdElevPtr_H_74E7E58B_1913_4aa8_B9DD_642F30316A20__
+#ifndef __Eaagles_XPanel_TdElevPtr_H__
+#define __Eaagles_XPanel_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
    namespace Basic { class Number; }
-namespace Y1 {
+namespace xPanel {
 
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
@@ -47,7 +47,8 @@ private:
    LCreal elev;  // (degs)
 };
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
 
 #endif
+

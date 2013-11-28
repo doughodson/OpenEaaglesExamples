@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestIoHandler
 //------------------------------------------------------------------------------
-#ifndef __TestIoHandler_H___
-#define __TestIoHandler_H___
+#ifndef __Eaagles_Mainy1_TestIoHandler_H__
+#define __Eaagles_Mainy1_TestIoHandler_H__
 
 #include "openeaagles/basic/IoHandler.h"
 

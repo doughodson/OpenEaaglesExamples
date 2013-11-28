@@ -13,7 +13,7 @@
 #include "SpdLines.h"
 
 namespace Eaagles {
-namespace Y1 {
+namespace xPanel {
 
 Basic::Object* formFunc(const char* formname)
 {
@@ -46,5 +46,6 @@ Basic::Object* formFunc(const char* formname)
     return newform;
 }
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
+

@@ -12,7 +12,7 @@
 #include "openeaagles/basic/Hsv.h"
 
 namespace Eaagles {
-namespace Y1 {
+namespace xPanel {
 
 IMPLEMENT_SUBCLASS(DspRadar,"DspRadar")
 EMPTY_SLOTTABLE(DspRadar)
@@ -226,5 +226,6 @@ void DspRadar::drawFunc()
    glColor4dv(ocolor);
 }
 
-} // End Y1 namespace
+} // End xPanel namespace
 } // End Eaagles namespace
+
