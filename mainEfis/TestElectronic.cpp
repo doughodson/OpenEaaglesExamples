@@ -341,7 +341,7 @@ void TestElectronic::updateTestValues(const LCreal dt)
         etRate = -etRate;
     }
     
-    // windspeed and direction
+    // wind speed and direction
     windDir += 10 * dt;
     if (windDir > 360) windDir = 0;
     

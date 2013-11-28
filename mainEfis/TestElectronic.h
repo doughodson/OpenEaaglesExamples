@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: TestElectronic
 //
-// Description: Rockwell-Collins Efis test page to stimulate the EFIS arc mode.
+// Description: Rockwell-Collins Efis test page to stimulate arc mode.
 //------------------------------------------------------------------------------
 #ifndef __OPENEAAGLES_MAINEFIS_TESTELECTRONIC_H__
 #define __OPENEAAGLES_MAINEFIS_TESTELECTRONIC_H__

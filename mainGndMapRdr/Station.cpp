@@ -96,6 +96,6 @@ Basic::Object* TestStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End Maingm namespace
+} // End MainGndMapRdr namespace
 } // End Eaagles namespace
 

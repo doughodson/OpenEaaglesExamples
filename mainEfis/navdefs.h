@@ -1,6 +1,6 @@
 // Definition of NAV modes and types
-#ifndef __OPENEAAGLES_MAINEFIS_NAVDEFS_H__
-#define __OPENEAAGLES_MAINEFIS_NAVDEFS_H__
+#ifndef __Eaagles_MainEfis_NAVDEFS_H__
+#define __Eaagles_MainEfis_NAVDEFS_H__
 
 namespace Eaagles {
 namespace MainEfis {
@@ -38,5 +38,4 @@ namespace MainEfis {
 }; // end MainEfis namespace 
 }; // end Eaagles namespace
 
-
-#endif // __OPENEAAGLES_MAINEFIS_NAVDEFS_H__
+#endif

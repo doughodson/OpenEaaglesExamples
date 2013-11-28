@@ -9,7 +9,7 @@ namespace Eaagles {
 namespace mainFltk1 {
 
 // ----------------------------------------------------------------------------
-// windowCallback() - called when Mainwindow wants to exit
+// windowCallback() - called when MainWindow wants to exit
 // ----------------------------------------------------------------------------
 static void windowCallback(Fl_Widget*, void* data) {
     // have to handle our own exiting.
