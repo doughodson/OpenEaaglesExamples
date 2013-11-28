@@ -3,6 +3,7 @@
 vs2008/
 vs2010/
 vs2012/
+vs2013/
 codeblocks/
 codelite/
 
@@ -66,8 +67,8 @@ testEvents/testEvents
 testIo/testIo
 testLinearSys/testLinearSys
 testMatrix/testMatrix
-testNav/testNav
-testNet/testNet
+testNavigation/testNavigation
+testNetHandler/testNetHandler
 testRecordData/testRecordData
 testRecorderRead/testRecorderRead
 testRecorderWrite/testRecorderWrite

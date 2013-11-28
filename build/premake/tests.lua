@@ -69,16 +69,16 @@ project "testLinearSys"
       links {"oeLinearSys_d", "oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testNav
-project "testNav"
-   targetname "testNav"
-   targetdir "../../testNav"
-   debugdir "../../testNav"
+-- testNavigation
+project "testNavigation"
+   targetname "testNavigation"
+   targetdir "../../testNavigation"
+   debugdir "../../testNavigation"
    files {
-      "../../testNav/**.cpp",
-      "../../testNav/**.h",
-      "../../testNav/**.epp",
-      "../../testNav/**.edl"
+      "../../testNavigation/**.cpp",
+      "../../testNavigation/**.h",
+      "../../testNavigation/**.epp",
+      "../../testNavigation/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
@@ -111,16 +111,16 @@ project "testMatrix"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testNet
-project "testNet"
-   targetname "testNet"
-   targetdir "../../testNet"
-   debugdir "../../testNet"
+-- testNetHandler
+project "testNetHandler"
+   targetname "testNetHandler"
+   targetdir "../../testNetHandler"
+   debugdir "../../testNetHandler"
    files {
-      "../../testNet/**.cpp",
-      "../../testNet/**.h",
-      "../../testNet/**.epp",
-      "../../testNet/**.edl"
+      "../../testNetHandler/**.cpp",
+      "../../testNetHandler/**.h",
+      "../../testNetHandler/**.epp",
+      "../../testNetHandler/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
@@ -131,7 +131,6 @@ project "testNet"
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
-
 
 -- testRecordData
 project "testRecordData"
@@ -146,7 +145,7 @@ project "testRecordData"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libMyRecorder", "libY1Panel" }
+   links       { "libxDataRecorder", "libxPanel" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim" }
@@ -180,7 +179,7 @@ project "testRecorderRead"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libMyRecorder" }
+   links       { "libxDataRecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
@@ -202,7 +201,7 @@ project "testRecorderWrite"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libMyRecorder" }
+   links       { "libxDataRecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
@@ -293,3 +292,4 @@ project "testTimer"
    configuration "Debug"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
+

@@ -514,7 +514,7 @@ void TestElectronic::updateData(const LCreal dt)
             // course pointer color
             Basic::String* string = new Basic::String("white");
             if (navType == VORTAC) {
-                if ((vhfReceive && !(vhfDIC || vhfLGS)) || vhfLocValid && vhfLGS) string->setStr("green");
+                if ((vhfReceive && !(vhfDIC || vhfLGS)) || (vhfLocValid && vhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
             }
             else {
@@ -538,7 +538,7 @@ void TestElectronic::updateData(const LCreal dt)
             // course pointer color
             Basic::String* string = new Basic::String("white");
             if (secNavType == VORTAC) {
-                if ((secVhfReceive && !(secVhfDIC || secVhfLGS)) || secVhfLocValid && secVhfLGS) string->setStr("green");
+                if ((secVhfReceive && !(secVhfDIC || secVhfLGS)) || (secVhfLocValid && secVhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
             }
             else {

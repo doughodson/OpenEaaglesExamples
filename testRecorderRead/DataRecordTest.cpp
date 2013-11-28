@@ -1,10 +1,13 @@
-
+//------------------------------------------------------------------------------
+// Class: DataRecordTest
+//------------------------------------------------------------------------------
 #include "./DataRecordTest.h"
 
 #include "openeaagles/recorder/InputHandler.h"
 #include "openeaagles/recorder/OutputHandler.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
-#include "myRecorder/DataRecord.pb.h"
+
+#include "xDataRecorder/DataRecord.pb.h"
 
 namespace TestRecorder {
 

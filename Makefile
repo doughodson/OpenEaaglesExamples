@@ -1,8 +1,8 @@
 
 include makedefs
 
-# Libraries are first
-APPLICATIONS = src
+# shared libraries
+APPLICATIONS = shared-libs
 
 # graphic oriented examples
 APPLICATIONS += mainw
@@ -11,16 +11,16 @@ APPLICATIONS += mainfd1 mainfd2
 APPLICATIONS += mainEfis
 APPLICATIONS += mainGL
 
-# Non-real-time simulation
+# non-real-time simulation
 APPLICATIONS += mainNonRT1
 
 # terrain database loader
 APPLICATIONS += mainTerrain
 
-# AI development examples 
+# AI development examples
 APPLICATIONS += mainPuzzle1 mainPuzzle2
 
-# Ir example
+# IR example
 APPLICATIONS += mainIr
 
 # simple simulation examples
@@ -49,17 +49,17 @@ APPLICATIONS += testTimer
 # device I/O test program
 APPLICATIONS += testIo
 
-# Matrix test program
+# matrix test program
 APPLICATIONS += testMatrix
 
-# Random distributions tests
+# random distributions tests
 APPLICATIONS += testRng
 
-# Nav functions tests
-APPLICATIONS += testNav
+# navigation tests
+APPLICATIONS += testNavigation
 
-# network testing
-APPLICATIONS += testNet
+# network handler testing
+APPLICATIONS += testNetHandler
 
 # linear systems package
 APPLICATIONS += testLinearSys
@@ -99,5 +99,4 @@ clean:
 	    echo $@ in $$subdir; \
 	    (cd $$subdir && $(MAKE) $@) || exit 1; \
 	done
-
 

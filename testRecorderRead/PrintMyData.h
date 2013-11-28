@@ -1,20 +1,21 @@
 //------------------------------------------------------------------------------
 // Class: PrintMyData
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_TestRecorder_PrintMyData_H__
-#define __Eaagles_TestRecorder_PrintMyData_H__
+#ifndef __TestRecorder_PrintMyData_H__
+#define __TestRecorder_PrintMyData_H__
 
 #include "openeaagles/recorder/PrintHandler.h"
 
 namespace TestRecorder {
 
 //------------------------------------------------------------------------------
-// Class:   PrintMyData
+// Class: PrintMyData
 // Description: Print my extended recorder data
 //
 // Form name: PrintMyData
 //------------------------------------------------------------------------------
-class PrintMyData : public Eaagles::Recorder::PrintHandler {
+class PrintMyData : public Eaagles::Recorder::PrintHandler
+{
     DECLARE_SUBCLASS(PrintMyData, Eaagles::Recorder::PrintHandler)
 
 public:
@@ -31,3 +32,4 @@ private:
 } // End TestRecorder namespace
 
 #endif
+

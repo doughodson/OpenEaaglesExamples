@@ -1,0 +1,548 @@
+
+#define EADI_X  0.5
+#define EADI_Y -0.5
+#define EADI_SCALE  0.6
+
+#define SA_X  3.5
+#define SA_Y  1.5
+#define SA_SCALE  0.7
+
+#define RADAR_X -3.5
+#define RADAR_Y -2.0
+
+#define RWR_X -3.5
+#define RWR_Y  2.0
+#define RWR_SCALE 0.9
+
+display:
+( TestDisplay
+
+   idleSleepTime: 50
+
+   left:       -5.0
+   right:       5.0
+   bottom:     -3.0
+   top:         3.0
+   near:       -2.0
+   far:         2.0
+
+   vpWidth:    1280
+   vpHeight:   768
+        
+    colorTable: {
+        black:      ( rgba 0 0 0 )
+        red:        ( rgb 1 0 0 )
+        green:      ( rgb 0 1 0 )
+        yellow:     ( rgb 1 1 0 )
+        blue:       ( rgb 0 0 1 )
+        magenta:    ( rgb 1 0 1 )
+        brown:      ( rgb 0.392 0.271 0.1568 )
+        white:      ( rgb 1 1 1 )
+        gray:       ( rgb 0.4 0.4 0.4 )
+        // adi sky - this color is very specific, so it is labeled as such
+        adiCyan:    ( rgb 0.792 0.835 0.8117 )
+        cyan:       ( rgb 0 1 1 )
+        gray2:      ( rgb 0.2 0.2 0.2 )
+        amber:      ( rgb 1 0.5 0 )
+        sky:        ( rgb 0 0.407 0.545 )
+        adibrown:   ( rgb 0.3961 0.1725 0.2235 )
+        adiblue:    ( rgb 0.0235 0.01176 0.988 )
+        gray1:      ( rgb 0.1 0.1 0.1 )
+        gray8:      ( rgb 0.8 0.8 0.8 )
+    }
+
+   clearColor: ( hsv 240.0 0.6 0.1 )
+   clearDepth: 1.0
+
+    textures: {
+        t1:  ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "Mesh.bmp" )
+        t2: ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH  file: "Green_Veined_Marble.bmp" )
+    }
+    
+    // materials
+    materials: {
+        m1: ( Material diffuseColor: { 0 0.5 1 } emissiveColor: { 0.25 0 0 } specularColor: { 1 1 1 } shininess: 128 )
+        m2: ( Material diffuseColor: { 1 0.5 0.2 } specularColor: { 0.4 0.3 0.4 } shininess: 50 ) 
+        m3: ( Material diffuseColor: { 0.2 0.6 0.1 } specularColor: { 0.2 0.4 0.4 } shininess: 50 ) 
+        m4: ( Material diffuseColor: { 1 1 1 } specularColor: { 1 1 1 } emissiveColor: { 0.1 0 0 } shininess: 50 ) 
+        m5: ( Material ambientColor: { 0 0 0 } diffuseColor: { 0.7 0.29 0.8 } specularColor: { 0.5 0.5 0.5 } shininess: 128 ) 
+        m6: ( Material diffuseColor: { 0.2 0.2 0.2 } specularColor: { 0.5 0.5 0.5 } shininess: 50 ) 
+        m7: ( Material diffuseColor: { 0.1 0.5 1 } specularColor: { 0.8 0.8 0.8 } shininess: 50 ) 
+        m8: ( Material diffuseColor: { 0.8 0.9 0.3 } specularColor: { 1 1 1 } shininess: 128 ) 
+        m9: ( Material diffuseColor: { 1 0.5 1 } emissiveColor: { 0 0.75 0 } specularColor: { 0.5 1 1 } shininess: 25 ) 
+    }
+
+   fonts: {
+
+      font1: ( FTGLPolygonFonts 
+         fontPosition: [ -2.7 2.0 ]
+         path: FONT_PATH
+         file: "arialn.ttf"
+         fontWidth: 0.2
+         fontHeight: 0.2
+         faceSize: 1
+         characterSpacing: 0.1
+         lineSpacing: 0.16
+      )
+
+      font2: ( FTGLPolygonFonts 
+         path: FONT_PATH
+         file: "arialn.ttf"
+         fontWidth: 1
+         fontHeight: 1
+         faceSize: 1
+         characterSpacing: 0.08
+         lineSpacing: 0.16
+      )
+
+        // normal font for the instruments
+        instnormfont: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -10.5 10.5 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 1
+            fontHeight: 1
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+
+        // reverse font for the instruments
+        instrevfont: 
+        (FTGLPolygonFonts
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 1
+            fontHeight: 1
+            characterSpacing: 0.5
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+
+        // special font for the instruments
+        instspecfont:
+        ( FTGLPolygonFonts 
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 1          // Font width scaling 
+            fontHeight: 1         // Font height scaling 
+            characterSpacing: 1   // This font is 2:1 (height:widht) or (lineSpaceing:charSpacing)
+            lineSpacing: 1
+            path: FONT_PATH
+            file: "arialn.ttf"      
+        )
+
+        // normal font
+        pfdnormfont: 
+        ( FTGLPolygonFonts 
+            fontPosition: [ -3.1 4.15 ]
+            path: FONT_PATH
+            file: "arialn.ttf"
+            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+            fontWidth: 0.189
+            fontHeight: 0.189
+            faceSize: 1
+            characterSpacing: 0.0945
+            lineSpacing: 0.15
+        )
+
+        // special font 
+        pfdspecfont: 
+        ( FTGLPolygonFonts 
+            path: FONT_PATH
+            file: "arialn.ttf"
+            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+            fontWidth: 0.189
+            fontHeight: 0.189
+            faceSize: 1
+            characterSpacing: 0.0945
+            lineSpacing: 0.15
+        )
+
+   }
+   normalFont: font1
+
+   linewidth: 2.0
+
+   // ---
+   // Graphical components
+   // ---
+   components: {
+
+        ( Graphic
+            transform: { ( Translation EADI_X EADI_Y ) ( Scale EADI_SCALE ) }
+            components: {
+                #include "pfd/pfd.epp"
+            }
+        )
+
+      ( Graphic       // RWR
+         transform: { ( Translation RWR_X RWR_Y -0.5 ) ( Scale RWR_SCALE ) }
+         components: {
+            ( AsciiText color: white transform: ( Translation 0 -1.3 ) text: "RWR" )
+            ( AsciiText color: white transform: ( Translation 0 -1.5 ) text: "Signal(log10)" )
+            ( Graphic   // background display
+               components: {
+                  ( Circle color: ( hsv 120.0 0.5 0.0 ) radius: 1.0  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+                  ( Circle color: white radius: 0.01 slices: 4 )
+                  ( Circle color: white radius: 0.2  slices: 25 )
+                  ( Circle color: white radius: 0.4  slices: 25 )
+                  ( Circle color: white radius: 0.6  slices: 25 )
+                  ( Circle color: white radius: 0.8  slices: 25 )
+                  ( Circle color: white radius: 1.0  slices: 50 )
+                  ( Line   color: white  vertices: { [ 0 0 ] [ 0 1 ] } )
+               }
+             )
+             ( DspRwr  color: red )
+         }
+      )
+
+      ( Graphic       // RADAR
+         transform: { ( Translation RADAR_X RADAR_Y ) ( Scale 1.4 1.0 ) }
+         components: {
+
+            ( AsciiText color: white  transform: ( Translation -1.1 -0.2 ) text: "-30" )
+            ( AsciiText color: white  transform: ( Translation  0.9 -0.2 ) text: "30" )
+            ( AsciiText color: white  transform: ( Translation -1.0 -0.4 ) text: "B-Scan" )
+            rangeRO: ( NumericReadout color: white transform: ( Translation 1.1 1.5 ) format: "0##" )
+            ( AsciiText color: white  transform: ( Translation 1.1 1.3 ) vertical: true  text: "RANGE" )
+
+            ( Line
+               color: white
+               segment: 1
+               vertices: {
+                  [ -1.0   0.0 ] [ -1.0    2.0 ]      // Left Side
+                  [  1.0   0.0 ] [  1.0    2.0 ]      // Right Side
+                  [ -1.0   0.0 ] [  1.0    0.0 ]      // Bottom
+                  [ -1.0   0.0 ] [ -1.0   -0.05 ]     // Left Az tic
+                  [ -0.67  0.0 ] [ -0.67  -0.05 ]     // Left Az tic
+                  [ -0.33  0.0 ] [ -0.33  -0.05 ]     // Left Az tic
+                  [  0.0   0.0 ] [  0.0   -0.05 ]     // Center Az tic
+                  [  1.0   0.0 ] [  1.0   -0.05 ]     // Right Az tic
+                  [  0.67  0.0 ] [  0.67  -0.05 ]     // Right Az tic
+                  [  0.33  0.0 ] [  0.33  -0.05 ]     // Right Az tic
+                  [ -1.0   1.0 ] [ -1.05   1.0 ]      // Elev tic
+               }
+            )
+            ( DspRadar 
+               color: red
+               components: {
+                  azPtr: ( TdAzPtr
+                     transform: ( Translation 0.0 -0.03 )
+                     components: {
+                        ( Line color: blue vertices: { [ 0 0 ] [ 0 -0.07 ] } )
+                     }
+                  )
+                  elPtr: ( TdElevPtr
+                     transform: ( Translation -1.03 1.0 )
+                     components: {
+                        ( Line color: blue vertices: { [ -0.07 0 ] [ 0 0 ] } )
+                     }
+                  )
+               }
+            )
+         }
+      )
+
+
+#define AIRTRACK_SYM_SCALE  0.8
+#define AIR_TRACKS_RADIUS   1.8
+
+      ( Graphic
+         transform: { ( Translation SA_X SA_Y -0.5 ) ( Scale SA_SCALE ) }
+         components: {
+
+            ( Circle selectName: 0x1001 color: ( hsv 100.0 0.9 0.0 ) radius: AIR_TRACKS_RADIUS  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+            ( Circle selectName: 0x1002 color: white radius: AIR_TRACKS_RADIUS  slices: 50  )
+            ( Circle selectName: 0x1003 color: white radius: 0.9  slices: 50  )
+
+            hsi1:
+            ( Rotators
+               color: white
+               components: {
+                  ( DialTickMarks
+                        color: white
+                        quantity: 36
+                        length:  0.1
+                        dialRadius: AIR_TRACKS_RADIUS
+                  )
+                  ( DialTickMarks
+                        color: white
+                        startAngle: 5
+                        sweepAngle: 360
+                        quantity: 36
+                        length: 0.05
+                        dialRadius: AIR_TRACKS_RADIUS
+                  )
+                  ( Graphic 
+                        components: {
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "N"
+                           ) 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -0.523598 ) ( Translation -0.05 1.5 ) ( Scale 0.14 ) }
+                              text: "3"
+                           )             
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -1.0471975 ) ( Translation -0.05 1.5 ) ( Scale 0.14 ) }
+                              text: "6"
+                           )                         
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -1.570796 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "E"
+                           )
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -2.094395 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "12"
+                           )                                     
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -2.617993 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "15"
+                           )                                                 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -3.141592 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "S"
+                           )
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -3.665191 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "21"
+                           )                                                 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -4.188790 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "24"
+                           )                                                 
+                            
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -4.712388 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "W"
+                           )     
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -5.235987 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "30"
+                           )  
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -5.759586 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "33"
+                           )
+                        }
+                  )
+               }
+            )
+            ( Line
+               segment: 1
+               vertices: {
+                  [  0.0  -0.15 ]  [  0.0  0.05 ]
+                  [  0.1   0.0  ]  [ -0.1  0.0  ]
+               }
+            )
+         }
+      )
+
+      // Air tracks ..
+      airTracks1:
+      ( SymbolLoader
+         outerRadius: AIR_TRACKS_RADIUS
+         transform: { ( Translation SA_X SA_Y -0.5 ) ( Scale SA_SCALE ) }
+
+         // load our templates for each graphic
+         templates: {
+
+            // Friendly track
+            1: ( Graphic
+                  color: green
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.0402 -0.0402 ]
+                                    [ -0.0402  0.0134 ]
+                                    [ -0.0201  0.0402 ]
+                                    [  0.0201  0.0402 ]
+                                    [  0.0402  0.0134 ]
+                                    [  0.0402 -0.0402 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+
+            // foe track
+            2: ( Graphic
+                  color: red
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.05226  -0.0402 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.0402 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+
+
+            // neutral tracks
+            3: ( Graphic
+                  color: white
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.02747  -0.03149 ]
+                                    [ -0.05226  -0.00871 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.00871 ]
+                                    [  0.02747  -0.03149 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+
+            // unknown tracks
+            4: ( Graphic
+                  color: ( rgba 1.0 0.5 0.0 1.0 )
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.02747  -0.03149 ]
+                                    [ -0.05226  -0.00871 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.00871 ]
+                                    [  0.02747  -0.03149 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+
+            // Missile track
+            5: ( Graphic
+                  color: white
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                           hdg: ( Rotators
+                              components: {
+                                 ( Line
+                                       vertices: {
+                                          [ 0.0 -0.05 ]
+                                          [ 0.0  0.05 ]
+                                       }
+                                 )
+                              }
+                           )
+                        }
+                     )
+                  }
+            )
+         } // end of template
+      ) 
+
+       ( Polygon
+          transform: ( Translation 0 0 -1.5 )
+           noDisplayList: 1
+           color: ( rgba 0 0 0 0.2 )
+           texture: t2
+           vertices: {
+               [  5  3 ]
+               [ -5  3 ]
+               [ -5 -3 ]
+               [  5 -3 ]
+           }
+            texCoord: {
+                [  15.0  9.0 ]
+                [  0.0  9.0 ]
+                [  0.0  0.0 ]
+                [  15.0  0.0 ]
+            }
+       )
+
+   }
+
+)
+

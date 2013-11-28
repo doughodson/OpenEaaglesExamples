@@ -8,8 +8,8 @@ networks: {
     enableInput: 1
     enableOutput: 1
     enableRelay: 0
-    netInput:  ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  ignoreSourcePort: 3001 shared: true )
-    netOutput: ( BroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  localPort: 3001        shared: true )
+    netInput:  ( UdpBroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  ignoreSourcePort: 3001 shared: true )
+    netOutput: ( UdpBroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  localPort: 3001        shared: true )
 
     // Example emission handler list
     emissionPduHandlers: {

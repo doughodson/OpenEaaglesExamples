@@ -1,0 +1,675 @@
+// pitch ladder for the secondary PFD adi
+( Graphic
+    linewidth: 2
+    components: {
+horizonbar: ( Line
+                color: white
+                linewidth: 2
+                transform: ( Translation 0.0 0.0 )
+                vertices: {
+                    [ -5.0 0.0 ]
+                    [ 5.0 0.0 ]
+                }
+            )
+            // 2.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 0.23 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // 5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 0.46 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )     
+            // 7.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 0.69 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // 10 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 0.92 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 10 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 0.84 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 0.84 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            // 12.5 
+            ( Line
+                color: white
+                transform: ( Translation 0 1.15 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )     
+            // 15 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 1.38 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )
+
+            // 17.5 
+            ( Line
+                color: white
+                transform: ( Translation 0 1.61 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+
+            // 20 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 1.84 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+
+            // 20 degree readouts
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 1.76 ) ( Scale 1.4 ) }
+                font: pfdnormfont
+                text: "20" 
+            )
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 1.76 ) ( Scale 1.4 ) }
+                font: pfdnormfont
+                text: "20" 
+            )
+            // 22.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 2.07 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // 25 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 2.3 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )
+
+            // 27.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 2.53 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+
+            // 30 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 2.76 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 30 degree readouts
+            ( AsciiText
+                color: ( rgb 0.8 0.8 0.8 )
+                font: pfdnormfont
+                transform: { ( Translation 0.7 2.68 ) ( Scale 1.4 ) }
+                text: "30" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 2.68 ) ( Scale 1.4 ) }
+                text: "30" 
+            ) 
+            // 32.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 2.99 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // 35 degree
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 3.22 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )                  
+            // 37.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 3.45 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // 40 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 3.68 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 40 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 3.6 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 3.6 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            // 42.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 3.91 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )            
+            // 45 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 4.14 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )   
+            // 47.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 4.37 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )            
+            // 50 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 4.6 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 50 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 4.52 ) ( Scale 1.4 ) }
+                text: "50" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 4.52 ) ( Scale 1.4 ) }
+                text: "50" 
+            )     
+            // 52.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 4.83 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )             
+            // 55 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 5.06 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )
+            // 57.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 5.29 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )             
+            // 60 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 5.52 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 60 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 5.44 ) ( Scale 1.4 ) }
+                text: "60" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 5.44 ) ( Scale 1.4 ) }
+                text: "60" 
+            )   
+            // 62.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 5.75 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+            // 65 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 5.98 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )   
+            // 67.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 6.21 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+            // 70 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 6.44 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 70 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 6.36 ) ( Scale 1.4 ) }
+                text: "70" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 6.36 ) ( Scale 1.4 ) }
+                text: "70" 
+            )     
+            // 72.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 6.67 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+            // 75 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 6.9 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )   
+            // 77.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 7.13 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+                 
+            // 80 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 7.36 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // 80 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 7.28 ) ( Scale 1.4 ) }
+                text: "80" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 7.28 ) ( Scale 1.4 ) }
+                text: "80" 
+            )         
+            
+            // -2.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -0.23 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // -5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -0.46 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )     
+            // -7.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -0.69 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // -10 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -0.92 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -10 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -1 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -1 ) ( Scale 1.4 ) }
+                text: "10" 
+            )
+            // -12.5 
+            ( Line
+                color: white
+                transform: ( Translation 0 -1.15 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )     
+            // -15 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -1.38 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )
+                 
+            // -17.5 
+            ( Line
+                color: white
+                transform: ( Translation 0 -1.61 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+                 
+            // -20 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -1.84 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            
+            // -20 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -1.92 ) ( Scale 1.4 ) }
+                text: "20" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -1.92 ) ( Scale 1.4 ) }
+                text: "20" 
+            )
+            // -22.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -2.07 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // -25 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -2.3 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )
+            
+            // -27.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -2.53 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            
+            // -30 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -2.76 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -30 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -2.84 ) ( Scale 1.4 ) }
+                text: "30" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -2.84 ) ( Scale 1.4 ) }
+                text: "30" 
+            ) 
+            // -32.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -2.99 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // -35 degree
+            ( Line
+                color: white
+                segment: 1
+                transform: ( Translation 0 -3.22 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )                  
+            // -37.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -3.45 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )
+            // -40 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -3.68 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -40 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -3.76 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -3.76 ) ( Scale 1.4 ) }
+                text: "40" 
+            )
+            // -42.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -3.91 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )            
+            // -45 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -4.14 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )   
+            // -47.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -4.37 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )            
+            // -50 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -4.6 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -50 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -4.68 ) ( Scale 1.4 ) }
+                text: "50" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -4.68 ) ( Scale 1.4 ) }
+                text: "50" 
+            )     
+            // -52.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -4.83 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )             
+            // -55 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -5.06 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )
+            // -57.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -5.29 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )             
+            // -60 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -5.52 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -60 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -5.6 ) ( Scale 1.4 ) }
+                text: "60" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -5.6 ) ( Scale 1.4 ) }
+                text: "60" 
+            )   
+            // -62.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -5.75 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+            // -65 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -5.98 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )   
+            // -67.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -6.21 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+            // -70 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -6.44 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -70 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -6.52 ) ( Scale 1.4 ) }
+                text: "70" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -6.52 ) ( Scale 1.4 ) }
+                text: "70" 
+            )     
+            // -72.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -6.67 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+            // -75 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -6.9 )
+                vertices: { [ -0.47 0 ] [ 0.47 0 ] }
+            )   
+            // -77.5 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -7.13 )
+                vertices: { [ -0.17 0 ] [ 0.17 0 ] }
+            )                        
+                 
+            // -80 degree
+            ( Line
+                color: white
+                transform: ( Translation 0 -7.36 )
+                vertices: { [ 0.64 0.0 ] [ -0.64 0 ] }
+            )
+            // -80 degree readouts
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation 0.7 -7.44 ) ( Scale 1.4 ) }
+                text: "80" 
+            )
+            ( AsciiText
+                font: pfdnormfont
+                color: ( rgb 0.8 0.8 0.8 )
+                transform: { ( Translation  -0.9425 -7.44 ) ( Scale 1.4 ) }
+                text: "80" 
+            )               
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    nadir: ( Graphic
+                transform: ( Translation 0.0 -8.28 )
+                color: black
+                linewidth: 2
+                components: {
+                    ( Circle radius: 0.12796875 )
+                    ( Line vertices: { [ 0.0 0.12796875 ] [ 0.0 0.38390625 ] } )
+                }
+            ) // end of nadir graphic
+                
+    zenith: ( Graphic
+                transform: ( Translation 0.0 8.28 ) 
+                color: black
+                linewidth: 2
+                components: {
+                    ( LineLoop
+                        vertices: { 
+                            [ 0.0 -0.463125 ]
+                            [ 0.02827  -0.0378523 ]
+                            [ 0.14625 0.0 ]
+                            [ 0.02545  0.0378523 ]
+                            [ 0.0 0.195 ]
+                            [ -0.02545 0.0378523 ]
+                            [ -0.14625 0.0 ]
+                            [ -0.02827 -0.0378523 ]
+                            [ 0.0 -0.463125 ]
+                        }
+                    )
+                }
+            ) // end of zenith graphic      
+            
+    backsky:( Polygon 
+                color: (rgb 0.2 0.4 0.6 )
+                transform: ( Translation 0 0 -0.1 )
+                vertices: {
+                    [ -12.0 0.0 ] 
+                    [ -12.0 12.0 ]
+                    [  12.0 12.0 ]
+                    [  12.0 0.0 ]
+                }
+            )
+    background: ( Polygon
+                    transform: ( Translation 0 0 -0.1 )
+                    color: brown
+                    vertices: {
+                        [ -12.0 0.0 ]
+                        [ -12.0 -12.0 ]
+                        [ 12.0 -12.0 ]
+                        [ 12.0 0.0 ]
+                    }
+                )
+    }
+)
+

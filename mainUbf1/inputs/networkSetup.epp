@@ -15,14 +15,14 @@ networks: {
       enableOutput: 1
       enableRelay: 0
       
-      //netInput:  ( MulticastHandler multicastGroup: "224.9.9.2" port: 3000  )
-      //netOutput: ( MulticastHandler multicastGroup: "224.9.9.2" port: 3000 localPort: 3221 )
+      //netInput:  ( UdpMulticastHandler multicastGroup: "224.9.9.2" port: 3000  )
+      //netOutput: ( UdpMulticastHandler multicastGroup: "224.9.9.2" port: 3000 localPort: 3221 )
       
-      netInput:  ( BroadcastHandler localIpAddress: MY_IP networkMask: MY_NETMASK port: 3000 shared: true )
-      netOutput: ( BroadcastHandler localIpAddress: MY_IP networkMask: MY_NETMASK port: 3000 localPort: 3001 shared: true )
+      netInput:  ( UdpBroadcastHandler localIpAddress: MY_IP networkMask: MY_NETMASK port: 3000 shared: true )
+      netOutput: ( UdpBroadcastHandler localIpAddress: MY_IP networkMask: MY_NETMASK port: 3000 localPort: 3001 shared: true )
 
 
-		// DIS entity type files
+      // DIS entity type files
       #include "disIncomingEntityTypes.epp"
       #include "disOutgoingEntityTypes.epp"
    )

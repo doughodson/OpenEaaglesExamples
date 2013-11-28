@@ -2,52 +2,52 @@
 -- creating the example libraries
 --------------------------------------------------------------------------------
 
-    --  Example extended data recorder library
-    project "libMyRecorder"
-      kind "StaticLib"
-      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
-      targetdir (OEExamplesLibPath)
-      files {
-         "../../src/myRecorder/*.cpp",
-         "../../src/myRecorder/*.cc",
-         "../../include/myRecorder/*.h",
-         "../../include/myRecorder/*.proto",
-      }
-      defines { "_LIB" }
-      configuration "Release"
-         targetname "myRecorder"
-      configuration "Debug"
-         targetname "myRecorder_d"
-
-
-    --  Example UBF plane behaviors library
-    project "libPlaneBehaviors"
+    --  eXample UBF behaviors library
+    project "libxBehaviors"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../src/planeBehaviors/*.cpp",
-         "../../include/planeBehaviors/*.h",
+         "../../shared-libs/xBehaviors/*.cpp",
+         "../../shared-libs/xBehaviors/*.h",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "planeBehaviors"
+         targetname "xBehaviors"
       configuration "Debug"
-         targetname "planeBehaviors_d"
+         targetname "xBehaviors_d"
 
+    --  eXample library that extends the data recorder
+    project "libxDataRecorder"
+      kind "StaticLib"
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      targetdir (OEExamplesLibPath)
+      files {
+         "../../shared-libs/xDataRecorder/*.cpp",
+         "../../shared-libs/xDataRecorder/*.cc",
+         "../../shared-libs/xDataRecorder/*.h",
+         "../../shared-libs/xDataRecorder/*.proto",
+      }
+      defines { "_LIB" }
+      configuration "Release"
+         targetname "xDataRecorder"
+      configuration "Debug"
+         targetname "xDataRecorder_d"
 
-    --  Y1 Panel library -- common instrument panel code for several examples
-    project "libY1Panel"
+    --  eXample Panel library -- common instrument panel code for several examples
+    project "libxPanel"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../src/y1panel/*.cpp",
-         "../../include/y1panel/*.h",
-         "../../include/y1panel/**.epp",
+         "../../shared-libs/xPanel/*.cpp",
+         "../../shared-libs/xPanel/*.h",
+         "../../shared-libs/xPanel/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "y1Panel"
+         targetname "xPanel"
       configuration "Debug"
-         targetname "y1Panel_d"
+         targetname "xPanel_d"
+
+

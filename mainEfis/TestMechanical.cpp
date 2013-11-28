@@ -230,8 +230,8 @@ void TestMechanical::updateData(const LCreal dt)
     }
     
     // test our gryo flag
-    bool gryoFlag = false;
-    if (cmdRoll < 1) gryoFlag = true; 
+    //bool gryoFlag = false;
+    //if (cmdRoll < 1) gryoFlag = true; 
 
     // test our computer flag (cmptr)
     cmptrFail = false;
@@ -283,7 +283,7 @@ void TestMechanical::updateData(const LCreal dt)
         locDotsRate = -locDotsRate;
     }
 
-    bool gsIsValid = true;
+//    bool gsIsValid = true;
     gsFail = false;
     // glideslope stuff
     gsDots += (gsDotsRate * dt);
@@ -297,11 +297,11 @@ void TestMechanical::updateData(const LCreal dt)
     }
     // test our validity and flag 
     if (gsDots < 1) gsFail = true;
-    if (gsDots < -2) gsIsValid = false;
+//    if (gsDots < -2) gsIsValid = false;
 
     // speed dots
     sdFail = false;
-    bool sdIsValid = true;
+//    bool sdIsValid = true;
     speedDots += speedDotsRate * dt;
     if (speedDots > 3) {
         speedDots = 3;
@@ -312,7 +312,7 @@ void TestMechanical::updateData(const LCreal dt)
         speedDotsRate = -speedDotsRate;
     }
     // validity and failure checks
-    if (speedDots < -2) sdIsValid = false;
+//    if (speedDots < -2) sdIsValid = false;
     if (speedDots > 2) sdFail = true;
 
     // ga light

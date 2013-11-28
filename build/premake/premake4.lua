@@ -23,12 +23,12 @@ OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
 --
 -- set include and library paths
 --
-if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
+if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/".._ACTION
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
-   OEExamplesIncPath = "../../include"
+   OEExamplesIncPath = "../../shared-libs"
    OEExamplesLibPath = "../../lib/".._ACTION
 end
 if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
@@ -36,7 +36,7 @@ if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
    OELibPath         = OE_ROOT.."/lib/mingw"
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/mingw-32"
-   OEExamplesIncPath = "../../include"
+   OEExamplesIncPath = "../../shared-libs"
    OEExamplesLibPath = "../../lib/mingw"
 end
 print ("OpenEaagles Paths:")
@@ -50,6 +50,11 @@ print ("  Include   :"..OEExamplesIncPath)
 print ("  Libraries :"..OEExamplesLibPath)
 
 locationPath  = "../" .. _ACTION
+
+-- for now, premake does not support this action, so use 2012 instead
+if (_ACTION == "vs2013") then
+   _ACTION = "vs2012"
+end
 
 --
 -- 3rd party library names

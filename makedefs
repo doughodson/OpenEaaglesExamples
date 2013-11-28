@@ -36,14 +36,14 @@ FOX_LIBS    = -lFOX-1.6
 # ---
 # CPP flags
 # ---
-CPPFLAGS += -I${OE_EXAMPLES_ROOT}/include
+CPPFLAGS += -I${OE_EXAMPLES_ROOT}/shared-libs
 
 # ---
 # EPP flags
 # ---
 EPPFLAGS = \
 	-I$(DATA_DIR) \
-        -I${OE_ROOT}/../OpenEaaglesExamples/include \
+        -I${OE_ROOT}/../OpenEaaglesExamples/shared-libs \
 	-I$(OE_ROOT)/include \
 	-DDATA_PATH=\"$(DATA_DIR)\" \
 	-DFONT_PATH=\"$(DATA_DIR)/fonts/\" \

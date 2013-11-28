@@ -13,8 +13,8 @@ otw: {
       async: 0
 
       cigi: ( CigiClNetwork
-          netInput: ( UdpHandler localIpAddress: "127.0.0.1" ipAddress: "127.0.0.1" port: 8008 )
-          netOutput: ( UdpHandler localIpAddress: "127.0.0.1" ipAddress: "127.0.0.1" port: 8108 localPort: 8208 )
+          netInput: ( UdpUnicastHandler localIpAddress: "127.0.0.1" ipAddress: "127.0.0.1" port: 8008 )
+          netOutput: ( UdpUnicastHandler localIpAddress: "127.0.0.1" ipAddress: "127.0.0.1" port: 8108 localPort: 8208 )
       )
 
       // Include the models

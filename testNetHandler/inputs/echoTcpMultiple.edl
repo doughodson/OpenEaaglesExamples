@@ -1,0 +1,9 @@
+//
+// Echo endpoint
+//
+
+( Echo
+    noWait: false
+    netHandler:   ( TcpServerMultiple port: 3000 )
+)
+

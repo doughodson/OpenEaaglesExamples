@@ -1,6 +1,8 @@
+//
 // Electronic Modified Collins Rockwell Heading Speed Indicator (HSI Mode)
+// test program to feed the efis electronic hsi mode data
+//
 hsimode:
-// test program to fee the efis electronic hsi mode data
 ( TestElectronic
     pagingEvent: {
         n: arcmode
@@ -13,19 +15,19 @@ hsimode:
             text: "HSI MODE"
         )
         
-		// Label to tell us what test we are running
-		( AsciiText
+        // Label to tell us what test we are running
+        ( AsciiText
             transform: { ( Translation -2.9 -2.9 ) ( Scale 0.3 ) }
-			color: white
-			text: "testehsimode.epp"
-		) 
-        
+            color: white
+            text: "testehsimode.epp"
+        )
+
         // draw our background
         #include "electronic/hsimode/background.epp"
 
         // this is the heading bug readout
         headingbugro:
-        ( Translator 
+        ( Translator
             color: magenta
             components: {
                 bugro:
@@ -33,7 +35,7 @@ hsimode:
                     format: "00#"
                     inheritColor: 1
                     transform: { ( Translation 0 0.825 ) ( Scale 0.11 ) }
-                )    
+                )
             }
         )
 
@@ -56,12 +58,11 @@ hsimode:
             text: "INS2"
         )
 
-
         // distance readout
         ( Graphic
             components: {
                 distdatacolor:
-                ( Instrument                        
+                ( Instrument
                     components: {
                         distlabel:  
                         ( Rotary2
@@ -71,7 +72,7 @@ hsimode:
                                 ( AsciiText inheritColor: 1 transform: ( Scale 0.12 ) text: "DME"  ) // true
                             }
                         )
-                        distval:        
+                        distval:
                         ( NumericReadout
                             transform: { ( Translation -1.7 1.2 ) ( Scale 0.15 ) }
                             format: "###.#"
@@ -90,29 +91,29 @@ hsimode:
                     transform: { ( Translation 1.35 1.4 ) ( Scale 0.12 ) }
                     text: "CRS"
                 )
-                course:         
+                course:
                 ( NumericReadout
                     inheritColor: 1
                     transform: { ( Translation 1.35 1.2 ) ( Scale 0.15 ) }
                     format: "###"
                 )
             }
-        ) 
-        
+        )
+
         // the readout labels
-        whichlabel:         
+        whichlabel:
         ( Rotary
             components: {
                 ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "TTG" )  // 1
-                ( AsciiText inheritColor: 1 transform: { ( Translation 1.1 -1.25 ) ( Scale 0.12 ) } text: "GS" )    // 2
+                ( AsciiText inheritColor: 1 transform: { ( Translation 1.1  -1.25 ) ( Scale 0.12 ) } text: "GS"  )  // 2
                 ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "TAS" )  // 3
-                ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "ET" )   // 4
+                ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "ET"  )  // 4
                 ( AsciiText text: "" ) // 5
             }
         )
-        
+
         // readouts for our data labeled above
-        whichreadout:       
+        whichreadout:
         ( Rotary
             components: {
                 // time to go
@@ -136,7 +137,7 @@ hsimode:
                         // drift angle
                         driftangle:
                         ( NumericReadout
-                            transform: { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }                        
+                            transform: { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }
                             inheritColor: 1
                             format: "###"
                         )
@@ -149,8 +150,8 @@ hsimode:
                             }
                         )
                     }
-                )   
-    
+                )
+
                 // true air speed
                 trueairspeed: 
                 ( NumericReadout 
@@ -158,11 +159,11 @@ hsimode:
                     transform:  { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }
                     format: "###"
                 )
-                    
+
                 // elapsed time
                 ( Graphic
                     components: {
-                        whichelapsedtimero:      
+                        whichelapsedtimero:
                         ( Rotary2
                             components: {
                                 // time readout in hours and minutes
@@ -174,37 +175,37 @@ hsimode:
                                             transform: { ( Translation 1.08 -1.45 ) ( Scale 0.15 ) }
                                             text: "H"
                                         )
-                                        elapsedtimehour:    
+                                        elapsedtimehour:
                                         ( TimeReadout
                                             inheritColor: 1
                                             transform: { ( Translation 1.125 -1.45 ) ( Scale 0.15 ) }
                                             format: "HH:MM"
-                                        )   
+                                        )
                                     }
                                 )
                                 // time readout in minutes and seconds
-                                elapsedtimemin:   
+                                elapsedtimemin:
                                 ( TimeReadout
                                     inheritColor: 1
                                     transform: { ( Translation 1.125 -1.45 ) ( Scale 0.15 ) }
                                     format: "MM:SS"
-                                )   
+                                )
                             }
                         )
                     }
-                ) 
-        
+                )
+
                 // 5th choice is wind speed, direction, and drift angle
                 ( Graphic
                     components: {
                         // drift angle
                         driftanglewind:     
                         ( NumericReadout
-                            transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }                        
+                            transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }
                             inheritColor: 1
                             format: "###"
                         )
-                        
+
                         driftanglewindside:
                         ( Rotary2
                             transform: { ( Translation 1.6 -1.25 ) ( Scale 0.15 ) }
@@ -213,21 +214,21 @@ hsimode:
                                 ( AsciiText inheritColor: 1 text: "L" ) // 1
                             }
                         )
-                        
-                        winddirection:    
+
+                        winddirection:
                         ( NumericReadout
                             inheritColor: 1
                             format: "00#"
                             transform: { ( Translation 0.81 -1.45 ) ( Scale 0.15 ) }
                         )
-                        
+
                         ( AsciiText
                             inheritColor: 1
                             transform: { ( Translation 1.05 -1.45 ) ( Scale 0.15 ) }
                             text: "/"
                         )
-                        
-                        windspeed:    
+
+                        windspeed:
                         ( NumericReadout
                             inheritColor: 1
                             format: "###"
@@ -236,15 +237,15 @@ hsimode:
                             transform: { ( Translation 1.14 -1.45 ) ( Scale 0.15 ) }
                         )
                     }
-                )                                                          
+                )
             }
-        ) 
+        )
 
         // here is the bearing readout
         ( Graphic
             components: {
                 // bearing source
-                bearingsource:         
+                bearingsource:
                 ( Rotary
                     transform: { ( Translation -1.7 -1.42 ) ( Scale 0.15 ) }
                     components: {
@@ -272,15 +273,14 @@ hsimode:
                     value: 999
                 )
             }
-        )            
-
+        )
 
         // glideslope scale and pointer
         glideslope:
         ( Graphic
             color: green
             transform: ( Translation 1.65 0 )
-            components: {                
+            components: {
                 ( Line
                     vertices: {
                         [ 0 0.66 ]
@@ -340,12 +340,10 @@ hsimode:
                     }
                 )
             }
-        )        
+        )
         
         // include our compass
         #include "electronic/hsimode/compass.epp"
-
-
 
         // heading bug
         headingbug:
@@ -375,10 +373,8 @@ hsimode:
             }
         ) // end of heading bug
 
-
         // put in 2 from here.
 
-        
         // course pointer
         whichcourseptr:
         ( Rotary2
@@ -387,7 +383,6 @@ hsimode:
                 #include "electronic/hsimode/secondarycourse.epp"
             }
         )
-        
 
         // this just switches our asterisk from primary to secondary and back
         whichnavsource: 
@@ -424,7 +419,7 @@ hsimode:
                             }
                         )
                     }
-                ) 
+                )
                 // secondary
                 ( Graphic
                     linewidth: 2
@@ -459,33 +454,31 @@ hsimode:
                 
             }
         )
-        
+
         ( Graphic
             // this translates back to zero, then out to the center group, then back to it's text position
             transform: ( Translation -1.725 0.3 )
             color: white
             components: {
-                whichprimaryreadout:        
+                whichprimaryreadout:
                 ( Rotary
                     components: {
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "INAV" ) // 1 
-                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 ) vertical: 1 text: "LOC1" ) // 2
+                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "VOR1" ) // 3
-                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1 text: "LOC2" ) // 4
-                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1 text: "VOR2" ) // 5
-                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1 text: "TAC"  ) // 6
+                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC2" ) // 4
+                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "VOR2" ) // 5
+                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "TAC"  ) // 6
                     }
                 )
-
             }
-        )                                            
-            
-        
+        )
+
         // secondary source readout
         ( Graphic
-            transform: ( Translation -1.725 -0.5 )                
+            transform: ( Translation -1.725 -0.5 )
             components: {
-                whichsecondaryreadout:        
+                whichsecondaryreadout:
                 ( Rotary
                     components: {
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "INAV" ) // 1 
@@ -495,15 +488,10 @@ hsimode:
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "VOR2" ) // 5
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "TAC"  ) // 6
                     }
-                )  
+                )
             }
-        )                  
-    
+        )
 
-
-
-        
-        
         // aircraft symbol
         ( Graphic
             color: white
@@ -529,9 +517,6 @@ hsimode:
                 )
             }
         )
-        
-        
-
     }
 )
 

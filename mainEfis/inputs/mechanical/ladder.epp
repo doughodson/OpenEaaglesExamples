@@ -1,7 +1,7 @@
 ( Graphic
     color: white
     linewidth: 2
-    components: {                
+    components: {
         // degree lines
         ( Line
             vertices: {

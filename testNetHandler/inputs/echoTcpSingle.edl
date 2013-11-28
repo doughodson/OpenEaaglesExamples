@@ -1,0 +1,13 @@
+//
+// Echo endpoint
+//
+
+( Echo
+    noWait: false
+    //loops: 20
+    netHandler:   ( TcpServerSingle
+                     localIpAddress: localhost
+                     port: 3001
+                  )
+)
+

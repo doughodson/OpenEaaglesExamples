@@ -12,7 +12,7 @@ networks: {
 
     maxTimeDR: { K1D01: ( Seconds 20 ) }
 
-    netInput:  ( BroadcastHandler 
+    netInput:  ( UdpBroadcastHandler 
       localIpAddress:   localhost
       networkMask:      "255.0.0.0"
       port: 3000 
@@ -22,7 +22,7 @@ networks: {
       recvBuffSizeKb: 256
     )
    
-    netOutput: ( BroadcastHandler
+    netOutput: ( UdpBroadcastHandler
       localIpAddress: localhost
       networkMask:    "255.0.0.0"
       port: 3000

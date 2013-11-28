@@ -8,7 +8,7 @@ OBJS = mainUbf1.o
 OBJS += SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o formFunc.o
 
-LDFLAGS += -lPlaneBehaviors -lY1Panel
+LDFLAGS += -lxBehaviors -lxPanel
 LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -lJSBSim -loeBasic

@@ -399,5 +399,6 @@ simulation: ( Simulation
   }
 )
 
-   #include "y1panel/instrumentPanel.epp"
+   #include "xPanel/xPanel.epp"
 )
+

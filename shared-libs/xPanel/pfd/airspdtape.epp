@@ -1,0 +1,77 @@
+( Graphic
+    // translate up to the half way point of the tape
+    transform: ( Translation 0 2.1 )
+    components: {
+        // draw the numbers 
+        ( Graphic
+            color: white
+            transform: { ( Translation 0 -0.0945  ) ( Scale 1.4 ) }
+            components: {
+                // 0 - 80
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.23 0 ) text: "0" )
+
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 0.643 ) text: "20" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 1.286 ) text: "40" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 1.929 ) text: "60" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.145 2.572 ) text: "80" )
+                // 100 - 180
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 3.215 ) text: "100" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 3.858 ) text: "120" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 4.501 ) text: "140" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 5.144 ) text: "160" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 5.787 ) text: "180" )
+                // 200 - 280
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 6.43 ) text: "200" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 7.073 ) text: "220" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 7.716 ) text: "240" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 8.359 ) text: "260" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 9.002 ) text: "280" )
+                // 300 - 380
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 9.645 ) text: "300" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 10.288 ) text: "320" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 10.931 ) text: "340" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 11.574 ) text: "360" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 12.217 ) text: "380" )
+                // 400 - 480
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 12.86 ) text: "400" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 13.503 ) text: "420" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 14.146 ) text: "440" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 14.789 ) text: "460" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 15.432 ) text: "480" )
+                // 500 - 580
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 16.075 ) text: "500" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 16.718 ) text: "520" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 17.361 ) text: "540" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 18.004 ) text: "560" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 18.647 ) text: "580" )
+                // 600 - 680
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 19.29 ) text: "600" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 19.933 ) text: "620" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 20.576 ) text: "640" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 21.219 ) text: "660" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 21.862 ) text: "680" )
+                // 700 - 780
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 22.505 ) text: "700" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 23.148 ) text: "720" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 23.791 ) text: "740" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 24.434 ) text: "760" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 25.077 ) text: "780" )
+                // 800 - 880
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 25.72 ) text: "800" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 26.363 ) text: "820" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 27.006 ) text: "840" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 27.649 ) text: "860" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 28.292 ) text: "880" )
+                // 900 - 980
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 28.935 ) text: "900" )                
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 29.578 ) text: "920" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 30.221 ) text: "940" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 30.864 ) text: "960" )
+                ( AsciiText font: pfdnormfont  inheritColor: 1 transform: ( Translation 0.06 31.507 ) text: "980" )
+             }
+        )
+        // now draw all of the lines
+        ( SpdLines color: white )
+    }
+)
+

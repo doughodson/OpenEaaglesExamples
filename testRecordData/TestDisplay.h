@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __TestDisplay_H__
-#define __TestDisplay_H__
+#ifndef __Eaagles_TestRecordData_TestDisplay_H__
+#define __Eaagles_TestRecordData_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
    namespace Simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
-   namespace Y1 { class DspRadar; class DspRwr; }
+   namespace xPanel { class DspRadar; class DspRwr; }
 
 namespace TestRecordData {
 
@@ -83,9 +83,9 @@ private:
     unsigned int fooCnt;
     unsigned int myDataCnt;
 
-    Y1::DspRadar*   rdrDisplay;     // Test RADAR display
-    Y1::DspRwr*     rwrDisplay;     // Test RWR display
-    LCreal          range;          // SD range
+    xPanel::DspRadar*   rdrDisplay;     // Test RADAR display
+    xPanel::DspRwr*     rwrDisplay;     // Test RWR display
+    LCreal              range;          // SD range
 
     SendData        headingSD;
     SendData        rangeSD;
@@ -93,7 +93,7 @@ private:
     SPtr<Simulation::Station> myStation;
 
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
-    int              trkIdx[MAX_TRACKS];    // Index of track symbols
+    int                 trkIdx[MAX_TRACKS];    // Index of track symbols
 
     // pitch and roll
     LCreal pitch;           // degs
@@ -152,3 +152,4 @@ private:
 } // End Eaagles namespace
 
 #endif
+
