@@ -4,7 +4,7 @@
 // Notes:
 //
 //    1) The DataRecord.pb.h and DataRecord.pb.cc files were
-//       generated with 'protoc' version 2.4.1;
+//       generated with 'protoc' version 2.5.0;
 //
 //    2) Compile with the 'protoc' compiler using the following commands
 //
