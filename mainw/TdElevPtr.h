@@ -1,14 +1,7 @@
 //------------------------------------------------------------------------------
-// Class:	TdElevPtr
-// Base class:	Object -> Component -> BasicGL::Graphic -> TdElevPtr
+// Class: TdElevPtr
 //
-// Description: TEST Display Elevation Pointer
-//
-//
-//  ( def-form TdElevPtr
-//  )
-//
-//
+// Description: Test Display Elevation Pointer
 //------------------------------------------------------------------------------
 #ifndef __TdElevPtr_H__
 #define __TdElevPtr_H__
@@ -38,4 +31,4 @@ private:
 } // End MainW namespace
 } // End Eaagles namespace
 
-#endif // __TdElevPtr_H__
+#endif

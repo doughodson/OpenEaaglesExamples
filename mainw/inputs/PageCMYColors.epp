@@ -9,7 +9,7 @@ cmycolors:
         p: hlscolors
     }
     components: {
-		( AsciiText text: "CMY" position: [ 1 1 ] )
+        ( AsciiText text: "CMY" position: [ 1 1 ] )
         ( LineLoop
             selectName: 601
             color: (cmy 0.8 0.8 0.8)

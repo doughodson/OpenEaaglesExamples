@@ -5,10 +5,10 @@ testenginedial:
         n: testcas
         p: testftitdial
     }
- 
+
     components: {
         // here is our base module for the engine dial
-        #include "openeaagles/instruments/dials/enginedial.epp"        
+        #include "openeaagles/instruments/dials/enginedial.epp"
         // label
         ( AsciiText
             color: white
@@ -17,11 +17,11 @@ testenginedial:
         )
         // Label to tell us what test we are running
         ( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testenginedial.epp"
-		)        
-    }    
-)             
+            position: [ 26 2 ]
+            color: white
+            text: "testenginedial.epp"
+        )
+    }
+)
 
 

@@ -68,7 +68,7 @@
                         maxTOF:  150.0
                         maxBurstRng: 50
                         lethalRange: 30.0
-                        type: "AIM-9"	// this helps map the OTW models - Missile + type
+                        type: "AIM-9"              // this helps map the OTW models - Missile + type
                         enableMessageType: INFO
                         //enableMessageType: DEBUG
                         components: {
@@ -85,7 +85,7 @@
                         maxTOF:  150.0
                         maxBurstRng: 50
                         lethalRange: 30.0
-                        type: "AIM-9"	// this helps map the OTW models - Missile + type
+                        type: "AIM-9"             // this helps map the OTW models - Missile + type
                         enableMessageType: INFO
                         //enableMessageType: DEBUG
                         components: {

@@ -25,12 +25,12 @@ gearRO: ( NumericReadout
             position: [ 2 2 ]
             text: "Hit g to toggle gear"
         )
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testlandinggear.epp"
-		)         
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testlandinggear.epp"
+        )
     }
 )
 

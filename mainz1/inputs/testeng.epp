@@ -7,11 +7,11 @@ testeng:
     }
     components: {
         // Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testeng.epp"
-		) 
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testeng.epp"
+        )
         #include "openeaagles/instruments/eng/engpage.epp"
     }
 )

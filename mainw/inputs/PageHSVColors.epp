@@ -9,7 +9,7 @@ hsvcolors:
         p: sample
     }
     components: {
-		( AsciiText text: "HSV" position: [ 1 1 ] )
+        ( AsciiText text: "HSV" position: [ 1 1 ] )
         ( LineLoop
             selectName: 601
             color: (hsv 0 0 0.2)

@@ -13,7 +13,7 @@
             lineSpacing: 2
             faceSize: 1
             path: FONT_PATH
-			file: "arialn.ttf"
+            file: "arialn.ttf"
         )
     }
     

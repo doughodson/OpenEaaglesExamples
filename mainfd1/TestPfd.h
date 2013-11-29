@@ -1,26 +1,26 @@
 //------------------------------------------------------------------------------
-// Class:	TestPfd
-// Base class:	... -> BasicGL::Page ->  TestPfd
+// Class: TestPfd
 //
-// Description:	Basic Pfd test page, stimulates the Pfd
+// Description: Basic Pfd test page, stimulates the Pfd
 //------------------------------------------------------------------------------
-#ifndef	__TestPfd_H_4D9AC981_797D_402b_A5E7_50175426B614
-#define __TestPfd_H_4D9AC981_797D_402b_A5E7_50175426B614
+#ifndef __Eaagles_MainFlightDisplay1_TestPfd_H__
+#define __Eaagles_MainFlightDisplay1_TestPfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
 namespace MainFlightDisplay1 {
 
-class TestPfd : public BasicGL::Page {
+class TestPfd : public BasicGL::Page
+{
    DECLARE_SUBCLASS(TestPfd,BasicGL::Page)
 
 public:
-    TestPfd();    
+    TestPfd();
 
     // Basic::Component Interface
     virtual void updateData(const LCreal dt = 0.0);
-        
+
 private:
     // pitch and roll
     LCreal pitch;           // degs
@@ -31,10 +31,10 @@ private:
     // heading and nav stuff
     LCreal trueHdg;         // degs
     LCreal tHdgRate;        // degs/sec
-    
+
     LCreal cmdCrs;          // degs -- commanded course
     LCreal cmdCrsRate;      // degs/sec
-    
+
     LCreal cmdHdg;          // degs -- commanded heading (heading bug)
     LCreal cmdHdgRate;      // degs/sec
 
@@ -123,5 +123,5 @@ private:
 } // end of MainFlightDisplay1 namespace
 } // end of Eaagles namespace
 
-#endif  /* __TestPfd_H_4D9AC981_797D_402b_A5E7_50175426B614 */
+#endif
 

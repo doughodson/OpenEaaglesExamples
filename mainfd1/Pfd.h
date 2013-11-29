@@ -1,12 +1,11 @@
 //------------------------------------------------------------------------------
-// Class:	Pfd
-// Base class:	... -> BasicGL::Page -> Pfd
+// Class: Pfd
 //
 // Description:	Sends data down to the Pfd
 // Inputs: Use public member functions instead of send commands here
 //------------------------------------------------------------------------------
-#ifndef	__Pfd_H_20776D5E_3C6A_4fc4_8028_EBD768E593E7
-#define __Pfd_H_20776D5E_3C6A_4fc4_8028_EBD768E593E7
+#ifndef __Eaagles_MainFlightDisplay1_Pfd_H__
+#define __Eaagles_MainFlightDisplay1_Pfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/basic/units/Angles.h"
@@ -14,15 +13,15 @@
 namespace Eaagles {
 namespace MainFlightDisplay1 {
 
-class Pfd : public BasicGL::Page {
+class Pfd : public BasicGL::Page
+{
    DECLARE_SUBCLASS(Pfd,BasicGL::Page)
 
-    
 public:
-    Pfd();    
-    
+    Pfd();
+
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
-    
+
     // set functions
     virtual bool setPitchDeg(const LCreal newP);        // Sets pitch angle (degs) 
     virtual bool setPitchRad(const LCreal newP);        // Sets pitch angle (rads)
@@ -62,7 +61,7 @@ public:
     virtual bool setFPMX(const LCreal newX);            // flight path marker x
     virtual bool setFPMY(const LCreal newY);            // flight path marker y
     virtual bool setGLoad(const LCreal newLoad);        // our g load
-    virtual bool setMach(const LCreal x);               // machine speed    
+    virtual bool setMach(const LCreal x);               // machine speed
 
     // get functions
     LCreal getPitchDeg()            { return pitch; }
@@ -104,11 +103,10 @@ public:
     LCreal getFPMY()                { return fpmY; }
     LCreal getGLoad()               { return gLoad; }
     LCreal getMach()                { return mach; }
-    
-    
+
     // Component interface
     virtual void updateData(const LCreal dt = 0.0);
-    
+
 private:
     // pitch and roll
     LCreal pitch;           // Pitch angle (degs)
@@ -116,11 +114,11 @@ private:
     SendData hdgPitchSD;    // heading pitch for the heading tape
     LCreal roll;            // Roll angle (degs)
     SendData rollSD;
-    
+
     // bank angle
     SendData baSD;
     SendData bascaleSD;
-    
+
     // heading and nav stuff
     LCreal trueHdg;         // True heading (degs)
     SendData tHdgSD;
@@ -130,7 +128,7 @@ private:
     
     LCreal cmdHdg;          // commanded heading (heading bug)
     SendData cmdHdgROSD;
-    
+
     // cdi
     LCreal cdiDots;         // dots
 
@@ -223,13 +221,13 @@ private:
     char   nav1Id[NCHAR_NAV1_ID+1];   // NAV 1 IDs
     SendData nav1DmeSD;
     SendData nav1IdSD;
-    
+
     LCreal nav2Brg;       // degs
     LCreal nav2Dme;       // Nm
     char   nav2Id[NCHAR_NAV2_ID+1];   // NAV 2 IDs
     SendData nav2DmeSD;
     SendData nav2IdSD;
-    
+
     // Hsi send data
     SendData trueHdgSD;
     SendData hdgTapeSD;
@@ -242,7 +240,7 @@ private:
     // Radar alt send
     SendData rAltSD;
     SendData rAltMinSD;
-   
+
     double refLat;
     double refLon;
     LCreal range;
@@ -261,7 +259,7 @@ private:
 };
 
 }; // end of MainFlightDisplay1 namespace
-};   //end of Eaagles namespace
+}; // end of Eaagles namespace
 
 #endif
 

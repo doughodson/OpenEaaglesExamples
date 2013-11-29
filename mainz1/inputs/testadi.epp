@@ -6,14 +6,14 @@ testadi:
         p: testadi2
     }
     components: {
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testadi.epp"
-		) 
-		           
-		// module with our adi
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testadi.epp"
+        )
+
+        // module with our adi
         #include "openeaagles/instruments/adi/adi.epp"
     }
 )

@@ -1,11 +1,9 @@
 //------------------------------------------------------------------------------
-// Class:	MfdPage
-// Base class:	Object > BasicGL::Graphic > Page -> MfdPage
+// Class: MfdPage
 //
 // Description:	Example MFD page
-//
 //------------------------------------------------------------------------------
-#ifndef	__MfdPage_H__
+#ifndef __MfdPage_H__
 #define __MfdPage_H__
 
 #include "openeaagles/basicGL/Page.h"
@@ -33,4 +31,4 @@ private:
 } // End MainW namespace
 } // End Eaagles namespace
 
-#endif	/* __MfdPage_H__ */
+#endif

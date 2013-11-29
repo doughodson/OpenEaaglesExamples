@@ -1,12 +1,10 @@
 //------------------------------------------------------------------------------
-// Class:	TestStation
-// Base class:	Basic::Object -> Basic::Component -> Simulation::Station ->
-//                            -> MainGndMapRdr::TestStation
+// Class: TestStation
 //
 // Description: Test station for the Ground mapping radar demo
 //------------------------------------------------------------------------------
-#ifndef EAAGLES_MAINGNDMAPRDR_TESTSTATION_H
-#define EAAGLES_MAINGNDMAPRDR_TESTSTATION_H
+#ifndef __Eaagles_MainGndMapRdr_TestStation_H__
+#define __Eaagles_MainGndMapRdr_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -37,5 +35,5 @@ private:
 } // end MainGndMapRdr namespace
 } // end Eaagles namespace
 
-#endif // EAAGLES_MAINGNDMAPRDR_TESTSTATION_H
+#endif
 

@@ -41,7 +41,7 @@ public:
     // Initialize the networks
     virtual bool initNetworks();
 
-    // Send (transmit) our data buffer; returns true if sucessful.
+    // Send (transmit) our data buffer; returns true if successful.
     // 'size' just be less than MAX_SIZE.
     virtual bool sendData(const char* const msg, const unsigned int size);
 

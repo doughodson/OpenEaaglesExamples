@@ -9,16 +9,16 @@
 //    2) Compile with the 'protoc' compiler using the following commands
 //
 //       For Windows ...
-//          protoc -I%OE_EXAMPLES_ROOT%\shared-libs\ -I%OE_ROOT%\include\ --cpp_out=%OE_EXAMPLES_ROOT%\shared-libs\ %OE_EXAMPLES_ROOT%\shared-libs\xDataRecorder\DataRecord.proto
+//          protoc -I%OE_EXAMPLES_ROOT%\shared-libs -I%OE_ROOT%\include --cpp_out=%OE_EXAMPLES_ROOT%\shared-libs %OE_EXAMPLES_ROOT%\shared-libs\xRecorder\DataRecord.proto
 //
 //       For Linux ...
-//          protoc -I$OE_EXAMPLES_ROOT/shared-libs -I$OE_ROOT/include --cpp_out=$OE_EXAMPLES_ROOT/shared-libs $OE_EXAMPLES_ROOT/shared-libs/xDataRecorder/DataRecord.proto
+//          protoc -I$OE_EXAMPLES_ROOT/shared-libs -I$OE_ROOT/include --cpp_out=$OE_EXAMPLES_ROOT/shared-libs $OE_EXAMPLES_ROOT/shared-libs/xRecorder/DataRecord.proto
 //
 // -----------------------------------------------------------------------------
 
 import "openeaagles/recorder/DataRecord.proto";
 
-package Eaagles.xDataRecorder.Pb;
+package Eaagles.xRecorder.Pb;
 
 // =============================================================================
 // Extend the common data record

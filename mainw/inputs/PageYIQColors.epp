@@ -9,7 +9,7 @@ yiqcolors:
         p: cmycolors
     }
     components: {
-		( AsciiText text: "YIQ" position: [ 1 1 ] )
+        ( AsciiText text: "YIQ" position: [ 1 1 ] )
         ( LineLoop
             selectName: 601
             color: (yiq 0.2 0 0)

@@ -8,7 +8,7 @@
 #include "openeaagles/simulation/Player.h"
 
 namespace Eaagles {
-namespace xDataRecorder {
+namespace xRecorder {
 
 IMPLEMENT_SUBCLASS(DataRecorder,"XDataRecorder")
 EMPTY_SERIALIZER(DataRecorder)

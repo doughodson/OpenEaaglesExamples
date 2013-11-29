@@ -1,25 +1,25 @@
 //------------------------------------------------------------------------------
-// Class:	SituationalDisplay
-// Base class:	... -> BasicGL::Page -> SituationalDisplay
+// Class: SituationalDisplay
 //
-// Description:	Situational Display
+// Description: Situational Display
 //------------------------------------------------------------------------------
-#ifndef	__SituationalDisplay_H_9B5D60D1_B3BB_42c0_971E_9B5BFC20808E
-#define __SituationalDisplay_H_9B5D60D1_B3BB_42c0_971E_9B5BFC20808E
+#ifndef __Eaagles_MainFlightDisplay1_H__
+#define __Eaagles_MainFlightDisplay1_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
 namespace MainFlightDisplay1 {
 
-class SituationalDisplay : public BasicGL::Page {
+class SituationalDisplay : public BasicGL::Page
+{
    DECLARE_SUBCLASS(SituationalDisplay,BasicGL::Page)
 
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
 
 public:
     SituationalDisplay(); 
-   
+
     // set functions
     virtual bool setReferenceLat(const double newL);      // Sets latitude (degs)
     virtual bool setReferenceLon(const double newL);      // Sets longitude (degs)
@@ -33,7 +33,7 @@ public:
     virtual bool setNav2Brg(const LCreal newB);         // Sets navaid 2 bearing (degs)
     virtual bool setNav2Dme(const LCreal newDME);       // Sets navaid 2 DME (NM)
     virtual bool setNav2Id(const char* const newId);    // Sets navaid 2 identifier
-    
+
     // get functions
     double getOwnshipLat()      { return refLat; }
     double getOwnshipLon()      { return refLon; }
@@ -50,7 +50,7 @@ public:
 
     // Basic::Component Interface
     virtual void updateData(const LCreal dt = 0);
-    
+
 private:
     double refLat;              // latitude
     double refLon;              // longitude
@@ -74,14 +74,14 @@ private:
     SendData nav1BrgROSD;
     SendData nav1BrgSD;
     SendData nav1IdSD;
-    
+
     // map page stuff
     SendData headingSD;
     SendData rangeSD;
     SendData refLatSD;
     SendData refLonSD;
     SendData centeredSD;
-    
+
     // navaid 2 
     LCreal nav2Brg;       // degs
     LCreal nav2Dme;       // Nm
@@ -90,7 +90,7 @@ private:
     SendData nav2BrgROSD;
     SendData nav2BrgSD;
     SendData nav2IdSD;
-    
+
     // Terrain follower
     LCreal planeAlt;   
     SendData planeAltSD;
@@ -100,5 +100,5 @@ private:
 }; // end of MainFlightDisplay1 namespace
 }; // end of Eaagles namespace
 
-#endif  /* __SituationalDisplay_H_9B5D60D1_B3BB_42c0_971E_9B5BFC20808E */
+#endif
 

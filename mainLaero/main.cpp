@@ -18,14 +18,14 @@ namespace MainLaero {
 const int bgRate = 10;
 
 // System descriptions
-static Simulation::Station* station = 0;	
+static Simulation::Station* station = 0;
 
 //-----------------------------------------------------------------------------
 // Read the configuration file
 //-----------------------------------------------------------------------------
 static Simulation::Station* readConfigFile(const char* const fileName)
 {
-	Simulation::Station* p = 0;
+   Simulation::Station* p = 0;
 
    // Read the description file
    int errors = 0;
@@ -43,7 +43,7 @@ static Simulation::Station* readConfigFile(const char* const fileName)
       }
 
       // What we should have here is the Station object
-	  p = dynamic_cast<Simulation::Station*>(q1);
+      p = dynamic_cast<Simulation::Station*>(q1);
    }
 
    //LDBp->serialize(std::cout);
@@ -52,7 +52,7 @@ static Simulation::Station* readConfigFile(const char* const fileName)
 }
 
 //-----------------------------------------------------------------------------
-// Station's background tasks -- a callback from a GLUT timer, it's basicly the
+// Station's background tasks -- a callback from a GLUT timer, it's basically the
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------

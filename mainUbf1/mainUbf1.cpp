@@ -58,7 +58,7 @@ static Eaagles::Simulation::Station*
 }
 
 //-----------------------------------------------------------------------------
-// Station's background tasks -- a callback from a GLUT timer, it's basicly the
+// Station's background tasks -- a callback from a GLUT timer, it's basically the
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------
@@ -130,9 +130,9 @@ int main(int argc, char* argv[])
    //Eaagles::LCreal dt = (Eaagles::LCreal)1.0/Eaagles::LCreal(50);//.1;
    //for(int i = 0 ;;i++)
    //{
-	  // std::cout << std::endl << "Step: " << i << std::endl;
-	//   station->tcFrame(dt);
-	//   station->updateData(dt);
+      // std::cout << std::endl << "Step: " << i << std::endl;
+      //   station->tcFrame(dt);
+      //   station->updateData(dt);
    //}
    // ---
    // Main loop

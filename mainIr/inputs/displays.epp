@@ -46,7 +46,7 @@
          fontHeight: 0.08
          bitmapWidth: 11
          bitmapHeight: 19
-         characterSpacing: 0.08	//0.048
+         characterSpacing: 0.08    //0.048
          lineSpacing: 0.08
          reverse: 1
          path: "../data/fonts/11x19/normal/"

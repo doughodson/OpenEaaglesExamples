@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
-// Class:	RdrAlt
-// Base class: BasicGL::Graphic -> RdrAlt
+// Class: RdrAlt
 // 
 // Description: radar altitude display and minimums.  It take the min value 
 // of the radar, and will compare it to our current Ralt, and determine the color
@@ -9,15 +8,16 @@
 //      UPDATE_VALUE  -> actual radar alt
 //      UPDATE_VALUE2 -> minimum radar alt
 //------------------------------------------------------------------------------
-#ifndef	__RdrAlt_CF2CCCBC_88C5_4df9_BBC3_C4C1DF910728
-#define __RdrAlt_CF2CCCBC_88C5_4df9_BBC3_C4C1DF910728
+#ifndef __Eaagles_MainFlightDisplay1_RdrAlt_H__
+#define __Eaagles_MainFlightDisplay1_RdrAlt_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
 namespace MainFlightDisplay1 {
 
-class RdrAlt : public BasicGL::Graphic {
+class RdrAlt : public BasicGL::Graphic
+{
     DECLARE_SUBCLASS(RdrAlt,BasicGL::Graphic)
     
 public:

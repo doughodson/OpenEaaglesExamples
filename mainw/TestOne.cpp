@@ -2,7 +2,6 @@
 #include "TestOne.h"
 #include "openeaagles/basic/units/Angles.h"
 
-
 namespace Eaagles {
 namespace MainW {
 
@@ -12,8 +11,8 @@ IMPLEMENT_SUBCLASS(TestOne,"TestOne")
 // slot table for this class type
 //------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(TestOne)
-  	"speed",	// speed
-  	"startAngle",	// starting angle (off X axis)
+    "speed",       // speed
+    "startAngle",  // starting angle (off X axis)
 END_SLOTTABLE(TestOne)
 
 //------------------------------------------------------------------------------
@@ -25,14 +24,11 @@ BEGIN_SLOT_MAP(TestOne)
     ON_SLOT(2, setAngle, Basic::Number)
 END_SLOT_MAP()
 
-
 //------------------------------------------------------------------------------
 // event handler macro - takes place of event() using a macro
 //------------------------------------------------------------------------------
 BEGIN_EVENT_HANDLER(TestOne)
 END_EVENT_HANDLER()
-
-
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -67,7 +63,7 @@ void TestOne::copyData(const TestOne& org, const bool)
     if (iangle != 0) iangle->unref();
     if (org.iangle != 0) iangle = org.iangle->clone();
     else iangle = 0;
-   
+
     left = org.left;
     right = org.right;
     bottom = org.bottom;
@@ -197,8 +193,6 @@ void TestOne::drawFunc()
     glEnd();
 }
 
-
-
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Rgb
 //------------------------------------------------------------------------------
@@ -206,7 +200,6 @@ Basic::Object* TestOne::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
 
 //------------------------------------------------------------------------------
 // serialize() -- print functions

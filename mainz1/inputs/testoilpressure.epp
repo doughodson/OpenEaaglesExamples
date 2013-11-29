@@ -25,12 +25,12 @@ testoilpressure:
             position: [ 1 17 ]
             format: "###.#"
         )                                    
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testoilpressure.epp"
-		)         
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testoilpressure.epp"
+        )
     }
 )
 

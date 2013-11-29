@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
-// Class:	CrsPntr
-// Base class: BasicGL::Graphic -> BasicGL::Rotators -> CrsPntr
+// Class: CrsPntr
 // 
 // Description: Handles the course pointer, cdi, and to from arrow graphic.
 // Inputs:
@@ -8,15 +7,16 @@
 //      UPDATE_VALUE3  -> cdi dots
 //      UPDATE_VALUE4 -> to from
 //------------------------------------------------------------------------------
-#ifndef	__CrsPntr_432413C8_758B_472b_B7D3_4A805DFC9781
-#define __CrsPntr_432413C8_758B_472b_B7D3_4A805DFC9781
+#ifndef __Eaagles_MainFlightDisplays1_CrsPntr_H__
+#define __Eaagles_MainFlightDisplays1_CrsPntr_H__
 
 #include "openeaagles/basicGL/Rotators.h"
 
 namespace Eaagles {
 namespace MainFlightDisplay1 {
 
-class CrsPntr : public BasicGL::Rotators {
+class CrsPntr : public BasicGL::Rotators
+{
     DECLARE_SUBCLASS(CrsPntr,BasicGL::Rotators)
     
 public:
@@ -73,5 +73,5 @@ private:
 }; // end of Instruments namespace
 }; // end of Eaagles namespace
 
-#endif	/* __CrsPntr_432413C8_758B_472b_B7D3_4A805DFC9781 */
+#endif
 

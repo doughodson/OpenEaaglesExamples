@@ -47,10 +47,10 @@ testcas:
 
         // Label to tell us what test we are running
         ( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testcas.epp"
-		)    
+            position: [ 26 2 ]
+            color: white
+            text: "testcas.epp"
+        )
     }
 )
 

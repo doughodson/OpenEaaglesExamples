@@ -6,7 +6,7 @@ testcompass:
         p: testalt
     }
     components: {
-		// here is the map page moudule
+        // here is the map page moudule
         #include "openeaagles/instruments/maps/mappage.epp"
 
         // These are readouts to test the data
@@ -37,7 +37,8 @@ compassRO:
             position: [ 1 20 ]
             text: "RANGE:"
         )
-rangeRO: ( NumericReadout
+rangeRO:
+        ( NumericReadout
             color: white
             position: [ 2 22 ]
             format: "###"
@@ -53,12 +54,12 @@ bearingRO:
             position: [ 4 3 ]
             format: "###"
         )        
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testcompass.epp"
-		)         
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testcompass.epp"
+        )
     }
 )
 

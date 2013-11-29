@@ -1,14 +1,7 @@
 //------------------------------------------------------------------------------
-// Class:	TdAzPtr
-// Base class:	Object -> Component -> BasicGL::Graphic -> TdAzPtr
+// Class: TdAzPtr
 //
 // Description: TEST Display Azimuth Pointer
-//
-//
-//  ( def-form TdAzPtr
-//  )
-//
-//
 //------------------------------------------------------------------------------
 #ifndef __TdAzPtr_H__
 #define __TdAzPtr_H__
@@ -35,4 +28,4 @@ private:
 } // End MainW namespace
 } // End Eaagles namespace
 
-#endif // __TdAzPtr_H__
+#endif

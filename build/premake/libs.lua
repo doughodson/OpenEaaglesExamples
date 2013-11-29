@@ -18,21 +18,21 @@
          targetname "xBehaviors_d"
 
     --  eXample library that extends the data recorder
-    project "libxDataRecorder"
+    project "libxRecorder"
       kind "StaticLib"
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       targetdir (OEExamplesLibPath)
       files {
-         "../../shared-libs/xDataRecorder/*.cpp",
-         "../../shared-libs/xDataRecorder/*.cc",
-         "../../shared-libs/xDataRecorder/*.h",
-         "../../shared-libs/xDataRecorder/*.proto",
+         "../../shared-libs/xRecorder/*.cpp",
+         "../../shared-libs/xRecorder/*.cc",
+         "../../shared-libs/xRecorder/*.h",
+         "../../shared-libs/xRecorder/*.proto",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "xDataRecorder"
+         targetname "xRecorder"
       configuration "Debug"
-         targetname "xDataRecorder_d"
+         targetname "xRecorder_d"
 
     --  eXample Panel library -- common instrument panel code for several examples
     project "libxPanel"

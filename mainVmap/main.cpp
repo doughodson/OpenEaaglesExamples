@@ -35,7 +35,7 @@ const char* testFileName = "test.edl";
 const int frameRate = 20;
 
 // System descriptions
-static class TestDisplay* sys = 0;	
+static class TestDisplay* sys = 0;
 
 //=============================================================================
 // TestDisplay

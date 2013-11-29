@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Puzzle board
 //------------------------------------------------------------------------------
-#ifndef	__Board_H_F41FCF21_D9BB_4549_B7A5_7F2DE872C229__
-#define __Board_H_F41FCF21_D9BB_4549_B7A5_7F2DE872C229__
+#ifndef __Eaagles_Puzzle2_Board_H__
+#define __Eaagles_Puzzle2_Board_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -15,7 +15,8 @@ namespace Puzzle2 {
 class Puzzle;
 class State;
 
-class Board : public Glut::GlutDisplay {
+class Board : public Glut::GlutDisplay
+{
    DECLARE_SUBCLASS(Board, Glut::GlutDisplay)
 
 public:

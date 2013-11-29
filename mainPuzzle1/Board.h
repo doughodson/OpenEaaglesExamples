@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Puzzle board
 //------------------------------------------------------------------------------
-#ifndef	__Board_H__
+#ifndef __Board_H__
 #define __Board_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
@@ -55,7 +55,7 @@ private:
    bool           movingFlg;                 // Block is moving
 
    static const unsigned int MAX_BLOCKS = 30;
-   BasicGL::Graphic*  blocks[MAX_BLOCKS];  // Graphcis for each block
+   BasicGL::Graphic*  blocks[MAX_BLOCKS];    // Graphics for each block
    unsigned int         blockId[MAX_BLOCKS]; // Block reference IDs
    LCreal               xp[MAX_BLOCKS];      // Block X positions
    LCreal               yp[MAX_BLOCKS];      // Block Y positions

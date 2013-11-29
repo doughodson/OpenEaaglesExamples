@@ -190,7 +190,7 @@ Basic::Ubf::Action* PlaneFlyStraight::genAction(const Basic::Ubf::State* const s
       action->setRoll(roll);
 
       if (pState->getRoll() > 1.57 || pState->getRoll() < -1.57) {
-         action->setPitch(action->getPitch() * -1);	//change pitch in the opposite direction if upside-down
+         action->setPitch(action->getPitch() * -1);                //change pitch in the opposite direction if upside-down
       }
 
       double heading = 1;
@@ -222,7 +222,7 @@ Basic::Ubf::Action* PlaneFollowEnemy::genAction(const Basic::Ubf::State* const s
    if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
       action = new PlaneAction();
 
-      double pitch = -1 * pState->getPitch()+ .02;// pState->getPitchToEnemy() * 10;	
+      double pitch = -1 * pState->getPitch()+ .02;// pState->getPitchToEnemy() * 10;
       //For positive pitch values, multiply to counteract effects of the negative pitch rate
       //of the dynamics model
       if (pitch > 0) {
@@ -481,9 +481,9 @@ Basic::Ubf::Action* PlaneBarrelRoll::genAction(const Basic::Ubf::State* const st
       action->setRoll(1);
       action->setPitch(1);
       action->setThrottle(2);
-      	
+
       if (voteOnIncomingMissile!=0 && pState->isIncomingMissile() )
-         action->setVote(voteOnIncomingMissile);   // was 100
+         action->setVote(voteOnIncomingMissile);                     // was 100
       else
          action->setVote(getVote());
    }
