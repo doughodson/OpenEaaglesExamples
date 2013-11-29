@@ -1,5 +1,4 @@
 
-
 Notes:
 --------------------------------------------------------------------------------------------
 
@@ -147,7 +146,7 @@ Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
    libxBehaviors      -- eXample UBF behaviors
 
-   libxDataRecorder   -- eXample extension of the Data Recorder
+   libxRecorder       -- eXample extension of the Data Recorder
 
    libxPanel          -- eXample components to display an instrument panel, used by 'mainy1',
                          'mainUbf1' and 'testRecordData'

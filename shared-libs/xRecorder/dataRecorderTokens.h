@@ -10,8 +10,8 @@
 //       (see "openeaagles/simulation/DataRecorder.h")
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xDataRecorder_Id_Tokens_H__
-#define __Eaagles_xDataRecorder_Id_Tokens_H__
+#ifndef __Eaagles_xRecorder_Id_Tokens_H__
+#define __Eaagles_xRecorder_Id_Tokens_H__
 
 #include "openeaagles/simulation/dataRecorderTokens.h"
 

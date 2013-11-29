@@ -7,7 +7,7 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-#include "xDataRecorder/formFunc.h"
+#include "xRecorder/formFunc.h"
 #include "xPanel/formFunc.h"
 
 #include "openeaagles/basic/basicFF.h"
@@ -21,7 +21,6 @@
 #include "openeaagles/sensors/sensorsFF.h"
 #include "openeaagles/simulation/simulationFF.h"
 #include "openeaagles/vehicles/vehiclesFF.h"
-
 
 namespace Eaagles {
 namespace TestRecordData {
@@ -41,7 +40,7 @@ Basic::Object* formFunc(const char* formname)
     }
 
     // Example libraries
-    if (newform == 0) newform = xDataRecorder::formFunc(formname);
+    if (newform == 0) newform = xRecorder::formFunc(formname);
     if (newform == 0) newform = xPanel::formFunc(formname);
 
     // OpenEaagles packages

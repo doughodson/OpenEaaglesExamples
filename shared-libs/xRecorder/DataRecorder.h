@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: DataRecorder
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xDataRecorder_DataRecorder_H__
-#define __Eaagles_xDataRecorder_DataRecorder_H__
+#ifndef __Eaagles_xRecorder_DataRecorder_H__
+#define __Eaagles_xRecorder_DataRecorder_H__
 
 #include "openeaagles/recorder/DataRecorder.h"
 
 namespace Eaagles {
-namespace xDataRecorder {
+namespace xRecorder {
 
 //------------------------------------------------------------------------------
 // Class: DataRecorder

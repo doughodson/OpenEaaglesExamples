@@ -145,7 +145,7 @@ project "testRecordData"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxDataRecorder", "libxPanel" }
+   links       { "libxRecorder", "libxPanel" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeVehicles", "JSBSim" }
@@ -179,7 +179,7 @@ project "testRecorderRead"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxDataRecorder" }
+   links       { "libxRecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
@@ -201,7 +201,7 @@ project "testRecorderWrite"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxDataRecorder" }
+   links       { "libxRecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
