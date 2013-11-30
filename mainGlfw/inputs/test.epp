@@ -1,0 +1,31 @@
+// ---
+// Test display -- Graphic, Page, Display and support pages
+//    Notes: use 'n' and 'p' to transition to the next and previous pages
+// ---
+
+( GlfwDisplay
+    //pickWidth:  14
+    //pickHeight: 14
+
+    name: "My Main Window"
+
+    left:       -10.5
+    right:       10.5
+    bottom:     -10.5
+    top:         10.5
+    near:        -50.0
+    far:          50.0
+    
+    clearDepth: 1.0
+    clearColor: ( hsv 180.0 0.4 0.2 )
+    
+    vpX:        300
+    vpY:        200
+    //vpWidth:    500
+    vpWidth:    ( + 200 100 100 50 25 10 10 5)
+    vpHeight:   500
+
+    page:   worms // First page
+    #include "testBasic.epp"
+
+)
