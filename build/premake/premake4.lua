@@ -94,7 +94,7 @@ solution "examples"
    configuration { "Release" }
       flags { "Optimize" }
       if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
-         -- enable compilier intrinsics and favor speed over size
+         -- enable compiler intrinsics and favour speed over size
          buildoptions { "/Oi", "/Ot" }
          defines { "WIN32", "NDEBUG" }
       end
@@ -103,7 +103,7 @@ solution "examples"
    configuration { "Debug" }
       flags { "Symbols" }
       if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
-         -- enable compilier intrinsics
+         -- enable compiler intrinsics
          buildoptions { "/Oi" }
          defines { "WIN32", "_DEBUG" }
       end
