@@ -29,6 +29,7 @@
          "../../shared-libs/xRecorder/*.proto",
       }
       defines { "_LIB" }
+      defines { "_SCL_SECURE_NO_WARNINGS" } -- suppress protocol buffer warning
       configuration "Release"
          targetname "xRecorder"
       configuration "Debug"
