@@ -438,32 +438,6 @@ project "mainUbf1"
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- Vmap example
-project "mainVmap"
-   targetname "mainVmap"
-   targetdir "../../mainVmap"
-   debugdir "../../mainVmap"
-   files {
-      "../../mainVmap/**.cpp",
-      "../../mainVmap/**.h",
-      "../../mainVmap/**.epp",
-      "../../mainVmap/**.edl"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
-   configuration "Release"
-      links {"oeMaps"}
-      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
-      links {"oeMaps_d"}
-      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
-      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-
-
 -- mainw : basic graphics example
 project "mainw"
    targetname "mainw"

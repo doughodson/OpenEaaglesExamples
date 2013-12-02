@@ -36,8 +36,6 @@ APPLICATIONS += mainUbf1
 APPLICATIONS += mainLaero
 
 #
-APPLICATIONS += mainVmap
-#
 APPLICATIONS += mainy1
 
 # test table, state machines, events and timer
