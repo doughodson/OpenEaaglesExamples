@@ -62,7 +62,7 @@ mainz1/mainz1
 mainz2/mainz2
 mainUbf1/mainUbf1
 testEvents/testEvents
-testIo/testIo
+testIoHandler/testIoHandler
 testLinearSys/testLinearSys
 testMatrix/testMatrix
 testNavigation/testNavigation

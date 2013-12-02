@@ -25,16 +25,16 @@ project "testEvents"
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- testIo: I/O test
-project "testIo"
-   targetname "testIo"
-   targetdir "../../testIo"
-   debugdir "../../testIo"
+-- testIoHandler: I/O handler test
+project "testIoHandler"
+   targetname "testIoHandler"
+   targetdir "../../testIoHandler"
+   debugdir "../../testIoHandler"
    files {
-      "../../testIo/**.cpp",
-      "../../testIo/**.h",
-      "../../testIo/**.epp",
-      "../../testIo/**.edl"
+      "../../testIoHandler/**.cpp",
+      "../../testIoHandler/**.h",
+      "../../testIoHandler/**.epp",
+      "../../testIoHandler/**.edl"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }

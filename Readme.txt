@@ -68,7 +68,7 @@ Test applications:
 
    testEvent         -- Example & test of the Component class send() functions
 
-   testIo            -- Example & test of I/O device library
+   testIoHandler     -- Example & test of I/O handler device library
 
    testLinearSys
 

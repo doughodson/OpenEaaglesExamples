@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = testIo
+PGM = testIoHandler
 
 OBJS = Display.o Table.o formFunc.o main.o
 

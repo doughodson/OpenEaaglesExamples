@@ -45,7 +45,7 @@ APPLICATIONS += testEvents
 APPLICATIONS += testTimer
 
 # device I/O test program
-APPLICATIONS += testIo
+APPLICATIONS += testIoHandler
 
 # matrix test program
 APPLICATIONS += testMatrix
