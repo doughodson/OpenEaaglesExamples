@@ -112,6 +112,9 @@ solution "examples"
    -- libraries
    dofile "libs.lua"
 
+   -- demos
+   dofile "demos.lua"
+
    -- examples
    dofile "examples.lua"
 

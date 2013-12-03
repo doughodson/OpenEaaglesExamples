@@ -4,11 +4,15 @@ include makedefs
 # shared libraries
 APPLICATIONS = shared-libs
 
+# demos
+APPLICATIONS += demoEfis
+APPLICATIONS += demoFlightDisplays1
+APPLICATIONS += demoFlightDisplays2
+APPLICATIONS += demoInstruments
+APPLICATIONS += demoMultiDisplays
+
 # graphic oriented examples
 APPLICATIONS += mainw
-APPLICATIONS += mainz1 mainz2 
-APPLICATIONS += mainfd1 mainfd2
-APPLICATIONS += mainEfis
 APPLICATIONS += mainGL
 
 # non-real-time simulation

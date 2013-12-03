@@ -9,14 +9,27 @@ Notes:
      to be part of the OpenEaagles package.  However, user wouldn't typically do this.
 
 
-Example applications:
+Demonstration applications:
 --------------------------------------------------------------------------------------------
 
-   mainEfis      -- Example electronic flight instrument system
+   demoEfis              -- demo of an electronic flight instrument system
 
-   mainfd1       -- Example flight display
+   demoFlightDisplays1   -- demo of flight displays
 
-   mainfd2       -- Example flight display
+   demoFlightDisplays2   -- demo of flight displays
+
+   demoInstruments       -- Instrument library demo program
+                            1) Contains several test instrument pages 
+                            2) Use 'n' and 'p' (next and previous) to move between pages
+                            3) use ESC to exit
+
+   demoMultiDisplays    -- Quad subdisplay version of the Instrument Library demo program
+                           1) Contains 4 subdisplays, each containing the instrument lib demo 
+                           2) See demoInstruments
+
+
+Example applications:
+--------------------------------------------------------------------------------------------
 
    mainGL        -- Example alignment pattern drawn using only configuration file graphics.
 
@@ -50,15 +63,6 @@ Example applications:
                     4) use ESC to exit
 
    mainy1        -- Simple flight simulation program
-
-   mainz1        -- Instrument library demo program
-                    1) Contains several test instrument pages 
-                    2) Use 'n' and 'p' (next and previous) to move between pages
-                    3) use ESC to exit
-
-   mainz2        -- Quad subdisplay version of the Instrument Library demo program
-                    1) Contains 4 subdisplays, each containing the instrument lib demo 
-                    2) See mainz1
 
 
 Test applications:
