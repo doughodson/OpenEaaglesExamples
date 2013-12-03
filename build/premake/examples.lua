@@ -461,37 +461,6 @@ project "mainw"
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- mainx9
-project "mainx9"
-   targetname "mainx9"
-   targetdir "../../mainx9"
-   debugdir "../../mainx9"
-   files {
-      "../../mainx9/**.cpp",
-      "../../mainx9/**.h",
-      "../../mainx9/**.epp",
-      "../../mainx9/**.edl"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
-   configuration "Release"
-      links {"oeVehicles", "JSBSim"}
-      links {"oeOtw", LibCigi}
-      links {"oeDis", "oeSensors", "oeIoDevice"}
-      links {"oeSimulation", "oeDafif", "oeTerrain"}
-      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
-      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
-      links {"oeVehicles_d", "JSBSim_d"}
-      links {"oeOtw_d", LibCigi_d}
-      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
-      links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
-      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
-      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-
 -- mainy1
 project "mainy1"
    targetname "mainy1"

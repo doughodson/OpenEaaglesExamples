@@ -56,7 +56,6 @@ mainSim3/mainSim3
 mainSim4/mainSim4
 mainTerrain/mainTerrain
 mainw/mainw
-mainx9/mainx9
 mainy1/mainy1
 mainz1/mainz1
 mainz2/mainz2
@@ -67,6 +66,7 @@ testLinearSys/testLinearSys
 testMatrix/testMatrix
 testNavigation/testNavigation
 testNetHandler/testNetHandler
+testRadar/testRadar
 testRecordData/testRecordData
 testRecorderRead/testRecorderRead
 testRecorderWrite/testRecorderWrite

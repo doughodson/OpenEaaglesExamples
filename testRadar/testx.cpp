@@ -1,5 +1,5 @@
 //*****************************************************************************
-// mainx9 -- A general purpose test program.  
+// testRadar -- A general purpose radar test program.  
 //*****************************************************************************
 
 #include "TestStation.h"

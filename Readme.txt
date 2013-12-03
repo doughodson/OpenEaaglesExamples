@@ -49,8 +49,6 @@ Example applications:
                        to select a graphic item.  The selected item will flash.
                     4) use ESC to exit
 
-   mainx9        -- General example application (and test) program
-
    mainy1        -- Simple flight simulation program
 
    mainz1        -- Instrument library demo program
@@ -66,35 +64,37 @@ Example applications:
 Test applications:
 --------------------------------------------------------------------------------------------
 
-   testEvent         -- Example & test of the Component class send() functions
+   testEvent         -- test of Component class send() functions
 
-   testIoHandler     -- Example & test of I/O handler device library
+   testIoHandler     -- test of I/O handler device library
 
    testLinearSys
 
-   testNavigation    -- Extensive set of navigation test routines
+   testMatrix        -- test of Matrix class functionality
 
-   testTimer         -- Tests the functionality of the Timer class.
+   testNavigation    -- extensive set of navigation test routines
 
-   testNetHandler    -- Tests the network handlers (derived from NetHandler).  Includes
+   testNetHandler    -- tests the network handlers (derived from NetHandler).  Includes
                         client and server side tests/examples for the UDP, TCP, broadcast,
                         and multicast handlers.
 
-   testMatrix        -- a test of Matrix class functionality
+   testRadar         -- general radar test program
 
-   testRng           -- Random number generator and distribution test program
-
-   testStateMach     -- Example and test of state machine class
-
-   testTables        -- Collection of Table tests programs
-
-   testRecordData    -- Variation of 'mainy1' that has a DataRecorder attached and
+   testRecordData    -- variation of 'mainy1' that has a DataRecorder attached and
                         records a data file that can be read by 'testRecordRead'.
 
-   testRecorderRead  -- Reads and prints recorder data streams or binary files.
+   testRecorderRead  -- reads and prints recorder data streams or binary files.
                      -- Can be used with 'testRecordData' or 'testRecorderWrite'.
 
-   testRecorderWrite -- Write test data recorder files.
+   testRecorderWrite -- write test data recorder files.
+
+   testRng           -- random number generator and distribution test program
+
+   testStateMach     -- example and test of state machine class
+
+   testTables        -- collection of Table tests programs
+
+   testTimer         -- tests the functionality of the Timer class.
 
 
 Tutorial applications:

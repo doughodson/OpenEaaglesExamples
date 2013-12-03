@@ -1,8 +1,8 @@
 
-A general purpose test program.
+A general purpose radar test program.
 
 To run:
-  mainx9 -f filename.edl
+  testRadar -f filename.edl
 
 Example Files:
 
@@ -25,7 +25,7 @@ Example Files:
                    ## Change IP addresses and subnet masks in test3a.epp and test3b.epp, and run makeEdl.bat
 
 
-mainx9 keyboard controls:
+Keyboard controls:
 
    'r' or 'R'   -- Reset simulation
    'f' or 'F'   -- Toggle simulation freeze
@@ -40,3 +40,4 @@ mainx9 keyboard controls:
    
 Note: You can select a player as the 'ownship' focus by using the mouse
       on the situation display or by using the '+' key.
+

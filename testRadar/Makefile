@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = mainx9
+PGM = testRadar
 
 OBJS =	DspRadar.o DspRwr.o TdAzPtr.o TdElevPtr.o \
 	TestDisplay.o TestStation.o formFunc.o testx.o

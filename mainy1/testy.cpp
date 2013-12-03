@@ -1,6 +1,3 @@
-//*****************************************************************************
-// Example simulation built from parts of mainx9, mainSim3 and mainFlightDisplay2.
-//*****************************************************************************
 
 #include "formFunc.h"
 
