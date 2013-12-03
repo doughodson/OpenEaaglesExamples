@@ -1,10 +1,12 @@
-
+//------------------------------------------------------------------------------
+// Class: TdAzPtr
+//------------------------------------------------------------------------------
 #include "TdAzPtr.h"
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
 EMPTY_SERIALIZER(TdAzPtr)
@@ -71,5 +73,5 @@ void TdAzPtr::draw()
    }
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace

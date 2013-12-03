@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: DspRadar
+//------------------------------------------------------------------------------
 #include "DspRadar.h"
 
 #include "openeaagles/simulation/Antenna.h"
@@ -10,7 +12,7 @@
 #include "openeaagles/basic/Hsv.h"
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 IMPLEMENT_SUBCLASS(DspRadar,"DspRadar")
 EMPTY_SLOTTABLE(DspRadar)
@@ -226,5 +228,5 @@ void DspRadar::drawFunc()
    glColor4dv(ocolor);
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace

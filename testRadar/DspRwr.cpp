@@ -1,11 +1,13 @@
-
+//------------------------------------------------------------------------------
+// Class: DspRwr
+//------------------------------------------------------------------------------
 #include "DspRwr.h"
 
 #include "openeaagles/simulation/Rwr.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 IMPLEMENT_SUBCLASS(DspRwr,"DspRwr")
 EMPTY_SLOTTABLE(DspRwr)
@@ -79,5 +81,5 @@ void DspRwr::drawFunc()
    glColor4dv(ocolor);
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace

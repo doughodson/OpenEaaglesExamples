@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: TestDisplay
+//------------------------------------------------------------------------------
 #include "TestDisplay.h"
 #include "TestStation.h"
 #include "DspRadar.h"
@@ -22,7 +24,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
@@ -529,5 +531,5 @@ Simulation::Station* TestDisplay::getStation()
     return myStation;
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace

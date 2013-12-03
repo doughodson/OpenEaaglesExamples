@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestStation
 //------------------------------------------------------------------------------
-#ifndef __TestStation_H__
-#define __TestStation_H__
+#ifndef __Eaagles_Test_TestStation_H__
+#define __Eaagles_Test_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -10,7 +10,7 @@ namespace Eaagles {
    namespace Basic { class Number; }
    namespace Glut { class GlutDisplay; }
 
-namespace Mainx9 {
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: TestStation
@@ -53,7 +53,7 @@ private:
    LCreal bgAntenna;
 };
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 #endif

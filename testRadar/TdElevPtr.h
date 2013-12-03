@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
-#ifndef __TdElevPtr_H_74E7E58B_1913_4aa8_B9DD_642F30316A20__
-#define __TdElevPtr_H_74E7E58B_1913_4aa8_B9DD_642F30316A20__
+#ifndef __Eaagles_Test_TdElevPtr_H__
+#define __Eaagles_Test_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -23,7 +23,7 @@
 //------------------------------------------------------------------------------
 namespace Eaagles {
    namespace Basic { class Number; }
-namespace Mainx9 {
+namespace Test {
 
 class TdElevPtr : public BasicGL::Graphic
 {
@@ -47,7 +47,7 @@ private:
    LCreal elev;  // (degs)
 };
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace
 
-#endif // __TdElevPtr_H_74E7E58B_1913_4aa8_B9DD_642F30316A20__
+#endif

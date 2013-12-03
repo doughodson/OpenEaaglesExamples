@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: DspRwr
 //------------------------------------------------------------------------------
-#ifndef __DspRwr_H_1EEBEC96_B088_4b58_A323_429F26B1CF7B__
-#define __DspRwr_H_1EEBEC96_B088_4b58_A323_429F26B1CF7B__
+#ifndef __Eaagles_Test_DspRwr_H__
+#define __Eaagles_Test_DspRwr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
    namespace Simulation { class Rwr; }
 
-namespace Mainx9 {
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: DspRwr
@@ -39,7 +39,7 @@ private:
     Simulation::Rwr* rwr;     // The test RWR sensor
 };
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace
 
-#endif // __DspRwr_H_1EEBEC96_B088_4b58_A323_429F26B1CF7B__
+#endif

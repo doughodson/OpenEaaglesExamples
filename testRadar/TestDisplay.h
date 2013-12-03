@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __TestDisplay_H_C4AA7699_BDAD_40e8_BA4A_288E6A036868__
-#define __TestDisplay_H_C4AA7699_BDAD_40e8_BA4A_288E6A036868__
+#ifndef __Eaagles_TestDisplay_H__
+#define __Eaagles_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -10,7 +10,7 @@ namespace Eaagles {
    namespace Simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
 
-namespace Mainx9 {
+namespace Test {
    class DspRadar;
    class DspRwr;
 
@@ -84,7 +84,7 @@ private:
     int              trkIdx[MAX_TRACKS];    // Index of track symbols
 };
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 #endif

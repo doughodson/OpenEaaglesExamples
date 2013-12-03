@@ -1,6 +1,6 @@
-//*****************************************************************************
-// testRadar -- A general purpose radar test program.  
-//*****************************************************************************
+//------------------------------------------------------------------------------
+// testRadar -- A general purpose radar test program.
+//------------------------------------------------------------------------------
 
 #include "TestStation.h"
 #include "formFunc.h"
@@ -14,7 +14,7 @@
 //#define PARSE_TIMING_TEST
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 // Background frame rate
 const int bgRate = 10;
@@ -99,7 +99,7 @@ static void updateDataCB(int)
 
 
 //-----------------------------------------------------------------------------
-// Eaagles::Mainx9::main() -- Main routine
+// Eaagles::Test::main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
@@ -155,7 +155,7 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -163,5 +163,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::Mainx9::main(argc, argv);
+   return Eaagles::Test::main(argc, argv);
 }

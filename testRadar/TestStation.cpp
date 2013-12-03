@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: TestStation
+//------------------------------------------------------------------------------
 #include "TestStation.h"
 
 #include "openeaagles/simulation/Antenna.h"
@@ -13,7 +15,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
 
@@ -202,5 +204,5 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
    return sout;
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace

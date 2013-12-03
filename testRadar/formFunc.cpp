@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// form function
+//------------------------------------------------------------------------------
 #include "formFunc.h"
 
 #include "TestDisplay.h"
@@ -16,7 +19,7 @@
 #include "openeaagles/basic/basicFF.h"
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 Basic::Object* formFunc(const char* formname)
 {
@@ -52,5 +55,5 @@ Basic::Object* formFunc(const char* formname)
     return newform;
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace

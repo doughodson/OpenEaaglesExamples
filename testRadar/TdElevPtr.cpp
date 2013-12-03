@@ -1,10 +1,12 @@
-
+//------------------------------------------------------------------------------
+// Class: TdElevPtr
+//------------------------------------------------------------------------------
 #include "TdElevPtr.h"
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Mainx9 {
+namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
 EMPTY_SERIALIZER(TdElevPtr)
@@ -72,5 +74,5 @@ void TdElevPtr::draw()
    }
 }
 
-} // End Mainx9 namespace
+} // End Test namespace
 } // End Eaagles namespace
