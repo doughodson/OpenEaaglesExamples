@@ -5,7 +5,7 @@
 #include "ZeroMQHandler.h"
 
 namespace Eaagles {
-namespace xZeroMQHandler {
+namespace xZeroMQHandlers {
 
 //==============================================================================
 // Class: ZeroMQHandler
@@ -26,6 +26,6 @@ ZeroMQHandler::ZeroMQHandler()
 }
 
 
-} // End xZeroMQHandler namespace
+} // End xZeroMQHandlers namespace
 } // End Eaagles namespace
 

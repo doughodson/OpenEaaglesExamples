@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: ZeroMQHandler
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Basic_ZeroMQHandler_H__
-#define __Eaagles_Basic_ZeroMQHandler_H__
+#ifndef __Eaagles_xZeroMQHandlers_ZeroMQHandler_H__
+#define __Eaagles_xZeroMQHandlers_ZeroMQHandler_H__
 
 #include "openeaagles/basic/NetHandler.h"
 
 namespace Eaagles {
-namespace xZeroMQHandler {
+namespace xZeroMQHandlers {
 
 //------------------------------------------------------------------------------
 // Class: ZmqHandler
@@ -22,7 +22,7 @@ public:
 
 };
 
-} // End xZeroMQHandler namespace
+} // End xZeroMQHandlers namespace
 } // End Eaagles namespace
 
 #endif
