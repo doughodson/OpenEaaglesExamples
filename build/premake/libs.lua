@@ -51,4 +51,18 @@
       configuration "Debug"
          targetname "xPanel_d"
 
-
+    --  eXample ZeroMQ network handlers
+    project "libxZmqHandlers"
+      kind "StaticLib"
+      targetdir (OEExamplesLibPath)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      files {
+         "../../shared-libs/xZmqHandlers/*.cpp",
+         "../../shared-libs/xZmqHandlers/*.h",
+         "../../shared-libs/xZmqHandlers/**.epp",
+      }
+      defines { "_LIB" }
+      configuration "Release"
+         targetname "xZmqHandlers"
+      configuration "Debug"
+         targetname "xZmqHandlers_d"

@@ -28,14 +28,6 @@ codelite/
 # preprocessed input (scenario) files
 *.edl
 
-#
-# Qt directories to ignore (created upon build)
-#
-tmp/
-build/qt/*Makefile*
-build/qt/*/*Makefile*
-build/qt/*/*/*Makefile*
-*.pro.user
 
 # linux executables
 demoEfis/demoEfis
