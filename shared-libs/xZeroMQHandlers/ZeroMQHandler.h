@@ -1,28 +1,28 @@
 //------------------------------------------------------------------------------
-// Class: ZmqHandler
+// Class: ZeroMQHandler
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Basic_ZmqHandler_H__
-#define __Eaagles_Basic_ZmqHandler_H__
+#ifndef __Eaagles_Basic_ZeroMQHandler_H__
+#define __Eaagles_Basic_ZeroMQHandler_H__
 
 #include "openeaagles/basic/NetHandler.h"
 
 namespace Eaagles {
-namespace xZmqHandler {
+namespace xZeroMQHandler {
 
 //------------------------------------------------------------------------------
 // Class: ZmqHandler
 //------------------------------------------------------------------------------
-class ZmqHandler : public Basic::NetHandler
+class ZeroMQHandler : public Basic::NetHandler
 {
-   DECLARE_SUBCLASS(ZmqHandler, Basic::NetHandler)
+   DECLARE_SUBCLASS(ZeroMQHandler, Basic::NetHandler)
 
 public:
-   ZmqHandler();
+   ZeroMQHandler();
 
 
 };
 
-} // End xZmqHandler namespace
+} // End xZeroMQHandler namespace
 } // End Eaagles namespace
 
 #endif

@@ -1,31 +1,31 @@
 //------------------------------------------------------------------------------
-// Class: ZmqHandler
+// Class: ZeroMQHandler
 //------------------------------------------------------------------------------
 
-#include "ZmqHandler.h"
+#include "ZeroMQHandler.h"
 
 namespace Eaagles {
-namespace xZmqHandler {
+namespace xZeroMQHandler {
 
 //==============================================================================
-// Class: ZmqHandler
+// Class: ZeroMQHandler
 //==============================================================================
-IMPLEMENT_SUBCLASS(ZmqHandler, "ZmqHandler")
+IMPLEMENT_SUBCLASS(ZeroMQHandler, "ZeroMQHandler")
 
-EMPTY_SLOTTABLE(ZmqHandler)
-EMPTY_DELETEDATA(ZmqHandler)
-EMPTY_COPYDATA(ZmqHandler)
-EMPTY_SERIALIZER(ZmqHandler)
+EMPTY_SLOTTABLE(ZeroMQHandler)
+EMPTY_DELETEDATA(ZeroMQHandler)
+EMPTY_COPYDATA(ZeroMQHandler)
+EMPTY_SERIALIZER(ZeroMQHandler)
 
 //------------------------------------------------------------------------------
 // Constructors
 //------------------------------------------------------------------------------
-ZmqHandler::ZmqHandler()
+ZeroMQHandler::ZeroMQHandler()
 {
     STANDARD_CONSTRUCTOR()
 }
 
 
-} // End xZmqHandler namespace
+} // End xZeroMQHandler namespace
 } // End Eaagles namespace
 

@@ -1,10 +1,10 @@
 #
 include ../../makedefs
 
-LIB = $(OE_EXAMPLES_LIB_DIR)/libxZmqHandlers.a
+LIB = $(OE_EXAMPLES_LIB_DIR)/libxZeroMQHandlers.a
 
 OBJS += \
-	$(LIB)(ZmqHandler.o)
+	$(LIB)(ZeroMQHandler.o)
 
 all: ${OBJS}
 
