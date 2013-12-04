@@ -9,7 +9,7 @@ APPLICATIONS += demoEfis
 APPLICATIONS += demoFlightDisplays1
 APPLICATIONS += demoFlightDisplays2
 APPLICATIONS += demoInstruments
-APPLICATIONS += demoMultiDisplays
+APPLICATIONS += demoSubDisplays
 
 # graphic oriented examples
 APPLICATIONS += mainw

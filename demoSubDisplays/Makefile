@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = demoInstruments
+PGM = demoSubDisplays
 
 OBJS =  \
 	TestAdi2.o \
@@ -25,6 +25,7 @@ OBJS =  \
 	TestVVI.o \
 	main.o
 
+
 LDFLAGS += -loeInstruments -loeGlut -loeBasicGL -loeBasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
@@ -32,13 +33,18 @@ LDFLAGS += -lrt
 
 all: $(PGM)
 
-edl:
-	cpp inputs/testinstruments.epp >testinstruments.edl $(EPPFLAGS)
-
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
+edl:
+	cpp inputs/test.epp >test.edl $(EPPFLAGS)
+
 clean:
 	-rm -f *.o
+	for subdir in $(SUBDIRS); do \
+	    echo making $@ in $$subdir; \
+	    (cd $$subdir && $(MAKE) $@) || exit 1; \
+	done
 	-rm -f $(PGM)
+
 

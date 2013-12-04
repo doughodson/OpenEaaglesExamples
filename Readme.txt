@@ -23,7 +23,7 @@ Demonstration applications:
                             2) Use 'n' and 'p' (next and previous) to move between pages
                             3) use ESC to exit
 
-   demoMultiDisplays    -- Quad subdisplay version of the Instrument Library demo program
+   demoSubDisplays       -- Quad subdisplay version of the Instrument Library demo program
                            1) Contains 4 subdisplays, each containing the instrument lib demo 
                            2) See demoInstruments
 

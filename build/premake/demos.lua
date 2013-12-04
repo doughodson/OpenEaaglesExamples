@@ -95,16 +95,16 @@ project "demoInstruments"
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
--- demoMultiDisplays
-project "demoMultiDisplays"
-   targetname "demoMultiDisplays"
-   targetdir "../../demoMultiDisplays"
-   debugdir "../../demoMultiDisplays"
+-- demoSubDisplays
+project "demoSubDisplays"
+   targetname "demoSubDisplays"
+   targetdir "../../demoSubDisplays"
+   debugdir "../../demoSubDisplays"
    files {
-      "../../demoMultiDisplays/**.cpp",
-      "../../demoMultiDisplays/**.h",
-      "../../demoMultiDisplays/**.epp",
-      "../../demoMultiDisplays/**.edl"
+      "../../demoSubDisplays/**.cpp",
+      "../../demoSubDisplays/**.h",
+      "../../demoSubDisplays/**.epp",
+      "../../demoSubDisplays/**.edl"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
