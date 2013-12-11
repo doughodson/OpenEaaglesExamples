@@ -5,10 +5,12 @@
 # xBehaviors      : eXample UBF behaviors
 # xRecorder       : eXample data recorder extension
 # xPanel          : eXample instrument panel
+# xZeroMQ         : eXample 0MQ binding extension
 #
 LIBRARIES  = xBehaviors
 LIBRARIES += xRecorder
 LIBRARIES += xPanel
+LIBRARIES += xZeroMQ
 
 #
 # Rules
