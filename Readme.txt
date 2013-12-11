@@ -148,11 +148,13 @@ Tutorial applications:
 
 Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
-   libxBehaviors      -- eXample UBF behaviors
+   libxBehaviors        -- eXample UBF behaviors
 
-   libxRecorder       -- eXample extension of the Data Recorder
+   libxRecorder         -- eXample extension of the Data Recorder
 
-   libxPanel          -- eXample components to display an instrument panel, used by 'mainy1',
-                         'mainUbf1' and 'testRecordData'
+   libxPanel            -- eXample components to display an instrument panel, used by 'mainy1',
+                           'mainUbf1' and 'testRecordData'
 
+   libxZeroMQHandlers   -- eXample ZeroMQ network handlers
 
+   libxZeroMQ           -- eXample ZeroMQ network handlers (new)

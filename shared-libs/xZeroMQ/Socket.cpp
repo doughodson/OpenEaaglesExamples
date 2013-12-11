@@ -9,6 +9,8 @@
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/String.h"
 
+#include <sstream>
+
 #include <zmq.h>
 
 
@@ -89,6 +91,7 @@ Socket::Socket ()
 
    // Initialize the valid transports
    if (eps2i.empty ()) {
+      eps2i["NONE"]   = NONE;
       eps2i["TCP"]    = TCP;
       eps2i["IPC"]    = IPC;
       eps2i["INPROC"] = INPROC;
@@ -97,6 +100,7 @@ Socket::Socket ()
    }
 
    if (epi2s.empty ()) {
+      epi2s[NONE]   = "NONE";
       epi2s[TCP]    = "TCP";
       epi2s[IPC]    = "IPC";
       epi2s[INPROC] = "INPROC";
@@ -109,12 +113,14 @@ Socket::Socket ()
 void Socket::initData ()
 {
    // Socket information
+   ctxname = "";
    context = 0;
-   stype   = 0;
-   socket  = 0;;
+   stype   = -1;
+   socket  = 0;
+   bound   = false;
 
    // Endpoint information
-   eptrans   = TCP;
+   eptrans   = NONE;
    epaddress = "";
    epport    = 0;
    endpoint  = "";
@@ -137,7 +143,9 @@ void Socket::copyData (const Socket& org, const bool cc)
    context = org.context;
    if (context != 0) context->ref ();
 
-   stype = org.stype;
+   ctxname = org.ctxname;
+   stype   = org.stype;
+   socket  = 0;
 
    // Copy the endpoint information
    eptrans   = org.eptrans;
@@ -151,8 +159,8 @@ void Socket::copyData (const Socket& org, const bool cc)
 //------------------------------------------------------------------------------
 void Socket::deleteData ()
 {
-   // Close the 0MQ socket
-   if (socket != 0) zmq_close (socket);
+   // Shutdown the connection
+   closeConnection ();
 
    // Detach the parent context
    if (context != 0) context->unref ();
@@ -160,6 +168,94 @@ void Socket::deleteData ()
    // Finally set to initial state
    initData ();
 }
+
+
+//------------------------------------------------------------------------------
+// NetHandler override functions
+//------------------------------------------------------------------------------
+bool Socket::initNetwork (const bool noWaitFlag)
+{
+   if (context == 0) return false;
+
+   // Make sure we have a valid endpoint
+   std::string epfa = endpoint;
+
+   if (epfa.empty ()) {
+      if (eptrans == NONE) return false;
+
+      // Build the endpoint full definition
+      std::ostringstream sstr;
+
+      if (epaddress.empty ()) {
+         sstr << epi2s[eptrans] << "://"
+              << "*"
+              << ":" << epport
+              << std::ends;
+      }
+      else {
+         sstr << epi2s[eptrans] << "://"
+              << epaddress
+              << ":" << epport
+              << std::ends;
+      }
+
+      epfa = sstr.str ();
+   }
+
+   // Make sure the socket type is valid
+   if (stype == -1) return false;
+
+   // Create the socket
+   socket = zmq_socket (*context, stype);
+
+   if (socket == 0) return false;
+
+   // Bind the socket
+   if (zmq_bind (socket, epfa.c_str ()) == 0) bound = true;
+   else bound = false;
+
+   return bound;
+}
+
+bool Socket::isConnected () const
+{
+   if (socket == 0) return false;
+   else return bound;
+}
+
+bool Socket::closeConnection ()
+{
+   // Close the 0MQ socket
+   if (socket != 0) zmq_close (socket);
+
+   socket = 0;
+   bound  = false;
+
+   return true;
+}
+
+bool Socket::setBlocked (const LcSocket s)
+{
+   return false;
+}
+
+bool Socket::setNoWait (const LcSocket s)
+{
+   return false;
+}
+
+bool Socket::sendData (const char* const packet, const int size)
+{
+   bool ok = false;
+   return ok;
+}
+
+unsigned int Socket::recvData (char* const packet, const int maxSize)
+{
+   bool ok = false;
+   return ok;
+}
+
 
 //------------------------------------------------------------------------------
 // Set functions
@@ -174,7 +270,10 @@ bool Socket::setSlotContext (const Basic::String* const msg)
 {
    bool ok = false;
    if (msg != 0) {
-      ok = true;
+      // Save the name and find the context for use in the initialization
+      // of the socket
+      ctxname = *msg;
+      ok      = true;
    }
    return ok;
 }
@@ -184,7 +283,14 @@ bool Socket::setSlotType (const Basic::String* const msg)
 {
    bool ok = false;
    if (msg != 0) {
-      ok = true;
+      // Find the token in the map and get the enumeration for use in the
+      // initialization of the socket
+      s2i_t::const_iterator k = sts2i.find (std::string (*msg));
+
+      if (k != sts2i.end ()) {
+         stype = k->second;
+         ok    = true;
+      }
    }
    return ok;
 }
@@ -194,7 +300,14 @@ bool Socket::setSlotTransport (const Basic::String* const msg)
 {
    bool ok = false;
    if (msg != 0) {
-      ok = true;
+      // Find the token in the map and get the enumeration for use in the
+      // initialization of the socket
+      s2i_t::const_iterator k = eps2i.find (std::string (*msg));
+
+      if (k != eps2i.end ()) {
+         eptrans = (Transport) k->second;
+         ok      = true;
+      }
    }
    return ok;
 }
@@ -204,9 +317,9 @@ bool Socket::setSlotAddress (const Basic::String* const msg)
 {
    bool ok = false;
    if (msg != 0) {
-      //if (address != 0) delete [] address;
-      //address = msg->getCopyString ();
-      ok = true;
+      // Save the address for use during the initialization of the socket
+      epaddress = *msg;
+      ok        = true;
    }
    return ok;
 }
@@ -216,10 +329,28 @@ bool Socket::setSlotPort (const Basic::Number* const msg)
 {
    bool ok = false;
    if (msg != 0) {
+      // Make sure the port is between 0 and 65535
       int temp = msg->getInt ();
       if (temp >= 0 && temp <= 0xffff) {
-         //ok = setPort (temp);
+         epport = temp;
+         ok     = true;
       }
+   }
+   return ok;
+}
+
+// endpoint: String containing the endpoint (3, 4, & 5)
+bool Socket::setSlotEndpoint (const Basic::String* const msg)
+{
+   bool ok = false;
+   if (msg != 0) {
+      // Save the endpoint definition and make sure the individual pieces
+      // are ignored
+      endpoint  = *msg;
+      eptrans   = NONE;
+      epaddress = "";
+      epport    = 0;
+      ok        = true;
    }
    return ok;
 }
@@ -229,6 +360,8 @@ bool Socket::setSlotOptions (const Basic::List* const msg)
 {
    bool ok = false;
    if (msg != 0) {
+      // Traverse the list of options and save them for use during the
+      // initialization of the socket
       ok = true;
    }
    return ok;
@@ -248,33 +381,51 @@ Basic::Object* Socket::getSlotByIndex (const int si)
 std::ostream& Socket::serialize (std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
+
    if (!slotsOnly) {
       indent (sout, i);
       sout << "( " << getFormName () << std::endl;
       j = 4;
    }
 
-   //if (context != 0) {
-   //}
+   if (!ctxname.empty ()) {
+      indent (sout, i+j);
+      sout << "context: " << ctxname << std::endl;
+   }
 
-   //if (type != 0) {
-   //}
+   // Output the socket type
+   if (stype != -1) {
+      indent (sout, i+j);
+      sout << "type: " << sti2s[stype] << std::endl;
+   }
 
-   //if (protocol != 0) {
-   //}
+   // Output the endpoint transport type
+   if (eptrans != 0) {
+      indent (sout, i+j);
+      sout << "transport: " << epi2s[eptrans] << std::endl;
+   }
 
-   //if (address != 0) {
-   //}
+   // Output the endpoint address
+   if (!epaddress.empty ()) {
+      indent (sout, i+j);
+      sout << "address: " << epaddress << std::endl;
+   }
 
-   //if (port != 0) {
-      //indent (sout,i+j);
-      //sout << "port: " << port << std::endl;
-   //}
+   // Output the endpoint port
+   if (epport != 0) {
+      indent (sout, i+j);
+      sout << "port: " << epport << std::endl;
+   }
 
+   // Output the full endpoint definition
+   if (!endpoint.empty ()) {
+      indent (sout, i+j);
+      sout << "endpoint: " << endpoint << std::endl;
+   }
+
+   // Output the options list
    //if (options != 0) {
    //}
-
-   BaseClass::serialize (sout, i+j, true);
 
    if (!slotsOnly) {
       indent (sout, i);

@@ -8,7 +8,7 @@
 #include "openeaagles/basic/Object.h"
 
 namespace Eaagles {
-   namespace Basic { class String; }
+   namespace Basic { class List; class String; }
 
 namespace xZeroMQ {
 
@@ -29,10 +29,17 @@ class Context : public Basic::Object
 public:
    Context ();
 
-   virtual bool setSlotType (const Basic::String* const msg);
+   operator void* () { return context; }
+   operator const void* () const { return context; }
+
+   // Slots
+   virtual bool setSlotOptions (const Basic::List* const msg);
 
 private:
    void initData ();
+
+private:
+   void* context;                // 0MQ context (they use void*)
 };
 
 }  // End xZeroMQ namespace

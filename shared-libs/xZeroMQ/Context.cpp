@@ -21,12 +21,12 @@ IMPLEMENT_SUBCLASS(Context, "ZmqContext")
 
 // Slot Table
 BEGIN_SLOTTABLE(Context)
-   "type",                 // 1) String containing the socket type
+   "options",                    // 1) String containing the socket type
 END_SLOTTABLE(Context)
 
 // Map slot table to handles
 BEGIN_SLOT_MAP(Context)
-   ON_SLOT(1, setSlotType, Basic::String)
+   ON_SLOT(1, setSlotOptions, Basic::List)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -41,6 +41,7 @@ Context::Context ()
 
 void Context::initData ()
 {
+   context = 0;
 }
 
 //------------------------------------------------------------------------------
@@ -51,6 +52,7 @@ void Context::copyData (const Context& org, const bool cc)
    BaseClass::copyData (org);
 
    if (cc) {
+      context = 0;
    }
 }
 
@@ -71,7 +73,7 @@ void Context::deleteData ()
 //------------------------------------------------------------------------------
 
 // type: String containing the socket type
-bool Context::setSlotType (const Basic::String* const msg)
+bool Context::setSlotOptions (const Basic::List* const msg)
 {
    bool ok = false;
    if (msg != 0) {
