@@ -171,9 +171,7 @@ bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
    // and it is NOT refed so once it is deleted the memory is
    // freed.
    if (masterContext == 0) {
-      std::cout << "DGF: assigning master context" << std::endl;
       if (context == 0) {
-      std::cout << "DGF: creating master context" << std::endl;
          masterContext = new ZeroMQContext;
          context       = masterContext;
       }
@@ -197,19 +195,15 @@ bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
    bool ok = false;
 
    // Initialize the context so we can use it
-   std::cout << "DGF: initNetwork" << std::endl;
    if (!context->isInitialized ()) ok = context->initContext ();
 
    // Create the socket
    if (ok) {
-      std::cout << "DGF: socketType=" << sti2s[socketType] << std::endl;
       socket = zmq_socket (*context, socketType);
 
       if (socket == 0) ok = false;
    }
-   std::cout << "DGF: ok=" << std::boolalpha << ok << std::endl;
 
-   std::cout << "DGF: setting options" << std::endl;
    // Set the socket options
    if (ok && linger != -1) ok = zmq_setsockopt (socket, ZMQ_LINGER, &linger, sizeof (linger));
    if (ok && !subscribe.empty ()) ok = zmq_setsockopt (socket, ZMQ_SUBSCRIBE, subscribe.c_str (), subscribe.length ());
@@ -218,18 +212,15 @@ bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
    if (ok && sendBufSize != -1) ok = zmq_setsockopt (socket, ZMQ_SNDBUF, &sendBufSize, sizeof (sendBufSize));
    if (ok && recvBufSize != -1) ok = zmq_setsockopt (socket, ZMQ_RCVBUF, &recvBufSize, sizeof (recvBufSize));
 
-   // Accept the socket
+   // Allow bind or connection to the socket
    if (dobind) {
-      std::cout << "DGF: binding endPoint=" << endpoint << std::endl;
       if (ok && zmq_bind (socket, endpoint.c_str ()) == 0) ready = true;
       else ready = false;
    }
    else {
-      std::cout << "DGF: connecting endPoint=" << endpoint << std::endl;
       if (ok && zmq_connect (socket, endpoint.c_str ()) == 0) ready = true;
       else ready = false;
    }
-   std::cout << "DGF: ready=" << std::boolalpha << ready << std::endl;
 
    return ready;
 }
