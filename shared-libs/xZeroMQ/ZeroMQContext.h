@@ -52,18 +52,18 @@ public:
    virtual bool setSlotEnableIPV6 (const Basic::Boolean* const msg);
 
 protected:
-   bool setThreadCount (int count);
-   bool setMaxSockets (int count);
-   bool setEnableIPV6 (bool use);
+   bool setThreadCount (const int count);
+   bool setMaxSockets (const int count);
+   bool setEnableIPV6 (const bool use);
 
 private:
    void initData ();
 
 private:
    void* context;                // 0MQ context (they use void*)
-   int   threads;                // Number of I/O threads (-1 = not set)
-   int   sockets;                // Number of sockets (-1 = not set)
-   int   useipv6;                // Use IPV6 sockets (0 or 1, -1 = not set)
+   int   threadCount;            // Number of I/O threads (-1 = not set)
+   int   maxSockets;             // Number of sockets (-1 = not set)
+   int   enableIPV6;             // Use IPV6 sockets (0 or 1, -1 = not set)
    bool  ready;                  // The socket is initialized
 };
 

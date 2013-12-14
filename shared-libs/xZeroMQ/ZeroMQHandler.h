@@ -11,7 +11,7 @@
 #include <string>
 
 namespace Eaagles {
-   namespace Basic { class String; };
+   namespace Basic { class Integer; class String; };
 
 namespace xZeroMQ {
    class ZeroMQContext;
@@ -63,6 +63,10 @@ public:
    virtual bool         sendData (const char* const packet, const int size);
    virtual unsigned int recvData (char* const packet, const int maxSize);
 
+   // Casting for the dereference operator much like Basic::String
+   operator void* () { return socket; }
+   operator const void* () const { return socket; }
+
    // NetHandler overrides that have no meaning in 0MQ at this time
    virtual bool setBlocked (const LcSocket s = NET_INVALID_SOCKET);
    virtual bool setNoWait (const LcSocket s = NET_INVALID_SOCKET);
@@ -71,11 +75,23 @@ public:
    virtual bool setSlotContext (const Basic::String* const msg);
    virtual bool setSlotSocketType (const Basic::String* const msg);
    virtual bool setSlotEndpoint (const Basic::String* const msg);
+   virtual bool setSlotLinger (const Basic::Integer* const msg);
+   virtual bool setSlotSubscribe (const Basic::String* const msg);
+   virtual bool setSlotBackLog (const Basic::Integer* const msg);
+   virtual bool setSlotIdentity (const Basic::String* const msg);
+   virtual bool setSlotSendBufSize (const Basic::Integer* const msg);
+   virtual bool setSlotRecvBufSize (const Basic::Integer* const msg);
 
 protected:
    bool setContext (const char* const name);
    bool setSocketType (const char* const type);
    bool setEndpoint (const char* const type);
+   bool setLinger (const int period);
+   bool setSubscribe (const char* const filter);
+   bool setBackLog (const int count);
+   bool setIdentity (const char* const ident);
+   bool setSendBufSize (const int count);
+   bool setRecvBufSize (const int count);
 
 private:
    void initData ();
@@ -89,7 +105,14 @@ protected:
    std::string    contextName;   // Parent context name
    int            socketType;    // Socket type
    std::string    endpoint;      // Endpoint for binding
+   int            linger;        // Socket linger period (ms)
+   std::string    subscribe;     // Message filter
+   int            backLog;       // Connection queue size
+   std::string    identity;      // Socket identity
+   int            sendBufSize;   // Kernel buffer size for sending
+   int            recvBufSize;   // Kernel buffer size for receiving
    void*          socket;        // 0MQ socket
+   bool           dontWait;      // 0MQ no wait flag
    bool           bound;         // Bind was successful
 };
 

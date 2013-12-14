@@ -42,11 +42,11 @@ ZeroMQContext::ZeroMQContext ()
 
 void ZeroMQContext::initData ()
 {
-   context = 0;
-   threads = -1;
-   sockets = -1;
-   useipv6 = -1;
-   ready   = false;
+   context     = 0;
+   threadCount = -1;
+   maxSockets  = -1;
+   enableIPV6  = -1;
+   ready       = false;
 }
 
 //------------------------------------------------------------------------------
@@ -60,10 +60,10 @@ void ZeroMQContext::copyData (const ZeroMQContext& org, const bool cc)
       context = 0;
    }
 
-   threads = org.threads;
-   sockets = org.sockets;
-   useipv6 = org.useipv6;
-   ready   = org.ready;
+   threadCount = org.threadCount;
+   maxSockets  = org.maxSockets;
+   enableIPV6  = org.enableIPV6;
+   ready       = org.ready;
 }
 
 //------------------------------------------------------------------------------
@@ -84,9 +84,9 @@ bool ZeroMQContext::initContext ()
    if (context != 0) ok = true;
 
    // Set the 0MQ context options
-   if (ok && threads != -1) ok = zmq_ctx_set (context, ZMQ_IO_THREADS, threads) == 0;
-   if (ok && sockets != -1) ok = zmq_ctx_set (context, ZMQ_MAX_SOCKETS, sockets) == 0;
-   if (ok && useipv6 != -1) ok = zmq_ctx_set (context, ZMQ_IPV6, useipv6) == 0;
+   if (ok && threadCount != -1) ok = zmq_ctx_set (context, ZMQ_IO_THREADS, threadCount) == 0;
+   if (ok && maxSockets != -1) ok = zmq_ctx_set (context, ZMQ_MAX_SOCKETS, maxSockets) == 0;
+   if (ok && enableIPV6 != -1) ok = zmq_ctx_set (context, ZMQ_IPV6, enableIPV6) == 0;
 
    // Indicate the context is ready... or not
    ready = ok;
@@ -124,19 +124,19 @@ bool ZeroMQContext::isInitialized () const
 //------------------------------------------------------------------------------
 bool ZeroMQContext::setThreadCount (int count)
 {
-   threads = count;
+   threadCount = count;
    return true;
 }
 
 bool ZeroMQContext::setMaxSockets (int count)
 {
-   sockets = count;
+   maxSockets = count;
    return true;
 }
 
 bool ZeroMQContext::setEnableIPV6 (bool enable)
 {
-   useipv6 = enable ? 1 : 0;
+   enableIPV6 = enable ? 1 : 0;
    return true;
 }
 
@@ -189,21 +189,21 @@ std::ostream& ZeroMQContext::serialize (std::ostream& sout, const int i, const b
    }
 
    // Output the I/O thread count
-   if (threads != -1) {
+   if (threadCount != -1) {
       indent (sout, i+j);
-      sout << "threadCount: " << threads << std::endl;
+      sout << "threadCount: " << threadCount << std::endl;
    }
 
    // Output the max socket count
-   if (sockets != -1) {
+   if (maxSockets != -1) {
       indent (sout, i+j);
-      sout << "maxSockets: " << sockets << std::endl;
+      sout << "maxSockets: " << maxSockets << std::endl;
    }
 
    // Output IPV6 enabled
-   if (useipv6 != -1) {
+   if (enableIPV6 != -1) {
       indent (sout, i+j);
-      if (useipv6 == 1) sout << "enableIP6: true" << std::endl;
+      if (enableIPV6 == 1) sout << "enableIP6: true" << std::endl;
       else sout << "enableIP6: false" << std::endl;
    }
 
