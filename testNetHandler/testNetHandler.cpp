@@ -10,6 +10,8 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
+#include "../shared-libs/xZeroMQ/formFunc.h"
+
 namespace Test {
 
 const float UPDATE_RATE = 10.0; // Main loop update rate
@@ -29,6 +31,7 @@ static Eaagles::Basic::Object* testFormFunc(const char* formname)
     }
 
     if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
+    if (newform == 0) newform = Eaagles::xZeroMQ::formFunc(formname);
     return newform;
 }
 
