@@ -45,7 +45,8 @@ namespace xZeroMQ {
 //    context     - The context used to create the socket
 //    socketType  - Socket type (REQ, REP, DEALER, ROUTER, PUB, SUB, XPUB,
 //                  XSUB, PUSH, PULL, PAIR, or STREAM)
-//    endpoint    - A full endpoint definition string (tcp://*:12345)
+//    connect     - Connect a full endpoint definition string (tcp://*:12345)
+//    accept      - Accept a full endpoint definition string (tcp://*:12345)
 //    <options>   - The set options will each have a slot for them
 //
 //------------------------------------------------------------------------------
@@ -72,9 +73,10 @@ public:
    virtual bool setNoWait (const LcSocket s = NET_INVALID_SOCKET);
 
    // Slots
-   virtual bool setSlotContext (const Basic::String* const msg);
+   virtual bool setSlotContext (ZeroMQContext* const msg);
    virtual bool setSlotSocketType (const Basic::String* const msg);
-   virtual bool setSlotEndpoint (const Basic::String* const msg);
+   virtual bool setSlotConnect (const Basic::String* const msg);
+   virtual bool setSlotAccept (const Basic::String* const msg);
    virtual bool setSlotLinger (const Basic::Integer* const msg);
    virtual bool setSlotSubscribe (const Basic::String* const msg);
    virtual bool setSlotBackLog (const Basic::Integer* const msg);
@@ -83,9 +85,10 @@ public:
    virtual bool setSlotRecvBufSize (const Basic::Integer* const msg);
 
 protected:
-   bool setContext (const char* const name);
+   bool setContext (ZeroMQContext* const context);
    bool setSocketType (const char* const type);
-   bool setEndpoint (const char* const type);
+   bool setConnect (const char* const type);
+   bool setAccept (const char* const type);
    bool setLinger (const int period);
    bool setSubscribe (const char* const filter);
    bool setBackLog (const int count);
@@ -97,12 +100,16 @@ private:
    void initData ();
 
 private:
+   // The master context is the main process context.  It will be used by
+   // all subsequent handlers unless otherwise specified with the context
+   // slot.
+   static ZeroMQContext* masterContext;
+
    static s2i_t sts2i;           // ZeroMQHandler type maps
    static i2s_t sti2s;
 
 protected:
    ZeroMQContext* context;       // Parent context (Eaagles not 0MQ)
-   std::string    contextName;   // Parent context name
    int            socketType;    // Socket type
    std::string    endpoint;      // Endpoint for binding
    int            linger;        // Socket linger period (ms)
@@ -112,8 +119,9 @@ protected:
    int            sendBufSize;   // Kernel buffer size for sending
    int            recvBufSize;   // Kernel buffer size for receiving
    void*          socket;        // 0MQ socket
+   bool           dobind;        // Accept or connect!
    bool           dontWait;      // 0MQ no wait flag
-   bool           bound;         // Bind was successful
+   bool           ready;         // Initialization was successful
 };
 
 }  // End xZeroMQ namespace

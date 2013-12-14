@@ -14,7 +14,7 @@ namespace xZeroMQ {
 //==============================================================================
 // Class: ZeroMQContext
 //==============================================================================
-IMPLEMENT_SUBCLASS(ZeroMQContext, "ZmqZeroMQContext")
+IMPLEMENT_SUBCLASS(ZeroMQContext, "ZeroMQContext")
 
 // Slot Table
 BEGIN_SLOTTABLE(ZeroMQContext)
@@ -76,13 +76,18 @@ void ZeroMQContext::deleteData ()
 
 bool ZeroMQContext::initContext ()
 {
-   bool ok = false;
+   bool ok = true;
 
+   std::cout << "DGF: initContext" << std::endl;
    // Create the 0MQ context using the new create function
-   context = zmq_ctx_new ();
+   if (ok) {
+      context = zmq_ctx_new ();
 
-   if (context != 0) ok = true;
+      if (context == 0) ok = false;
+   }
+   std::cout << "DGF: ok=" << std::boolalpha << ok << std::endl;
 
+   std::cout << "DGF: setting options" << std::endl;
    // Set the 0MQ context options
    if (ok && threadCount != -1) ok = zmq_ctx_set (context, ZMQ_IO_THREADS, threadCount) == 0;
    if (ok && maxSockets != -1) ok = zmq_ctx_set (context, ZMQ_MAX_SOCKETS, maxSockets) == 0;
@@ -90,6 +95,7 @@ bool ZeroMQContext::initContext ()
 
    // Indicate the context is ready... or not
    ready = ok;
+   std::cout << "DGF: ok=" << std::boolalpha << ok << std::endl;
 
    return ok;
 }

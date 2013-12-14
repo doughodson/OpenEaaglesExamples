@@ -17,37 +17,41 @@ namespace xZeroMQ {
 //==============================================================================
 // Class: ZeroMQHandler
 //==============================================================================
-IMPLEMENT_SUBCLASS(ZeroMQHandler, "ZmqZeroMQHandler")
+IMPLEMENT_SUBCLASS(ZeroMQHandler, "ZeroMQHandler")
 
 // Slot Table
 BEGIN_SLOTTABLE(ZeroMQHandler)
-   "context",              // 1) String containing the parent context's name
-   "socketType",           // 2) String containing the socket type
-   "endPoint",             // 3) String containing the endpoint (3, 4, & 5)
-   "linger",               // 4) Integer containing the linger period (ms)
-   "subscribe",            // 5) String containing the message filter
-   "backLog",              // 6) Integer containing the connection queue size
-   "identity",             // 7) String containing the identity
-   "sendBufSizeKb",        // 8) Integer containing the send buffer size in KB's
-   "recvBufSizeKb",        // 9) Integer containing the receive buffer size in KB's
+   "context",              //  1) String containing the parent context's name
+   "socketType",           //  2) String containing the socket type
+   "connect",              //  3) String containing the endpoint
+   "accept",               //  4) String containing the endpoint
+   "linger",               //  5) Integer containing the linger period (ms)
+   "subscribe",            //  6) String containing the message filter
+   "backLog",              //  7) Integer containing the connection queue size
+   "identity",             //  8) String containing the identity
+   "sendBufSizeKb",        //  9) Integer containing the send buffer size in KB's
+   "recvBufSizeKb",        // 10) Integer containing the receive buffer size in KB's
 END_SLOTTABLE(ZeroMQHandler)
 
 // Map slot table to handles
 BEGIN_SLOT_MAP(ZeroMQHandler)
-   ON_SLOT(1, setSlotContext,     Basic::String)
-   ON_SLOT(2, setSlotSocketType,  Basic::String)
-   ON_SLOT(3, setSlotEndpoint,    Basic::String)
-   ON_SLOT(4, setSlotLinger,      Basic::Integer)
-   ON_SLOT(5, setSlotSubscribe,   Basic::String)
-   ON_SLOT(6, setSlotBackLog,     Basic::Integer)
-   ON_SLOT(7, setSlotIdentity,    Basic::String)
-   ON_SLOT(8, setSlotSendBufSize, Basic::Integer)
-   ON_SLOT(9, setSlotRecvBufSize, Basic::Integer)
+   ON_SLOT( 1, setSlotContext,     ZeroMQContext)
+   ON_SLOT( 2, setSlotSocketType,  Basic::String)
+   ON_SLOT( 3, setSlotConnect,     Basic::String)
+   ON_SLOT( 4, setSlotAccept,      Basic::String)
+   ON_SLOT( 5, setSlotLinger,      Basic::Integer)
+   ON_SLOT( 6, setSlotSubscribe,   Basic::String)
+   ON_SLOT( 7, setSlotBackLog,     Basic::Integer)
+   ON_SLOT( 8, setSlotIdentity,    Basic::String)
+   ON_SLOT( 9, setSlotSendBufSize, Basic::Integer)
+   ON_SLOT(10, setSlotRecvBufSize, Basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
 // Constructors
 //------------------------------------------------------------------------------
+ZeroMQContext* ZeroMQHandler::masterContext = 0;
+
 s2i_t ZeroMQHandler::sts2i;
 i2s_t ZeroMQHandler::sti2s;
 
@@ -94,7 +98,6 @@ ZeroMQHandler::ZeroMQHandler ()
 void ZeroMQHandler::initData ()
 {
    // ZeroMQHandler information
-   contextName = "";
    context     = 0;
    socketType  = -1;
    endpoint    = "";
@@ -105,8 +108,9 @@ void ZeroMQHandler::initData ()
    identity    = "";
    sendBufSize = -1;
    recvBufSize = -1;
+   dobind      = false;
    dontWait    = false;
-   bound       = false;
+   ready       = false;
 }
 
 //------------------------------------------------------------------------------
@@ -126,7 +130,6 @@ void ZeroMQHandler::copyData (const ZeroMQHandler& org, const bool cc)
    context = org.context;
    if (context != 0) context->ref ();
 
-   contextName = org.contextName;
    socketType  = org.socketType;
    socket      = 0;
    endpoint    = org.endpoint;
@@ -136,8 +139,9 @@ void ZeroMQHandler::copyData (const ZeroMQHandler& org, const bool cc)
    identity    = org.identity;
    sendBufSize = org.sendBufSize;
    recvBufSize = org.recvBufSize;
+   dobind      = org.dobind;
    dontWait    = org.dontWait;
-   bound       = false;
+   ready       = false;
 }
 
 //------------------------------------------------------------------------------
@@ -161,6 +165,28 @@ void ZeroMQHandler::deleteData ()
 //------------------------------------------------------------------------------
 bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
 {
+   // First check to see if the master context has been created.  If it has
+   // not been set, check to see if a context was specified for the socket
+   // and set the master.  This sharing is only done on the first context
+   // and it is NOT refed so once it is deleted the memory is
+   // freed.
+   if (masterContext == 0) {
+      std::cout << "DGF: assigning master context" << std::endl;
+      if (context == 0) {
+      std::cout << "DGF: creating master context" << std::endl;
+         masterContext = new ZeroMQContext;
+         context       = masterContext;
+      }
+      else masterContext = context;
+   }
+
+   // Looks like we need to share the master context.  Just assign and
+   // reference.
+   if (context == 0) {
+      context = masterContext;
+      context->ref ();
+   }
+
    // Set the no wait flag for sending/receiving
    dontWait = noWaitFlag;
 
@@ -170,11 +196,20 @@ bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
 
    bool ok = false;
 
+   // Initialize the context so we can use it
+   std::cout << "DGF: initNetwork" << std::endl;
+   if (!context->isInitialized ()) ok = context->initContext ();
+
    // Create the socket
-   socket = zmq_socket (*context, socketType);
+   if (ok) {
+      std::cout << "DGF: socketType=" << sti2s[socketType] << std::endl;
+      socket = zmq_socket (*context, socketType);
 
-   if (socket == 0) ok = false;
+      if (socket == 0) ok = false;
+   }
+   std::cout << "DGF: ok=" << std::boolalpha << ok << std::endl;
 
+   std::cout << "DGF: setting options" << std::endl;
    // Set the socket options
    if (ok && linger != -1) ok = zmq_setsockopt (socket, ZMQ_LINGER, &linger, sizeof (linger));
    if (ok && !subscribe.empty ()) ok = zmq_setsockopt (socket, ZMQ_SUBSCRIBE, subscribe.c_str (), subscribe.length ());
@@ -183,17 +218,26 @@ bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
    if (ok && sendBufSize != -1) ok = zmq_setsockopt (socket, ZMQ_SNDBUF, &sendBufSize, sizeof (sendBufSize));
    if (ok && recvBufSize != -1) ok = zmq_setsockopt (socket, ZMQ_RCVBUF, &recvBufSize, sizeof (recvBufSize));
 
-   // Bind the socket
-   if (ok && zmq_bind (socket, endpoint.c_str ()) == 0) bound = true;
-   else bound = false;
+   // Accept the socket
+   if (dobind) {
+      std::cout << "DGF: binding endPoint=" << endpoint << std::endl;
+      if (ok && zmq_bind (socket, endpoint.c_str ()) == 0) ready = true;
+      else ready = false;
+   }
+   else {
+      std::cout << "DGF: connecting endPoint=" << endpoint << std::endl;
+      if (ok && zmq_connect (socket, endpoint.c_str ()) == 0) ready = true;
+      else ready = false;
+   }
+   std::cout << "DGF: ready=" << std::boolalpha << ready << std::endl;
 
-   return bound;
+   return ready;
 }
 
 bool ZeroMQHandler::isConnected () const
 {
    if (socket == 0) return false;
-   else return bound;
+   else return ready;
 }
 
 bool ZeroMQHandler::closeConnection ()
@@ -202,7 +246,7 @@ bool ZeroMQHandler::closeConnection ()
    if (socket != 0) zmq_close (socket);
 
    socket = 0;
-   bound  = false;
+   ready  = false;
 
    return true;
 }
@@ -219,7 +263,7 @@ bool ZeroMQHandler::setNoWait (const LcSocket s)
 
 bool ZeroMQHandler::sendData (const char* const packet, const int size)
 {
-   if (socket == 0 || !bound) return 0;
+   if (socket == 0 || !ready) return 0;
 
    // We set the flags here.  We are not handling multi-part messages since
    // I have not found a good way to handle them in OpenEaagles yet. But,
@@ -241,7 +285,7 @@ bool ZeroMQHandler::sendData (const char* const packet, const int size)
 
 unsigned int ZeroMQHandler::recvData (char* const packet, const int maxSize)
 {
-   if (socket == 0 || !bound) return 0;
+   if (socket == 0 || !ready) return 0;
 
    // We set the flags here.
    int flags = 0;
@@ -261,9 +305,9 @@ unsigned int ZeroMQHandler::recvData (char* const packet, const int maxSize)
 //------------------------------------------------------------------------------
 // Set functions
 //------------------------------------------------------------------------------
-bool ZeroMQHandler::setContext (const char* const name)
+bool ZeroMQHandler::setContext (ZeroMQContext* const ctx)
 {
-   contextName = name;
+   context = ctx;
    return true;
 }
 
@@ -277,9 +321,17 @@ bool ZeroMQHandler::setSocketType (const char* const type)
    return socketType != -1;
 }
 
-bool ZeroMQHandler::setEndpoint (const char* const ep)
+bool ZeroMQHandler::setConnect (const char* const ep)
 {
    endpoint = ep;
+   dobind   = false;
+   return true;
+}
+
+bool ZeroMQHandler::setAccept (const char* const ep)
+{
+   endpoint = ep;
+   dobind   = true;
    return true;
 }
 
@@ -324,12 +376,12 @@ bool ZeroMQHandler::setRecvBufSize (const int size)
 //------------------------------------------------------------------------------
 
 // context: String containing the parent context's name
-bool ZeroMQHandler::setSlotContext (const Basic::String* const msg)
+bool ZeroMQHandler::setSlotContext (ZeroMQContext* const msg)
 {
    // Save the name and find the context for use in the initialization
    // of the socket
    bool ok = false;
-   if (msg != 0) ok = setContext (*msg);
+   if (msg != 0) ok = setContext (msg);
    return ok;
 }
 
@@ -343,13 +395,23 @@ bool ZeroMQHandler::setSlotSocketType (const Basic::String* const msg)
    return ok;
 }
 
-// endpoint: String containing the endpoint (3, 4, & 5)
-bool ZeroMQHandler::setSlotEndpoint (const Basic::String* const msg)
+// connect: String containing the endpoint (3, 4, & 5)
+bool ZeroMQHandler::setSlotConnect (const Basic::String* const msg)
 {
    // Save the endpoint definition for use in the initialization of
    // the socket
    bool ok = false;
-   if (msg != 0) ok = setEndpoint (*msg);
+   if (msg != 0) ok = setConnect (*msg);
+   return ok;
+}
+
+// bind: String containing the endpoint (3, 4, & 5)
+bool ZeroMQHandler::setSlotAccept (const Basic::String* const msg)
+{
+   // Save the endpoint definition for use in the initialization of
+   // the socket
+   bool ok = false;
+   if (msg != 0) ok = setAccept (*msg);
    return ok;
 }
 
@@ -434,10 +496,11 @@ std::ostream& ZeroMQHandler::serialize (std::ostream& sout, const int i, const b
       j = 4;
    }
 
-   // Output the context name
-   if (!contextName.empty ()) {
-      indent (sout, i+j);
-      sout << "context: " << contextName << std::endl;
+   // Output the context
+   if (context != 0) {
+      indent (sout,i+j);
+      sout << "context: " << std::endl;
+      context->serialize (sout, i+j+4, slotsOnly);
    }
 
    // Output the socket type
