@@ -47,6 +47,7 @@ namespace xZeroMQHandlers {
 //                  XSUB, PUSH, PULL, PAIR, or STREAM)
 //    connect     - Connect a full endpoint definition string (tcp://*:12345)
 //    accept      - Accept a full endpoint definition string (tcp://*:12345)
+//    noWait      - Set the no-wait flag
 //    <options>   - The set options will each have a slot for them
 //
 //------------------------------------------------------------------------------
@@ -77,6 +78,7 @@ public:
    virtual bool setSlotSocketType (const Basic::String* const msg);
    virtual bool setSlotConnect (const Basic::String* const msg);
    virtual bool setSlotAccept (const Basic::String* const msg);
+   virtual bool setSlotNoWait (const Basic::Boolean* const msg);
    virtual bool setSlotLinger (const Basic::Integer* const msg);
    virtual bool setSlotSubscribe (const Basic::String* const msg);
    virtual bool setSlotBackLog (const Basic::Integer* const msg);
@@ -89,6 +91,7 @@ protected:
    bool setSocketType (const char* const type);
    bool setConnect (const char* const type);
    bool setAccept (const char* const type);
+   bool setNoWait (const bool noWait);
    bool setLinger (const int period);
    bool setSubscribe (const char* const filter);
    bool setBackLog (const int count);
@@ -118,8 +121,9 @@ protected:
    std::string    identity;      // Socket identity
    int            sendBufSize;   // Kernel buffer size for sending
    int            recvBufSize;   // Kernel buffer size for receiving
+   bool           noWait;        // No wait flag from the slot
    void*          socket;        // 0MQ socket
-   bool           dobind;        // Accept or connect!
+   bool           doBind;        // Accept or connect!
    bool           dontWait;      // 0MQ no wait flag
    bool           ready;         // Initialization was successful
 };
