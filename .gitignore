@@ -24,6 +24,7 @@ codelite/
 
 # backup files
 *.bak
+*~
 
 # preprocessed input (scenario) files
 *.edl

@@ -1,0 +1,12 @@
+//
+// Echo endpoint
+//
+
+( Echo
+    noWait: false
+    netHandler:   ( ZeroMQHandler
+                     accept:     "tcp://*:12345"
+                     socketType: REP
+                  )
+)
+

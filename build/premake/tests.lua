@@ -69,16 +69,16 @@ project "testLinearSys"
       links {"oeLinearSys_d", "oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testNavigation
-project "testNavigation"
-   targetname "testNavigation"
-   targetdir "../../testNavigation"
-   debugdir "../../testNavigation"
+-- testMatrix
+project "testMatrix"
+   targetname "testMatrix"
+   targetdir "../../testMatrix"
+   debugdir "../../testMatrix"
    files {
-      "../../testNavigation/**.cpp",
-      "../../testNavigation/**.h",
-      "../../testNavigation/**.epp",
-      "../../testNavigation/**.edl"
+      "../../testMatrix/**.cpp",
+      "../../testMatrix/**.h",
+      "../../testMatrix/**.epp",
+      "../../testMatrix/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
@@ -90,16 +90,16 @@ project "testNavigation"
       links {"oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testMatrix
-project "testMatrix"
-   targetname "testMatrix"
-   targetdir "../../testMatrix"
-   debugdir "../../testMatrix"
+-- testNavigation
+project "testNavigation"
+   targetname "testNavigation"
+   targetdir "../../testNavigation"
+   debugdir "../../testNavigation"
    files {
-      "../../testMatrix/**.cpp",
-      "../../testMatrix/**.h",
-      "../../testMatrix/**.epp",
-      "../../testMatrix/**.edl"
+      "../../testNavigation/**.cpp",
+      "../../testNavigation/**.h",
+      "../../testNavigation/**.epp",
+      "../../testNavigation/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
@@ -122,14 +122,15 @@ project "testNetHandler"
       "../../testNetHandler/**.epp",
       "../../testNetHandler/**.edl"
    }
-   includedirs { OEIncPath }
-   libdirs     { OELibPath }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oeBasic", "libzmq" }
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oeBasic_d", "libzmq_d" }
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testRadar

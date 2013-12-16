@@ -157,4 +157,4 @@ Libraries: (the 'x' in library name indicates eXample)
 
    libxZeroMQHandlers   -- eXample ZeroMQ network handlers
 
-
+   libxZeroMQ           -- eXample ZeroMQ network handlers (new)

@@ -6,11 +6,13 @@
 # xRecorder         : eXample data recorder extension
 # xPanel            : eXample instrument panel
 # xZeroMQHandlers   : eXample ZeroMQ-based network handlers
+# xZeroMQ           : eXample ZeroMQ-based network handlers (new)
 #
 LIBRARIES  = xBehaviors
 LIBRARIES += xRecorder
 LIBRARIES += xPanel
 LIBRARIES += xZeroMQHandlers
+LIBRARIES += xZeroMQ
 
 #
 # Rules
