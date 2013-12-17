@@ -126,6 +126,7 @@ project "testNetHandler"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
+   defines { "ZMQ_STATIC" }
    configuration "Release"
       links {"oeBasic", "libzmq" }
       links {"Ws2_32", "Winmm", "comctl32"}

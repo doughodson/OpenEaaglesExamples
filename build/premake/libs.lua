@@ -56,6 +56,7 @@
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      defines { "ZMQ_STATIC" }
       files {
          "../../shared-libs/xZeroMQHandlers/*.cpp",
          "../../shared-libs/xZeroMQHandlers/*.h",
