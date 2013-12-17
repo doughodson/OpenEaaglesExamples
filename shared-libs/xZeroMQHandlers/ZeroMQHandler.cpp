@@ -246,14 +246,16 @@ bool ZeroMQHandler::closeConnection ()
    return true;
 }
 
-bool ZeroMQHandler::setBlocked (const LcSocket s)
+bool ZeroMQHandler::setBlocked ()
 {
-   return false;
+   dontWait = false;
+   return true;
 }
 
-bool ZeroMQHandler::setNoWait (const LcSocket s)
+bool ZeroMQHandler::setNoWait ()
 {
-   return false;
+   dontWait = true;
+   return true;
 }
 
 bool ZeroMQHandler::sendData (const char* const packet, const int size)

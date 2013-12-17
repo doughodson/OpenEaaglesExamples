@@ -65,13 +65,14 @@ public:
    virtual bool         sendData (const char* const packet, const int size);
    virtual unsigned int recvData (char* const packet, const int maxSize);
 
-   // Casting for the dereference operator much like Basic::String
+   // Casting for the dereference operator much like Basic::String.  This is
+   // useful when using a 0MQ function directly like zmq_poll.
    operator void* () { return socket; }
    operator const void* () const { return socket; }
 
    // NetHandler overrides that have no meaning in 0MQ at this time
-   virtual bool setBlocked (const LcSocket s = NET_INVALID_SOCKET);
-   virtual bool setNoWait (const LcSocket s = NET_INVALID_SOCKET);
+   virtual bool setBlocked ();
+   virtual bool setNoWait ();
 
    // Slots
    virtual bool setSlotContext (ZeroMQContext* const msg);
