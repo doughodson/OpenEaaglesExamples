@@ -11,7 +11,7 @@
 #include <string>
 
 namespace Eaagles {
-   namespace Basic { class Integer; class String; };
+   namespace Basic { class Boolean; class Integer; class String; };
 
 namespace xZeroMQHandlers {
    class ZeroMQContext;
@@ -47,6 +47,7 @@ namespace xZeroMQHandlers {
 //                  XSUB, PUSH, PULL, PAIR, or STREAM)
 //    connect     - Connect a full endpoint definition string (tcp://*:12345)
 //    accept      - Accept a full endpoint definition string (tcp://*:12345)
+//    noWait      - Set the no-wait flag
 //    <options>   - The set options will each have a slot for them
 //
 //------------------------------------------------------------------------------
@@ -64,19 +65,21 @@ public:
    virtual bool         sendData (const char* const packet, const int size);
    virtual unsigned int recvData (char* const packet, const int maxSize);
 
-   // Casting for the dereference operator much like Basic::String
+   // Casting for the dereference operator much like Basic::String.  This is
+   // useful when using a 0MQ function directly like zmq_poll.
    operator void* () { return socket; }
    operator const void* () const { return socket; }
 
    // NetHandler overrides that have no meaning in 0MQ at this time
-   virtual bool setBlocked (const LcSocket s = NET_INVALID_SOCKET);
-   virtual bool setNoWait (const LcSocket s = NET_INVALID_SOCKET);
+   virtual bool setBlocked ();
+   virtual bool setNoWait ();
 
    // Slots
    virtual bool setSlotContext (ZeroMQContext* const msg);
    virtual bool setSlotSocketType (const Basic::String* const msg);
    virtual bool setSlotConnect (const Basic::String* const msg);
    virtual bool setSlotAccept (const Basic::String* const msg);
+   virtual bool setSlotNoWait (const Basic::Boolean* const msg);
    virtual bool setSlotLinger (const Basic::Integer* const msg);
    virtual bool setSlotSubscribe (const Basic::String* const msg);
    virtual bool setSlotBackLog (const Basic::Integer* const msg);
@@ -89,6 +92,7 @@ protected:
    bool setSocketType (const char* const type);
    bool setConnect (const char* const type);
    bool setAccept (const char* const type);
+   bool setNoWait (const bool noWait);
    bool setLinger (const int period);
    bool setSubscribe (const char* const filter);
    bool setBackLog (const int count);
@@ -118,8 +122,9 @@ protected:
    std::string    identity;      // Socket identity
    int            sendBufSize;   // Kernel buffer size for sending
    int            recvBufSize;   // Kernel buffer size for receiving
+   bool           noWait;        // No wait flag from the slot
    void*          socket;        // 0MQ socket
-   bool           dobind;        // Accept or connect!
+   bool           doBind;        // Accept or connect!
    bool           dontWait;      // 0MQ no wait flag
    bool           ready;         // Initialization was successful
 };

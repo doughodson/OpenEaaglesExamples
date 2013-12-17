@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 #include "ZeroMQHandler.h"
 #include "ZeroMQContext.h"
+#include "openeaagles/basic/Boolean.h"
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/String.h"
 
@@ -24,12 +25,13 @@ BEGIN_SLOTTABLE(ZeroMQHandler)
    "socketType",           //  2) String containing the socket type
    "connect",              //  3) String containing the endpoint
    "accept",               //  4) String containing the endpoint
-   "linger",               //  5) Integer containing the linger period (ms)
-   "subscribe",            //  6) String containing the message filter
-   "backLog",              //  7) Integer containing the connection queue size
-   "identity",             //  8) String containing the identity
-   "sendBufSizeKb",        //  9) Integer containing the send buffer size in KB's
-   "recvBufSizeKb",        // 10) Integer containing the receive buffer size in KB's
+   "noWait",               //  5) Boolean containing the desired no-wait flag
+   "linger",               //  6) Integer containing the linger period (ms)
+   "subscribe",            //  7) String containing the message filter
+   "backLog",              //  8) Integer containing the connection queue size
+   "identity",             //  9) String containing the identity
+   "sendBufSizeKb",        // 10) Integer containing the send buffer size in KB's
+   "recvBufSizeKb",        // 11) Integer containing the receive buffer size in KB's
 END_SLOTTABLE(ZeroMQHandler)
 
 // Map slot table to handles
@@ -38,12 +40,13 @@ BEGIN_SLOT_MAP(ZeroMQHandler)
    ON_SLOT( 2, setSlotSocketType,  Basic::String)
    ON_SLOT( 3, setSlotConnect,     Basic::String)
    ON_SLOT( 4, setSlotAccept,      Basic::String)
-   ON_SLOT( 5, setSlotLinger,      Basic::Integer)
-   ON_SLOT( 6, setSlotSubscribe,   Basic::String)
-   ON_SLOT( 7, setSlotBackLog,     Basic::Integer)
-   ON_SLOT( 8, setSlotIdentity,    Basic::String)
-   ON_SLOT( 9, setSlotSendBufSize, Basic::Integer)
-   ON_SLOT(10, setSlotRecvBufSize, Basic::Integer)
+   ON_SLOT( 5, setSlotNoWait,      Basic::Boolean)
+   ON_SLOT( 6, setSlotLinger,      Basic::Integer)
+   ON_SLOT( 7, setSlotSubscribe,   Basic::String)
+   ON_SLOT( 8, setSlotBackLog,     Basic::Integer)
+   ON_SLOT( 9, setSlotIdentity,    Basic::String)
+   ON_SLOT(10, setSlotSendBufSize, Basic::Integer)
+   ON_SLOT(11, setSlotRecvBufSize, Basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -107,7 +110,8 @@ void ZeroMQHandler::initData ()
    identity    = "";
    sendBufSize = -1;
    recvBufSize = -1;
-   dobind      = false;
+   noWait      = false;
+   doBind      = false;
    dontWait    = false;
    ready       = false;
 }
@@ -138,7 +142,8 @@ void ZeroMQHandler::copyData (const ZeroMQHandler& org, const bool cc)
    identity    = org.identity;
    sendBufSize = org.sendBufSize;
    recvBufSize = org.recvBufSize;
-   dobind      = org.dobind;
+   noWait      = org.noWait;
+   doBind      = org.doBind;
    dontWait    = org.dontWait;
    ready       = false;
 }
@@ -212,7 +217,7 @@ bool ZeroMQHandler::initNetwork (const bool noWaitFlag)
    if (ok && recvBufSize != -1) ok = zmq_setsockopt (socket, ZMQ_RCVBUF, &recvBufSize, sizeof (recvBufSize));
 
    // Allow bind or connection to the socket
-   if (dobind) {
+   if (doBind) {
       if (ok && zmq_bind (socket, endpoint.c_str ()) == 0) ready = true;
       else ready = false;
    }
@@ -241,14 +246,16 @@ bool ZeroMQHandler::closeConnection ()
    return true;
 }
 
-bool ZeroMQHandler::setBlocked (const LcSocket s)
+bool ZeroMQHandler::setBlocked ()
 {
-   return false;
+   dontWait = false;
+   return true;
 }
 
-bool ZeroMQHandler::setNoWait (const LcSocket s)
+bool ZeroMQHandler::setNoWait ()
 {
-   return false;
+   dontWait = true;
+   return true;
 }
 
 bool ZeroMQHandler::sendData (const char* const packet, const int size)
@@ -260,7 +267,7 @@ bool ZeroMQHandler::sendData (const char* const packet, const int size)
    // our message buffers should not be too large so it will be OK for a
    // while.
    int flags = 0;
-   if (dontWait) flags = ZMQ_DONTWAIT;
+   if (dontWait || noWait) flags = ZMQ_DONTWAIT;
 
    // Send the message.  The return value will be the number of bytes sent
    // or -1 on error.  Since we really do not handle errors in OpenEaagles
@@ -279,7 +286,7 @@ unsigned int ZeroMQHandler::recvData (char* const packet, const int maxSize)
 
    // We set the flags here.
    int flags = 0;
-   if (dontWait) flags = ZMQ_DONTWAIT;
+   if (dontWait || noWait) flags = ZMQ_DONTWAIT;
 
    // Send the message.  The return value will be the number of bytes or
    // -1 on error.  Since we really do not handle errors in OpenEaagles
@@ -314,14 +321,20 @@ bool ZeroMQHandler::setSocketType (const char* const type)
 bool ZeroMQHandler::setConnect (const char* const ep)
 {
    endpoint = ep;
-   dobind   = false;
+   doBind   = false;
    return true;
 }
 
 bool ZeroMQHandler::setAccept (const char* const ep)
 {
    endpoint = ep;
-   dobind   = true;
+   doBind   = true;
+   return true;
+}
+
+bool ZeroMQHandler::setNoWait (const bool nowt)
+{
+   noWait = nowt;
    return true;
 }
 
@@ -395,13 +408,23 @@ bool ZeroMQHandler::setSlotConnect (const Basic::String* const msg)
    return ok;
 }
 
-// bind: String containing the endpoint (3, 4, & 5)
+// accept: String containing the endpoint (3, 4, & 5)
 bool ZeroMQHandler::setSlotAccept (const Basic::String* const msg)
 {
    // Save the endpoint definition for use in the initialization of
    // the socket
    bool ok = false;
    if (msg != 0) ok = setAccept (*msg);
+   return ok;
+}
+
+// noWait: Boolean containing the endpoint (3, 4, & 5)
+bool ZeroMQHandler::setSlotNoWait (const Basic::Boolean* const msg)
+{
+   // Save the nowait definition for use in the initialization of the
+   // socket
+   bool ok = false;
+   if (msg != 0) ok = setNoWait (*msg);
    return ok;
 }
 
@@ -503,6 +526,12 @@ std::ostream& ZeroMQHandler::serialize (std::ostream& sout, const int i, const b
    if (!endpoint.empty ()) {
       indent (sout, i+j);
       sout << "endpoint: " << endpoint << std::endl;
+   }
+
+   // Output the no-wait flag (false is default so it only outputs true)
+   if (dontWait) {
+      indent (sout, i+j);
+      sout << "noWait: " << std::boolalpha << dontWait << std::endl;
    }
 
    // Output the linger period
