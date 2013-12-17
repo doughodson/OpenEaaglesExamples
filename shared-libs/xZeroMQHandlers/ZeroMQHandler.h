@@ -11,7 +11,7 @@
 #include <string>
 
 namespace Eaagles {
-   namespace Basic { class Integer; class String; };
+   namespace Basic { class Boolean; class Integer; class String; };
 
 namespace xZeroMQHandlers {
    class ZeroMQContext;

@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 #include "ZeroMQHandler.h"
 #include "ZeroMQContext.h"
+#include "openeaagles/basic/Boolean.h"
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/String.h"
 
