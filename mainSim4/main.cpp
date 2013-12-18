@@ -16,6 +16,8 @@
 #include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
 
+#include "../shared-libs/xZeroMQHandlers/formFunc.h"
+
 // Local Classes
 #include "MapPage.h"
 #include "Station.h"
@@ -70,6 +72,10 @@ static Basic::Object* testFormFunc(const char* formname)
         newform = new Display();
     }
 
+    // Example libraries
+    if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
+
+    // Framework libraries
     if (newform == 0) newform = Otw::otwFormFunc(formname);
     if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
     if (newform == 0) newform = Simulation::simulationFormFunc(formname);

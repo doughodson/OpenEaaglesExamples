@@ -11,8 +11,8 @@
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/osg/Vec3"
-#include "openeaagles/otw/OtwPC.h"         // for OTW
-
+#include "openeaagles/otw/OtwPC.h"
+#include "../shared-libs/xZeroMQHandlers/formFunc.h"
 
 namespace Eaagles {
 namespace Sim2 {
@@ -32,6 +32,10 @@ static Basic::Object* testFormFunc(const char* formname)
 {
   Basic::Object* newform = 0;
 
+  // Example libraries
+  if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
+
+  // Framework libraries
   if (newform == 0) newform = Simulation::simulationFormFunc(formname);
   if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
   if (newform == 0) newform = Sensor::sensorsFormFunc(formname);

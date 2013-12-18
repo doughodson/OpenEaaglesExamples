@@ -40,7 +40,10 @@ Basic::Object* formFunc(const char* formname)
         newform = new MapPage();
     }
 
+    // Example libraries
     if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
+
+    // Framework libraries
     if (newform == 0) newform = Simulation::simulationFormFunc(formname);
     if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
     if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);

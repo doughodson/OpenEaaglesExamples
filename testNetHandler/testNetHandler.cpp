@@ -30,8 +30,11 @@ static Eaagles::Basic::Object* testFormFunc(const char* formname)
         newform = new Echo();
     }
 
-    if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
+    // Example libraries
     if (newform == 0) newform = Eaagles::xZeroMQHandlers::formFunc(formname);
+
+    // Framework libraries
+    if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
     return newform;
 }
 

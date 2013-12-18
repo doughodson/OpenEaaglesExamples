@@ -21,6 +21,7 @@
 #include "openeaagles/sensors/sensorsFF.h"
 #include "openeaagles/simulation/simulationFF.h"
 #include "openeaagles/vehicles/vehiclesFF.h"
+#include "../shared-libs/xZeroMQHandlers/formFunc.h"
 
 namespace Eaagles {
 namespace Sim3 {
@@ -46,6 +47,8 @@ Basic::Object* sim3FormFunc(const char* formname)
     else if ( strcmp(formname, InstrumentPanel::getFormName()) == 0 ) {
         newform = new InstrumentPanel();
     }
+
+   if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
 
    if (newform == 0) newform = Otw::otwFormFunc(formname);
    if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
