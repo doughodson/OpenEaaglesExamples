@@ -17,6 +17,8 @@
 #include "openeaagles/gui/glut/glutFF.h"
 #include "openeaagles/basic/basicFF.h"
 
+#include "../shared-libs/xZeroMQHandlers/formFunc.h"
+
 namespace Eaagles {
 namespace MainLaero {
 
@@ -38,6 +40,7 @@ Basic::Object* formFunc(const char* formname)
         newform = new MapPage();
     }
 
+    if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
     if (newform == 0) newform = Simulation::simulationFormFunc(formname);
     if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
     if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);

@@ -9,6 +9,7 @@ OBJS = \
 	Station.o \
 	main.o
 
+LDFLAGS += -L../lib/linux -lxZeroMQHandlers
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation -lJSBSim 
 LDFLAGS += -loeInstruments -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic -lrt -lcigicl 

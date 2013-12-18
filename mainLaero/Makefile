@@ -9,8 +9,9 @@ OBJS =  \
 	formFunc.o \
 	MapDisplay.o \
 	MapPage.o \
-	TestStation.o	
+	TestStation.o
 
+LDFLAGS += -L../lib/linux -lxZeroMQHandlers
 LDFLAGS += -loeSimulation -loeVehicles -loeDafif
 LDFLAGS += -loeSensors -loeDis
 LDFLAGS += -lJSBSim
