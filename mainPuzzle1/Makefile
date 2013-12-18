@@ -15,7 +15,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/puzzle.epp >puzzle.edl $(EPPFLAGS)
+	cpp configs/puzzle.epp >puzzle.edl $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

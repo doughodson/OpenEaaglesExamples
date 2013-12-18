@@ -36,7 +36,7 @@ APPLICATIONS += mainGndMapRdr
 # ubf example
 APPLICATIONS += mainUbf1
 
-# example demonstrates Laero model and autopilot functionality
+# example of Laero model and autopilot functionality
 APPLICATIONS += mainLaero
 
 #

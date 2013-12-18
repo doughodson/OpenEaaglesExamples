@@ -20,7 +20,7 @@ LDFLAGS += -lpthread -lrt
 all: $(PGM)
 
 edl:
-	cpp inputs/testfox.epp >testfox.edl  $(EPPFLAGS)
+	cpp configs/testfox.epp >testfox.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)

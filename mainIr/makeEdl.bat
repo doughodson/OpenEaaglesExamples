@@ -1,4 +1,4 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% inputs/test1.epp > test1.edl
+%mcpp% configs/test1.epp > test1.edl

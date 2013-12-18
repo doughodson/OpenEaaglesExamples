@@ -1,4 +1,4 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% inputs/test0.epp > test0.edl -I ..\data -DFONT_PATH="\"../data/fonts/\""
+%mcpp% configs/test0.epp > test0.edl -I ..\data -DFONT_PATH="\"../data/fonts/\""

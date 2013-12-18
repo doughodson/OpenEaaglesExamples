@@ -33,7 +33,7 @@ LDFLAGS += -lrt
 all: $(PGM)
 
 edl:
-	cpp inputs/testinstruments.epp >testinstruments.edl $(EPPFLAGS)
+	cpp configs/testinstruments.epp >testinstruments.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)

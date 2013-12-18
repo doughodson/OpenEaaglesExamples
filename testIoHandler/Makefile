@@ -21,8 +21,8 @@ $(PGM): $(OBJS)
 	g++ -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/test1.epp >test1.edl $(EPPFLAGS)
-	cpp inputs/test2.epp >test2.edl $(EPPFLAGS)
+	cpp configs/test1.epp >test1.edl $(EPPFLAGS)
+	cpp configs/test2.epp >test2.edl $(EPPFLAGS)
 
 clean:
 	-rm -f *.o
