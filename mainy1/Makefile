@@ -29,7 +29,6 @@ $(PGM): $(OBJS)
 
 edl:
 	cpp configs/test1.epp >test1.edl   $(EPPFLAGS)
-	cpp configs/recordTest.epp >recordTest.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o
