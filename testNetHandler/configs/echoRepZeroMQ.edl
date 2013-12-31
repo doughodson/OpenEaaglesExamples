@@ -5,8 +5,10 @@
 ( Echo
     noWait: false
     netHandler:   ( ZeroMQHandler
-                     accept:     "tcp://*:12345"
-                     socketType: REP
+                     accept:            "tcp://*:12345"
+                     socketType:        REP
+                     sendHighWaterMark: 5
+                     linger:            500
                   )
 )
 

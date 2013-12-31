@@ -79,6 +79,8 @@ public:
    virtual bool setSlotIdentity(const Basic::String* const msg);
    virtual bool setSlotSendBufSize(const Basic::Integer* const msg);
    virtual bool setSlotRecvBufSize(const Basic::Integer* const msg);
+   virtual bool setSlotSendHWM(const Basic::Integer* const msg);
+   virtual bool setSlotRecvHWM(const Basic::Integer* const msg);
 
 protected:
    bool setContext(ZeroMQContext* const context);
@@ -92,6 +94,8 @@ protected:
    bool setIdentity(const char* const ident);
    bool setSendBufSize(const int count);
    bool setRecvBufSize(const int count);
+   bool setSendHWM(const int mark);
+   bool setRecvHWM(const int mark);
 
 private:
    void initData();
@@ -115,6 +119,8 @@ protected:
    std::string    identity;      // Socket identity
    int            sendBufSize;   // Kernel buffer size for sending
    int            recvBufSize;   // Kernel buffer size for receiving
+   int            sendHWM;       // High-water-mark for outbound messages
+   int            recvHWM;       // High-water-mark for inbound messages
    bool           noWait;        // No wait flag from the slot
    void*          socket;        // 0MQ socket
    bool           doBind;        // Accept or connect!
