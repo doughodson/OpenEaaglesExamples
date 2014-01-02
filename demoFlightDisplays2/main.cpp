@@ -4,16 +4,17 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-
-#include "openeaagles/instruments/instrumentsFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/instruments/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 // Test pages
 #include "TestPfd.h"
@@ -50,40 +51,40 @@ static void timerFunc(int)
     sys->updateTC(dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
     // Test the primary flight display (PFD)
-    if ( strcmp(formname, TestPfd::getFormName()) == 0 ) {
-        newform = new TestPfd;
+    if ( strcmp(name, TestPfd::getFactoryName()) == 0 ) {
+        obj = new TestPfd;
     }
     // Pfd
-    else if ( strcmp(formname, Pfd::getFormName()) == 0 ) {
-        newform = new Pfd;
+    else if ( strcmp(name, Pfd::getFactoryName()) == 0 ) {
+        obj = new Pfd;
     }
     // SpdLines
-    else if ( strcmp(formname, SpdLines::getFormName()) == 0 ) {
-        newform = new SpdLines;
+    else if ( strcmp(name, SpdLines::getFactoryName()) == 0 ) {
+        obj = new SpdLines;
     }
 
     else {
-        if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-        if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Glut::glutFormFunc(formname);
-        if (newform == 0) newform = Basic::basicFormFunc(formname);
+        if (obj == 0) obj = Instruments::Factory::createObj(name);
+        if (obj == 0) obj = BasicGL::Factory::createObj(name);
+        if (obj == 0) obj = Glut::Factory::createObj(name);
+        if (obj == 0) obj = Basic::Factory::createObj(name);
     }
-        
-    return newform;
+
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -122,9 +123,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files
+// Build a display
 // ---
-    readTest();
+    builder();
 
 // ---
 // Create a display window

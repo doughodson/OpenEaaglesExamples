@@ -63,39 +63,39 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // Test the primary flight display (PFD)
-    if ( strcmp(name, TestPfd::getFormName()) == 0 ) {
+    if ( strcmp(name, TestPfd::getFactoryName()) == 0 ) {
         obj = new TestPfd;
     }
     // situational display
-    else if ( strcmp(name, TestSD::getFormName()) == 0 ) {
+    else if ( strcmp(name, TestSD::getFactoryName()) == 0 ) {
         obj = new TestSD;
     }
     // CrsPntr
-    else if ( strcmp(name, CrsPntr::getFormName()) == 0 ) {
+    else if ( strcmp(name, CrsPntr::getFactoryName()) == 0 ) {
         obj = new CrsPntr;
     }
     // Hsi
-    else if ( strcmp(name, Hsi::getFormName()) == 0 ) {
+    else if ( strcmp(name, Hsi::getFactoryName()) == 0 ) {
         obj = new Hsi;
     }
     // Pfd
-    else if ( strcmp(name, Pfd::getFormName()) == 0 ) {
+    else if ( strcmp(name, Pfd::getFactoryName()) == 0 ) {
         obj = new Pfd;
     }
     // RdrAlt
-    else if ( strcmp(name, RdrAlt::getFormName()) == 0 ) {
+    else if ( strcmp(name, RdrAlt::getFactoryName()) == 0 ) {
         obj = new RdrAlt;
     }
     // SituationalDisplay
-    else if ( strcmp(name, SituationalDisplay::getFormName()) == 0 ) {
+    else if ( strcmp(name, SituationalDisplay::getFactoryName()) == 0 ) {
         obj = new SituationalDisplay;
     }
     // SpdLines
-    else if ( strcmp(name, SpdLines::getFormName()) == 0 ) {
+    else if ( strcmp(name, SpdLines::getFactoryName()) == 0 ) {
         obj = new SpdLines;
     }
     // TerrainFollower
-    else if ( strcmp(name, TerrainFollower::getFormName()) == 0 ) {
+    else if ( strcmp(name, TerrainFollower::getFactoryName()) == 0 ) {
         obj = new TerrainFollower;
     }
 

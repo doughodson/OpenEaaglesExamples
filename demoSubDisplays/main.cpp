@@ -5,13 +5,15 @@
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basic/basicFF.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/instruments/instrumentsFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
+
+// class factories
+#include "openeaagles/gui/glut/Factory.h"
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/instruments/Factory.h"
 
 // here are the test files
 #include "TestSpeedBrake.h"
@@ -63,104 +65,104 @@ static void timerFunc(int)
     sys->updateTC(dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
     // This instrument test ...
     // This instrument test ...
-    if ( strcmp(formname, TestSpeedBrake::getFormName()) == 0 ) {
-        newform = new TestSpeedBrake;
+    if ( strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
+        obj = new TestSpeedBrake;
     }
     // engine dial page
-    else if (strcmp(formname, TestEngineDial::getFormName()) == 0 ) {
-        newform = new TestEngineDial;
-    }    
+    else if (strcmp(name, TestEngineDial::getFactoryName()) == 0 ) {
+        obj = new TestEngineDial;
+    }
     // calibrated air speed (cas) page
-    else if (strcmp(formname, TestCas::getFormName()) == 0 ) {
-        newform = new TestCas;
-    }    
+    else if (strcmp(name, TestCas::getFactoryName()) == 0 ) {
+        obj = new TestCas;
+    }
     // ftit page
-    else if (strcmp(formname, TestFtitDial::getFormName()) == 0 ) {
-        newform = new TestFtitDial;
-    } 
+    else if (strcmp(name, TestFtitDial::getFactoryName()) == 0 ) {
+        obj = new TestFtitDial;
+    }
     // TestOilPressure page
-    else if (strcmp(formname, TestOilPressure::getFormName()) == 0 ) {
-        newform = new TestOilPressure;
-    }     
+    else if (strcmp(name, TestOilPressure::getFactoryName()) == 0 ) {
+        obj = new TestOilPressure;
+    }
     // TestNozzle page
-    else if (strcmp(formname, TestNozzle::getFormName()) == 0 ) {
-        newform = new TestNozzle;
-    } 
+    else if (strcmp(name, TestNozzle::getFactoryName()) == 0 ) {
+        obj = new TestNozzle;
+    }
     // TestRpmDial page
-    else if (strcmp(formname, TestRpmDial::getFormName()) == 0 ) {
-        newform = new TestRpmDial;
-    }      
+    else if (strcmp(name, TestRpmDial::getFactoryName()) == 0 ) {
+        obj = new TestRpmDial;
+    }
     // TestHsi page
-    else if (strcmp(formname, TestHsi::getFormName()) == 0 ) {
-        newform = new TestHsi;
-    }        
+    else if (strcmp(name, TestHsi::getFactoryName()) == 0 ) {
+        obj = new TestHsi;
+    }
     // TestGauge1 page
-    else if (strcmp(formname, TestGauge1::getFormName()) == 0 ) {
-        newform = new TestGauge1;
-    }    
+    else if (strcmp(name, TestGauge1::getFactoryName()) == 0 ) {
+        obj = new TestGauge1;
+    }
     // TestVVI page
-    else if (strcmp(formname, TestVVI::getFormName()) == 0 ) {
-        newform = new TestVVI;
-    }    
+    else if (strcmp(name, TestVVI::getFactoryName()) == 0 ) {
+        obj = new TestVVI;
+    }
     // TestAlt page
-    else if (strcmp(formname, TestAlt::getFormName()) == 0 ) {
-        newform = new TestAlt;
-    }        
+    else if (strcmp(name, TestAlt::getFactoryName()) == 0 ) {
+        obj = new TestAlt;
+    }
     // Compass Rose
-    else if (strcmp(formname, TestCompass::getFormName()) == 0 ) {
-        newform = new TestCompass;
-    }    
+    else if (strcmp(name, TestCompass::getFactoryName()) == 0 ) {
+        obj = new TestCompass;
+    }
     // Digital Gauge
-    else if (strcmp(formname, TestDigitalGauge::getFormName()) == 0 ) {
-        newform = new TestDigitalGauge;
-    }    
+    else if (strcmp(name, TestDigitalGauge::getFactoryName()) == 0 ) {
+        obj = new TestDigitalGauge;
+    }
     // TestGMeterDial page
-    else if (strcmp(formname, TestGMeterDial::getFormName()) == 0 ) {
-        newform = new TestGMeterDial;
-    }     
+    else if (strcmp(name, TestGMeterDial::getFactoryName()) == 0 ) {
+        obj = new TestGMeterDial;
+    }
     // TestLandingGear page
-    else if (strcmp(formname, TestLandingGear::getFormName()) == 0 ) {
-        newform = new TestLandingGear;
-    }     
+    else if (strcmp(name, TestLandingGear::getFactoryName()) == 0 ) {
+        obj = new TestLandingGear;
+    }
     // TestEngPage
-    else if (strcmp(formname, TestEngPage::getFormName()) == 0 ) {
-        newform = new TestEngPage;
-    }      
+    else if (strcmp(name, TestEngPage::getFactoryName()) == 0 ) {
+        obj = new TestEngPage;
+    }
     // TestButtons
-    else if (strcmp(formname, TestButtons::getFormName()) == 0 ) {
-        newform = new TestButtons;
-    }      
+    else if (strcmp(name, TestButtons::getFactoryName()) == 0 ) {
+        obj = new TestButtons;
+    }
     // TestAdi
-    else if (strcmp(formname, TestAdi::getFormName()) == 0 ) {
-        newform = new TestAdi;
-    }      
-    else if (strcmp(formname, TestAdi2::getFormName()) == 0 ) {
-        newform = new TestAdi2;
-    }      
+    else if (strcmp(name, TestAdi::getFactoryName()) == 0 ) {
+        obj = new TestAdi;
+    }
+    else if (strcmp(name, TestAdi2::getFactoryName()) == 0 ) {
+        obj = new TestAdi2;
+    }
 
     else {
-        if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-        if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Glut::glutFormFunc(formname);
-        if (newform == 0) newform = Basic::basicFormFunc(formname);
+        if (obj == 0) obj = Instruments::Factory::createObj(name);
+        if (obj == 0) obj = BasicGL::Factory::createObj(name);
+        if (obj == 0) obj = Glut::Factory::createObj(name);
+        if (obj == 0) obj = Basic::Factory::createObj(name);
     }
-        
-    return newform;
+
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -199,9 +201,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files
+// Build a display
 // ---
-    readTest();
+    builder();
 
 // ---
 // Create a display window
