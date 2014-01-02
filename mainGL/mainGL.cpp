@@ -55,7 +55,7 @@ static Eaagles::Basic::Object* factory(const char* name)
    return obj;
 }
 
-// build the display defined by configuration file
+// build a display as specified by configuration file
 static Eaagles::Glut::GlutDisplay* builder(const char* const filename)
 {
     // Read the description file
@@ -98,7 +98,7 @@ int process(int argc, char* argv[])
    }
 
 // ---
-// Build display
+// Build a display
 // ---
     sys = builder(fileName);
 
