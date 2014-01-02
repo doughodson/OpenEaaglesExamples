@@ -13,8 +13,8 @@
 
 // class factories
 #include "openeaagles/basic/Factory.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/gui/glut/glutFF.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 #include <GL/glut.h>
 
@@ -48,15 +48,15 @@ static void timerFunc(int)
 static Eaagles::Basic::Object* factory(const char* name)
 {
    Eaagles::Basic::Object* obj = 0;
-   if (obj == 0) obj = Eaagles::Glut::glutFormFunc(name);
-   if (obj == 0) obj = Eaagles::BasicGL::basicGLFormFunc(name);
+   if (obj == 0) obj = Eaagles::Glut::Factory::createObj(name);
+   if (obj == 0) obj = Eaagles::BasicGL::Factory::createObj(name);
    if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
 
    return obj;
 }
 
-// read configuration file to build a display
-static Eaagles::Glut::GlutDisplay* buildDisplay(const char* const filename)
+// build the display defined by configuration file
+static Eaagles::Glut::GlutDisplay* builder(const char* const filename)
 {
     // Read the description file
     int errors = 0;
@@ -100,7 +100,7 @@ int process(int argc, char* argv[])
 // ---
 // Build display
 // ---
-    sys = buildDisplay(fileName);
+    sys = builder(fileName);
 
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
