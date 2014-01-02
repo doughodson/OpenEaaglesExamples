@@ -4,7 +4,7 @@
 
 #include "SimStation.h"
 
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Pair.h"
@@ -34,7 +34,7 @@ static SimStation* station = 0;
 static SimStation* readTest(const char* const fileName)
 {
    int errors = 0;
-   Basic::Object* q1 = lcParser(fileName, sim3FormFunc, &errors);
+   Basic::Object* q1 = lcParser(fileName, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "Errors in reading file: " << errors << std::endl;
       return 0;

@@ -6,7 +6,7 @@ PGM = mainLaero
 OBJS =  \
 	main.o \
 	AdiDisplay.o \
-	formFunc.o \
+	Factory.o \
 	MapDisplay.o \
 	MapPage.o \
 	TestStation.o

@@ -5,14 +5,15 @@
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
 
-#include "openeaagles/instruments/instrumentsFF.h"
+// class factories
+#include "openeaagles/instruments/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/basic/Factory.h"
 
 // Test pages
 #include "TestMechanical.h"
@@ -47,35 +48,34 @@ static void timerFunc(int)
     sys->updateTC(dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
     // Tests
-    if ( strcmp(formname, TestMechanical::getFormName()) == 0 ) {
-        newform = new TestMechanical;
+    if ( strcmp(name, TestMechanical::getFactoryName()) == 0 ) {
+        obj = new TestMechanical;
     }
-    else if ( strcmp(formname, TestElectronic::getFormName()) == 0 ) {
-        newform = new TestElectronic;
+    else if ( strcmp(name, TestElectronic::getFactoryName()) == 0 ) {
+        obj = new TestElectronic;
     }
 
     else {
-        if (newform == 0) newform = Eaagles::Instruments::instrumentsFormFunc(formname);
-        if (newform == 0) newform = Eaagles::BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Eaagles::Glut::glutFormFunc(formname);
-        if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
+        if (obj == 0) obj = Eaagles::Instruments::Factory::createObj(name);
+        if (obj == 0) obj = Eaagles::BasicGL::Factory::createObj(name);
+        if (obj == 0) obj = Eaagles::Glut::Factory::createObj(name);
+        if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
     }
-        
-    return newform;
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -99,7 +99,7 @@ static void readTest()
 
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
-        std::cout << "testz: invalid description file!" << std::endl;
+        std::cout << "Invalid description file!" << std::endl;
         exit(EXIT_FAILURE);
     }
 
@@ -114,9 +114,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files
+// build a display
 // ---
-    readTest();
+    builder();
 
 // ---
 // Create a display window

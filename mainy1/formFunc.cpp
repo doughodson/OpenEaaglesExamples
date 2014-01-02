@@ -6,6 +6,8 @@
 
 #include "xPanel/formFunc.h"
 
+// class factories
+#include "../shared-libs/xZeroMQHandlers/Factory.h"
 #include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basicGL/basicGLFF.h"
 #include "openeaagles/gui/glut/glutFF.h"
@@ -16,7 +18,6 @@
 #include "openeaagles/sensors/sensorsFF.h"
 #include "openeaagles/simulation/simulationFF.h"
 #include "openeaagles/vehicles/vehiclesFF.h"
-#include "../shared-libs/xZeroMQHandlers/formFunc.h"
 
 namespace Eaagles {
 namespace Mainy1 {
@@ -37,7 +38,7 @@ Basic::Object* formFunc(const char* formname)
 
     // Example libraries
     if (newform == 0) newform = xPanel::formFunc(formname);
-    if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
+    if (newform == 0) newform = xZeroMQHandlers::Factory::createObj(formname);
 
     // Framework libraries
     if (newform == 0) newform = Eaagles::Simulation::simulationFormFunc(formname);

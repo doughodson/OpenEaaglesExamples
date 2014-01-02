@@ -4,19 +4,19 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/basicFF.h"
-
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/instruments/instrumentsFF.h"
-#include "openeaagles/simulation/simulationFF.h"
-#include "openeaagles/dis/disFF.h"
-#include "openeaagles/otw/otwFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
 
-#include "../shared-libs/xZeroMQHandlers/formFunc.h"
+// class factories
+#include "../shared-libs/xZeroMQHandlers/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/instruments/Factory.h"
+#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/dis/Factory.h"
+#include "openeaagles/otw/Factory.h"
 
 // Local Classes
 #include "MapPage.h"
@@ -34,7 +34,6 @@ const int frameRate = 20;
 
 // System descriptions
 static class Station* sys = 0;
-
 
 // timer function, in this case, the background (updateData) function
 static void timerFunc(int)
@@ -58,41 +57,42 @@ static void timerFunc(int)
     sys->updateData(dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
-    if (strcmp(formname, MapPage::getFormName()) == 0) {
-        newform = new MapPage();
+    Basic::Object* obj = 0;
+
+    if (strcmp(name, MapPage::getFactoryName()) == 0) {
+        obj = new MapPage();
     }
-    else if (strcmp(formname, Station::getFormName()) == 0) {
-        newform = new Station();
+    else if (strcmp(name, Station::getFactoryName()) == 0) {
+        obj = new Station();
     }
-    else if (strcmp(formname, Display::getFormName()) == 0) {
-        newform = new Display();
+    else if (strcmp(name, Display::getFactoryName()) == 0) {
+        obj = new Display();
     }
 
     // Example libraries
-    if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
+    if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
 
     // Framework libraries
-    if (newform == 0) newform = Otw::otwFormFunc(formname);
-    if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-    if (newform == 0) newform = Simulation::simulationFormFunc(formname);
-    if (newform == 0) newform = Network::Dis::disFormFunc(formname);
-    if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-    if (newform == 0) newform = Glut::glutFormFunc(formname);
-    if (newform == 0) newform = Basic::basicFormFunc(formname);
+    if (obj == 0) obj = Otw::Factory::createObj(name);
+    if (obj == 0) obj = Instruments::Factory::createObj(name);
+    if (obj == 0) obj = Simulation::Factory::createObj(name);
+    if (obj == 0) obj = Network::Dis::Factory::createObj(name);
+    if (obj == 0) obj = BasicGL::Factory::createObj(name);
+    if (obj == 0) obj = Glut::Factory::createObj(name);
+    if (obj == 0) obj = Basic::Factory::createObj(name);
     
-    return newform;
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a Station
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -130,9 +130,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files
+// build a Station
 // ---
-    readTest();
+    builder();
 
 // ---
 // Reset the Simulation

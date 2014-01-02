@@ -8,7 +8,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/simulation/Station.h"
-#include "formFunc.h"
+#include "Factory.h"
 #include <GL/glut.h>
 
 namespace Eaagles {
@@ -20,16 +20,14 @@ const int bgRate = 10;
 // System descriptions
 static Simulation::Station* station = 0;
 
-//-----------------------------------------------------------------------------
-// Read the configuration file
-//-----------------------------------------------------------------------------
-static Simulation::Station* readConfigFile(const char* const fileName)
+// build a Station
+static Simulation::Station* builder(const char* const fileName)
 {
    Simulation::Station* p = 0;
 
    // Read the description file
    int errors = 0;
-   Basic::Object* q1 = Basic::lcParser(fileName, formFunc, &errors);
+   Basic::Object* q1 = Basic::lcParser(fileName, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -93,9 +91,9 @@ int main(int argc, char* argv[])
    }
 
 // ---
-// Read in the description files
+// build a Station
 // ---
-   station = readConfigFile(configFile);
+   station = builder(configFile);
    if (station == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
       exit(EXIT_FAILURE);

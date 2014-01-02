@@ -4,16 +4,17 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-
-#include "openeaagles/instruments/instrumentsFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/instruments/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 // Test pages
 #include "TestPfd.h"
@@ -56,62 +57,62 @@ static void timerFunc(int)
     sys->updateTC(dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
     // Test the primary flight display (PFD)
-    if ( strcmp(formname, TestPfd::getFormName()) == 0 ) {
-        newform = new TestPfd;
+    if ( strcmp(name, TestPfd::getFormName()) == 0 ) {
+        obj = new TestPfd;
     }
     // situational display
-    else if ( strcmp(formname, TestSD::getFormName()) == 0 ) {
-        newform = new TestSD;
+    else if ( strcmp(name, TestSD::getFormName()) == 0 ) {
+        obj = new TestSD;
     }
     // CrsPntr
-    else if ( strcmp(formname, CrsPntr::getFormName()) == 0 ) {
-        newform = new CrsPntr;
+    else if ( strcmp(name, CrsPntr::getFormName()) == 0 ) {
+        obj = new CrsPntr;
     }
     // Hsi
-    else if ( strcmp(formname, Hsi::getFormName()) == 0 ) {
-        newform = new Hsi;
+    else if ( strcmp(name, Hsi::getFormName()) == 0 ) {
+        obj = new Hsi;
     }
     // Pfd
-    else if ( strcmp(formname, Pfd::getFormName()) == 0 ) {
-        newform = new Pfd;
+    else if ( strcmp(name, Pfd::getFormName()) == 0 ) {
+        obj = new Pfd;
     }
     // RdrAlt
-    else if ( strcmp(formname, RdrAlt::getFormName()) == 0 ) {
-        newform = new RdrAlt;
+    else if ( strcmp(name, RdrAlt::getFormName()) == 0 ) {
+        obj = new RdrAlt;
     }
     // SituationalDisplay
-    else if ( strcmp(formname, SituationalDisplay::getFormName()) == 0 ) {
-        newform = new SituationalDisplay;
+    else if ( strcmp(name, SituationalDisplay::getFormName()) == 0 ) {
+        obj = new SituationalDisplay;
     }
     // SpdLines
-    else if ( strcmp(formname, SpdLines::getFormName()) == 0 ) {
-        newform = new SpdLines;
+    else if ( strcmp(name, SpdLines::getFormName()) == 0 ) {
+        obj = new SpdLines;
     }
     // TerrainFollower
-    else if ( strcmp(formname, TerrainFollower::getFormName()) == 0 ) {
-        newform = new TerrainFollower;
+    else if ( strcmp(name, TerrainFollower::getFormName()) == 0 ) {
+        obj = new TerrainFollower;
     }
 
-    if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-    if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-    if (newform == 0) newform = Glut::glutFormFunc(formname);
-    if (newform == 0) newform = Basic::basicFormFunc(formname);
-        
-    return newform;
+    if (obj == 0) obj = Instruments::Factory::createObj(name);
+    if (obj == 0) obj = BasicGL::Factory::createObj(name);
+    if (obj == 0) obj = Glut::Factory::createObj(name);
+    if (obj == 0) obj = Basic::Factory::createObj(name);
+
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -150,9 +151,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files
+// build a display
 // ---
-    readTest();
+    builder();
 
 // ---
 // Create a display window

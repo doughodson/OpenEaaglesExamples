@@ -6,42 +6,39 @@
 #include "Sender.h"
 #include "Echo.h"
 
-#include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
-#include "../shared-libs/xZeroMQHandlers/formFunc.h"
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "../shared-libs/xZeroMQHandlers/Factory.h"
 
 namespace Test {
 
 const float UPDATE_RATE = 10.0; // Main loop update rate
 
-//-----------------------------------------------------------------------------
-// testFormFunc() -- our form function used by the parser
-//-----------------------------------------------------------------------------
-static Eaagles::Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Eaagles::Basic::Object* factory(const char* name)
 {
-    Eaagles::Basic::Object* newform = 0;
+    Eaagles::Basic::Object* obj = 0;
 
-    if ( strcmp(formname, Sender::getFormName()) == 0 ) {
-        newform = new Sender();
+    if ( strcmp(name, Sender::getFactoryName()) == 0 ) {
+        obj = new Sender();
     }
-    else if ( strcmp(formname, Echo::getFormName()) == 0 ) {
-        newform = new Echo();
+    else if ( strcmp(name, Echo::getFactoryName()) == 0 ) {
+        obj = new Echo();
     }
 
     // Example libraries
-    if (newform == 0) newform = Eaagles::xZeroMQHandlers::formFunc(formname);
-
+    if (obj == 0) obj = Eaagles::xZeroMQHandlers::Factory::createObj(name);
     // Framework libraries
-    if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
-    return newform;
+    if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
+
+    return obj;
 }
 
-//-----------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//-----------------------------------------------------------------------------
-static Endpoint* readTest(const char* const testFile)
+// build an endpoint as specified by configuration file
+static Endpoint* builder(const char* const testFile)
 {
   if (testFile == 0) return 0;
 
@@ -49,7 +46,7 @@ static Endpoint* readTest(const char* const testFile)
 
   // Read the description file
   int errors = 0;
-  Eaagles::Basic::Object* q1 = lcParser(testFile, testFormFunc, &errors);
+  Eaagles::Basic::Object* q1 = lcParser(testFile, factory, &errors);
   if (errors > 0) {
     std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
     exit(1);
@@ -91,8 +88,8 @@ int exec(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    // Read in the description files
-    Endpoint* sys = readTest(testFile);
+    // build an endpoint
+    Endpoint* sys = builder(testFile);
 
     // Must have a valid system of type Endpoint (e.g., Sender or Echo)
     if (sys == 0) {

@@ -4,10 +4,10 @@ include ../makedefs
 PGM = mainSim3 
 
 OBJS = \
+	Factory.o \
 	InstrumentPanel.o \
 	SimStation.o \
 	SimIoHandler.o \
-	formFunc.o \
 	SimPlayer.o \
 	mainSim3.o
 

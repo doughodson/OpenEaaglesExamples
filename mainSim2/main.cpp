@@ -1,18 +1,20 @@
 
 #include "openeaagles/simulation/Station.h"
-#include "openeaagles/simulation/simulationFF.h"
-#include "openeaagles/vehicles/vehiclesFF.h"
-#include "openeaagles/sensors/sensorsFF.h"
-#include "openeaagles/dis/disFF.h"
-#include "openeaagles/otw/otwFF.h"
-#include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/osg/Vec3"
 #include "openeaagles/otw/OtwPC.h"
-#include "../shared-libs/xZeroMQHandlers/formFunc.h"
+
+// class factories
+#include "../shared-libs/xZeroMQHandlers/Factory.h"
+#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/vehicles/Factory.h"
+#include "openeaagles/sensors/Factory.h"
+#include "openeaagles/dis/Factory.h"
+#include "openeaagles/otw/Factory.h"
+#include "openeaagles/basic/Factory.h"
 
 namespace Eaagles {
 namespace Sim2 {
@@ -25,35 +27,31 @@ const int bgRate = 10;
 
 static Simulation::Station* sys = 0;
 
-//-----------------------------------------------------------------------------
-// testFormFunc() -- our form function used by the parser
-//-----------------------------------------------------------------------------
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
   // Example libraries
-  if (newform == 0) newform = xZeroMQHandlers::formFunc(formname);
+  if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
 
   // Framework libraries
-  if (newform == 0) newform = Simulation::simulationFormFunc(formname);
-  if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
-  if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
-  if (newform == 0) newform = Network::Dis::disFormFunc(formname);
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  if (obj == 0) obj = Simulation::Factory::createObj(name);
+  if (obj == 0) obj = Vehicle::Factory::createObj(name);
+  if (obj == 0) obj = Sensor::Factory::createObj(name);
+  if (obj == 0) obj = Network::Dis::Factory::createObj(name);
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+  return obj;
 }
 
-//-----------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//-----------------------------------------------------------------------------
-static void readTest()
+// build a Station as specified by configuration file
+static void builder()
 {
   std::cout << "Reading file : " << testFile << std::endl;
 
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(testFile, testFormFunc, &errors);
+  Basic::Object* q1 = lcParser(testFile, factory, &errors);
   if (errors > 0) {
     std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
     exit(1);
@@ -89,8 +87,8 @@ int exec(int argc, char* argv[])
     }
   }
 
-  // Read in the description files
-  readTest();
+  // build a Station
+  builder();
   // send a reset event and frame sim once
   sys->event(Basic::Component::RESET_EVENT);
   sys->tcFrame( (LCreal) (1.0/double(sys->getTimeCriticalRate())) );
