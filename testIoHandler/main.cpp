@@ -3,7 +3,7 @@
 //*****************************************************************************
 
 #include "Display.h"
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
@@ -12,7 +12,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace TestIo {
+namespace Test {
 
 // Frame Rate
 const int frameRate = 20;
@@ -37,14 +37,14 @@ static void timerFunc(int)
    display->updateTC(dt);
 }
 
-// readMfd() -- function to the read description files
-static Display* readDescription(const char* const filename)
+// build a display as specified by configuration file
+static Display* builder(const char* const filename)
 {
    Display* sys = 0;
 
    // Read the description file
    int errors = 0;
-   Basic::Object* q1 = lcParser(filename, mainFormFunc, &errors);
+   Basic::Object* q1 = lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "Errors in reading file: " << errors << std::endl;
       exit(1);
@@ -83,9 +83,9 @@ int main(int argc, char* argv[])
    }
 
    // ---
-   // Read in the description files
+   // Build a display
    // ---
-   display = readDescription(fileName);
+   display = builder(fileName);
 
    // Make sure we did get a valid object (we must have one!)
    if (display == 0) {
@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End of TestIo namespace
+} // End of Test namespace
 } // End of Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -126,6 +126,6 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   Eaagles::TestIo::main(argc,argv);
+   Eaagles::Test::main(argc,argv);
 }
 

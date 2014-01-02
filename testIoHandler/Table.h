@@ -1,18 +1,18 @@
 //------------------------------------------------------------------------------
 // Class: Table
 //------------------------------------------------------------------------------
-#ifndef __OpenEaagles_TestIo_Table_H__
-#define __OpenEaagles_TestIo_Table_H__
+#ifndef __OpenEaagles_Test_Table_H__
+#define __OpenEaagles_Test_Table_H__
 
 #include "openeaagles/basicGL/Field.h"
 
 namespace Eaagles {
    namespace Basic { class Number; class PairStream; }
 
-namespace TestIo {
+namespace Test {
 
 //------------------------------------------------------------------------------
-// Class:	Table
+// Class: Table
 // Description: Manages a table
 //
 // Form name: Table
@@ -21,7 +21,8 @@ namespace TestIo {
 //    spacing  <Number>     ! Spacing between rows (default: 1)
 //    columns  <PairStream> ! Column descriptions: list of items in each row
 //------------------------------------------------------------------------------
-class Table : public BasicGL::Field {
+class Table : public BasicGL::Field
+{
    DECLARE_SUBCLASS(Table,BasicGL::Field)
 
 public:
@@ -54,8 +55,8 @@ private:
    const Basic::PairStream* columns;  // columns items
 };
 
-} // End of TestIo namespace
+} // End of Test namespace
 } // End of Eaagles namespace
 
-#endif  /* __OpenEaagles_TestIo_Table_H__ */
+#endif
 

@@ -26,7 +26,6 @@ static const int frameRate = 20;
 // The System
 static class Eaagles::Glut::GlutDisplay* sys = 0;
 
-
 //=============================================================================
 // MainGL functions
 //=============================================================================
