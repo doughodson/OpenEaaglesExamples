@@ -223,7 +223,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-} // End Mainz namespace
+} // End Demo namespace
 } // End Eaagles namespace
 
 //-----------------------------------------------------------------------------
