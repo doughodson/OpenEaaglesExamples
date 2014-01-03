@@ -2,7 +2,7 @@
 include ../makedefs
 
 PGM = mainGndMapRdr
-OBJS = Display.o formFunc.o main.o RealBeamRadar.o Station.o
+OBJS = Display.o Factory.o main.o RealBeamRadar.o Station.o
 
 LDFLAGS += -loeSimulation -loeSensors -loeTerrain
 LDFLAGS += -loeGlut -loeBasicGL

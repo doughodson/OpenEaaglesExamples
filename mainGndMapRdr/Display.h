@@ -3,13 +3,13 @@
 //
 // Description: Displays an image of a radar beam return
 //
-// Form name: RbrDisplay
+// Factory name: RbrDisplay
 //
 // Slots:
 //    textureTest <Boolean>   Texture test enabled
 // ----------------------------------------------------------------------------
-#ifndef __Eaagles_MainGndMapRdr_Display_H__
-#define __Eaagles_MainGndMapRdr_Display_H__
+#ifndef __Eaagles_Example_Display_H__
+#define __Eaagles_Example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -18,7 +18,7 @@ namespace Eaagles {
   namespace Basic { class Number; }
   namespace Simulation { class Player; class Simulation; class Station; }
 
-namespace MainGndMapRdr {
+namespace Example {
 
 class Display : public Glut::GlutDisplay
 {
@@ -47,7 +47,7 @@ private:
    GLuint            texture;          // Texture
 };
 
-}; // end MainGm namespace
+}; // end Example namespace
 }; // end Eaagles namespace
 
 #endif

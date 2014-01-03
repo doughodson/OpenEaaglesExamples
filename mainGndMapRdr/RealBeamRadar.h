@@ -3,15 +3,15 @@
 //
 // Description: Real-Beam Radar Model
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainGndMapRdr_RealBeamRadar_H__
-#define __Eaagles_MainGndMapRdr_RealBeamRadar_H__
+#ifndef __Eaagles_Example_RealBeamRadar_H__
+#define __Eaagles_Example_RealBeamRadar_H__
 
 #include "openeaagles/simulation/Radar.h"
 
 namespace Eaagles {
    namespace Basic { class Angle; class Distance; class Number; class Terrain; }
 
-namespace MainGndMapRdr {
+namespace Example {
 
 class RealBeamRadar : public Simulation::Radar
 {
@@ -20,7 +20,7 @@ class RealBeamRadar : public Simulation::Radar
 public:
     RealBeamRadar();
 
-   const Basic::Terrain* getTerrain() const      { return terrain; }
+   const Basic::Terrain* getTerrain() const                      { return terrain; }
    virtual bool setTerrain(const Basic::Terrain* const msg);
 
    LCreal getAltitude() const                { return altitude; }    // Ref altitude (meters)
@@ -71,21 +71,20 @@ private:
    LCreal*           aacData;          // Aspect angle cosines
    bool*             maskFlgs;         // Mask flags
 
-   LCreal            antAz;            // 
+   LCreal            antAz;                  //
    static const int MAX_IMAGE_WIDTH  = 2048; // maximum image width
    static const int MAX_IMAGE_HEIGHT = 2048; // maximum image height
-   static const int PIXEL_SIZE = 3; // pixel size in bytes { RGB }
+   static const int PIXEL_SIZE = 3;          // pixel size in bytes { RGB }
 
    int             imgWidth;         // Image width  (number of columns)
    int             imgHeight;        // Image height (number of rows)
    unsigned  char* image;            // The image pixels 
-                                       //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
-                                       //   --   irow : [ 0 ... (imgHeight-1) ]
-                                       //   --   icol : [ 0 ... (imgWidth-1) ]
+                                     //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
+                                     //   --   irow : [ 0 ... (imgHeight-1) ]
+                                     //   --   icol : [ 0 ... (imgWidth-1) ]
 };
 
-} // end MainGndMapRdr namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 #endif
-

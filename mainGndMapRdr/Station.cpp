@@ -16,7 +16,7 @@
 #include "openeaagles/basic/osg/Vec4"
 
 namespace Eaagles {
-namespace MainGndMapRdr {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
 EMPTY_SERIALIZER(TestStation)
@@ -28,7 +28,7 @@ END_SLOTTABLE(TestStation)
 
 //  Map slot table to handles 
 BEGIN_SLOT_MAP(TestStation)
-   ON_SLOT(1, setDisplay, MainGndMapRdr::Display)
+   ON_SLOT(1, setDisplay, Example::Display)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -96,6 +96,6 @@ Basic::Object* TestStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End MainGndMapRdr namespace
+} // End Example namespace
 } // End Eaagles namespace
 

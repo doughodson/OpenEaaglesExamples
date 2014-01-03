@@ -1,6 +1,6 @@
 
 #include "Station.h"
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/terrain/ded/DedFile.h"
 
@@ -14,11 +14,11 @@
 #include "openeaagles/basicGL/basicGLFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
 
+
 namespace Eaagles {
-namespace MainGndMapRdr {
+namespace Example {
 
 // Description (input) File -- After being processed by the C preprocessor
 const char* fileName = "test.edl";
@@ -61,7 +61,7 @@ static void readDescription()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(fileName, formFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(fileName, Factory::createObj, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-} // end MainGndMapRdr namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -147,7 +147,7 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MainGndMapRdr::main(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }
 
 
