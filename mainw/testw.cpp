@@ -1,7 +1,6 @@
 //*****************************************************************************
 // Example routine for the basicGL and basic framework
 //*****************************************************************************
-
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
@@ -31,7 +30,7 @@
 #include "TestRotator.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 // Frame Rate
 const int frameRate = 20;
@@ -241,7 +240,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -249,5 +248,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MainW::main(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }

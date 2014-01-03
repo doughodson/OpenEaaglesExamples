@@ -76,7 +76,6 @@ private:
 // Class:  Block1x1
 // Base class:  Basic::Object-> Block -> Block1x1
 // Description:  Block size 1 by 1
-// GUID: {BD00EA10-8C06-4b10-B8EF-0DF29C7644B2}
 //------------------------------------------------------------------------------
 class Block1x1 : public Block
 {
@@ -94,7 +93,6 @@ public:
 // Class:  Block1x2
 // Base class:  Basic::Object-> Block -> Block1x2
 // Description:  Block size 1 by 2
-// GUID: {A51DDFC8-D50A-4959-A262-D2B8DC07C698}
 //------------------------------------------------------------------------------
 class Block1x2 : public Block
 {
@@ -112,7 +110,6 @@ public:
 // Class:  Block2x1
 // Base class:  Basic::Object-> Block -> Block2x1
 // Description:  Block size 2 by 1
-// GUID: {556972B1-E4C3-4115-864E-9D9DB7F5F438}
 //------------------------------------------------------------------------------
 class Block2x1 : public Block
 {
@@ -130,7 +127,6 @@ public:
 // Class:  Block2x2
 // Base class:  Basic::Object-> Block -> Block2x2
 // Description:  Block size 2 by 2
-// GUID: {FCCF8F50-C537-4151-825A-9E6227F9579F}
 //------------------------------------------------------------------------------
 class Block2x2 : public Block
 {

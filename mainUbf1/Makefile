@@ -6,7 +6,7 @@ PGM = mainUbf1
 #
 OBJS = mainUbf1.o
 OBJS += SimStation.o TestDisplay.o
-OBJS += TestIoHandler.o formFunc.o
+OBJS += TestIoHandler.o Factory.o
 
 LDFLAGS += -lxBehaviors -lxPanel
 LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation

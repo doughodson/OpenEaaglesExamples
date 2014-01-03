@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: MfdPage
 //
-// Description:	Example MFD page
+// Description: Example MFD page
 //------------------------------------------------------------------------------
-#ifndef __MfdPage_H__
-#define __MfdPage_H__
+#ifndef __Eaagles_Example_MfdPage_H__
+#define __Eaagles_Example_MfdPage_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 class MfdPage : public BasicGL::Page {
    DECLARE_SUBCLASS(MfdPage,BasicGL::Page)
@@ -28,7 +28,7 @@ private:
     SendData rSD;
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

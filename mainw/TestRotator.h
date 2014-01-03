@@ -3,13 +3,13 @@
 //
 // Description: Example MFD page
 //------------------------------------------------------------------------------
-#ifndef __TestRotator_H__
-#define __TestRotator_H__
+#ifndef __Eaagles_Example_TestRotator_H__
+#define __Eaagles_Example_TestRotator_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 class TestRotator : public BasicGL::Graphic
 {
@@ -34,7 +34,7 @@ private:
     int count;
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

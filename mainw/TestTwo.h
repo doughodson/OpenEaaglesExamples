@@ -3,13 +3,13 @@
 //
 // Description: Control and Send values 'v1' and 'v2' to components 
 //------------------------------------------------------------------------------
-#ifndef __TestTwo_H__
-#define __TestTwo_H__
+#ifndef __Eaagles_Example_TestTwo_H__
+#define __Eaagles_Example_TestTwo_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 class TestTwo : public BasicGL::Graphic
 {
@@ -50,7 +50,7 @@ private:
     SendData v2TitleSD;
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

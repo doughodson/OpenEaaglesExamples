@@ -12,7 +12,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace Eaagles {
-namespace MainUbf1 {
+namespace Example {
 
 //==============================================================================
 // TestIoHandler
@@ -321,5 +321,5 @@ void TestIoHandler::clear()
 {
 }
 
-} // End MainUbf1
+} // End Example namespace
 } // end Eaagles namespace

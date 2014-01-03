@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: TestIoHandler
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Mainy1_TestIoHandler_H__
-#define __Eaagles_Mainy1_TestIoHandler_H__
+#ifndef __Eaagles_Example_TestIoHandler_H__
+#define __Eaagles_Example_TestIoHandler_H__
 
 #include "openeaagles/basic/IoHandler.h"
 
 namespace Eaagles {
    namespace Simulation { class AirVehicle; }
 
-namespace Mainy1 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class:  TestIoHandler
@@ -17,7 +17,8 @@ namespace Mainy1 {
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
 //------------------------------------------------------------------------------
-class TestIoHandler : public Basic::IoHandler {
+class TestIoHandler : public Basic::IoHandler
+{
    DECLARE_SUBCLASS(TestIoHandler,Basic::IoHandler)
 
 public:
@@ -48,7 +49,7 @@ private:
    bool decStptSw1;
 };
 
-} // end Mainy1
+} // end Example namespace
 } // end Eaagles namespace
 
 #endif

@@ -1,9 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-
-#ifndef __Eaagles_MainUbf1_SimStation_H__
-#define __Eaagles_MainUbf1_SimStation_H__
+#ifndef __Eaagles_Example_SimStation_H__
+#define __Eaagles_Example_SimStation_H__
 
 //#include "agent/AgentStation.h"
 #include "openeaagles/simulation/Station.h"
@@ -14,7 +13,7 @@ namespace Basic { class Table1; class PairStream; }
 namespace Glut { class GlutDisplay; }
 namespace Simulation { class AirVehicle; }
 
-namespace MainUbf1 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -29,7 +28,6 @@ namespace MainUbf1 {
 //      display       <BasicGL::GlutDisplay>  ! Main graphics display
 //
 //------------------------------------------------------------------------------
-
 class SimStation : public Simulation::Station
 {
    DECLARE_SUBCLASS(SimStation, Simulation::Station)
@@ -56,9 +54,7 @@ private:
 
 };
 
-} // End MainUbf1 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif
-
-

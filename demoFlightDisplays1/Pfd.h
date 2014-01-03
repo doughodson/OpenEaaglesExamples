@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: Pfd
 //
-// Description:	Sends data down to the Pfd
+// Description: Sends data down to the Pfd
 // Inputs: Use public member functions instead of send commands here
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Demo_Pfd_H__

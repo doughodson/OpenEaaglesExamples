@@ -6,22 +6,23 @@
 //              -- All it really does for this example is accept the ESC event.
 //
 //------------------------------------------------------------------------------
-#ifndef __MfdDisplay_H__
-#define __MfdDisplay_H__
+#ifndef __Eaagles_Example_MfdDisplay_H__
+#define __Eaagles_Example_MfdDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
-class MfdDisplay : public BasicGL::Display {
+class MfdDisplay : public BasicGL::Display
+{
    DECLARE_SUBCLASS(MfdDisplay, BasicGL::Display)
 
 public:
    MfdDisplay();
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

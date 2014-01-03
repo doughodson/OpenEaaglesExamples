@@ -23,7 +23,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace MainUbf1 {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -705,5 +705,5 @@ void TestDisplay::updatePfd(const LCreal)
     }
 }
 
-} // End MainUbf1 namespace
+} // End Example namespace
 } // End Eaagles namespace

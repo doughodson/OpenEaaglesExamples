@@ -20,8 +20,6 @@ class State;
 // Base class:  Basic::Object-> Puzzle
 //
 // Description:  Puzzle engine
-//
-// GUID: {05CE6F5B-A367-4b67-B678-9141D79810B2}
 //------------------------------------------------------------------------------
 class Puzzle : public Basic::Component {
     DECLARE_SUBCLASS(Puzzle,Basic::Component)

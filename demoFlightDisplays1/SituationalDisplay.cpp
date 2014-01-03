@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: SituationalDisplay
+//------------------------------------------------------------------------------
 #include "SituationalDisplay.h"
 
 // disable all deprecation warnings for now, until we fix

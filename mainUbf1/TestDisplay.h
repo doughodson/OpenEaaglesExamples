@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainUbf1_TestDisplay_H__
-#define __Eaagles_MainUbf1_TestDisplay_H__
+#ifndef __Eaagles_Example_TestDisplay_H__
+#define __Eaagles_Example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -11,7 +11,7 @@ namespace Eaagles {
    namespace BasicGL { class SymbolLoader; }
    namespace xPanel { class DspRadar; class DspRwr; }
 
-namespace MainUbf1 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -139,7 +139,7 @@ private:
     LCreal baroRate;
 };
 
-} // End MainUbf1 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __TestDisplay_H_C4AA7699_BDAD_40e8_BA4A_288E6A036868__
+#endif

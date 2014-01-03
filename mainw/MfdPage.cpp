@@ -5,7 +5,7 @@
 #include "openeaagles/basic/PairStream.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdPage,"MfdPage")
 EMPTY_SERIALIZER(MfdPage)
@@ -67,5 +67,5 @@ void MfdPage::updateData(const LCreal dt)
     send("rotator", UPDATE_VALUE2, rotate, rSD);    
 }
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace

@@ -1,9 +1,9 @@
 //*****************************************************************************
-// Example routine for the Terrain (DTED) functions
+// Example routine for the Terrain functions
 //*****************************************************************************
 
 #include "Display.h"
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/terrain/ded/DedFile.h"
 
@@ -20,7 +20,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace MainTerrain {
+namespace Example {
 
 // Description (input) File -- After being processed by the C preprocessor
 const char* fileName = "test.edl";
@@ -50,12 +50,12 @@ static void timerFunc(int)
 }
 
 
-// readDescription() -- function to the read description files
-static void readDescription()
+//build a display
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(fileName, formFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(fileName, Factory::createObj, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -95,9 +95,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files 
+// Build a display 
 // ---
-   readDescription();
+   builder();
 
 // ---
 // Resetting the system will load the data files
@@ -131,7 +131,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-} // end MainTerrain namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -139,5 +139,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MainTerrain::main(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }

@@ -3,7 +3,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(TestOne,"TestOne")
 
@@ -263,5 +263,5 @@ bool TestOne::setAngle(const Basic::Number* const saobj)
     return true;
 }
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace

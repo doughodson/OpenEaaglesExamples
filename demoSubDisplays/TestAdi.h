@@ -11,15 +11,16 @@
 namespace Eaagles {
 namespace Demo {
 
-class TestAdi : public BasicGL::Page {
+class TestAdi : public BasicGL::Page
+{
    DECLARE_SUBCLASS(TestAdi,BasicGL::Page)
 
 public:
     TestAdi();
-    
+
     // Basic::Component interface
     virtual void updateData(const LCreal dt = 0);
-   
+
 private:                            
     LCreal pitch;           // our pitch (90 to -90)
     SendData pitchSD;
@@ -36,4 +37,3 @@ private:
 } // end of Eaagles namespace
 
 #endif
-

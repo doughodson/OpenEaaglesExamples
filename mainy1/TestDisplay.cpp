@@ -25,7 +25,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace Mainy1 {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -718,6 +718,6 @@ void TestDisplay::updatePfd(const LCreal)
     }
 }
 
-} // End Mainy1 namespace
+} // End Example namespace
 } // End Eaagles namespace
 

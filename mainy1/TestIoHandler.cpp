@@ -15,7 +15,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace Eaagles {
-namespace Mainy1 {
+namespace Example {
 
 //==============================================================================
 // TestIoHandler
@@ -326,5 +326,5 @@ void TestIoHandler::clear()
 {
 }
 
-} // End Mainy1
+} // End Example namespace
 } // end Eaagles namespace

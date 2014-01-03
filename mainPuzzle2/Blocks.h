@@ -21,8 +21,6 @@ class Puzzle;
 //
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
-//
-// GUID: {64771F48-3151-4bfc-B104-DDBF0F33D7DA}
 //------------------------------------------------------------------------------
 class Block : public Basic::Object {
     DECLARE_SUBCLASS(Block,Basic::Object)
