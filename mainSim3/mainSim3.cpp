@@ -17,7 +17,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace Sim3 {
+namespace Example {
 
 // Default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "test0.edl";
@@ -135,7 +135,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-} // End Sim3 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 
@@ -144,5 +144,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::Sim3::main(argc, argv);
+   return Eaagles::Example::main(argc, argv);
 }

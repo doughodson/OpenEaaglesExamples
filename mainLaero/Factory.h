@@ -3,14 +3,14 @@
 //
 // Description: Class factory
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainLaero_Factory_H__
-#define __Eaagles_MainLaero_Factory_H__
+#ifndef __Eaagles_Example_Factory_H__
+#define __Eaagles_Example_Factory_H__
 
 namespace Eaagles {
 
 namespace Basic { class Object; }
 
-namespace MainLaero {
+namespace Example {
 
 class Factory
 {
@@ -21,7 +21,7 @@ protected:
    Factory();   // prevent object creation
 };
 
-}  // end namespace MainLaero
+}  // end namespace Example
 }  // end namespace Eaagles
 
 #endif

@@ -1,7 +1,6 @@
 // -------------------------------------------------------------------------------
 // Class: MapPage
 // -------------------------------------------------------------------------------
-
 #include "MapPage.h"
 #include "TestStation.h"
 #include "MapDisplay.h"
@@ -31,7 +30,7 @@ namespace Eaagles {
       class OcclusionArc;
    }
 
-namespace MainLaero {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(MapPage,"TestMapPage")
 EMPTY_SLOTTABLE(MapPage)
@@ -524,6 +523,6 @@ void MapPage::updateData(const LCreal dt)
     send("lonline%d", UPDATE_VALUE2, lonReadoutYPos, lonReadoutYPosSD, MAX_READOUTS);
 }
 
-}  
-}  
+}
+}
 

@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
 // Class:  InstrumentPanel
-// Base class:  Basic::Object -> ... -> BasicGL::Display -> -> GlutDisplay -> InstrumentPanel
 //
 // Description: Sim3 Main Instrument Panel
 //
@@ -9,8 +8,8 @@
 //   'f' or 'F'   -- Toggle simulation freeze
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-#ifndef __InstrumentPanel_H__
-#define __InstrumentPanel_H__
+#ifndef __Eaagles_Example_InstrumentPanel_H__
+#define __Eaagles_Example_InstrumentPanel_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include "openeaagles/simulation/Player.h"
@@ -23,12 +22,13 @@ namespace Eaagles {
       class Station;
    }
 
-namespace Sim3 {
+namespace Example {
 
    class DedDisplay;
    class MfdDisplay;
 
-class InstrumentPanel : public Glut::GlutDisplay {
+class InstrumentPanel : public Glut::GlutDisplay
+{
    DECLARE_SUBCLASS(InstrumentPanel, Glut::GlutDisplay)
 
 public:
@@ -100,7 +100,7 @@ private:
    SendData gloadSD;
 };
 
-} // end of Sim3 namespace
+} // end Example namespace
 } // end Eaagles namespace
 
-#endif // __InstrumentPanel_H__
+#endif

@@ -7,7 +7,7 @@
 #include "fx3d.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 const int MAIN_WIN_HEIGHT = 1000;
 const int MAIN_WIN_WIDTH  = 1000;
@@ -150,5 +150,5 @@ void MainWindow::setupGUI()
    } 
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace

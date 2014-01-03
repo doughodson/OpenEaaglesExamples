@@ -1,4 +1,6 @@
-
+//-----------------------------------------------------
+// Class: GLWindow
+//-----------------------------------------------------
 #include "GLWindow.h"
 #include "FltkDisplay.h"
 
@@ -12,13 +14,13 @@ void drawCallBack(void* pData)
 {
     if (pData != NULL) {
         // we know GLWindow called this.
-        Eaagles::mainFltk1::GLWindow* gl = reinterpret_cast<Eaagles::mainFltk1::GLWindow*>(pData);
+        Eaagles::Example::GLWindow* gl = reinterpret_cast<Eaagles::Example::GLWindow*>(pData);
         if (gl != 0) gl->redraw();
     }
 }
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 // ----------------------------------------------------------------------------
 // constructor(s) -
@@ -163,5 +165,5 @@ void GLWindow::glInit()
     glInitialized = true;
 }
 
-};
-};
+}
+}

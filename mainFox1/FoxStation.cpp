@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Timers.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(FoxStation,"FoxStation")
 EMPTY_SERIALIZER(FoxStation)
@@ -24,7 +24,7 @@ END_SLOT_MAP()
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-FoxStation::FoxStation() 
+FoxStation::FoxStation()
 {
    STANDARD_CONSTRUCTOR()
 }
@@ -90,6 +90,6 @@ Basic::Object* FoxStation::getSlotByIndex(const int si)
    return BaseClass::getSlotByIndex(si);
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 

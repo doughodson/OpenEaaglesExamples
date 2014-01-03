@@ -11,7 +11,7 @@
 #include <FL/Fl_Roller.H>
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 class GLWindow;
 class FltkDisplay;
@@ -47,7 +47,7 @@ private:
    int numWins;                    // number of GL windows we have.
 };
 
-}; // end mainFltk1 namespace
-}; // end Eaagles namespace
+} // end Example namespace
+} // end Eaagles namespace
 
 #endif

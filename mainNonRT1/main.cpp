@@ -1,14 +1,16 @@
 
 #include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/simulationFF.h"
-#include "openeaagles/vehicles/vehiclesFF.h"
-#include "openeaagles/sensors/sensorsFF.h"
-#include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
+// class factories
+#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/vehicles/Factory.h"
+#include "openeaagles/sensors/Factory.h"
+#include "openeaagles/basic/Factory.h"
+
 namespace Eaagles {
-namespace NonRT1 {
+namespace Example {
 
 // Test file
 const char* testFile = "test1.edl";
@@ -18,30 +20,27 @@ const unsigned int frameRate = 50;
 
 static Simulation::Simulation* sys = 0;
 
-//-----------------------------------------------------------------------------
-// testFormFunc() -- our form function used by the parser
-//-----------------------------------------------------------------------------
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
-  if (newform == 0) newform = Simulation::simulationFormFunc(formname);
-  if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
-  if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  if (obj == 0) obj = Simulation::Factory::createObj(name);
+  if (obj == 0) obj = Vehicle::Factory::createObj(name);
+  if (obj == 0) obj = Sensor::Factory::createObj(name);
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+
+  return obj;
 }
 
-//-----------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//-----------------------------------------------------------------------------
-static void readTest()
+// build simulation
+static void builder()
 {
   std::cout << "Reading file : " << testFile << std::endl;
 
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(testFile, testFormFunc, &errors);
+  Basic::Object* q1 = lcParser(testFile, factory, &errors);
   if (errors > 0) {
     std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
     exit(1);
@@ -81,8 +80,8 @@ int exec(int argc, char* argv[])
     }
   }
 
-  // read description file
-  readTest();
+  // build simulation
+  builder();
 
   // reset component tree
   sys->reset();
@@ -98,7 +97,7 @@ int exec(int argc, char* argv[])
   return 0;
 }
 
-} // namespace NonRT1
+} // namespace Example
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -106,5 +105,5 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::NonRT1::exec(argc, argv);
+  Eaagles::Example::exec(argc, argv);
 }

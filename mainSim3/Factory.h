@@ -3,14 +3,14 @@
 //
 // Description: Class factory
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Sim3_Factory_H__
-#define __Eaagles_Sim3_Factory_H__
+#ifndef __Eaagles_Example_Factory_H__
+#define __Eaagles_Example_Factory_H__
 
 namespace Eaagles {
 
 namespace Basic { class Object; }
 
-namespace Sim3 {
+namespace Example {
 
 class Factory
 {
@@ -21,7 +21,7 @@ protected:
    Factory();   // prevent object creation
 };
 
-}  // end namespace Sim3
+}  // end namespace Example
 }  // end namespace Eaagles
 
 #endif

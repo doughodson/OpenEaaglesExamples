@@ -6,14 +6,16 @@
 //      it.  This also runs the simulation, and acts as the interface between the
 //      graphics and simulation.
 // -------------------------------------------------------------------------------
-#ifndef __Eaagles_MapTest_Station_H__
-#define __Eaagles_MapTest_Station_H__
+#ifndef __Eaagles_Example_Station_H__
+#define __Eaagles_Example_Station_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace Eaagles {
+
 namespace Glut { class GlutDisplay; }
-namespace MapTest {
+
+namespace Example {
 
 class Station : public Simulation::Station
 {
@@ -35,7 +37,7 @@ private:
     bool displayInit;               // is our display created?
 };
 
-}  // end of MapTest namespace
+}  // end of Example namespace
 }  // end of Eaagles namespace
 
 #endif

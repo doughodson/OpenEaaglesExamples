@@ -24,7 +24,7 @@
 #include "openeaagles/vehicles/Factory.h"
 
 namespace Eaagles {
-namespace Sim3 {
+namespace Example {
 
 Factory::Factory()
 {}
@@ -67,5 +67,5 @@ Basic::Object* Factory::createObj(const char* name)
     return obj;
 }
 
-}  // end namespace Sim3
+}  // end namespace Example
 }  // end namespace Eaagles

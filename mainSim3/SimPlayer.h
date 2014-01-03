@@ -3,13 +3,13 @@
 //
 // Description: Simulation player
 //------------------------------------------------------------------------------
-#ifndef __SimPlayer__
-#define __SimPlayer__
+#ifndef __Eaagles_Example_SimPlayer_H_
+#define __Eaagles_Example_SimPlayer_H__
 
 #include "openeaagles/simulation/AirVehicle.h"
 
 namespace Eaagles {
-namespace Sim3 {
+namespace Example {
 
 class SimPlayer : public Simulation::Aircraft
 {
@@ -24,7 +24,7 @@ public:
 private:
 };
 
-} // End Sim3 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

@@ -20,7 +20,7 @@
 static void update(void* pData)
 {
     if (pData != NULL) {
-        Eaagles::mainFltk1::FltkStation* stn = reinterpret_cast<Eaagles::mainFltk1::FltkStation*>(pData);
+        Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
         if (stn != 0) {
             double dt = 1 / 20.0f;
             stn->updateData((Eaagles::LCreal)dt);
@@ -30,7 +30,7 @@ static void update(void* pData)
 }
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 static FltkStation* sys = 0;
 static const char* testFileName = "test.edl";
@@ -115,13 +115,13 @@ int main(int, char* [])
     return Fl::run();
 }
 
-};
-};
+}
+}
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::mainFltk1::main(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }

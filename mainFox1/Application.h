@@ -3,8 +3,8 @@
 //
 // Description: Application class which processes GUI events
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_mainFox_Application_H__
-#define __Eaagles_mainFox_Application_H__
+#ifndef __Eaagles_Example_Application_H__
+#define __Eaagles_Example_Application_H__
 
 #include "fx.h"
 
@@ -12,7 +12,7 @@
 
 namespace Eaagles {
 
-namespace mainFox {
+namespace Example {
 
 class Station;
 
@@ -52,7 +52,7 @@ private:
   FoxStation* station;
 };
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 #endif

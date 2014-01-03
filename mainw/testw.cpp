@@ -8,14 +8,16 @@
 #include "openeaagles/basic/Tables.h"
 #include "openeaagles/basic/Nav.h"
 #include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/basicGLFF.h"
 #include "openeaagles/basicGL/Image.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 #include <GL/glut.h>
 
@@ -121,53 +123,52 @@ static void timerFunc(int)
     sys->tcFrame((LCreal)dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
     // This test ...
-    if ( strcmp(formname, TestDisplay::getFormName()) == 0 ) {
-        newform = new TestDisplay;
+    if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+        obj = new TestDisplay;
     }
-    else if ( strcmp(formname, MfdPage::getFormName()) == 0 ) {
-        newform = new MfdPage;
+    else if ( strcmp(name, MfdPage::getFactoryName()) == 0 ) {
+        obj = new MfdPage;
     }
 
     // TestX
-    else if ( strcmp(formname, TestOne::getFormName()) == 0 ) {
-        newform = new TestOne;
+    else if ( strcmp(name, TestOne::getFactoryName()) == 0 ) {
+        obj = new TestOne;
     }
     
     // TestY
-    else if ( strcmp(formname, TestTwo::getFormName()) == 0 ) {
-        newform = new TestTwo;
+    else if ( strcmp(name, TestTwo::getFactoryName()) == 0 ) {
+        obj = new TestTwo;
     }
-    else if ( strcmp(formname, TdAzPtr::getFormName()) == 0 ) {
-        newform = new TdAzPtr;
+    else if ( strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
+        obj = new TdAzPtr;
     }
-    else if ( strcmp(formname, TdElevPtr::getFormName()) == 0 ) {
-        newform = new TdElevPtr;
+    else if ( strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
+        obj = new TdElevPtr;
     }
-    else if ( strcmp(formname, TestRotator::getFormName()) == 0 ) {
-        newform = new TestRotator;
+    else if ( strcmp(name, TestRotator::getFactoryName()) == 0 ) {
+        obj = new TestRotator;
     }
     
     else {
-        //if (newform == 0) newform = Instruments::formFunc(formname);
-        if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Glut::glutFormFunc(formname);
-        if (newform == 0) newform = Basic::basicFormFunc(formname);
+        if (obj == 0) obj = BasicGL::Factory::createObj(name);
+        if (obj == 0) obj = Glut::Factory::createObj(name);
+        if (obj == 0) obj = Basic::Factory::createObj(name);
     }
-    return newform;
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest(const char* const testFileName)
+// build a display
+static void builder(const char* const testFileName)
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -216,9 +217,9 @@ int main(int argc, char* argv[])
    }
 
 // ---
-// Read in the description files
+// Build display
 // ---
-    readTest(configFile);
+    builder(configFile);
 
 // ---
 // Create a display window

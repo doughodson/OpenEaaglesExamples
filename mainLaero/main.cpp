@@ -12,7 +12,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace MainLaero {
+namespace Example {
 
 // Background frame rate
 const int bgRate = 10;
@@ -20,7 +20,7 @@ const int bgRate = 10;
 // System descriptions
 static Simulation::Station* station = 0;
 
-// build a Station
+// build a station
 static Simulation::Station* builder(const char* const fileName)
 {
    Simulation::Station* p = 0;
@@ -136,5 +136,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MainLaero::main(argc, argv);
+   return Eaagles::Example::main(argc, argv);
 }

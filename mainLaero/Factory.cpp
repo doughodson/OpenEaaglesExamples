@@ -22,7 +22,7 @@
 #include "openeaagles/basic/Factory.h"
 
 namespace Eaagles {
-namespace MainLaero {
+namespace Example {
 
 Factory::Factory()
 {}
@@ -60,6 +60,6 @@ Basic::Object* Factory::createObj(const char* name)
     return obj;
 }
 
-}  // end namespace MainLaero
+}  // end namespace Example
 }  // end namespace Eaagles
 

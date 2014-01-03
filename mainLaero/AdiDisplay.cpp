@@ -13,7 +13,7 @@
 #include "openeaagles/basic/units/Times.h"
 
 namespace Eaagles {
-namespace MainLaero {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay,"AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
@@ -144,6 +144,6 @@ Simulation::Aircraft* AdiDisplay::getOwnship()
    return pA;
 }
 
-} 
-} 
+}
+}
 

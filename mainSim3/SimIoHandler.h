@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: SimIoHandler
 //------------------------------------------------------------------------------
-#ifndef __SimIoHandler_H___
-#define __SimIoHandler_H___
+#ifndef __Eaagles_Example_SimIoHandler_H__
+#define __Eaagles_Example_SimIoHandler_H__
 
 #include "openeaagles/basic/IoHandler.h"
 
 namespace Eaagles {
    namespace Simulation { class AirVehicle; }
 
-namespace Sim3 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class:  SimIoHandler
@@ -17,7 +17,8 @@ namespace Sim3 {
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
 //------------------------------------------------------------------------------
-class SimIoHandler : public Basic::IoHandler {
+class SimIoHandler : public Basic::IoHandler
+{
    DECLARE_SUBCLASS(SimIoHandler,Basic::IoHandler)
 
 public:
@@ -48,7 +49,7 @@ private:
    bool decStptSw1;
 };
 
-} // end Sim3
+} // end Example
 } // end Eaagles namespace
 
 #endif

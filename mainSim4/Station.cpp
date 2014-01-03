@@ -4,7 +4,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace MapTest {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(Station,"MapTestStation")
 EMPTY_SERIALIZER(Station)
@@ -114,6 +114,6 @@ Basic::Object* Station::getSlotByIndex(const int si)
    return BaseClass::getSlotByIndex(si);
 }
 
-}  // end of MapTest namespace
+}  // end of Example namespace
 }  // end of Eaagles namespace
 

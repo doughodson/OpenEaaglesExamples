@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
-// Class:	Worm
+// Class: Worm
 //
 // Description: Move within a user defined box displaying a trail
 //
 //  ( def-form Worm
 //  )
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_mainFox_Worm_H__
-#define __Eaagles_mainFox_Worm_H__
+#ifndef __Eaagles_Example_Worm_H__
+#define __Eaagles_Example_Worm_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -15,7 +15,7 @@ namespace Eaagles {
 
 namespace Basic { class Angle; }
 
-namespace mainFox {
+namespace Example {
 
 class Worm : public BasicGL::Graphic
 {
@@ -72,7 +72,7 @@ private:
 
 };
 
-} // namespace mainFox
+} // namespace Example
 } // namespace Eaagles
 
 #endif

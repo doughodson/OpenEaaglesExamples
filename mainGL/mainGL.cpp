@@ -18,7 +18,7 @@
 
 #include <GL/glut.h>
 
-namespace MainGL {
+namespace Example {
 
 // Frame Rate
 static const int frameRate = 20;
@@ -126,12 +126,12 @@ int process(int argc, char* argv[])
     return 0;
 }
 
-} // MainGL namespace
+} // Example namespace
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-    return MainGL::process(argc,argv);
+    return Example::process(argc,argv);
 }

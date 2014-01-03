@@ -1,6 +1,4 @@
-//*****************************************************************************
-// Simple test routine for moving map library
-//*****************************************************************************
+
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
@@ -18,13 +16,12 @@
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/otw/Factory.h"
 
-// Local Classes
 #include "MapPage.h"
 #include "Station.h"
 #include "Display.h"
 
 namespace Eaagles {
-namespace MapTest {
+namespace Example {
 
 // Description (input) File -- After being processed by the C preprocessor
 const char* testFileName = "test.edl";
@@ -165,7 +162,7 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End MapTest namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -173,5 +170,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MapTest::main(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }

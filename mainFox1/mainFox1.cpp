@@ -14,7 +14,7 @@
 #include "openeaagles/basic/Factory.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 // default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "testfox.edl";
@@ -113,7 +113,7 @@ int exec(int argc, char* argv[])
    delete mainWindow;
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 
@@ -122,5 +122,5 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::mainFox::exec(argc, argv);
+  Eaagles::Example::exec(argc, argv);
 }

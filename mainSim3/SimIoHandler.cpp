@@ -12,7 +12,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace Eaagles {
-namespace Sim3 {
+namespace Example {
 
 //==============================================================================
 // SimIoHandler
@@ -324,5 +324,5 @@ void SimIoHandler::clear()
 {
 }
 
-} // End Sim3
+} // End Example
 } // end Eaagles namespace

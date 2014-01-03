@@ -6,7 +6,7 @@
 #include <FL/fl_ask.H>
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 // ----------------------------------------------------------------------------
 // windowCallback() - called when MainWindow wants to exit
@@ -197,6 +197,6 @@ void MainWindow::setZRotation(const double x)
 }
 
 
-}; // end mainFltk1 namespace
-}; // end Eaagles namespace
+} // end Example namespace
+} // end Eaagles namespace
 

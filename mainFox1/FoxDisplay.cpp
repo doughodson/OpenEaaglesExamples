@@ -10,7 +10,7 @@
 #include "fx3d.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay,"FoxDisplay")
 EMPTY_SERIALIZER(FoxDisplay)
@@ -329,6 +329,6 @@ void FoxDisplay::printSelectBuffer(const GLuint sbuff[], const int size)
    //std::cout << std::endl;
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 

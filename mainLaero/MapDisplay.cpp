@@ -20,7 +20,7 @@
 #include <iomanip>
 
 namespace Eaagles {
-namespace MainLaero {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")
 EMPTY_SERIALIZER(MapDisplay)

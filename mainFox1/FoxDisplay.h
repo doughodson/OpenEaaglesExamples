@@ -3,13 +3,13 @@
 //
 // Description:  Handles the drawing of an Eaagles display within Fox
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_mainFox_FoxDisplay_H__
-#define __Eaagles_mainFox_FoxDisplay_H__
+#ifndef __Eaagles_Example_FoxDisplay_H__
+#define __Eaagles_Example_FoxDisplay_H__
 
 #include "openeaagles/basicGL/Display.h"
 
 namespace FX {
-   class FXApp;     
+   class FXApp;
    class FXComposite;
    class FXGLCanvas;
    class FXGLVisual;
@@ -17,7 +17,7 @@ namespace FX {
 };
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 class FoxDisplay : public BasicGL::Display {
 
@@ -72,7 +72,7 @@ private:
    LCreal transRate;
 };
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 #endif

@@ -17,7 +17,7 @@
 #include "openeaagles/basic/Factory.h"
 
 namespace Eaagles {
-namespace Sim1 {
+namespace Example {
 
 // Test file
 const char* testFile = "test.edl";
@@ -137,7 +137,7 @@ int exec(int argc, char* argv[])
   return 0;
 }
 
-} // namespace Sim1
+} // namespace Example
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -145,5 +145,5 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  return Eaagles::Sim1::exec(argc, argv);
+  return Eaagles::Example::exec(argc, argv);
 }

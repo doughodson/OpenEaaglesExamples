@@ -4,8 +4,8 @@
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-#ifndef __Eaagles_MainLaero_MapPage_H__
-#define __Eaagles_MainLaero_MapPage_H__
+#ifndef __Eaagles_Example_MapPage_H__
+#define __Eaagles_Example_MapPage_H__
 
 #include "openeaagles/basicGL/MapPage.h"
 
@@ -17,7 +17,8 @@ namespace BasicGL {
    class SymbolLoader;
 }
 
-namespace MainLaero {
+namespace Example {
+
 class TestStation;
 
 class MapPage : public BasicGL::MapPage
@@ -73,8 +74,8 @@ private:
    float lonReadoutYPos[MAX_READOUTS];
 };
 
-}  
-}  
+}
+}
 
 #endif
 

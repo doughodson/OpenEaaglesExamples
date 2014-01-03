@@ -3,11 +3,10 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace MapTest {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display,"MapTestDisplay")
 EMPTY_SERIALIZER(Display)
-
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -130,6 +129,6 @@ void Display::updateData(const LCreal dt)
     send("range", UPDATE_VALUE, range, rangeSD);
 }
 
-}  // end of MapTest namespace
+}  // end of Example namespace
 }  // end of Eaagles namespace
 

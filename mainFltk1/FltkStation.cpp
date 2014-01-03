@@ -1,4 +1,6 @@
-
+// ----------------------------------------------------------------------------
+// Class: FltkStation
+// ----------------------------------------------------------------------------
 #include "FltkStation.h"
 #include "FltkDisplay.h"
 
@@ -8,7 +10,7 @@
 #include "MainWindow.h"
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(FltkStation,"FltkStation")
 EMPTY_SERIALIZER(FltkStation)
@@ -142,5 +144,5 @@ Basic::Object* FltkStation::getSlotByIndex(const int si)
    return BaseClass::getSlotByIndex(si);
 }
 
-}; // end mainFltk1 namespace
-}; // end Eaagles namespace
+} // end Example namespace
+} // end Eaagles namespace

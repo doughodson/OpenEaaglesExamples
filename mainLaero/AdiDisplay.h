@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: AdiDisplay
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainLaero_AdiDisplay_H__
-#define __Eaagles_MainLaero_AdiDisplay_H__
+#ifndef __Eaagles_Example_AdiDisplay_H__
+#define __Eaagles_Example_AdiDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -12,7 +12,8 @@ namespace Eaagles {
       class Aircraft; 
    }
 
-namespace MainLaero {
+namespace Example {
+
 class AdiDisplay : public Glut::GlutDisplay
 {
    DECLARE_SUBCLASS(AdiDisplay, Glut::GlutDisplay)
@@ -57,7 +58,7 @@ private:
    SendData pitchADI_SD;
 };
 
-} 
-} 
+}
+}
 
 #endif
