@@ -42,7 +42,7 @@
 #endif
 
 namespace Eaagles {
-namespace TestRecorder {
+namespace Test {
 
 
 //==============================================================================
@@ -64,13 +64,13 @@ END_SLOTTABLE(DataRecordTest)
 
 // Map slot table to handles 
 BEGIN_SLOT_MAP(DataRecordTest)
-   ON_SLOT(1, setSlotTabPrinter,     Eaagles::Recorder::TabPrinter)
-   ON_SLOT(2, setSlotFileWriter,     Eaagles::Recorder::FileWriter)
-   ON_SLOT(3, setSlotFileReader,     Eaagles::Recorder::FileReader)
-   ON_SLOT(4, setSlotFileName,       Eaagles::Basic::String)
-   ON_SLOT(5, setSlotPrintPlayer,    Eaagles::Recorder::PrintPlayer)
-   ON_SLOT(6, setSlotPrintSelected,  Eaagles::Recorder::PrintSelected)
-   ON_SLOT(7, setSlotPrintSelected2,  Eaagles::Recorder::PrintSelected)
+   ON_SLOT(1, setSlotTabPrinter,     Recorder::TabPrinter)
+   ON_SLOT(2, setSlotFileWriter,     Recorder::FileWriter)
+   ON_SLOT(3, setSlotFileReader,     Recorder::FileReader)
+   ON_SLOT(4, setSlotFileName,       Basic::String)
+   ON_SLOT(5, setSlotPrintPlayer,    Recorder::PrintPlayer)
+   ON_SLOT(6, setSlotPrintSelected,  Recorder::PrintSelected)
+   ON_SLOT(7, setSlotPrintSelected2, Recorder::PrintSelected)
 
 END_SLOT_MAP()
 
@@ -123,7 +123,6 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
       fieldSelected = false;
       selectionNum = 0;
    }
-
 }
 
 //------------------------------------------------------------------------------
@@ -140,7 +139,6 @@ void DataRecordTest::deleteData()
    myPrintSelected2 = 0;
 }
 
-
 //------------------------------------------------------------------------------
 // Slot functions
 //------------------------------------------------------------------------------
@@ -148,7 +146,7 @@ void DataRecordTest::deleteData()
 //------------------------------------------------------------------------------
 //setSlotTabPrinter() -- Set slot for pointer to the TabPrinter class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotTabPrinter(Eaagles::Recorder::TabPrinter* const p)
+bool DataRecordTest::setSlotTabPrinter(Recorder::TabPrinter* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -162,7 +160,7 @@ bool DataRecordTest::setSlotTabPrinter(Eaagles::Recorder::TabPrinter* const p)
 //------------------------------------------------------------------------------
 //setSlotPrintPlayer() -- Set slot for pointer to the another print class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotPrintPlayer(Eaagles::Recorder::PrintPlayer* const p)
+bool DataRecordTest::setSlotPrintPlayer(Recorder::PrintPlayer* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -176,7 +174,7 @@ bool DataRecordTest::setSlotPrintPlayer(Eaagles::Recorder::PrintPlayer* const p)
 //------------------------------------------------------------------------------
 //setSlotPrintSelected() -- Set slot for pointer to the printer using reflection
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotPrintSelected(Eaagles::Recorder::PrintSelected* const p)
+bool DataRecordTest::setSlotPrintSelected(Recorder::PrintSelected* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -190,7 +188,7 @@ bool DataRecordTest::setSlotPrintSelected(Eaagles::Recorder::PrintSelected* cons
 //------------------------------------------------------------------------------
 //setSlotPrintSelected2() -- Set slot for pointer to the printer using reflection (std out only)
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotPrintSelected2(Eaagles::Recorder::PrintSelected* const p)
+bool DataRecordTest::setSlotPrintSelected2(Recorder::PrintSelected* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -204,7 +202,7 @@ bool DataRecordTest::setSlotPrintSelected2(Eaagles::Recorder::PrintSelected* con
 //------------------------------------------------------------------------------
 //setSlotFileWriter() -- Set slot for pointer to the file (serialized) write class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileWriter(Eaagles::Recorder::FileWriter* const p)
+bool DataRecordTest::setSlotFileWriter(Recorder::FileWriter* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -219,7 +217,7 @@ bool DataRecordTest::setSlotFileWriter(Eaagles::Recorder::FileWriter* const p)
 //------------------------------------------------------------------------------
 //setSlotFileReader() -- Set slot for pointer to the file (serialized) read class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileReader(Eaagles::Recorder::FileReader* const p)
+bool DataRecordTest::setSlotFileReader(Recorder::FileReader* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -233,7 +231,7 @@ bool DataRecordTest::setSlotFileReader(Eaagles::Recorder::FileReader* const p)
 //------------------------------------------------------------------------------
 //setSlotFileName() -- Get file name for test message output
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileName(Eaagles::Basic::String* const msg)
+bool DataRecordTest::setSlotFileName(Basic::String* const msg)
 {
    bool ok = false;
    if (msg != 0) {
@@ -246,7 +244,7 @@ bool DataRecordTest::setSlotFileName(Eaagles::Basic::String* const msg)
 //------------------------------------------------------------------------------
 //setSlotRecordData() -- Set slot for pointer to the RecorderComponent class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotRecordData(Eaagles::Simulation::DataRecorder* const p)
+bool DataRecordTest::setSlotRecordData(Simulation::DataRecorder* const p)
 {
    bool ok = false;
    if (p != 0) {
@@ -260,11 +258,10 @@ bool DataRecordTest::setSlotRecordData(Eaagles::Simulation::DataRecorder* const 
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
-Eaagles::Basic::Object* DataRecordTest::getSlotByIndex(const int si)
+Basic::Object* DataRecordTest::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
-
 
 //------------------------------------------------------------------------------
 // testSerialize - Test serialize/parsing to/from a file
@@ -377,7 +374,7 @@ void DataRecordTest::readSerialFromFile()
                std::string selTime = "N";
                std::cin >> selTime;
                if ((selTime == "Y") || (selTime == "y")) {
-                  const Eaagles::Recorder::Pb::DataRecord* dataRecord = new Eaagles::Recorder::Pb::DataRecord();
+                  const Recorder::Pb::DataRecord* dataRecord = new Recorder::Pb::DataRecord();
                   processMessage(&dataRecord->time());
                }
             }
@@ -402,7 +399,7 @@ void DataRecordTest::readSerialFromFile()
 
                   // Go through the message to select the field and criteria to match
                   const google::protobuf::Message* processMsg = 0;
-                  const Eaagles::Recorder::Pb::DataRecord* testDr = new Eaagles::Recorder::Pb::DataRecord();
+                  const Recorder::Pb::DataRecord* testDr = new Recorder::Pb::DataRecord();
                   switch (eventNum) {
                      case REID_FILE_ID:           processMsg = &testDr->file_id_msg();                 break;
                      case REID_NEW_PLAYER:        processMsg = &testDr->new_player_event_msg();        break;
@@ -441,7 +438,7 @@ void DataRecordTest::readSerialFromFile()
       while (!fileDone) {
          std::cout << std::endl << "Parsing from file msg: " << msgNum+1 << std::endl;
          msgNum++;
-         const Eaagles::Recorder::DataRecordHandle* readHandle = myFileRead->readRecord();
+         const Recorder::DataRecordHandle* readHandle = myFileRead->readRecord();
 
          if (readHandle != 0) {
             // Check for last message
@@ -1530,6 +1527,4 @@ double DataRecordTest::getUtcTime()
 
 
 }
-} // End namespace
-
-
+}

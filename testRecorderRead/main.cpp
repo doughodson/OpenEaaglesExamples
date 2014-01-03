@@ -1,20 +1,19 @@
 
-#include "./DataRecordTest.h"
-#include "./formFunc.h"
+#include "DataRecordTest.h"
+#include "Factory.h"
 
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
-namespace TestRecorder {
+namespace Eaagles {
+namespace Test {
 
 //=============================================================================
 // Main test functions
 //=============================================================================
 
-//-----------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//-----------------------------------------------------------------------------
-static DataRecordTest* readTest(const char* const testFile)
+//
+static DataRecordTest* builder(const char* const testFile)
 {
    if (testFile == 0) return 0;
 
@@ -22,7 +21,7 @@ static DataRecordTest* readTest(const char* const testFile)
 
    // Read the description file
    int errors = 0;
-   Eaagles::Basic::Object* q1 = lcParser(testFile, mainFormFunc, &errors);
+   Basic::Object* q1 = lcParser(testFile, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
    }
@@ -61,8 +60,8 @@ int exec(int argc, char* argv[])
       return EXIT_FAILURE;
    }
 
-   // Read in the description files
-   DataRecordTest* sys = readTest(testFile);
+   // build data recorder test
+   DataRecordTest* sys = builder(testFile);
 
    // Must have a valid system of type DataRecordTest
    if (sys == 0) {
@@ -77,13 +76,14 @@ int exec(int argc, char* argv[])
    return EXIT_SUCCESS;
 }
 
-} // namespace TestRecorder
+}
+}
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-    TestRecorder::exec(argc, argv);
+    Eaagles::Test::exec(argc, argv);
 }
 

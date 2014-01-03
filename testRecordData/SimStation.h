@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_TestRecordData_SimStation_H__
-#define __Eaagles_TestRecordData_SimStation_H__
+#ifndef __Eaagles_Test_SimStation_H__
+#define __Eaagles_Test_SimStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -11,7 +11,7 @@ namespace Eaagles {
    namespace Glut  { class GlutDisplay; }
    namespace Simulation { class AirVehicle; }
 
-namespace TestRecordData {
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -55,7 +55,7 @@ private:
     const Basic::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
-} // End TestRecordData namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 #endif

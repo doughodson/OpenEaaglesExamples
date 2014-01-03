@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-
 #include "TestDisplay.h"
 #include "SimStation.h"
 
@@ -29,7 +28,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace TestRecordData {
+namespace Test {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -752,5 +751,5 @@ void TestDisplay::updatePfd(const LCreal)
     }
 }
 
-} // End TestRecordData namespace
+} // End Test namespace
 } // End Eaagles namespace

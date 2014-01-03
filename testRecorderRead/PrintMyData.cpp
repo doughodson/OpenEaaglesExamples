@@ -1,15 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: PrintMyData
 //------------------------------------------------------------------------------
-
-#include "./PrintMyData.h"
+#include "PrintMyData.h"
 
 #include "xRecorder/DataRecord.pb.h"
 #include "xRecorder/dataRecorderTokens.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 
-
-namespace TestRecorder {
+namespace Eaagles {
+namespace Test {
 
 //==============================================================================
 // Class PrintMyData
@@ -92,5 +91,5 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
 
 }
 
-
-} // End TestRecorder namespace
+}
+}

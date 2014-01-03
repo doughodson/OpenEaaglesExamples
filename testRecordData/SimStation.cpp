@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-
 #include "SimStation.h"
 
 #include "openeaagles/simulation/Simulation.h"
@@ -19,7 +18,7 @@
 #include "openeaagles/basic/osg/Vec4"
 
 namespace Eaagles {
-namespace TestRecordData {
+namespace Test {
 
 IMPLEMENT_SUBCLASS(SimStation,"SimStation")
 EMPTY_SERIALIZER(SimStation)
@@ -209,5 +208,5 @@ Basic::Object* SimStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End TestRecordData namespace
+} // End Test namespace
 } // End Eaagles namespace

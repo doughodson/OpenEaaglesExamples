@@ -12,7 +12,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace Eaagles {
-namespace TestRecordData {
+namespace Test {
 
 //==============================================================================
 // TestIoHandler
@@ -323,5 +323,5 @@ void TestIoHandler::clear()
 {
 }
 
-} // End TestRecordData
+} // End Test
 } // end Eaagles namespace

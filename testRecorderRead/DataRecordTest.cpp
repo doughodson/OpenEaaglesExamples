@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#include "./DataRecordTest.h"
+#include "DataRecordTest.h"
 
 #include "openeaagles/recorder/InputHandler.h"
 #include "openeaagles/recorder/OutputHandler.h"
@@ -9,7 +9,8 @@
 
 #include "xRecorder/DataRecord.pb.h"
 
-namespace TestRecorder {
+namespace Eaagles {
+namespace Test {
 
 //==============================================================================
 // DataRecordTest
@@ -123,9 +124,10 @@ bool DataRecordTest::setSlotOutputHandler(Eaagles::Recorder::OutputHandler* cons
 //------------------------------------------------------------------------------
 // getSlotByIndex() 
 //------------------------------------------------------------------------------
-Eaagles::Basic::Object* DataRecordTest::getSlotByIndex(const int si)
+Basic::Object* DataRecordTest::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End namespace
+}
+}

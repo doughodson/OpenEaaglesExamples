@@ -9,8 +9,7 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-// class factories
-#include "xBehaviors/Factory.h"
+#include "xRecorder/Factory.h"
 #include "xPanel/Factory.h"
 
 #include "openeaagles/basic/Factory.h"
@@ -20,12 +19,13 @@
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/ioDevice/Factory.h"
 #include "openeaagles/otw/Factory.h"
+#include "openeaagles/recorder/Factory.h"
 #include "openeaagles/sensors/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/vehicles/Factory.h"
 
 namespace Eaagles {
-namespace Example {
+namespace Test {
 
 Factory::Factory()
 {}
@@ -34,26 +34,27 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, SimStation::getFactoryName()) == 0 ) {
+    if ( strcmp(name, SimStation::getFormName()) == 0 ) {
         obj = new SimStation();
     }
-    else if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+    else if ( strcmp(name, TestDisplay::getFormName()) == 0 ) {
         obj = new TestDisplay();
     }
-    else if ( strcmp(name, TestIoHandler::getFactoryName()) == 0 ) {
+    else if ( strcmp(name, TestIoHandler::getFormName()) == 0 ) {
         obj = new TestIoHandler();
     }
 
-    // Example library packages
-    if (obj == 0) obj = xBehaviors::Factory::createObj(name);
+    // Example libraries
+    if (obj == 0) obj = xRecorder::Factory::createObj(name);
     if (obj == 0) obj = xPanel::Factory::createObj(name);
 
     // OpenEaagles packages
-    if (obj == 0) obj = Simulation::Factory::createObj(name);
+    if (obj == 0) obj = Eaagles::Simulation::Factory::createObj(name);
     if (obj == 0) obj = Instruments::Factory::createObj(name);
     if (obj == 0) obj = IoDevice::Factory::createObj(name);
     if (obj == 0) obj = Instruments::Factory::createObj(name);
     if (obj == 0) obj = Vehicle::Factory::createObj(name);
+    if (obj == 0) obj = Recorder::Factory::createObj(name);
     if (obj == 0) obj = Sensor::Factory::createObj(name);
     if (obj == 0) obj = Otw::Factory::createObj(name);
     if (obj == 0) obj = Network::Dis::Factory::createObj(name);
@@ -64,5 +65,5 @@ Basic::Object* Factory::createObj(const char* name)
     return obj;
 }
 
-}  // end namespace Example
+}  // end namespace Test
 }  // end namespace Eaagles

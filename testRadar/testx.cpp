@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include "TestStation.h"
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/basicGL/Graphic.h"
 #include "openeaagles/basic/Parser.h"
@@ -22,10 +22,8 @@ const int bgRate = 10;
 // System descriptions
 static TestStation* station = 0;	
 
-//-----------------------------------------------------------------------------
-// Read the configuration file
-//-----------------------------------------------------------------------------
-static TestStation* readConfigFile(const char* const fileName)
+// build a station
+static TestStation* builder(const char* const fileName)
 {
    TestStation* p = 0;
 
@@ -41,7 +39,7 @@ static TestStation* readConfigFile(const char* const fileName)
 
    // Read the description file
    int errors = 0;
-   Basic::Object* q1 = lcParser(fileName, formFunc, &errors);
+   Basic::Object* q1 = lcParser(fileName, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -116,9 +114,9 @@ int main(int argc, char* argv[])
    }
 
 // ---
-// Read in the description files
+// Build a station
 // ---
-   station = readConfigFile(configFile);
+   station = builder(configFile);
    if (station == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
       exit(EXIT_FAILURE);

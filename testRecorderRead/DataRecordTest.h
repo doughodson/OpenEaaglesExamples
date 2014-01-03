@@ -1,23 +1,23 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#ifndef __TestRecorder_DataRecordTest_H__
-#define __TestRecorder_DataRecordTest_H__
-
-namespace Eaagles {
-   namespace Recorder { class InputHandler; class OutputHandler; }
-}
+#ifndef __Eaagles_Test_DataRecordTest_H__
+#define __Eaagles_Test_DataRecordTest_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace TestRecorder {
+namespace Eaagles {
+
+namespace Recorder { class InputHandler; class OutputHandler; }
+
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public Eaagles::Basic::Component
+class DataRecordTest : public Basic::Component
 {
-   DECLARE_SUBCLASS(DataRecordTest,Eaagles::Basic::Component)
+   DECLARE_SUBCLASS(DataRecordTest, Basic::Component)
 
 public:
     DataRecordTest();
@@ -27,17 +27,17 @@ public:
 
 protected:
     // Slot functions
-    virtual bool setSlotInputHandler(Eaagles::Recorder::InputHandler* const msg);
-    virtual bool setSlotOutputHandler(Eaagles::Recorder::OutputHandler* const msg);
+    virtual bool setSlotInputHandler(Recorder::InputHandler* const msg);
+    virtual bool setSlotOutputHandler(Recorder::OutputHandler* const msg);
 
 private:
    void initData();
 
-   SPtr<Eaagles::Recorder::InputHandler> inputHandler;
-   SPtr<Eaagles::Recorder::OutputHandler> outputHandler;
+   SPtr<Recorder::InputHandler> inputHandler;
+   SPtr<Recorder::OutputHandler> outputHandler;
 };
 
 }
+}
 
 #endif
-
