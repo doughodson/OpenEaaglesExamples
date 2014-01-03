@@ -27,13 +27,13 @@ static Basic::Object* factory(const char* name)
 {
   Basic::Object* obj = 0;
 
-  if ( strcmp(name, FoxDisplay::getFormName()) == 0 ) {
+  if ( strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
     obj = new FoxDisplay();
   }
-  else if ( strcmp(name, FoxStation::getFormName()) == 0 ) {
+  else if ( strcmp(name, FoxStation::getFactoryName()) == 0 ) {
     obj = new FoxStation();
   }
-  else if ( strcmp(name, Worm::getFormName()) == 0 ) {
+  else if ( strcmp(name, Worm::getFactoryName()) == 0 ) {
     obj = new Worm();
   }
 

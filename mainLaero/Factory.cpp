@@ -31,16 +31,16 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, TestStation::getFormName()) == 0 ) {
+    if ( strcmp(name, TestStation::getFactoryName()) == 0 ) {
         obj = new TestStation();
     }
-    else if ( strcmp(name, AdiDisplay::getFormName()) == 0 ) {
+    else if ( strcmp(name, AdiDisplay::getFactoryName()) == 0 ) {
         obj = new AdiDisplay();
     }
-    else if ( strcmp(name, MapDisplay::getFormName()) == 0 ) {
+    else if ( strcmp(name, MapDisplay::getFactoryName()) == 0 ) {
         obj = new MapDisplay();
     }
-    else if ( strcmp(name, MapPage::getFormName()) == 0 ) {
+    else if ( strcmp(name, MapPage::getFactoryName()) == 0 ) {
         obj = new MapPage();
     }
 

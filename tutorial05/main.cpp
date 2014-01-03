@@ -5,7 +5,10 @@
 #include "openeaagles/basic/Color.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/String.h"
-#include "openeaagles/basic/basicFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+
 #include "MyObj.h"
 
 namespace Eaagles {
@@ -17,25 +20,26 @@ const char* inputFileName = "file0.edl";
 
 static class MyObj* sys = 0;
 
-static Basic::Object* exampleFormFunc(const char* const formname)
+// our class factory
+static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
   // look in application's classes
-  if ( strcmp(formname, MyObj::getFormName()) == 0 ) {
-    newform = new MyObj;
+  if ( strcmp(name, MyObj::getFactoryName()) == 0 ) {
+    obj = new MyObj;
   }
   // look in base classes
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+  return obj;
 }
 
-// read and parse input file
-static void readInput()
+// build my object
+static void builder()
 {
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
+  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
     exit(1);
@@ -61,8 +65,8 @@ static void readInput()
 
 int exec(int, char **)
 {
-  // parse and read input file
-  readInput();
+  // build my object
+  builder();
 
   // print out some color information
   const Basic::PairStream* colorTable = sys->getColorTable();

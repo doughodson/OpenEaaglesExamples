@@ -185,7 +185,7 @@ std::ostream& ZeroMQContext::serialize(std::ostream& sout, const int i, const bo
    int j = 0;
    if (!slotsOnly) {
       indent(sout, i);
-      sout << "( " << getFormName() << std::endl;
+      sout << "( " << getFactoryName() << std::endl;
       j = 4;
    }
 

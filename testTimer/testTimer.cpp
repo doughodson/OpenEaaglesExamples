@@ -10,16 +10,18 @@
 //
 //------------------------------------------------------------------------------
 
-#include "./Tester.h"
+#include "Tester.h"
 
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Thread.h"
-#include "openeaagles/basic/basicFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
 
 namespace Eaagles {
-namespace TestTimer {
+namespace Test {
 
 static const double MAIN_TIMER_VALUE = 10.0; // Sec
 static const double TIMERS_PRINT_RATE = 5;   // Hz
@@ -70,30 +72,26 @@ TimerThread* createTheThread(Tester* const tester)
    return thread;
 }
 
-//------------------------------------------------------------------------------
-// Test Form Function
-//------------------------------------------------------------------------------
-static Basic::Object* testFormFunc(const char* const formname)
+// our class factory
+static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
-  if ( strcmp(formname, Tester::getFormName()) == 0 ) {
-    newform = new Tester;
+  if ( strcmp(name, Tester::getFactoryName()) == 0 ) {
+    obj = new Tester;
   }
    
   // Default to base classes
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+  return obj;
 }
 
-//------------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//------------------------------------------------------------------------------
-static Tester* readTest(const char* const testFileName)
+// build a tester
+static Tester* builder(const char* const testFileName)
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -200,7 +198,7 @@ int exec(int argc, char* argv[])
    }
 
    // Read in the description files
-   Tester* tester = readTest(configFile);
+   Tester* tester = builder(configFile);
    if (tester != 0) {
 
       // create the thread
@@ -225,7 +223,7 @@ int exec(int argc, char* argv[])
    return 0;
 }
 
-} // namespace TestTimer
+} // namespace Test
 } // namespace Eaagles
 
 //=============================================================================
@@ -233,6 +231,6 @@ int exec(int argc, char* argv[])
 //=============================================================================
 int main(int argc, char* argv[])
 {
-   Eaagles::TestTimer::exec(argc, argv);
+   Eaagles::Test::exec(argc, argv);
 }
 

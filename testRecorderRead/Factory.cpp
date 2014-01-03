@@ -22,10 +22,10 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, DataRecordTest::getFormName()) == 0 ) {
+    if ( strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
         obj = new DataRecordTest();
     }
-    else if ( strcmp(name, PrintMyData::getFormName()) == 0 ) {
+    else if ( strcmp(name, PrintMyData::getFactoryName()) == 0 ) {
         obj = new PrintMyData();
     }
 

@@ -29,13 +29,13 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-   if ( strcmp(name, TestStation::getFormName()) == 0 ) {
+   if ( strcmp(name, TestStation::getFactoryName()) == 0 ) {
       obj = new TestStation;
    }
-   else if ( strcmp(name, TestDisplay::getFormName()) == 0 ) {
+   else if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
       obj = new TestDisplay;
    }
-   else if ( strcmp(name, TestComputer::getFormName()) == 0 ) {
+   else if ( strcmp(name, TestComputer::getFactoryName()) == 0 ) {
       obj = new TestComputer;
    }
 

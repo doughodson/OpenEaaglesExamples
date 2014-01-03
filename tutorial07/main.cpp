@@ -2,12 +2,14 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
+
+// class factories
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 #include "Worm.h"
 
@@ -36,28 +38,29 @@ static void timerFunc(int)
     sys->tcFrame((LCreal)dt);
 }
 
-// Test Form Function
-static Basic::Object* exampleFormFunc(const char* const formname)
+// our class factory
+static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
-  if ( strcmp(formname, Worm::getFormName()) == 0 ) {
-    newform = new Worm;
+  if ( strcmp(name, Worm::getFactoryName()) == 0 ) {
+    obj = new Worm;
   }
    
   // Default to base classes
-  if (newform == 0) newform = Glut::glutFormFunc(formname);
-  if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  if (obj == 0) obj = Glut::Factory::createObj(name);
+  if (obj == 0) obj = BasicGL::Factory::createObj(name);
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+
+  return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
+  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
     exit(1);
@@ -89,8 +92,8 @@ int exec(int argc, char* argv[])
 {
   glutInit(&argc, argv);
 
-  // parse and read input file
-  readTest();
+  // build a display
+  builder();
 
   // create a display window
   sys->createWindow();

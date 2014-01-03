@@ -225,7 +225,7 @@ std::ostream& Block::serialize(std::ostream& sout, const int i, const bool slots
 {
    int j = 0;
    if ( !slotsOnly ) {
-      sout << "( " << getFormName() << std::endl;
+      sout << "( " << getFactoryName() << std::endl;
       j = 4;
    }
 

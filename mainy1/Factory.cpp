@@ -34,13 +34,13 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, SimStation::getFormName()) == 0 ) {
+    if ( strcmp(name, SimStation::getFactoryName()) == 0 ) {
         obj = new SimStation();
     }
-    else if ( strcmp(name, TestDisplay::getFormName()) == 0 ) {
+    else if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
         obj = new TestDisplay();
     }
-    else if ( strcmp(name, TestIoHandler::getFormName()) == 0 ) {
+    else if ( strcmp(name, TestIoHandler::getFactoryName()) == 0 ) {
         obj = new TestIoHandler();
     }
 

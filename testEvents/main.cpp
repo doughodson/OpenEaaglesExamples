@@ -50,10 +50,10 @@ static Basic::Object* factory(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if (strcmp(name, Display::getFormName()) == 0) {
+    if (strcmp(name, Display::getFactoryName()) == 0) {
         obj = new Display();
     }
-    else if (strcmp(name, ObjectHandler::getFormName()) == 0) {
+    else if (strcmp(name, ObjectHandler::getFactoryName()) == 0) {
         obj = new ObjectHandler();
     }
     else {

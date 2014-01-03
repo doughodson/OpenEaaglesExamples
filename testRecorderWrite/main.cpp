@@ -27,7 +27,7 @@ static Basic::Object* factory(const char* name)
    Basic::Object* obj = 0;
 
    // This test:
-   if ( strcmp(name, DataRecordTest::getFormName()) == 0 ) {
+   if ( strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
       obj = new DataRecordTest();
    }
 
