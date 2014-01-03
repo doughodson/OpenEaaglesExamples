@@ -20,7 +20,7 @@ namespace Test {
 const int bgRate = 10;
 
 // System descriptions
-static TestStation* station = 0;	
+static TestStation* station = 0;
 
 // build a station
 static TestStation* builder(const char* const fileName)

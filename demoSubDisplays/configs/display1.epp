@@ -45,7 +45,7 @@
         // normal font for the instruments
         default: 
         ( FTGLPolygonFonts
-			// starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 1
@@ -61,7 +61,7 @@
         // small font for the instruments
         smallfont: 
         ( FTGLPolygonFonts
-			// starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 0.75
@@ -77,7 +77,7 @@
         // smaller font for the instruments
         smallerfont: 
         ( FTGLPolygonFonts
-			// starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 0.5
@@ -92,7 +92,7 @@
         
         arialfont: 
         ( FTGLPolygonFonts
-			// starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
             fontWidth: 0.5
@@ -109,8 +109,7 @@
 
     normalFont: default
     page: testspeedbrake
-     
-     
+
      pages: {
         #include "testspeedbrake.epp"
         #include "testenginedial.epp"

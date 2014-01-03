@@ -11,7 +11,7 @@
 #include "MyComp.h"
 
 namespace Eaagles {
-namespace Example06 {
+namespace Tutorial {
 
 // Description (input) File
 // After being processed by the C preprocessor
@@ -66,7 +66,7 @@ static void builder()
   }
 }
 
-int exec(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
   // allow user to specify input file
   for (int i = 1; i < argc; i++) {
@@ -96,7 +96,7 @@ int exec(int argc, char *argv[])
   return 0;
 }
 
-} // namespace Example06
+} // namespace Tutorial
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -104,5 +104,5 @@ int exec(int argc, char *argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example06::exec(argc, argv);
+  Eaagles::Tutorial::main(argc, argv);
 }

@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Example04 {
+namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Uniform,"Uniform")
 // setup slot table
@@ -40,7 +40,7 @@ Uniform::Uniform(void)
 //------------------------------------------------------------------------------
 void Uniform::copyData(const Uniform& org, const bool)
 {
-	BaseClass::copyData(org);
+   BaseClass::copyData(org);
 
    max = org.max;
    min = org.min;
@@ -72,7 +72,6 @@ int Uniform::getNum(void) const
   return (int)(min+(max-min)*(rand()/(RAND_MAX+1.0)));
 }
 
-
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
@@ -95,5 +94,5 @@ bool Uniform::setSlotMax(const Basic::Number* const x)
   return true;
 }
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles

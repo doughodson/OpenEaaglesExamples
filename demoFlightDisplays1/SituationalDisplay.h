@@ -3,8 +3,8 @@
 //
 // Description: Situational Display
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_H__
-#define __Eaagles_Demo_H__
+#ifndef __Eaagles_Demo_SituationalDisplay_H__
+#define __Eaagles_Demo_SituationalDisplay_H__
 
 #include "openeaagles/basicGL/Page.h"
 

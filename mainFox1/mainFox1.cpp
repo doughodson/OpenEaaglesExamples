@@ -20,7 +20,7 @@ namespace Example {
 static const char* const DEFAULT_CONFIG_FILE = "testfox.edl";
 static const char* fileName = DEFAULT_CONFIG_FILE;
 
-static FoxStation* station = 0;	
+static FoxStation* station = 0;
 
 // our class factory
 static Basic::Object* factory(const char* name)

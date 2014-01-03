@@ -14,7 +14,7 @@
 #include "Worm.h"
 
 namespace Eaagles {
-namespace Example07 {
+namespace Tutorial {
 
 // Description (input) File -- After being processed by the C preprocessor
 const char* inputFileName = "file0.edl";
@@ -88,7 +88,7 @@ static void builder()
   }
 }
 
-int exec(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
   glutInit(&argc, argv);
 
@@ -108,7 +108,7 @@ int exec(int argc, char* argv[])
   return 0;
 }
 
-} // namespace Example07
+} // namespace Tutorial
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -116,6 +116,6 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example07::exec(argc, argv);
+  Eaagles::Tutorial::main(argc, argv);
 }
 

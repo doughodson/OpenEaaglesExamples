@@ -209,7 +209,7 @@ BasicGL::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int
    getCanvas()->makeCurrent();
    //glGetIntegerv(GL_VIEWPORT,viewport);
    getViewport(&viewport[0], &viewport[1], &viewport[2], &viewport[3]);
-    	
+
    int x = mouseX;
    int y = mouseY;
 

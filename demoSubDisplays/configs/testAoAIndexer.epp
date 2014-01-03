@@ -10,12 +10,12 @@ testAoAIndexer:
     }
     components: {
         #include "openeaagles/instruments/gauges/digaoagauge.epp"
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testAoAIndexer.epp"
-		)         
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testAoAIndexer.epp"
+        )
     }
 )
 

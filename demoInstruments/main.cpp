@@ -48,7 +48,7 @@ const char* testFileName = "testinstruments.edl";
 const int frameRate = 20;
 
 // System descriptions
-static class Glut::GlutDisplay* sys = 0;	
+static class Glut::GlutDisplay* sys = 0;
 
 //=============================================================================
 // Main test functions

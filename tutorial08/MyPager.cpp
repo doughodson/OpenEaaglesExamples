@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // MyPager
 //------------------------------------------------------------------------------
-
 #include "MyPager.h"
+
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 
 namespace Eaagles {
-namespace Example08 {
+namespace Tutorial {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MyPager,"MyPager")
 EMPTY_COPYDATA(MyPager)
@@ -41,5 +41,5 @@ bool MyPager::onEntry()
   return true;
 }
 
-} // namespace Example08
+} // namespace Tutorial
 } // namespace Eaagles

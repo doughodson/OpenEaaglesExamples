@@ -1,22 +1,18 @@
 //------------------------------------------------------------------------------
 // Class:  Uniform
-// Base class:  Object-> Random -> Uniform
 // Description:  Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef _UNIFORM_INCLUDE
-#define _UNIFORM_INCLUDE
+#ifndef __Eaagles_Tutorial_Uniform_H__
+#define __Eaagles_Tutorial_Uniform_H__
 
 #include "Random.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class Number;
-  }
-}
 
-namespace Eaagles {
-namespace Example04 {
+namespace Basic   { class Number; }
+
+namespace Tutorial {
 
 class Uniform : public Random
 {
@@ -42,7 +38,7 @@ private:
   int min;
 };
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles
 
 #endif

@@ -5,7 +5,7 @@
 #include "Random.h"
 
 namespace Eaagles {
-namespace Example02 {
+namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Random,"Random")
 EMPTY_SLOTTABLE(Random)
@@ -57,6 +57,6 @@ void Random::setSeed(const unsigned int seed)
    srand(seed);
 }
 
-} // namespace Example02
+} // namespace Tutorial
 } // namespace Eaagles
 

@@ -25,12 +25,12 @@ testnozzle:
             position: [ 1 19 ]
             format: "###.#"
         )                                    
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testnozzle.epp"
-		)         
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testnozzle.epp"
+        )
     }
 )
 

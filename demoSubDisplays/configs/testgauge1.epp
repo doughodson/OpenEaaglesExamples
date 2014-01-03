@@ -15,10 +15,10 @@ testgauge1:
         
         // Label to tell us what test we are running
         ( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testgauge1.epp"
-		)    
+            position: [ 26 2 ]
+            color: white
+            text: "testgauge1.epp"
+        )
     }
 )
 

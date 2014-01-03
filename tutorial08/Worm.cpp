@@ -6,9 +6,9 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Example08 {
+namespace Tutorial {
 
-IMPLEMENT_SUBCLASS(Worm,"Worm")
+IMPLEMENT_SUBCLASS(Worm, "Worm")
 
 // slot table
 BEGIN_SLOTTABLE(Worm)
@@ -238,6 +238,6 @@ bool Worm::setAngle(const Basic::Number* const saobj)
   return ok;
 }
 
-} // namespace Example08
+} // namespace Tutorial
 } // namespace Eaagles
     

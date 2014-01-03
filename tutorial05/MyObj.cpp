@@ -12,7 +12,7 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Example05 {
+namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(MyObj,"MyObj")
 // setup slot table
@@ -245,6 +245,5 @@ bool MyObj::isValid() const
    return true;
 }
 
-
-} // namespace Example05
+} // namespace Tutorial
 } // namespace Eaagles

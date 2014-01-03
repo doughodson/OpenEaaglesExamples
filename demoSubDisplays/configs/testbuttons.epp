@@ -12,18 +12,18 @@ testbuttons:
         
         // Label to tell us what test we are running
         ( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testbuttons.epp"
-		) 
-		
-		whichbutton:
-		// this is our text which will tell us which button we are hitting!
+            position: [ 26 2 ]
+            color: white
+            text: "testbuttons.epp"
+        )
+
+        whichbutton:
+        // this is our text which will tell us which button we are hitting!
         ( AsciiText
             color: white
             transform: ( Translation -4 4 ) 
             text: "                                                                          "
-        )         
+        )
     }
 )
 

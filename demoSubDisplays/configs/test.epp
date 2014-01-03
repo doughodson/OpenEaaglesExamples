@@ -18,22 +18,22 @@
     //fullScreen: 0
     resizeSubwindows: true
 
-	components: { 
-		( Line
-			segment: true
-			color: red
-			vertices: {
-				[  0.0 10.0 ]  [   0.0 -10.0 ]
-				[ 10.0  0.0 ]  [ -10.0   0.0 ] 
-			}
-		)
-	}
+   components: {
+      ( Line
+         segment: true
+         color: red
+         vertices: {
+            [  0.0 10.0 ]  [   0.0 -10.0 ]
+            [ 10.0  0.0 ]  [ -10.0   0.0 ] 
+         }
+      )
+   }
 
-	// here our our displays
-	displays: {
-		#include "display1.epp"
-		#include "display2.epp"
-		#include "display3.epp"
-		#include "display4.epp"
-	}
+   // here our our displays
+   displays: {
+      #include "display1.epp"
+      #include "display2.epp"
+      #include "display3.epp"
+      #include "display4.epp"
+   }
 )

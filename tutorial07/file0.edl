@@ -23,7 +23,7 @@
   vpX: 100                       // viewport x origin
   vpY: 200                       // viewport y origin
   vpWidth: 600                   // viewport width
-  vpHeight: 400                  // viewport height 	
+  vpHeight: 400                  // viewport height 
 
   antiAliasing: true
 

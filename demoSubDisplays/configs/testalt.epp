@@ -6,7 +6,7 @@ testalt:
         p: testhsi
     }
     components: {
-		// altitude dial module, which creates the meat of our dial
+        // altitude dial module, which creates the meat of our dial
         #include "openeaagles/instruments/dials/altitudedial.epp"
         
         // here is a digital readout, to compare with the analog output
@@ -21,12 +21,12 @@ testalt:
             transform: ( Translation 1 7 )
             format: #####
         )
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testalt.epp"
-		)            
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testalt.epp"
+        )
     }
 )
 

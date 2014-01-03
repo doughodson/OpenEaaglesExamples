@@ -7,12 +7,12 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Example04 {
+namespace Tutorial {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(Random,"Random")
 // setup slot table
 BEGIN_SLOTTABLE(Random)
-  	"seed", 	// random number seed value
+    "seed",              // random number seed value
 END_SLOTTABLE(Random)
 // map attributes to slots
 BEGIN_SLOT_MAP(Random)
@@ -73,6 +73,6 @@ bool Random::setSlotSeed(const Basic::Number* const seed)
    return ok;
 }
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles
 

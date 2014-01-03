@@ -7,8 +7,8 @@
 //      UPDATE_VALUE3  -> cdi dots
 //      UPDATE_VALUE4 -> to from
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_MainFlightDisplays1_CrsPntr_H__
-#define __Eaagles_MainFlightDisplays1_CrsPntr_H__
+#ifndef __Eaagles_Demo_CrsPntr_H__
+#define __Eaagles_Demo_CrsPntr_H__
 
 #include "openeaagles/basicGL/Rotators.h"
 

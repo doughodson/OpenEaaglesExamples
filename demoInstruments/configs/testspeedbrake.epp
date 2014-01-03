@@ -6,10 +6,9 @@
 // to easily page from one to the next
 testspeedbrake: 
 ( TestSpeedBrake
-	// Test Speed Brake is a program that looks for particular component(s) by name, and sends them data via Event messages.  The components are instrument objects, which
-	// understand that when they receive certain events, they are to do a certain task.  You can view TestSpeedBrake.cpp to see how the events are passed (updateData()).
-	
-	
+   // Test Speed Brake is a program that looks for particular component(s) by name, and sends them data via Event messages.  The components are instrument objects, which
+   // understand that when they receive certain events, they are to do a certain task.  You can view TestSpeedBrake.cpp to see how the events are passed (updateData()).
+
     pagingEvent: {
         n: testbuttons
         p: testadi
@@ -22,8 +21,8 @@ testspeedbrake:
     
     // Here are our components
     components: {
-		    
-    sbrakeRO:		    
+
+    sbrakeRO:
         ( NumericReadout
             position: [ 20 24 ]
             color: white
@@ -61,11 +60,11 @@ testspeedbrake:
         )        
         // Label to tell us what test we are running
         ( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testspeedbrake.epp"
-		)
-		
+            position: [ 26 2 ]
+            color: white
+            text: "testspeedbrake.epp"
+         )
+
     }
 )
 

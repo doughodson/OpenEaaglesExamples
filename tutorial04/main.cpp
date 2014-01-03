@@ -10,7 +10,7 @@
 #include "Exp.h"
 
 namespace Eaagles {
-namespace Example04 {
+namespace Tutorial {
 
 // Description (input) File
 // After being processed by the C preprocessor
@@ -67,7 +67,7 @@ static void builder()
   }
 }
 
-int exec(int, char **)
+int main(int argc, char* argv[])
 {
   // build random
   builder();
@@ -80,7 +80,7 @@ int exec(int, char **)
   return 0;
 }
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -88,6 +88,6 @@ int exec(int, char **)
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example04::exec(argc, argv);
+  Eaagles::Tutorial::main(argc, argv);
 }
 

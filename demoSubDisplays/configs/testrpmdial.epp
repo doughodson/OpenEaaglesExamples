@@ -25,12 +25,12 @@ testrpmdial:
             position: [ 1 10 ]
             format: "###.#"
         )
-		// Label to tell us what test we are running
-		( AsciiText
-			position: [ 26 2 ]
-			color: white
-			text: "testrpmdial.epp"
-		)         
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testrpmdial.epp"
+        )
     }
 )
 

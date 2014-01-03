@@ -39,7 +39,7 @@
     textures: {
         logo:  ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "logo.bmp" )
     }
-	
+
     normalFont: 
       ( FTGLPolygonFonts
           fontPosition: [ -10 9.4 ]
@@ -51,8 +51,7 @@
           lineSpacing: 0.2
           characterSpacing: 0.2
       )        
-    
-    	
+
     components: {
 
         ( Worm selectName: 111 color: green
@@ -70,17 +69,17 @@
         ( Worm selectName: 117 color: orange
           speed: 5  startAngle: ( Degrees -20 ) )
 
-		( AsciiText
-			position: [ 1 1 ]
-			color: blue
-			text: "Seven Moving Worms Example"
-		)
+        ( AsciiText
+            position: [ 1 1 ]
+            color: blue
+            text: "Seven Moving Worms Example"
+        )
 
-		maingraphic:
-		( Polygon
-			color: red
-			texture: logo
-			selectName: 100
+        maingraphic:
+        ( Polygon
+            color: red
+            texture: logo
+            selectName: 100
             vertices: {
                 [  4.0  4.0 ]
                 [ -4.0  4.0 ]
@@ -93,7 +92,7 @@
                 [  0.0  0.0 ]
                 [  1.0  0.0 ]
             }
-		)
+        )
     }
 )
 

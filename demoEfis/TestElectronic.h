@@ -19,7 +19,7 @@ public:
     TestElectronic();
    
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0.0000000);
+    virtual void updateData(const LCreal dt = 0.0);
    
 private:
     void updateTestValues(const LCreal dt);    // update our data

@@ -22,7 +22,7 @@ static const char* fileName = "puzzle.edl";
 static const int frameRate = 20;
 
 // System descriptions
-static class Board* sys = 0;	
+static class Board* sys = 0;
 
 
 // timerCB() -- 

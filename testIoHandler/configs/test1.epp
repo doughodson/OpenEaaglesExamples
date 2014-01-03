@@ -12,7 +12,7 @@
    // I/O handler w/IoData and the I/O mapping to/from the device(s)
    // ---
    ioHandler: ( IoHandler
-      inputData: ( IoData numAI: 10   numDI: 40 )	
+      inputData: ( IoData numAI: 10   numDI: 40 )
       devices: {
          #include "UsbJoystickTest.epp"
       }

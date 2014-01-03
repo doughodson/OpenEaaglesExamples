@@ -1,11 +1,10 @@
 //------------------------------------------------------------------------------
 // Class: MyComp
-// Base class: Object-> MyComp
 // Description: example class
 //------------------------------------------------------------------------------
 
-#ifndef _MYCOMP_INCLUDE
-#define _MYCOMP_INCLUDE
+#ifndef __Eaagles_Tutorial_MyComp_H__
+#define __Eaagles_Tutorial_MyComp_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -13,7 +12,7 @@ namespace Eaagles {
 
 namespace Basic { class String; }
 
-namespace Example06 {
+namespace Tutorial {
 
 class MyComp : public Basic::Component
 {
@@ -44,7 +43,7 @@ private:
    const Basic::String* str;
 };
 
-} // namespace Example06
+} // namespace Tutorial
 } // namespace Eaagles
 
 #endif

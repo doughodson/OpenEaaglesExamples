@@ -1,11 +1,10 @@
 //------------------------------------------------------------------------------
 // Class:  Random
-// Base class:  Object-> Random
 // Description:  Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef _RANDOM_INCLUDE
-#define _RANDOM_INCLUDE
+#ifndef __Eaagles_Tutorial_Random_H__
+#define __Eaagles_Tutorial_Random_H__
 
 #include "openeaagles/basic/Object.h"
 
@@ -13,7 +12,7 @@ namespace Eaagles {
 
 namespace Basic { class Number; }
 
-namespace Example03 {
+namespace Tutorial {
 
 class Random : public Basic::Object
 {
@@ -31,7 +30,7 @@ public:
 
 };
 
-} // namespace Example03
+} // namespace Tutorial
 } // namespace Eaagles
 
 #endif

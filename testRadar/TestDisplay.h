@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_TestDisplay_H__
-#define __Eaagles_TestDisplay_H__
+#ifndef __Eaagles_Test_TestDisplay_H__
+#define __Eaagles_Test_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
