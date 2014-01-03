@@ -14,7 +14,7 @@ namespace MainIR {
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //
-// Form Name: TestDisplay
+// Factory name: TestDisplay
 //
 // Events: (all keyboard events)
 //   'r' or 'R'   -- Reset simulation

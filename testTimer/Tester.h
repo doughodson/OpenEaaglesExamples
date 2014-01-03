@@ -15,7 +15,7 @@ namespace TestTimer {
 // Class: Tester
 // Description: Container class for the interval timers being tested
 //
-// Form name: Tester
+// Factory name: Tester
 // Slots:
 //    timers   <PairStream>   ! List of timers to be tested
 //------------------------------------------------------------------------------

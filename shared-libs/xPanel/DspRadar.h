@@ -16,7 +16,7 @@ namespace xPanel {
 // Class: DspRadar
 // Description: Simple Realbeam B-Scan RADAR.  Displays the real-beam signal,
 //              with color coded doppler shift, and overlaid with tracks.
-// Form Name: DspRadar
+// Factory name: DspRadar
 //------------------------------------------------------------------------------
 class DspRadar : public BasicGL::Graphic
 {

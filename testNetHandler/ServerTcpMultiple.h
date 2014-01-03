@@ -13,7 +13,7 @@ namespace Test {
 //
 // Description:  
 //
-// Form name: ServerTcpMulti
+// Factory name: ServerTcpMulti
 //
 //------------------------------------------------------------------------------
 class ServerTcpMultiple : public Endpoint

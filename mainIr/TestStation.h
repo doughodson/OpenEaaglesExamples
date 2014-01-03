@@ -18,7 +18,7 @@ namespace MainIR {
 //              (HOTAS) device, which is usually just a joystick, and adds stepping
 //              of our ownship to the next local, air vehicle player.
 //
-// Form Name: TestStation
+// Factory name: TestStation
 // Slots:
 //   glutDisplay  <BasicGL::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------

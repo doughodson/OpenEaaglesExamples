@@ -12,7 +12,7 @@ namespace TestRecorder {
 // Class: PrintMyData
 // Description: Print my extended recorder data
 //
-// Form name: PrintMyData
+// Factory name: PrintMyData
 //------------------------------------------------------------------------------
 class PrintMyData : public Eaagles::Recorder::PrintHandler
 {

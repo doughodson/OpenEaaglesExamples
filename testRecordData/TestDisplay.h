@@ -21,7 +21,7 @@ namespace TestRecordData {
 //              display that shows the 'truth' location of the players, and
 //              Primary Flight Display (PFD).
 //
-// Form Name: TestDisplay
+// Factory name: TestDisplay
 //
 // Events: (all keyboard events)
 //   'r' or 'R'   -- Reset simulation

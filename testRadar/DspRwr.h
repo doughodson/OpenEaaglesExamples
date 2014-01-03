@@ -16,7 +16,7 @@ namespace Test {
 // Description: Simple Radar Warning Receiver (RWR) display.  Displays received
 //              R/F signal as a ray, with power as length, in the direction of
 //              the angle of arrival.
-// Form Name: DspRwr
+// Factory name: DspRwr
 //------------------------------------------------------------------------------
 class DspRwr : public BasicGL::Graphic
 {

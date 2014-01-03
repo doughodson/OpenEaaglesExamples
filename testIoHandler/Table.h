@@ -15,7 +15,7 @@ namespace Test {
 // Class: Table
 // Description: Manages a table
 //
-// Form name: Table
+// Factory name: Table
 // Slots:
 //    rows     <Number>     ! Number of rows (default: 1)
 //    spacing  <Number>     ! Spacing between rows (default: 1)

@@ -13,7 +13,7 @@ namespace Test {
 //
 // Description: Sends an ASCII test message to an endpoint and accepts the response message.
 //
-// Form name: Sender
+// Factory name: Sender
 //------------------------------------------------------------------------------
 class Sender : public Endpoint
 {

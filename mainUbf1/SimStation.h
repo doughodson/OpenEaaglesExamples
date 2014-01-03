@@ -24,7 +24,7 @@ namespace MainUbf1 {
 //              (HOTAS) device, which is usually just a joystick, and adds stepping
 //              of our ownship to the next local, air vehicle player.
 //
-// Form Name: SimStation
+// Factory name: SimStation
 // Slots:
 //      display       <BasicGL::GlutDisplay>  ! Main graphics display
 //

@@ -21,7 +21,7 @@ namespace Test {
 //    2) Movement is limited to +/- 30 degrees, which is scaled to +/- 1.0 in
 //       world coordinates.
 //
-// Form Name: TdAzPtr
+// Factory name: TdAzPtr
 //
 // Events:
 //    UPDATE_VALUE  <Number>  ! azimuth angle (degs)

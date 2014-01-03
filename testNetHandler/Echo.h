@@ -13,7 +13,7 @@ namespace Test {
 //
 // Description:  
 //
-// Form name: Echo
+// Factory name: Echo
 //
 //------------------------------------------------------------------------------
 class Echo : public Endpoint

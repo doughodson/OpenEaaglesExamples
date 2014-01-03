@@ -15,7 +15,7 @@ namespace Test {
 // Class Display
 // Description: Display class for the I/O devices test program (see display.epp)
 //
-// Form name: TestIoDisplay
+// Factory name: TestIoDisplay
 // Slots --
 //    ioHandler   <Basic::IoHandler>     Single I/O data handler
 //    item        <Basic::Integer>       Item number [ 1 ... TBL_SIZE ];

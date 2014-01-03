@@ -21,7 +21,7 @@ namespace Test {
 //              signal strength and angle of arrival, and a simple situation
 //              display that shows the 'truth' location of the players.
 //
-// Form Name: TestDisplay
+// Factory name: TestDisplay
 //
 // Events: (all keyboard events)
 //   'r' or 'R'   -- Reset simulation

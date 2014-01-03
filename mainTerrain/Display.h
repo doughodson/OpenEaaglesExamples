@@ -4,7 +4,7 @@
 //
 // Description: Displays an image of a terrain database
 //
-// Form name: TerrainDisplay
+// Factory name: TerrainDisplay
 //
 // Slots:
 //    terrain        <Simulation::Terrain>  The terrain elevation database

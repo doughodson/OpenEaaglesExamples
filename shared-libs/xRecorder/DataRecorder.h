@@ -13,7 +13,7 @@ namespace xRecorder {
 // Class: DataRecorder
 // Description: Example of an extended data recorder
 //
-// Form name: XDataRecorder
+// Factory name: XDataRecorder
 //
 //------------------------------------------------------------------------------
 // Recorder events handled ---

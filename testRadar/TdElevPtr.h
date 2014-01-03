@@ -17,7 +17,7 @@
 //    2) Movement is limited to +/- 30 degrees, which is scaled to +/- 1.0 in
 //       world coordinates.
 //
-// Form Name: TdElevPtr
+// Factory name: TdElevPtr
 // Events:
 //    UPDATE_VALUE  <Number>  ! elevation angle (degs)
 //------------------------------------------------------------------------------
