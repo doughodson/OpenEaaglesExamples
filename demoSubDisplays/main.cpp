@@ -70,8 +70,7 @@ static Basic::Object* factory(const char* name)
 {
     Basic::Object* obj = 0;
 
-    // This instrument test ...
-    // This instrument test ...
+    // speed brake page
     if ( strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
         obj = new TestSpeedBrake;
     }
