@@ -7,7 +7,7 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-#include "xRecorder/formFunc.h"
+#include "xRecorder/Factory.h"
 #include "xPanel/Factory.h"
 
 #include "openeaagles/basic/basicFF.h"
@@ -25,38 +25,38 @@
 namespace Eaagles {
 namespace TestRecordData {
 
-Basic::Object* formFunc(const char* formname)
+Basic::Object* formFunc(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
-    if ( strcmp(formname, SimStation::getFormName()) == 0 ) {
-        newform = new SimStation();
+    if ( strcmp(name, SimStation::getFormName()) == 0 ) {
+        obj = new SimStation();
     }
-    else if ( strcmp(formname, TestDisplay::getFormName()) == 0 ) {
-        newform = new TestDisplay();
+    else if ( strcmp(name, TestDisplay::getFormName()) == 0 ) {
+        obj = new TestDisplay();
     }
-    else if ( strcmp(formname, TestIoHandler::getFormName()) == 0 ) {
-        newform = new TestIoHandler();
+    else if ( strcmp(name, TestIoHandler::getFormName()) == 0 ) {
+        obj = new TestIoHandler();
     }
 
     // Example libraries
-    if (newform == 0) newform = xRecorder::formFunc(formname);
-    if (newform == 0) newform = xPanel::Factory::createObj(formname);
+    if (obj == 0) obj = xRecorder::Factory::createObj(name);
+    if (obj == 0) obj = xPanel::Factory::createObj(name);
 
     // OpenEaagles packages
-    if (newform == 0) newform = Eaagles::Simulation::simulationFormFunc(formname);
-    if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-    if (newform == 0) newform = IoDevice::ioDeviceFormFunc(formname);
-    if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-    if (newform == 0) newform = Vehicle::vehiclesFormFunc(formname);
-    if (newform == 0) newform = Recorder::recorderFormFunc(formname);
-    if (newform == 0) newform = Sensor::sensorsFormFunc(formname);
-    if (newform == 0) newform = Otw::otwFormFunc(formname);
-    if (newform == 0) newform = Network::Dis::disFormFunc(formname);
-    if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-    if (newform == 0) newform = Glut::glutFormFunc(formname);
-    if (newform == 0) newform = Basic::basicFormFunc(formname);
-    return newform;
+    if (obj == 0) obj = Eaagles::Simulation::simulationFormFunc(name);
+    if (obj == 0) obj = Instruments::instrumentsFormFunc(name);
+    if (obj == 0) obj = IoDevice::ioDeviceFormFunc(name);
+    if (obj == 0) obj = Instruments::instrumentsFormFunc(name);
+    if (obj == 0) obj = Vehicle::vehiclesFormFunc(name);
+    if (obj == 0) obj = Recorder::recorderFormFunc(name);
+    if (obj == 0) obj = Sensor::sensorsFormFunc(name);
+    if (obj == 0) obj = Otw::otwFormFunc(name);
+    if (obj == 0) obj = Network::Dis::disFormFunc(name);
+    if (obj == 0) obj = BasicGL::basicGLFormFunc(name);
+    if (obj == 0) obj = Glut::glutFormFunc(name);
+    if (obj == 0) obj = Basic::basicFormFunc(name);
+    return obj;
 }
 
 } // End TestRecordData namespace
