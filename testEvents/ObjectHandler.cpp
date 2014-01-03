@@ -1,8 +1,11 @@
+//------------------------------------------------------------------------------
+// Class: ObjectHandler
+//------------------------------------------------------------------------------
 #include "ObjectHandler.h"
 #include "TestObject.h"
 
 namespace Eaagles {
-namespace TestEvents {
+namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(ObjectHandler, "ObjectHandler")
 EMPTY_SERIALIZER(ObjectHandler)
@@ -70,5 +73,5 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
     return true;
 }
 
-} // End TestEvents namespace
+} // End Test namespace
 } // End Eaagles namespace

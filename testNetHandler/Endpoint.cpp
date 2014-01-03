@@ -8,6 +8,7 @@
 #include "openeaagles/basic/nethandlers/TcpHandler.h"
 #include "openeaagles/basic/Number.h"
 
+namespace Eaagles {
 namespace Test {
 
 //==============================================================================
@@ -230,10 +231,11 @@ bool Endpoint::setSlotLoops(Eaagles::Basic::Number* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
-Eaagles::Basic::Object* Endpoint::getSlotByIndex(const int si)
+Basic::Object* Endpoint::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End namespace
+}
+}
 

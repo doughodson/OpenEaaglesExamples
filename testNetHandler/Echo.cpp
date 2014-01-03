@@ -7,6 +7,7 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
 
+namespace Eaagles {
 namespace Test {
 
 //==============================================================================
@@ -81,5 +82,6 @@ void Echo::updateData(const Eaagles::LCreal dt)
     }
 }
 
-} // End namespace
+}
+}
 

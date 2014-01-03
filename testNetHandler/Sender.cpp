@@ -14,6 +14,7 @@
 # pragma warning(disable: 4996)
 #endif
 
+namespace Eaagles {
 namespace Test {
 
 //==============================================================================
@@ -102,5 +103,6 @@ void Sender::updateData(const Eaagles::LCreal dt)
     }
 }
 
-} // End namespace
+}
+}
 

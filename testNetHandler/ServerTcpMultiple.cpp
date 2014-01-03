@@ -7,6 +7,7 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
 
+namespace Eaagles {
 namespace Test {
 
 //==============================================================================
@@ -73,4 +74,5 @@ void ServerTcpMultiple::updateData(const Eaagles::LCreal dt)
     }
 }
 
-} // End namespace
+}
+}

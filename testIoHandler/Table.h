@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: Table
 //------------------------------------------------------------------------------
-#ifndef __OpenEaagles_Test_Table_H__
-#define __OpenEaagles_Test_Table_H__
+#ifndef __Eaagles_Test_Table_H__
+#define __Eaagles_Test_Table_H__
 
 #include "openeaagles/basicGL/Field.h"
 

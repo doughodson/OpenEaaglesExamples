@@ -11,9 +11,8 @@
 #include <iostream>
 #include <iomanip>
 
-
 namespace Eaagles {
-namespace TestNav {
+namespace Test {
 
 // -----------------------------------------------------------------------------
 // Global Variables (and Constants)
@@ -4495,7 +4494,7 @@ void test27_convertUtm()
    }
 }
 
-} // end namespace TestNav 
+} // end namespace Test
 } // end namespace Eaagles
 
 //==============================================================================
@@ -4515,12 +4514,12 @@ int main(int argc, char* argv[])
 
    if (runAll) {
       // Run all tests
-      Eaagles::TestNav::testNumber = 99;
-      Eaagles::TestNav::test99_printAllExamples();
+      Eaagles::Test::testNumber = 99;
+      Eaagles::Test::test99_printAllExamples();
    }
    else if (imode) {
       // Interactive mode
-      Eaagles::TestNav::testNavFns();
+      Eaagles::Test::testNavFns();
    }
    else {
       std::cout                                             << std::endl;

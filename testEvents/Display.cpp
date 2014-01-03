@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: Display
+//------------------------------------------------------------------------------
 #include "Display.h"
 #include "TestObject.h"
 
@@ -13,7 +16,7 @@
 #endif
 
 namespace Eaagles {
-namespace TestEvents {
+namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "SendDataDisplay")
 EMPTY_SERIALIZER(Display)
@@ -241,5 +244,5 @@ void Display::updateData(const LCreal dt)
 }
 
 
-} // End TestEvents namespace
+} // End Test namespace
 } // End Eaagles namespace

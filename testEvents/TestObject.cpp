@@ -1,4 +1,8 @@
+//------------------------------------------------------------------------------
+// Class: TestObject
+//------------------------------------------------------------------------------
 #include "TestObject.h"
+
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
 #if(_MSC_VER>=1400)   // VC8+
@@ -6,7 +10,7 @@
 #endif
 
 namespace Eaagles {
-namespace TestEvents {
+namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestObject, "TestObject")
 EMPTY_SERIALIZER(TestObject)
@@ -45,5 +49,5 @@ void TestObject::copyData(const TestObject& org, const bool)
 //------------------------------------------------------------------------------
 EMPTY_DELETEDATA(TestObject)
 
-} // End TestEvents namespace
+} // End Test namespace
 } // End Eaagles namespace

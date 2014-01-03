@@ -1,14 +1,15 @@
 //------------------------------------------------------------------------------
-// Class:	Basic::Object -> TestObject
+// Class: TestObject
 // Description: A very simple object class that will hold basic information, and 
 // will be passed from a parent to ObjectHandler via send commands, and the 
 // ObjectHandler will extract the data and send it to the output.  This tests
 // the send command passing objects.
 //------------------------------------------------------------------------------
-#ifndef	__OPENEAAGLES_TestEvents_TESTOBJECT_H__
-#define __OPENEAAGLES_TestEvents_TESTOBJECT_H__
+#ifndef __Eaagles_Test_TestObject_H__
+#define __Eaagles_Test_TestObject_H__
 
 #include "openeaagles/basic/Object.h"
+
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
 #if(_MSC_VER>=1400)   // VC8+
@@ -16,9 +17,10 @@
 #endif
 
 namespace Eaagles {
-namespace TestEvents {
+namespace Test {
 
-class TestObject : public Basic::Object {
+class TestObject : public Basic::Object
+{
    DECLARE_SUBCLASS(TestObject,Basic::Object)
 
 public:
@@ -49,7 +51,7 @@ private:
     char charVal[10];
 };
 
-} // End TestEvents namespace
+} // End Test namespace
 } // End Eaagles namespace
 
-#endif	// __OPENEAAGLES_TestEvents_TESTOBJECT_H__
+#endif

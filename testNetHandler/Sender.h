@@ -1,11 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Sender
 //------------------------------------------------------------------------------
-#ifndef __Test_Sender_H__
-#define __Test_Sender_H__
+#ifndef __Eaagles_Test_Sender_H__
+#define __Eaagles_Test_Sender_H__
 
 #include "Endpoint.h"
 
+namespace Eaagles {
 namespace Test {
 
 //------------------------------------------------------------------------------
@@ -31,6 +32,7 @@ private:
     bool         recvMode;      // True if in receive mode
 };
 
+}
 }
 
 #endif

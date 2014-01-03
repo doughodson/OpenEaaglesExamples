@@ -1,14 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: Endpoint
 //------------------------------------------------------------------------------
-#ifndef __Test_Endpoint_H__
-#define __Test_Endpoint_H__
+#ifndef __Eaagles_Test_Endpoint_H__
+#define __Eaagles_Test_Endpoint_H__
 
 #include "openeaagles/basic/Component.h"
 
 namespace Eaagles { 
-    namespace Basic { class NetHandler; class Number; }
-}
+
+namespace Basic { class NetHandler; class Number; }
 
 namespace Test {
 
@@ -26,9 +26,9 @@ namespace Test {
 //                                  halting (default: infinite)
 //
 //------------------------------------------------------------------------------
-class Endpoint : public Eaagles::Basic::Component
+class Endpoint : public Basic::Component
 {
-   DECLARE_SUBCLASS(Endpoint, Eaagles::Basic::Component)
+   DECLARE_SUBCLASS(Endpoint, Basic::Component)
 
 public:
     static const unsigned int MAX_SIZE = 1024;  // Max buffer size
@@ -50,10 +50,10 @@ public:
     virtual unsigned int recvData(char* const msg, const unsigned int maxsize);
 
     // Slot functions
-    virtual bool setSlotNetwork(Eaagles::Basic::NetHandler* const msg);
-    virtual bool setSlotNetInput(Eaagles::Basic::NetHandler* const msg);
-    virtual bool setSlotNoWait(Eaagles::Basic::Number* const msg);
-    virtual bool setSlotLoops(Eaagles::Basic::Number* const msg);
+    virtual bool setSlotNetwork(Basic::NetHandler* const msg);
+    virtual bool setSlotNetInput(Basic::NetHandler* const msg);
+    virtual bool setSlotNoWait(Basic::Number* const msg);
+    virtual bool setSlotLoops(Basic::Number* const msg);
 
     // Component interface
     virtual void reset();
@@ -63,14 +63,15 @@ protected:
     unsigned int getLoops() const { return loops; }
 
 private:
-    SPtr<Eaagles::Basic::NetHandler> netHandler;   // Network handler (input/output, or just output if netInput is defined)
-    SPtr<Eaagles::Basic::NetHandler> netInput;     // Optional input handler (otherwise 'netHandler' is used)
-    unsigned int loops;                            // Number of transfer loops (zero if no limit)
-    bool   networkInitialized;                     // Network has been initialized
-    bool   networkInitFailed;                      // Network initialization has failed
-    bool   noWaitFlag;                             // No wait (unblocked) I/O flag
+    SPtr<Basic::NetHandler> netHandler;       // Network handler (input/output, or just output if netInput is defined)
+    SPtr<Basic::NetHandler> netInput;         // Optional input handler (otherwise 'netHandler' is used)
+    unsigned int loops;                       // Number of transfer loops (zero if no limit)
+    bool   networkInitialized;                // Network has been initialized
+    bool   networkInitFailed;                 // Network initialization has failed
+    bool   noWaitFlag;                        // No wait (unblocked) I/O flag
 };
 
+}
 }
 
 #endif
