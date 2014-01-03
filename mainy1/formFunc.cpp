@@ -4,7 +4,7 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-#include "xPanel/formFunc.h"
+#include "xPanel/Factory.h"
 
 // class factories
 #include "../shared-libs/xZeroMQHandlers/Factory.h"
@@ -37,7 +37,7 @@ Basic::Object* formFunc(const char* formname)
     }
 
     // Example libraries
-    if (newform == 0) newform = xPanel::formFunc(formname);
+    if (newform == 0) newform = xPanel::Factory::createObj(formname);
     if (newform == 0) newform = xZeroMQHandlers::Factory::createObj(formname);
 
     // Framework libraries

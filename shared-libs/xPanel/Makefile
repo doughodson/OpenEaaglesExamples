@@ -6,7 +6,7 @@ LIB = $(OE_EXAMPLES_LIB_DIR)/libxPanel.a
 OBJS += \
 	$(LIB)(DspRadar.o) \
 	$(LIB)(DspRwr.o) \
-	$(LIB)(formFunc.o) \
+	$(LIB)(Factory.o) \
 	$(LIB)(Hsi.o) \
 	$(LIB)(Pfd.o) \
 	$(LIB)(SpdLines.o) \

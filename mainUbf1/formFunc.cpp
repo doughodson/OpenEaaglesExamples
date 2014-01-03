@@ -7,7 +7,7 @@
 
 // class factories
 #include "xBehaviors/Factory.h"
-#include "xPanel/formFunc.h"
+#include "xPanel/Factory.h"
 
 #include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basicGL/basicGLFF.h"
@@ -39,7 +39,7 @@ Basic::Object* formFunc(const char* name)
 
    // Example library packages
    if (obj == 0) obj = xBehaviors::Factory::createObj(name);
-   if (obj == 0) obj = xPanel::formFunc(name);
+   if (obj == 0) obj = xPanel::Factory::createObj(name);
 
    // OpenEaagles packages
    if (obj == 0) obj = Simulation::simulationFormFunc(name);
