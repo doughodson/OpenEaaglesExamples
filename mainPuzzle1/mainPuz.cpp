@@ -2,7 +2,7 @@
 #include "Board.h"
 #include "Puzzle.h"
 #include "State.h"
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
@@ -12,8 +12,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace Puzzle {
-
+namespace Example {
 
 // Description (input) File -- After being processed by the C preprocessor
 static const char* fileName = "puzzle.edl";
@@ -47,12 +46,12 @@ static void timerCB(int)
     sys->tcFrame((LCreal)dt);
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a board
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(fileName, formFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(fileName, Factory::createObj, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -88,9 +87,9 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // ---
-   // Read in the description files
+   // Build a board
    // ---
-   readTest();
+   builder();
 
    // ---
    // Create a display window
@@ -112,11 +111,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-}  // End of Puzzle namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace
 
 
 int main(int argc, char* argv[])
 {
-   return Eaagles::Puzzle::main(argc, argv);
+   return Eaagles::Example::main(argc, argv);
 }

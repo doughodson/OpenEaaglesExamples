@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Puzzle board
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Puzzle2_Board_H__
-#define __Eaagles_Puzzle2_Board_H__
+#ifndef __Eaagles_Example_Board_H__
+#define __Eaagles_Example_Board_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -10,7 +10,7 @@ namespace Eaagles {
    namespace Basic { class PairStream; }
    namespace BasicGL { class Graphic; }
 
-namespace Puzzle2 {
+namespace Example {
 
 class Puzzle;
 class State;
@@ -66,7 +66,7 @@ private:
    unsigned int         nblocks;             // number of blocks
 };
 
-}  // End of Puzzle2 namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace
 
 #endif

@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class:  Puzzle
 //------------------------------------------------------------------------------
-#ifndef __Puzzle_H_05CE6F5B_A367_4b67_B678_9141D79810B2__
-#define __Puzzle_H_05CE6F5B_A367_4b67_B678_9141D79810B2__
+#ifndef __Eaagles_Example_Puzzle_H__
+#define __Eaagles_Example_Puzzle_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -10,19 +10,18 @@ namespace Eaagles {
    namespace Basic {
       class List;
    }
-namespace Puzzle2 {
+
+namespace Example {
 
 class State;
 
 //------------------------------------------------------------------------------
 // Class:  Puzzle
-// Base class:  Basic::Object-> Puzzle
 //
 // Description:  Puzzle engine
-//
-// GUID: {05CE6F5B-A367-4b67-B678-9141D79810B2}
 //------------------------------------------------------------------------------
-class Puzzle : public Basic::Component {
+class Puzzle : public Basic::Component
+{
     DECLARE_SUBCLASS(Puzzle,Basic::Component)
 
 public:
@@ -79,7 +78,7 @@ private:
    unsigned int nhe;                   // Number of entries in hash table
 };
 
-}  // End of Puzzle2 namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace
 
-#endif /* __Puzzle_H_05CE6F5B_A367_4b67_B678_9141D79810B2__ */
+#endif
