@@ -9,13 +9,13 @@
 //       haveTgt()   true if computer/seeker currently tracking a target
 //
 //------------------------------------------------------------------------------
-#ifndef __TestComputer_H__
-#define __TestComputer_H__
+#ifndef __Eaagles_Example_TestComputer_H__
+#define __Eaagles_Example_TestComputer_H__
 
 #include "openeaagles/simulation/OnboardComputer.h"
 
 namespace Eaagles {
-namespace MainIR {
+namespace Example {
 
 class TestComputer : public Simulation::OnboardComputer  
 {
@@ -48,7 +48,7 @@ private:
    bool haveTarget;   // flag indicating if we have a target track
 };
 
-} // End MainIR namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

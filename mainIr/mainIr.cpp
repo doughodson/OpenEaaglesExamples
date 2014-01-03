@@ -1,10 +1,10 @@
-//*****************************************************************************
+//------------------------------------------------------------------------------
 // MainIR Test routine
-//*****************************************************************************
+//------------------------------------------------------------------------------
 
 #include "TestStation.h"
 
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/basicGL/Graphic.h"
 #include "openeaagles/basic/Parser.h"
@@ -13,7 +13,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace MainIR {
+namespace Example {
 
 // Background frame rate
 const int bgRate = 10;
@@ -30,7 +30,7 @@ static TestStation* readConfigFile(const char* const fileName)
 
    // Read the description file
    int errors = 0;
-   Basic::Object* q1 = lcParser(fileName, formFunc, &errors);
+   Basic::Object* q1 = lcParser(fileName, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End MainIR namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -142,6 +142,6 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::MainIR::main(argc, argv);
+   return Eaagles::Example::main(argc, argv);
 }
 
