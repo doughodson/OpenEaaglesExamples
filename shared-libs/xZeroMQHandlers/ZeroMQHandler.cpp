@@ -32,6 +32,8 @@ BEGIN_SLOTTABLE(ZeroMQHandler)
    "identity",             //  9) String containing the identity
    "sendBufSizeKb",        // 10) Integer containing the send buffer size in KB's
    "recvBufSizeKb",        // 11) Integer containing the receive buffer size in KB's
+   "sendHighWaterMark",    // 12) Integer containing the send HWM count
+   "recvHighWaterMark",    // 13) Integer containing the receive HWM count
 END_SLOTTABLE(ZeroMQHandler)
 
 // Map slot table to handles
@@ -47,6 +49,8 @@ BEGIN_SLOT_MAP(ZeroMQHandler)
    ON_SLOT( 9, setSlotIdentity,    Basic::String)
    ON_SLOT(10, setSlotSendBufSize, Basic::Integer)
    ON_SLOT(11, setSlotRecvBufSize, Basic::Integer)
+   ON_SLOT(12, setSlotSendHWM,     Basic::Integer)
+   ON_SLOT(13, setSlotRecvHWM,     Basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -109,6 +113,8 @@ void ZeroMQHandler::initData()
    identity    = "";
    sendBufSize = -1;
    recvBufSize = -1;
+   sendHWM     = -1;
+   recvHWM     = -1;
    noWait      = false;
    doBind      = false;
    dontWait    = false;
@@ -141,6 +147,8 @@ void ZeroMQHandler::copyData(const ZeroMQHandler& org, const bool cc)
    identity    = org.identity;
    sendBufSize = org.sendBufSize;
    recvBufSize = org.recvBufSize;
+   sendHWM     = org.sendHWM;
+   recvHWM     = org.recvHWM;
    noWait      = org.noWait;
    doBind      = org.doBind;
    dontWait    = org.dontWait;
@@ -207,12 +215,14 @@ bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
    }
 
    // Set the socket options
-   if (ok && (linger != -1))       ok = (zmq_setsockopt(socket, ZMQ_LINGER,    &linger,            sizeof(linger))      == 0);
-   if (ok && !subscribe.empty())   ok = (zmq_setsockopt(socket, ZMQ_SUBSCRIBE, subscribe.c_str(),  subscribe.length())  == 0);
-   if (ok && (backLog != -1))      ok = (zmq_setsockopt(socket, ZMQ_BACKLOG,   &backLog,           sizeof(backLog))     == 0);
-   if (ok && !identity.empty())    ok = (zmq_setsockopt(socket, ZMQ_IDENTITY,  identity.c_str(),   identity.length())   == 0);
-   if (ok && (sendBufSize != -1))  ok = (zmq_setsockopt(socket, ZMQ_SNDBUF,    &sendBufSize,       sizeof(sendBufSize)) == 0);
-   if (ok && (recvBufSize != -1))  ok = (zmq_setsockopt(socket, ZMQ_RCVBUF,    &recvBufSize,       sizeof(recvBufSize)) == 0);
+   if (ok && (linger != -1))       ok = (zmq_setsockopt(socket, ZMQ_LINGER,    &linger,           sizeof(linger))      == 0);
+   if (ok && !subscribe.empty())   ok = (zmq_setsockopt(socket, ZMQ_SUBSCRIBE, subscribe.c_str(), subscribe.length())  == 0);
+   if (ok && (backLog != -1))      ok = (zmq_setsockopt(socket, ZMQ_BACKLOG,   &backLog,          sizeof(backLog))     == 0);
+   if (ok && !identity.empty())    ok = (zmq_setsockopt(socket, ZMQ_IDENTITY,  identity.c_str(),  identity.length())   == 0);
+   if (ok && (sendBufSize != -1))  ok = (zmq_setsockopt(socket, ZMQ_SNDBUF,    &sendBufSize,      sizeof(sendBufSize)) == 0);
+   if (ok && (recvBufSize != -1))  ok = (zmq_setsockopt(socket, ZMQ_RCVBUF,    &recvBufSize,      sizeof(recvBufSize)) == 0);
+   if (ok && (sendHWM != -1))      ok = (zmq_setsockopt(socket, ZMQ_SNDHWM,    &sendHWM,          sizeof(sendHWM))     == 0);
+   if (ok && (recvHWM != -1))      ok = (zmq_setsockopt(socket, ZMQ_RCVHWM,    &recvHWM,          sizeof(recvHWM))     == 0);
 
    // Allow bind or connection to the socket
    if (doBind) {
@@ -373,6 +383,18 @@ bool ZeroMQHandler::setRecvBufSize(const int size)
    return true;
 }
 
+bool ZeroMQHandler::setSendHWM(const int count)
+{
+   sendHWM = count;
+   return true;
+}
+
+bool ZeroMQHandler::setRecvHWM(const int count)
+{
+   recvHWM = count;
+   return true;
+}
+
 //------------------------------------------------------------------------------
 // Set slot functions
 //------------------------------------------------------------------------------
@@ -487,6 +509,27 @@ bool ZeroMQHandler::setSlotRecvBufSize(const Basic::Integer* const msg)
    return ok;
 }
 
+// sendHighWaterMark: Integer containing the send HWM count
+bool ZeroMQHandler::setSlotSendHWM(const Basic::Integer* const msg)
+{
+   // Save the send high-water-mark for use in the initialization of the
+   // socket
+   bool ok = false;
+   if (msg != 0) ok = setSendHWM (*msg);
+   return ok;
+}
+
+// recvHighWaterMark: Integer containing the receive HWM count
+bool ZeroMQHandler::setSlotRecvHWM(const Basic::Integer* const msg)
+{
+   // Save the receive high-water-mark for use in the initialization of
+   // the socket
+   bool ok = false;
+   if (msg != 0) ok = setRecvHWM (*msg);
+   return ok;
+}
+
+
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
@@ -528,9 +571,9 @@ std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bo
    }
 
    // Output the no-wait flag (false is default so it only outputs true)
-   if (dontWait) {
+   if (noWait) {
       indent(sout, i+j);
-      sout << "noWait: " << std::boolalpha << dontWait << std::endl;
+      sout << "noWait: " << std::boolalpha << noWait << std::endl;
    }
 
    // Output the linger period
@@ -558,7 +601,7 @@ std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bo
    }
 
    // Output the send buffer size in KB
-   if (backLog != -1) {
+   if (sendBufSize != -1) {
       indent(sout, i+j);
       sout << "sendBufSizeKb: " << sendBufSize/1024 << std::endl;
    }
@@ -567,6 +610,18 @@ std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bo
    if (recvBufSize != -1) {
       indent(sout, i+j);
       sout << "recvBufSizeKb: " << recvBufSize/1024 << std::endl;
+   }
+
+   // Output the send HWM count
+   if (sendHWM != -1) {
+      indent(sout, i+j);
+      sout << "sendHighWaterMark: " << sendHWM << std::endl;
+   }
+
+   // Output the receive HWM count
+   if (recvHWM != -1) {
+      indent(sout, i+j);
+      sout << "recvHighWaterMark: " << recvHWM << std::endl;
    }
 
    if (!slotsOnly) {
