@@ -5,8 +5,7 @@ Notes:
   1) Use makeEdl.bat to generate the example *.edl files under windows, and
      use 'make edl' to generate the *.edl files under linux. 
 
-  2) Most of the examples are under the 'Eaagles' namespace because they consisted to
-     to be part of the OpenEaagles package.  However, user wouldn't typically do this.
+  2) Most of the examples are in the 'Eaagles' namespace.
 
 
 Demonstration applications:
@@ -148,13 +147,12 @@ Tutorial applications:
 
 Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
-   libxBehaviors        -- eXample UBF behaviors
+   xBehaviors        -- eXample UBF behaviors
 
-   libxRecorder         -- eXample extension of the Data Recorder
+   xPanel            -- eXample components to display an instrument panel, used by 'mainy1',
+                        'mainUbf1' and 'testRecordData'
 
-   libxPanel            -- eXample components to display an instrument panel, used by 'mainy1',
-                           'mainUbf1' and 'testRecordData'
+   xRecorder         -- eXample extension of the Data Recorder
 
-   libxZeroMQHandlers   -- eXample ZeroMQ network handlers
+   xZeroMQHandlers   -- eXample ZeroMQ network handlers
 
-   libxZeroMQ           -- eXample ZeroMQ network handlers (new)
