@@ -37,7 +37,7 @@
          bitmapHeight: 19
          characterSpacing: 0.048
          lineSpacing: 0.15
-         path: "../data/fonts/11x19/normal/"
+         path: FONT_11_19_PATH
       )
 
       font2: ( BitmapFont
@@ -49,11 +49,11 @@
          characterSpacing: 0.08    //0.048
          lineSpacing: 0.08
          reverse: 1
-         path: "../data/fonts/11x19/normal/"
+         path: FONT_11_19_PATH
       )
 
       font3: ( FTGLPolygonFonts 
-         path: "../data/fonts/"
+         path: FONT_PATH
          file: "arialn.ttf"
          fontWidth: 1
          fontHeight: 1

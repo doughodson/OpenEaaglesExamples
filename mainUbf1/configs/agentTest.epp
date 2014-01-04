@@ -59,7 +59,7 @@ simulation: ( Simulation
           components: {
 
             dynamicsModel: ( JSBSimModel
-                rootDir: "../data/JSBSim/"
+                rootDir: JSBSIM_PATH
                 model: "f16"
             )
 
@@ -268,7 +268,7 @@ simulation: ( Simulation
           components: {
 
             dynamicsModel: ( JSBSimModel
-                rootDir: "../data/JSBSim/"
+                rootDir: JSBSIM_PATH
                 model: "f15"
             )
 

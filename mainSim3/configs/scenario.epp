@@ -40,7 +40,7 @@ simulation: ( Simulation
             // Aero/engine dynamics model
             // ---
             dynamicsModel: ( JSBSimModel
-               rootDir: "../data/JSBSim/"
+               rootDir: JSBSIM_PATH
                model: "f16"
             )
            
@@ -76,7 +76,7 @@ simulation: ( Simulation
             // Aero/engine dynamics model
             // ---
             dynamicsModel: ( JSBSimModel
-               rootDir: "../data/JSBSim/"
+               rootDir: JSBSIM_PATH
                model: "f16"
             )
            
@@ -112,7 +112,7 @@ simulation: ( Simulation
             // Aero/engine dynamics model
             // ---
             dynamicsModel: ( JSBSimModel
-               rootDir: "../data/JSBSim/"
+               rootDir: JSBSIM_PATH
                model: "f16"
             )
            

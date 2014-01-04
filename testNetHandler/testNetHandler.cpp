@@ -11,7 +11,7 @@
 
 // class factories
 #include "openeaagles/basic/Factory.h"
-#include "../shared-libs/xZeroMQHandlers/Factory.h"
+#include "../shared/xZeroMQHandlers/Factory.h"
 
 namespace Eaagles {
 namespace Test {

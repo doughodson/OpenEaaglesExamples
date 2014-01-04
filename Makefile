@@ -2,7 +2,7 @@
 include makedefs
 
 # shared libraries
-APPLICATIONS = shared-libs
+APPLICATIONS = shared
 
 # demos
 APPLICATIONS += demoEfis

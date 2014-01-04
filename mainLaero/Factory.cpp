@@ -11,7 +11,7 @@
 #include "MapPage.h"
 
 // class factories
-#include "../shared-libs/xZeroMQHandlers/Factory.h"
+#include "../shared/xZeroMQHandlers/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/vehicles/Factory.h"
 #include "openeaagles/sensors/Factory.h"

@@ -10,7 +10,7 @@ include ${OE_ROOT}/src/makedefs
 #   -- Default: the data directory is located under the OpenEaaglesExamples root
 #      directory, which by default is located next to the OpenEaagles directory
 # ---
-DATA_DIR = ${OE_ROOT}/../OpenEaaglesExamples/data
+DATA_DIR = ${OE_ROOT}/../OpenEaaglesExamples/shared/data
 
 # ---
 # Library path
@@ -36,16 +36,19 @@ FOX_LIBS    = -lFOX-1.6
 # ---
 # CPP flags
 # ---
-CPPFLAGS += -I${OE_EXAMPLES_ROOT}/shared-libs
+CPPFLAGS += -I${OE_EXAMPLES_ROOT}/shared
 
 # ---
 # EPP flags
 # ---
 EPPFLAGS = \
 	-I$(DATA_DIR) \
-        -I${OE_ROOT}/../OpenEaaglesExamples/shared-libs \
+        -I${OE_ROOT}/../OpenEaaglesExamples/shared \
 	-I$(OE_ROOT)/include \
 	-DDATA_PATH=\"$(DATA_DIR)\" \
 	-DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
-	-DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
+	-DFONT_11_19_PATH=\"$(DATA_DIR)/fonts/11x19/normal/\" \
+	-DTEXTURES_PATH=\"$(DATA_DIR)/textures/\" \
+	-DJSBSIM_PATH=\"$(DATA_DIR)/JSBSim/\"
+
 

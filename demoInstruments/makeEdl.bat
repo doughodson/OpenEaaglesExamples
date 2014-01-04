@@ -1,5 +1,7 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% configs/testinstruments.epp > testinstruments.edl  -I ..\..\openeaagles\include -I ..\data -DFONT_PATH="\"../data/fonts/\"
-
+%mcpp% configs/testinstruments.epp > testinstruments.edl ^
+ -I ..\..\openeaagles\include ^
+ -I ..\shared\data ^
+ -DFONT_PATH="\"../shared/data/fonts/\"

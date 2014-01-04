@@ -8,8 +8,8 @@
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../shared-libs/xBehaviors/*.cpp",
-         "../../shared-libs/xBehaviors/*.h",
+         "../../shared/xBehaviors/*.cpp",
+         "../../shared/xBehaviors/*.h",
       }
       defines { "_LIB" }
       configuration "Release"
@@ -23,10 +23,10 @@
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       targetdir (OEExamplesLibPath)
       files {
-         "../../shared-libs/xRecorder/*.cpp",
-         "../../shared-libs/xRecorder/*.cc",
-         "../../shared-libs/xRecorder/*.h",
-         "../../shared-libs/xRecorder/*.proto",
+         "../../shared/xRecorder/*.cpp",
+         "../../shared/xRecorder/*.cc",
+         "../../shared/xRecorder/*.h",
+         "../../shared/xRecorder/*.proto",
       }
       defines { "_LIB" }
       defines { "_SCL_SECURE_NO_WARNINGS" } -- suppress protocol buffer warning
@@ -41,9 +41,9 @@
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../shared-libs/xPanel/*.cpp",
-         "../../shared-libs/xPanel/*.h",
-         "../../shared-libs/xPanel/**.epp",
+         "../../shared/xPanel/*.cpp",
+         "../../shared/xPanel/*.h",
+         "../../shared/xPanel/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
@@ -58,14 +58,13 @@
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       defines { "ZMQ_STATIC" }
       files {
-         "../../shared-libs/xZeroMQHandlers/*.cpp",
-         "../../shared-libs/xZeroMQHandlers/*.h",
-         "../../shared-libs/xZeroMQHandlers/**.epp",
+         "../../shared/xZeroMQHandlers/*.cpp",
+         "../../shared/xZeroMQHandlers/*.h",
+         "../../shared/xZeroMQHandlers/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
          targetname "xZeroMQHandlers"
       configuration "Debug"
          targetname "xZeroMQHandlers_d"
-
 

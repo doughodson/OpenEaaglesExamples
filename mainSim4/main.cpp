@@ -7,7 +7,7 @@
 #include <GL/glut.h>
 
 // class factories
-#include "../shared-libs/xZeroMQHandlers/Factory.h"
+#include "../shared/xZeroMQHandlers/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 #include "openeaagles/basicGL/Factory.h"
