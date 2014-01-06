@@ -74,7 +74,7 @@ static Endpoint* builder(const char* const testFile)
 
 int exec(int argc, char* argv[])
 {
-    const char* testFile = "inputs/senderUdpBroadcast.edl";
+    const char* testFile = "configs/senderUdpBroadcast.edl";
 
     // Get the command line arguments
     for (int i = 1; i < argc; i++) {
