@@ -19,7 +19,7 @@ p01:
     components: {
 
       dynamicsModel: ( JSBSimModel
-          rootDir: "../data/JSBSim/"
+          rootDir: "../shared/data/JSBSim/"
           model: "f16"
       )
      
