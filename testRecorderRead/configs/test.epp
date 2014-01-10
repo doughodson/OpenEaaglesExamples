@@ -7,7 +7,7 @@
    // Input from mainy1's file
    inputHandler:
    ( RecorderFileReader
-      filename: "../data/recorder/zFileWriter.ebd"
+      filename: "../shared/data/recorder/zFileWriter.ebd"
    )
 
 #else

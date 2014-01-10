@@ -7,4 +7,6 @@ rem
  -I ..\..\openeaagles\include ^
  -DFONT_PATH="\"../shared/data/fonts/\"" ^
  -DFONT_11_19_PATH="\"../shared/data/fonts/11x19/normal/\"" ^
- -DTEXTURES_PATH="\"../shared/data/textures/\""
+ -DTEXTURES_PATH="\"../shared/data/textures/\"" ^
+ -DJSBSIM_PATH="\"../shared/data/JSBSim/\""
+

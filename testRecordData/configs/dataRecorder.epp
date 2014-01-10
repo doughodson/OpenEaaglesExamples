@@ -21,7 +21,7 @@ dataRecorder: ( XDataRecorder
          // Binary file writer
          ( RecorderFileWriter
             // This is the default file that 'testRecorderRead' will read.
-            filename: "../data/recorder/zFileWriter.ebd"
+            filename: "../shared/data/recorder/zFileWriter.ebd"
          )
  
 #if 0        
