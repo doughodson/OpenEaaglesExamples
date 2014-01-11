@@ -49,6 +49,24 @@ print ("OpenEaaglesExamples Paths:")
 print ("  Include   :"..OEExamplesIncPath)
 print ("  Libraries :"..OEExamplesLibPath)
 
+--
+-- directory location for HLA include and library paths
+--
+HLA_ROOT = "../../../portico-2.0.0"
+HLAIncPath = HLA_ROOT.."/include/hla13"
+if (_ACTION == "vs2008") then
+  HLALibPath = HLA_ROOT.."/lib/vc9"
+end
+if (_ACTION == "vs2010") then
+  HLALibPath = HLA_ROOT.."/lib/vc10"
+end
+if (_ACTION == "vs2012") then
+  HLALibPath = HLA_ROOT.."/lib/vc11"
+end
+print ("HLA Paths:")
+print ("  Include   : "..HLALibPath)
+--print ("  Libraries : "..OELibPath)
+
 locationPath  = "../" .. _ACTION
 
 -- for now, premake does not support this action, so use 2012 instead

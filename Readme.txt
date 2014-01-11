@@ -149,6 +149,8 @@ Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
    xBehaviors        -- eXample UBF behaviors
 
+   xHla              -- eXample HLA interface library
+
    xPanel            -- eXample components to display an instrument panel, used by 'mainy1',
                         'mainUbf1' and 'testRecordData'
 

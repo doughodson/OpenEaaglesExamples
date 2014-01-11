@@ -17,6 +17,23 @@
       configuration "Debug"
          targetname "xBehaviors_d"
 
+    --  eXample IEEE HLA interoperability library
+    project "libxHla"
+      kind "StaticLib"
+      targetdir (OEExamplesLibPath)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      files {
+         "../../shared/xHla/**.cpp",
+         "../../shared/xHla/**.h",
+      }
+      includedirs { HLAIncPath }
+      defines { "RTI_USES_STD_FSTREAM" }
+      defines { "_LIB" }
+      configuration "Release"
+         targetname "xHla"
+      configuration "Debug"
+         targetname "xHla_d"
+
     --  eXample library that extends the data recorder
     project "libxRecorder"
       kind "StaticLib"
