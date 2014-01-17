@@ -1,19 +1,20 @@
 //------------------------------------------------------------------------------
-// Class: BasicGL::GlutDisplay -> Display
+// Class: Display
 // Description: This class will send down data to it's components in different
 // ways, showing how the SendData class works and testing our send commands.
 //------------------------------------------------------------------------------
-#ifndef	__OPENEAAGLES_TestEvents_DISPLAY_H__
-#define __OPENEAAGLES_TestEvents_DISPLAY_H__
+#ifndef __Eaagles_Test_Display_H__
+#define __Eaagles_Test_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace TestEvents {
+namespace Test {
 
 class TestObject;
 
-class Display : public Glut::GlutDisplay {
+class Display : public Glut::GlutDisplay
+{
    DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
 
 public:
@@ -67,8 +68,7 @@ private:
     int counter;    // to slowly increment our numbers
 };
 
-} // End TestEvents namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 #endif
-

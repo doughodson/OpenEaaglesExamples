@@ -2,7 +2,7 @@
 include ../makedefs
 
 PGM = mainTerrain
-OBJS =  Display.o formFunc.o main.o
+OBJS =  Display.o Factory.o main.o
 
 LDFLAGS += -loeSimulation -loeTerrain
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic
@@ -16,7 +16,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/test.epp >test.edl  $(EPPFLAGS)
+	cpp configs/test.epp >test.edl  $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

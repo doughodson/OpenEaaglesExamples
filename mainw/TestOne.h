@@ -1,17 +1,13 @@
 //------------------------------------------------------------------------------
-// Class:	TestOne
-// Base class:	Object -> Component -> BasicGL::Graphic -> TestOne
+// Class: TestOne
 //
 // Description: Move within a user defined box displaying a trail
 //
-//
 //  ( def-form TestOne
 //  )
-//
-//
 //------------------------------------------------------------------------------
-#ifndef __TestOne_H__
-#define __TestOne_H__
+#ifndef __Eaagles_Example_TestOne_H__
+#define __Eaagles_Example_TestOne_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -19,8 +15,8 @@ namespace Eaagles {
    namespace Basic {
       class Angle;
    }
-namespace MainW {
 
+namespace Example {
 
 class TestOne : public BasicGL::Graphic
 {
@@ -74,7 +70,7 @@ private:
     Basic::Angle* iangle;         // Input angle
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __TestOne_H__
+#endif

@@ -1,0 +1,133 @@
+// ---
+// Networked example part #b: target players
+//
+//    Needs to be run with par #a
+//    You'll need to update the network parameters.
+//    And switch the 'ownship' focus only works with 'local' players.
+// ---
+
+#define PFRZ false
+
+( TestStation
+
+   tcPriority: 0.8
+   netPriority: 0.8
+   netRate: 50
+
+   networks: {
+      ( DisNetIO
+         siteID: 1
+         applicationID: 2
+         exerciseID: 1
+         enableInput: true
+         enableOutput: true
+         enableRelay: false
+         netInput:   ( UdpBroadcastHandler localIpAddress: "10.1.2.98"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3002 shared: true )
+         netOutput:  ( UdpBroadcastHandler localIpAddress: "10.1.2.98"  networkMask: "255.255.248.0" port: 3000  localPort: 3002        shared: true )
+
+         // Example emission handler list
+         emissionPduHandlers: {
+            ( EmissionPduHandler
+               emitterName: 999
+               emitterFunction: 1
+               sensor: ( Radar )
+               antenna: ( Antenna
+                  polarization: horizontal
+                  gain: ( dB 36 )
+                  #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
+               )
+               defaultIn:  true
+               defaultOut:  true
+            )
+         }
+
+         #include "DisIncomingEntityTypes.epp"
+         #include "DisOutgoingEntityTypes.epp"
+      )
+   }
+
+   glutDisplay:
+      #include "displays.epp"
+
+   // ---
+   // Simulation scenario
+   // ---
+   ownship: p00
+   simulation: ( Simulation
+      enableTimingStats: true
+      printTimingStats: true
+      players: {
+
+         p00:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1000
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 0 0 -10000 ]
+            initHeading: ( Degrees 100 )
+            initVelocity: 250
+            positionFreeze: PFRZ
+            
+#if 0 /* used to checkout the player's "test angular rate slots" */
+            initRoll: ( Degrees 0.0 )
+            initPitch: ( Degrees 0.0 )
+            initHeading: ( Degrees 0.0 )
+            testRollRate: ( Degrees 0.0 )
+            testPitchRate: ( Degrees 0.0 )
+            testYawRate: ( Degrees 0.0 )
+            testBodyAxis: false
+#endif
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 1 )
+               )
+               ( Rwr
+                   antennaName: rwr 
+                   threshold:  ( dB 0.0 )
+                   frequency:  ( GigaHertz 3.0 )
+                   bandwidth:  ( GigaHertz 2.0 )
+               )
+            }                
+         )
+
+#if 0
+         p01:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1001
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 10200 -4800 -10000 ]
+            initHeading: ( Degrees 100 )
+            initVelocity: 250
+            positionFreeze: PFRZ
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 1 )
+               )
+               ( Rwr
+                  antennaName: rwr
+                  threshold:  ( dB 75.0 )
+               )
+            }                
+         )
+#endif
+
+      }
+   )
+)

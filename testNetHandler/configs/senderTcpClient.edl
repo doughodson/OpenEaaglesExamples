@@ -1,0 +1,12 @@
+//
+// Sender endpoint
+//
+
+( Sender
+    noWait: false
+    netHandler:   ( TcpClient
+                     ipAddress: localhost
+                     port: 3001
+                  )
+)
+

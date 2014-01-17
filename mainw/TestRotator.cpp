@@ -5,7 +5,7 @@
 #include <GL/glut.h>
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRotator,"TestRotator")
 EMPTY_SERIALIZER(TestRotator)
@@ -133,6 +133,5 @@ void TestRotator::updateData(const LCreal dt)
     
 }
 
-
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace

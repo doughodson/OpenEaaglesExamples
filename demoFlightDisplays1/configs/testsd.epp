@@ -1,0 +1,23 @@
+// SituationalDisplay display test
+testsd:
+( TestSD
+    pagingEvent: {
+        n: testpfd
+        p: testpfd
+    }
+    components: {
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testsd.epp"
+        )
+        ( Graphic
+            transform: ( Scale 2.2 )
+            components: {
+                #include "situationalDisplay.epp"
+            }
+        )
+    }
+)
+

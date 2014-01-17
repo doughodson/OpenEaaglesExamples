@@ -2,12 +2,15 @@
 #include <iostream>
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/basicFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+
 #include "Uniform.h"
 #include "Exp.h"
 
 namespace Eaagles {
-namespace Example04 {
+namespace Tutorial {
 
 // Description (input) File
 // After being processed by the C preprocessor
@@ -15,30 +18,31 @@ const char* inputFileName = "file0.edl";
 
 static class Random* sys = 0;
 
-static Basic::Object* exampleFormFunc(const char* const formname)
+// our class factory
+static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
   // look in application's classes
-  if ( strcmp(formname, Uniform::getFormName()) == 0 ) {
-    newform = new Uniform();
+  if ( strcmp(name, Uniform::getFactoryName()) == 0 ) {
+    obj = new Uniform();
   }
-  else if ( strcmp(formname, Exp::getFormName()) == 0 ) {
-    newform = new Exp();
+  else if ( strcmp(name, Exp::getFactoryName()) == 0 ) {
+    obj = new Exp();
   }
 
   // look in base classes
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
+  if (obj == 0) obj = Basic::Factory::createObj(name);
 
-  return newform;
+  return obj;
 }
 
-// read and parse input file
-static void readInput()
+// build random
+static void builder()
 {
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
+  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
     exit(1);
@@ -63,10 +67,10 @@ static void readInput()
   }
 }
 
-int exec(int, char **)
+int main(int argc, char* argv[])
 {
-  // parse and read input file
-  readInput();
+  // build random
+  builder();
 
   for( int i=0; i<10; i++)
     std::cout << sys->getNum() << std::endl;
@@ -76,7 +80,7 @@ int exec(int, char **)
   return 0;
 }
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -84,6 +88,6 @@ int exec(int, char **)
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example04::exec(argc, argv);
+  Eaagles::Tutorial::main(argc, argv);
 }
 

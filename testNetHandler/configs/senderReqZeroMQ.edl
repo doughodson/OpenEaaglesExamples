@@ -1,0 +1,15 @@
+//
+// Sender endpoint
+//
+
+( Sender
+    noWait: false
+    netHandler:   ( ZeroMQHandler
+                     connect:           "tcp://localhost:12345"
+                     socketType:        REQ
+                     sendHighWaterMark: 5
+                     recvHighWaterMark: 5
+                     linger:            500
+                  )
+)
+

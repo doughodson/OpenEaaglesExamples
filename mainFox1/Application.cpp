@@ -8,7 +8,7 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 // display refresh rate (hz)
 static const FXuint DRAW_FRAME_RATE = 50;
@@ -77,5 +77,5 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
    return 1;
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace

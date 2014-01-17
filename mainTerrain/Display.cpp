@@ -14,7 +14,7 @@
 #include "Display.h"
 
 namespace Eaagles {
-namespace MainTerrain {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(Display,"TerrainDisplay")
 EMPTY_SERIALIZER(Display)
@@ -702,6 +702,6 @@ Basic::Object* Display::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end MainTerrain namespace
+}; // end Example namespace
 }; // end Eaagles namespace
 

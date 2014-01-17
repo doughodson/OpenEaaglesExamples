@@ -10,7 +10,7 @@
 #include "fox/fx3d.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay,"FoxDisplay")
 EMPTY_SERIALIZER(FoxDisplay)
@@ -192,7 +192,7 @@ void FoxDisplay::drawIt()
 }
 
 //------------------------------------------------------------------------------
-// swapbuffers() --
+// swapBuffers() --
 //------------------------------------------------------------------------------
 void FoxDisplay::swapBuffers()
 {
@@ -209,7 +209,7 @@ BasicGL::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int
    getCanvas()->makeCurrent();
    //glGetIntegerv(GL_VIEWPORT,viewport);
    getViewport(&viewport[0], &viewport[1], &viewport[2], &viewport[3]);
-    	
+
    int x = mouseX;
    int y = mouseY;
 
@@ -329,6 +329,6 @@ void FoxDisplay::printSelectBuffer(const GLuint sbuff[], const int size)
    //std::cout << std::endl;
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 

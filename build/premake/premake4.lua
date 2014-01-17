@@ -19,18 +19,16 @@ end
 --
 OE_ROOT           = "../../../OpenEaagles"
 OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
-if (os.is("linux")) then
-   OE_3RD_PARTY_ROOT = "/usr/local"
-end
+
 --
 -- set include and library paths
 --
-if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
+if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/".._ACTION
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
-   OEExamplesIncPath = "../../include"
+   OEExamplesIncPath = "../../shared"
    OEExamplesLibPath = "../../lib/".._ACTION
 end
 if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
@@ -38,16 +36,8 @@ if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
    OELibPath         = OE_ROOT.."/lib/mingw"
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/mingw-32"
-   OEExamplesIncPath = "../../include"
+   OEExamplesIncPath = "../../shared"
    OEExamplesLibPath = "../../lib/mingw"
-end
-if (os.is("linux")) then
-   OEIncPath         = OE_ROOT.."/include"
-   OELibPath         = OE_ROOT.."/lib/linux"
-   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
-   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib"
-   OEExamplesIncPath = "../../include"
-   OEExamplesLibPath = "../../lib/linux"
 end
 print ("OpenEaagles Paths:")
 print ("  Include   : "..OEIncPath)
@@ -59,23 +49,46 @@ print ("OpenEaaglesExamples Paths:")
 print ("  Include   :"..OEExamplesIncPath)
 print ("  Libraries :"..OEExamplesLibPath)
 
+--
+-- directory location for HLA include and library paths
+--
+HLA_ROOT = "../../../portico-2.0.0"
+HLAIncPath = HLA_ROOT.."/include/hla13"
+if (_ACTION == "vs2008") then
+  HLALibPath = HLA_ROOT.."/lib/vc9"
+end
+if (_ACTION == "vs2010") then
+  HLALibPath = HLA_ROOT.."/lib/vc10"
+end
+if (_ACTION == "vs2012") then
+  HLALibPath = HLA_ROOT.."/lib/vc11"
+end
+print ("HLA Paths:")
+print ("  Include   : "..HLALibPath)
+--print ("  Libraries : "..OELibPath)
+
 locationPath  = "../" .. _ACTION
 
---
--- library names
---
-LibCigi     = "ccl"
-LibFreetype = "freetype2"
-LibGlut     = "freeglut"
-LibGLU      = "glu32"
-LibGL       = "opengl32"
-if (os.is("linux")) then
-   LibCigi     = "cigicl"
-   LibFreetype = "freetype"
-   LibGlut     = "glut"
-   LibGLU      = "GLU"
-   LibGL       = "GL"
+-- for now, premake does not support this action, so use 2012 instead
+if (_ACTION == "vs2013") then
+   _ACTION = "vs2012"
 end
+
+--
+-- 3rd party library names
+--
+LibCigi       = "ccl_lib"
+LibFtgl       = "ftgl"
+LibFreetype   = "freetype2"
+LibGlut       = "freeglut"
+
+LibCigi_d     = LibCigi.."_d"
+LibFtgl_d     = LibFtgl.."_d"
+LibFreetype_d = LibFreetype.."_d"
+LibGlut_d     = LibGlut.."_d"
+
+LibGLU        = "glu32"
+LibGL         = "opengl32"
 
 solution "examples"
 
@@ -99,7 +112,7 @@ solution "examples"
    configuration { "Release" }
       flags { "Optimize" }
       if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
-         -- enable compilier intrinsics and favor speed over size
+         -- enable compiler intrinsics and favour speed over size
          buildoptions { "/Oi", "/Ot" }
          defines { "WIN32", "NDEBUG" }
       end
@@ -108,7 +121,7 @@ solution "examples"
    configuration { "Debug" }
       flags { "Symbols" }
       if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
-         -- enable compilier intrinsics
+         -- enable compiler intrinsics
          buildoptions { "/Oi" }
          defines { "WIN32", "_DEBUG" }
       end
@@ -116,6 +129,9 @@ solution "examples"
 
    -- libraries
    dofile "libs.lua"
+
+   -- demos
+   dofile "demos.lua"
 
    -- examples
    dofile "examples.lua"
@@ -126,6 +142,6 @@ solution "examples"
    -- tutorial
    dofile "tutorials.lua"
 
-   -- gui demos
+   -- gui examples
    dofile "guidemos.lua"
 

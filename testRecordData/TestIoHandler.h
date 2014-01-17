@@ -1,18 +1,18 @@
 //------------------------------------------------------------------------------
 // Class: TestIoHandler
 //------------------------------------------------------------------------------
-#ifndef __TestIoHandler_H___
-#define __TestIoHandler_H___
+#ifndef __Eaagles_Test_TestIoHandler_H___
+#define __Eaagles_Test_TestIoHandler_H___
 
 #include "openeaagles/basic/IoHandler.h"
 
 namespace Eaagles {
    namespace Simulation { class AirVehicle; }
 
-namespace TestRecordData {
+namespace Test {
 
 //------------------------------------------------------------------------------
-// Class:  TestIoHandler
+// Class: TestIoHandler
 //
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
@@ -48,7 +48,7 @@ private:
    bool decStptSw1;
 };
 
-} // end TestRecordData
+} // end Test
 } // end Eaagles namespace
 
 #endif

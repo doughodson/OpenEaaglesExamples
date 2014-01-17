@@ -1,0 +1,32 @@
+// Uses an analog dial to make a Fighter-like ftit dial
+// See testspeedbrake.epp for an in-depth explanation of how the instrument components work.
+testftitdial:
+( TestFtitDial
+    pagingEvent: {
+        n: testenginedial
+        p: testbuttons
+    }
+    components: {
+        // include our simple ftit base module
+        #include "openeaagles/instruments/dials/ftitdial.epp"
+        
+        // simpl readouts
+        ( AsciiText
+            color: white
+            position: [ 1 2 ]
+            text: "TEMPERATURE = "
+        )
+ftitRO: ( NumericReadout
+            color: white
+            position: [ 1 16 ]
+            format: "####.##"
+        )
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testftitdial.epp"
+        )
+    }
+)
+

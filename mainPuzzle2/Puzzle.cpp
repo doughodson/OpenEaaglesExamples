@@ -1,11 +1,14 @@
-
+//------------------------------------------------------------------------------
+// Class:  Puzzle
+//------------------------------------------------------------------------------
 #include "Puzzle.h"
 #include "State.h"
 
 #include "openeaagles/basic/List.h"
 
 namespace Eaagles {
-namespace Puzzle2 {
+
+namespace Example {
 
 IMPLEMENT_SUBCLASS(Puzzle,"Puzzle")
 
@@ -339,7 +342,7 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
 {
    int j = 0;
    if ( !slotsOnly ) {
-      sout << "( " << getFormName() << std::endl;
+      sout << "( " << getFactoryName() << std::endl;
       j = 4;
    }
 
@@ -371,5 +374,5 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    return sout;
 }
 
-}  // End of Puzzle2 namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace

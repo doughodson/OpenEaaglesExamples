@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainIr
 
-OBJS =	formFunc.o TestComputer.o TestDisplay.o TestStation.o mainIr.o
+OBJS =	Factory.o TestComputer.o TestDisplay.o TestStation.o mainIr.o
 
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation -loeInstruments -lJSBSim
 LDFLAGS += -loeIoDevice -loeOtw -loeDafif 
@@ -19,7 +19,7 @@ EPPFLAGS += -I.
 all: $(PGM)
 
 edl:
-	cpp inputs/test1.epp > test1.edl $(EPPFLAGS)
+	cpp configs/test1.epp > test1.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)

@@ -1,16 +1,19 @@
 
 #include "DataRecordTest.h"
 
-#include "openeaagles/simulation/simulationFF.h"
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/simulation/Player.h"
-#include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
+// class factories
+#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/recorder/Factory.h"
+
 namespace Eaagles {
-namespace TestRecorder {
+namespace Test {
 
 //const float UPDATE_RATE = 10.0; // Main loop update rate
 
@@ -18,32 +21,27 @@ namespace TestRecorder {
 // Main test functions
 //=============================================================================
 
-
-//-----------------------------------------------------------------------------
-// testFormFunc() -- our form function used by the parser
-//-----------------------------------------------------------------------------
-static Eaagles::Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-   Eaagles::Basic::Object* newform = 0;
+   Basic::Object* obj = 0;
 
    // This test:
-   if ( strcmp(formname, DataRecordTest::getFormName()) == 0 ) {
-      newform = new DataRecordTest();
+   if ( strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
+      obj = new DataRecordTest();
    }
 
-    else {
-       if (newform == 0) newform = Eaagles::Simulation::simulationFormFunc(formname);
-       if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
-       if (newform == 0) newform = Eaagles::Recorder::recorderFormFunc(formname);
-    }
+   else {
+      if (obj == 0) obj = Eaagles::Simulation::Factory::createObj(name);
+      if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
+      if (obj == 0) obj = Eaagles::Recorder::Factory::createObj(name);
+   }
 
-   return newform;
+   return obj;
 }
 
-//-----------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//-----------------------------------------------------------------------------
-static DataRecordTest* readTest(const char* const testFile)
+// build recorder test
+static DataRecordTest* builder(const char* const testFile)
 {
    if (testFile == 0) return 0;
 
@@ -51,7 +49,7 @@ static DataRecordTest* readTest(const char* const testFile)
 
    // Read the description file
    int errors = 0;
-   Eaagles::Basic::Object* q1 = lcParser(testFile, testFormFunc, &errors);
+   Eaagles::Basic::Object* q1 = lcParser(testFile, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
   //    exit(1);
@@ -91,8 +89,8 @@ int exec(int argc, char* argv[])
       return EXIT_FAILURE;
    }
 
-   // Read in the description files
-   DataRecordTest* sys = readTest(testFile);
+   // Build a recorder test
+   DataRecordTest* sys = builder(testFile);
 
    // Must have a valid system of type DataRecordTest
    if (sys == 0) {
@@ -109,7 +107,7 @@ int exec(int argc, char* argv[])
    return EXIT_SUCCESS;
 }
 
-} // namespace TestRecorder
+}
 }
 
 //-----------------------------------------------------------------------------
@@ -117,6 +115,6 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   Eaagles::TestRecorder::exec(argc, argv);
+   Eaagles::Test::exec(argc, argv);
 }
 

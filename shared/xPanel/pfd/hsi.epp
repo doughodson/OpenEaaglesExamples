@@ -1,0 +1,337 @@
+// HSI
+( Graphic
+    scissorX: -2.5
+    scissorWidth: 5
+    scissorY: 1.45
+    scissorHeight: 2
+    transform: ( Translation -0.5 -5.2 )   
+    components: {
+       // heading pointer
+       ( LineLoop
+            color: white
+            linewidth: 2
+            transform: ( Translation 0 2.4 )
+            vertices: {
+                [ 0 0 ]
+                [ -0.1 0.2 ]
+                [  0.1 0.2 ]
+            }
+        )
+        ( Polygon
+            color: black
+            transform: ( Translation 0 2.4 )
+            vertices: {
+                [ 0 0 ]
+                [ -0.1 0.2 ]
+                [  0.1 0.2 ]
+            }
+        )
+        hsi:
+        ( Rotators
+            components: {
+                // selected heading bug
+                selhdg:
+                ( Rotators
+                    components: {
+                        ( Graphic
+                            color: magenta
+                            linewidth: 2
+                            transform: ( Translation 0 2.4 )
+                            components: {
+                                ( LineLoop 
+                                    vertices: {
+                                        [ -0.12 0 ]
+                                        [ -0.12 0.08 ]
+                                        [ -0.08 0.08 ]
+                                        [ -0.02 0 ]
+                                    }
+                                )
+                                ( LineLoop 
+                                    vertices: {
+                                        [ 0.12 0 ]
+                                        [ 0.12 0.08 ]
+                                        [ 0.08 0.08 ]
+                                        [ 0.02 0 ]
+                                    }
+                                )
+                            }
+                        )
+                    }
+                )
+                // here are the hsi direction readouts
+                ( AsciiText
+                    color: white
+                    font: pfdnormfont
+                    transform: { ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "00"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -0.175 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "01"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -0.35 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "02"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -0.5236 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "03"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -0.7 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "04"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -0.873 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "05"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -1.0472 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "06"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -1.22 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "07"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -1.396 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "08"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -1.57 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "09"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -1.745 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "10"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -1.9195 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "11"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -2.094 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "12"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -2.2685 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "13"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -2.443 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "14"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -2.6175 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "15"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -2.792 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "16"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -2.9665 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "17"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -3.14 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "18"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -3.32 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "19"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -3.49 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "20"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -3.665 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "21"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -3.839 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "22"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -4.014 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "23"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -4.189 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "24"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -4.36 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "25"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -4.538 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "26"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -4.712 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "27"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -4.887 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "28"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -5.06 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "29"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -5.236 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "30"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -5.411 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "31"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -5.585 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "32"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -5.76 ) ( Translation -0.1 2.13 ) ( Scale 1.2 ) }
+                    text: "33"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -5.93 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "34"
+                )
+                ( AsciiText
+                    font: pfdnormfont
+                    color: white
+                    transform: { ( Rotation -6.108 ) ( Translation -0.08 2.18 ) ( Scale 0.9 ) }
+                    text: "35"
+                )
+
+                ( DialTickMarks
+                    linewidth: 2
+                    color: white
+                    length: 0.085
+                    quantity: 36
+                    startAngle: 0
+                    sweepAngle: 360
+                    dialRadius: 2.4
+                )
+                ( DialTickMarks
+                    linewidth: 2
+                    color: white
+                    length: 0.05
+                    quantity: 36
+                    startAngle: 5
+                    sweepAngle: 360
+                    dialRadius: 2.4
+                )
+            }
+        )
+
+        // commanded heading readout
+        ( Graphic
+            transform: ( Translation -0.5 1.48 ) 
+            components: {
+                ( AsciiText
+                    color: magenta
+                    transform: ( Scale 0.8 )
+                    font: pfdnormfont
+                    text: "H"
+                )
+                cmdhdg: 
+                ( NumericReadout
+                    color: magenta
+                    font: pfdnormfont
+                    transform:  ( Translation -0.3 0 ) 
+                    format: "00#"
+                )
+            }
+        )
+        // heading source readout
+        hdgsrc:
+        ( Rotary2
+            transform: ( Translation 0.5 1.48 )
+            components: {
+                ( AsciiText  font: pfdnormfont transform: ( Scale 0.8 ) text: "TRUE" )
+                ( AsciiText  font: pfdnormfont transform: ( Scale 0.8 ) text: "MAG" )
+            }
+        )
+        // background
+        ( Circle
+            filled: 1
+            color: (rgb 0.1 0.1 0.1)
+            radius: 2.4
+            slices: 1000
+        )
+    }
+)
+

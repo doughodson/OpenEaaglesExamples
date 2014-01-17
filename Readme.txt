@@ -1,160 +1,160 @@
 
-
 Notes:
+--------------------------------------------------------------------------------------------
 
   1) Use makeEdl.bat to generate the example *.edl files under windows, and
      use 'make edl' to generate the *.edl files under linux. 
 
-  2) Most of the examples are under the 'Eaagles' namespace because they consisted to
-     to be part of the OpenEaagles package.  However, user wouldn't typically do this.  See
-     the 'mainNetText' for an example that is not under the Eaagles namespace.
+  2) Most of the examples are in the 'Eaagles' namespace.
 
-  3) Most of the time, examples are run from the command prompt. If you plan to run them
-     from within Visual C++, you need to set the working directory so that they can
-     locate their input files. Go to "Configuration Properties/Debugging" amd set 
-     "Working directory" to $(OutDir).
+
+Demonstration applications:
+--------------------------------------------------------------------------------------------
+
+   demoEfis              -- demo of an electronic flight instrument system
+
+   demoFlightDisplays1   -- demo of flight displays
+
+   demoFlightDisplays2   -- demo of flight displays
+
+   demoInstruments       -- Instrument library demo program
+                            1) Contains several test instrument pages 
+                            2) Use 'n' and 'p' (next and previous) to move between pages
+                            3) use ESC to exit
+
+   demoSubDisplays       -- Quad subdisplay version of the Instrument Library demo program
+                           1) Contains 4 subdisplays, each containing the instrument lib demo 
+                           2) See demoInstruments
 
 
 Example applications:
----------------------
+--------------------------------------------------------------------------------------------
 
-   mainEfis          -- Example electronic flight instrument system
+   mainGL        -- Example alignment pattern drawn using only configuration file graphics.
 
-   mainfd1           -- Example flight display
+   mainGndMapRdr -- Simple ground mapping radar example
 
-   mainfd2           -- Example flight display
+   mainNonRT1    -- Example that demonstrates executing the simulation as fast as possible
 
-   mainGL            -- Example alignment pattern drawn using only configuration file graphics.
+   mainPuzzle1   -- Simple problem solver example (Moves 2x2 block to first row, center position)
 
-   mainGndMapRdr     -- Simple ground mapping radar example
+   mainPuzzle2   -- Another problem solver example (15 block puzzle)
 
-   mainNonRT1   -- Example that demostrates executing the simulation as fast as possible
+   mainSim1      -- A very simple simulation built with and only with Eaagles classes
 
-   mainPuzzle1  -- Simple problem solver example (Moves 2x2 block to first row, center position)
+   mainSim2      -- Same as mainSim1 except multiple vehicles flying routes 
 
-   mainPuzzle2  -- Another problem solver example (15 block puzzle)
+   mainSim3      -- Same as mainSim2 except the vehicle can be flown with a joystick
+                    and supports the JSBSim model
 
-   mainSim1     -- A very simple simulation built with and only with Eaagles classes
+   mainSim4      -- simulation that display all players on a map
 
-   mainSim2     -- Same as mainSim1 except multiple vehicles flying routes 
+   mainTerrain   -- Displays terrain elevation data
 
-   mainSim3     -- Same as mainSim2 except the vehicle can be flown with a joystick
-                   and supports the JSBSim model
+   mainUbf1      -- A version of 'mainy1' used to test UBF behaviors
 
-   mainSim4     -- simulation that display all players on a map
+   mainw         -- Example Graphics framework test program
+                    1) Contains several test MFD pages with common background
+                       graphics:
+                    2) Use 'n' and 'p' (next and previous) to move between pages
+                    3) OpenGL selection test: use cursor and left mouse button
+                       to select a graphic item.  The selected item will flash.
+                    4) use ESC to exit
 
-   mainTerrain       -- Displays terrain elevation data
-
-   mainUbf1          -- A version of 'mainy1' used to test UBF behaviors
-
-   mainw        -- Example Graphics framework test program
-                   1) Contains several test MFD pages with common background
-                      graphics:
-                   2) Use 'n' and 'p' (next and previous) to move between pages
-                   3) OpenGL selection test: use cursor and left mouse button
-                      to select a graphic item.  The selected item will flash.
-                   4) use ESC to exit
-
-   mainx9            -- General example application (and test) program
-
-   mainy1            -- Simple flight simulation program
-
-   mainz1       -- Instrument library demo program
-                   1) Contains several test instrment pages 
-                   2) Use 'n' and 'p' (next and previous) to move between pages
-                   3) use ESC to exit
-
-   mainz2       -- Quad subdisplay version of the Instrument Library demo program
-                   1) Contains 4 subdisplays, each containing the instrument lib demo 
-                   2) See mainz1
+   mainy1        -- Simple flight simulation program
 
 
 Test applications:
-------------------
+--------------------------------------------------------------------------------------------
 
-   testEvent         -- Example & test of the Component class send() functions
+   testEvent         -- test of Component class send() functions
 
-   testIo            -- Example & test of I/O device library
+   testIoHandler     -- test of I/O handler device library
 
    testLinearSys
 
-   testNav           -- Extensive set of navigation test routines
+   testMatrix        -- test of Matrix class functionality
 
-   testTimer         -- Tests the functionality of the Timer class.
+   testNavigation    -- extensive set of navigation test routines
 
-   testNet           -- Tests the network handlers (derived from NetHandler).  Includes
+   testNetHandler    -- tests the network handlers (derived from NetHandler).  Includes
                         client and server side tests/examples for the UDP, TCP, broadcast,
                         and multicast handlers.
 
-   testMatrix        -- a test of Matrix class functionality
+   testRadar         -- general radar test program
 
-   testRng           -- Random number generator and distribution test program
-
-   testStateMach     -- Example and test of state machine class
-
-   testTables        -- Collection of Table tests programs
-
-   testRecordData    -- Variation of 'mainy1' that has a DataRecorder attached and
+   testRecordData    -- variation of 'mainy1' that has a DataRecorder attached and
                         records a data file that can be read by 'testRecordRead'.
 
-   testRecorderRead  -- Reads and prints recorder data streams or binary files.
+   testRecorderRead  -- reads and prints recorder data streams or binary files.
                      -- Can be used with 'testRecordData' or 'testRecorderWrite'.
 
-   testRecorderWrite -- Write test data recorder files.
+   testRecorderWrite -- write test data recorder files.
+
+   testRng           -- random number generator and distribution test program
+
+   testStateMach     -- example and test of state machine class
+
+   testTables        -- collection of Table tests programs
+
+   testTimer         -- tests the functionality of the Timer class.
 
 
 Tutorial applications:
-----------------------
+--------------------------------------------------------------------------------------------
 
-   tutorial01 : This example demonstrates a simple compile and link with the OpenEaagles
-                basic foundation library. It was created primary as a simple demonstration
-                of linking to a single OpenEaagles library. The intent is to show how to
-                build your first "Hello World" OpenEaagles-based application.
+   tutorial01 -- This example demonstrates a simple compile and link with the OpenEaagles
+                 basic foundation library. It was created primary as a simple demonstration
+                 of linking to a single OpenEaagles library. The intent is to show how to
+                 build your first "Hello World" OpenEaagles-based application.
 
-   tutorial02 : This example demonstrates the creation of an OpenEaagles compliant class
-                called Random. As with most extensible frameworks, macros are used to
-                spell out the boilerplate code that needs to be defined in order to
-                create a "well defined" class.
- 
-                The macros make it easy to develop native toolkit components quickly.
-                This example purposely focuses on a simple class so that the developer
-                can focus on the boilerplate aspects of OpenEaagles classes.
+   tutorial02 -- This example demonstrates the creation of an OpenEaagles compliant class
+                 called Random. As with most extensible frameworks, macros are used to
+                 spell out the boilerplate code that needs to be defined in order to
+                 create a "well defined" class.
 
-   tutorial03 : This example extends the capability of the Random class from tutorial02.
-                The application has been enhanced so that it can read an input file and
-                have the native toolkit parser create the Random class with attributes
-                specified at run-time.
+                 The macros make it easy to develop native toolkit components quickly.
+                 This example purposely focuses on a simple class so that the developer
+                 can focus on the boilerplate aspects of OpenEaagles classes.
 
-                This example is focused as a starting point for understanding how to
-                use the OpenEaagles parser and input language.
+   tutorial03 -- This example extends the capability of the Random class from tutorial02.
+                 The application has been enhanced so that it can read an input file and
+                 have the native toolkit parser create the Random class with attributes
+                 specified at run-time.
 
-   tutorial04 : tutorial03 has been enhanced so that the Random class can provide numbers
-                drawn from different distributions. Two specific distributions have been
-                added: uniform and exponential. The Random class has been redefined to be
-                abstract.
+                 This example is focused as a starting point for understanding how to
+                 use the OpenEaagles parser and input language.
 
-   tutorial05 : This tutorial creates a class called MyObj that can process several types
-                of inputs. Specifically it understands a list of colors and a vector.
+   tutorial04 -- tutorial03 has been enhanced so that the Random class can provide numbers
+                 drawn from different distributions. Two specific distributions have been
+                 added: uniform and exponential. The Random class has been redefined to be
+                 abstract.
 
-   tutorial06 : This tutorial presents the construction of a very simple component called
-                MyComp. MyComp only understands one attribute called "str". Because MyComp
-                is built off of component, MyComp can also manage a list of pairs
-                (a pairstream) where each Pair contains another component. This list of
-                pairs (the pairstream) is our components container.
+   tutorial05 -- This tutorial creates a class called MyObj that can process several types
+                 of inputs. Specifically it understands a list of colors and a vector.
 
-   tutorial07 : Simple graphics application.
+   tutorial06 -- This tutorial presents the construction of a very simple component called
+                 MyComp. MyComp only understands one attribute called "str". Because MyComp
+                 is built off of component, MyComp can also manage a list of pairs
+                 (a pairstream) where each Pair contains another component. This list of
+                 pairs (the pairstream) is our components container.
 
-   tutorial08 : Slightly more complicated graphics application that demonstrates multiple
-                pages of graphics.
+   tutorial07 -- Simple graphics application.
+
+   tutorial08 -- Slightly more complicated graphics application that demonstrates multiple
+                 pages of graphics.
 
 
+Libraries: (the 'x' in library name indicates eXample)
+--------------------------------------------------------------------------------------------
+   xBehaviors        -- eXample UBF behaviors
 
-Libraries:
----------------------
-   libMyRecorder     Example extension of the Data Recorder
+   xHla              -- eXample HLA interface library
 
-   libPlaneBehaviors Example UBF behaviors
+   xPanel            -- eXample components to display an instrument panel, used by 'mainy1',
+                        'mainUbf1' and 'testRecordData'
 
-   libY1             Common components from 'mainy1' used by other example programs.
+   xRecorder         -- eXample extension of the Data Recorder
 
+   xZeroMQHandlers   -- eXample ZeroMQ network handlers
 

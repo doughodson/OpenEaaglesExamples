@@ -1,0 +1,17 @@
+
+irAtmosphere:
+( IrAtmosphere
+   
+   waveBands: ( Table1
+      x: [ 3.200 3.775 4.325 4.750]
+      data: [ 0.4 0.75 0.35 0.5 ]
+   )
+
+   transmissivityTable1: ( Table1
+      x: [ 3.200 3.775 4.325 4.750]      // waveBandCenters
+      data: [ 0.011 0.004 0.28 0.017 ]   // transmissivities (coefficient of (absorption+scattering), per km)
+   )
+
+   skyRadiance: 11.2
+   earthRadiance: 1.0
+)

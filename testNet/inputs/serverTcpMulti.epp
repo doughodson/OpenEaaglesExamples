@@ -1,8 +1,0 @@
-
-// Server side for the TCP/IP handler multi-connection test
-
-( ServerSideTcp
-    noWait: false
-    netHandler:   ( TcpServerMulti port: 3000 )
-)
-

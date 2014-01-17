@@ -1,5 +1,5 @@
 
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
@@ -10,20 +10,17 @@
 static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
 
 namespace Eaagles {
-namespace TestStateMach {
+namespace Test {
 
-//-----------------------------------------------------------------------------
-// Read the configuration file
-//-----------------------------------------------------------------------------
-static Basic::StateMachine*
-readConfigFile(const char* const fileName, Basic::ParserFormFunc formFunc)
+// build a state machine
+static Basic::StateMachine* builder(const char* const fileName)
 {
    Basic::StateMachine* p = 0;
 
    // Read the description file
    int errors = 0;
    Eaagles::Basic::Object* q1 =
-         Eaagles::Basic::lcParser(fileName, formFunc, &errors);
+         Eaagles::Basic::lcParser(fileName, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -75,7 +72,7 @@ int main(int argc, char* argv[])
    // ---
    // Read in the description files
    // ---
-   Basic::StateMachine* sys = readConfigFile(configFile, formFunc);
+   Basic::StateMachine* sys = builder(configFile);
    if (sys == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
       exit(EXIT_FAILURE);
@@ -103,5 +100,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::TestStateMach::main(argc,argv);
+   return Eaagles::Test::main(argc,argv);
 }

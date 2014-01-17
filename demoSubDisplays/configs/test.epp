@@ -1,0 +1,39 @@
+// this will tell our instruments to use specific materials
+#define SHOW_MATERIALS
+
+( GlutDisplay
+    name: "Mutiple Display Test"
+    left:   -10.5
+    right:   10.5
+    bottom: -10.5
+    top:     10.5
+    near:    -2.0
+    far:     2.0
+    vpWidth: 1000
+    vpHeight: 1000
+    vpX: 0
+    vpY: 0
+    clearDepth: 1.0
+    clearColor: (rgb 0.1 0.1 0.1 )
+    //fullScreen: 0
+    resizeSubwindows: true
+
+   components: {
+      ( Line
+         segment: true
+         color: red
+         vertices: {
+            [  0.0 10.0 ]  [   0.0 -10.0 ]
+            [ 10.0  0.0 ]  [ -10.0   0.0 ] 
+         }
+      )
+   }
+
+   // here our our displays
+   displays: {
+      #include "display1.epp"
+      #include "display2.epp"
+      #include "display3.epp"
+      #include "display4.epp"
+   }
+)

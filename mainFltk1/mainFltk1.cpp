@@ -3,16 +3,16 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/PairStream.h"
 
-#include "openeaagles/basic/basicFF.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/instruments/instrumentsFF.h"
-#include "openeaagles/simulation/simulationFF.h"
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/instruments/Factory.h"
+#include "openeaagles/simulation/Factory.h"
 
 #include <FL/Fl.H>
 
 #include "FltkStation.h"
 #include "FltkDisplay.h"
-
 
 // ----------------------------------------------------------------------------
 // update() - static call from mainline that will call our update date
@@ -20,7 +20,7 @@
 static void update(void* pData)
 {
     if (pData != NULL) {
-        Eaagles::mainFltk1::FltkStation* stn = reinterpret_cast<Eaagles::mainFltk1::FltkStation*>(pData);
+        Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
         if (stn != 0) {
             double dt = 1 / 20.0f;
             stn->updateData((Eaagles::LCreal)dt);
@@ -30,40 +30,40 @@ static void update(void* pData)
 }
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 static FltkStation* sys = 0;
 static const char* testFileName = "test.edl";
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
     // This test ...
-    if ( strcmp(formname, FltkStation::getFormName()) == 0 ) {
-        newform = new FltkStation;
+    if ( strcmp(name, FltkStation::getFactoryName()) == 0 ) {
+        obj = new FltkStation;
     }
-    else if ( strcmp(formname, FltkDisplay::getFormName()) == 0 ) {
-        newform = new FltkDisplay;
+    else if ( strcmp(name, FltkDisplay::getFactoryName()) == 0 ) {
+        obj = new FltkDisplay;
     }
     else {
-        if (newform == 0) newform = Simulation::simulationFormFunc(formname);
-        if (newform == 0) newform = Instruments::instrumentsFormFunc(formname);
-        if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Basic::basicFormFunc(formname);
+        if (obj == 0) obj = Simulation::Factory::createObj(name);
+        if (obj == 0) obj = Instruments::Factory::createObj(name);
+        if (obj == 0) obj = BasicGL::Factory::createObj(name);
+        if (obj == 0) obj = Basic::Factory::createObj(name);
     }
-    
-    return newform;
+
+    return obj;
 }
 
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a station
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Eaagles::Basic::Object* q1 = Eaagles::Basic::lcParser(testFileName, testFormFunc, &errors);
+    Eaagles::Basic::Object* q1 = Eaagles::Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -91,14 +91,14 @@ static void readTest()
         std::cout << "Invalid description file!" << std::endl;
         exit(EXIT_FAILURE);
     }
-        
+
 }
 
 int main(int, char* [])
 {
 
-    // read our description file
-    readTest();
+    // build a station
+    builder();
 
     // now do a reset
     sys->reset();
@@ -115,13 +115,13 @@ int main(int, char* [])
     return Fl::run();
 }
 
-};
-};
+}
+}
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::mainFltk1::main(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }

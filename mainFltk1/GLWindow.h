@@ -5,13 +5,13 @@
 //              drawing will be done
 //-----------------------------------------------------
 
-#ifndef __Eaagles_mainFltk1_GLWindow_H__
-#define __Eaagles_mainFltk1_GLWindow_H__
+#ifndef __Eaagles_Example_GLWindow_H__
+#define __Eaagles_Example_GLWindow_H__
 
 #include <FL/Fl_Gl_Window.H>
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 class FltkDisplay;
 
@@ -41,7 +41,7 @@ private:
    FltkDisplay* display;
 };
 
-};
-};
+}
+}
 
 #endif

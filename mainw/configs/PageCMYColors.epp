@@ -1,0 +1,399 @@
+// ---
+// Example MFD page CMYColors
+// ---
+
+cmycolors:
+( MfdPage
+    pagingEvent: {
+        n: yiqcolors
+        p: hlscolors
+    }
+    components: {
+        ( AsciiText text: "CMY" position: [ 1 1 ] )
+        ( LineLoop
+            selectName: 601
+            color: (cmy 0.8 0.8 0.8)
+            linewidth: 5
+            vertices: {
+                [  0.2  0.2 ]
+                [ -0.2  0.2 ]
+                [ -0.2 -0.2 ]
+                [  0.2 -0.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 602
+            color: (cmy 0.6 0.6 0.6)
+            linewidth: 5
+            vertices: {
+                [  0.4  0.4 ]
+                [ -0.4  0.4 ]
+                [ -0.4 -0.4 ]
+                [  0.4 -0.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 603
+            color: (cmy 0.4 0.4 0.4)
+            linewidth: 5
+            vertices: {
+                [  0.6  0.6 ]
+                [ -0.6  0.6 ]
+                [ -0.6 -0.6 ]
+                [  0.6 -0.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 604
+            color: (cmy 0.2 0.2 0.2)
+            linewidth: 5
+            vertices: {
+                [  0.8  0.8 ]
+                [ -0.8  0.8 ]
+                [ -0.8 -0.8 ]
+                [  0.8 -0.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 605
+            color: (cmy 0 0 0)
+            linewidth: 5
+            vertices: {
+                [  1  1 ]
+                [ -1  1 ]
+                [ -1 -1 ]
+                [  1 -1 ]
+            }
+        )
+        ( LineLoop
+            selectName: 611
+            color: (cmy 0.4 0.4 1)
+            linewidth: 5
+            vertices: {
+                [  1.2  1.2 ]
+                [ -1.2  1.2 ]
+                [ -1.2 -1.2 ]
+                [  1.2 -1.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 612
+            color: (cmy 0.2 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  1.4  1.4 ]
+                [ -1.4  1.4 ]
+                [ -1.4 -1.4 ]
+                [  1.4 -1.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 613
+            color: (cmy 0 0 1)
+            linewidth: 5
+            vertices: {
+                [  1.6  1.6 ]
+                [ -1.6  1.6 ]
+                [ -1.6 -1.6 ]
+                [  1.6 -1.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 614
+            color: (cmy 0 0 0.8)
+            linewidth: 5
+            vertices: {
+                [  1.8  1.8 ]
+                [ -1.8  1.8 ]
+                [ -1.8 -1.8 ]
+                [  1.8 -1.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 615
+            color: (cmy 0 0 0.6)
+            linewidth: 5
+            vertices: {
+                [  2  2 ]
+                [ -2  2 ]
+                [ -2 -2 ]
+                [  2 -2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 621
+            color: (cmy 1 0.4 1)
+            linewidth: 5
+            vertices: {
+                [  2.2  2.2 ]
+                [ -2.2  2.2 ]
+                [ -2.2 -2.2 ]
+                [  2.2 -2.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 622
+            color: (cmy 1 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  2.4  2.4 ]
+                [ -2.4  2.4 ]
+                [ -2.4 -2.4 ]
+                [  2.4 -2.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 623
+            color: (cmy 1 0 1)
+            linewidth: 5
+            vertices: {
+                [  2.6  2.6 ]
+                [ -2.6  2.6 ]
+                [ -2.6 -2.6 ]
+                [  2.6 -2.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 624
+            color: (cmy 0.8 0 0.8)
+            linewidth: 5
+            vertices: {
+                [  2.8  2.8 ]
+                [ -2.8  2.8 ]
+                [ -2.8 -2.8 ]
+                [  2.8 -2.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 625
+            color: (cmy 0.6 0 0.6)
+            linewidth: 5
+            vertices: {
+                [  3  3 ]
+                [ -3  3 ]
+                [ -3 -3 ]
+                [  3 -3 ]
+            }
+        )
+        ( LineLoop
+            selectName: 631
+            color: (cmy 1 0.4 0.4)
+            linewidth: 5
+            vertices: {
+                [  3.2  3.2 ]
+                [ -3.2  3.2 ]
+                [ -3.2 -3.2 ]
+                [  3.2 -3.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 632
+            color: (cmy 1 0.2 0.2)
+            linewidth: 5
+            vertices: {
+                [  3.4  3.4 ]
+                [ -3.4  3.4 ]
+                [ -3.4 -3.4 ]
+                [  3.4 -3.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 633
+            color: (cmy 1 0 0)
+            linewidth: 5
+            vertices: {
+                [  3.6  3.6 ]
+                [ -3.6  3.6 ]
+                [ -3.6 -3.6 ]
+                [  3.6 -3.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 634
+            color: (cmy 0.8 0 0)
+            linewidth: 5
+            vertices: {
+                [  3.8  3.8 ]
+                [ -3.8  3.8 ]
+                [ -3.8 -3.8 ]
+                [  3.8 -3.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 635
+            color: (cmy 0.6 0 0)
+            linewidth: 5
+            vertices: {
+                [  4  4 ]
+                [ -4  4 ]
+                [ -4 -4 ]
+                [  4 -4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 641
+            color: (cmy 1 1 0.4)
+            linewidth: 5
+            vertices: {
+                [  4.2  4.2 ]
+                [ -4.2  4.2 ]
+                [ -4.2 -4.2 ]
+                [  4.2 -4.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 642
+            color: (cmy 1 1 0.2)
+            linewidth: 5
+            vertices: {
+                [  4.4  4.4 ]
+                [ -4.4  4.4 ]
+                [ -4.4 -4.4 ]
+                [  4.4 -4.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 643
+            color: (cmy 1 1 0)
+            linewidth: 5
+            vertices: {
+                [  4.6  4.6 ]
+                [ -4.6  4.6 ]
+                [ -4.6 -4.6 ]
+                [  4.6 -4.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 644
+            color: (cmy 0.8 0.8 0)
+            linewidth: 5
+            vertices: {
+                [  4.8  4.8 ]
+                [ -4.8  4.8 ]
+                [ -4.8 -4.8 ]
+                [  4.8 -4.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 645
+            color: (cmy 0.6 0.6 0)
+            linewidth: 5
+            vertices: {
+                [  5  5 ]
+                [ -5  5 ]
+                [ -5 -5 ]
+                [  5 -5 ]
+            }
+        )
+        ( LineLoop
+            selectName: 651
+            color: (cmy 0.4 1 0.4)
+            linewidth: 5
+            vertices: {
+                [  5.2  5.2 ]
+                [ -5.2  5.2 ]
+                [ -5.2 -5.2 ]
+                [  5.2 -5.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 652
+            color: (cmy 0.2 1 0.2)
+            linewidth: 5
+            vertices: {
+                [  5.4  5.4 ]
+                [ -5.4  5.4 ]
+                [ -5.4 -5.4 ]
+                [  5.4 -5.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 653
+            color: (cmy 0 1 0)
+            linewidth: 5
+            vertices: {
+                [  5.6  5.6 ]
+                [ -5.6  5.6 ]
+                [ -5.6 -5.6 ]
+                [  5.6 -5.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 654
+            color: (cmy 0 0.8 0)
+            linewidth: 5
+            vertices: {
+                [  5.8  5.8 ]
+                [ -5.8  5.8 ]
+                [ -5.8 -5.8 ]
+                [  5.8 -5.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 655
+            color: (cmy 0 0.6 0)
+            linewidth: 5
+            vertices: {
+                [  6  6 ]
+                [ -6  6 ]
+                [ -6 -6 ]
+                [  6 -6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 661
+            color: (cmy 0.4 1 1)
+            linewidth: 5
+            vertices: {
+                [  6.2  6.2 ]
+                [ -6.2  6.2 ]
+                [ -6.2 -6.2 ]
+                [  6.2 -6.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 662
+            color: (cmy 0.2 1 1)
+            linewidth: 5
+            vertices: {
+                [  6.4  6.4 ]
+                [ -6.4  6.4 ]
+                [ -6.4 -6.4 ]
+                [  6.4 -6.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 663
+            color: (cmy 0 1 1)
+            linewidth: 5
+            vertices: {
+                [  6.6  6.6 ]
+                [ -6.6  6.6 ]
+                [ -6.6 -6.6 ]
+                [  6.6 -6.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 664
+            color: (cmy 0 0.8 0.8)
+            linewidth: 5
+            vertices: {
+                [  6.8  6.8 ]
+                [ -6.8  6.8 ]
+                [ -6.8 -6.8 ]
+                [  6.8 -6.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 665
+            color: (cmy 0 0.6 0.6)
+            linewidth: 5
+            vertices: {
+                [  7  7 ]
+                [ -7  7 ]
+                [ -7 -7 ]
+                [  7 -7 ]
+            }
+        )
+    }
+)

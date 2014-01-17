@@ -1,0 +1,356 @@
+
+( TestDisplay
+
+   idleSleepTime: 50
+
+   left:       -2.0
+   right:       2.0
+   bottom:     -2.0
+   top:         2.0
+   near:       -2.0
+   far:         2.0
+
+   vpWidth:    600
+   vpHeight:   600
+
+   colorTable: {
+      black:      ( rgb 0 0 0 )
+      red:        ( hsv 0.0 0.9 0.9 )
+      green:      ( rgb 0 1 0 )
+      yellow:     ( rgb 1 1 0 )
+      blue:       ( hsv 240.0 0.7 0.7 )
+      magenta:    ( rgb 1 0 1 )
+      cyan:       ( rgb 0 1 1 )
+      white:      ( hsva 10.0 0.0 0.9 ) //240.0 0.0 0.9 )
+   }
+
+   clearColor: ( hsv 240.0 0.6 0.1 )
+   clearDepth: 1.0
+
+   fonts: {
+   
+      font1: ( BitmapFont
+         fontPosition: [ -2.0 2.0 ]
+         fontWidth: 0.048
+         fontHeight: 0.15
+         bitmapWidth: 11
+         bitmapHeight: 19
+         characterSpacing: 0.048
+         lineSpacing: 0.15
+         path: FONT_11_19_PATH
+      )
+
+      font2: ( BitmapFont
+         fontPosition: [ -2.0 2.0 ]
+         fontWidth: 0.048
+         fontHeight: 0.08
+         bitmapWidth: 11
+         bitmapHeight: 19
+         characterSpacing: 0.08    //0.048
+         lineSpacing: 0.08
+         reverse: 1
+         path: FONT_11_19_PATH
+      )
+
+      font3: ( FTGLPolygonFonts 
+         path: FONT_PATH
+         file: "arialn.ttf"
+         fontWidth: 1
+         fontHeight: 1
+         faceSize: 1
+         characterSpacing: 0.08
+         lineSpacing: 0.16
+      )
+
+   }
+   normalFont: font2
+
+   linewidth: 2.0
+
+   // ---
+   // Graphical components
+   // ---
+   components: {
+
+      ( AsciiText color: white  position: [ 2 1 ]  text: "RANGE:" )
+      rangeRO: ( NumericReadout color: ( rgba 0 1 0 ) position: [ 2 8 ] format: "0##.#" )
+      
+      
+#define AIRTRACK_SYM_SCALE  0.8
+#define AIR_TRACKS_RADIUS   1.8
+
+      ( Graphic
+         transform: ( Translation 0 0 -0.5 )
+         components: {
+         
+            ( Circle selectName: 0x1001 color: ( hsv 100.0 0.9 0.0 ) radius: AIR_TRACKS_RADIUS  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+            ( Circle selectName: 0x1002 color: white radius: AIR_TRACKS_RADIUS  slices: 50  )
+            ( Circle selectName: 0x1003 color: white radius: 0.9  slices: 50  )
+            
+            hsi:  ( Rotators
+               color: white
+               components: {
+                  ( DialTickMarks
+                        color: white
+                        quantity: 36
+                        length:  0.1
+                        dialRadius: AIR_TRACKS_RADIUS
+                  )
+                  ( DialTickMarks
+                        color: white
+                        startAngle: 5
+                        sweepAngle: 360
+                        quantity: 36
+                        length: 0.05
+                        dialRadius: AIR_TRACKS_RADIUS
+                  )
+                  ( Graphic 
+                        components: {
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "N"
+                           ) 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -0.523598 ) ( Translation -0.05 1.5 ) ( Scale 0.14 ) }
+                              text: "3"
+                           )             
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -1.0471975 ) ( Translation -0.05 1.5 ) ( Scale 0.14 ) }
+                              text: "6"
+                           )                         
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -1.570796 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "E"
+                           )
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -2.094395 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "12"
+                           )                                     
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -2.617993 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "15"
+                           )                                                 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -3.141592 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "S"
+                           )
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -3.665191 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "21"
+                           )                                                 
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -4.188790 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "24"
+                           )                                                 
+                            
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -4.712388 ) ( Translation -0.05 1.5 ) ( Scale 0.15 ) }
+                              text: "W"
+                           )     
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -5.235987 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "30"
+                           )  
+                           ( AsciiText
+                              font: font2
+                              color: white
+                              transform: { ( Rotation -5.759586 ) ( Translation -0.1 1.5 ) ( Scale 0.14 ) }
+                              text: "33"
+                           )             
+                        }    
+                  )                                                                                         
+               }
+            )
+            ( Line
+               segment: 1
+               vertices: {
+                  [  0.0  -0.15 ]  [  0.0  0.05 ]
+                  [  0.1   0.0  ]  [ -0.1  0.0  ]
+               }
+            )
+         }
+      )
+            
+      // Air tracks ..
+      airTracks:
+      ( SymbolLoader 
+         outerRadius: AIR_TRACKS_RADIUS
+     
+         // load our templates for each graphic
+         templates: {
+
+            // Friendly track
+            1: ( Graphic
+                  color: green
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.0402 -0.0402 ]
+                                    [ -0.0402  0.0134 ]
+                                    [ -0.0201  0.0402 ]
+                                    [  0.0201  0.0402 ]
+                                    [  0.0402  0.0134 ]
+                                    [  0.0402 -0.0402 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+            
+            // foe track
+            2: ( Graphic
+                  color: red
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.05226  -0.0402 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.0402 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+            
+            
+            // neutral tracks
+            3: ( Graphic
+                  color: white
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.02747  -0.03149 ]
+                                    [ -0.05226  -0.00871 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.00871 ]
+                                    [  0.02747  -0.03149 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+            
+            // unknown tracks
+            4: ( Graphic
+                  color: ( rgba 1.0 0.5 0.0 1.0 )
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                              hdg: ( Rotators
+                                 components: {
+                                    ( Line
+                                          vertices: {
+                                             [ 0.0  0.0 ]
+                                             [ 0.0  0.08 ]
+                                          }
+                                    )
+                                 }
+                              )
+                              ( Line
+                                 vertices: {
+                                    [ -0.02747  -0.03149 ]
+                                    [ -0.05226  -0.00871 ]
+                                    [  0.0       0.0402 ]
+                                    [  0.05226  -0.00871 ]
+                                    [  0.02747  -0.03149 ]
+                                 }
+                              )
+                        }
+                     )
+                  }
+            )
+
+            // Missile track
+            5: ( Graphic
+                  color: magenta
+                  components: {
+                     ( Graphic
+                        transform: ( Scale AIRTRACK_SYM_SCALE )
+                        components: {
+                           hdg: ( Rotators
+                              components: {
+                                 ( Line
+                                       vertices: {
+                                          [ 0.0 -0.05 ]
+                                          [ 0.0  0.05 ]
+                                       }
+                                 )
+                              }
+                           )
+                        }
+                     )
+                  }
+            )
+
+         } // end of template
+      ) 
+      
+   }
+
+)
+

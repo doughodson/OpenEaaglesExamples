@@ -1,0 +1,18 @@
+// This test the core HSI graphic instrument
+testhsi:
+( TestHsi
+    pagingEvent: {
+        n: testalt
+        p: testvvi
+    }
+    components: {
+        // include our basic hsi module
+        #include "openeaagles/instruments/dials/hsi.epp"
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testhsi.epp"
+        )
+    }
+)

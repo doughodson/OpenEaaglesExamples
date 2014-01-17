@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: State
+//------------------------------------------------------------------------------
 #include "State.h"
 #include "Blocks.h"
 #include "Puzzle.h"
@@ -7,7 +9,8 @@
 #include "openeaagles/basic/PairStream.h"
 
 namespace Eaagles {
-namespace Puzzle2 {
+
+namespace Example {
 
 IMPLEMENT_SUBCLASS(State,"PuzzleState")
 
@@ -522,7 +525,7 @@ std::ostream& State::serialize(std::ostream& sout, const int i, const bool slots
 {
    int j = 0;
    if ( !slotsOnly ) {
-      sout << "( " << getFormName() << std::endl;
+      sout << "( " << getFactoryName() << std::endl;
       j = 4;
    }
 
@@ -548,6 +551,5 @@ std::ostream& State::serialize(std::ostream& sout, const int i, const bool slots
    return sout;
 }
 
-
-}  // End of Puzzle2 namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace

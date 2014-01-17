@@ -1,26 +1,19 @@
 //------------------------------------------------------------------------------
-// Class:	TdElevPtr
-// Base class:	Object -> Component -> BasicGL::Graphic -> TdElevPtr
+// Class: TdElevPtr
 //
-// Description: TEST Display Elevation Pointer
-//
-//
-//  ( def-form TdElevPtr
-//  )
-//
-//
+// Description: Test Display Elevation Pointer
 //------------------------------------------------------------------------------
-#ifndef __TdElevPtr_H__
-#define __TdElevPtr_H__
+#ifndef __Eaagles_Example_TdElevPtr_H__
+#define __Eaagles_Example_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 class TdElevPtr : public BasicGL::Graphic
 {
-    DECLARE_SUBCLASS(TdElevPtr,BasicGL::Graphic)
+    DECLARE_SUBCLASS(TdElevPtr, BasicGL::Graphic)
 
 public:
     TdElevPtr();
@@ -32,10 +25,10 @@ public:
     virtual bool onUpdateValue(const Basic::Number* const ouvobj);
 
 private:
-    LCreal      elev;
+    LCreal  elev;
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __TdElevPtr_H__
+#endif

@@ -1,14 +1,15 @@
 //------------------------------------------------------------------------------
 // Class:  Block1x1, Block1x2, Block2x1, Block2x2, Block
 //------------------------------------------------------------------------------
-#ifndef __Block_H_A5D4B937_C689_4757_84E5_2BE074876F41__
-#define __Block_H_A5D4B937_C689_4757_84E5_2BE074876F41__
+#ifndef __Eaagles_Example_Block_H__
+#define __Eaagles_Example_Block_H__
 
 #include "openeaagles/basic/Object.h"
 
 namespace Eaagles {
    namespace Basic { class List; class Integer; }
-namespace Puzzle {
+
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class:  Block
@@ -18,10 +19,9 @@ namespace Puzzle {
 //
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
-//
-// GUID: {A5D4B937-C689-4757-84E5-2BE074876F41}
 //------------------------------------------------------------------------------
-class Block : public Basic::Object {
+class Block : public Basic::Object
+{
     DECLARE_SUBCLASS(Block,Basic::Object)
 
 public:
@@ -76,9 +76,9 @@ private:
 // Class:  Block1x1
 // Base class:  Basic::Object-> Block -> Block1x1
 // Description:  Block size 1 by 1
-// GUID: {BD00EA10-8C06-4b10-B8EF-0DF29C7644B2}
 //------------------------------------------------------------------------------
-class Block1x1 : public Block {
+class Block1x1 : public Block
+{
     DECLARE_SUBCLASS(Block1x1,Block)
 public:
    Block1x1();
@@ -93,9 +93,9 @@ public:
 // Class:  Block1x2
 // Base class:  Basic::Object-> Block -> Block1x2
 // Description:  Block size 1 by 2
-// GUID: {A51DDFC8-D50A-4959-A262-D2B8DC07C698}
 //------------------------------------------------------------------------------
-class Block1x2 : public Block {
+class Block1x2 : public Block
+{
     DECLARE_SUBCLASS(Block1x2,Block)
 public:
    Block1x2();
@@ -110,9 +110,9 @@ public:
 // Class:  Block2x1
 // Base class:  Basic::Object-> Block -> Block2x1
 // Description:  Block size 2 by 1
-// GUID: {556972B1-E4C3-4115-864E-9D9DB7F5F438}
 //------------------------------------------------------------------------------
-class Block2x1 : public Block {
+class Block2x1 : public Block
+{
     DECLARE_SUBCLASS(Block2x1,Block)
 public:
    Block2x1();
@@ -127,9 +127,9 @@ public:
 // Class:  Block2x2
 // Base class:  Basic::Object-> Block -> Block2x2
 // Description:  Block size 2 by 2
-// GUID: {FCCF8F50-C537-4151-825A-9E6227F9579F}
 //------------------------------------------------------------------------------
-class Block2x2 : public Block {
+class Block2x2 : public Block
+{
     DECLARE_SUBCLASS(Block2x2,Block)
 public:
    Block2x2();
@@ -140,7 +140,7 @@ public:
    virtual unsigned int getSizeY() const;
 };
 
-}  // End of Puzzle namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace
 
-#endif /* __Block_H_A5D4B937_C689_4757_84E5_2BE074876F41__ */
+#endif

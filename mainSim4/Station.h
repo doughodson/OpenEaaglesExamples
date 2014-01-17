@@ -1,26 +1,28 @@
 // -------------------------------------------------------------------------------
 // Class: Station
-// Base class:	Simulation::Station -> Station
+//
 // Description:
 //      Derived Station that will know it has a display and can be accessed through
 //      it.  This also runs the simulation, and acts as the interface between the
 //      graphics and simulation.
 // -------------------------------------------------------------------------------
-#ifndef __MAPTEST_STATION_H__
-#define __MAPTEST_STATION_H__
+#ifndef __Eaagles_Example_Station_H__
+#define __Eaagles_Example_Station_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace Eaagles {
+
 namespace Glut { class GlutDisplay; }
-namespace MapTest {
+
+namespace Example {
 
 class Station : public Simulation::Station
 {
     DECLARE_SUBCLASS(Station, Simulation::Station)
-    
+
 public:
-    Station();  
+    Station();
     
     // Basic::Component interface
     virtual void reset();
@@ -35,7 +37,7 @@ private:
     bool displayInit;               // is our display created?
 };
 
-}  // end of MapTest namespace
+}  // end of Example namespace
 }  // end of Eaagles namespace
 
 #endif

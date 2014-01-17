@@ -1,0 +1,100 @@
+( TestStation
+
+   glutDisplay: 
+   #include "adidisplay.epp"
+   
+   mapDisplay: 
+   #include "mapdisplay.epp"
+
+   ownship: player1
+
+   simulation: 
+   ( Simulation
+      latitude:  0
+      longitude: 0
+      players: {
+
+         // --
+         // Ownship players
+         // ---
+         player1:
+         ( Aircraft
+            id:            1
+            side:          blue
+            type:          "F-16"
+            signature:     ( SigSphere radius: 2.0 )
+            initLatitude:  ( Degrees  0 )
+            initLongitude: ( Degrees  0 )
+            initAlt:       ( Feet 20000 )
+            initHeading:   ( Degrees 0 )
+            initVelocity:  100
+
+            components: {
+               pilot:
+               ( Autopilot 
+                  navMode:             0
+                  // maximum rate of turn in degrees per second (PILOT limit)
+                  //maxRateOfTurnDps:    10
+                  // maximum bank angle in degrees (PILOT limit)
+                  //maxBankAngle:        30
+                  //maxClimbRateFpm:     10000.0
+                  // SLS - max pitch angle is currently not implemented
+                  //maxPitchAngle:       85
+                  //maxClimbRateMps:     10.16
+                  //maxAcceleration:          1.0
+
+                  //loiterMode:          1
+                  //loiterPatternCcwFlag: true
+                  //followTheLeadMode:   0
+                  //loiterPatternTime: ( Minutes 3 )
+                  //loiterPatternLength: 2
+               )
+               
+               #if 1
+                  dynamicsModel:
+                  ( LaeroModel )
+               #else
+                  //dynamicsModel:
+                  //( RacModel )
+                  dynamicsModel:
+                  ( JSBSimModel )
+               #endif
+               
+               navigation:
+               ( Navigation
+                  route:
+                  ( Route
+                     to: 1
+                     components: {
+                        ( Steerpoint
+                           latitude:   0.1
+                           longitude:  0.1
+                           altitude: ( Feet 12000 )
+                           airspeed: 300
+                        )
+                        ( Steerpoint 
+                           latitude:   0.1
+                           longitude: -0.1
+                           altitude: ( Feet 13000 )
+                           airspeed: 350
+                        )
+                        ( Steerpoint
+                           latitude:  0.2
+                           longitude: -0.1
+                           altitude: ( Feet 10000 )
+                           airspeed: 350
+                        )
+                        ( Steerpoint
+                           latitude:  -0.1
+                           longitude:  0.1
+                           altitude: ( Feet 5000 )
+                           airspeed: 300
+                        )
+                     }
+                  )
+               )
+            }
+         )
+      }
+   )
+)

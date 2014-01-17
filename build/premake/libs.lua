@@ -2,52 +2,86 @@
 -- creating the example libraries
 --------------------------------------------------------------------------------
 
-    --  Example extended data recorder library
-    project "libMyRecorder"
-      kind "StaticLib"
-      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
-      targetdir (OEExamplesLibPath)
-      files {
-         "../../src/myRecorder/*.cpp",
-         "../../src/myRecorder/*.cc",
-         "../../include/myRecorder/*.h",
-         "../../include/myRecorder/*.proto",
-      }
-      defines { "_LIB" }
-      configuration "Release"
-         targetname "myRecorder"
-      configuration "Debug"
-         targetname "myRecorder_d"
-
-
-    --  Example UBF plane behaviors library
-    project "libPlaneBehaviors"
+    --  eXample UBF behaviors library
+    project "libxBehaviors"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../src/planeBehaviors/*.cpp",
-         "../../include/planeBehaviors/*.h",
+         "../../shared/xBehaviors/*.cpp",
+         "../../shared/xBehaviors/*.h",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "planeBehaviors"
+         targetname "xBehaviors"
       configuration "Debug"
-         targetname "planeBehaviors_d"
+         targetname "xBehaviors_d"
 
-
-    --  Y1 Panel library -- common instrument panel code for several examples
-    project "libY1Panel"
+    --  eXample IEEE HLA interoperability library
+    project "libxHla"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../src/y1panel/*.cpp",
-         "../../include/y1panel/*.h",
-         "../../include/y1panel/**.epp",
+         "../../shared/xHla/**.cpp",
+         "../../shared/xHla/**.h",
+      }
+      includedirs { HLAIncPath }
+      defines { "RTI_USES_STD_FSTREAM" }
+      defines { "_LIB" }
+      configuration "Release"
+         targetname "xHla"
+      configuration "Debug"
+         targetname "xHla_d"
+
+    --  eXample library that extends the data recorder
+    project "libxRecorder"
+      kind "StaticLib"
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      targetdir (OEExamplesLibPath)
+      files {
+         "../../shared/xRecorder/*.cpp",
+         "../../shared/xRecorder/*.cc",
+         "../../shared/xRecorder/*.h",
+         "../../shared/xRecorder/*.proto",
+      }
+      defines { "_LIB" }
+      defines { "_SCL_SECURE_NO_WARNINGS" } -- suppress protocol buffer warning
+      configuration "Release"
+         targetname "xRecorder"
+      configuration "Debug"
+         targetname "xRecorder_d"
+
+    --  eXample Panel library -- common instrument panel code for several examples
+    project "libxPanel"
+      kind "StaticLib"
+      targetdir (OEExamplesLibPath)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      files {
+         "../../shared/xPanel/*.cpp",
+         "../../shared/xPanel/*.h",
+         "../../shared/xPanel/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "y1Panel"
+         targetname "xPanel"
       configuration "Debug"
-         targetname "y1Panel_d"
+         targetname "xPanel_d"
+
+    --  eXample ZeroMQ network handlers
+    project "libxZeroMQHandlers"
+      kind "StaticLib"
+      targetdir (OEExamplesLibPath)
+      includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+      defines { "ZMQ_STATIC" }
+      files {
+         "../../shared/xZeroMQHandlers/*.cpp",
+         "../../shared/xZeroMQHandlers/*.h",
+         "../../shared/xZeroMQHandlers/**.epp",
+      }
+      defines { "_LIB" }
+      configuration "Release"
+         targetname "xZeroMQHandlers"
+      configuration "Debug"
+         targetname "xZeroMQHandlers_d"
+

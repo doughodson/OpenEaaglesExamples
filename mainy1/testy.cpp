@@ -1,8 +1,5 @@
-//*****************************************************************************
-// Example simulation built from parts of mainx9, mainSim3 and mainFlightDisplay2.
-//*****************************************************************************
 
-#include "formFunc.h"
+#include "Factory.h"
 
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/basicGL/Graphic.h"
@@ -11,9 +8,6 @@
 #include "openeaagles/basic/Timers.h"
 
 #include <GL/glut.h>
-
-// Form function
-static Eaagles::Basic::ParserFormFunc myFormFunc = Eaagles::Mainy1::formFunc;
 
 // Default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
@@ -24,18 +18,15 @@ static const int BG_RATE = 10;
 // Top level Station
 static Eaagles::Simulation::Station* station = 0;
 
-//-----------------------------------------------------------------------------
-// Read the configuration file
-//-----------------------------------------------------------------------------
-static Eaagles::Simulation::Station*
-      readConfigFile(const char* const fileName, Eaagles::Basic::ParserFormFunc formFunc)
+// build a station
+static Eaagles::Simulation::Station* builder(const char* const fileName)
 {
    Eaagles::Simulation::Station* p = 0;
 
    // Read the description file
    int errors = 0;
    Eaagles::Basic::Object* q1 =
-         Eaagles::Basic::lcParser(fileName, formFunc, &errors);
+         Eaagles::Basic::lcParser(fileName, Eaagles::Example::Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -93,9 +84,9 @@ int main(int argc, char* argv[])
    }
 
    // ---
-   // Read in the description files
+   // Build a station
    // ---
-   station = readConfigFile(configFile, myFormFunc);
+   station = builder(configFile);
    if (station == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
       exit(EXIT_FAILURE);

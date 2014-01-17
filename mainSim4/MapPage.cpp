@@ -1,3 +1,4 @@
+
 #include "MapPage.h"
 #include "Station.h"
 #include "Display.h"
@@ -9,7 +10,7 @@
 #include "openeaagles/basic/PairStream.h"
 
 namespace Eaagles {
-namespace MapTest {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(MapPage,"MapTestMapPage")
 EMPTY_SLOTTABLE(MapPage)
@@ -312,6 +313,6 @@ void MapPage::updateData(const LCreal dt)
     send("lontext%d", UPDATE_VALUE, lons, lonsSD, MAX_READOUTS);
 }
 
-}  // end of MapTest namespace
+}  // end of Example namespace
 }  // end of Eaagles namespace
 

@@ -1,11 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
-//
-// Base class: Simulation::Station -> Simulation::AgentStation -> SimStation
 //------------------------------------------------------------------------------
-
-#ifndef __SimStation_H__
-#define __SimStation_H__
+#ifndef __Eaagles_Example_SimStation_H__
+#define __Eaagles_Example_SimStation_H__
 
 //#include "agent/AgentStation.h"
 #include "openeaagles/simulation/Station.h"
@@ -16,7 +13,7 @@ namespace Basic { class Table1; class PairStream; }
 namespace Glut { class GlutDisplay; }
 namespace Simulation { class AirVehicle; }
 
-namespace MainUbf1 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -26,12 +23,11 @@ namespace MainUbf1 {
 //              (HOTAS) device, which is usually just a joystick, and adds stepping
 //              of our ownship to the next local, air vehicle player.
 //
-// Form Name: SimStation
+// Factory name: SimStation
 // Slots:
 //      display       <BasicGL::GlutDisplay>  ! Main graphics display
 //
 //------------------------------------------------------------------------------
-
 class SimStation : public Simulation::Station
 {
    DECLARE_SUBCLASS(SimStation, Simulation::Station)
@@ -58,9 +54,7 @@ private:
 
 };
 
-} // End MainUbf1 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __SimStation_H__
-
-
+#endif

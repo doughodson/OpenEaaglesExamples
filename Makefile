@@ -1,39 +1,44 @@
 
 include makedefs
 
-# Libraries are first
-APPLICATIONS = src
+# shared libraries
+APPLICATIONS = shared
+
+# demos
+APPLICATIONS += demoEfis
+APPLICATIONS += demoFlightDisplays1
+APPLICATIONS += demoFlightDisplays2
+APPLICATIONS += demoInstruments
+APPLICATIONS += demoSubDisplays
 
 # graphic oriented examples
 APPLICATIONS += mainw
-APPLICATIONS += mainz1 mainz2 
-APPLICATIONS += mainfd1 mainfd2
-APPLICATIONS += mainEfis
 APPLICATIONS += mainGL
 
-# Non-real-time simulation
+# non-real-time simulation
 APPLICATIONS += mainNonRT1
 
 # terrain database loader
 APPLICATIONS += mainTerrain
 
-# AI development examples 
+# AI development examples
 APPLICATIONS += mainPuzzle1 mainPuzzle2
 
-# Ir example
+# IR example
 APPLICATIONS += mainIr
 
 # simple simulation examples
 APPLICATIONS += mainSim1 mainSim2 mainSim3 mainSim4
 
-# radar and ground mapping radar examples
-APPLICATIONS += mainx9 mainGndMapRdr
+# ground mapping radar example
+APPLICATIONS += mainGndMapRdr
 
 # ubf example
 APPLICATIONS += mainUbf1
 
-#
-APPLICATIONS += mainVmap
+# example of Laero model and autopilot functionality
+APPLICATIONS += mainLaero
+
 #
 APPLICATIONS += mainy1
 
@@ -43,20 +48,23 @@ APPLICATIONS += testStateMach
 APPLICATIONS += testEvents
 APPLICATIONS += testTimer
 
-# device I/O test program
-APPLICATIONS += testIo
+# radar test program
+APPLICATIONS += testRadar
 
-# Matrix test program
+# device I/O test program
+APPLICATIONS += testIoHandler
+
+# matrix test program
 APPLICATIONS += testMatrix
 
-# Random distributions tests
+# random distributions tests
 APPLICATIONS += testRng
 
-# Nav functions tests
-APPLICATIONS += testNav
+# navigation tests
+APPLICATIONS += testNavigation
 
-# network testing
-APPLICATIONS += testNet
+# network handler testing
+APPLICATIONS += testNetHandler
 
 # linear systems package
 APPLICATIONS += testLinearSys
@@ -96,5 +104,4 @@ clean:
 	    echo $@ in $$subdir; \
 	    (cd $$subdir && $(MAKE) $@) || exit 1; \
 	done
-
 

@@ -1,0 +1,2916 @@
+// ---
+// N-squared timing test
+//
+//    Each player with a RADAR and a RWR (plus one red player with an
+//    optional noise jammer), and each player's radar will process
+//    all other players as targets (simple n-squared problem). 
+//
+//    Blue has 3 rows of 8 (24 players) and Red has 3 rows of
+//    8 players (24 players), or 48 total players.  To show the doppler
+//    shift in the real-beam return, the blue's second and third rows are
+//    moving faster, or away from, the first blue row (red shift), and
+//    the red players are comming head-on (blue shift).
+//
+//    Select players on the situation display using the mouse to switch
+//    the 'ownship' focus of the radar and rwr displays.
+//
+//    No track managers, and the R/F parameters are made up.
+//    
+//    (note: On Intel/Xeon 5140 @ 2.33GHz; with 4 processors), execution time is
+//     about 10MS per frame.  Using numTcThreads @ 3 threads, execution time is about
+//     6MS per frame)
+// ---
+
+#define PFRZ true
+//#define JAMMER p135
+#define BLUE_HDG 40
+#define RED_HDG 220
+#define REF_LAT  45.05
+#define REF_LON -90.0
+
+#define NUM_BARS 1
+#define USE_WORLD true
+
+( TestStation
+
+   tcPriority: 1.0
+
+  bgPriority: 0.5
+  bgRate: 10.0
+
+
+#if 1 /* network test -- replaces test3a */
+   netPriority: 1.0
+  netRate: 5.0
+
+   networks: {
+      ( DisNetIO
+         siteID: 1
+         applicationID: 3
+         exerciseID: 1
+         enableInput: true
+         enableOutput: true
+         enableRelay: false
+         netInput:   ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3003 shared: true )
+         netOutput:  ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  localPort: 3003        shared: true )
+
+         // Example emission handler list
+         emissionPduHandlers: {
+            ( EmissionPduHandler
+               emitterName: 777
+               emitterFunction: 1
+               sensor: ( Radar )
+               antenna: ( Antenna
+                  polarization: horizontal
+                  gain: ( dB 36 )
+                  #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
+               )
+               defaultIn:  true
+               defaultOut:  true
+            )
+         }
+
+         #include "DisIncomingEntityTypes.epp"
+         #include "DisOutgoingEntityTypes.epp"
+      )
+   }
+#endif
+
+    glutDisplay:
+      #include "displays.epp"
+
+    // ---
+    // Simulation scenario
+    // ---
+    ownship: p011
+    simulation: ( Simulation
+
+        latitude:  REF_LAT
+        longitude: REF_LON
+
+        //gamingAreaRange: ( KiloMeters 20.0 )
+
+        enableTimingStats: true
+        printTimingStats: true
+        players: {
+
+            // ---
+            // Blue row #1
+            // ---
+            
+            p011: ( Aircraft
+                id: 1011
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0     0 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 190  10 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 0 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRateAzimuth:   ( Degrees 25 ) // per second
+                           commandRateElevation: ( Degrees 25 ) // per second
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p012: ( Aircraft
+                id: 1012
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  2000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  20 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 2 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p013: ( Aircraft
+                id: 1013
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  4000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  30 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 4 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p014: ( Aircraft
+                id: 1014
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  6000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  40 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 6 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p015: ( Aircraft
+                id: 1015
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  8000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  50 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 8 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p016: ( Aircraft
+                id: 1016
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 10000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  60 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 10 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p017: ( Aircraft
+                id: 1017
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 12000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  20 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 12 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p018: ( Aircraft
+                id: 1018
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 14000 ) )
+                initYPos:  ( Meters ( + -15000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  20 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 12 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            // ---
+            // Blue row #2
+            // ---
+            
+            p021: ( Aircraft
+                id: 1021
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0     0 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  70 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 14 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p022: ( Aircraft
+                id: 1022
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  2000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  80 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 16 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p023: ( Aircraft
+                id: 1023
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  4000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  90 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 18 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p024: ( Aircraft
+                id: 1024
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  6000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 100 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 20 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p025: ( Aircraft
+                id: 1025
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  8000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 110 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 22 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p026: ( Aircraft
+                id: 1026
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 10000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 120 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 24 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p027: ( Aircraft
+                id: 1027
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 12000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  80 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 26 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p028: ( Aircraft
+                id: 1028
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 14000 ) )
+                initYPos:  ( Meters ( + -15000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160  80 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 26 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            // ---
+            // Blue row #3
+            // ---
+            
+            p031: ( Aircraft
+                id: 1031
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0     0 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 130 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 28 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p032: ( Aircraft
+                id: 1032
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  2000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 140 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 30 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p033: ( Aircraft
+                id: 1033
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  4000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 150 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 32 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p034: ( Aircraft
+                id: 1034
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  6000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 160 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 34 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p035: ( Aircraft
+                id: 1035
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0  8000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 170 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 36 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p036: ( Aircraft
+                id: 1036
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 10000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 180 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 38 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )            
+
+            p037: ( Aircraft
+                id: 1037
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 12000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 140 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees  BLUE_HDG )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+   
+            p038: ( Aircraft
+                id: 1038
+                side: blue
+                type: "F-16"
+                signature: ( SigSphere radius: 1.0 )
+                initXPos:  ( Meters ( +      0 14000 ) )
+                initYPos:  ( Meters ( + -15000  4000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  BLUE_HDG )
+                initVelocity: ( + 160 140 )
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees  BLUE_HDG )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            // ---
+            // Red row #1
+            // ---
+            
+            p111: ( Aircraft
+                id: 1111
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000     0 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 0 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p112: ( Aircraft
+                id: 1112
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  2000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p113: ( Aircraft
+                id: 1113
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  4000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p114: ( Aircraft
+                id: 1114
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  6000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 3.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p115: ( Aircraft
+                id: 1115
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  8000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p116: ( Aircraft
+                id: 1116
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 10000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p117: ( Aircraft
+                id: 1117
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 12000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p118: ( Aircraft
+                id: 1118
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 14000 ) )
+                initYPos:  ( Meters ( +      0     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            
+            // ---
+            // Red row #2
+            // ---
+            
+            p121: ( Aircraft
+                id: 1121
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000     0 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p122: ( Aircraft
+                id: 1122
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  2000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p123: ( Aircraft
+                id: 1123
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  4000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p124: ( Aircraft
+                id: 1124
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  6000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p125: ( Aircraft
+                id: 1125
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  8000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p126: ( Aircraft
+                id: 1126
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 10000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p127: ( Aircraft
+                id: 1127
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 12000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p128: ( Aircraft
+                id: 1128
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 14000 ) )
+                initYPos:  ( Meters ( +   2000     0 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+            
+                        
+            // ---
+            // Red row #3
+            // ---
+            
+            p131: ( Aircraft
+                id: 1131
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000     0 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p132:  ( Aircraft
+                id: 1132
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  2000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p133: ( Aircraft
+                id: 1133
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  4000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p134: ( Aircraft
+                id: 1134
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  6000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p135: ( Aircraft
+                id: 1135
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000  8000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+#ifdef JAMMER
+                        jammer: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 5 )
+                           //initPosition: [ -0.17 0 ]
+                           initPosition: [ 0.0 0 ]
+                           #include "gainPattern.epp"
+                           useWorldCoordinates: USE_WORLD
+                        )
+#endif
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+#ifdef JAMMER
+                        ( Jammer
+                              antennaName: jammer
+                              powerPeak:  ( KiloWatts 500.0 )
+                              frequency:  ( GigaHertz 3.0 )
+                              bandwidth:  ( KiloHertz 500.0 )
+                              ranges:     [ 80 ]
+                        )
+#endif
+                     }
+                  )
+               }
+            )
+
+            p136: ( Aircraft
+                id: 1136
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 10000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p137:  ( Aircraft
+                id: 1137
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 12000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                           useWorldCoordinates: USE_WORLD
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+            p138: ( Aircraft
+                id: 1138
+                side: red
+                type: "F-16"
+                signature: ( SigConstant rcs: 1.0 )
+                initXPos:  ( Meters ( +  16000 14000 ) )
+                initYPos:  ( Meters ( +   2000  2000 ) )
+                initAlt:   ( Meters  10000 )
+                initHeading: ( Degrees  RED_HDG )
+                initVelocity: 200
+                positionFreeze: PFRZ
+                components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosition: [ 0 0 ]
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRates: [ 0.43633 0.6981 ]
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: NUM_BARS
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 1 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+               }
+            )
+
+        }
+    )
+)

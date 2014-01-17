@@ -2,7 +2,7 @@
 include ../makedefs
 
 PGM = mainPuzzle1
-OBJS =  Blocks.o Board.o formFunc.o mainPuz.o Puzzle.o State.o
+OBJS =  Blocks.o Board.o Factory.o mainPuz.o Puzzle.o State.o
 
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
@@ -15,7 +15,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/puzzle.epp >puzzle.edl $(EPPFLAGS)
+	cpp configs/puzzle.epp >puzzle.edl $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

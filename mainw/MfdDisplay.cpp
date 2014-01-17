@@ -2,7 +2,7 @@
 #include "MfdDisplay.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdDisplay,"MfdDisplay")
 EMPTY_SERIALIZER(MfdDisplay)
@@ -18,5 +18,5 @@ MfdDisplay::MfdDisplay()
    STANDARD_CONSTRUCTOR()
 }
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace

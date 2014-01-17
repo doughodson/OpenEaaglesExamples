@@ -1,0 +1,20 @@
+// =============================================================================
+// Define the screen for this station
+// =============================================================================
+
+//  ---
+// Display size (default is 4x3 1280x1024)
+//  ---
+//#define D1920x1200    /* 16x10 1920x1200 */
+//#define D1920x1080    /* 16x9  1920x1080 */
+//#define D1024x768H    /* 16x9  1024x768  */
+//#define D1600x1200    /*  4x3  1600x1200 */
+//#define D1024x768     /*  4x3  1024x768  */
+                        /* or default             4x3  1280x1024 */
+
+
+//  ---
+// Full screen flag (set to true(1) or false(0)
+//  ---
+#define FULL_SCREEN_FLAG    0
+

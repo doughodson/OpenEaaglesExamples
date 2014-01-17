@@ -1,0 +1,24 @@
+//
+// Echo endpoint
+//
+
+( Echo
+    noWait: false
+
+    // Single handler test
+    netHandler:   ( UdpUnicastHandler
+                     localIpAddress: localhost
+                     ipAddress:      localhost
+                     port:           3002
+                     localPort:      3001
+                  )
+
+
+    // Double handler test
+    //netInput:       ( UdpUnicastHandler  port: 3001                   shared: true )
+    //netOutput:      ( UdpUnicastHandler  ipAddress: "172.17.160.92"  port: 3002  localPort: 3001  shared: true )
+
+    // Single handler (localhost) test
+    //netHandler:   ( UdpUnicastHandler  localIpAddress: localhost   port: 3002  localPort: 3001  shared: true )
+)
+

@@ -1,0 +1,52 @@
+
+#include "openeaagles/simulation/dataRecorderTokens.h"
+
+( DataRecordTest
+
+#if 1
+   // Input from mainy1's file
+   inputHandler:
+   ( RecorderFileReader
+      filename: "../shared/data/recorder/zFileWriter.ebd"
+   )
+
+#else
+   // Input from mainy1's network data stream
+   inputHandler:
+   ( RecorderNetInput
+      netHandler: ( UdpUnicastHandler
+         localIpAddress: localhost
+         port: 4950
+         shared: true
+      )
+   )
+#endif
+
+   outputHandler:
+   ( RecorderOutputHandler
+      components: {
+         // Tab printer
+         ( TabPrinter
+            //enabledList: [ REID_PLAYER_DATA ]
+            msgHdrOptn: NEW_MSG
+            filename: "./zTabPrinter2.csv"
+         )
+         ( TabPrinter
+            disabledList: [ REID_PLAYER_DATA ]
+            msgHdrOptn: NEW_MSG
+            filename: "./zTabPrinter2a.csv"
+         )
+         ( PrintPlayer
+            playerName: "duck11"
+            filename: "./zPrintPlayer2.csv"
+         )
+         ( PrintSelected
+            filename: "./zPrintSelected2.csv"
+            messageToken: REID_PLAYER_DATA
+            fieldName:   "Eaagles.Recorder.Pb.PlayerId.name"
+            compareToValS: "duck12"
+         )
+         ( PrintMyData )
+      }
+   )
+)

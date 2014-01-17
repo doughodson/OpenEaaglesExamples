@@ -1,4 +1,6 @@
-
+//------------------------------------------------------------------------------
+// Class: RealBeamRadar
+//------------------------------------------------------------------------------
 #include "RealBeamRadar.h"
 
 #include "openeaagles/simulation/Antenna.h"
@@ -19,7 +21,7 @@
 #include "openeaagles/basic/units/Distances.h"
 
 namespace Eaagles {
-namespace MainGndMapRdr {
+namespace Example {
 
 const int IMG_WIDTH = 1024;
 const int IMG_HEIGHT = 1024;
@@ -476,7 +478,7 @@ Basic::Object* RealBeamRadar::getSlotByIndex(const int si)
 }
 
 
-} // end MainGndMapRdr namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 

@@ -1,0 +1,129 @@
+
+#define HDNG1 0
+#define RANGE1 24000
+#define HDNG2 5
+#define RANGE2 29000
+#define PITCH 0
+#define HDNG 2
+
+//#define REF_LATITUDE      45.5 // Seattle
+//#define REF_LONGITUDE    -121.5
+#define REF_LATITUDE      37.0
+#define REF_LONGITUDE    -116.0
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+
+( TestStation
+
+   tcRate: 100
+   tcPriority: 0.5
+
+   // interoperability network
+//   #include "networkSetup.epp"
+
+   // display
+   glutDisplay:
+      #include "displays.epp"
+
+   // cigi driver
+//   #include "otwSetupCigi.epp"
+
+   // ---
+   // Simulation scenario
+   // ---
+   ownship: ownship
+   simulation: ( Simulation
+
+      // Reference position (player positions are relative to this location)
+     latitude:  REF_LATITUDE
+     longitude: REF_LONGITUDE
+
+      #include "irAtmosphere.epp"
+      
+      players: {
+
+         // ---
+         // Ownship player (i.e., the launch platform)
+         // ---
+         ownship: ( Aircraft
+            id: 999
+            side: blue
+            type: "F-16"
+
+            initPosition: [ 0 0 -10000 ]
+            initHeading: ( Degrees HDNG )
+            initPitch: ( Degrees PITCH )
+            initVelocity: 300 //250
+
+            components: {
+               sms: ( StoresMgr
+                  numStations: 2
+                  stores: {
+                     1: ( AamMissile
+                        #ifdef USE_MISSILE_OFFSET
+                           initPosition: [1.0 5.0 1.0]
+                        #endif
+                        power: 0
+                        maxTOF:  150.0
+                        maxBurstRng: 50
+                        lethalRange: 30.0
+                        type: "AIM-9"              // this helps map the OTW models - Missile + type
+                        enableMessageType: INFO
+                        //enableMessageType: DEBUG
+                        components: {
+                           // if not configured with obc, sensor and seeker, will behave as simple aam
+                           // to configure as an IR missile, need all of OBC, Sensor and Seeker
+                           #include "IrAAMcomponents.epp"
+                        }
+                     )
+                     2: ( AamMissile
+                        #ifdef USE_MISSILE_OFFSET
+                           initPosition: [1.0 -5.0 1.0]
+                        #endif
+                        power: 0
+                        maxTOF:  150.0
+                        maxBurstRng: 50
+                        lethalRange: 30.0
+                        type: "AIM-9"             // this helps map the OTW models - Missile + type
+                        enableMessageType: INFO
+                        //enableMessageType: DEBUG
+                        components: {
+                           // if not configured with obc, sensor and seeker, will behave as simple aam
+                           // to configure as an IR missile, need all of OBC, Sensor and Seeker
+                           #include "IrAAMcomponents.epp"
+                        }
+                     )
+                  }
+               )
+            } // End of ownship's components
+         ) // End 'ownship' player
+
+         target1: ( Aircraft
+            id: 1
+            side: red
+            type: "F-16"
+            killRemoval: true
+            #include "irSignature.epp"
+            initVelocity: 200
+            initHeading: ( Degrees HDNG1 )
+            initPitch: ( Degrees PITCH )
+            initPosition: [ RANGE1 0 -10000 ]
+         )
+#if 1
+         target2: ( Aircraft
+            id: 2
+            side: red
+            type: "F-16"
+            killRemoval: true
+            #include "irSignature.epp"
+            initVelocity: 200
+            initHeading: ( Degrees HDNG2 )
+            initPitch: ( Degrees PITCH )
+            initPosition: [ RANGE2 0 -10000 ]
+         )
+#endif
+      } // End Players
+   ) // End Simulation
+) // End station
+

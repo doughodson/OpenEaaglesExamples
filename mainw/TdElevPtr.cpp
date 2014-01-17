@@ -3,11 +3,10 @@
 #include "openeaagles/basic/Number.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
 EMPTY_SERIALIZER(TdElevPtr)
-
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -59,5 +58,5 @@ bool TdElevPtr::onUpdateValue(const Basic::Number* const ouvobj)
     return true;
 }
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace

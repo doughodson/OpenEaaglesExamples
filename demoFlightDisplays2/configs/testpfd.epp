@@ -1,0 +1,17 @@
+testpfd:
+( TestPfd
+    components: {
+        // Label to tell us what test we are running
+      ( AsciiText
+         position: [ 26 2 ]
+         color: white
+         text: "testpfd.epp"
+      )
+      ( Graphic
+          transform: { ( Translation 0 2 ) ( Scale 2.5 ) }
+          components: {
+                #include "pfd.epp"
+            }
+        )
+    }
+)

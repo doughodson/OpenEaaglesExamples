@@ -1,0 +1,70 @@
+// ------------------------------------------------------------------------------------
+// Analog Dial - generic dial for making an instrument 
+// ------------------------------------------------------------------------------------
+
+// Notice that we have names this page "testspeedbrake".  This is used as a unique identifier for each page, and allows the paging event below
+// to easily page from one to the next
+testspeedbrake: 
+( TestSpeedBrake
+   // Test Speed Brake is a program that looks for particular component(s) by name, and sends them data via Event messages.  The components are instrument objects, which
+   // understand that when they receive certain events, they are to do a certain task.  You can view TestSpeedBrake.cpp to see how the events are passed (updateData()).
+
+    pagingEvent: {
+        n: testbuttons
+        p: testadi
+    }
+    // Paging event is a page specific slot that allows us to easily switch back and forth between pages.  It works by defining a character to press and a page to go to.  In the above
+    // example, it can be explained that by pressing the key 'n', you will switch to the 'testftitdial' page, and by pressing the 'p' key, you will switch
+    // to the 'testhsimode' page.  This is why we label each page, just like this page is labeled 'testspeedbrake'.  You can define any keys and any page here, but we have made it 
+    // so you can step through each page from beginning to end.  You will see in the 'testftitdial' page, our 'p' key is pointing to this page 'testspeedbrake'.  That way it makes 
+    // a big loop of next and previous pages.
+    
+    // Here are our components
+    components: {
+
+    sbrakeRO:
+        ( NumericReadout
+            position: [ 20 24 ]
+            color: white
+            // this slot shows us how to display our number.  You can also specify leading zeros and plus and minus operators by using the "0##.#" and "+0##.#" formats.
+            //  See Readouts.h for examples.
+            format: "###.#"
+        )
+        // this is a simple example of how to output data to an object.  You can see that this NumericReadout is named 'sbrakeRO'.  In TestSpeedBrake.cpp, in the updateData() function, we 
+        // send data to this readout by using a send command.  The send command is a Component command that looks for a specific object by the name you give it, and if it finds that object
+        // it sends the Event Message, and a value to be changed to or updated, if it needs a value.  For example, NumericReadout has an event table (see Readouts.cpp, and look for the 
+        // BEGIN_EVENT_HANDLER macro) which understands the event UPDATE_VALUE (you can find all the Event message definition in basic/support.h.  
+        // TestSpeedBrake uses the send command, specifying 'sbrakeRO' as the name, and sends the UPDATE_VALUE event, and sends a new speedbrake
+        // position (TestSpeedBrake.cpp, updateData() function).  The NumericReadout automatically updates the new value and displays it for you.  This way you can dynamically change the 
+        // value of the speedbrake in this readout.  This is the how we pass event messages to our components via the .epp files.  
+        
+        #include "openeaagles/instruments/dials/speedbrake.epp"
+        // include our basic speedbrake module, which is simply an instrument object that is named and understands event messages, we could also copy and paste speedbrake.epp directly into 
+        // here, and it would work just the same.  This is an instrument library object, and can be found in eaagles1/dials/speedbrake.epp
+        
+        // These are AsciiText readouts, which use the fonts we created in our InstrDisplay.  The position is [ line column ] value on the screen.
+        ( AsciiText
+            color: white
+            position: [ 1 2 ]
+            text: "press n to go to the next page"
+        )
+        ( AsciiText
+            color: white
+            position: [ 2 2 ]
+            text: "press p to go the previous page"
+        )
+        ( AsciiText
+            color: white
+            position: [ 20 2 ]
+            text: "SPEEDBRAKE POSITION = " 
+        )        
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testspeedbrake.epp"
+         )
+
+    }
+)
+

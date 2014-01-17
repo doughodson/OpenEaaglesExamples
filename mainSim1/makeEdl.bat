@@ -1,6 +1,6 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% inputs/test.epp  > test.edl   -I ..\data
-%mcpp% inputs/testH.epp > testH.edl  -I ..\data
+%mcpp% configs/test.epp  > test.edl  -I ..\shared\data
+%mcpp% configs/testH.epp > testH.edl -I ..\shared\data
 

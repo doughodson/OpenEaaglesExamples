@@ -6,9 +6,9 @@ PGM = mainUbf1
 #
 OBJS = mainUbf1.o
 OBJS += SimStation.o TestDisplay.o
-OBJS += TestIoHandler.o formFunc.o
+OBJS += TestIoHandler.o Factory.o
 
-LDFLAGS += -lPlaneBehaviors -lY1Panel
+LDFLAGS += -lxBehaviors -lxPanel
 LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -lJSBSim -loeBasic
@@ -27,8 +27,8 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/agentTest.epp    >agentTest.edl   $(EPPFLAGS)
-	cpp inputs/simAgentTest.epp >simAgentTest.edl   $(EPPFLAGS)
+	cpp configs/agentTest.epp    >agentTest.edl   $(EPPFLAGS)
+	cpp configs/simAgentTest.epp >simAgentTest.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

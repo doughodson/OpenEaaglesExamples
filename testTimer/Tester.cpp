@@ -2,14 +2,14 @@
 // Timer Tester class
 //------------------------------------------------------------------------------
 
-#include "./Tester.h"
+#include "Tester.h"
 
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/Timers.h"
 
 namespace Eaagles {
-namespace TestTimer {
+namespace Test {
 
 IMPLEMENT_SUBCLASS(Tester,"Tester")
 EMPTY_SERIALIZER(Tester)
@@ -195,6 +195,5 @@ Basic::Object* Tester::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // namespace Example07
+} // namespace Test
 } // namespace Eaagles
-

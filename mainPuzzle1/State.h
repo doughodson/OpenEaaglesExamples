@@ -1,28 +1,26 @@
 //------------------------------------------------------------------------------
 // Class:  State
 //------------------------------------------------------------------------------
-#ifndef __State_H_316AF014_A56A_43b7_B98D_55DEFCB6B971__
-#define __State_H_316AF014_A56A_43b7_B98D_55DEFCB6B971__
+#ifndef __Eaagles_Example_State_H__
+#define __Eaagles_Example_State_H__
 
 #include "openeaagles/basic/Component.h"
 
 namespace Eaagles {
    namespace Basic { class PairStream; }
-namespace Puzzle {
+
+namespace Example {
 
 class Block;
 class Puzzle;
 
 //------------------------------------------------------------------------------
-// Class:  State
-// Base class:  Basic::Object-> State
+// Class: State
 //
 // Description:  Puzzle state vector
-//
-//
-// GUID: {316AF014-A56A-43b7-B98D-55DEFCB6B971}
 //------------------------------------------------------------------------------
-class State : public Basic::Component {
+class State : public Basic::Component
+{
     DECLARE_SUBCLASS(State,Basic::Component)
 
 public:
@@ -72,7 +70,7 @@ private:
    int      generation;                // Generation index
 };
 
-}  // End of Puzzle namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace
 
-#endif /* __State_H_316AF014_A56A_43b7_B98D_55DEFCB6B971__ */
+#endif

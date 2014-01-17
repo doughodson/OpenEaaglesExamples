@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-#ifndef __SimStation_H__
-#define __SimStation_H__
+#ifndef __Eaagles_Example_SimStation_H__
+#define __Eaagles_Example_SimStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -11,7 +11,7 @@ namespace Eaagles {
    namespace Glut { class GlutDisplay; }
    namespace Simulation { class AirVehicle; }
 
-namespace Sim3 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -21,7 +21,7 @@ namespace Sim3 {
 //              (HOTAS) device, which is usually just a joystick, and adds stepping
 //              of our ownship to the next local, air vehicle player.
 //
-// Form Name: SimStation
+// Factory name: SimStation
 // Slots:
 //      display                 <Glut::GlutDisplay>  ! Main graphics display
 //      autoResetTimer          <Time>               ! Auto RESET timer value (Basic::Time); default: 0
@@ -55,7 +55,7 @@ private:
     const Basic::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
-} // End Sim3 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __SimStation_H__
+#endif

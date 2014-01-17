@@ -1,4 +1,6 @@
-
+// ----------------------------------------------------------------------------
+// Class: Display
+// ----------------------------------------------------------------------------
 #include "Display.h"
 #include "RealBeamRadar.h"
 
@@ -18,7 +20,7 @@
 #include "openeaagles/basic/units/Distances.h"
 
 namespace Eaagles {
-namespace MainGndMapRdr {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(Display,"RbrDisplay")
 EMPTY_SERIALIZER(Display)
@@ -217,8 +219,6 @@ void Display::configure()
    glBlendFunc(GL_ONE,  GL_ZERO);
 }
 
-
-
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
@@ -227,6 +227,6 @@ Basic::Object* Display::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end MainGm namespace
+}; // end Example namespace
 }; // end Eaagles namespace
 

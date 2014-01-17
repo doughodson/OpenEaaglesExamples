@@ -1,0 +1,399 @@
+// ---
+// Example MFD page YIQColors
+// ---
+
+yiqcolors:
+( MfdPage
+    pagingEvent: {
+        n: materials
+        p: cmycolors
+    }
+    components: {
+        ( AsciiText text: "YIQ" position: [ 1 1 ] )
+        ( LineLoop
+            selectName: 601
+            color: (yiq 0.2 0 0)
+            linewidth: 5
+            vertices: {
+                [  0.2  0.2 ]
+                [ -0.2  0.2 ]
+                [ -0.2 -0.2 ]
+                [  0.2 -0.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 602
+            color: (yiq 0.4 0 0)
+            linewidth: 5
+            vertices: {
+                [  0.4  0.4 ]
+                [ -0.4  0.4 ]
+                [ -0.4 -0.4 ]
+                [  0.4 -0.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 603
+            color: (yiq 0.6 0 0)
+            linewidth: 5
+            vertices: {
+                [  0.6  0.6 ]
+                [ -0.6  0.6 ]
+                [ -0.6 -0.6 ]
+                [  0.6 -0.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 604
+            color: (yiq 0.8 0 0)
+            linewidth: 5
+            vertices: {
+                [  0.8  0.8 ]
+                [ -0.8  0.8 ]
+                [ -0.8 -0.8 ]
+                [  0.8 -0.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 605
+            color: (yiq 1 0 0)
+            linewidth: 5
+            vertices: {
+                [  1  1 ]
+                [ -1  1 ]
+                [ -1 -1 ]
+                [  1 -1 ]
+            }
+        )
+        ( LineLoop
+            selectName: 611
+            color: (yiq .532 .193 -.187)
+            linewidth: 5
+            vertices: {
+                [  1.2  1.2 ]
+                [ -1.2  1.2 ]
+                [ -1.2 -1.2 ]
+                [  1.2 -1.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 612
+            color: (yiq .709 .257 -.249)
+            linewidth: 5
+            vertices: {
+                [  1.4  1.4 ]
+                [ -1.4  1.4 ]
+                [ -1.4 -1.4 ]
+                [  1.4 -1.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 613
+            color: (yiq .886 .321 -.311)
+            linewidth: 5
+            vertices: {
+                [  1.6  1.6 ]
+                [ -1.6  1.6 ]
+                [ -1.6 -1.6 ]
+                [  1.6 -1.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 614
+            color: (yiq .909 .257 -.247)
+            linewidth: 5
+            vertices: {
+                [  1.8  1.8 ]
+                [ -1.8  1.8 ]
+                [ -1.8 -1.8 ]
+                [  1.8 -1.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 615
+            color: (yiq .932 .193 -.183)
+            linewidth: 5
+            vertices: {
+                [  2  2 ]
+                [ -2  2 ]
+                [ -2 -2 ]
+                [  2 -2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 621
+            color: (yiq .352 -.165 -.311)
+            linewidth: 5
+            vertices: {
+                [  2.2  2.2 ]
+                [ -2.2  2.2 ]
+                [ -2.2 -2.2 ]
+                [  2.2 -2.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 622
+            color: (yiq .470 -.220 -.415)
+            linewidth: 5
+            vertices: {
+                [  2.4  2.4 ]
+                [ -2.4  2.4 ]
+                [ -2.4 -2.4 ]
+                [  2.4 -2.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 623
+            color: (yiq .587 -.275 -.52)
+            linewidth: 5
+            vertices: {
+                [  2.6  2.6 ]
+                [ -2.6  2.6 ]
+                [ -2.6 -2.6 ]
+                [  2.6 -2.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 624
+            color: (yiq .670 -.220 -.413)
+            linewidth: 5
+            vertices: {
+                [  2.8  2.8 ]
+                [ -2.8  2.8 ]
+                [ -2.8 -2.8 ]
+                [  2.8 -2.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 625
+            color: (yiq .752 -.165 -.307)
+            linewidth: 5
+            vertices: {
+                [  3  3 ]
+                [ -3  3 ]
+                [ -3 -3 ]
+                [  3 -3 ]
+            }
+        )
+        ( LineLoop
+            selectName: 631
+            color: (yiq .421 -.358 -.121)
+            linewidth: 5
+            vertices: {
+                [  3.2  3.2 ]
+                [ -3.2  3.2 ]
+                [ -3.2 -3.2 ]
+                [  3.2 -3.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 632
+            color: (yiq .561 -.479 -.162)
+            linewidth: 5
+            vertices: {
+                [  3.4  3.4 ]
+                [ -3.4  3.4 ]
+                [ -3.4 -3.4 ]
+                [  3.4 -3.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 633
+            color: (yiq .701 -.596 -.202)
+            linewidth: 5
+            vertices: {
+                [  3.6  3.6 ]
+                [ -3.6  3.6 ]
+                [ -3.6 -3.6 ]
+                [  3.6 -3.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 634
+            color: (yiq .761 -.477 -.160)
+            linewidth: 5
+            vertices: {
+                [  3.8  3.8 ]
+                [ -3.8  3.8 ]
+                [ -3.8 -3.8 ]
+                [  3.8 -3.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 635
+            color: (yiq .821 -.358 -.117)
+            linewidth: 5
+            vertices: {
+                [  4  4 ]
+                [ -4  4 ]
+                [ -4 -4 ]
+                [  4 -4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 641
+            color: (yiq .068 -.193 .193)
+            linewidth: 5
+            vertices: {
+                [  4.2  4.2 ]
+                [ -4.2  4.2 ]
+                [ -4.2 -4.2 ]
+                [  4.2 -4.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 642
+            color: (yiq .091 -.257 .257)
+            linewidth: 5
+            vertices: {
+                [  4.4  4.4 ]
+                [ -4.4  4.4 ]
+                [ -4.4 -4.4 ]
+                [  4.4 -4.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 643
+            color: (yiq .114 -.321 .321)
+            linewidth: 5
+            vertices: {
+                [  4.6  4.6 ]
+                [ -4.6  4.6 ]
+                [ -4.6 -4.6 ]
+                [  4.6 -4.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 644
+            color: (yiq .291 -.257 .259)
+            linewidth: 5
+            vertices: {
+                [  4.8  4.8 ]
+                [ -4.8  4.8 ]
+                [ -4.8 -4.8 ]
+                [  4.8 -4.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 645
+            color: (yiq .468 -.193 .197)
+            linewidth: 5
+            vertices: {
+                [  5  5 ]
+                [ -5  5 ]
+                [ -5 -5 ]
+                [  5 -5 ]
+            }
+        )
+        ( LineLoop
+            selectName: 651
+            color: (yiq .248 .165 .307)
+            linewidth: 5
+            vertices: {
+                [  5.2  5.2 ]
+                [ -5.2  5.2 ]
+                [ -5.2 -5.2 ]
+                [  5.2 -5.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 652
+            color: (yiq .330 .220 .413)
+            linewidth: 5
+            vertices: {
+                [  5.4  5.4 ]
+                [ -5.4  5.4 ]
+                [ -5.4 -5.4 ]
+                [  5.4 -5.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 653
+            color: (yiq .413 .275 .52)
+            linewidth: 5
+            vertices: {
+                [  5.6  5.6 ]
+                [ -5.6  5.6 ]
+                [ -5.6 -5.6 ]
+                [  5.6 -5.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 654
+            color: (yiq .530 .220 .415)
+            linewidth: 5
+            vertices: {
+                [  5.8  5.8 ]
+                [ -5.8  5.8 ]
+                [ -5.8 -5.8 ]
+                [  5.8 -5.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 655
+            color: (yiq .648 .165 .311)
+            linewidth: 5
+            vertices: {
+                [  6  6 ]
+                [ -6  6 ]
+                [ -6 -6 ]
+                [  6 -6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 661
+            color: (yiq .179 .358 .127)
+            linewidth: 5
+            vertices: {
+                [  6.2  6.2 ]
+                [ -6.2  6.2 ]
+                [ -6.2 -6.2 ]
+                [  6.2 -6.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 662
+            color: (yiq .239 .477 .170)
+            linewidth: 5
+            vertices: {
+                [  6.4  6.4 ]
+                [ -6.4  6.4 ]
+                [ -6.4 -6.4 ]
+                [  6.4 -6.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 663
+            color: (yiq .299 .596 .212)
+            linewidth: 5
+            vertices: {
+                [  6.6  6.6 ]
+                [ -6.6  6.6 ]
+                [ -6.6 -6.6 ]
+                [  6.6 -6.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 664
+            color: (yiq .439 .477 .172)
+            linewidth: 5
+            vertices: {
+                [  6.8  6.8 ]
+                [ -6.8  6.8 ]
+                [ -6.8 -6.8 ]
+                [  6.8 -6.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 665
+            color: (yiq .579 .358 .131)
+            linewidth: 5
+            vertices: {
+                [  7  7 ]
+                [ -7  7 ]
+                [ -7 -7 ]
+                [  7 -7 ]
+            }
+        )
+    }
+)

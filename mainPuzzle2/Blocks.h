@@ -1,14 +1,15 @@
 //------------------------------------------------------------------------------
 // Class:  Block1, Block2, ... Block15, Block
 //------------------------------------------------------------------------------
-#ifndef __Block_H_64771F48_3151_4bfc_B104_DDBF0F33D7DA__
-#define __Block_H_64771F48_3151_4bfc_B104_DDBF0F33D7DA__
+#ifndef __Eaagles_Example_Blocks_H__
+#define __Eaagles_Example_Blocks_H__
 
 #include "openeaagles/basic/Object.h"
 
 namespace Eaagles {
    namespace Basic { class List; class Integer; }
-namespace Puzzle2 {
+
+namespace Example {
 
 class Puzzle;
 
@@ -20,8 +21,6 @@ class Puzzle;
 //
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
-//
-// GUID: {64771F48-3151-4bfc-B104-DDBF0F33D7DA}
 //------------------------------------------------------------------------------
 class Block : public Basic::Object {
     DECLARE_SUBCLASS(Block,Basic::Object)
@@ -276,7 +275,7 @@ public:
    virtual unsigned int getSizeY() const;
 };
 
-}  // End of Puzzle2 namespace
+}  // End of Example namespace
 }  // End of Eaagles namespace
 
-#endif /* __Block_H_64771F48_3151_4bfc_B104_DDBF0F33D7DA__ */
+#endif

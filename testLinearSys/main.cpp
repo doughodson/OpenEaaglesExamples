@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace Eaagles {
-namespace TestLinearSys {
+namespace Test {
 
 int main(int, char**)
 {
@@ -53,11 +53,11 @@ int main(int, char**)
    return EXIT_SUCCESS;
 }
 
-} // End TestLinearSys namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 
 int main(int argc, char* argv[], char**)
 {
-   return Eaagles::TestLinearSys::main(argc,argv);
+   return Eaagles::Test::main(argc,argv);
 }

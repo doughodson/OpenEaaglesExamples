@@ -1,18 +1,20 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 #include "MyPager.h"
 #include "Worm.h"
 
 namespace Eaagles {
-namespace Example08 {
+namespace Tutorial {
 
 // Description (input) File -- After being processed by the C preprocessor
 const char* inputFileName = "file0.edl";
@@ -36,31 +38,31 @@ static void timerFunc(int)
     sys->tcFrame(dt);
 }
 
-// Test Form Function
-static Basic::Object* exampleFormFunc(const char* const formname)
+// our class factory
+static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
-  if ( strcmp(formname, MyPager::getFormName()) == 0 ) {
-    newform = new MyPager;
+  if ( strcmp(name, MyPager::getFactoryName()) == 0 ) {
+    obj = new MyPager;
   }
-  else if ( strcmp(formname, Worm::getFormName()) == 0 ) {
-      newform = new Worm;
+  else if ( strcmp(name, Worm::getFactoryName()) == 0 ) {
+    obj = new Worm;
   }
 
-  // Default to base classes
-  if (newform == 0) newform = Glut::glutFormFunc(formname);
-  if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  if (obj == 0) obj = Glut::Factory::createObj(name);
+  if (obj == 0) obj = BasicGL::Factory::createObj(name);
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+
+  return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
+  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
     exit(1);
@@ -88,12 +90,12 @@ static void readTest()
   }
 }
 
-int exec(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
   glutInit(&argc, argv);
 
-  // parse and read input file
-  readTest();
+  // build a display
+  builder();
 
   // create a display window
   sys->createWindow();
@@ -108,7 +110,7 @@ int exec(int argc, char* argv[])
   return 0;
 }
 
-} // namespace Example08
+} // namespace Tutorial
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -116,5 +118,5 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example08::exec(argc, argv);
+  Eaagles::Tutorial::main(argc, argv);
 }

@@ -1,0 +1,42 @@
+// Player #4 route
+
+route:
+( Route
+   autoSequence: true
+   wrap: true
+   components: {
+
+      // NE corner
+      ( Steerpoint
+         latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 50.0 )
+         longitude: ( LatLon direction: "w"  degrees:  116  minutes: 40.0 )
+         altitude: ( Feet 12000 )
+         airspeed: 475
+      )
+
+      // NW corner
+      ( Steerpoint
+         latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 50.0 )
+         longitude: ( LatLon direction: "w"  degrees:  116  minutes: 50.0 )
+         altitude: ( Feet 10000 )
+         airspeed: 500
+      )
+
+      // SE corner
+      ( Steerpoint
+         latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 40.0 )
+         longitude: ( LatLon direction: "w"  degrees:  116  minutes: 40.0 )
+         altitude: ( Feet 13000 )
+         airspeed: 500
+      )
+
+      // SE corner
+      ( Steerpoint
+         latitude:  ( LatLon direction: "n"  degrees:  37  minutes: 40.0 )
+         longitude: ( LatLon direction: "w"  degrees:  116  minutes: 50.0 )
+         altitude: ( Feet 10000 )
+         airspeed: 475
+      )
+
+   }
+)

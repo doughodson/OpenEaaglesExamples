@@ -1,17 +1,15 @@
 // ----------------------------------------------------------------------------
-// Display
-// Class: Eaagles::BasicGL::GlutDisplay -> Eaagles::MainGm::Display
+// Class: Display
 //
 // Description: Displays an image of a radar beam return
 //
-// Form name: RbrDisplay
+// Factory name: RbrDisplay
 //
 // Slots:
 //    textureTest <Boolean>   Texture test enabled
-//
 // ----------------------------------------------------------------------------
-#ifndef EAAGLES_MAINGNDMAPRDR_DISPLAY_H
-#define EAAGLES_MAINGNDMAPRDR_DISPLAY_H
+#ifndef __Eaagles_Example_Display_H__
+#define __Eaagles_Example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -20,9 +18,10 @@ namespace Eaagles {
   namespace Basic { class Number; }
   namespace Simulation { class Player; class Simulation; class Station; }
 
-namespace MainGndMapRdr {
+namespace Example {
 
-class Display : public Glut::GlutDisplay {
+class Display : public Glut::GlutDisplay
+{
    DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
 
 public:
@@ -48,7 +47,7 @@ private:
    GLuint            texture;          // Texture
 };
 
-}; // end MainGm namespace
+}; // end Example namespace
 }; // end Eaagles namespace
 
 #endif

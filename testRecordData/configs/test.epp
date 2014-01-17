@@ -1,0 +1,29 @@
+// ---
+// Tests the Data Recorder
+//  
+//  1) see "dataRecorder.epp" for recorder options
+//  -- to record data to a binary file
+//  -- to print data to text files
+//  -- to print data to the screen
+//  
+//  2) use testRecorderRead to access the binary file
+// ---
+
+//
+#define REF_LATITUDE      37.0 
+#define REF_LONGITUDE   -116.0
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( SimStation
+
+   tcPriority: 1
+
+   #include "dataRecorder.epp"
+   #include "ioHandler.epp"
+   #include "networkSetup.epp"
+   #include "otwSetup.epp"
+   #include "scenario.epp"
+   #include "xPanel/xPanel.epp"
+)
+

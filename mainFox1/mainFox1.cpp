@@ -9,43 +9,46 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/basic/basicFF.h"
+// class factories
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/basic/Factory.h"
 
 namespace Eaagles {
-namespace mainFox {
+namespace Example {
 
 // default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "testfox.edl";
 static const char* fileName = DEFAULT_CONFIG_FILE;
 
-static FoxStation* station = 0;	
+static FoxStation* station = 0;
 
-static Basic::Object* formFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
-  if ( strcmp(formname, FoxDisplay::getFormName()) == 0 ) {
-    newform = new FoxDisplay();
+  if ( strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
+    obj = new FoxDisplay();
   }
-  else if ( strcmp(formname, FoxStation::getFormName()) == 0 ) {
-    newform = new FoxStation();
+  else if ( strcmp(name, FoxStation::getFactoryName()) == 0 ) {
+    obj = new FoxStation();
   }
-  else if ( strcmp(formname, Worm::getFormName()) == 0 ) {
-    newform = new Worm();
+  else if ( strcmp(name, Worm::getFactoryName()) == 0 ) {
+    obj = new Worm();
   }
 
-  if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
+  if (obj == 0) obj = BasicGL::Factory::createObj(name);
+  if (obj == 0) obj = Basic::Factory::createObj(name);
 
-  return newform;
+  return obj;
 }
 
-static void readConfigFile(const char* const name)
+// build a station
+static void builder(const char* const name)
 {
    // Read the description file
    int errors = 0;
-   Basic::Object* q1 = Basic::lcParser(name, formFunc, &errors);
+   Basic::Object* q1 = Basic::lcParser(name, factory, &errors);
    if (errors > 0) {
       std::cerr << "Errors in reading file: " << errors << std::endl;
       q1 = 0;
@@ -78,8 +81,8 @@ int exec(int argc, char* argv[])
       }
    }
 
-   // read input file to define the station
-   readConfigFile(fileName);
+   // build a station
+   builder(fileName);
 
    // send a reset pulse to station
    station->event(Basic::Component::RESET_EVENT);
@@ -110,7 +113,7 @@ int exec(int argc, char* argv[])
    delete mainWindow;
 }
 
-} // end mainFox namespace
+} // end Example namespace
 } // end Eaagles namespace
 
 
@@ -119,5 +122,5 @@ int exec(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::mainFox::exec(argc, argv);
+  Eaagles::Example::exec(argc, argv);
 }

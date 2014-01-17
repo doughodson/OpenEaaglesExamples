@@ -1,0 +1,113 @@
+( GlutDisplay
+    name: "Flight Display2 Test"
+    left:   -10
+    right:   10
+    bottom: -10
+    top:     10
+    near:    -2.0
+    far:     2.0
+    vpWidth: 1000
+    vpHeight: 1000
+    clearDepth: 1.0
+    clearColor: (rgb 0 0 0)
+    fullScreen: 0
+
+    colorTable: {
+        black:      ( rgba 0 0 0 )
+        red:        ( rgb 1 0 0 )
+        green:      ( rgb 0 1 0 )
+        yellow:     ( rgb 1 1 0 )
+        blue:       ( rgb 0 0 1 )
+        magenta:    ( rgb 1 0 1 )
+        brown:      ( rgb 0.3921568627450980392156862745098 0.27058823529411764705882352941176 0.15686274509803921568627450980392 )
+        white:      ( rgb 1 1 1 )
+        gray:       ( rgb 0.4 0.4 0.4 )
+        // adi sky - this color is very specific, so it is labeled as such
+        adiCyan:    ( rgb 0.7921568627450980392156862745098 0.83529411764705882352941176470588 0.81176470588235294117647058823529 )    
+        cyan:       ( rgb 0 1 1 )
+        gray2:      ( rgb 0.2 0.2 0.2 )    
+        amber:      ( rgb 1 0.5 0 )   
+        sky:        ( rgb 0 0.407 0.545 )
+        adibrown:   ( rgb 0.3960784313725490196078431372549 0.17254901960784313725490196078431 0.22352941176470588235294117647059 )
+        adiblue:    ( rgb 0.023529411764705882352941176470588 0.011764705882352941176470588235294 0.98823529411764705882352941176471 )
+        gray1:      ( rgb 0.1 0.1 0.1 )
+        gray8:      ( rgb 0.8 0.8 0.8 )
+    }
+
+    fonts: {
+        // normal font for the instruments
+        instnormfont: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -10.5 10.5 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 1
+            fontHeight: 1
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+
+        // reverse font for the instruments
+        instrevfont: 
+        (FTGLPolygonFonts
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 1
+            fontHeight: 1
+            characterSpacing: 0.5
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+
+        // special font for the instruments
+        instspecfont:
+        ( FTGLPolygonFonts 
+            fontPosition: [ -10.5 10.5 ]
+            fontWidth: 1          // Font width scaling 
+            fontHeight: 1         // Font height scaling 
+            characterSpacing: 1   // This font is 2:1 (height:widht) or (lineSpaceing:charSpacing)
+            lineSpacing: 1
+            path: FONT_PATH
+            file: "arialn.ttf"      
+        )
+
+        // normal font
+        pfdnormfont: 
+        ( FTGLPolygonFonts 
+            fontPosition: [ -3.1 4.15 ]
+            path: FONT_PATH
+            file: "arialn.ttf"      
+            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+            fontWidth: 0.189
+            fontHeight: 0.189
+            faceSize: 1
+            characterSpacing: 0.0945
+            lineSpacing: 0.15
+        )
+
+        // special font 
+        pfdspecfont: 
+        ( FTGLPolygonFonts 
+            path: FONT_PATH
+            file: "arialn.ttf"
+            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+            fontWidth: 0.189
+            fontHeight: 0.189
+            faceSize: 1
+            characterSpacing: 0.0945
+            lineSpacing: 0.15
+        )                
+    } // end of font list
+
+    normalFont: instnormfont
+
+    page: testpfd
+
+    pages: {
+        #include "testpfd.epp"
+    }
+)

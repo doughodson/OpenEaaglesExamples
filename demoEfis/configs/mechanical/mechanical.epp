@@ -1,0 +1,434 @@
+//
+// Electronic Flight Instrument System Attitude Direction Indicator (mechanical)
+//
+( AsciiText
+    color: white
+    transform: { ( Translation -2.95 2.75 ) ( Scale 0.3 ) }
+    text: "MECHANICAL"
+)
+
+( Graphic
+    scissorX: -2.5
+    scissorWidth: 5
+    scissorY: -2.5
+    scissorHeight: 5
+    components: {
+        // Commanded pitch and roll indicator (another Adi)
+        cmdpitch:
+        ( GaugeSlider
+            scalingTable: 
+            ( Table1
+                // degrees pitch
+                x: [ -30 30 ]
+                // inches
+                data: [ 1.3125 -1.3125 ]
+            )
+            vertical: 1
+            components: {
+                cmdroll:
+                ( Rotators
+                    components: {
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ 0.794 0.076 ]
+                                [ 0.993 0.127 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ -0.994 0.128 ]
+                                [ -0.795 0.076 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ 0.988 0.046 ]
+                                [ 0.993 0.130 ]
+                                [ 0.001 0.247 ]
+                                [ -0.996 0.123 ]
+                                [ -0.988 0.043 ]
+                                [ 0.002 0.208 ]
+                                [ 0.989 0.043 ]
+                            }
+                        )
+                        ( Polygon
+                            color: yellow
+                            vertices: {
+                                [ 0.988 0.043 ]
+                                [ 0.995 0.129 ]
+                                [ 0 0.247 ]
+                                [ -0.995 0.129 ]
+                                [ -0.989 0.039 ]
+                                [ 0 0.208 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+        
+        // rate of turn indicator
+        #include "rateofturn.epp"     
+
+        // speed deviation indicator
+        #include "speeddevindicator.epp"
+
+        // roll indicator
+        #include "rollindicator.epp"
+
+
+        // ga light
+        galight:
+        ( Rotary2
+            transform: ( Translation 2.125 1.625 )
+            components: {
+                // This is our first graphic
+                ( Graphic
+                    linewidth: 2
+                    components: {   
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ -0.048 -0.004 ]
+                                [ -0.015 -0.004 ]
+                                [ -0.015 -0.088 ]
+                            }   
+                        )
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ -0.015 0.049 ]
+                                [ -0.015 0.059 ]
+                                [ -0.024 0.080 ]
+                                [ -0.040 0.091 ]
+                                [ -0.073 0.091 ]
+                                [ -0.090 0.080 ]
+                                [ -0.098 0.059 ]
+                                [ -0.107 0.038 ]
+                                [ -0.107 -0.035 ]
+                                [ -0.098 -0.056 ]
+                                [ -0.090 -0.077 ]
+                                [ -0.073 -0.088 ]
+                                [ -0.048 -0.088 ]
+                                [ -0.032 -0.072 ]
+                                [ -0.015 -0.040 ]
+                            }
+                        )
+                        ( Line
+                            color: white
+                            vertices: { [ 0.039 -0.035 ] [ 0.097 -0.035 ] }
+                        )
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ 0.026 -0.088 ]
+                                [ 0.068 0.091 ]
+                                [ 0.109 -0.088 ]
+                            }
+                        )
+                        ( Circle
+                            color: (rgb 0.1 0.1 0.1 )
+                            filled: 1
+                            radius: 0.252
+                            slices: 1000
+                        )
+                            
+                    }
+                )
+                // This is our second graphic
+                ( Graphic
+                    linewidth: 2
+                    components: {
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ -0.049 -0.004 ]
+                                [ -0.015 -0.004 ]
+                                [ -0.015 -0.088 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ -0.015 0.049 ]
+                                [ -0.015 0.06 ]
+                                [ -0.024 0.081 ]
+                                [ -0.04 0.092 ]
+                                [ -0.074 0.092 ]
+                                [ -0.091 0.081 ]
+                                [ -0.099 0.06 ]
+                                [ -0.107 0.039 ]
+                                [ -0.107 -0.035 ]
+                                [ -0.099 -0.057 ]
+                                [ -0.091 -0.078 ]
+                                [ -0.074 -0.088 ]
+                                [ -0.049 -0.088 ]
+                                [ -0.032 -0.072 ]
+                                [ -0.015 -0.041 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ 0.039 -0.035 ]
+                                [ 0.098 -0.035 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ 0.027 -0.088 ]
+                                [ 0.068 0.092 ]
+                                [ 0.11 -0.088 ]
+                            }
+                        )
+                        ( Circle
+                            filled: 1
+                            color: green
+                            radius: 0.252
+                            slices: 1000
+                        )
+                    }
+                )
+            }
+        )
+
+        mdalight:
+        // Mda light
+        ( Rotary2
+            transform: ( Translation 2.125 -1.625 )
+            components: {
+                // This is our first graphic
+                ( Graphic
+                    linewidth: 2
+                    components: {   
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ -0.177 -0.088 ]
+                                [ -0.177 0.092 ]
+                                [ -0.127 -0.088 ]
+                                [ -0.077 0.092 ]
+                                [ -0.077 -0.088 ]
+                            }
+                        )
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ -0.027 0.092 ]
+                                [ 0.024 0.092 ]
+                                [ 0.040 0.081 ]
+                                [ 0.049 0.060 ]
+                                [ 0.057 0.039 ]
+                                [ 0.057 -0.035 ]
+                                [ 0.049 -0.057 ]
+                                [ 0.040 -0.078 ]
+                                [ 0.024 -0.088 ]
+                                [ -0.027 -0.088 ]
+                                [ -0.027 0.092 ]
+                            }
+                        )
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ 0.112 -0.035 ]
+                                [ 0.17 -0.035 ]
+                            }
+                        )
+                        ( Line
+                            color: white
+                            vertices: {
+                                [ 0.099 -0.088 ]
+                                [ 0.141 0.092 ]
+                                [ 0.183 -0.088 ]
+                            }
+                        )
+                        ( Circle
+                            filled: 1
+                            slices: 1000
+                            color: (rgb 0.1 0.1 0.1)
+                            radius: 0.252
+                        )
+                    }
+                )
+                // This is our second graphic
+                ( Graphic
+                    linewidth: 2
+                    components: {
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ -0.176 -0.088 ]
+                                [ -0.176 0.091 ]
+                                [ -0.126 -0.088 ]
+                                [ -0.076 0.091 ]
+                                [ -0.076 -0.088 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ -0.026 0.091 ]
+                                [ 0.023 0.091 ]
+                                [ 0.04 0.08 ]
+                                [ 0.048 0.059 ]
+                                [ 0.057 0.038 ]
+                                [ 0.057 -0.035 ]
+                                [ 0.048 -0.056 ]
+                                [ 0.04 -0.077 ]
+                                [ 0.023 -0.088 ]
+                                [ -0.026 -0.088 ]
+                                [ -0.026 0.091 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ 0.111 -0.035 ]
+                                [ 0.169 -0.035 ]
+                            }
+                        )
+                        ( Line
+                            color: black
+                            vertices: {
+                                [ 0.098 -0.088 ]
+                                [ 0.14 0.091 ]
+                                [ 0.181 -0.088 ]
+                            }
+                        )
+                        ( Circle
+                            filled: 1
+                            color: yellow
+                            radius: 0.252
+                            slices: 1000
+                        )
+                    }
+                )
+            }
+        )
+
+        // Glide slope indicator
+        #include "gslopeindicator.epp"
+
+        // occlude everything past here
+        #include "background.epp"
+
+        // vertical and horizonal deviation from the runway
+        #include "runwayindicator.epp"
+
+        // this is the aircraft symbol
+        ( Graphic
+            components: {
+                // draw the background
+                ( Polygon
+                    color: white
+                    vertices: {
+                        [ -0.03 0.055 ]
+                        [ 0 0.060 ]
+                        [ 0.032 0.055 ]
+                        [ 0.031 -0.064 ]
+                        [ -0.031 -0.064 ]
+                    }
+                )        
+                ( Polygon
+                    // this is actually orange, according to the KC-135 definition, but we will leave the name alone
+                    color: amber
+                    vertices: {
+                        [ 0 0.062 ]
+                        [ 0.75 -0.063 ]
+                        [ -0.719 -0.063 ]
+                    }
+                )
+                ( Line
+                    color: black
+                    vertices: {
+                        [ -0.719 -0.064 ]
+                        [ 0 0.061 ]
+                        [ 0.75 -0.064 ]
+                        [ -0.719 -0.064 ]
+                    }
+                )
+                // attitude bars when commanded attitude bars aren't being used
+                attbars:
+                ( Graphic
+                    color: amber
+                    components: {
+                        ( Polygon
+                            vertices: {
+                                [ 1.25 0.031 ]
+                                [ 1.25 -0.031 ]
+                                [ 0.625 -0.031 ]
+                                [ 0.25 -0.219 ]
+                                [ 0.219 -0.156 ]
+                                [ 0.625 0.031 ]
+                            }
+                        )
+                        ( Polygon
+                            vertices: {
+                                [ -1.245 0.031 ]
+                                [ -1.245 -0.031 ]
+                                [ -0.620 -0.031 ]
+                                [ -0.245 -0.219 ]
+                                [ -0.214 -0.156 ]
+                                [ -0.620 0.031 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+
+        // include our gryo flag graphic
+        #include "gryoflag.epp"  
+        // include our command bars unreliable graphic
+        #include "cmptrflag.epp"
+
+
+        // Here is our Efis Adi
+        ( Graphic
+            components: {
+                // This is the adi that will rotate and translate about pitch and roll
+                adi:
+                ( Adi
+                    scalingTable:
+                    ( Table1
+                        // degrees pitch
+                        x: [ -90 90 ]
+                        // inches
+                    data: [ 3.9375 -3.9375 ]
+                    )
+                    components: {
+                        // this will draw our degree lines and readouts
+                        #include "ladder.epp"
+
+                        backsky:
+                        ( Polygon 
+                            color: sky
+                            transform: ( Translation 0 0 -1 )
+                            vertices: {
+                                [ -5 0 ] 
+                                [  5 0 ]
+                                [  5 8 ]
+                                [ -5 8 ]
+                            }
+                        )
+                        background: 
+                        ( Polygon
+                            color: black
+                            transform: ( Translation 0 -5 -1 )
+                            vertices: {
+                                [ -5 0 ] 
+                                [  5 0 ]
+                                [  5 8 ]
+                                [ -5 8 ]
+                            }
+                        )
+                    }
+                )
+            }
+        )
+    }
+)

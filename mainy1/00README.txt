@@ -1,5 +1,5 @@
 
-A general purpose test program built from parts of mainx9, mainSim3 and mainFlightDisplay 1 & 2.
+A general purpose test program
 
 To run:
   mainy1 -f test1.edl

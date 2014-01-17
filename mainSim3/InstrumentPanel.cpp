@@ -17,8 +17,7 @@
 
 
 namespace Eaagles {
-namespace Sim3 {
-
+namespace Example {
 
 IMPLEMENT_SUBCLASS(InstrumentPanel,"InstrumentPanel")
 EMPTY_SERIALIZER(InstrumentPanel)
@@ -223,5 +222,5 @@ bool InstrumentPanel::onStepOwnshipKey()
    return true;
 }
 
-} // end Sim3 namespace
+} // end Example namespace
 } // end Eaagles namespace

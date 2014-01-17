@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// Out-The-Window (visual system) Cigi Configuration
+// -----------------------------------------------------------------------------
+
+#define OTW_INPUT_IP                "127.0.0.1"             //IP address for Out The Window input (local TN)
+#define OTW_INPUT_PORT              8008                    //Port number the OTW machine is broadcasting on
+#define OTW_OUTPUT_IP               "127.0.0.1"             //IP address for OTW output (remote TN)
+#define OTW_OUTPUT_PORT             8108
+//#define OTW_OUTPUT_SOURCE_PORT    8208
+
+otw: {
+   ( OtwCigiCl
+      maxRange: ( NauticalMiles 20.0 )
+      maxModels: 5
+      maxElevations: 20
+      latitude:  OTW_LATITUDE 
+      longitude: OTW_LONGITUDE  
+      async: 0
+      hideOwnshipModel: 1      // otherwise you are inside the ownship model
+      cigi: ( CigiClNetwork
+          netInput: ( UdpUnicastHandler localIpAddress: localhost    port: 8010 ) // HOST
+          netOutput: ( UdpUnicastHandler localIpAddress: localhost ipAddress: localhost port: 8000 localPort: 8208 ) // IG
+          //netInput:   ( UdpMulticastHandler multicastGroup: "224.1.1.2" port: 8008  ignoreSourcePort: 3002 loopback: true  shared: true )
+          //netOutput:  ( UdpMulticastHandler multicastGroup: "224.1.1.2" port: 8008  localPort: 3002        loopback: true  shared: true )
+      )
+      #include "CigiModels.epp"
+    )
+}
+

@@ -1,0 +1,95 @@
+
+#ifndef MAXRANGE
+#define MAXRANGE 37040.0   // 20 nm
+#endif
+
+// very fine binning, 1/4 of a degree in radians
+#ifndef BINSIZE
+#define BINSIZE 0.00436
+#endif
+
+// default is 35 deg/s max
+#ifndef GIMBALRATE
+#define GIMBALRATE 0.610865238
+#endif
+
+#ifndef TMALPHA
+#define TMALPHA 1.0
+#endif
+
+// default to ignoring prediction, use last report for next prediction of next
+#ifndef TMBETA
+#define TMBETA 1.0
+#endif
+
+irSeeker:
+   ( IrSeeker
+         type: mechanical
+         scanMode: manual
+         reference: [ 0 0 ]
+         initPosition: [ 0 0 ]
+         azimuthLimits: [ -0.698131701 0.698131701 ]     // -40 to +40 
+         elevationLimits: [ -0.698131701 0.698131701 ]   // -40 to +40 
+         maxRates: [ GIMBALRATE GIMBALRATE ]             // 35 deg max
+         maxPlayersOfInterest: 5
+         //playerOfInterestTypes:  { "air" }
+         maxRange2PlayersOfInterest: ( Meters 50000 )
+         maxAngle2PlayersOfInterest: (Radians 0.698131701)
+         //stabilizingMode: horizon                     // none roll elevation horizon
+   )
+
+// multiple sensors
+sensors:
+   ( System
+      components: {
+         irSensor: ( IrSensor
+            seekerName: irSeeker
+            lowerWavelength: 5.0          //  1: Lower wavelength limit (microns)
+            upperWavelength: 7.5          //  2: Upper wavelength limit (microns)
+            nei: 0.0000001                //  3: Noise Equivalent Irradiance  (watts/str-m^2) not (watts/str-cm^2)
+            threshold: 2.0                //  4: Signal to Noise Threshold
+            sensorType: "hot spot"        //  6: Sensor Type (CONTRAST, HOTSPOT) "contrast"
+            IFOV: 0.0059802001725619360   //  5: Instantaneous Field of View  (steradians) theta=5deg, theta/2 = 2.5 deg
+            //azimuthBin:  BINSIZE        //  8: Azimuth minimum  1/4 of a degree in radians
+            //elevationBin: BINSIZE       //  9: Elevation minimum
+            maximumRange: MAXRANGE        // 10: maximum Range in meters, = 20nm
+            trackManagerName: aimTrkMgr
+          )
+         
+         irSensor2: ( IrSensor
+            seekerName: irSeeker
+            lowerWavelength: 3.4          //  1: Lower wavelength limit (microns)
+            upperWavelength: 5.0          //  2: Upper wavelength limit (microns)
+            nei: 0.0000001                //  3: Noise Equivalent Irradiance  (watts/str-m^2) not (watts/str-cm^2)
+            threshold: 2.0                //  4: Signal to Noise Threshold
+            sensorType: "hot spot"        //  6: Sensor Type (CONTRAST, HOTSPOT) "contrast"
+            IFOV: 0.0059802001725619360   //  5: Instantaneous Field of View  (steradians) theta=5deg, theta/2 = 2.5 deg
+            //azimuthBin:  BINSIZE        //  8: Azimuth minimum  1/4 of a degree in radians
+            //elevationBin: BINSIZE       //  9: Elevation minimum
+            maximumRange: MAXRANGE        // 10: maximum Range in meters, = 20nm
+            trackManagerName: aimTrkMgr
+         )
+      }
+   )
+
+aimobc:
+   ( TestComputer
+
+     //enableMessageType: INFO
+     //enableMessageType: DEBUG
+   
+     components: {
+        aimTrkMgr: ( AirAngleOnlyTrkMgr
+                        maxTracks: 10
+                        maxTrackAge: 5.0
+                        alpha: TMALPHA
+                        beta: TMBETA
+                        azimuthBin: (Radians BINSIZE )
+                        elevationBin: (Radians BINSIZE )
+                        firstTrackId: 2000
+                   )
+     }
+   )
+
+
+

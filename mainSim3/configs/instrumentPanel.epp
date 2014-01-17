@@ -1,0 +1,45 @@
+//#define OUTLINE
+
+// -----------------------------------------------------------------------------
+// Pilot/Vehicle Interface (PVI)
+// -----------------------------------------------------------------------------
+
+display:
+( InstrumentPanel
+    idleSleepTime: 20
+    
+    name: "Sim3 Display"
+    
+   
+    textures: {
+    }
+
+    fullScreen: FULL_SCREEN_FLAG
+
+    // 4x3 (default)
+    left:        -9.0
+    right:        9.0
+    bottom:      -6.375
+    top:          6.375
+    near:        -2.0
+    far:          2.0
+
+    vpX:        0
+    vpY:        0
+    vpWidth:    480
+    vpHeight:   480
+
+    colorTable: {
+    }
+
+    clearColor: ( rgb 0.0 0.0 0.0 )
+    clearDepth: 1.0
+   
+
+    // include all of our independent displays and instruments
+    page: eadi3D
+    pages: {
+        eadi3D: ( Eadi3DPage )
+    }
+)  
+

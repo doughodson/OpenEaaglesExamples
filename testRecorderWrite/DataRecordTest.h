@@ -1,12 +1,10 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#ifndef __DataRecordTest_H__
-#define __DataRecordTest_H__
+#ifndef __Eaagles_Test_DataRecordTest_H__
+#define __Eaagles_Test_DataRecordTest_H__
 
 #include "openeaagles/basic/Component.h"
-#include "openeaagles/basic/basicFF.h"
-#include "openeaagles/recorder/recorderFF.h"
 #include "openeaagles/recorder/TabPrinter.h"
 #include "openeaagles/recorder/PrintPlayer.h"
 #include "openeaagles/recorder/PrintSelected.h"
@@ -17,31 +15,32 @@
 
 #include "openeaagles/simulation/Simulation.h"
 
+namespace Eaagles {
+
 namespace Recorder { class DataRecorder; class TabPrinter; class FileWriter; class PrintSelected; }
 
-namespace Eaagles {
-namespace TestRecorder {
-
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-   class DataRecordTest : public Eaagles::Recorder::OutputHandler{
-   DECLARE_SUBCLASS(DataRecordTest, Eaagles::Recorder::OutputHandler)
+class DataRecordTest : public Recorder::OutputHandler
+{
+    DECLARE_SUBCLASS(DataRecordTest, Recorder::OutputHandler)
 
 public:
 
     DataRecordTest();
 
     // Slot functions
-    virtual bool setSlotFileName(Eaagles::Basic::String* const msg);
-    virtual bool setSlotTabPrinter(Eaagles::Recorder::TabPrinter* msg);
-    virtual bool setSlotFileWriter(Eaagles::Recorder::FileWriter* msg);
-    virtual bool setSlotFileReader(Eaagles::Recorder::FileReader* msg);
-    virtual bool setSlotRecordData(Eaagles::Simulation::DataRecorder* const msg);
-    virtual bool setSlotPrintPlayer(Eaagles::Recorder::PrintPlayer* msg);
-    virtual bool setSlotPrintSelected(Eaagles::Recorder::PrintSelected* msg);
-    virtual bool setSlotPrintSelected2(Eaagles::Recorder::PrintSelected* msg);
+    virtual bool setSlotFileName(Basic::String* const msg);
+    virtual bool setSlotTabPrinter(Recorder::TabPrinter* msg);
+    virtual bool setSlotFileWriter(Recorder::FileWriter* msg);
+    virtual bool setSlotFileReader(Recorder::FileReader* msg);
+    virtual bool setSlotRecordData(Simulation::DataRecorder* const msg);
+    virtual bool setSlotPrintPlayer(Recorder::PrintPlayer* msg);
+    virtual bool setSlotPrintSelected(Recorder::PrintSelected* msg);
+    virtual bool setSlotPrintSelected2(Recorder::PrintSelected* msg);
 
     // Select one of these in main.cpp
     bool testEvents();      // switch to test each possible event message
@@ -52,23 +51,23 @@ protected:
     void readSerialFromFile();
 
    // all messages:
-   Eaagles::Recorder::DataRecordHandle* testFileIdMsg(int run);
-   Eaagles::Recorder::DataRecordHandle* testNewPlayerEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testPlayerRemovedEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testPlayerDataMsg();
-   Eaagles::Recorder::DataRecordHandle* testPlayerDamagedEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testPlayerCollisionEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testPlayerCrashEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testPlayerKilledEventMsg(unsigned int type);
-   Eaagles::Recorder::DataRecordHandle* testWeaponReleaseEventMsg(unsigned int side);
-   Eaagles::Recorder::DataRecordHandle* testWeaponHungEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testWeaponDetonationEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testGunFiredEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testNewTrackEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testTrackRemovedEventMsg();
-   Eaagles::Recorder::DataRecordHandle* testTrackDataMsg();
+   Recorder::DataRecordHandle* testFileIdMsg(int run);
+   Recorder::DataRecordHandle* testNewPlayerEventMsg();
+   Recorder::DataRecordHandle* testPlayerRemovedEventMsg();
+   Recorder::DataRecordHandle* testPlayerDataMsg();
+   Recorder::DataRecordHandle* testPlayerDamagedEventMsg();
+   Recorder::DataRecordHandle* testPlayerCollisionEventMsg();
+   Recorder::DataRecordHandle* testPlayerCrashEventMsg();
+   Recorder::DataRecordHandle* testPlayerKilledEventMsg(unsigned int type);
+   Recorder::DataRecordHandle* testWeaponReleaseEventMsg(unsigned int side);
+   Recorder::DataRecordHandle* testWeaponHungEventMsg();
+   Recorder::DataRecordHandle* testWeaponDetonationEventMsg();
+   Recorder::DataRecordHandle* testGunFiredEventMsg();
+   Recorder::DataRecordHandle* testNewTrackEventMsg();
+   Recorder::DataRecordHandle* testTrackRemovedEventMsg();
+   Recorder::DataRecordHandle* testTrackDataMsg();
 
-   Eaagles::Recorder::DataRecordHandle* testLastMsg();
+   Recorder::DataRecordHandle* testLastMsg();
 
    // Recursive function to look at each embedded message
    bool processMessage(const google::protobuf::Message* const msg);
@@ -79,7 +78,7 @@ protected:
    bool setCompareToValue(const std::string strVal);
    bool setCompareToValue(const int numVal );
    bool setCompareToValue(const double dblVal );
-   bool setCompareCondition(const Eaagles::Recorder::PrintSelected::Condition cc );
+   bool setCompareCondition(const Recorder::PrintSelected::Condition cc );
    bool setTimeOnly(const bool flg );
 
    double getSimTime();
@@ -88,16 +87,16 @@ protected:
 
 private:
    const char* fileName;
-   SPtr<Eaagles::Recorder::PrintPlayer> myPrintPlayer;
-   SPtr<Eaagles::Recorder::PrintSelected> myPrintSelected;
-   SPtr<Eaagles::Recorder::PrintSelected> myPrintSelected2;
-   SPtr<Eaagles::Recorder::TabPrinter> myRecPrint;
-   SPtr<Eaagles::Recorder::FileWriter> myFileWrite;
-   SPtr<Eaagles::Recorder::FileReader> myFileRead;
-   SPtr<Eaagles::Simulation::DataRecorder> myDataRec;
+   SPtr<Recorder::PrintPlayer> myPrintPlayer;
+   SPtr<Recorder::PrintSelected> myPrintSelected;
+   SPtr<Recorder::PrintSelected> myPrintSelected2;
+   SPtr<Recorder::TabPrinter> myRecPrint;
+   SPtr<Recorder::FileWriter> myFileWrite;
+   SPtr<Recorder::FileReader> myFileRead;
+   SPtr<Simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
-   Eaagles::Recorder::PrintSelected::Condition condition;
+   Recorder::PrintSelected::Condition condition;
    int compareI;
    std::string compareS;
    double compareD;
@@ -113,14 +112,12 @@ private:
       double compareValD;
       std::string compareValS;
       int compareValI;
-      Eaagles::Recorder::PrintSelected::Condition condition;
+      Recorder::PrintSelected::Condition condition;
       bool timeOnly;
    };
    SelectionCriteria selection[20];
 
 };
-
-
 
 }
 }

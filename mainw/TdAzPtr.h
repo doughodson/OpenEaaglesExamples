@@ -1,22 +1,15 @@
 //------------------------------------------------------------------------------
-// Class:	TdAzPtr
-// Base class:	Object -> Component -> BasicGL::Graphic -> TdAzPtr
+// Class: TdAzPtr
 //
-// Description: TEST Display Azimuth Pointer
-//
-//
-//  ( def-form TdAzPtr
-//  )
-//
-//
+// Description: Test Display Azimuth Pointer
 //------------------------------------------------------------------------------
-#ifndef __TdAzPtr_H__
-#define __TdAzPtr_H__
+#ifndef __Eaagles_Example_TdAzPtr_H__
+#define __Eaagles_Example_TdAzPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace MainW {
+namespace Example {
 
 class TdAzPtr : public BasicGL::Graphic
 {
@@ -29,10 +22,10 @@ public:
     virtual void draw();
 
 private:
-    LCreal      azimuth;
+    LCreal azimuth;
 };
 
-} // End MainW namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __TdAzPtr_H__
+#endif

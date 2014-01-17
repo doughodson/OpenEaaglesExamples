@@ -1,0 +1,61 @@
+// ---
+// Data Recorder configuration file
+//
+//  1) Attaches an extended data recorder (XDataRecorder)
+//     to the simulation
+//  -- records data to a binary file
+//  -- prints data to text files
+//
+//  2) use 'testRecorderRead' to access the binary file
+//
+// ---
+
+#include "openeaagles/simulation/dataRecorderTokens.h"
+
+dataRecorder: ( XDataRecorder
+
+   outputHandler:
+   ( RecorderOutputHandler
+      components: {
+
+         // Binary file writer
+         ( RecorderFileWriter
+            // This is the default file that 'testRecorderRead' will read.
+            filename: "../shared/data/recorder/zFileWriter.ebd"
+         )
+ 
+#if 0        
+         // Network connection to 'testRecorderRead'
+         ( RecorderNetOutput
+            netHandler:( UdpUnicastHandler
+               localIpAddress: localhost
+               ipAddress: "127.0.0.1"
+               port: 4950
+               localPort: 4960
+               shared: true
+            )
+         )
+#endif
+
+         // Test tab printer
+         ( TabPrinter
+            msgHdrOptn: NEW_MSG
+            filename: "./zTabPrinter.csv"
+         )
+
+         // Test print player data to screen
+         ( PrintPlayer
+            playerName: "duck11"
+         )
+
+         // Test print selected
+         ( PrintSelected
+            filename: "./zPrintSelected2.csv"
+            messageToken: REID_PLAYER_DATA
+            fieldName:   "Eaagles.Recorder.Pb.PlayerId.name"
+            compareToValS: "duck12"
+         )
+
+      }
+   )
+)

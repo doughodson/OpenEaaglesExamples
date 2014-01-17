@@ -1,3 +1,6 @@
+//------------------------------------------------------------------------------
+// Class: SimStation
+//------------------------------------------------------------------------------
 
 #include "SimStation.h"
 
@@ -16,7 +19,7 @@
 #include "openeaagles/basic/osg/Vec4"
 
 namespace Eaagles {
-namespace MainUbf1 {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(SimStation,"SimStation")
 EMPTY_SERIALIZER(SimStation)
@@ -139,5 +142,5 @@ Basic::Object* SimStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End MainUbf1 namespace
+} // End Example namespace
 } // End Eaagles namespace

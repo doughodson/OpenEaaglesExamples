@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: TestStation
 //------------------------------------------------------------------------------
-#ifndef __TestStation_H__
-#define __TestStation_H__
+#ifndef __Eaagles_Example_TestStation_H__
+#define __Eaagles_Example_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace Eaagles {
    namespace Glut  { class GlutDisplay; }
 
-namespace MainIR {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: TestStation
@@ -18,7 +18,7 @@ namespace MainIR {
 //              (HOTAS) device, which is usually just a joystick, and adds stepping
 //              of our ownship to the next local, air vehicle player.
 //
-// Form Name: TestStation
+// Factory name: TestStation
 // Slots:
 //   glutDisplay  <BasicGL::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ private:
    bool glutDisplayInit;
 };
 
-} // End MainIR namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif

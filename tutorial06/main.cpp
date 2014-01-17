@@ -4,11 +4,14 @@
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/String.h"
-#include "openeaagles/basic/basicFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+
 #include "MyComp.h"
 
 namespace Eaagles {
-namespace Example06 {
+namespace Tutorial {
 
 // Description (input) File
 // After being processed by the C preprocessor
@@ -19,25 +22,27 @@ const int frameRate = 20;
 
 static class MyComp* sys = 0;
 
-static Basic::Object* exampleFormFunc(const char* const formname)
+// our class factory
+static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* newform = 0;
+  Basic::Object* obj = 0;
 
   // look in application's classes
-  if ( strcmp(formname, MyComp::getFormName()) == 0 ) {
-    newform = new MyComp;
+  if ( strcmp(name, MyComp::getFactoryName()) == 0 ) {
+    obj = new MyComp;
   }
-  // look in base classes
-  if (newform == 0) newform = Basic::basicFormFunc(formname);
-  return newform;
+  // look in basic classes
+  if (obj == 0) obj = Basic::Factory::createObj(name);
+
+  return obj;
 }
 
-// read and parse input file
-static void readInput()
+// build my component
+static void builder()
 {
   // Read the description file
   int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, exampleFormFunc, &errors);
+  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
     exit(1);
@@ -61,7 +66,7 @@ static void readInput()
   }
 }
 
-int exec(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
   // allow user to specify input file
   for (int i = 1; i < argc; i++) {
@@ -70,8 +75,8 @@ int exec(int argc, char *argv[])
     }
   }
 
-  // parse and read input file
-  readInput();
+  // build my component
+  builder();
 
   // compute a delta time
   LCreal dt = (LCreal)(1.0/double(frameRate));
@@ -91,7 +96,7 @@ int exec(int argc, char *argv[])
   return 0;
 }
 
-} // namespace Example06
+} // namespace Tutorial
 } // namespace Eaagles
 
 //-----------------------------------------------------------------------------
@@ -99,5 +104,5 @@ int exec(int argc, char *argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Eaagles::Example06::exec(argc, argv);
+  Eaagles::Tutorial::main(argc, argv);
 }

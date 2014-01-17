@@ -1,0 +1,18 @@
+// Tests the engine page
+testeng:
+( TestEngPage
+    pagingEvent: {
+        n: testadi2
+        p: testlandinggear
+    }
+    components: {
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testeng.epp"
+        )
+        #include "openeaagles/instruments/eng/engpage.epp"
+    }
+)
+

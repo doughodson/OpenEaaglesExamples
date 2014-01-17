@@ -1,0 +1,399 @@
+// ---
+// Example MFD page HLSColors
+// ---
+
+hlscolors:
+( MfdPage
+    pagingEvent: {
+        n: cmycolors
+        p: hsvcolors
+    }
+    components: {
+        ( AsciiText text: "HLS" position: [ 1 1 ] )
+        ( LineLoop
+            selectName: 601
+            color: (hls 0 0.2 0)
+            linewidth: 5
+            vertices: {
+                [  0.2  0.2 ]
+                [ -0.2  0.2 ]
+                [ -0.2 -0.2 ]
+                [  0.2 -0.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 602
+            color: (hls 0 0.4 0)
+            linewidth: 5
+            vertices: {
+                [  0.4  0.4 ]
+                [ -0.4  0.4 ]
+                [ -0.4 -0.4 ]
+                [  0.4 -0.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 603
+            color: (hls 0 0.6 0)
+            linewidth: 5
+            vertices: {
+                [  0.6  0.6 ]
+                [ -0.6  0.6 ]
+                [ -0.6 -0.6 ]
+                [  0.6 -0.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 604
+            color: (hls 0 0.8 0)
+            linewidth: 5
+            vertices: {
+                [  0.8  0.8 ]
+                [ -0.8  0.8 ]
+                [ -0.8 -0.8 ]
+                [  0.8 -0.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 605
+            color: (hls 0 1 0)
+            linewidth: 5
+            vertices: {
+                [  1  1 ]
+                [ -1  1 ]
+                [ -1 -1 ]
+                [  1 -1 ]
+            }
+        )
+        ( LineLoop
+            selectName: 611
+            color: (hls 60 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  1.2  1.2 ]
+                [ -1.2  1.2 ]
+                [ -1.2 -1.2 ]
+                [  1.2 -1.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 612
+            color: (hls 60 0.35 1)
+            linewidth: 5
+            vertices: {
+                [  1.4  1.4 ]
+                [ -1.4  1.4 ]
+                [ -1.4 -1.4 ]
+                [  1.4 -1.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 613
+            color: (hls 60 0.5 1)
+            linewidth: 5
+            vertices: {
+                [  1.6  1.6 ]
+                [ -1.6  1.6 ]
+                [ -1.6 -1.6 ]
+                [  1.6 -1.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 614
+            color: (hls 60 0.6 1)
+            linewidth: 5
+            vertices: {
+                [  1.8  1.8 ]
+                [ -1.8  1.8 ]
+                [ -1.8 -1.8 ]
+                [  1.8 -1.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 615
+            color: (hls 60 0.7 1)
+            linewidth: 5
+            vertices: {
+                [  2  2 ]
+                [ -2  2 ]
+                [ -2 -2 ]
+                [  2 -2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 621
+            color: (hls 120 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  2.2  2.2 ]
+                [ -2.2  2.2 ]
+                [ -2.2 -2.2 ]
+                [  2.2 -2.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 622
+            color: (hls 120 0.35 1)
+            linewidth: 5
+            vertices: {
+                [  2.4  2.4 ]
+                [ -2.4  2.4 ]
+                [ -2.4 -2.4 ]
+                [  2.4 -2.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 623
+            color: (hls 120 0.5 1)
+            linewidth: 5
+            vertices: {
+                [  2.6  2.6 ]
+                [ -2.6  2.6 ]
+                [ -2.6 -2.6 ]
+                [  2.6 -2.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 624
+            color: (hls 120 0.6 1)
+            linewidth: 5
+            vertices: {
+                [  2.8  2.8 ]
+                [ -2.8  2.8 ]
+                [ -2.8 -2.8 ]
+                [  2.8 -2.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 625
+            color: (hls 120 0.7 1)
+            linewidth: 5
+            vertices: {
+                [  3  3 ]
+                [ -3  3 ]
+                [ -3 -3 ]
+                [  3 -3 ]
+            }
+        )
+        ( LineLoop
+            selectName: 631
+            color: (hls 180 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  3.2  3.2 ]
+                [ -3.2  3.2 ]
+                [ -3.2 -3.2 ]
+                [  3.2 -3.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 632
+            color: (hls 180 0.35 1)
+            linewidth: 5
+            vertices: {
+                [  3.4  3.4 ]
+                [ -3.4  3.4 ]
+                [ -3.4 -3.4 ]
+                [  3.4 -3.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 633
+            color: (hls 180 0.5 1)
+            linewidth: 5
+            vertices: {
+                [  3.6  3.6 ]
+                [ -3.6  3.6 ]
+                [ -3.6 -3.6 ]
+                [  3.6 -3.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 634
+            color: (hls 180 0.6 1)
+            linewidth: 5
+            vertices: {
+                [  3.8  3.8 ]
+                [ -3.8  3.8 ]
+                [ -3.8 -3.8 ]
+                [  3.8 -3.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 635
+            color: (hls 180 0.7 1)
+            linewidth: 5
+            vertices: {
+                [  4  4 ]
+                [ -4  4 ]
+                [ -4 -4 ]
+                [  4 -4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 641
+            color: (hls 240 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  4.2  4.2 ]
+                [ -4.2  4.2 ]
+                [ -4.2 -4.2 ]
+                [  4.2 -4.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 642
+            color: (hls 240 0.35 1)
+            linewidth: 5
+            vertices: {
+                [  4.4  4.4 ]
+                [ -4.4  4.4 ]
+                [ -4.4 -4.4 ]
+                [  4.4 -4.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 643
+            color: (hls 240 0.5 1)
+            linewidth: 5
+            vertices: {
+                [  4.6  4.6 ]
+                [ -4.6  4.6 ]
+                [ -4.6 -4.6 ]
+                [  4.6 -4.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 644
+            color: (hls 240 0.6 1)
+            linewidth: 5
+            vertices: {
+                [  4.8  4.8 ]
+                [ -4.8  4.8 ]
+                [ -4.8 -4.8 ]
+                [  4.8 -4.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 645
+            color: (hls 240 0.7 1)
+            linewidth: 5
+            vertices: {
+                [  5  5 ]
+                [ -5  5 ]
+                [ -5 -5 ]
+                [  5 -5 ]
+            }
+        )
+        ( LineLoop
+            selectName: 651
+            color: (hls 300 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  5.2  5.2 ]
+                [ -5.2  5.2 ]
+                [ -5.2 -5.2 ]
+                [  5.2 -5.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 652
+            color: (hls 300 0.35 1)
+            linewidth: 5
+            vertices: {
+                [  5.4  5.4 ]
+                [ -5.4  5.4 ]
+                [ -5.4 -5.4 ]
+                [  5.4 -5.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 653
+            color: (hls 300 0.5 1)
+            linewidth: 5
+            vertices: {
+                [  5.6  5.6 ]
+                [ -5.6  5.6 ]
+                [ -5.6 -5.6 ]
+                [  5.6 -5.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 654
+            color: (hls 300 0.6 1)
+            linewidth: 5
+            vertices: {
+                [  5.8  5.8 ]
+                [ -5.8  5.8 ]
+                [ -5.8 -5.8 ]
+                [  5.8 -5.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 655
+            color: (hls 300 0.7 1)
+            linewidth: 5
+            vertices: {
+                [  6  6 ]
+                [ -6  6 ]
+                [ -6 -6 ]
+                [  6 -6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 661
+            color: (hls 360 0.2 1)
+            linewidth: 5
+            vertices: {
+                [  6.2  6.2 ]
+                [ -6.2  6.2 ]
+                [ -6.2 -6.2 ]
+                [  6.2 -6.2 ]
+            }
+        )
+        ( LineLoop
+            selectName: 662
+            color: (hls 360 0.35 1)
+            linewidth: 5
+            vertices: {
+                [  6.4  6.4 ]
+                [ -6.4  6.4 ]
+                [ -6.4 -6.4 ]
+                [  6.4 -6.4 ]
+            }
+        )
+        ( LineLoop
+            selectName: 663
+            color: (hls 360 0.5 1)
+            linewidth: 5
+            vertices: {
+                [  6.6  6.6 ]
+                [ -6.6  6.6 ]
+                [ -6.6 -6.6 ]
+                [  6.6 -6.6 ]
+            }
+        )
+        ( LineLoop
+            selectName: 664
+            color: (hls 360 0.6 1)
+            linewidth: 5
+            vertices: {
+                [  6.8  6.8 ]
+                [ -6.8  6.8 ]
+                [ -6.8 -6.8 ]
+                [  6.8 -6.8 ]
+            }
+        )
+        ( LineLoop
+            selectName: 665
+            color: (hls 360 0.7 1)
+            linewidth: 5
+            vertices: {
+                [  7  7 ]
+                [ -7  7 ]
+                [ -7 -7 ]
+                [  7 -7 ]
+            }
+        )
+    }
+)

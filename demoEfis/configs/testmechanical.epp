@@ -1,0 +1,20 @@
+//
+// Test our Efis Mechanical ADI
+//
+mechanical:
+( TestMechanical
+    pagingEvent: {
+        n: hsimode
+        p: arcmode
+    }
+    components: {
+        // Label to tell us what test we are running
+        ( AsciiText
+            transform: { ( Translation -2.9 -2.9 ) ( Scale 0.3 ) }
+            color: white
+            text: "testmechanical.epp"
+        )
+        #include "mechanical/mechanical.epp"
+    }
+)
+

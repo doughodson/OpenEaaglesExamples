@@ -1,17 +1,17 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __TestDisplay_H__
-#define __TestDisplay_H__
+#ifndef __Eaagles_Example_TestDisplay_H__
+#define __Eaagles_Example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
    namespace Simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
-   namespace Y1 { class DspRadar; class DspRwr; }
+   namespace xPanel { class DspRadar; class DspRwr; }
 
-namespace Mainy1 {
+namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -21,7 +21,7 @@ namespace Mainy1 {
 //              display that shows the 'truth' location of the players, and
 //              Primary Flight Display (PFD).
 //
-// Form Name: TestDisplay
+// Factory name: TestDisplay
 //
 // Events: (all keyboard events)
 //   'r' or 'R'   -- Reset simulation
@@ -78,9 +78,9 @@ private:
 
     void updatePfd(const LCreal dt);
 
-    Y1::DspRadar*   rdrDisplay;     // Test RADAR display
-    Y1::DspRwr*     rwrDisplay;     // Test RWR display
-    LCreal          range;          // SD range
+    xPanel::DspRadar*   rdrDisplay;     // Test RADAR display
+    xPanel::DspRwr*     rwrDisplay;     // Test RWR display
+    LCreal              range;          // SD range
 
     SendData        headingSD;
     SendData        rangeSD;
@@ -88,7 +88,7 @@ private:
     SPtr<Simulation::Station> myStation;
 
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
-    int              trkIdx[MAX_TRACKS];    // Index of track symbols
+    int                 trkIdx[MAX_TRACKS];    // Index of track symbols
 
     // pitch and roll
     LCreal pitch;           // degs
@@ -143,7 +143,8 @@ private:
     LCreal baroRate;
 };
 
-} // End Mainy1 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
 #endif
+

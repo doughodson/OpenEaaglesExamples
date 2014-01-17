@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-// Class: FoxStation
+// Class: FltkStation
 //
 // Description: Station to start our fltk drawing 
 // NOTE: If you don't want to use Eaagles simulation class, you create your
@@ -7,13 +7,13 @@
 // using a Station so we can test interfacing and make sure our threads all
 // still run correctly and work.
 // ----------------------------------------------------------------------------
-#ifndef __Eaagles_mainFltk1_FoxStation_H__
-#define __Eaagles_mainFltk1_FoxStation_H__
+#ifndef __Eaagles_Example_FoxStation_H__
+#define __Eaagles_Example_FoxStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace Eaagles {
-namespace mainFltk1 {
+namespace Example {
 
 class MainWindow;
 class FltkDisplay;
@@ -44,7 +44,7 @@ private:
    MainWindow* mainWin;        // main Fltk window
 };
 
-}; // end mainFltk1 namespace
-}; // end Eaagles namespace
+} // end Example namespace
+} // end Eaagles namespace
 
 #endif

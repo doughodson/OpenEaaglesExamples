@@ -1,21 +1,19 @@
 //------------------------------------------------------------------------------
-// Class:	SimPlayer
-// Base class:	Basic::Object -> Basic::Component -> Player -> AirVehicle -> xxx -> SimPlayer
+// Class: SimPlayer
 //
-// Description: Sim Player
-//
+// Description: Simulation player
 //------------------------------------------------------------------------------
-#ifndef __SimPlayer__
-#define __SimPlayer__
+#ifndef __Eaagles_Example_SimPlayer_H_
+#define __Eaagles_Example_SimPlayer_H__
 
 #include "openeaagles/simulation/AirVehicle.h"
 
 namespace Eaagles {
-namespace Sim3 {
+namespace Example {
 
 class SimPlayer : public Simulation::Aircraft
 {
-    DECLARE_SUBCLASS(SimPlayer,Simulation::Aircraft)
+    DECLARE_SUBCLASS(SimPlayer, Simulation::Aircraft)
 
 public:
     SimPlayer();
@@ -26,7 +24,7 @@ public:
 private:
 };
 
-} // End Sim3 namespace
+} // End Example namespace
 } // End Eaagles namespace
 
-#endif // __SimPlayer__
+#endif

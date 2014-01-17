@@ -17,7 +17,9 @@
 
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/basicFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
 
 // Parameters
 static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
@@ -26,15 +28,14 @@ static const unsigned int TIMING_LOOPS = 10000;
 //-----------------------------------------------------------------------------
 // Read the configuration file
 //-----------------------------------------------------------------------------
-static const Eaagles::Basic::Table*
-readConfigFile(const char* const fileName, Eaagles::Basic::ParserFormFunc formFunc)
+static const Eaagles::Basic::Table* builder(const char* const fileName)
 {
    const Eaagles::Basic::Table* p = 0;
 
    // Read the description file
    int errors = 0;
    Eaagles::Basic::Object* q1 =
-         Eaagles::Basic::lcParser(fileName, formFunc, &errors);
+         Eaagles::Basic::lcParser(fileName, Eaagles::Basic::Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -325,7 +326,7 @@ int main(int argc, char* argv[])
    // ---
    // Read in the description files
    // ---
-   const Eaagles::Basic::Table* table = readConfigFile(configFile, Eaagles::Basic::basicFormFunc);
+   const Eaagles::Basic::Table* table = builder(configFile);
    if (table == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
       exit(EXIT_FAILURE);

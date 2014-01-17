@@ -1,0 +1,79 @@
+// Test our button classes
+
+testbuttons:
+( TestButtons 
+    pagingEvent: {
+        n: testftitdial
+        p: testspeedbrake
+    }
+    components: {
+        // include our basic VVI module, which utitilizes our clipping method
+        #include "openeaagles/instruments/buttons/buttons.epp"
+        
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testbuttons.epp"
+        )
+
+        whichbutton:
+        // this is our text which will tell us which button we are hitting!
+        ( AsciiText
+            color: white
+            transform: ( Translation -4 4 ) 
+            text: "                                                                          "
+        )
+
+        #if 0
+        ( PushButton
+            eventId: 501
+            selectName: 2
+            maintained: false
+            components: {
+                buttons:
+                ( Rotary2 
+                    components: {
+                        ( Graphic
+                            components: {
+                                // Throw in some test buttons here, to show cubes and such
+                                ( Cube
+                                    size: 2
+                                    material: m1
+                                    transform: ( Rotation 0.15 -0.15 0 0.15 ) 
+                                    translateLight: { 0.1 0.2 0.5 }
+                                    filled: 1
+                                )
+                            }
+                        )
+                        ( Graphic
+                            components: {
+                                // Throw in some test buttons here, to show cubes and such
+                                ( Cube
+                                    size: 2
+                                    material: m1
+                                    transform: { ( Translation 0.1 0.1 0.1 ) ( Rotation 0.05 -0.05 0 0.05 ) }
+                                    translateLight: { 0.1 0.2 0.5 }
+                                    filled: 1
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+        )
+        #endif
+        
+        // knob value
+        ( AsciiText
+            transform: ( Translation -2 -2 )
+            text: "Knob value = "
+        )
+        value:
+        ( NumericReadout
+            format: "+###.##"
+            transform:( Translation -2 -3 )
+        )
+    }
+)
+

@@ -1,0 +1,136 @@
+( GlutDisplay
+
+    name: "Instrument test"
+    left:   -10.5
+    right:   10.5
+    bottom: -10.5
+    top:     10.5
+    near:    -2.0
+    far:     2.0
+    vpX: 500
+    vpY: 0
+    vpWidth: 500
+    vpHeight: 500
+    clearDepth: 1.0
+    clearColor: (rgb 0 0 0)
+    fullScreen: 0
+    
+    #if defined (SHOW_MATERIALS)
+    materials: {
+        m1: ( Material diffuseColor: { 0.5 0.5 0.8 } specularColor: { 0.8 0.8 0.8 } shininess: 100 )
+    }
+    #endif
+        
+    // color is different.
+    colorTable: {
+        black:      ( rgba 0 0 0 )
+        red:        ( rgb 1 0 0 )
+        green:      ( rgb 0 1 0 )
+        yellow:     ( rgb 1 1 0 )
+        blue:       ( rgb 0 0 1 )
+        magenta:    ( rgb 1 0 1 )
+        brown:      ( rgb 0.3921568627450980392156862745098 0.27058823529411764705882352941176 0.15686274509803921568627450980392 )
+        white:      ( rgb 1 1 1 )
+        gray:       ( rgb 0.4 0.4 0.4 )
+        adiCyan:    ( rgb 0.7921568627450980392156862745098 0.83529411764705882352941176470588 0.81176470588235294117647058823529 )    
+        cyan:       ( rgb 0 1 1 )
+        gray2:      ( rgb 0.2 0.2 0.2 )    
+        amber:      ( rgb 1 0.5 0 )   
+        gray1:      ( rgb 0.1 0.1 0.1 )
+        gray8:      ( rgb 0.8 0.8 0.8 )
+    }
+    
+    // Again, an example of an PairStream, this time setting up our fonts. 
+    fonts: {
+        // normal font for the instruments
+        default: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -10.5 10.5 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 1
+            fontHeight: 1
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            lineSpacing: 1
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+
+        // small font for the instruments
+        smallfont: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -10.5 10.5 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 0.75
+            fontHeight: 0.75
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+        
+        // smaller font for the instruments
+        smallerfont: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -10.5 10.5 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 0.5
+            fontHeight: 0.5
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+        
+        arialfont: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -10.5 10.5 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 0.5
+            fontHeight: 0.5
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            lineSpacing: 0.75
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+             
+    } // end of font list
+
+    normalFont: default
+
+    page: testbuttons
+     
+     
+     pages: {
+        #include "testspeedbrake.epp"
+        #include "testenginedial.epp"
+        #include "testcas.epp"
+        #include "testftitdial.epp"
+        #include "testoilpressure.epp"
+        #include "testnozzle.epp"
+        #include "testrpmdial.epp"
+        #include "testhsi.epp"
+        #include "testgauge1.epp"
+        #include "testvvi.epp"
+        #include "testalt.epp"     
+        #include "testcompass.epp"
+        #include "testAoAIndexer.epp"
+        #include "testgmeterdial.epp"
+        #include "testlandinggear.epp"
+        #include "testeng.epp"
+        #include "testbuttons.epp"
+        #include "testadi.epp"
+        #include "testadi2.epp"
+     }
+)

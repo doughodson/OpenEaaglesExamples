@@ -1,5 +1,5 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% inputs/puzzle.epp > puzzle.edl -DTEXTURES_PATH="\"../data/textures/\""
+%mcpp% configs/puzzle.epp > puzzle.edl -DTEXTURES_PATH="\"../shared/data/textures/\""
 

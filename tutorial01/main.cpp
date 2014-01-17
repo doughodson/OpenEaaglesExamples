@@ -1,10 +1,11 @@
 
 #include <iostream>
+
 #include "openeaagles/basic/String.h"
 
-namespace Example01 {
+namespace Tutorial {
 
-int exec (int, char **)
+int main(int argc, char* argv[])
 {
 
   Eaagles::Basic::String* str = new Eaagles::Basic::String("Hello world\n");
@@ -20,13 +21,12 @@ int exec (int, char **)
   return 0;
 }
 
-} // namespace Example01
+}
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-  Example01::exec(argc, argv);
+  Tutorial::main(argc, argv);
 }
-

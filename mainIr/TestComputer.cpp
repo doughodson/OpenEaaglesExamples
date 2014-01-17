@@ -11,8 +11,7 @@
 #include <iostream>
 
 namespace Eaagles {
-namespace MainIR {
-
+namespace Example {
 
 //==============================================================================
 // Class: TestComputer
@@ -266,5 +265,5 @@ void TestComputer::updateShootList(const bool step)
    else setNextToShoot(0);
 }
 
-} // End Simulation namespace
+} // End Example namespace
 } // End Eaagles namespace

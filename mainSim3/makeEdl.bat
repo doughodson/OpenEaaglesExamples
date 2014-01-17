@@ -1,4 +1,7 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% inputs/test0.epp > test0.edl -I ..\data -DFONT_PATH="\"../data/fonts/\""
+%mcpp% configs/test0.epp > test0.edl ^
+ -I ..\shared\data ^
+ -DFONT_PATH="\"../shared/data/fonts/\"" ^
+ -DJSBSIM_PATH="\"../shared/data/JSBSim/\""

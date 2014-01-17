@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Example06 {
+namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(MyComp,"MyComp")
 // setup slot table
@@ -130,6 +130,6 @@ void MyComp::updateData(const LCreal dt)
    BaseClass::updateData(dt);
 }
 
-} // namespace Example06
+} // namespace Tutorial
 } // namespace Eaagles
 

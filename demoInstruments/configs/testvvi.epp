@@ -1,0 +1,32 @@
+// Test our tape gauge vertical velocity
+
+testvvi:
+( TestVVI 
+    pagingEvent: {
+        n: testhsi
+        p: testgmeterdial
+    }
+    components: {
+        // include our basic VVI module, which utitilizes our clipping method
+        #include "openeaagles/instruments/gauges/vvi.epp"
+        
+        // Here is our VVI readout
+        ( AsciiText
+            color: white
+            position: [ 1 2 ]
+            text: "VERTICAL VELOCITY = " 
+        )
+vviro:  ( NumericReadout
+            color: white 
+            position: [ 1 23 ]
+            format: "#####"
+        )
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testvvi.epp"
+         )
+    }
+)
+

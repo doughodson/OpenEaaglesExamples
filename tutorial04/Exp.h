@@ -1,22 +1,18 @@
 //------------------------------------------------------------------------------
 // Class:  Exponential
-// Base class:  Object-> Random -> Exp
 // Description:  Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef _EXP_INCLUDE
-#define _EXP_INCLUDE
+#ifndef __Eaagles_Tutorial_Exp_H__
+#define __Eaagles_Tutorial_Exp_H__
 
 #include "Random.h"
 
 namespace Eaagles {
-  namespace Basic {
-    class Number;
-  }
-}
 
-namespace Eaagles {
-namespace Example04 {
+namespace Basic { class Number; }
+
+namespace Tutorial {
 
 class Exp : public Random
 {
@@ -41,7 +37,7 @@ private:
 
 };
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles
 
 #endif

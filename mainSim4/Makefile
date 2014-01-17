@@ -9,6 +9,7 @@ OBJS = \
 	Station.o \
 	main.o
 
+LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
 LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation -lJSBSim 
 LDFLAGS += -loeInstruments -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic -lrt -lcigicl 
@@ -26,7 +27,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS) 
 
 edl:
-	cpp inputs/test.epp >test.edl $(EPPFLAGS)
+	cpp configs/test.epp >test.edl $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

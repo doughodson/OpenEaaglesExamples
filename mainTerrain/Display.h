@@ -1,10 +1,9 @@
 // ----------------------------------------------------------------------------
 // Display
-// Class: Display -> Eaagles::MainTerrain::Display
 //
 // Description: Displays an image of a terrain database
 //
-// Form name: TerrainDisplay
+// Factory name: TerrainDisplay
 //
 // Slots:
 //    terrain        <Simulation::Terrain>  The terrain elevation database
@@ -21,15 +20,15 @@
 //    textureTest    <Boolean>   Texture test enabled
 //
 // ----------------------------------------------------------------------------
-#ifndef EAAGLES_MAINTERRAIN_DISPLAY_H
-#define EAAGLES_MAINTERRAIN_DISPLAY_H
+#ifndef __Eaagles_Example_Display_H__
+#define __Eaagles_Example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
    namespace Basic { class Angle; class Distance; class Number; class Terrain; }
 
-namespace MainTerrain {
+namespace Example {
 
 class MainWindow;
 
@@ -111,7 +110,7 @@ private:
                                        //   --   icol : [ 0 ... (imgWidth-1) ]
 };
 
-}; // end MainTerrain namespace
+}; // end Example namespace
 }; // end Eaagles namespace
 
 #endif

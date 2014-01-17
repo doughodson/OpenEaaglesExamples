@@ -7,12 +7,12 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Example03 {
+namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Random,"Random")
 // setup slot table
 BEGIN_SLOTTABLE(Random)
-  	"seed",
+    "seed",
 END_SLOTTABLE(Random)
 // map attributes to slots
 BEGIN_SLOT_MAP(Random)
@@ -36,7 +36,7 @@ Random::Random(void)
 //------------------------------------------------------------------------------
 void Random::copyData(const Random& org, const bool)
 {
-	BaseClass::copyData(org);
+  BaseClass::copyData(org);
 }
 
 //------------------------------------------------------------------------------
@@ -76,5 +76,5 @@ bool Random::setSlotSeed(const Basic::Number* const seed)
   return ok;
 }
 
-} // namespace Example03
+} // namespace Tutorial
 } // namespace Eaagles

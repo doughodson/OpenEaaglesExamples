@@ -1,7 +1,10 @@
+//------------------------------------------------------------------------------
+// Class: TestIoHandler
+//------------------------------------------------------------------------------
 
 #include "TestIoHandler.h"
 #include "SimStation.h"
-#include "inputs/f16HotasIo.h"
+#include "configs/f16HotasIo.h"
 
 #include "openeaagles/simulation/Autopilot.h"
 #include "openeaagles/simulation/AirVehicle.h"
@@ -12,7 +15,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace Eaagles {
-namespace Mainy1 {
+namespace Example {
 
 //==============================================================================
 // TestIoHandler
@@ -323,5 +326,5 @@ void TestIoHandler::clear()
 {
 }
 
-} // End Mainy1
+} // End Example namespace
 } // end Eaagles namespace

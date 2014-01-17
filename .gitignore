@@ -3,6 +3,7 @@
 vs2008/
 vs2010/
 vs2012/
+vs2013/
 codeblocks/
 codelite/
 
@@ -34,19 +35,24 @@ build/qt/*/*/*Makefile*
 
 # backup files
 *.bak
+*~
 
-# preprocessed scenarios
+# preprocessed input (scenario) files
 *.edl
 
+
 # linux executables
-mainEfis/mainEfis
-mainfd1/mainfd1
-mainfd2/mainfd2
+demoEfis/demoEfis
+demoFlightDisplays1/demoFlightDisplays1
+demoFlightDisplays2/demoFlightDisplays2
+demoInstruments/demoInstruments
+demoSubDisplays/demoSubDisplays
 mainFltk1/mainFltk1
 mainFox1/mainFox1
 mainGL/mainGL
 mainGndMapRdr/mainGndMapRdr
 mainIr/mainIr
+mainLaero/mainLaero
 mainNonRT1/mainNonRT1
 mainPuzzle1/mainPuzzle1
 mainPuzzle2/mainPuzzle2
@@ -55,19 +61,16 @@ mainSim2/mainSim2
 mainSim3/mainSim3
 mainSim4/mainSim4
 mainTerrain/mainTerrain
-mainVmap/mainVmap
 mainw/mainw
-mainx9/mainx9
 mainy1/mainy1
-mainz1/mainz1
-mainz2/mainz2
 mainUbf1/mainUbf1
 testEvents/testEvents
-testIo/testIo
+testIoHandler/testIoHandler
 testLinearSys/testLinearSys
 testMatrix/testMatrix
-testNav/testNav
-testNet/testNet
+testNavigation/testNavigation
+testNetHandler/testNetHandler
+testRadar/testRadar
 testRecordData/testRecordData
 testRecorderRead/testRecorderRead
 testRecorderWrite/testRecorderWrite
@@ -83,5 +86,4 @@ tutorial05/tutorial05
 tutorial06/tutorial06
 tutorial07/tutorial07
 tutorial08/tutorial08
-
 

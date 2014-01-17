@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Example04 {
+namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Exp,"Exp")
 // setup slot table
@@ -37,8 +37,7 @@ Exp::Exp(void)
 //------------------------------------------------------------------------------
 void Exp::copyData(const Exp& org, const bool)
 {
-	BaseClass::copyData(org);
-
+   BaseClass::copyData(org);
    mean = org.mean;
 }
 
@@ -86,5 +85,5 @@ Basic::Object* Exp::getSlotByIndex(const int si)
   return BaseClass::getSlotByIndex(si);
 }
 
-} // namespace Example04
+} // namespace Tutorial
 } // namespace Eaagles

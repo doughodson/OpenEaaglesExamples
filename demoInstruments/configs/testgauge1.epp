@@ -1,0 +1,30 @@
+// ------------------------------------------------------------------------------------
+// Tests a simple gauge, which draws vertically based on the value given to it.
+// ------------------------------------------------------------------------------------
+
+testgauge1: 
+( TestGauge1
+    pagingEvent: {
+        n: testnozzle
+        p: testcas
+    }
+    
+    components: {
+        // include our gauge module
+        #include "openeaagles/instruments/gauges/gauge.epp"
+        
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 1 2 ]
+            color: white
+            text: "Analog Guage"
+        )
+
+        ( AsciiText
+            position: [ 1 28 ]
+            color: white
+            text: "Tape"
+        )
+    }
+)
+

@@ -11,7 +11,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace MainIR {
+namespace Example {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
 
@@ -162,7 +162,7 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
 {
    int j = 0;
    if ( !slotsOnly ) {
-      sout << "( " << getFormName() << std::endl;
+      sout << "( " << getFactoryName() << std::endl;
       j = 4;
     }
 
@@ -182,5 +182,5 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
    return sout;
 }
 
-} // End MainIR namespace
+} // End Example namespace
 } // End Eaagles namespace

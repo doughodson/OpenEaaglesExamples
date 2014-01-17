@@ -6,23 +6,25 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/basicFF.h"
 
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/basicGLFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
+
+// class factories
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
+
 #include <GL/glut.h>
 
-namespace MainGL {
+namespace Example {
 
 // Frame Rate
 static const int frameRate = 20;
 
 // The System
 static class Eaagles::Glut::GlutDisplay* sys = 0;
-
 
 //=============================================================================
 // MainGL functions
@@ -41,22 +43,23 @@ static void timerFunc(int)
    sys->tcFrame((Eaagles::LCreal) dt);
 }
 
-// Our Form Function
-static Eaagles::Basic::Object* formFunc(const char* formname)
+// our class factory
+static Eaagles::Basic::Object* factory(const char* name)
 {
-   Eaagles::Basic::Object* newform = 0;
-   if (newform == 0) newform = Eaagles::BasicGL::basicGLFormFunc(formname);
-   if (newform == 0) newform = Eaagles::Glut::glutFormFunc(formname);
-   if (newform == 0) newform = Eaagles::Basic::basicFormFunc(formname);
-   return newform;
+   Eaagles::Basic::Object* obj = 0;
+   if (obj == 0) obj = Eaagles::Glut::Factory::createObj(name);
+   if (obj == 0) obj = Eaagles::BasicGL::Factory::createObj(name);
+   if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
+
+   return obj;
 }
 
-// readConfigFile() -- reads HUD description file
-static Eaagles::Glut::GlutDisplay* readConfigFile(const char* const filename)
+// build a display as specified by configuration file
+static Eaagles::Glut::GlutDisplay* builder(const char* const filename)
 {
     // Read the description file
     int errors = 0;
-    Eaagles::Basic::Object* q1 = lcParser(filename, formFunc, &errors);
+    Eaagles::Basic::Object* q1 = lcParser(filename, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         return 0;
@@ -94,9 +97,9 @@ int process(int argc, char* argv[])
    }
 
 // ---
-// Read in the description files
+// Build a display
 // ---
-    sys = readConfigFile(fileName);
+    sys = builder(fileName);
 
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
@@ -123,12 +126,12 @@ int process(int argc, char* argv[])
     return 0;
 }
 
-} // MainGL namespace
+} // Example namespace
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-    return MainGL::process(argc,argv);
+    return Example::process(argc,argv);
 }

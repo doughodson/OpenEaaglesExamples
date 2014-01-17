@@ -1,0 +1,185 @@
+// ---
+// Networked example part #b: target players
+//
+//    Needs to be run with par #a
+//    You'll need to update the network parameters.
+//    And switch the 'ownship' focus only works with 'local' players.
+// ---
+
+#define PFRZ true
+#define REF_LAT  45.0
+#define REF_LON -90.0
+#define USE_WORLD true
+
+( TestStation
+
+   tcPriority: 1
+
+   bgPriority: 0.5
+   bgRate: 10.0
+
+   netPriority: 1.0
+   netRate: 5.0
+
+   networks: {
+      ( DisNetIO
+         siteID: 1
+         applicationID: 2
+         exerciseID: 1
+         enableInput: true
+         enableOutput: true
+         enableRelay: false
+
+         netInput:   ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3002 shared: true )
+         netOutput:  ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  localPort: 3002        shared: true )
+
+         // Example emission handler list
+         emissionPduHandlers: {
+            ( EmissionPduHandler
+               emitterName: 888
+               emitterFunction: 1
+               sensor: ( Radar )
+               antenna: ( Antenna
+                  polarization: horizontal
+                  gain: ( dB 36 )
+                  #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
+               )
+               defaultIn:  true
+               defaultOut:  true
+            )
+         }
+
+         #include "DisIncomingEntityTypes.epp"
+         #include "DisOutgoingEntityTypes.epp"
+      )
+   }
+
+   glutDisplay:
+      #include "displays.epp"
+
+   // ---
+   // Simulation scenario
+   // ---
+   ownship: p00
+   simulation: ( Simulation
+
+      latitude:  REF_LAT
+      longitude: REF_LON
+
+      enableTimingStats: true
+      printTimingStats: true
+      
+      players: {
+
+         p00:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1000
+            signature: ( SigSphere radius: 2.0 )
+            //initPosition: [ 10000 -6000 -10000 ]
+            //initPosition: [ 0 0 -10000 ]
+             initXPos:  ( Meters  10000 )
+             initYPos:  ( Meters -6000 )
+             initAlt:   ( Meters  10000 )
+            //initHeading: ( Degrees 100 )
+            initHeading: ( Degrees 0 )
+            initVelocity: 250
+            positionFreeze: PFRZ
+            
+#if 0 /* used to checkout the player's "test angular rate slots" */
+            initRoll: ( Degrees 0.0 )
+            initPitch: ( Degrees 0.0 )
+            initHeading: ( Degrees 0.0 )
+            testRollRate: ( Degrees 0.0 )
+            testPitchRate: ( Degrees 0.0 )
+            testYawRate: ( Degrees 0.0 )
+            testBodyAxis: false
+#endif
+            components: {
+                  antennas: ( Gimbal
+                     components: {
+                        radar: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 36 )
+                           #include "gainPattern.epp"
+                           initPosAzimuth:   ( Degrees 0 )
+                           initPosElevation: ( Degrees 0 )
+                           maxRates: [ 0.8727 0.8727 ]
+                           commandRateAzimuth:   ( Degrees 25 ) // per second
+                           commandRateElevation: ( Degrees 25 ) // per second
+                           reference: [ 0 0 ]
+                           searchVolume: [ 1.0472 0.05 ]
+                           numBars: 2
+                           useWorldCoordinates: USE_WORLD
+
+                        )
+                        rwr: ( Antenna 
+                           polarization: horizontal
+                           gain: ( dB 10 )
+                           maxPlayersOfInterest: 0
+                        )
+                     }
+                  )
+                  sensors: ( SensorMgr
+                     components: {
+                        ( Tws
+                           antennaName: radar
+                           powerPeak:  ( KiloWatts 500.0 )
+                           frequency:  ( GigaHertz 3.0 )
+                           bandwidth:  ( GigaHertz 0.2 )
+                           PRF:        ( Hertz 500.0 ) 
+                           pulseWidth: ( MilliSeconds 0.01 )
+                           threshold:  ( dB 2.0 )
+                           ranges:     [ 10 20 40 80 160 ]
+                           initRangeIdx: 2
+                        )
+                        ( Rwr
+                            antennaName: rwr 
+                            threshold:  ( dB 0.0 )
+                            frequency:  ( GigaHertz 3.0 )
+                            bandwidth:  ( GigaHertz 2.0 )
+                        )
+                     }
+                  )
+            }                
+         )
+
+#if 0
+         p01:
+         ( Aircraft
+            side: red
+            type: "F-16"
+            id: 1001
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ 10200 -4800 -10000 ]
+            initHeading: ( Degrees 100 )
+            initVelocity: 250
+            positionFreeze: PFRZ
+            components: {
+               rwr: ( Antenna 
+                  scanMode: manual
+                  polarization: horizontal
+                  gain: ( dB 1 )
+               )
+               ( Rwr
+                  antennaName: rwr
+                  threshold:  ( dB 75.0 )
+               )
+            }                
+         )
+#endif
+
+      }
+   )
+)

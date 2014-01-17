@@ -1,0 +1,36 @@
+// Test our landing gear and landing lights
+
+testlandinggear:
+( TestLandingGear
+    pagingEvent: {
+        n: testeng
+        p: testAoAIndexer
+    }
+    components: {
+        #include "openeaagles/instruments/landingGear/landinggear.epp"
+        
+        // this is our readout
+        ( AsciiText 
+            color: white
+            position: [ 1 2 ]
+            text: "GEAR POS: "
+        )
+gearRO: ( NumericReadout
+            color: white
+            position: [ 1 12 ]
+            format: "#.##"
+        )
+        ( AsciiText
+            color: white
+            position: [ 2 2 ]
+            text: "Hit g to toggle gear"
+        )
+        // Label to tell us what test we are running
+        ( AsciiText
+            position: [ 26 2 ]
+            color: white
+            text: "testlandinggear.epp"
+        )
+    }
+)
+

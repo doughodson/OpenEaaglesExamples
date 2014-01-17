@@ -5,9 +5,10 @@ PGM = mainy1
 
 OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
-OBJS += formFunc.o testy.o
+OBJS += Factory.o testy.o
 
-LDFLAGS += -lY1Panel
+LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
+LDFLAGS += -lxPanel
 LDFLAGS += -loeRecorder -loeSensors -loeVehicles
 LDFLAGS += -loeSimulation -loeInstruments -loeDis
 LDFLAGS += -loeIoDevice -loeOtw -loeDafif
@@ -28,7 +29,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp inputs/test1.epp >test1.edl   $(EPPFLAGS)
+	cpp configs/test1.epp >test1.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

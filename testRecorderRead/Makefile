@@ -2,9 +2,9 @@ include ../makedefs
 
 PGM = testRecorderRead
 
-OBJS = main.o DataRecordTest.o formFunc.o PrintMyData.o
+OBJS = main.o DataRecordTest.o Factory.o PrintMyData.o
 
-LDFLAGS += -lMyRecorder
+LDFLAGS += -lxRecorder
 LDFLAGS += -loeRecorder -loeSimulation
 LDFLAGS += -loeDafif -loeBasic
 LDFLAGS += -lprotobuf
@@ -18,7 +18,7 @@ EPPFLAGS +=  -I.
 all: $(PGM) 
 
 edl:
-	cpp inputs/test.epp >test.edl   $(EPPFLAGS)
+	cpp configs/test.epp >test.edl   $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS) 

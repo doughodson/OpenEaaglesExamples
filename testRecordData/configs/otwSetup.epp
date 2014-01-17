@@ -1,0 +1,24 @@
+// -----------------------------------------------------------------------------
+// Example CIGI (e.g., SubrScene) Out-The-Window Visual System
+//  (adjust IP and port numbers as needed)
+// -----------------------------------------------------------------------------
+
+otw: {
+   ( OtwCigiCl
+      latitude:  OTW_LATITUDE
+      longitude: OTW_LONGITUDE
+      maxRange: ( NauticalMiles 20.0 )
+      maxModels: 50
+      maxElevations: 20
+      async: 0
+
+      cigi: ( CigiClNetwork
+          netInput: ( UdpUnicastHandler localIpAddress: "127.0.0.1" ipAddress: "127.0.0.1" port: 8008 )
+          netOutput: ( UdpUnicastHandler localIpAddress: "127.0.0.1" ipAddress: "127.0.0.1" port: 8108 localPort: 8208 )
+      )
+
+      // Include the models
+      #include "CigiModels.epp"
+   )
+}
+

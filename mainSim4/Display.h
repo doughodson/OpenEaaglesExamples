@@ -2,23 +2,23 @@
 // Class: Display
 //
 // Description:
-//      Derived Display that will simply make our map page move.
+//      Derived Display that will make our map page move.
 // -------------------------------------------------------------------------------
-#ifndef __MAPTEST_DISPLAY_H__
-#define __MAPTEST_DISPLAY_H__
+#ifndef __Eaagles_Example_Display_H__
+#define __Eaagles_Example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-namespace MapTest {
+namespace Example {
 
 class Display : public Glut::GlutDisplay
 {
     DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
 
 public:
-    Display();  
-    
+    Display();
+
     // Display interface
     virtual void mouseMotionEvent(const int x, const int y);
     virtual void mouseEvent(const int button, const int state, const int x, const int y);
@@ -34,7 +34,7 @@ private:
     SendData rangeSD;
 };
 
-}  // end of MapTest namespace
+}  // end of Example namespace
 }  // end of Eaagles namespace
 
 #endif

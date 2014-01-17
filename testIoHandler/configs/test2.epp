@@ -1,0 +1,28 @@
+// =============================================================================
+// I/O Devices Test #2 --
+//    F-16 I/O channel mapping to a Thrustmaster HOTAS cougar example
+// =============================================================================
+
+( TestIoDisplay
+
+   // ---
+   // I/O handler w/IoData and the I/O mapping to/from the device(s)
+   // ---
+   ioHandler: ( IoHandler
+      inputData: ( IoData numAI: 10   numDI: 40 )
+      devices: {
+         #include "ThrustMaster.epp"
+      }
+   )
+
+   // ---
+   // IoData Channels to Display-Items mapping
+   // ---
+   #include "mappingF16Hotas.epp"
+
+   // ---
+   // Display configuration
+   // ---
+   #include "display.epp"
+
+)

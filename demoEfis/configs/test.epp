@@ -1,0 +1,65 @@
+( GlutDisplay
+    name: "Flight Display Test"
+    left:   -3
+    right:   3
+    bottom: -3
+    top:     3
+    near:    -2.0
+    far:     2.0
+    vpWidth: 1000
+    vpHeight: 1000
+    clearDepth: 1.0
+    clearColor: (rgb 0 0 0)
+    fullScreen: 0
+
+    colorTable: {
+        black:      ( rgba 0 0 0 )
+        red:        ( rgb 1 0 0 )
+        green:      ( rgb 0 1 0 )
+        yellow:     ( rgb 1 1 0 )
+        blue:       ( rgb 0 0 1 )
+        magenta:    ( rgb 1 0 1 )
+        white:      ( rgb 1 1 1 )
+        gray:       ( rgb 0.4 0.4 0.4 )
+        cyan:       ( rgb 0 1 1 )
+        gray2:      ( rgb 0.2 0.2 0.2 )
+        amber:      ( rgb 1 0.5 0 )
+        sky:        ( rgb 0 0.407 0.545 )
+        gray1:      ( rgb 0.1 0.1 0.1 )
+        gray8:      ( rgb 0.8 0.8 0.8 )
+    }
+
+    fonts: {
+        // normal font for the instruments
+        default: 
+        ( FTGLPolygonFonts
+            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
+            fontPosition: [ -3 3 ]
+            // this is a unit value, telling us our width and height are proportional to one another
+            fontWidth: 1
+            fontHeight: 1
+            // space between each character, usually 1/2 the width
+            characterSpacing: 0.5
+            // space between each line
+            //lineSpacing: 0.21
+            lineSpacing: 0.8
+            path: FONT_PATH
+            file: "arialn.ttf"
+        )
+    } // end of font list
+
+    normalFont: default
+
+    page: hsimode
+
+    pages: {
+
+        // mechanical adi
+        #include "testmechanical.epp"
+
+        // electronic hsi and arc mode
+        #include "testhsimode.epp"
+        #include "testarcmode.epp"
+     }
+)
+

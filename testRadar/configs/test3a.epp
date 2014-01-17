@@ -1,0 +1,189 @@
+// ---
+// Networked example part #a: player with a radar and missiles
+//
+//    Needs to be run with par #b
+//    You'll need to update the network parameters.
+//    And switch the 'ownship' focus only works with 'local' players.
+// ---
+
+#define PFRZ false
+
+( TestStation
+
+   tcPriority: 0
+
+   networks: {
+      ( DisNetIO
+         siteID: 1
+         applicationID: 1
+         exerciseID: 1
+         enableInput: true
+         enableOutput: true
+         enableRelay: false
+         netInput:   ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  ignoreSourcePort: 3001 shared: true )
+         netOutput:  ( UdpBroadcastHandler localIpAddress: "172.17.160.92"  networkMask: "255.255.248.0" port: 3000  localPort: 3001        shared: true )
+
+         // Example emission handler list
+         emissionPduHandlers: {
+            ( EmissionPduHandler
+               emitterName: 888
+               emitterFunction: 1
+               sensor: ( Radar )
+               antenna: ( Antenna
+                  polarization: horizontal
+                  gain: ( dB 36 )
+                  #include "gainPattern.epp"
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  maxRates: [ 0.8727 0.8727 ]
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 1
+                  useWorldCoordinates: true
+                  localPlayersOfInterestOnly: true
+               )
+               defaultIn:  true
+               defaultOut:  true
+            )
+         }
+
+         #include "DisIncomingEntityTypes.epp"
+         #include "DisOutgoingEntityTypes.epp"
+      )
+   }
+
+   glutDisplay:
+   #include "displays.epp"
+
+
+   // ---
+   // Simulation scenario
+   // ---
+   ownship: ownship
+      simulation: ( Simulation
+      enableTimingStats: true
+      printTimingStats: true
+      players: {
+
+         ownship: ( Aircraft
+
+            id: 1
+            side: blue
+            type: "F-16"
+            signature: ( SigSphere radius: 2.0 )
+            initPosition: [ -15000 0 -10000 ]
+            initHeading: ( Degrees 10 )
+            initVelocity: 250
+            positionFreeze: PFRZ
+            components: {
+
+               // simple RADAR antenna
+               radar: ( Antenna
+                  polarization: horizontal
+                  gain: ( dB 42 )
+                  #include "gainPattern.epp"
+
+                  initPosAzimuth:   ( Degrees 0 )
+                  initPosElevation: ( Degrees 0 )
+                  commandRateAzimuth:   ( Degrees 25 ) // per second
+                  commandRateElevation: ( Degrees 25 ) // per second
+                  maxRates: [ 0.8727 0.8727 ]
+                  reference: [ 0 0 ]
+                  searchVolume: [ 1.0472 0.05 ]
+                  numBars: 2
+
+                  //maxPlayersOfInterest: 6
+                  //playerOfInterestTypes: { air weapon }
+                  //maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                  //maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                  //localPlayersOfInterestOnly: false
+               )
+
+               // Simple TWS mode radar
+               ( Tws
+                  antennaName: radar
+                  powerPeak:  ( KiloWatts 500.0 )
+                  frequency:  ( GigaHertz 3.0 )
+                  bandwidth:  ( GigaHertz 2.0 )
+                  PRF:        ( Hertz 500.0 ) 
+                  pulseWidth: ( MilliSeconds 0.01 )
+                  threshold:  ( dB 0.0 )
+                  ranges:     [ 10 20 40 80 160 ]
+                  typeId: "fcr"
+               )
+
+               // Four A/A missiles
+               sms: ( StoresMgr
+                  numStations: 4
+                  stores: {
+                     1: ( AamMissile
+                        id: 201
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     2: ( AamMissile
+                        id: 202
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     3: ( AamMissile
+                        id: 203
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     4: ( AamMissile
+                        id: 204
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                  }
+               )
+
+            }
+         )
+
+      }
+   )
+)

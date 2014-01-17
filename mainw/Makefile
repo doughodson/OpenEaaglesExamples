@@ -15,9 +15,8 @@ EPPFLAGS += -DFONT_11_19_PATH="\"$(DATA_DIR)/fonts/11x19/normal/\""
 all: $(PGM)
 
 edl:
-	cpp inputs/test.epp >test.edl   $(EPPFLAGS)
-	cpp inputs/test2.epp >test2.edl $(EPPFLAGS)
-
+	cpp configs/test.epp >test.edl   $(EPPFLAGS)
+	cpp configs/test2.epp >test2.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)

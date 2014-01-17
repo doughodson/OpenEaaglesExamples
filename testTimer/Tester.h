@@ -1,21 +1,21 @@
 //------------------------------------------------------------------------------
 // Class: Tester
 //------------------------------------------------------------------------------
-#ifndef _TIMER_TESTER_INCLUDE
-#define _TIMER_TESTER_INCLUDE
+#ifndef __Eaagles_Test_Tester_H__
+#define __Eaagles_Test_Tester_H__
 
 #include "openeaagles/basic/Component.h"
 
 namespace Eaagles {
    namespace Basic { class PairStream; }
 
-namespace TestTimer {
+namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: Tester
 // Description: Container class for the interval timers being tested
 //
-// Form name: Tester
+// Factory name: Tester
 // Slots:
 //    timers   <PairStream>   ! List of timers to be tested
 //------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ private:
    Basic::PairStream* timers;    // List of timers
 };
 
-} // namespace TestTimer
+} // namespace Test
 } // namespace Eaagles
 
 #endif

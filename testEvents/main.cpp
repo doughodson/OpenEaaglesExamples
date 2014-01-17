@@ -4,18 +4,20 @@
 
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basicGL/basicGLFF.h"
-#include "openeaagles/basic/basicFF.h"
 #include "openeaagles/basic/Timers.h"
 
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
+
+// class factories
+#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/basic/Factory.h"
+#include "openeaagles/gui/glut/Factory.h"
 
 #include "Display.h"
 #include "ObjectHandler.h"
 
 namespace Eaagles {
-namespace TestEvents {
+namespace Test {
 
 // Description (input) File -- After being processed by the C preprocessor
 const char* testFileName = "test.edl";
@@ -24,7 +26,7 @@ const char* testFileName = "test.edl";
 const int frameRate = 20;
 
 // System descriptions
-static class Display* sys = 0;	
+static class Display* sys = 0;
 
 //=============================================================================
 // Main test functions
@@ -43,32 +45,32 @@ static void timerFunc(int)
     sys->tcFrame((LCreal)dt);
 }
 
-// Test Form Function
-static Basic::Object* testFormFunc(const char* formname)
+// our class factory
+static Basic::Object* factory(const char* name)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* obj = 0;
 
-    if (strcmp(formname, Display::getFormName()) == 0) {
-        newform = new Display();
+    if (strcmp(name, Display::getFactoryName()) == 0) {
+        obj = new Display();
     }
-    else if (strcmp(formname, ObjectHandler::getFormName()) == 0) {
-        newform = new ObjectHandler();
+    else if (strcmp(name, ObjectHandler::getFactoryName()) == 0) {
+        obj = new ObjectHandler();
     }
     else {
-        if (newform == 0) newform = BasicGL::basicGLFormFunc(formname);
-        if (newform == 0) newform = Glut::glutFormFunc(formname);
-        if (newform == 0) newform = Basic::basicFormFunc(formname);
+        if (obj == 0) obj = BasicGL::Factory::createObj(name);
+        if (obj == 0) obj = Glut::Factory::createObj(name);
+        if (obj == 0) obj = Basic::Factory::createObj(name);
     }
 
-    return newform;
+    return obj;
 }
 
-// readTest() -- function to the read description files
-static void readTest()
+// build a display
+static void builder()
 {
     // Read the description file
     int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, testFormFunc, &errors);
+    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         exit(1);
@@ -107,9 +109,9 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
 // ---
-// Read in the description files
+// Build a display
 // ---
-    readTest();
+    builder();
 
 // ---
 // Create a display window
@@ -131,7 +133,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-} // End TestEvents namespace
+} // End Test namespace
 } // End Eaagles namespace
 
 //-----------------------------------------------------------------------------
@@ -139,5 +141,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::TestEvents::main(argc,argv);
+   return Eaagles::Test::main(argc,argv);
 }
