@@ -17,6 +17,7 @@
       configuration "Debug"
          targetname "xBehaviors_d"
 
+--[[
     --  eXample IEEE HLA interoperability library
     project "libxHla"
       kind "StaticLib"
@@ -33,6 +34,7 @@
          targetname "xHla"
       configuration "Debug"
          targetname "xHla_d"
+--]]
 
     --  eXample library that extends the data recorder
     project "libxRecorder"
