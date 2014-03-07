@@ -8,6 +8,8 @@
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/Timers.h"
 
+#include <cstdio>
+
 namespace Eaagles {
 namespace Test {
 
@@ -91,16 +93,16 @@ void Tester::printTimers() const
          printf(" = %4.1f", timer->getCurrentTime());
 
          if (timer->getType() == Basic::Timer::UP) printf(", up");
-         else printf(", down");
+         else std::printf(", down");
 
          if (timer->isRunning()) printf(", active");
-         else printf(", inactive");
+         else std::printf(", inactive");
 
-         printf(", alarm(%4.1f", timer->getAlarmTime());
+         std::printf(", alarm(%4.1f", timer->getAlarmTime());
          if (timer->alarm()) printf(", ON)");
-         printf(", OFF);");
+         std::printf(", OFF);");
 
-         printf("\n");
+         std::printf("\n");
 
          item = item->getNext();
       }

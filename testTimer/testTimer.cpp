@@ -20,6 +20,8 @@
 // class factories
 #include "openeaagles/basic/Factory.h"
 
+#include <cstdio>
+
 namespace Eaagles {
 namespace Test {
 
@@ -149,7 +151,7 @@ void run(Tester* const tester)
       Basic::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
          lcSleep( (unsigned int)(dt * 1000.0 + 0.5) );
-         printf("time(%4.1f)\n", mainTimer->getCurrentTime());
+         std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }
 
@@ -174,7 +176,7 @@ void run(Tester* const tester)
       Basic::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
          lcSleep( (unsigned int)(dt * 1000.0 + 0.5) );
-         printf("time(%4.1f)\n", mainTimer->getCurrentTime());
+         std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }
 

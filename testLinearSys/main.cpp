@@ -1,6 +1,7 @@
 
 #include "openeaagles/linearSys/Sz1.h"
 #include <iostream>
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Test {

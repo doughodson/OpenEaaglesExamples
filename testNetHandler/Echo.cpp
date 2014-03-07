@@ -7,6 +7,8 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
 
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Test {
 
@@ -74,7 +76,7 @@ void Echo::updateData(const Eaagles::LCreal dt)
                if (getLoops() > 0 && loopCounter >= getLoops()) {
                    closeConnections();
                    std::cout << "Exit: " << getLoops() << " loops completed!" << std::endl;
-                   exit(0);
+                   std::exit(0);
                }
 
             }
