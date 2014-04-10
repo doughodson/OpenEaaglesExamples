@@ -19,6 +19,8 @@
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/otw/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Example {
 
@@ -29,13 +31,13 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-   if ( strcmp(name, TestStation::getFactoryName()) == 0 ) {
+   if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
       obj = new TestStation;
    }
-   else if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+   else if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
       obj = new TestDisplay;
    }
-   else if ( strcmp(name, TestComputer::getFactoryName()) == 0 ) {
+   else if ( std::strcmp(name, TestComputer::getFactoryName()) == 0 ) {
       obj = new TestComputer;
    }
 

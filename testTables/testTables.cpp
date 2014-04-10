@@ -301,7 +301,7 @@ int main(int argc, char* argv[])
    bool sflg = false;   // TableStoreage flag
    bool tflg = false;   // Timing flag
 
-   // Config file file
+   // configuration file
    const char* configFile = DEFAULT_CONFIG_FILE;
 
    // Parse arguments

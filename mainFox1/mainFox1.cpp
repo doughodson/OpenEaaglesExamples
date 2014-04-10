@@ -13,6 +13,9 @@
 #include "openeaagles/basicGL/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -27,13 +30,13 @@ static Basic::Object* factory(const char* name)
 {
   Basic::Object* obj = 0;
 
-  if ( strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
+  if ( std::strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
     obj = new FoxDisplay();
   }
-  else if ( strcmp(name, FoxStation::getFactoryName()) == 0 ) {
+  else if ( std::strcmp(name, FoxStation::getFactoryName()) == 0 ) {
     obj = new FoxStation();
   }
-  else if ( strcmp(name, Worm::getFactoryName()) == 0 ) {
+  else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
     obj = new Worm();
   }
 
@@ -68,7 +71,7 @@ static void builder(const char* const name)
    // Make sure we did get a valid Station object (we must have one!)
    if (station == 0) {
       std::cout << "Invalid description file!" << std::endl;
-      exit(EXIT_FAILURE);
+      std::exit(EXIT_FAILURE);
    }
 }
 
@@ -76,7 +79,7 @@ int exec(int argc, char* argv[])
 {
    // set optional input file
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          fileName = argv[++i];
       }
    }

@@ -21,6 +21,8 @@
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Example {
 
@@ -31,16 +33,16 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, TestStation::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
         obj = new TestStation();
     }
-    else if ( strcmp(name, AdiDisplay::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, AdiDisplay::getFactoryName()) == 0 ) {
         obj = new AdiDisplay();
     }
-    else if ( strcmp(name, MapDisplay::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, MapDisplay::getFactoryName()) == 0 ) {
         obj = new MapDisplay();
     }
-    else if ( strcmp(name, MapPage::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, MapPage::getFactoryName()) == 0 ) {
         obj = new MapPage();
     }
 

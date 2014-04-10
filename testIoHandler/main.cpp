@@ -11,6 +11,9 @@
 
 #include <GL/glut.h>
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Test {
 
@@ -47,20 +50,17 @@ static Display* builder(const char* const filename)
    Basic::Object* q1 = lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "Errors in reading file: " << errors << std::endl;
-      exit(1);
+      std::exit(1);
    }
 
    // Set 'sys' to our basic description object.
    if (q1 != 0) {
-
       // When we were given a Pair, get the pointer to its object.
       Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
       if (pp != 0) {
          q1 = pp->object();
       }
-
       sys = dynamic_cast<Display*>(q1);
-
    }
 
    return sys;
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
    const char* fileName = "test1.edl";
 
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          fileName = argv[++i];
       }
    }
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
    // Make sure we did get a valid object (we must have one!)
    if (display == 0) {
       std::cout << "main(): invalid description file!" << std::endl;
-      exit(EXIT_FAILURE);
+      std::exit(EXIT_FAILURE);
    }
    //display->serialize(std::cout);
 

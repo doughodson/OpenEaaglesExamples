@@ -22,6 +22,9 @@
 #include "Pfd.h"
 #include "SpdLines.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Demo {
 
@@ -57,15 +60,15 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // Test the primary flight display (PFD)
-    if ( strcmp(name, TestPfd::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestPfd::getFactoryName()) == 0 ) {
         obj = new TestPfd;
     }
     // Pfd
-    else if ( strcmp(name, Pfd::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Pfd::getFactoryName()) == 0 ) {
         obj = new Pfd;
     }
     // SpdLines
-    else if ( strcmp(name, SpdLines::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, SpdLines::getFactoryName()) == 0 ) {
         obj = new SpdLines;
     }
 
@@ -87,7 +90,7 @@ static void builder()
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -109,7 +112,7 @@ static void builder()
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);

@@ -7,6 +7,8 @@
 
 #include "DataRecorder.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace xRecorder {
 
@@ -17,7 +19,7 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-   if ( strcmp(name, DataRecorder::getFactoryName()) == 0 ) {
+   if ( std::strcmp(name, DataRecorder::getFactoryName()) == 0 ) {
       obj = new DataRecorder();
    }
 

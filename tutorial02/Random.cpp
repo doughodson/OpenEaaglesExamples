@@ -11,7 +11,7 @@ IMPLEMENT_SUBCLASS(Random,"Random")
 EMPTY_SLOTTABLE(Random)
 EMPTY_SERIALIZER(Random)
 
-#include <stdlib.h>
+#include <cstdlib>
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -49,12 +49,12 @@ void Random::deleteData()
 //------------------------------------------------------------------------------
 int Random::getNum(void) const
 {
-   return rand();
+   return std::rand();
 }
 
 void Random::setSeed(const unsigned int seed)
 {
-   srand(seed);
+   std::srand(seed);
 }
 
 } // namespace Tutorial

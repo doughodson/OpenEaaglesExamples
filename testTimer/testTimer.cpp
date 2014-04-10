@@ -21,6 +21,8 @@
 #include "openeaagles/basic/Factory.h"
 
 #include <cstdio>
+#include <cstring>
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Test {
@@ -79,7 +81,7 @@ static Basic::Object* factory(const char* const name)
 {
   Basic::Object* obj = 0;
 
-  if ( strcmp(name, Tester::getFactoryName()) == 0 ) {
+  if ( std::strcmp(name, Tester::getFactoryName()) == 0 ) {
     obj = new Tester;
   }
    
@@ -96,7 +98,7 @@ static Tester* builder(const char* const testFileName)
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -118,7 +120,7 @@ static Tester* builder(const char* const testFileName)
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);
@@ -189,12 +191,12 @@ void run(Tester* const tester)
 int exec(int argc, char* argv[])
 {
 
-   // Config file file
+   // configuration file
    const char* configFile = "test01.edl";
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          configFile = argv[++i];
       }
    }

@@ -15,6 +15,8 @@
 
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Test {
 
@@ -26,31 +28,31 @@ Basic::Object* Factory::createObj(const char* name)
     Basic::Object* obj = 0;
 
     // Test #1
-    if ( strcmp(name, TestStateMachine01::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestStateMachine01::getFactoryName()) == 0 ) {
         obj = new TestStateMachine01();
     }
 
     // Test #2
-    else if ( strcmp(name, TestStateMachine02::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStateMachine02::getFactoryName()) == 0 ) {
         obj = new TestStateMachine02();
     }
 
     // Test #3
-    else if ( strcmp(name, TestStateMachine03::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStateMachine03::getFactoryName()) == 0 ) {
         obj = new TestStateMachine03();
     }
 
     // Test #4
-    else if ( strcmp(name, TestStateMachine04::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStateMachine04::getFactoryName()) == 0 ) {
         obj = new TestStateMachine04();
     }
-    else if ( strcmp(name, TestStateMachine04A::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStateMachine04A::getFactoryName()) == 0 ) {
         obj = new TestStateMachine04A();
     }
-    else if ( strcmp(name, TestStateMachine04B::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStateMachine04B::getFactoryName()) == 0 ) {
         obj = new TestStateMachine04B();
     }
-    else if ( strcmp(name, TestStateMachine04C::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStateMachine04C::getFactoryName()) == 0 ) {
         obj = new TestStateMachine04C();
     }
 

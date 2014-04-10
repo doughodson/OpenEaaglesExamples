@@ -6,6 +6,9 @@
 #include "openeaagles/basic/StateMachine.h"
 #include "openeaagles/basic/Timers.h"
 
+#include <cstring>
+#include <cstdlib>
+
 // Default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
 
@@ -59,12 +62,12 @@ static void theTest(Basic::StateMachine* sys)
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   // Config file file
+   // configuration file
    const char* configFile = DEFAULT_CONFIG_FILE;
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          configFile = argv[++i];
       }
    }
@@ -75,7 +78,7 @@ int main(int argc, char* argv[])
    Basic::StateMachine* sys = builder(configFile);
    if (sys == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
-      exit(EXIT_FAILURE);
+      std::exit(EXIT_FAILURE);
    }
    //sys->serialize(std::cout);
 

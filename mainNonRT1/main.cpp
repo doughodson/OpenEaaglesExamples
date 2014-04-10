@@ -9,6 +9,9 @@
 #include "openeaagles/sensors/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -64,7 +67,7 @@ static void builder()
   // Make sure we did get a valid Simulation object (we must have one!)
   if (sys == 0) {
     std::cout << "Invalid description file!" << std::endl;
-    exit(EXIT_FAILURE);
+    std::exit(EXIT_FAILURE);
   }
 }
 
@@ -75,7 +78,7 @@ int exec(int argc, char* argv[])
 
   // read filename from command line if provided
   for (int i = 1; i < argc; i++) {
-    if (strcmp(argv[i],"-f") == 0) {
+    if (std::strcmp(argv[i],"-f") == 0) {
       testFile = argv[++i];
     }
   }

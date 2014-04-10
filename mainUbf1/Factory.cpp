@@ -24,6 +24,8 @@
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/vehicles/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Example {
 
@@ -34,13 +36,13 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, SimStation::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, SimStation::getFactoryName()) == 0 ) {
         obj = new SimStation();
     }
-    else if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
         obj = new TestDisplay();
     }
-    else if ( strcmp(name, TestIoHandler::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestIoHandler::getFactoryName()) == 0 ) {
         obj = new TestIoHandler();
     }
 

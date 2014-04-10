@@ -14,6 +14,8 @@
 #include "openeaagles/basicGL/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Test {
 
@@ -24,10 +26,10 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-   if ( strcmp(name, Display::getFactoryName()) == 0 ) {
+   if ( std::strcmp(name, Display::getFactoryName()) == 0 ) {
       obj = new Display();
    }    
-   else if ( strcmp(name, Table::getFactoryName()) == 0 ) {
+   else if ( std::strcmp(name, Table::getFactoryName()) == 0 ) {
       obj = new Table();
    }    
 

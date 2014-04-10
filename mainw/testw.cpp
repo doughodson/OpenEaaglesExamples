@@ -29,6 +29,9 @@
 #include "TdElevPtr.h"
 #include "TestRotator.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -128,29 +131,29 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // This test ...
-    if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
         obj = new TestDisplay;
     }
-    else if ( strcmp(name, MfdPage::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, MfdPage::getFactoryName()) == 0 ) {
         obj = new MfdPage;
     }
 
     // TestX
-    else if ( strcmp(name, TestOne::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestOne::getFactoryName()) == 0 ) {
         obj = new TestOne;
     }
     
     // TestY
-    else if ( strcmp(name, TestTwo::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestTwo::getFactoryName()) == 0 ) {
         obj = new TestTwo;
     }
-    else if ( strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
         obj = new TdAzPtr;
     }
-    else if ( strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
         obj = new TdElevPtr;
     }
-    else if ( strcmp(name, TestRotator::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestRotator::getFactoryName()) == 0 ) {
         obj = new TestRotator;
     }
     
@@ -170,7 +173,7 @@ static void builder(const char* const testFileName)
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -192,7 +195,7 @@ static void builder(const char* const testFileName)
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);
@@ -205,12 +208,12 @@ int main(int argc, char* argv[])
 {
     glutInit(&argc, argv);
 
-   // Config file file
+   // configuration file
    const char* configFile = "test.edl";
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          configFile = argv[++i];
       }
    }

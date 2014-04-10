@@ -69,7 +69,7 @@ void Uniform::setMax(const int x)
 
 int Uniform::getNum(void) const
 {
-  return (int)(min+(max-min)*(rand()/(RAND_MAX+1.0)));
+  return (int)(min+(max-min)*(std::rand()/(RAND_MAX+1.0)));
 }
 
 //------------------------------------------------------------------------------

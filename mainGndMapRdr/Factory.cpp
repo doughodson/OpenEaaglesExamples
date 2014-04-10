@@ -16,6 +16,8 @@
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Example {
 
@@ -26,13 +28,13 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, Display::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, Display::getFactoryName()) == 0 ) {
         obj = new Display();
     }
-    else if ( strcmp(name, RealBeamRadar::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, RealBeamRadar::getFactoryName()) == 0 ) {
         obj = new RealBeamRadar();
     }
-    else if ( strcmp(name, TestStation::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
         obj = new TestStation();
     }
    

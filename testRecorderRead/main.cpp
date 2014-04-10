@@ -5,6 +5,8 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Test {
 
@@ -49,7 +51,7 @@ int exec(int argc, char* argv[])
 
    // Get the command line arguments
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          testFile = argv[++i];
       }
    }

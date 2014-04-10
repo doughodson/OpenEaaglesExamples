@@ -1,3 +1,6 @@
+#include <cstring>
+#include <cstdlib>
+
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
@@ -43,10 +46,10 @@ static Basic::Object* factory(const char* const name)
 {
   Basic::Object* obj = 0;
 
-  if ( strcmp(name, MyPager::getFactoryName()) == 0 ) {
+  if ( std::strcmp(name, MyPager::getFactoryName()) == 0 ) {
     obj = new MyPager;
   }
-  else if ( strcmp(name, Worm::getFactoryName()) == 0 ) {
+  else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
     obj = new Worm;
   }
 
@@ -65,7 +68,7 @@ static void builder()
   Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
-    exit(1);
+    std::exit(1);
   }
 
   // Set 'sys' to our basic description object.
@@ -86,7 +89,7 @@ static void builder()
   // Make sure we did get a valid object (we must have one!)
   if (sys == 0) {
     std::cout << "example: invalid description file!" << std::endl;
-    exit(EXIT_FAILURE);
+    std::exit(EXIT_FAILURE);
   }
 }
 
