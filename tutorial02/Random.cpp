@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include "Random.h"
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Tutorial {
@@ -10,8 +11,6 @@ namespace Tutorial {
 IMPLEMENT_SUBCLASS(Random,"Random")
 EMPTY_SLOTTABLE(Random)
 EMPTY_SERIALIZER(Random)
-
-#include <cstdlib>
 
 //------------------------------------------------------------------------------
 // Constructor(s)
