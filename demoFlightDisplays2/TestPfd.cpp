@@ -1,21 +1,22 @@
+
 #include "TestPfd.h"
 #include "openeaagles/basic/Pair.h"
 #include "Pfd.h"
-
 
 namespace Eaagles {
 namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd,"TestPfd")
 EMPTY_SERIALIZER(TestPfd)
-                            
+EMPTY_DELETEDATA(TestPfd)
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
 TestPfd::TestPfd()
 {
     STANDARD_CONSTRUCTOR()
-     
+
     // pitch and roll
     pitch = 0;
     pitchRate = 10;
@@ -129,20 +130,13 @@ void TestPfd::copyData(const TestPfd& org, const bool)
 }
 
 //------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void TestPfd::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
 void TestPfd::updateData(const LCreal dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
-    
+
     // pitch
     pitch += pitchRate * dt;
     if (pitch > 90) {
@@ -153,7 +147,7 @@ void TestPfd::updateData(const LCreal dt)
         pitch = -90;
         pitchRate = -pitchRate;
     }
-    
+
     // roll
     roll  += rollRate * dt;
     if (roll > 90.0f) {
@@ -164,17 +158,17 @@ void TestPfd::updateData(const LCreal dt)
         roll = -90.0f;
         rollRate = -rollRate;
     }
-    
+
     // heading
     trueHdg += tHdgRate * dt;
     if (trueHdg > 360) trueHdg = 0;
-    
+
     // selected heading
     cmdHdg += cmdHdgRate * dt;
     if (cmdHdg > 360) {
         cmdHdg = 0;
     }
-    
+
     // here is sideslip
     slip += slipRate * dt;
     if (slip > 21) {
@@ -185,7 +179,7 @@ void TestPfd::updateData(const LCreal dt)
         slip = -21;
         slipRate = -slipRate;
     }
-       
+
     // airspeed
     airSpd += airSpdRate * dt;
     if (airSpd > 200) {
@@ -196,13 +190,13 @@ void TestPfd::updateData(const LCreal dt)
         airSpd = 50;
         airSpdRate = -airSpdRate;
     }
-    
+
     // test data
     LCreal mach = airSpd / 600;
 
     // commanded speed
     cmdSpd = 150;
-    
+
     // altitude
     alt += altRate * dt;
     if (alt > 55800) {
@@ -213,10 +207,10 @@ void TestPfd::updateData(const LCreal dt)
         alt = 0;
         altRate = -altRate;
     }
-    
+
     // commanded alt
     cmdAlt = 1500;
-    
+
     // glideslope
     gSlope += gSlopeRate * dt;
     if (gSlope > 2) {
@@ -227,7 +221,7 @@ void TestPfd::updateData(const LCreal dt)
         gSlope = -2;
         gSlopeRate = -gSlopeRate;
     }
-    
+
     // lat dev
     latDev += ldRate * dt;
     if (latDev > 2) {
@@ -237,8 +231,8 @@ void TestPfd::updateData(const LCreal dt)
     if (latDev < -2) {
         latDev = -2;
         ldRate = -ldRate;
-    }   
-    
+    }
+
     // vvi tape gauge test
     vvi += vviRate * dt;
     if (vvi > 7000) {
@@ -249,7 +243,7 @@ void TestPfd::updateData(const LCreal dt)
         vvi = -7000;
         vviRate = -vviRate;
     }
-           
+
     // flight director stuff 
     // flight director bank angle
     fDirBank += fDirBankRate * dt;
@@ -261,7 +255,7 @@ void TestPfd::updateData(const LCreal dt)
         fDirBank = -90;
         fDirBankRate = -fDirBankRate;
     }
-    
+
     // flight director pitch angle
     fDirPitch += fDirPitchRate * dt;
     if (fDirPitch > 90) {
@@ -272,7 +266,7 @@ void TestPfd::updateData(const LCreal dt)
         fDirPitch = -90;
         fDirPitchRate = -fDirPitchRate;
     }
-    
+
     // barometric pressure (selected)
     baro += baroRate * dt;
     if (baro > 999) {
@@ -283,11 +277,11 @@ void TestPfd::updateData(const LCreal dt)
         baro = 0;
         baroRate = -baroRate;
     }
-    
-        
+
+
     Basic::Pair* pair = findByType(typeid(Pfd));
     if (pair != 0) {
-        Pfd* p = (Pfd*)(pair->object());
+        Pfd* p = static_cast<Pfd*>(pair->object());
         if (p != 0) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);
