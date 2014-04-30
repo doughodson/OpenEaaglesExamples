@@ -101,14 +101,14 @@ int exec(int argc, char* argv[])
   // short pause to allow os to startup thread
   lcSleep(2000);
 
-  // Calc delta time for background thread
+  // Calculate delta time for background thread
   double dt = 1.0/double(bgRate);
 
   // System Time of Day 
   double simTime = 0.0;                    // Simulator time reference
   double startTime = getComputerTime();    // Time of day (sec) run started
 
-  int k = 0;
+  //int k = 0;
   std::cout << "Starting background main loop ..." << std::endl;
   for(;;) {
 
