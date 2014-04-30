@@ -204,14 +204,14 @@ void TestSD::updateData(const LCreal dt)
         hdgBug = 0;
         hdgBugRate = -hdgBugRate;
     }
-    
+
     // find our situational display (SD) - we do this because there are too many variables to be set
     // to use send commands for every one, so it's easier just to get a pointer to the object and 
     // set the variables using member functions.
     {
     Basic::Pair* pair = findByType(typeid(SituationalDisplay));
         if (pair != 0) {
-            SituationalDisplay* p = (SituationalDisplay*)(pair->object());
+            SituationalDisplay* p = static_cast<SituationalDisplay*>(pair->object());
             if (p != 0) {
                 p->setHeading(heading);
                 p->setRange(range);
@@ -224,7 +224,7 @@ void TestSD::updateData(const LCreal dt)
             }
         }
     }
-    
+
     // Load test tracks (once)
     if (!tracksLoaded) { 
         Basic::Pair* pair = findByName("airTracks");
