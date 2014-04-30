@@ -136,7 +136,7 @@ void MapPage::drawFunc()
     latRange *= 2;  
 
     // get our viewport
-    Display* dis = (Display*)getDisplay();
+    Display* dis = static_cast<Display*>(getDisplay());
     if (dis != 0) {
         int start = nint((LCreal)southernLat - 1);
         GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
@@ -210,7 +210,7 @@ void MapPage::updateData(const LCreal dt)
     if (stn == 0) {
         BasicGL::Display* dis = getDisplay();
         if (dis != 0) {
-            stn = (Station*)dis->findContainerByType(typeid(Station));
+            stn = static_cast<Station*>(dis->findContainerByType(typeid(Station)));
             if (stn != 0) {
                 stn->ref();
                 // set our reference lat / lon initially
