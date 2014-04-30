@@ -64,6 +64,7 @@ Board::Board()
    curPathState = 0;
    moveTimer = 0;
    startupTimer = 0;
+   movingFlg = false;
 }
 
 //------------------------------------------------------------------------------
@@ -153,7 +154,7 @@ void Board::updateData(const LCreal dt)
          const State* s = finalState;
          while (s->getGeneration() > 0 && nstates < MAX_STATES) {
             path[nstates++] = s;
-            s = (const State*) s->container();
+            s = static_cast<const State*>( s->container() );
          }
          resetSolutionPath();
          std::cout << "Board::updateData() Number moves : " << nstates << std::endl;
