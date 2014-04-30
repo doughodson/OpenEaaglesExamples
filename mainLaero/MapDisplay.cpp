@@ -158,7 +158,7 @@ void MapDisplay::passiveMotionEvent(const int x, const int y)
 void MapDisplay::mouseMotionEvent(const int x, const int y)
 {
     if (dragging) {
-        MapPage* page = (MapPage*)(subpage());
+        MapPage* page = static_cast<MapPage*>(subpage());
         if (page != 0) {
             // get our ref lat, because we won't go passed 70 degrees lat (either way);
             double lat = page->getReferenceLatDeg();
@@ -184,7 +184,7 @@ void MapDisplay::mouseMotionEvent(const int x, const int y)
 void MapDisplay::buttonEvent(const int b)
 {
    // cmdRange up, down
-   MapPage* page = (MapPage*)(subpage());
+   MapPage* page = static_cast<MapPage*>(subpage());
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
    Simulation::Player* pA = getOwnship();
@@ -327,7 +327,7 @@ void MapDisplay::updateData(const LCreal dt)
 
    // get pointer to MapPage data
    int cmdRange = 0;
-   MapPage* page = (MapPage*)(subpage());
+   MapPage* page = static_cast<MapPage*>(subpage());
    if (page != 0) {
       cmdRange = (int) page->getRange();
    }

@@ -286,7 +286,7 @@ void MapPage::drawFunc()
          //---------------------------------------------------------------------------
          // get our viewport
          //---------------------------------------------------------------------------
-         MapDisplay* pDsp = (MapDisplay*) getDisplay();
+         MapDisplay* pDsp = static_cast<MapDisplay*>(getDisplay());
          //BasicGL::Display* pDsp = (BasicGL::Display*) getDisplay();
 
          if (pDsp != 0) {
@@ -385,7 +385,7 @@ void MapPage::updateData(const LCreal dt)
     if (pStn == 0) {
         BasicGL::Display* pDsp = getDisplay();
         if (pDsp != 0) {
-            pStn = (TestStation*)pDsp->findContainerByType(typeid(TestStation));
+            pStn = static_cast<TestStation*>(pDsp->findContainerByType(typeid(TestStation)));
             if (pStn != 0) {
                 pStn->ref();
                 // set our reference lat / lon initially
