@@ -60,7 +60,6 @@ Display::Display()
     // this will allow for some pseudo-randomness.
     for (int i = 0; i < seed; i++) rng->drawClosed();
 
-    float startX = 0, startY = 0, startZ = 0;
     for (int i = 0; i < MAX_MATERIALS; i++) {
         materials[i] = new BasicGL::Material();
         materialSD[i].empty();

@@ -99,6 +99,7 @@ public:
    static const unsigned int MAX_TRACKS = 50;
 
 private:
+   void initData();
 
    bool alive;
    double roll;

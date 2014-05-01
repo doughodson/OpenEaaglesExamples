@@ -29,8 +29,8 @@ EMPTY_SERIALIZER(Uniform)
 Uniform::Uniform(void)
 {
   STANDARD_CONSTRUCTOR()
-  setMin(0);
-  setMax(1);
+  min = 0.0;
+  max = 1.0;
 
   std::cout << "Uniform::Uniform() called\n";
 }

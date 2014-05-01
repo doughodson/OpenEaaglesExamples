@@ -96,7 +96,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
    // ---
    // get the Station, Simulation and our ownship player
    // ---
-   SimStation* const sta = (SimStation*)( findContainerByType(typeid(SimStation)) );
+   SimStation* const sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
    Simulation::Simulation* sim = 0;
    Simulation::AirVehicle* av = 0;

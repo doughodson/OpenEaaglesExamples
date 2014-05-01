@@ -28,46 +28,42 @@ EMPTY_SERIALIZER(PlaneState)
 PlaneState::PlaneState()
 {
    STANDARD_CONSTRUCTOR()
+   initData();
+}
 
-   alive          = false;
-   roll           = 0;
-   pitch          = 0;
-   heading        = 0;
-   rollRate       = 0;
-   pitchRate      = 0;
-   yawRate        = 0;
-   altitude       = 0;
-   throttle       = 0;
-   speed          = 0;
-   pitchTrim      = 0;
-   numTracks      = 0;
-   tracking       = false;
-   missileFired   = false;
-   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal
+void PlaneState::initData()
+{
+   alive           = false;
+   roll            = 0;
+   pitch           = 0;
+   rollRate        = 0;
+   pitchRate       = 0;
+   yawRate         = 0;
+   heading         = 0;
+   altitude        = 0;
+   throttle        = 0;
+   speed           = 0;
+   pitchTrim       = 0;
+
+   for (unsigned int i=0; i<MAX_TRACKS;i++) {
+      pitchToTracked[i]    = 0.0;
+      headingToTracked[i]  = 0.0;
+      distanceToTracked[i] = 0.0;
+   }
+
+   targetTrack     = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to signal
                                  // "no tgt track"
-   numEngines     = 0;
+   numTracks       = 0;
+   missileFired    = false;
+   tracking        = false;
+   missileFired    = false;
+   incomingMissile = false;
+   numEngines      = 0;
 }
 
 void PlaneState::reset()
 {
-   alive          = false;
-   roll           = 0;
-   pitch          = 0;
-   heading        = 0;
-   rollRate       = 0;
-   pitchRate      = 0;
-   yawRate        = 0;
-   altitude       = 0;
-   throttle       = 0;
-   speed          = 0;
-   pitchTrim      = 0;
-   numTracks      = 0;
-   tracking       = false;
-   missileFired   = false;
-   targetTrack    = MAX_TRACKS;  // 0 is a valid target track, use MAX_TRACKS to
-                                 // signal "no tgt track"
-   numEngines     = 0;
-
+   initData();
    BaseClass::reset();
 }
 
