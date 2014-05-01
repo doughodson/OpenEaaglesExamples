@@ -16,6 +16,9 @@
 #include "Display.h"
 #include "ObjectHandler.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Test {
 
@@ -50,10 +53,10 @@ static Basic::Object* factory(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if (strcmp(name, Display::getFactoryName()) == 0) {
+    if (std::strcmp(name, Display::getFactoryName()) == 0) {
         obj = new Display();
     }
-    else if (strcmp(name, ObjectHandler::getFactoryName()) == 0) {
+    else if (std::strcmp(name, ObjectHandler::getFactoryName()) == 0) {
         obj = new ObjectHandler();
     }
     else {
@@ -73,7 +76,7 @@ static void builder()
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -89,7 +92,6 @@ static void builder()
 
         // What we should have here is the description object 
         sys = dynamic_cast<Display*>(q1);
-
     }
 
     // Make sure we did get a valid object (we must have one!)
@@ -105,7 +107,6 @@ static void builder()
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-
     glutInit(&argc, argv);
 
 // ---

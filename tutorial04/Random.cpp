@@ -53,7 +53,7 @@ void Random::deleteData()
 //------------------------------------------------------------------------------
 bool Random::setSeed(const unsigned int seed)
 {
-   srand(seed);
+   std::srand(seed);
    return true;
 }
 
@@ -68,7 +68,7 @@ Basic::Object* Random::getSlotByIndex(const int si)
 bool Random::setSlotSeed(const Basic::Number* const seed)
 {
    bool ok = false;
-   if(seed != 0)
+   if (seed != 0)
       ok = setSeed(seed->getInt());
    return ok;
 }

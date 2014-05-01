@@ -13,6 +13,9 @@
 #include "openeaagles/basic/Factory.h"
 #include "../shared/xZeroMQHandlers/Factory.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Test {
 
@@ -23,10 +26,10 @@ static Basic::Object* factory(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, Sender::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, Sender::getFactoryName()) == 0 ) {
         obj = new Sender();
     }
-    else if ( strcmp(name, Echo::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Echo::getFactoryName()) == 0 ) {
         obj = new Echo();
     }
 
@@ -50,7 +53,7 @@ static Endpoint* builder(const char* const testFile)
   Basic::Object* q1 = lcParser(testFile, factory, &errors);
   if (errors > 0) {
     std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
-    exit(1);
+    std::exit(1);
   }
 
   // Set 'sys' to our basic description object.
@@ -78,7 +81,7 @@ int exec(int argc, char* argv[])
 
     // Get the command line arguments
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i],"-f") == 0) {
+        if (std::strcmp(argv[i],"-f") == 0) {
             testFile = argv[++i];
         }
     }

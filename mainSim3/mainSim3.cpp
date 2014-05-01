@@ -16,6 +16,8 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -83,11 +85,11 @@ int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // Config file file
+   // configuration file
    const char* configFile = DEFAULT_CONFIG_FILE;
 
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          configFile = argv[++i];
       }
    }

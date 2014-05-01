@@ -126,7 +126,7 @@ void Display::drawFunc()
    if (own != 0) pair = own->getSensorByType(typeid(RealBeamRadar));
 
    const RealBeamRadar* rdr = 0;
-   if (pair != 0) rdr = (const RealBeamRadar*)( pair->object() );
+   if (pair != 0) rdr = static_cast<const RealBeamRadar*>( pair->object() );
 
    const GLubyte* image = 0;  // The image pixels 
    if (rdr != 0) image = rdr->getImage();

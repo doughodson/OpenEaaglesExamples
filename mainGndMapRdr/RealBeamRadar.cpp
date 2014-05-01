@@ -212,10 +212,10 @@ void RealBeamRadar::transmit(const LCreal dt)
 
          // Direction
          int xx = icol - (IMG_WIDTH/2);
-         LCreal direciton = 45.0f * LCreal(xx) / LCreal(IMG_WIDTH/2);
+         LCreal direction = 45.0f * LCreal(xx) / LCreal(IMG_WIDTH/2);
 
          // get a strip of elevations from south to north
-         unsigned int num = terrain->getElevations(elevations, validFlgs, IMG_HEIGHT, latitude, longitude, direciton, groundRange[IMG_HEIGHT-1], interpolate);
+         unsigned int num = terrain->getElevations(elevations, validFlgs, IMG_HEIGHT, latitude, longitude, direction, groundRange[IMG_HEIGHT-1], interpolate);
 
          // Apply earth curvature effects to terrain elevations
          for (int irow = 0; irow < IMG_HEIGHT; irow++) {

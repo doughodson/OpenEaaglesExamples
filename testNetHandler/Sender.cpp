@@ -8,6 +8,7 @@
 #include "openeaagles/basic/Number.h"
 
 #include <cstdio>
+#include <cstdlib>
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -98,7 +99,7 @@ void Sender::updateData(const Eaagles::LCreal dt)
         if (!recvMode && getLoops() > 0 && msgCounter >= getLoops()) {
             closeConnections();
             std::cout << "Exit: " << getLoops() << " loops completed!" << std::endl;
-            exit(0);
+            std::exit(0);
         }
     }
 }

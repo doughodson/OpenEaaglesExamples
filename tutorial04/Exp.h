@@ -16,14 +16,14 @@ namespace Tutorial {
 
 class Exp : public Random
 {
-  DECLARE_SUBCLASS(Exp,Random)
+  DECLARE_SUBCLASS(Exp, Random)
 
 public:
 
   Exp(void);
 
   // data access functions
-  virtual void setMean(const float);
+  virtual void setMean(const double);
 
   // slot table functions
   virtual bool setSlotMean(const Basic::Number* const);
@@ -33,7 +33,7 @@ public:
 
 private:
 
-  float mean;
+  double mean;
 
 };
 

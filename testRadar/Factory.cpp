@@ -20,6 +20,8 @@
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Test {
 
@@ -30,22 +32,22 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, TestStation::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
         obj = new TestStation();
     }
-    else if ( strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
         obj = new TestDisplay();
     }
-    else if ( strcmp(name, DspRadar::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, DspRadar::getFactoryName()) == 0 ) {
         obj = new DspRadar();
     }
-    else if ( strcmp(name, DspRwr::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, DspRwr::getFactoryName()) == 0 ) {
         obj = new DspRwr();
     }
-    else if ( strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
         obj = new TdAzPtr();
     }
-    else if ( strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
         obj = new TdElevPtr();
     }
 

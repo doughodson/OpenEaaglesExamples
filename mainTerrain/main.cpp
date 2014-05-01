@@ -19,6 +19,8 @@
 #include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
 
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -30,7 +32,6 @@ const int frameRate = 10;
 
 // System descriptions
 static class Display* sys = 0;
-
 
 //=============================================================================
 // Main test functions
@@ -58,7 +59,7 @@ static void builder()
     Basic::Object* q1 = Basic::lcParser(fileName, Factory::createObj, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -81,7 +82,7 @@ static void builder()
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);

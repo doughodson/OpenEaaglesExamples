@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include "Random.h"
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Tutorial {
@@ -10,8 +11,6 @@ namespace Tutorial {
 IMPLEMENT_SUBCLASS(Random,"Random")
 EMPTY_SLOTTABLE(Random)
 EMPTY_SERIALIZER(Random)
-
-#include <stdlib.h>
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -49,12 +48,12 @@ void Random::deleteData()
 //------------------------------------------------------------------------------
 int Random::getNum(void) const
 {
-   return rand();
+   return std::rand();
 }
 
 void Random::setSeed(const unsigned int seed)
 {
-   srand(seed);
+   std::srand(seed);
 }
 
 } // namespace Tutorial

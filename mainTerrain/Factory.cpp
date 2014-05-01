@@ -12,6 +12,8 @@
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Example {
 
@@ -22,7 +24,7 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if (strcmp(name, Display::getFactoryName()) == 0)
+    if (std::strcmp(name, Display::getFactoryName()) == 0)
         obj = new Display();
 
     if (obj == 0) obj = Terrain::Factory::createObj(name);

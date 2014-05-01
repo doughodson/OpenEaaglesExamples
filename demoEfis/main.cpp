@@ -19,6 +19,9 @@
 #include "TestMechanical.h"
 #include "TestElectronic.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Demo {
 
@@ -54,10 +57,10 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // Tests
-    if ( strcmp(name, TestMechanical::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestMechanical::getFactoryName()) == 0 ) {
         obj = new TestMechanical;
     }
-    else if ( strcmp(name, TestElectronic::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestElectronic::getFactoryName()) == 0 ) {
         obj = new TestElectronic;
     }
 
@@ -78,7 +81,7 @@ static void builder()
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -100,7 +103,7 @@ static void builder()
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);

@@ -10,7 +10,7 @@
 namespace Eaagles {
 namespace Example {
 
-// display refresh rate (hz)
+// display refresh rate (Hz)
 static const FXuint DRAW_FRAME_RATE = 50;
 
 // Message Map 
@@ -24,11 +24,15 @@ FXIMPLEMENT(Application,FXApp,AppMap,ARRAYNUMBER(AppMap))
 
 Application::Application(const FXString& name, const FXString& vendor) : FXApp(name, vendor)
 {
+   station = 0;
 }
 
 Application::~Application()
 {
-   if (station!=0) { station->unref(); station = 0; }
+   if (station!=0) {
+      station->unref();
+      station = 0;
+   }
 }
 
 void Application::init(int& argc, char** argv, bool connect)
@@ -61,7 +65,7 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
       dt = 0;
    }
    time0 = time;
-   
+
    // ---
    // update station data (background thread)
    // and get the current status display data.
@@ -75,6 +79,20 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
       station->getMainDisplay()->drawIt();
    }
    return 1;
+}
+
+void Application::setStation(FoxStation* x)
+{
+   if (station!=0) {
+      station->unref();
+   }
+   station = x;
+   station->ref();
+}
+
+FoxStation* Application::getStation()
+{
+   return station;
 }
 
 } // end Example namespace

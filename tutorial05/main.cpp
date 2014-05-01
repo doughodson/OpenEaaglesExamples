@@ -1,5 +1,8 @@
 
 #include <iostream>
+#include <cstring>
+#include <cstdlib>
+
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/Color.h"
@@ -26,7 +29,7 @@ static Basic::Object* factory(const char* const name)
   Basic::Object* obj = 0;
 
   // look in application's classes
-  if ( strcmp(name, MyObj::getFactoryName()) == 0 ) {
+  if ( std::strcmp(name, MyObj::getFactoryName()) == 0 ) {
     obj = new MyObj;
   }
   // look in base classes
@@ -42,7 +45,7 @@ static void builder()
   Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
-    exit(1);
+    std::exit(1);
   }
 
   // Set 'sys' to our basic description object.
@@ -59,7 +62,7 @@ static void builder()
   // Make sure we did get a valid object (we must have one!)
   if (sys == 0) {
     std::cout << "example: invalid description file!" << std::endl;
-    exit(1);
+    std::exit(1);
   }
 }
 

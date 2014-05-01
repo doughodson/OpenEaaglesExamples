@@ -18,6 +18,9 @@
 
 #include <GL/glut.h>
 
+#include <cstring>
+
+
 namespace Example {
 
 // Frame Rate
@@ -91,7 +94,7 @@ int process(int argc, char* argv[])
 
    const char* fileName = "test.edl";
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          fileName = argv[++i];
       }
    }

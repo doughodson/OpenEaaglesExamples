@@ -14,6 +14,8 @@
 #include "openeaagles/basicGL/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Example {
 
@@ -25,31 +27,31 @@ Basic::Object* Factory::createObj(const char* name)
     Basic::Object* obj = 0;
 
     // Main board
-    if ( strcmp(name, Board::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, Board::getFactoryName()) == 0 ) {
         obj = new Board;
     }
 
     // Puzzle controller
-    else if ( strcmp(name, Puzzle::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Puzzle::getFactoryName()) == 0 ) {
         obj = new Puzzle();
     }
 
     // Puzzle state
-    else if ( strcmp(name, State::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, State::getFactoryName()) == 0 ) {
         obj = new State();
     }
 
     // Puzzle blocks
-    else if ( strcmp(name, Block1x1::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Block1x1::getFactoryName()) == 0 ) {
         obj = new Block1x1();
     }
-    else if ( strcmp(name, Block1x2::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Block1x2::getFactoryName()) == 0 ) {
         obj = new Block1x2();
     }
-    else if ( strcmp(name, Block2x1::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Block2x1::getFactoryName()) == 0 ) {
         obj = new Block2x1();
     }
-    else if ( strcmp(name, Block2x2::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Block2x2::getFactoryName()) == 0 ) {
         obj = new Block2x2();
     }
     

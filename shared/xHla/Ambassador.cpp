@@ -85,7 +85,7 @@ throw (
 
    // Find the output object
    NetIO* netIO = getNetIO();
-   Nib* nib = (Nib*)(netIO->findNibByObjectHandle(theObject, NetIO::OUTPUT_NIB));
+   Nib* nib = static_cast<Nib*>(netIO->findNibByObjectHandle(theObject, NetIO::OUTPUT_NIB));
 
    if (nib != 0) nib->turnUpdatesOn(theAttributes);
    //else std::cout << " NOT FOUND";
@@ -107,7 +107,7 @@ throw (
 
    // Find the output object
    NetIO* netIO = getNetIO();
-   Nib* nib = (Nib*)(netIO->findNibByObjectHandle(theObject, NetIO::OUTPUT_NIB));
+   Nib* nib = static_cast<Nib*>(netIO->findNibByObjectHandle(theObject, NetIO::OUTPUT_NIB));
 
    if (nib != 0) nib->turnUpdatesOff(theAttributes);
    //std::cout << std::endl;
@@ -128,7 +128,7 @@ throw (
    //std::cout << "Ambassador:provideAttributeValueUpdate(): ";
    // Find the output object
    NetIO* netIO = getNetIO();
-   Nib* nib = (Nib*)( netIO->findNibByObjectHandle(theObject, NetIO::OUTPUT_NIB) );
+   Nib* nib = static_cast<Nib*>( netIO->findNibByObjectHandle(theObject, NetIO::OUTPUT_NIB) );
 
    if (nib != 0) nib->provideAttributeValueUpdate(theAttrs);
    //std::cout << std::endl;
@@ -223,7 +223,7 @@ throw (
    //std::cout << "Ambassador::reflectAttributeValues(): object = " << theObject << ", theTag=" << theTag << std::endl;
    // find the input object
    NetIO* netIO = getNetIO();
-   Nib* nib = (Nib*)( netIO->findNibByObjectHandle(theObject, NetIO::INPUT_NIB) );
+   Nib* nib = static_cast<Nib*>( netIO->findNibByObjectHandle(theObject, NetIO::INPUT_NIB) );
    if (nib != 0) nib->reflectAttributeValues(theAttrs);
 }
 

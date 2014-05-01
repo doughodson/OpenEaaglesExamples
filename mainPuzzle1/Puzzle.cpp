@@ -138,7 +138,7 @@ void Puzzle::printPath(const State* tstate) const
       while (s->getGeneration() > 0) {
          std::cout << std::endl;
          s->serialize(std::cout);
-         s = (const State*) s->container();
+         s = static_cast<const State*>( s->container() );
       }
       std::cout << std::endl;
       s->serialize(std::cout);
@@ -189,7 +189,7 @@ State* Puzzle::getOpen()
 {
    State* p = 0;
    if (openStates != 0) {
-      p = (State*) openStates->get();
+      p = static_cast<State*>( openStates->get() );
    }
    return p;
 }
@@ -213,7 +213,7 @@ void Puzzle::putOpen(State* const s)
       Basic::List::Item* item = openStates->getFirstItem();
       Basic::List::Item* refItem = 0;
       while (item != 0 && refItem == 0) {
-         const State* p = (const State*) item->getValue();
+         const State* p = static_cast<const State*>( item->getValue() );
          if (f < p->f()) {
             refItem = item;
          }

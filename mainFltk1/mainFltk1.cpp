@@ -14,6 +14,9 @@
 #include "FltkStation.h"
 #include "FltkDisplay.h"
 
+#include <cstring>
+#include <cstdlib>
+
 // ----------------------------------------------------------------------------
 // update() - static call from mainline that will call our update date
 // ----------------------------------------------------------------------------
@@ -41,10 +44,10 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // This test ...
-    if ( strcmp(name, FltkStation::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, FltkStation::getFactoryName()) == 0 ) {
         obj = new FltkStation;
     }
-    else if ( strcmp(name, FltkDisplay::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, FltkDisplay::getFactoryName()) == 0 ) {
         obj = new FltkDisplay;
     }
     else {
@@ -57,7 +60,6 @@ static Basic::Object* factory(const char* name)
     return obj;
 }
 
-
 // build a station
 static void builder()
 {
@@ -66,9 +68,8 @@ static void builder()
     Eaagles::Basic::Object* q1 = Eaagles::Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
-    
 
     // Set 'sys' to our basic description object.
     sys = 0;
@@ -89,7 +90,7 @@ static void builder()
     // Make sure we did get a valid object
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
 }

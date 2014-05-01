@@ -6,7 +6,7 @@
   //
   // GlutDisplay class settings
   //
-  fullScreen: false              // full screen or not
+  fullScreen: true              // full screen or not
 
   //
   // Display class settings

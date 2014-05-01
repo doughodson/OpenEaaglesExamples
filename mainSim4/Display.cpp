@@ -72,7 +72,7 @@ void Display::passiveMotionEvent(const int x, const int y)
 void Display::mouseMotionEvent(const int x, const int y)
 {
     if (dragging) {
-        MapPage* page = (MapPage*)(subpage());
+        MapPage* page = static_cast<MapPage*>(subpage());
         if (page != 0) {
             // get our ref lat, because we won't go passed 70 degrees lat (either way);
             double lat = page->getReferenceLatDeg();
@@ -98,7 +98,7 @@ void Display::mouseMotionEvent(const int x, const int y)
 void Display::buttonEvent(const int b)
 {
     // range up, down
-    MapPage* page = (MapPage*)(subpage());
+    MapPage* page = static_cast<MapPage*>(subpage());
     if (page != 0) {
         unsigned int myRange = (unsigned int)page->getRange();
         if (b == 1000) {
@@ -123,7 +123,7 @@ void Display::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
 
-    MapPage* page = (MapPage*)(subpage());
+    MapPage* page = static_cast<MapPage*>(subpage());
     if (page != 0) range = (int)page->getRange();
     
     send("range", UPDATE_VALUE, range, rangeSD);

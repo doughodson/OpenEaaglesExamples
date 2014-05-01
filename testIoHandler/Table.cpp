@@ -172,17 +172,17 @@ void Table::position()
    
       int ln = line();
       int cp = column();
-      
+
       // Position our subcomponents, which are all TableRow objects (see build())
       Basic::List::Item* item = subcomponents->getFirstItem();
       while (item != 0) {
          Basic::Pair* pair = (Basic::Pair*)(item->getValue());
-         TableRow* row = (TableRow*) pair->object();
-         
+         TableRow* row = static_cast<TableRow*>( pair->object() );
+
          row->line(ln);
          row->column(cp);
          ln += spacing;
-         
+
          item = item->getNext();
       }
       subcomponents->unref();
@@ -196,18 +196,18 @@ void Table::position()
 void Table::build()
 {
    Basic::PairStream* newList = 0;
-   
+
    if (rows > 0 && columns != 0) {
 
       newList = new Basic::PairStream();
-      
+
       // For each row: create a TableRow containing all the items in 'columns'
       for (unsigned int i = 1; i <= rows; i++) {
-      
+
          // new row
          TableRow* row = new TableRow(); 
          row->container(this);
-         
+
          const Basic::List::Item* item = columns->getFirstItem();
          while (item != 0) {
             const Basic::Pair* pair = (const Basic::Pair*)(item->getValue());
@@ -231,7 +231,7 @@ void Table::build()
             newList->put(pp);
             pp->unref();
          }
-         
+
          row->unref();
       }
 
@@ -315,7 +315,7 @@ std::ostream& Table::serialize(std::ostream& sout, const int i, const bool slots
         sout << "( " << getFactoryName() << std::endl;
         j = 4;
     }
-    
+
    indent(sout,i+j);
    sout << "rows: " << rows << std::endl;
 

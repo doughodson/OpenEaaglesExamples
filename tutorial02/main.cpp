@@ -1,5 +1,6 @@
 
 #include <iostream>
+
 #include "Random.h"
 
 namespace Eaagles {
@@ -13,7 +14,7 @@ int main(int argc, char* argv[])
 
    rgen->setSeed(25);
 
-   for( int i=0; i<10; i++)
+   for(unsigned int i=0; i<10; i++)
       std::cout << rgen->getNum() << std::endl;
 
    std::cout << "Unref'ing random object\n";

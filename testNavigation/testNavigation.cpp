@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 namespace Eaagles {
 namespace Test {
@@ -88,7 +89,7 @@ int testNavFns()
       
       switch (testNumber) {
          // Direct and Inverse Methods
-         case  0: exit(0);
+         case  0: std::exit(0);
          case  1: test01_fbd2llE();                      break;
          case  2: test02_fll2bdE();                      break;
          case  3: test03_fbd2llS();                      break;
@@ -2989,6 +2990,7 @@ void test19_computeRotationalMatrix()
              << std::endl;
 
    //-----------------------------------
+
    // show expected results
    //-----------------------------------
    std::cout << "Expected Results: " << std::endl;

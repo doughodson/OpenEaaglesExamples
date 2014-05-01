@@ -11,6 +11,8 @@
 #include <iostream>
 #include <GL/glut.h>
 
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -77,7 +79,7 @@ static void builder()
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
 }

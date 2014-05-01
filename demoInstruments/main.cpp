@@ -38,6 +38,9 @@
 #include "TestAdi.h"
 #include "TestAdi2.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Demo {
 
@@ -73,79 +76,79 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // speed brake page
-    if ( strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
         obj = new TestSpeedBrake;
     }
     // engine dial page
-    else if (strcmp(name, TestEngineDial::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestEngineDial::getFactoryName()) == 0 ) {
         obj = new TestEngineDial;
     }
     // calibrated air speed (cas) page
-    else if (strcmp(name, TestCas::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestCas::getFactoryName()) == 0 ) {
         obj = new TestCas;
     }
-    // ftit page
-    else if (strcmp(name, TestFtitDial::getFactoryName()) == 0 ) {
+    // Ftit page
+    else if (std::strcmp(name, TestFtitDial::getFactoryName()) == 0 ) {
         obj = new TestFtitDial;
     }
     // TestOilPressure page
-    else if (strcmp(name, TestOilPressure::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestOilPressure::getFactoryName()) == 0 ) {
         obj = new TestOilPressure;
     }
     // TestNozzle page
-    else if (strcmp(name, TestNozzle::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestNozzle::getFactoryName()) == 0 ) {
         obj = new TestNozzle;
     }
     // TestRpmDial page
-    else if (strcmp(name, TestRpmDial::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestRpmDial::getFactoryName()) == 0 ) {
         obj = new TestRpmDial;
     }
     // TestHsi page
-    else if (strcmp(name, TestHsi::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestHsi::getFactoryName()) == 0 ) {
         obj = new TestHsi;
     }
     // TestGauge1 page
-    else if (strcmp(name, TestGauge1::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestGauge1::getFactoryName()) == 0 ) {
         obj = new TestGauge1;
     }
     // TestVVI page
-    else if (strcmp(name, TestVVI::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestVVI::getFactoryName()) == 0 ) {
         obj = new TestVVI;
     }
     // TestAlt page
-    else if (strcmp(name, TestAlt::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestAlt::getFactoryName()) == 0 ) {
         obj = new TestAlt;
     }
     // Compass Rose
-    else if (strcmp(name, TestCompass::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestCompass::getFactoryName()) == 0 ) {
         obj = new TestCompass;
     }
     // Digital Gauge
-    else if (strcmp(name, TestDigitalGauge::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestDigitalGauge::getFactoryName()) == 0 ) {
         obj = new TestDigitalGauge;
     }
     // TestGMeterDial page
-    else if (strcmp(name, TestGMeterDial::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestGMeterDial::getFactoryName()) == 0 ) {
         obj = new TestGMeterDial;
     }
     // TestLandingGear page
-    else if (strcmp(name, TestLandingGear::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestLandingGear::getFactoryName()) == 0 ) {
         obj = new TestLandingGear;
     }
     // TestEngPage
-    else if (strcmp(name, TestEngPage::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestEngPage::getFactoryName()) == 0 ) {
         obj = new TestEngPage;
     }
     // TestButtons
-    else if (strcmp(name, TestButtons::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestButtons::getFactoryName()) == 0 ) {
         obj = new TestButtons;
     }
     // TestAdi
-    else if (strcmp(name, TestAdi::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestAdi::getFactoryName()) == 0 ) {
         obj = new TestAdi;
     }
     // TestAdi
-    else if (strcmp(name, TestAdi2::getFactoryName()) == 0 ) {
+    else if (std::strcmp(name, TestAdi2::getFactoryName()) == 0 ) {
         obj = new TestAdi2;
     }
 
@@ -167,7 +170,7 @@ static void builder()
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -189,7 +192,7 @@ static void builder()
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);

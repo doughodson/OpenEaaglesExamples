@@ -39,7 +39,7 @@
 
   // define the textures available
   textures: {
-    tex1: ( BitmapTexture width: 128 height: 128 path: "../data/textures"  file: "Hsi_128_128.bmp" )
+    tex1: ( BitmapTexture width: 128 height: 128 path: "../shared/data/textures"  file: "Hsi_128_128.bmp" )
   }
 
   // define the fonts available
@@ -53,7 +53,7 @@
                 bitmapHeight: 19
                 characterSpacing: 0.462
                 lineSpacing: 0.798
-                path: "../data/fonts/11x19/normal/"
+                path: "../shared/data/fonts/11x19/normal/"
             )
   }
 

@@ -12,6 +12,9 @@
 #include "openeaagles/basic/Factory.h"
 #include "openeaagles/recorder/Factory.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Test {
 
@@ -27,7 +30,7 @@ static Basic::Object* factory(const char* name)
    Basic::Object* obj = 0;
 
    // This test:
-   if ( strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
+   if ( std::strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
       obj = new DataRecordTest();
    }
 
@@ -52,7 +55,7 @@ static DataRecordTest* builder(const char* const testFile)
    Eaagles::Basic::Object* q1 = lcParser(testFile, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
-  //    exit(1);
+  //    std::exit(1);
    }
 
    // Set 'sys' to our basic description object.
@@ -78,7 +81,7 @@ int exec(int argc, char* argv[])
 
    // Get the command line arguments
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          testFile = argv[++i];
       }
    }

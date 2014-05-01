@@ -12,6 +12,8 @@
 #include "openeaagles/recorder/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Test {
 
@@ -22,10 +24,10 @@ Basic::Object* Factory::createObj(const char* name)
 {
     Basic::Object* obj = 0;
 
-    if ( strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
         obj = new DataRecordTest();
     }
-    else if ( strcmp(name, PrintMyData::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, PrintMyData::getFactoryName()) == 0 ) {
         obj = new PrintMyData();
     }
 

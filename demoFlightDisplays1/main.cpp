@@ -28,6 +28,9 @@
 #include "SpdLines.h"
 #include "TerrainFollower.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Demo {
 
@@ -63,39 +66,39 @@ static Basic::Object* factory(const char* name)
     Basic::Object* obj = 0;
 
     // Test the primary flight display (PFD)
-    if ( strcmp(name, TestPfd::getFactoryName()) == 0 ) {
+    if ( std::strcmp(name, TestPfd::getFactoryName()) == 0 ) {
         obj = new TestPfd;
     }
     // situational display
-    else if ( strcmp(name, TestSD::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TestSD::getFactoryName()) == 0 ) {
         obj = new TestSD;
     }
     // CrsPntr
-    else if ( strcmp(name, CrsPntr::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, CrsPntr::getFactoryName()) == 0 ) {
         obj = new CrsPntr;
     }
     // Hsi
-    else if ( strcmp(name, Hsi::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Hsi::getFactoryName()) == 0 ) {
         obj = new Hsi;
     }
     // Pfd
-    else if ( strcmp(name, Pfd::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, Pfd::getFactoryName()) == 0 ) {
         obj = new Pfd;
     }
     // RdrAlt
-    else if ( strcmp(name, RdrAlt::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, RdrAlt::getFactoryName()) == 0 ) {
         obj = new RdrAlt;
     }
     // SituationalDisplay
-    else if ( strcmp(name, SituationalDisplay::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, SituationalDisplay::getFactoryName()) == 0 ) {
         obj = new SituationalDisplay;
     }
     // SpdLines
-    else if ( strcmp(name, SpdLines::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, SpdLines::getFactoryName()) == 0 ) {
         obj = new SpdLines;
     }
     // TerrainFollower
-    else if ( strcmp(name, TerrainFollower::getFactoryName()) == 0 ) {
+    else if ( std::strcmp(name, TerrainFollower::getFactoryName()) == 0 ) {
         obj = new TerrainFollower;
     }
 
@@ -115,7 +118,7 @@ static void builder()
     Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     // Set 'sys' to our basic description object.
@@ -137,7 +140,7 @@ static void builder()
     // Make sure we did get a valid object (we must have one!)
     if (sys == 0) {
         std::cout << "Invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     //sys->serialize(std::cout);

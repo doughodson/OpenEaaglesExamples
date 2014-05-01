@@ -1,5 +1,8 @@
 
 #include <iostream>
+#include <cstring>
+#include <cstdlib>
+
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/Parser.h"
@@ -28,7 +31,7 @@ static Basic::Object* factory(const char* const name)
   Basic::Object* obj = 0;
 
   // look in application's classes
-  if ( strcmp(name, MyComp::getFactoryName()) == 0 ) {
+  if ( std::strcmp(name, MyComp::getFactoryName()) == 0 ) {
     obj = new MyComp;
   }
   // look in basic classes
@@ -45,7 +48,7 @@ static void builder()
   Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
-    exit(1);
+    std::exit(1);
   }
 
   // Set 'sys' to our basic description object.
@@ -62,7 +65,7 @@ static void builder()
   // Make sure we did get a valid object (we must have one!)
   if (sys == 0) {
     std::cout << "example: invalid description file!" << std::endl;
-    exit(1);
+    std::exit(1);
   }
 }
 
@@ -70,7 +73,7 @@ int main(int argc, char *argv[])
 {
   // allow user to specify input file
   for (int i = 1; i < argc; i++) {
-    if (strcmp(argv[i],"-f") == 0) {
+    if (std::strcmp(argv[i],"-f") == 0) {
       inputFileName = argv[++i];
     }
   }
@@ -79,7 +82,7 @@ int main(int argc, char *argv[])
   builder();
 
   // compute a delta time
-  LCreal dt = (LCreal)(1.0/double(frameRate));
+  double dt = 1.0/double(frameRate);
   // process component tree
   sys->tcFrame(dt);     // time critical
   sys->updateData(dt);  // non-time critical

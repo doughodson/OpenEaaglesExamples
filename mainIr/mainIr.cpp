@@ -12,6 +12,9 @@
 #include "openeaagles/basic/Timers.h"
 #include <GL/glut.h>
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -84,12 +87,12 @@ int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // Config file file
+   // configuration file
    const char* configFile = "test1.edl";
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i],"-f") == 0) {
          configFile = argv[++i];
       }
    }
@@ -100,7 +103,7 @@ int main(int argc, char* argv[])
    station = readConfigFile(configFile);
    if (station == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
-      exit(EXIT_FAILURE);
+      std::exit(EXIT_FAILURE);
    }
 
    // ---

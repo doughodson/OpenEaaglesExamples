@@ -16,6 +16,9 @@
 #include "openeaagles/otw/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
+#include <cstring>
+#include <cstdlib>
+
 namespace Eaagles {
 namespace Example {
 
@@ -54,7 +57,7 @@ static void builder()
   Basic::Object* q1 = lcParser(testFile, factory, &errors);
   if (errors > 0) {
     std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
-    exit(1);
+    std::exit(1);
   }
 
   // Set 'sys' to our basic description object.
@@ -75,14 +78,14 @@ static void builder()
   // Make sure we did get a valid Station object (we must have one!)
   if (sys == 0) {
     std::cout << "Invalid description file!" << std::endl;
-    exit(EXIT_FAILURE);
+    std::exit(EXIT_FAILURE);
   }
 }
 
 int exec(int argc, char* argv[])
 {
   for (int i = 1; i < argc; i++) {
-    if (strcmp(argv[i],"-f") == 0) {
+    if (std::strcmp(argv[i],"-f") == 0) {
       testFile = argv[++i];
     }
   }
@@ -98,14 +101,14 @@ int exec(int argc, char* argv[])
   // short pause to allow os to startup thread
   lcSleep(2000);
 
-  // Calc delta time for background thread
+  // Calculate delta time for background thread
   double dt = 1.0/double(bgRate);
 
   // System Time of Day 
   double simTime = 0.0;                    // Simulator time reference
   double startTime = getComputerTime();    // Time of day (sec) run started
 
-  int k = 0;
+  //int k = 0;
   std::cout << "Starting background main loop ..." << std::endl;
   for(;;) {
 

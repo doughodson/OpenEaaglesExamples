@@ -29,8 +29,8 @@ EMPTY_SERIALIZER(Uniform)
 Uniform::Uniform(void)
 {
   STANDARD_CONSTRUCTOR()
-  setMin(0);
-  setMax(1);
+  min = 0.0;
+  max = 1.0;
 
   std::cout << "Uniform::Uniform() called\n";
 }
@@ -69,7 +69,7 @@ void Uniform::setMax(const int x)
 
 int Uniform::getNum(void) const
 {
-  return (int)(min+(max-min)*(rand()/(RAND_MAX+1.0)));
+  return (int)(min+(max-min)*(std::rand()/(RAND_MAX+1.0)));
 }
 
 //------------------------------------------------------------------------------

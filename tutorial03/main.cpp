@@ -1,5 +1,8 @@
 
 #include <iostream>
+#include <cstring>
+#include <cstdlib>
+
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
 
@@ -23,7 +26,7 @@ static Basic::Object* factory(const char* const name)
   Basic::Object* obj = 0;
 
   // look in application's classes
-  if ( strcmp(name, Random::getFactoryName()) == 0 ) {
+  if ( std::strcmp(name, Random::getFactoryName()) == 0 ) {
     obj = new Random;
   }
 
@@ -40,7 +43,7 @@ static void builder()
   Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
   if (errors > 0) {
     std::cerr << "Errors in reading file: " << errors << std::endl;
-    exit(1);
+    std::exit(1);
   }
 
   // Set 'sys' to our basic description object.
@@ -58,7 +61,7 @@ static void builder()
   // Make sure we did get a valid object (we must have one!)
   if (sys == 0) {
     std::cout << "example: invalid description file!" << std::endl;
-    exit(1);
+    std::exit(1);
   }
 }
 
@@ -67,7 +70,7 @@ int main(int argc, char* argv[])
   // build random
   builder();
 
-  for( int i=0; i<10; i++)
+  for(unsigned int i=0; i<10; i++)
     std::cout << sys->getNum() << std::endl;
 
   sys->unref();
