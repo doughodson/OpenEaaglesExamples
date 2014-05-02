@@ -11,6 +11,7 @@ codelite/
 *.idb
 *.ilk
 *.pdb
+*.exp
 
 # gcc compiled object files
 *.[oa]
