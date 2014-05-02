@@ -30,9 +30,6 @@ MyComp::MyComp(void)
    std::cout << "MyComp::MyComp() called\n";
 }
 
-//
-//
-//
 void MyComp::initData()
 {
    str = 0;
