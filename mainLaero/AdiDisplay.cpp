@@ -138,8 +138,8 @@ Simulation::Aircraft* AdiDisplay::getOwnship()
    if (sta != 0) {
       pA = dynamic_cast<Simulation::Aircraft*>(sta->getOwnship());
 
-      const unsigned int ffrate = 5;    //LDB
-      sta->setFastForwardRate(ffrate);  //LDB
+      //const unsigned int ffrate = 5;    //LDB
+      //sta->setFastForwardRate(ffrate);  //LDB
    }
    return pA;
 }
