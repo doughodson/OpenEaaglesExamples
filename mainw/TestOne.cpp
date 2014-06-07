@@ -96,7 +96,7 @@ void TestOne::reset()
     nTrails = 0;
     if (iangle != 0) {
         Basic::Radians radians;
-        setStartAngle((LCreal)radians.convert(*iangle));
+        setStartAngle(static_cast<LCreal>(radians.convert(*iangle)));
     }
 }
 
@@ -247,7 +247,7 @@ bool TestOne::setAngle(Basic::Angle* saobj)
 {
     if (saobj != 0) {
         Basic::Radians radians;
-        setStartAngle((LCreal)radians.convert(*saobj));
+        setStartAngle(static_cast<LCreal>(radians.convert(*saobj)));
         iangle = saobj;
         iangle->ref();
     }

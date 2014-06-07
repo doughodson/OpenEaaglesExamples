@@ -129,7 +129,7 @@ void TestEngPage::updateData(const LCreal dt)
         // Set to the engine display
         Basic::Pair* pair = findByType(typeid(Eaagles::Instruments::EngPage));
         if (pair != 0) {
-            Eaagles::Instruments::EngPage* p = (Eaagles::Instruments::EngPage*)(pair->object());
+            Eaagles::Instruments::EngPage* p = static_cast<Eaagles::Instruments::EngPage*>(pair->object());
             if (p != 0) {
                 for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
                     int idx = (i + 1);

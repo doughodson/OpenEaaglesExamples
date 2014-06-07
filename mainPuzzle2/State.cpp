@@ -490,7 +490,7 @@ bool State::setSlotBlocks(const Basic::PairStream* const msg)
       // Find all blocks (and check their type to make sure)
       const Basic::List::Item* item = msg->getFirstItem();
       while (item != 0 && n < MAX_BLOCKS && ok) {
-         const Basic::Pair* pair = (const Basic::Pair*) item->getValue();
+         const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
          const Block* p = dynamic_cast<const Block*>( pair->object() );
          if (p != 0) {
             newBlocks[n++] = p;  // Save the point

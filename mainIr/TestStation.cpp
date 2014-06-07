@@ -116,9 +116,9 @@ void TestStation::stepOwnshipPlayer()
       // Find the next player
       Basic::List::Item* item = pl->getFirstItem();
       while (item != 0) {
-         Basic::Pair* pair = (Basic::Pair*)(item->getValue());
+         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
          if (pair != 0) {
-            Simulation::Player* ip = (Simulation::Player*)( pair->object() );
+            Simulation::Player* ip = static_cast<Simulation::Player*>( pair->object() );
             if ( ip->isMode(Simulation::Player::ACTIVE) &&
                ip->isLocalPlayer()
                ) {

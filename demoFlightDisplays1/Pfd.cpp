@@ -565,7 +565,7 @@ void Pfd::updateData(const LCreal dt)
     // find the last digit for the readout tape
     LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
-    LCreal airSpdHunds = ((airSpd/1000) - (int)(airSpd/1000)) * 10;
+    LCreal airSpdHunds = ((airSpd/1000) - static_cast<int>(airSpd/1000)) * 10;
     temp = airSpdHunds - static_cast<int>(airSpdHunds);
     if (temp < 8.5f) airSpdHunds = static_cast<LCreal>(static_cast<int>(airSpdHunds));
     // fine the tens value for the air speed
@@ -599,7 +599,7 @@ void Pfd::updateData(const LCreal dt)
         altHundreds = ((alt/1000) - static_cast<int>(alt/1000)) * 10;
     }
     LCreal altThousands = alt/1000;
-    temp = altThousands - (int)altThousands;
+    temp = altThousands - static_cast<int>(altThousands);
     if (temp < 8.5f) altThousands = static_cast<LCreal>(static_cast<int>(altThousands));
     
     // vvi max and min test

@@ -74,7 +74,7 @@ static void builder()
 int exec(int argc, char* argv[])
 {
   // delta time (20ms)
-  LCreal dt = (LCreal)1.0/LCreal(frameRate);
+  LCreal dt = static_cast<LCreal>(1.0)/static_cast<LCreal>(frameRate);
 
   // read filename from command line if provided
   for (int i = 1; i < argc; i++) {

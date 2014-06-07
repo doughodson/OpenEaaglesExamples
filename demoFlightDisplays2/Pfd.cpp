@@ -143,7 +143,7 @@ bool Pfd::setPitchDeg(const LCreal newP)
 bool Pfd::setPitchRad(const LCreal newP)
 {
     // convert to degrees
-    pitch = (LCreal)(newP * Basic::Angle::R2DCC);
+    pitch = static_cast<LCreal>(newP * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -156,7 +156,7 @@ bool Pfd::setRollDeg(const LCreal newR)
 bool Pfd::setRollRad(const LCreal newR)
 {
     // convert to degrees
-    roll = (LCreal)(newR * Basic::Angle::R2DCC);
+    roll = static_cast<LCreal>(newR * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -229,7 +229,7 @@ bool Pfd::setFltDirBankDeg(const LCreal newFDB)
 
 bool Pfd::setFltDirBankRad(const LCreal newFDB)
 {
-    fDirBank = (LCreal)(newFDB * Basic::Angle::R2DCC);
+    fDirBank = static_cast<LCreal>(newFDB * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -241,7 +241,7 @@ bool Pfd::setFltDirPitchDeg(const LCreal newFDP)
 
 bool Pfd::setFltDirPitchRad(const LCreal newFDP)
 {
-    fDirPitch = (LCreal)(newFDP * Basic::Angle::R2DCC);
+    fDirPitch = static_cast<LCreal>(newFDP * Basic::Angle::R2DCC);
     return true;
 }
 

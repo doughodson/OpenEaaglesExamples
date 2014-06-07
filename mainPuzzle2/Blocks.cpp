@@ -227,7 +227,7 @@ bool Block::setSlotRefId(const Basic::Integer* const msg)
    if (msg != 0) {
       int i = msg->getInt();
       if (i >= 0) {
-         unsigned int id = (unsigned int) i;
+         unsigned int id = static_cast<unsigned int>(i);
          ok = setReferenceID(id);
       }
    }

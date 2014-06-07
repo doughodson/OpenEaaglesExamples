@@ -197,8 +197,8 @@ unsigned int Board::setupBlockGraphics()
                      blocks[nblocks] = g->clone();
                      blocks[nblocks]->container(this);
                      blockId[nblocks] = b->getReferenceID();
-                     xp[nblocks] = (LCreal) b->getX();
-                     yp[nblocks] = (LCreal) b->getY();
+                     xp[nblocks] = static_cast<LCreal>(b->getX());
+                     yp[nblocks] = static_cast<LCreal>(b->getY());
                      xd[nblocks] = 0;
                      yd[nblocks] = 0;
                      nblocks++;

@@ -42,7 +42,7 @@ static void timerFunc(int)
 
    Eaagles::Basic::Timer::updateTimers(static_cast<Eaagles::LCreal>(dt));
    Eaagles::BasicGL::Graphic::flashTimer(static_cast<Eaagles::LCreal>(dt));
-   sys->tcFrame((Eaagles::LCreal) dt);
+   sys->tcFrame(static_cast<Eaagles::LCreal>(dt));
 }
 
 // our class factory

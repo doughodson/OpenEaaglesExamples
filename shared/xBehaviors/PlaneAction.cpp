@@ -106,18 +106,18 @@ bool PlaneAction::execute(Basic::Component* actor)
 {
    Simulation::AirVehicle* airVehicle = dynamic_cast<Simulation::AirVehicle*>(actor);
    if (airVehicle != 0) {
-      airVehicle->setControlStick((LCreal)getRoll(), (LCreal)getPitch());
+      airVehicle->setControlStick(static_cast<LCreal>(getRoll()), static_cast<LCreal>(getPitch()));
 
       // set throttle to engines(assuming there are 8 or less)
       LCreal throttles[8];
       for(int i = 0 ; i < airVehicle->getNumberOfEngines() ; i++) {
-         throttles[i] = (LCreal)getThrottle();
+         throttles[i] = static_cast<LCreal>(getThrottle());
       }
       if (isThrottleChanged()) {
          airVehicle->setThrottles(throttles,2);
       }
       if(isPitchTrimChanged()) {
-         airVehicle->setTrimSwitch(0, (LCreal)getPitchTrim());
+         airVehicle->setTrimSwitch(0, static_cast<LCreal>(getPitchTrim()));
       }
       //airVehicle->setRudderPedalInput(planeAction->getHeading());
       //airVehicle->setVelocity(0, 0, 0);

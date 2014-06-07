@@ -98,7 +98,7 @@ int exec(int argc, char* argv[])
   builder();
   // send a reset event and frame sim once
   sys->event(Basic::Component::RESET_EVENT);
-  sys->tcFrame( (LCreal) (1.0/double(sys->getTimeCriticalRate())) );
+  sys->tcFrame( static_cast<LCreal>(1.0/double(sys->getTimeCriticalRate())) );
 
   // Create Time Critical Thread
   sys->createTimeCriticalProcess();
@@ -117,14 +117,14 @@ int exec(int argc, char* argv[])
   for(;;) {
 
     // Update background thread
-    sys->updateData( LCreal(dt) );
+    sys->updateData( static_cast<LCreal>(dt) );
 
     simTime += dt;                       // time of next frame
     double timeNow = getComputerTime();  // time now
 
     double elapsedTime = timeNow - startTime;
     double nextFrameStart = simTime - elapsedTime;
-    int sleepTime = int(nextFrameStart*1000.0);
+    int sleepTime = static_cast<int>(nextFrameStart*1000.0);
 
     // wait for the next frame
     if (sleepTime > 0)

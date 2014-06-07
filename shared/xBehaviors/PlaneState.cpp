@@ -80,7 +80,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
       osg::Vec3d angularVels = airVehicle->getAngularVelocities();
       setRollRate(angularVels.x());
       setPitchRate(angularVels.y());
-      setYawRate(angularVels.z());      
+      setYawRate(angularVels.z());
       setTracking(false);
       setTargetTrack(MAX_TRACKS);  // 0 is a valid target track, use MAX_TRACKS to
                                    // signal "no tgt track"
@@ -105,8 +105,8 @@ void PlaneState::updateState(const Basic::Component* const actor)
          bool finished = false;
          for (const Basic::List::Item* item = players->getFirstItem(); item != 0 && !finished; item = item->getNext()) {
             // Get the pointer to the target player
-            Basic::Pair* pair = (Basic::Pair*)(item->getValue());
-            Simulation::Player* player = (Simulation::Player*)(pair->object());
+            const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
+            const Simulation::Player* player = static_cast<const Simulation::Player*>(pair->object());
             if (player->isMajorType(Simulation::Player::WEAPON) && (player->isActive() || player->isMode(Simulation::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
                // our side has a weapon on-the-way/in-the-air;
                setMissileFired(true);
@@ -135,7 +135,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
       const Basic::Pair* sensorPair = airVehicleX->getSensorByType(typeid(Simulation::Radar));
 
       if (sensorPair != 0) {
-         const Simulation::Radar* radar = (const Simulation::Radar*)sensorPair->object();
+         const Simulation::Radar* radar = static_cast<const Simulation::Radar*>(sensorPair->object());
          if (radar != 0) {
             const Simulation::TrackManager* trackManager = radar->getTrackManager();
             SPtr<Simulation::Track> trackList[50];

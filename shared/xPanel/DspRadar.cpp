@@ -83,8 +83,8 @@ void DspRadar::updateData(const LCreal dt)
 
    // Update antenna azimuth and elevation pointers
    if (antenna != 0) {
-      send( "azPtr", UPDATE_VALUE, (float)(Basic::Angle::R2DCC * antenna->getAzimuth()),   azSD);
-      send( "elPtr", UPDATE_VALUE, (float)(Basic::Angle::R2DCC * antenna->getElevation()), elSD);
+      send( "azPtr", UPDATE_VALUE, static_cast<float>(Basic::Angle::R2DCC * antenna->getAzimuth()),   azSD);
+      send( "elPtr", UPDATE_VALUE, static_cast<float>(Basic::Angle::R2DCC * antenna->getElevation()), elSD);
    }
 
    // Update base classes stuff
@@ -191,7 +191,7 @@ void DspRadar::drawFunc()
       for (unsigned int i = 0; i < nTracks; i++) {
          double xp = (Basic::Angle::R2DCC * trkAz[i])/30.0;
          double yp = 2.0*trkRng[i]/maxRng;
-         if ((int)i == ntsTrk) lcColor3v(ntsRGB.ptr());
+         if (static_cast<int>(i) == ntsTrk) lcColor3v(ntsRGB.ptr());
          else lcColor3v(rgb.ptr());
          glPushMatrix();
          glTranslated(xp, yp, 0.0);

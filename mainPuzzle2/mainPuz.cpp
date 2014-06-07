@@ -30,8 +30,8 @@ static class Board* sys = 0;
 // timerCB() -- 
 static void timerCB(int)
 {
-    double dt0 = 1.0/double(frameRate);
-    unsigned int millis = (unsigned int) (dt0 * 1000);
+    double dt0 = 1.0/static_cast<double>(frameRate);
+    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
     glutTimerFunc(millis, timerCB, 1);
     
     // Current time
@@ -44,9 +44,9 @@ static void timerCB(int)
     double dt = (time - time0);
     time0 = time;
 
-    Basic::Timer::updateTimers((LCreal)dt);
-    BasicGL::Graphic::flashTimer((LCreal)dt);
-    sys->tcFrame((LCreal)dt);
+    Basic::Timer::updateTimers(static_cast<LCreal>(dt));
+    BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+    sys->tcFrame(static_cast<LCreal>(dt));
 }
 
 // readTest() -- function to the read description files
@@ -102,8 +102,8 @@ int main(int argc, char* argv[])
    // ---
    // Set timer
    // ---
-   double dt = 1.0/double(frameRate);
-   unsigned int millis = (unsigned int)(dt * 1000);
+   double dt = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerCB, 1);
 
    // ---
