@@ -2,6 +2,7 @@
 // Class: SituationalDisplay
 //------------------------------------------------------------------------------
 #include "SituationalDisplay.h"
+#include <cstring>
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -83,7 +84,7 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     // navaid 1   
     nav1Brg = org.nav1Brg;
     nav1Dme = org.nav1Dme;
-    strncpy(nav1Id, org.nav1Id, NCHAR_NAV1_ID);
+    std::strncpy(nav1Id, org.nav1Id, NCHAR_NAV1_ID);
     nav1BrgROSD.empty();
     nav1BrgSD.empty();
     nav1DmeSD.empty();
@@ -91,7 +92,7 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     // navaid 2 
     nav2Brg = org.nav2Brg;
     nav2Dme = org.nav2Dme;
-    strncpy(nav2Id, org.nav2Id, NCHAR_NAV2_ID);
+    std::strncpy(nav2Id, org.nav2Id, NCHAR_NAV2_ID);
     nav2BrgROSD.empty();
     nav2BrgSD.empty();
     nav2DmeSD.empty();
@@ -168,7 +169,7 @@ bool SituationalDisplay::setNav1Id(const char* const newId)
 {
     bool ok = false;
     if (newId != 0) {
-        strncpy(nav1Id,newId,NCHAR_NAV1_ID);
+        std::strncpy(nav1Id,newId,NCHAR_NAV1_ID);
         nav1Id[NCHAR_NAV1_ID] = '\0';
         ok = true;
     }
@@ -188,7 +189,7 @@ bool SituationalDisplay::setNav2Id(const char* const newId)
 {
     bool ok = false;
     if (newId != 0) {
-        strncpy(nav2Id, newId, NCHAR_NAV2_ID);
+        std::strncpy(nav2Id, newId, NCHAR_NAV2_ID);
         nav2Id[NCHAR_NAV2_ID] = '\0';
         ok = true;
     }
