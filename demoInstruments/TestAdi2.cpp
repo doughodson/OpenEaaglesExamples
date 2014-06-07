@@ -1,6 +1,8 @@
 #include "TestAdi2.h"
 #include "openeaagles/basic/units/Angles.h"
 
+#include <cmath>
+
 namespace Eaagles {
 namespace Demo {
 
@@ -149,28 +151,26 @@ void TestAdi2::updateData(const LCreal dt)
     
 
     // we'll assume an aoa of 2.5degress
-    LCreal aoaRad = (LCreal)(5.0 * Basic::Angle::D2RCC);
-    LCreal rollRad = (LCreal)(roll * Basic::Angle::D2RCC);
+    LCreal aoaRad = static_cast<LCreal>(5.0 * Basic::Angle::D2RCC);
+    LCreal rollRad = static_cast<LCreal>(roll * Basic::Angle::D2RCC);
     LCreal tempAoaDiff = aoaRad * lcCos(rollRad);
-        
+
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;
-    
+
     // determine exact positioning of our Climb dive
-    cdmX = tempAoaDiff * sin(rollRad);
-    cdmY = -tempAoaDiff * cos(rollRad);
-        
+    cdmX = tempAoaDiff * std::sin(rollRad);
+    cdmY = -tempAoaDiff * std::cos(rollRad);
+
     //std::cout << "FPM Y = " << fpmY << std::endl;
     // convert to screen coordinates 
-    
-    
+
     LCreal ratio = 20/(PI/2);
     //LCreal myTest = (aoaRad * lcCos(rollRad)) * ratio;
     
     cdmX *= ratio;
     cdmY *= ratio;
 
-    
 
     // send our data down (including pitch and roll)
     send("mfdadi", UPDATE_INSTRUMENTS, pitch, pitchSD);

@@ -10,7 +10,7 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd,"TestPfd")
 EMPTY_SERIALIZER(TestPfd)
-                            
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------

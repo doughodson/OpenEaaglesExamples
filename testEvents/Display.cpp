@@ -54,7 +54,7 @@ Display::Display()
     double x = getComputerTime();
     x -= int(x);
     x *= 10;
-    int seed = nint((LCreal)x);
+    int seed = nint(static_cast<LCreal>(x));
 
     // go through x amount of numbers before we get our next random number
     // this will allow for some pseudo-randomness.
@@ -63,7 +63,9 @@ Display::Display()
     for (int i = 0; i < MAX_MATERIALS; i++) {
         materials[i] = new BasicGL::Material();
         materialSD[i].empty();
-        diffColor[i].set((LCreal)rng->drawClosed(), (LCreal)rng->drawClosed(), (LCreal)rng->drawClosed(), 1);
+        diffColor[i].set(static_cast<LCreal>(rng->drawClosed()),
+                         static_cast<LCreal>(rng->drawClosed()),
+                         static_cast<LCreal>(rng->drawClosed()), 1);
         //std::cout << "DIFF COLOR = " << diffColor[i].x() << ", " << diffColor[i].y() << ", " << diffColor[i].z() << std::endl;
         materials[i]->setDiffuseColor(diffColor[i]);
         // set up initial different colors
@@ -71,7 +73,6 @@ Display::Display()
         rotations[i] = 0;
         rotationsSD[i].empty();
     }
-
 
     rng->unref();
     counter = 0;

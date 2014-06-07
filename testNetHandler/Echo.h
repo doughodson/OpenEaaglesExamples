@@ -29,7 +29,7 @@ public:
    virtual void reset();
 
 private:
-    unsigned int loopCounter;   // Loop counter 
+    unsigned int loopCounter;
 };
 
 }

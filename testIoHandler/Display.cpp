@@ -295,7 +295,7 @@ bool Display::setSlotAiChannel(const Basic::Number* const msg)
    if (msg != 0 && item >= 1 && item <= TBL_SIZE) {
       int v = msg->getInt();
       if (v >= 0 && v <= 0xFFFF) {
-         channels[item-1] = (unsigned short) v;
+         channels[item-1] = static_cast<unsigned short>(v);
          types[item-1] = AI;
          ok = true;
       }
@@ -312,7 +312,7 @@ bool Display::setSlotDiChannel(const Basic::Number* const msg)
    if (msg != 0 && item >= 1 && item <= TBL_SIZE) {
       int v = msg->getInt();
       if (v >= 0 && v <= 0xFFFF) {
-         channels[item-1] = (unsigned short) v;
+         channels[item-1] = static_cast<unsigned short>(v);
          types[item-1] = DI;
          ok = true;
       }
@@ -349,7 +349,6 @@ Basic::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
 
 //------------------------------------------------------------------------------
 // serialize

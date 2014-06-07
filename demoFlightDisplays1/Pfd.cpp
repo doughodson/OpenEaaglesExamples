@@ -12,7 +12,7 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
-                            
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Pfd::Pfd()
     rollSD.empty();
     // bank angle
     baSD.empty();
-    bascaleSD.empty();  
+    bascaleSD.empty();
     // heading and nav stuff
     trueHdg = 0;  
     tHdgSD.empty();
@@ -84,8 +84,8 @@ Pfd::Pfd()
     // vvi
     vvi = 0;
     vviSD.empty();
-    maxVvi = 3.0;      
-    minVvi = 3.0;      
+    maxVvi = 3.0;
+    minVvi = 3.0;
     maxVviSD.empty();
     minVviSD.empty();
     vviROSD.empty();
@@ -162,7 +162,7 @@ void Pfd::copyData(const Pfd& org, const bool)
     rollSD.empty();
     // bank angle
     baSD.empty();
-    bascaleSD.empty();    
+    bascaleSD.empty();
     // hdg and nav
     trueHdg = org.trueHdg;
     tHdgSD.empty();
@@ -217,8 +217,8 @@ void Pfd::copyData(const Pfd& org, const bool)
     // vvi
     vvi = org.vvi;
     vviSD.empty();
-    maxVvi = org.minVvi;      
-    minVvi = org.minVvi;      
+    maxVvi = org.minVvi;
+    minVvi = org.minVvi;
     maxVviSD.empty();
     minVviSD.empty();
     vviROSD.empty();
@@ -298,7 +298,7 @@ bool Pfd::setPitchDeg(const LCreal newP)
 bool Pfd::setPitchRad(const LCreal newP)
 {
     // convert to degrees
-    pitch = (LCreal)(newP * Basic::Angle::R2DCC);
+    pitch = static_cast<LCreal>(newP * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -311,7 +311,7 @@ bool Pfd::setRollDeg(const LCreal newR)
 bool Pfd::setRollRad(const LCreal newR)
 {
     // convert to degrees
-    roll = (LCreal)(newR * Basic::Angle::R2DCC);
+    roll = static_cast<LCreal>(newR * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -419,7 +419,7 @@ bool Pfd::setFltDirBankDeg(const LCreal newFDB)
 
 bool Pfd::setFltDirBankRad(const LCreal newFDB)
 {
-    fDirBank = (LCreal)(newFDB * Basic::Angle::R2DCC);
+    fDirBank = static_cast<LCreal>(newFDB * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -431,7 +431,7 @@ bool Pfd::setFltDirPitchDeg(const LCreal newFDP)
 
 bool Pfd::setFltDirPitchRad(const LCreal newFDP)
 {
-    fDirPitch = (LCreal)(newFDP * Basic::Angle::R2DCC);
+    fDirPitch = static_cast<LCreal>(newFDP * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -463,7 +463,7 @@ bool Pfd::setNav1Id(const char* const newId)
 {
     bool ok = false;
     if (newId != 0) {
-        strncpy(nav1Id,newId,NCHAR_NAV1_ID);
+        strncpy(nav1Id, newId, NCHAR_NAV1_ID);
         nav1Id[NCHAR_NAV1_ID] = '\0';
         ok = true;
     }
@@ -486,7 +486,7 @@ bool Pfd::setNav2Id(const char* const newId)
 {
     bool ok = false;
     if (newId != 0) {
-        strncpy(nav2Id,newId,NCHAR_NAV2_ID);
+        strncpy(nav2Id, newId, NCHAR_NAV2_ID);
         nav2Id[NCHAR_NAV2_ID] = '\0';
         ok = true;
     }
@@ -562,18 +562,18 @@ void Pfd::updateData(const LCreal dt)
     if (tHdg < 0.5f) tHdg += 360.0f;
 
     // find the last digit for the readout tape
-    LCreal ones = ((airSpd / 10) - (int)(airSpd / 10)) * 10;
+    LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
     LCreal airSpdHunds = ((airSpd/1000) - (int)(airSpd/1000)) * 10;
-    temp = airSpdHunds - (int)airSpdHunds;
-    if (temp < 8.5f) airSpdHunds = (LCreal)(int)airSpdHunds;
+    temp = airSpdHunds - static_cast<int>(airSpdHunds);
+    if (temp < 8.5f) airSpdHunds = static_cast<LCreal>(static_cast<int>(airSpdHunds));
     // fine the tens value for the air speed
-    LCreal asTens = ((airSpd/100.0f) - (int)(airSpd/100.0f)) * 10.0f;
+    LCreal asTens = ((airSpd/100.0f) - static_cast<int>(airSpd/100.0f)) * 10.0f;
     //std::cout << "AIR SPEED = " << airSpd << std::endl;
     //std::cout << "air speed tens = " << asTens << std::endl;
     //std::cout << "air speed hunds = " << airSpdHunds << std::endl;
 
-    int rest = int(airSpd / 10.0f);
+    int rest = static_cast<int>(airSpd / 10.0f);
     
     //cmdSpd = 450;
     //airSpd += (dt * 10);
@@ -585,9 +585,9 @@ void Pfd::updateData(const LCreal dt)
     LCreal altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
-    LCreal altTens = ((alt/100) - (int)(alt/100)) * 10;
+    LCreal altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
-    int altRest = int(alt/99.9999);
+    int altRest = static_cast<int>(alt/99.9999);
     // also, for our dynamic dial arcs, we need the hundreds value of the altitude
     LCreal altHundreds = 0;
     // find the thousands value too
@@ -595,11 +595,11 @@ void Pfd::updateData(const LCreal dt)
         altHundreds = (alt/100);
     }
     else if (alt > 999 && alt <= 99999) {
-        altHundreds = ((alt/1000) - (int)(alt/1000)) * 10;
+        altHundreds = ((alt/1000) - static_cast<int>(alt/1000)) * 10;
     }
     LCreal altThousands = alt/1000;
     temp = altThousands - (int)altThousands;
-    if (temp < 8.5f) altThousands = (LCreal)(int)altThousands;
+    if (temp < 8.5f) altThousands = static_cast<LCreal>(static_cast<int>(altThousands));
     
     // vvi max and min test
     LCreal maxVviColorRO = 0;
@@ -612,7 +612,7 @@ void Pfd::updateData(const LCreal dt)
     
     // now for the vvi readouts
     LCreal maxVviRO = 0;
-    if (vvi > 3000) maxVviRO = vvi/1000;    
+    if (vvi > 3000) maxVviRO = vvi/1000;
     else maxVviRO = 3.0;
     
     LCreal minVviRO = 0;
@@ -704,7 +704,7 @@ void Pfd::updateData(const LCreal dt)
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // send our flight path marker it's data
     // positive pitch
-    fpmY = pitch - (aoa * lcCos((float)(roll * Basic::Angle::D2RCC)));
+    fpmY = pitch - (aoa * lcCos(static_cast<float>(roll * Basic::Angle::D2RCC)));
     // determine our flight path marker
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;

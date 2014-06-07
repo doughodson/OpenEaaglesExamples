@@ -190,8 +190,8 @@ void TestComputer::updateShootList(const bool step)
     
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
-         Simulation::Track *trk = trackList[i];
-         Simulation::IrTrack *irTrk = dynamic_cast<Simulation::IrTrack*>(trk);
+         Simulation::Track* trk = trackList[i];
+         Simulation::IrTrack* irTrk = dynamic_cast<Simulation::IrTrack*>(trk);
          std::cout << irTrk->getTarget()->getID() << " avg " << irTrk->getAvgSignal() << " max " << irTrk->getMaxSignal() << std::endl;
       }
    }
@@ -207,11 +207,11 @@ void TestComputer::updateShootList(const bool step)
             //if (trackList[i]->getGroundSpeed() >= 1.0f) {
                if (nNTS >= 0) {
                   // is this one closer?
-                  Simulation::Track *trk = trackList[i];
-                  Simulation::IrTrack *irTrk = dynamic_cast<Simulation::IrTrack*>(trk);
+                  Simulation::Track* trk = trackList[i];
+                  Simulation::IrTrack* irTrk = dynamic_cast<Simulation::IrTrack*>(trk);
 
                   trk = trackList[nNTS];
-                  Simulation::IrTrack *irTrknNTS = dynamic_cast<Simulation::IrTrack*>(trk);
+                  Simulation::IrTrack* irTrknNTS = dynamic_cast<Simulation::IrTrack*>(trk);
 
                   if (irTrk->getAvgSignal() > irTrknNTS->getAvgSignal()) {
                      nNTS = i;

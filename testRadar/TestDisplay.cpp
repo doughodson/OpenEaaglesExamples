@@ -193,14 +193,14 @@ bool TestDisplay::onIncRngKey()
         Simulation::Radar* rdr = 0;
         {
            Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
-           if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+           if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
         }
         Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != 0) {
             // But could be GMTI ...
             if (sms->isWeaponDeliveryMode(Simulation::StoresMgr::A2G)) {
                 Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Gmti));
-                if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+                if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
             }
         }
         if (rdr != 0) {
@@ -220,14 +220,14 @@ bool TestDisplay::onDecRngKey()
         Simulation::Radar* rdr = 0;
         {
            Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
-           if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+           if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
         }
         Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != 0) {
-            // But could be GMTI ...
+            // But could be GMTI
             if (sms->isWeaponDeliveryMode(Simulation::StoresMgr::A2G)) {
                 Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Gmti));
-                if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+                if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
             }
         }
         if (rdr != 0) {

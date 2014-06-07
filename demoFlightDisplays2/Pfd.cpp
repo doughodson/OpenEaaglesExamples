@@ -287,7 +287,7 @@ void Pfd::updateData(const LCreal dt)
     BaseClass::updateData(dt);
     
     // find the last digit for the readout tape
-    LCreal ones = ((airSpd / 10) - (int)(airSpd / 10)) * 10;
+    LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
     int rest = int(airSpd / 10.0f);
     
@@ -296,9 +296,9 @@ void Pfd::updateData(const LCreal dt)
     LCreal altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
-    LCreal altTens = ((alt/100) - (int)(alt/100)) * 10;
+    LCreal altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
-    int altRest = int(alt/99.9999);
+    int altRest = static_cast<int>(alt/99.9999);
         
     // all the sends are here
     // hsi

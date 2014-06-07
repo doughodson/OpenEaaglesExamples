@@ -64,7 +64,6 @@ void SimStation::copyData(const SimStation& org, const bool cc)
     autoResetTimer = org.autoResetTimer;
 }
 
-
 void SimStation::deleteData()
 {
 }
@@ -77,9 +76,9 @@ void SimStation::reset()
     if (!displayInit && mainDisplay != 0) {
         mainDisplay->createWindow();
         Basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
-        if (p != 0) mainDisplay->focus((BasicGL::Graphic*)(p->object()));
+        if (p != 0) mainDisplay->focus(static_cast<BasicGL::Graphic*>(p->object()));
         else mainDisplay->focus(0);
-        displayInit = true;        
+        displayInit = true;
     }
     // reset all of our subcomponents
     if (mainDisplay != 0) mainDisplay->reset();
@@ -150,9 +149,9 @@ void SimStation::stepOwnshipPlayer()
       // Find the next player
       Basic::List::Item* item = pl->getFirstItem();
       while (item != 0) {
-         Basic::Pair* pair = (Basic::Pair*)(item->getValue());
+         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
          if (pair != 0) {
-            Simulation::Player* ip = (Simulation::Player*)( pair->object() );
+            Simulation::Player* ip = static_cast<Simulation::Player*>(pair->object());
             if ( ip->isMode(Simulation::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
                ip->isClassType(typeid(Simulation::AirVehicle))

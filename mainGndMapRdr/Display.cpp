@@ -216,7 +216,7 @@ void Display::configure()
    glDisable(GL_LINE_SMOOTH);
    glDisable(GL_POLYGON_SMOOTH);
    glDisable(GL_BLEND);
-   glBlendFunc(GL_ONE,  GL_ZERO);
+   glBlendFunc(GL_ONE, GL_ZERO);
 }
 
 //------------------------------------------------------------------------------

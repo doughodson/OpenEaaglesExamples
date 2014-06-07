@@ -65,9 +65,9 @@ public:
 
     // get functions
     LCreal getPitchDeg()            { return pitch; }
-    LCreal getPitchRad()            { return (LCreal)(pitch * Basic::Angle::D2RCC); }
+    LCreal getPitchRad()            { return static_cast<LCreal>(pitch * Basic::Angle::D2RCC); }
     LCreal getRollDeg()             { return roll; }
-    LCreal getRollRad()             { return (LCreal)(roll * Basic::Angle::D2RCC); }
+    LCreal getRollRad()             { return static_cast<LCreal>(roll * Basic::Angle::D2RCC); }
     LCreal getTrueHdg()             { return trueHdg; }
     LCreal getCmdCourse()           { return cmdCrs; }
     LCreal getCmdHdg()              { return cmdHdg; }
@@ -85,9 +85,9 @@ public:
     LCreal getSideSlip()            { return slip; }
     LCreal getGndSpdKts()           { return gSpd; }
     LCreal getFltDirBankDeg()       { return fDirBank; }
-    LCreal getFltDirBankRad()       { return (LCreal)(fDirBank * Basic::Angle::R2DCC); }
+    LCreal getFltDirBankRad()       { return static_cast<LCreal>(fDirBank * Basic::Angle::R2DCC); }
     LCreal getFltDirPitchDeg()      { return fDirPitch; }
-    LCreal getFltDirPitchRad()      { return (LCreal)(fDirPitch * Basic::Angle::R2DCC); }
+    LCreal getFltDirPitchRad()      { return static_cast<LCreal>(fDirPitch * Basic::Angle::R2DCC); }
     LCreal getBaroPressure()        { return baro; }
     LCreal getRdrAltFt()            { return rAlt; }
     LCreal getNav1Brg()             { return nav1Brg; }

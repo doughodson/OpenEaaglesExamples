@@ -52,7 +52,7 @@ static void timerFunc(int)
 {
     LCreal dt = 1.0f/LCreal(frameRate);
 
-    unsigned int millis = (unsigned int)(dt * 1000);
+    unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
     Basic::Timer::updateTimers(dt);
@@ -166,8 +166,8 @@ int main(int argc, char* argv[])
 // ---
 // Set timer
 // ---
-    double dt = 1.0/double(frameRate);
-    unsigned int millis = (unsigned int)(dt * 1000);
+    double dt = 1.0/static_cast<double>(frameRate);
+    unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
 // ---

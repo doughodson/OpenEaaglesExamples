@@ -46,9 +46,9 @@ TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
     heading = 0.0;
-    headingRate = (LCreal)(0.2f * Basic::Angle::R2DCC);
+    headingRate = static_cast<LCreal>(0.2f * Basic::Angle::R2DCC);
     bearing = 0;
-    bearingRate = (LCreal)(0.4f * Basic::Angle::R2DCC);
+    bearingRate = static_cast<LCreal>(0.4f * Basic::Angle::R2DCC);
     range = 80;
     // navaid bearings
     nav1Brg = 0;
