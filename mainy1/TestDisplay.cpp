@@ -430,7 +430,7 @@ void TestDisplay::updateData(const LCreal dt)
 
             maintainAirTrackSymbols(myLoader, range);
          }
-      }        
+      }
    }
 
    // Update base classes stuff
@@ -599,9 +599,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
             loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
         }
     }
-
 }
-
 
 //------------------------------------------------------------------------------
 // Simulation access functions
@@ -636,7 +634,7 @@ Simulation::Station* TestDisplay::getStation()
 //------------------------------------------------------------------------------
 void TestDisplay::updatePfd(const LCreal)
 {    
-    Simulation::AirVehicle* av = (Simulation::AirVehicle*) getOwnship();
+    Simulation::AirVehicle* av = static_cast<Simulation::AirVehicle*>(getOwnship());
 
     // pitch
     pitch = av->getPitchD();

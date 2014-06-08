@@ -210,7 +210,7 @@ void Table::build()
 
          const Basic::List::Item* item = columns->getFirstItem();
          while (item != 0) {
-            const Basic::Pair* pair = (const Basic::Pair*)(item->getValue());
+            const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
             const Basic::Object* obj = pair->object();
             if (obj->isClassType(typeid(BasicGL::Graphic))) {
                Basic::Pair* pp = pair->clone();
@@ -409,7 +409,7 @@ void TableRow::position()
         
          ti->line(ln);
          ti->column(cp);
-         cp += (int) ti->width();
+         cp += static_cast<int>(ti->width());
          
          item = item->getNext();
       }

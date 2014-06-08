@@ -95,7 +95,7 @@ void Worm::reset()
   nTrails = 0;
   if (iangle != 0) {
     Eaagles::Basic::Radians radians;
-    setStartAngle((Eaagles::LCreal)radians.convert(*iangle));
+    setStartAngle(static_cast<Eaagles::LCreal>(radians.convert(*iangle)));
   }
 }
 
@@ -218,7 +218,7 @@ bool Worm::setAngle(const Eaagles::Basic::Angle* const saobj)
   bool ok = false;
   if (saobj != 0) {
     Eaagles::Basic::Radians radians;
-    setStartAngle((Eaagles::LCreal)radians.convert(*saobj));
+    setStartAngle(static_cast<Eaagles::LCreal>(radians.convert(*saobj)));
     iangle = saobj;
     iangle->ref();
     ok = true;

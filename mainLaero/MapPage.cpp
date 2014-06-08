@@ -65,7 +65,7 @@ MapPage::MapPage()
     }
 
     routeLoaded = false;
-}  
+}
 
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
@@ -189,7 +189,7 @@ void MapPage::drawHoldingPattern()
    if (pStn != 0) {
       Simulation::Player* pPlr  = pStn->getOwnship();
       if (pPlr != 0) {
-         Simulation::Autopilot* pRac = (Simulation::Autopilot*) pPlr->getPilot();
+         Simulation::Autopilot* pRac = static_cast<Simulation::Autopilot*>(pPlr->getPilot());
          if (pRac != 0) {
 
          //---------------------------------------------------------------------------
@@ -279,7 +279,7 @@ void MapPage::drawFunc()
       if (pPlr != 0) {
 
          // get the autopilot
-         Simulation::Autopilot* ap = (Simulation::Autopilot*)pPlr->getPilot();
+         Simulation::Autopilot* ap = static_cast<Simulation::Autopilot*>(pPlr->getPilot());
          if (ap != 0 && ap->isLoiterModeOn()) drawHoldingPattern();
 
 
@@ -318,15 +318,15 @@ void MapPage::drawFunc()
                int startLat = nint((LCreal)southernLat - 1);
                int endLat   = nint((LCreal)northernLat + 1);
                while (startLat < endLat) {
-                  GLfloat refLatDist = GLfloat(refLat - startLat);
+                  GLfloat refLatDist = static_cast<GLfloat>(refLat - startLat);
                   if (latIdx < MAX_READOUTS) {
                      lats[latIdx] = startLat;
-                     refLatDist *= (GLfloat)inchPerDegNS;
-                     latReadoutYPos[latIdx] = float(-refLatDist + 0.2);
-                     latReadoutXPos[latIdx++] = float(l + 0.5f);
+                     refLatDist *= static_cast<GLfloat>(inchPerDegNS);
+                     latReadoutYPos[latIdx] = static_cast<float>(-refLatDist + 0.2);
+                     latReadoutXPos[latIdx++] = static_cast<float>(l + 0.5f);
                   }
-                  glVertex2f((GLfloat)l, -refLatDist);
-                  glVertex2f((GLfloat)r, -refLatDist);
+                  glVertex2f(static_cast<GLfloat>(l), -refLatDist);
+                  glVertex2f(static_cast<GLfloat>(r), -refLatDist);
                   startLat++;
                }
             glEnd();
@@ -343,15 +343,15 @@ void MapPage::drawFunc()
                int startLon = nint((LCreal)westernLon - 1);
                int endLon   = nint((LCreal)easternLon + 1);
                while (startLon < endLon) {
-                  GLfloat refLonDist = GLfloat(refLon - startLon);
+                  GLfloat refLonDist = static_cast<GLfloat>(refLon - startLon);
                   if (lonIdx < MAX_READOUTS) {
                      lons[lonIdx] = startLon;
-                     refLonDist *= (GLfloat)inchPerDegEW;
-                     lonReadoutXPos[lonIdx] = float(-refLonDist + 0.2);
-                     lonReadoutYPos[lonIdx++] = float(t - 0.5f);
+                     refLonDist *= static_cast<GLfloat>(inchPerDegEW);
+                     lonReadoutXPos[lonIdx] = static_cast<float>(-refLonDist + 0.2);
+                     lonReadoutYPos[lonIdx++] = static_cast<float>(t - 0.5f);
                   }
-                  glVertex2f(-refLonDist, (GLfloat)b);
-                  glVertex2f(-refLonDist, (GLfloat)t);
+                  glVertex2f(-refLonDist, static_cast<GLfloat>(b));
+                  glVertex2f(-refLonDist, static_cast<GLfloat>(t));
                   startLon++;
                }
             glEnd();
@@ -433,7 +433,7 @@ void MapPage::updateData(const LCreal dt)
 
     // let's update our players
     if (loader != 0 && pStn != 0) {
-        Basic::PairStream* stream = pStn->getPlayers();                      
+        Basic::PairStream* stream = pStn->getPlayers();
         if (stream != 0) {
             // create our new player list
             Simulation::Player* newPlayers[MAX_PLAYERS];
@@ -441,7 +441,7 @@ void MapPage::updateData(const LCreal dt)
             // go through all of our non-ownship players and populate our new list
             Basic::List::Item* item = stream->getFirstItem();
             while (item != 0 && numNewPlayers < MAX_PLAYERS) {
-                Basic::Pair* pair = (Basic::Pair*)item->getValue();
+                Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
                 if (pair != 0) {
                     Simulation::Player* pPlr = dynamic_cast<Simulation::Player*>(pair->object());
                     if (pPlr != 0) {

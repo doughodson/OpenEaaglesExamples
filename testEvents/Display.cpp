@@ -236,7 +236,7 @@ void Display::updateData(const LCreal dt)
     // convert materials to objects real quick, so we can send them down
     Basic::Object* tempMat[MAX_MATERIALS];
     for (int i = 0; i < MAX_MATERIALS; i++) {
-        tempMat[i] = (Basic::Object*)materials[i];
+        tempMat[i] = static_cast<Basic::Object*>(materials[i]);
     }
     send("matarray%d", SET_MATERIAL, tempMat, materialSD, MAX_MATERIALS);
     // send rotations to our objects as well

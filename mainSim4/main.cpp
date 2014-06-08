@@ -39,7 +39,7 @@ static class Station* sys = 0;
 static void timerFunc(int)
 {
     double dt0 = 1.0/double(frameRate);
-    unsigned int millis = (unsigned int) (dt0 * 1000);
+    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
     // Current time
@@ -143,8 +143,8 @@ int main(int argc, char* argv[])
 // Set timer for the background tasks
 // ---
 
-   double dt = 1.0/double(frameRate);
-   unsigned int millis = (unsigned int) (dt * 1000);
+   double dt = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    sys->updateData(dt);

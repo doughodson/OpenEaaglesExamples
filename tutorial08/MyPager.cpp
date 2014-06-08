@@ -31,8 +31,8 @@ bool MyPager::onEntry()
   if(components != 0) {
     Basic::List::Item* item = components->getFirstItem();
     while (item != 0) {
-      Basic::Pair* pair = (Basic::Pair*) item->getValue();
-      Basic::Component* cp = (Basic::Component*) pair->object();
+      Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+      Basic::Component* cp = static_cast<Basic::Component*>(pair->object());
       if (cp != 0)
         cp->event(RESET_EVENT);
       item = item->getNext();

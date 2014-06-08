@@ -60,8 +60,8 @@ void Exp::setMean(const double x)
 
 int Exp::getNum(void) const
 {
-  double r = (double)(std::rand()/(RAND_MAX+1.0));
-  int v = -(int)(mean * std::log(r));
+  double r = static_cast<double>(std::rand()/(RAND_MAX+1.0));
+  int v = -static_cast<int>(mean * std::log(r));
   return v;
 }
 

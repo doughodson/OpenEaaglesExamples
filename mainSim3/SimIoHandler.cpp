@@ -116,7 +116,7 @@ void SimIoHandler::inputDevices(const LCreal dt)
       Simulation::Autopilot* ap = 0;
       {
          Basic::Pair* p = av->getPilotByType( typeid( Simulation::Autopilot) );
-         if (p != 0) ap = (Simulation::Autopilot*)( p->object() );
+         if (p != 0) ap = static_cast<Simulation::Autopilot*>(p->object());
       }
 
       // ------------------------------------------------------------

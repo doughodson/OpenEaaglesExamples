@@ -190,7 +190,7 @@ void MapDisplay::buttonEvent(const int b)
    Simulation::Player* pA = getOwnship();
    Simulation::Autopilot* ap = 0;
    if (pA != 0) {
-      ap = (Simulation::Autopilot*)pA->getPilot();
+      ap = static_cast<Simulation::Autopilot*>(pA->getPilot());
    }
    if (page != 0 && ap != 0) {
       if (b == DEC_RANGE) {
@@ -329,7 +329,7 @@ void MapDisplay::updateData(const LCreal dt)
    int cmdRange = 0;
    MapPage* page = static_cast<MapPage*>(subpage());
    if (page != 0) {
-      cmdRange = (int) page->getRange();
+      cmdRange = static_cast<int>(page->getRange());
    }
 
    double cmdAirspeed = 0, cmdAltitude = 0, cmdHeading = 0;
@@ -338,9 +338,9 @@ void MapDisplay::updateData(const LCreal dt)
    double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
    // default to autopilot mode off
    int apMode = 1;
-   Simulation::Aircraft* pA = (Simulation::Aircraft*)getOwnship();
+   Simulation::Aircraft* pA = static_cast<Simulation::Aircraft*>(getOwnship());
    if (pA != 0) {
-      Simulation::Autopilot* ap = (Simulation::Autopilot*)pA->getPilot();
+      Simulation::Autopilot* ap = static_cast<Simulation::Autopilot*>(pA->getPilot());
       if (ap != 0) {
          // button visibility is based on autopilot being in NO modes
          apButtonsVis = (ap->isNavModeOn() || ap->isLoiterModeOn() || ap->isFollowTheLeadModeOn());
@@ -371,7 +371,6 @@ void MapDisplay::updateData(const LCreal dt)
    send("cmdClimb",   UPDATE_VALUE, maxClimb,   maxClimbSD);
    send("cmdRot",   UPDATE_VALUE, maxTurn,   maxTurnSD);
    send("cmdBank", UPDATE_VALUE, maxBank, maxBankSD);
-
 }
 
 //------------------------------------------------------------------------------
@@ -396,5 +395,5 @@ Simulation::Aircraft* MapDisplay::getOwnship()
    return p;
 }
 
-}  
-}  
+}
+}

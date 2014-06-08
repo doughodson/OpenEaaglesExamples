@@ -100,7 +100,7 @@ void Display::buttonEvent(const int b)
     // range up, down
     MapPage* page = static_cast<MapPage*>(subpage());
     if (page != 0) {
-        unsigned int myRange = (unsigned int)page->getRange();
+        unsigned int myRange = static_cast<unsigned int>(page->getRange());
         if (b == 1000) {
             if (myRange < 320) {
                 myRange += 5;
@@ -124,7 +124,7 @@ void Display::updateData(const LCreal dt)
     BaseClass::updateData(dt);
 
     MapPage* page = static_cast<MapPage*>(subpage());
-    if (page != 0) range = (int)page->getRange();
+    if (page != 0) range = static_cast<int>(page->getRange());
     
     send("range", UPDATE_VALUE, range, rangeSD);
 }

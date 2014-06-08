@@ -126,7 +126,7 @@ void RealBeamRadar::transmit(const LCreal dt)
    const Simulation::Player* own = getOwnship();
    if (own != 0) {
       // Get our ownship parameters
-      altitude = (LCreal)own->getAltitude();
+      altitude = static_cast<LCreal>(own->getAltitude());
       latitude = own->getLatitude();
       longitude = own->getLongitude();
 
@@ -161,7 +161,7 @@ void RealBeamRadar::transmit(const LCreal dt)
 
       // Compute the earth's curvature effect
       LCreal curvature[IMG_HEIGHT];
-      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, (LCreal) Basic::Nav::ERAD60);
+      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<LCreal>(Basic::Nav::ERAD60));
 
       LCreal hue = 120.0f;      // see Hsv
       LCreal saturation = 0.0f; // see Hsv
@@ -187,12 +187,12 @@ void RealBeamRadar::transmit(const LCreal dt)
       grayTable[18] = new Basic::Hsva(  hue,  saturation,  1.0f,     1.0f );  
 
       // Get antenna look angles
-      antAzAngle = (LCreal) ant->getAzimuthD();
-      antElAngle = (LCreal) ant->getElevationD();
+      antAzAngle = static_cast<LCreal>(ant->getAzimuthD());
+      antElAngle = static_cast<LCreal>(ant->getElevationD());
 
       // Which ray are we on?
-      LCreal halfRay = LCreal(IMG_WIDTH/2.0f);
-      int ray = (int)(((antAzAngle/45.0f) * halfRay) + halfRay);
+      LCreal halfRay = static_cast<LCreal>(IMG_WIDTH/2.0f);
+      int ray = static_cast<int>(((antAzAngle/45.0f) * halfRay) + halfRay);
       if (ray < 0) ray = 0;
       if (ray > (IMG_WIDTH-1)) ray = (IMG_WIDTH-1);
       if (fpass) { ray0 = ray; fpass = false; }

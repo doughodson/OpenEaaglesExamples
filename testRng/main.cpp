@@ -94,7 +94,7 @@ void testExponential()
   std::cout << "Mean     : " << stats.mean() << std::endl;
   std::cout << "Variance : " << stats.variance() << std::endl;
   std::cout << "StdDev   : " << stats.stdDev() << std::endl;
-  double ci = (1.96*stats.stdDev()) / std::sqrt((double)stats.getN());
+  double ci = (1.96*stats.stdDev()) / std::sqrt(static_cast<double>(stats.getN()));
   std::cout << "CI : " << ci << std::endl;
 
   return;

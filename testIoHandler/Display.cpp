@@ -277,7 +277,7 @@ bool Display::setSlotItem(const Basic::Number* const msg)
    if (msg != 0) {
       int v = msg->getInt();
       if (v >= 1 && v <= TBL_SIZE) {
-         item = (unsigned short) v;
+         item = static_cast<unsigned short>(v);
          types[item-1] = NONE;
          channels[item-1] = 0;
          ok = true;

@@ -104,8 +104,8 @@ int main(int argc, char* argv[])
    // ---
    // Set timer for the background tasks
    // ---
-   double dt = 1.0/double(BG_RATE);
-   int msecs = (int) (dt * 1000);
+   double dt = 1.0/static_cast<double>(BG_RATE);
+   int msecs = static_cast<int>(dt * 1000);
 
    // ensure everything is reset
    station->updateData(dt);
