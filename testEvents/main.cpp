@@ -43,9 +43,9 @@ static void timerFunc(int)
     unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
-    Basic::Timer::updateTimers((LCreal)dt);
-    BasicGL::Graphic::flashTimer((LCreal)dt);
-    sys->tcFrame((LCreal)dt);
+    Basic::Timer::updateTimers(static_cast<LCreal>(dt));
+    BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+    sys->tcFrame(static_cast<LCreal>(dt));
 }
 
 // our class factory
