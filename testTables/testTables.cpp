@@ -68,7 +68,7 @@ testIt(const Eaagles::Basic::Table1* const tbl, const bool tflg, const bool sflg
 
    Eaagles::LCreal maxX = tbl->getMaxX();
    Eaagles::LCreal minX = tbl->getMinX();
-   Eaagles::LCreal dx = (maxX - minX) / Eaagles::LCreal(20);
+   Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(20);
 
    if (!tflg) {
       std::cout << std::endl;
@@ -81,7 +81,7 @@ testIt(const Eaagles::Basic::Table1* const tbl, const bool tflg, const bool sflg
    Eaagles::LCreal x = minX - 2*dx;
    while ( x <= (maxX + 2*dx) ) {
       Eaagles::LCreal x1 = x;
-      if (rflg) x1 = (minX + (maxX - minX) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+      if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand()) / static_cast<Eaagles::LCreal>(RAND_MAX));
 
       Eaagles::LCreal value = tbl->lfi(x1,s);
       cnt++;
@@ -107,11 +107,11 @@ testIt(const Eaagles::Basic::Table2* const tbl, const bool tflg, const bool sflg
 
    Eaagles::LCreal maxY = tbl->getMaxY();
    Eaagles::LCreal minY = tbl->getMinY();
-   Eaagles::LCreal dy = (maxY - minY) / Eaagles::LCreal(10);
+   Eaagles::LCreal dy = (maxY - minY) / static_cast<Eaagles::LCreal>(10);
 
    Eaagles::LCreal maxX = tbl->getMaxX();
    Eaagles::LCreal minX = tbl->getMinX();
-   Eaagles::LCreal dx = (maxX - minX) / Eaagles::LCreal(20);
+   Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(20);
 
    if (!tflg) {
       std::cout << std::endl;
@@ -124,12 +124,12 @@ testIt(const Eaagles::Basic::Table2* const tbl, const bool tflg, const bool sflg
    Eaagles::LCreal y = minY - 2*dy;
    while ( y <= (maxY + 2*dy) ) {
       Eaagles::LCreal y1 = y;
-      if (rflg) y1 = (minY + (maxY - minY) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+      if (rflg) y1 = (minY + (maxY - minY) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
       Eaagles::LCreal x = minX - 2*dx;
       while ( x <= (maxX + 2*dx) ) {
          Eaagles::LCreal x1 = x;
-         if (rflg) x1 = (minX + (maxX - minX) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+         if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
          Eaagles::LCreal value = tbl->lfi(x1,y1,s);
          cnt++;
@@ -158,17 +158,17 @@ testIt(const Eaagles::Basic::Table3* const tbl, const bool tflg, const bool sflg
    // Setup Z
    Eaagles::LCreal maxZ = tbl->getMaxZ();
    Eaagles::LCreal minZ = tbl->getMinZ();
-   Eaagles::LCreal dz = (maxZ - minZ) / Eaagles::LCreal(2*(tbl->getNumZPoints()-1));
+   Eaagles::LCreal dz = (maxZ - minZ) / static_cast<Eaagles::LCreal>(2*(tbl->getNumZPoints()-1));
 
    // Setup Y
    Eaagles::LCreal maxY = tbl->getMaxY();
    Eaagles::LCreal minY = tbl->getMinY();
-   Eaagles::LCreal dy = (maxY - minY) / Eaagles::LCreal(2*(tbl->getNumYPoints()-1));
+   Eaagles::LCreal dy = (maxY - minY) / static_cast<Eaagles::LCreal>(2*(tbl->getNumYPoints()-1));
 
    // Setup X
    Eaagles::LCreal maxX = tbl->getMaxX();
    Eaagles::LCreal minX = tbl->getMinX();
-   Eaagles::LCreal dx = (maxX - minX) / Eaagles::LCreal(2*(tbl->getNumXPoints()-1));
+   Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(2*(tbl->getNumXPoints()-1));
 
    if (!tflg) {
       std::cout << std::endl;
@@ -181,17 +181,17 @@ testIt(const Eaagles::Basic::Table3* const tbl, const bool tflg, const bool sflg
    Eaagles::LCreal z = minZ - dz;
    while ( z <= (maxZ + dz) ) {
       Eaagles::LCreal z1 = z;
-      if (rflg) z1 = (minZ + (maxZ - minZ) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+      if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
       Eaagles::LCreal y = minY - dy;
       while ( y <= (maxY + dy) ) {
          Eaagles::LCreal y1 = y;
-         if (rflg) y1 = (minY + (maxY - minY) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+         if (rflg) y1 = (minY + (maxY - minY) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
          Eaagles::LCreal x = minX - dx;
          while ( x <= (maxX + dx) ) {
             Eaagles::LCreal x1 = x;
-            if (rflg) x1 = (minX + (maxX - minX) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+            if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
             Eaagles::LCreal value = tbl->lfi(x1,y1,z1,s);
             cnt++;
@@ -223,19 +223,19 @@ testIt(const Eaagles::Basic::Table4* const tbl, const bool tflg, const bool sflg
    // Setup W
    const Eaagles::LCreal minW = tbl->getMinW();
    const Eaagles::LCreal maxW = tbl->getMaxW();
-   const Eaagles::LCreal dw = (maxW - minW) / Eaagles::LCreal(2 * (tbl->getNumWPoints() - 1));
+   const Eaagles::LCreal dw = (maxW - minW) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumWPoints() - 1));
         
    const Eaagles::LCreal minZ = tbl->getMinZ();
    const Eaagles::LCreal maxZ = tbl->getMaxZ();
-   const Eaagles::LCreal dz = (maxZ - minZ) / Eaagles::LCreal(2 * (tbl->getNumZPoints() - 1));
+   const Eaagles::LCreal dz = (maxZ - minZ) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumZPoints() - 1));
 
    const Eaagles::LCreal minY = tbl->getMinY();
    const Eaagles::LCreal maxY = tbl->getMaxY();
-   const Eaagles::LCreal dy = (maxY - minY) / Eaagles::LCreal(2 * (tbl->getNumYPoints() - 1));
+   const Eaagles::LCreal dy = (maxY - minY) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumYPoints() - 1));
 
    const Eaagles::LCreal minX = tbl->getMinX();
    const Eaagles::LCreal maxX = tbl->getMaxX();
-   const Eaagles::LCreal dx = (maxX - minX) / Eaagles::LCreal(2 * (tbl->getNumXPoints() - 1));
+   const Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumXPoints() - 1));
 
    if (!tflg) {
       std::cout << std::endl;
@@ -248,22 +248,22 @@ testIt(const Eaagles::Basic::Table4* const tbl, const bool tflg, const bool sflg
    Eaagles::LCreal w = minW - dw;
    while (w <= (maxW + dw)) {
       Eaagles::LCreal w1 = w;
-      if (rflg) w1 = (minW + (maxW - minW) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+      if (rflg) w1 = (minW + (maxW - minW) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
       Eaagles::LCreal z = minZ - dz;
       while (z <= (maxZ + dz)) {
          Eaagles::LCreal z1 = z;
-         if (rflg) z1 = (minZ + (maxZ - minZ) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+         if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
          Eaagles::LCreal y = minY - dy;
          while (y <= (maxY + dy)) {
             Eaagles::LCreal y1 = y;
-            if (rflg) y1 = (minY + (maxY - minY) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+            if (rflg) y1 = (minY + (maxY - minY) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
             Eaagles::LCreal x = minX - dx;
             while (x <= (maxX + dx)) {
                Eaagles::LCreal x1 = x;
-               if (rflg) x1 = (minX + (maxX - minX) * Eaagles::LCreal(rand())/Eaagles::LCreal(RAND_MAX));
+               if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
 
                Eaagles::LCreal value = tbl->lfi(x1, y1, z1, w1, s);
                cnt++;
@@ -373,11 +373,11 @@ int main(int argc, char* argv[])
    if (tflg) {
       double endTime = Eaagles::getComputerTime();
       double deltaTime = endTime - startTime;
-      double perFrameTime = deltaTime/double(TIMING_LOOPS);
+      double perFrameTime = deltaTime/static_cast<double>(TIMING_LOOPS);
       std::cout << "Total Time = " << deltaTime << " for " << TIMING_LOOPS << " frames." << std::endl;
       std::cout << "Ave time per frame (uS) = " << perFrameTime*1000000.0 << std::endl;
       if (cnt > 0) {
-         double perCallTime = deltaTime/double(cnt);
+         double perCallTime = deltaTime/static_cast<double>(cnt);
          std::cout << "Ave time per call (uS) = " << perCallTime*1000000.0 << std::endl;
       }
    }

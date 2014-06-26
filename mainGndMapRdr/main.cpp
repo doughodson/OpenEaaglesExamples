@@ -48,7 +48,7 @@ static void updateDataCB(int)
     static double time0 = time;
 
     // Compute delta time
-    LCreal dt = LCreal(time - time0);
+    LCreal dt = static_cast<LCreal>(time - time0);
     time0 = time;
 
     Basic::Timer::updateTimers(dt);

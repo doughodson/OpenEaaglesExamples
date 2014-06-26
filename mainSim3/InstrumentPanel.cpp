@@ -128,7 +128,7 @@ void InstrumentPanel::updateData(const LCreal dt)
          player->ref();
 
 #if 0
-         course = (LCreal) player->getCourse();
+         course = static_cast<LCreal>(player->getCourse());
          sBrakePos = player->getSpeedBrakePosition();
 #endif
          gForce = player->getGload();

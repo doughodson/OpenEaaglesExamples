@@ -60,7 +60,7 @@ static TestStation* readConfigFile(const char* const fileName)
 //-----------------------------------------------------------------------------
 static void updateDataCB(int)
 {
-   double dt0 = 1.0/double(bgRate);
+   double dt0 = 1.0/static_cast<double>(bgRate);
    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 

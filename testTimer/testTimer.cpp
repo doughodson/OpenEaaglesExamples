@@ -137,7 +137,7 @@ void run(Tester* const tester)
       Basic::Timer::freeze(true);
 
       // Time between printing the timer data
-      double dt = 1.0/double(TIMERS_PRINT_RATE);
+      double dt = 1.0 / static_cast<double>(TIMERS_PRINT_RATE);
 
       // Our main test control timer
       Basic::UpTimer* mainTimer = new Basic::UpTimer();

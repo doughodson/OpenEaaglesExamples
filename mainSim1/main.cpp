@@ -98,7 +98,7 @@ int exec(int argc, char* argv[])
   builder();
   // send a reset event and frame sim once
   sys->event(Basic::Component::RESET_EVENT);
-  sys->tcFrame( static_cast<LCreal>(1.0/double(sys->getTimeCriticalRate())) );
+  sys->tcFrame( static_cast<LCreal>(1.0/static_cast<double>(sys->getTimeCriticalRate())) );
 
   // Create Time Critical Thread
   sys->createTimeCriticalProcess();
@@ -106,7 +106,7 @@ int exec(int argc, char* argv[])
   lcSleep(2000);
 
   // Calc delta time for background thread
-  double dt = 1.0/double(bgRate);
+  double dt = 1.0/static_cast<double>(bgRate);
 
   // System Time of Day 
   double simTime = 0.0;                   // Simulator time reference

@@ -289,7 +289,7 @@ void Pfd::updateData(const LCreal dt)
     // find the last digit for the readout tape
     LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
-    int rest = int(airSpd / 10.0f);
+    int rest = static_cast<int>(airSpd / 10.0f);
     
     LCreal diff = airSpd - cmdSpd;
     
@@ -347,7 +347,7 @@ void Pfd::updateData(const LCreal dt)
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout    
-    int mAlt = int(Basic::Distance::FeetToMeters(alt));
+    int mAlt = static_cast<int>(Basic::Distance::FeetToMeters(alt));
     LCreal mAltBug = Basic::Distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);

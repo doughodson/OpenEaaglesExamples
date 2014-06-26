@@ -52,7 +52,7 @@ Display::Display()
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator
     double x = getComputerTime();
-    x -= int(x);
+    x -= static_cast<int>(x);
     x *= 10;
     int seed = nint(static_cast<LCreal>(x));
 

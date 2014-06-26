@@ -267,7 +267,7 @@ bool RealBeamRadar::computeGroundRanges(LCreal* const groundRange, const unsigne
       LCreal maxRng = maxRngNM * Basic::Distance::NM2M;
 
       // Delta range between points (m)
-      LCreal deltaRng = maxRng/LCreal(n);
+      LCreal deltaRng = maxRng/static_cast<LCreal>(n);
 
       // Step of the ground ranges (m)
       LCreal curRng = 0;

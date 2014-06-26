@@ -449,7 +449,7 @@ void Display::updateData(const LCreal dt)
                LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * Basic::Distance::NM2M);
 
                // Direction
-               //LCreal direction = 30.0f * LCreal(icol - NUM_COLUMNS/2)/LCreal(NUM_COLUMNS/2);
+               //LCreal direction = 30.0f * static_cast<LCreal>(icol - NUM_COLUMNS/2)/static_cast<LCreal>(NUM_COLUMNS/2);
                LCreal direction = 0;
 
                // get a strip of elevations from south to north

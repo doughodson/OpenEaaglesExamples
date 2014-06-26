@@ -40,9 +40,9 @@ void Application::init(int& argc, char** argv, bool connect)
    FXApp::init(argc, argv, connect);
 
    // schedule a timer for display refresh
-   double dt0 = 1.0/double(DRAW_FRAME_RATE);
-   unsigned int millis = (unsigned int)(dt0 * 1000);
-   addTimeout(this,ID_TIMEOUT,millis);
+   double dt0 = 1.0 / static_cast<double>(DRAW_FRAME_RATE);
+   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   addTimeout(this, ID_TIMEOUT, millis);
 }
 
 // when we timeout
@@ -51,9 +51,9 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
    // ---
    // reschedule the display refresh timer
    // ---
-   double dt0 = 1.0/double(DRAW_FRAME_RATE);
-   unsigned int millis = (unsigned int)(dt0 * 1000);
-   addTimeout(this,ID_TIMEOUT,millis);
+   double dt0 = 1.0/static_cast<double>(DRAW_FRAME_RATE);
+   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   addTimeout(this, ID_TIMEOUT, millis);
 
    // ---
    // compute delta time
@@ -70,7 +70,7 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
    // update station data (background thread)
    // and get the current status display data.
    // ---
-   station->updateData((LCreal)dt);
+   station->updateData(static_cast<LCreal>(dt));
 
    // ---
    // draw the FOX displays
