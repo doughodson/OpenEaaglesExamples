@@ -175,7 +175,7 @@ void CrsPntr::drawFunc()
         
         // cdi
         glPushMatrix();
-            glTranslatef(GLfloat(scale), 0, 0);
+            glTranslatef(static_cast<GLfloat>(scale), 0, 0);
             glBegin(GL_LINE_STRIP);
                 glVertex2f(-0.044f, -0.45f);
                 glVertex2f(0.044f, -0.45f);
