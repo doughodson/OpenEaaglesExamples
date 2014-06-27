@@ -290,8 +290,8 @@ void TerrainFollower::drawFunc()
     // draw the plane outline
     glPushMatrix();
         // translate to the proper position
-        glTranslatef( static_cast<GLfloat>(temp), GLfloat(moveY + start), 0);
-        glLineWidth(4);   
+        glTranslatef( static_cast<GLfloat>(temp), static_cast<GLfloat>(moveY + start), 0);
+        glLineWidth(4);
         glBegin(GL_LINES);
             glVertex2f(0, 0);
             glVertex2f(0.4f, 0);
@@ -372,7 +372,7 @@ void TerrainFollower::drawFunc()
                 myAvg = ((myAvg + aboveTerr) - minAlt) * aScale;
                 lcVertex2(temp, myAvg);
                 temp += rScale;
-            }           
+            }
         glEnd();
     glPopMatrix();
         
@@ -389,7 +389,6 @@ void TerrainFollower::updateData(const LCreal dt)
     BaseClass::updateData(dt);
 
 #ifdef TEST_ALT
-
 
     planeAlt += testPA * dt;
     if (planeAlt > 50000) {
@@ -437,8 +436,7 @@ void TerrainFollower::updateData(const LCreal dt)
         // figure our range scale 
         rScale = width / numElevPts;
     }
-    
-   
+
     LCreal tempR = 0.75f * range;
     send("thirdr", UPDATE_VALUE, tempR, tRSD);
     tempR = range/4;
