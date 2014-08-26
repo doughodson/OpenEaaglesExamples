@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
   builder();
 
   // compute a delta time
-  double dt = 1.0/double(frameRate);
+  double dt = 1.0 / static_cast<double>(frameRate);
   // process component tree
   sys->tcFrame(dt);     // time critical
   sys->updateData(dt);  // non-time critical

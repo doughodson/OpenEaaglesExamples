@@ -115,7 +115,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
       Simulation::Autopilot* ap = 0;
       {
          Basic::Pair* p = av->getPilotByType( typeid( Simulation::Autopilot) );
-         if (p != 0) ap = (Simulation::Autopilot*)( p->object() );
+         if (p != 0) ap = static_cast<Simulation::Autopilot*>(p->object());
       }
 
       // ------------------------------------------------------------
@@ -130,7 +130,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
             bool sw = false;
             inData->getDiscreteInput(FREEZE_SW, &sw);
             bool frzSw = sw && enabled;
-            if(frzSw && !frzSw1) {
+            if (frzSw && !frzSw1) {
                Basic::Boolean newFrz( !sim->isFrozen() );
                sim->event(FREEZE_EVENT, &newFrz);
             }
@@ -141,7 +141,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
             bool sw = false;
             inData->getDiscreteInput(RESET_SW, &sw);
             bool rstSw = sw && enabled;
-            if(rstSw && !rstSw1) {
+            if (rstSw && !rstSw1) {
                sta->event(RESET_EVENT);
             }
             rstSw1 = rstSw;
@@ -151,7 +151,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
             bool sw = false;
             inData->getDiscreteInput(RELOAD_SW, &sw);
             bool wpnReloadSw = sw && enabled;
-            if(wpnReloadSw && !wpnReloadSw1) {
+            if (wpnReloadSw && !wpnReloadSw1) {
                sta->event(WPN_RELOAD);
             }
             wpnReloadSw1 = wpnReloadSw;

@@ -16,7 +16,6 @@ BEGIN_EVENT_HANDLER(TdElevPtr)
     ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)   
 END_EVENT_HANDLER()
 
-
 //------------------------------------------------------------------------------
 // Class support functions
 //------------------------------------------------------------------------------

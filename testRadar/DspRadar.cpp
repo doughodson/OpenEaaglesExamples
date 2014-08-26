@@ -83,8 +83,8 @@ void DspRadar::updateData(const LCreal dt)
 
    // Update antenna azimuth and elevation pointers
    if (antenna != 0) {
-      send( "azPtr", UPDATE_VALUE, (float)(Basic::Angle::R2DCC * antenna->getAzimuth()),   azSD);
-      send( "elPtr", UPDATE_VALUE, (float)(Basic::Angle::R2DCC * antenna->getElevation()), elSD);
+      send( "azPtr", UPDATE_VALUE, static_cast<float>(Basic::Angle::R2DCC * antenna->getAzimuth()),   azSD);
+      send( "elPtr", UPDATE_VALUE, static_cast<float>(Basic::Angle::R2DCC * antenna->getElevation()), elSD);
    }
 
    // Update base classes stuff
@@ -123,8 +123,8 @@ void DspRadar::drawFunc()
       unsigned int n = radar->getNumSweeps();
       unsigned int nv = radar->getPtrsPerSweep();
 
-      LCreal sx = LCreal(n-1)/2.0f;
-      LCreal sy = LCreal(nv-1);
+      LCreal sx = static_cast<LCreal>(n-1)/2.0f;
+      LCreal sy = static_cast<LCreal>(nv-1);
 
       const LCreal* s0 = radar->getSweep(0);
       const LCreal* c0 = radar->getClosure(0);
@@ -133,12 +133,12 @@ void DspRadar::drawFunc()
       for (unsigned int i = 1; i < n; i++) {
          const LCreal* s1 = radar->getSweep(i);
          const LCreal* c1 = radar->getClosure(i);
-         LCreal x0 = LCreal(i0)/sx - 1.0f;
-         LCreal x1 = LCreal(i)/sx - 1.0f;
+         LCreal x0 = static_cast<LCreal>(i0)/sx - 1.0f;
+         LCreal x1 = static_cast<LCreal>(i)/sx - 1.0f;
 
          glBegin(GL_QUAD_STRIP);
          for (unsigned int j = 0; j < nv; j++) {
-            LCreal y = 2.0f * LCreal(j)/sy;
+            LCreal y = 2.0f * static_cast<LCreal>(j)/sy;
 
             LCreal vclos0 = alim(c0[j]/100.0f, 1.0f);
             hsv[0] = 120.0f - 120.0f * vclos0;
@@ -162,7 +162,7 @@ void DspRadar::drawFunc()
 
          s0 = s1;
          c0 = c1;
-         i0 = i;    
+         i0 = i;
       }
    }
 
@@ -193,7 +193,7 @@ void DspRadar::drawFunc()
       for (unsigned int i = 0; i < nTracks; i++) {
          double xp = (Basic::Angle::R2DCC * trkAz[i])/30.0;
          double yp = 2.0*trkRng[i]/maxRng;
-         if ((int)i == ntsTrk) lcColor3v(ntsRGB.ptr());
+         if (static_cast<int>(i) == ntsTrk) lcColor3v(ntsRGB.ptr());
          else lcColor3v(rgb.ptr());
          glPushMatrix();
          glTranslated(xp, yp, 0.0);

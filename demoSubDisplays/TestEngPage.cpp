@@ -20,15 +20,15 @@ TestEngPage::TestEngPage()
     const LCreal ffrates[Eaagles::Instruments::EngPage::NUM_ENG]  = {  1000,  5000, 500, 2000 };
     
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
-        n1[i] = 0.0;          
-        n1Rate[i] = n1rates[i];          
-          
-        n2[i] = 0.0;          
-        n2Rate[i] = n2rates[i];          
-         
-        tit[i] = 0.0;          
-        titRate[i] = titrates[i];          
-         
+        n1[i] = 0.0;
+        n1Rate[i] = n1rates[i];
+
+        n2[i] = 0.0;
+        n2Rate[i] = n2rates[i];
+
+        tit[i] = 0.0;
+        titRate[i] = titrates[i];
+
         ff[i] = 0.0;
         ffRate[i] = ffrates[i];
     }
@@ -44,14 +44,14 @@ void TestEngPage::copyData(const TestEngPage& org, const bool)
     
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
         n1[i] = org.n1[i];
-        n1Rate[i] = org.n1Rate[i];       
-          
+        n1Rate[i] = org.n1Rate[i];
+
         n2[i] = org.n2[i];
         n2Rate[i] = org.n2Rate[i];
-         
+
         tit[i] = org.tit[i];
         titRate[i] = org.titRate[i];
-         
+
         ff[i] = org.ff[i];
         ffRate[i] = org.ffRate[i];
     }
@@ -124,12 +124,12 @@ void TestEngPage::updateData(const LCreal dt)
             ffRate[i] = -ffRate[i];
         }
     }
-  
+
     {
         // Set to the engine display
         Basic::Pair* pair = findByType(typeid(Eaagles::Instruments::EngPage));
         if (pair != 0) {
-            Eaagles::Instruments::EngPage* p = (Eaagles::Instruments::EngPage*)(pair->object());
+            Eaagles::Instruments::EngPage* p = static_cast<Eaagles::Instruments::EngPage*>(pair->object());
             if (p != 0) {
                 for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
                     int idx = (i + 1);

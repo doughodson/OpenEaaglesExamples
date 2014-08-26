@@ -18,7 +18,8 @@ END_SLOTTABLE(Random)
 BEGIN_SLOT_MAP(Random)
     ON_SLOT(1, setSlotSeed, Basic::Number)
 END_SLOT_MAP()
-// nothing to serialize
+
+EMPTY_DELETEDATA(Random)
 EMPTY_SERIALIZER(Random)
 
 //------------------------------------------------------------------------------
@@ -37,13 +38,6 @@ Random::Random(void)
 void Random::copyData(const Random& org, const bool)
 {
   BaseClass::copyData(org);
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void Random::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------

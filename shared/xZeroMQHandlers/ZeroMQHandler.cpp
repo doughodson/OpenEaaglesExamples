@@ -304,7 +304,7 @@ unsigned int ZeroMQHandler::recvData(char* const packet, const int maxSize)
 
    if (result < 0) result = 0;
 
-   return (unsigned int) result;
+   return static_cast<unsigned int>(result);
 }
 
 

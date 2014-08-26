@@ -39,7 +39,7 @@ static Basic::StateMachine* builder(const char* const fileName)
       // What we should have here is the State Machine object
       p = dynamic_cast<Basic::StateMachine*>(q1);
    }
-    
+
    return p;
 }
 
@@ -51,7 +51,7 @@ static void theTest(Basic::StateMachine* sys)
    LCreal dt = 0.05f;  // Fake delta time
 
    while (sys->getState() != 99) {
-      Basic::Timer::updateTimers((LCreal)dt);
+      Basic::Timer::updateTimers(static_cast<LCreal>(dt));
       sys->updateTC(dt);
       sys->updateData(dt);
    }

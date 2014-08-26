@@ -29,7 +29,7 @@ Pfd::Pfd()
     rollSD.empty();
     // bank angle
     baSD.empty();
-    bascaleSD.empty();  
+    bascaleSD.empty();
     // heading and nav stuff
     trueHdg = 0;  
     tHdgSD.empty();
@@ -146,7 +146,7 @@ bool Pfd::setPitchDeg(const LCreal newP)
 bool Pfd::setPitchRad(const LCreal newP)
 {
     // convert to degrees
-    pitch = (LCreal)(newP * Basic::Angle::R2DCC);
+    pitch = static_cast<LCreal>(newP * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -159,7 +159,7 @@ bool Pfd::setRollDeg(const LCreal newR)
 bool Pfd::setRollRad(const LCreal newR)
 {
     // convert to degrees
-    roll = (LCreal)(newR * Basic::Angle::R2DCC);
+    roll = static_cast<LCreal>(newR * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -232,7 +232,7 @@ bool Pfd::setFltDirBankDeg(const LCreal newFDB)
 
 bool Pfd::setFltDirBankRad(const LCreal newFDB)
 {
-    fDirBank = (LCreal)(newFDB * Basic::Angle::R2DCC);
+    fDirBank = static_cast<LCreal>(newFDB * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -244,7 +244,7 @@ bool Pfd::setFltDirPitchDeg(const LCreal newFDP)
 
 bool Pfd::setFltDirPitchRad(const LCreal newFDP)
 {
-    fDirPitch = (LCreal)(newFDP * Basic::Angle::R2DCC);
+    fDirPitch = static_cast<LCreal>(newFDP * Basic::Angle::R2DCC);
     return true;
 }
 
@@ -290,18 +290,18 @@ void Pfd::updateData(const LCreal dt)
     BaseClass::updateData(dt);
     
     // find the last digit for the readout tape
-    LCreal ones = ((airSpd / 10) - (int)(airSpd / 10)) * 10;
+    LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
-    int rest = int(airSpd / 10.0f);
+    int rest = static_cast<int>(airSpd / 10.0f);
     
     LCreal diff = airSpd - cmdSpd;
     
     LCreal altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
-    LCreal altTens = ((alt/100) - (int)(alt/100)) * 10;
+    LCreal altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
-    int altRest = int(alt/99.9999);
+    int altRest = static_cast<int>(alt/99.9999);
     
     // all the sends are here
     // hsi
@@ -329,13 +329,13 @@ void Pfd::updateData(const LCreal dt)
         send("altrest3", UPDATE_VALUE, altRest, alt3SD);
     }
     // gslope
-    send("glideslope", UPDATE_INSTRUMENTS, gSlope, gSlopeSD);    
+    send("glideslope", UPDATE_INSTRUMENTS, gSlope, gSlopeSD);
     send("alttens", UPDATE_INSTRUMENTS, altTens, altTensSD);
    send("alttape", UPDATE_INSTRUMENTS, alt, altTpSD);
     send("altbug", UPDATE_INSTRUMENTS, altDiff, altDiffSD);
     send("cmdalt", UPDATE_VALUE, cmdAlt, altBugSD);
     send("spdbug", UPDATE_INSTRUMENTS, diff, diffSD);
-    send("cmdspd", UPDATE_VALUE, cmdSpd, aBugSD);    
+    send("cmdspd", UPDATE_VALUE, cmdSpd, aBugSD);
     // actual airspeed tape, not just the readout
     send("airspd", UPDATE_INSTRUMENTS, airSpd, airSpdTpSD);
     // send our pitch(1) and roll(2) to our adi
@@ -350,7 +350,7 @@ void Pfd::updateData(const LCreal dt)
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout
-    int mAlt = int(Basic::Distance::FeetToMeters(alt));
+    int mAlt = static_cast<int>(Basic::Distance::FeetToMeters(alt));
     LCreal mAltBug = Basic::Distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);

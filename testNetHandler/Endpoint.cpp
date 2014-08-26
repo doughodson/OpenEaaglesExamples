@@ -63,7 +63,7 @@ void Endpoint::copyData(const Endpoint& org, const bool cc)
    noWaitFlag = org.noWaitFlag;
    loops = org.loops;
 
-   // We need to init this ourselves, so ...
+   // We need to init this ourselves, so
    netHandler = 0;
    netInput = 0;
    networkInitialized = false;
@@ -221,7 +221,7 @@ bool Endpoint::setSlotLoops(Eaagles::Basic::Number* const msg)
     if (msg != 0) {
         int ia = msg->getInt();
         if (ia >= 0) {
-            loops = (unsigned int) ia;
+            loops = static_cast<unsigned int>(ia);
             ok = true;
         }
     }

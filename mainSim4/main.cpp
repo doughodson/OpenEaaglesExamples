@@ -38,8 +38,8 @@ static class Station* sys = 0;
 // timer function, in this case, the background (updateData) function
 static void timerFunc(int)
 {
-    double dt0 = 1.0/double(frameRate);
-    unsigned int millis = (unsigned int) (dt0 * 1000);
+    double dt0 = 1.0 / static_cast<double>(frameRate);
+    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
     // Current time
@@ -49,7 +49,7 @@ static void timerFunc(int)
     static double time0 = time;
 
     // Compute delta time
-    LCreal dt = LCreal(time - time0);
+    LCreal dt = static_cast<LCreal>(time - time0);
     time0 = time;
 
     Basic::Timer::updateTimers(dt);
@@ -143,8 +143,8 @@ int main(int argc, char* argv[])
 // Set timer for the background tasks
 // ---
 
-   double dt = 1.0/double(frameRate);
-   unsigned int millis = (unsigned int) (dt * 1000);
+   double dt = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    sys->updateData(dt);

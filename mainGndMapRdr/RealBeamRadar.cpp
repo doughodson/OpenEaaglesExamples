@@ -126,7 +126,7 @@ void RealBeamRadar::transmit(const LCreal dt)
    const Simulation::Player* own = getOwnship();
    if (own != 0) {
       // Get our ownship parameters
-      altitude = (LCreal)own->getAltitude();
+      altitude = static_cast<LCreal>(own->getAltitude());
       latitude = own->getLatitude();
       longitude = own->getLongitude();
 
@@ -161,7 +161,7 @@ void RealBeamRadar::transmit(const LCreal dt)
 
       // Compute the earth's curvature effect
       LCreal curvature[IMG_HEIGHT];
-      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, (LCreal) Basic::Nav::ERAD60);
+      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<LCreal>(Basic::Nav::ERAD60));
 
       LCreal hue = 120.0f;      // see Hsv
       LCreal saturation = 0.0f; // see Hsv
@@ -187,12 +187,12 @@ void RealBeamRadar::transmit(const LCreal dt)
       grayTable[18] = new Basic::Hsva(  hue,  saturation,  1.0f,     1.0f );  
 
       // Get antenna look angles
-      antAzAngle = (LCreal) ant->getAzimuthD();
-      antElAngle = (LCreal) ant->getElevationD();
+      antAzAngle = static_cast<LCreal>(ant->getAzimuthD());
+      antElAngle = static_cast<LCreal>(ant->getElevationD());
 
       // Which ray are we on?
-      LCreal halfRay = LCreal(IMG_WIDTH/2.0f);
-      int ray = (int)(((antAzAngle/45.0f) * halfRay) + halfRay);
+      LCreal halfRay = static_cast<LCreal>(IMG_WIDTH/2.0f);
+      int ray = static_cast<int>(((antAzAngle/45.0f) * halfRay) + halfRay);
       if (ray < 0) ray = 0;
       if (ray > (IMG_WIDTH-1)) ray = (IMG_WIDTH-1);
       if (fpass) { ray0 = ray; fpass = false; }
@@ -212,7 +212,7 @@ void RealBeamRadar::transmit(const LCreal dt)
 
          // Direction
          int xx = icol - (IMG_WIDTH/2);
-         LCreal direction = 45.0f * LCreal(xx) / LCreal(IMG_WIDTH/2);
+         LCreal direction = 45.0f * static_cast<LCreal>(xx) / static_cast<LCreal>(IMG_WIDTH/2);
 
          // get a strip of elevations from south to north
          unsigned int num = terrain->getElevations(elevations, validFlgs, IMG_HEIGHT, latitude, longitude, direction, groundRange[IMG_HEIGHT-1], interpolate);
@@ -241,9 +241,9 @@ void RealBeamRadar::transmit(const LCreal dt)
 
             // store this color
             int idx = irow*imgWidth*PIXEL_SIZE + icol*PIXEL_SIZE;
-            image[idx+0] = (unsigned char)( 255.0 * color[0] );
-            image[idx+1] = (unsigned char)( 255.0 * color[1] );
-            image[idx+2] = (unsigned char)( 255.0 * color[2] );
+            image[idx+0] = static_cast<unsigned char>( 255.0 * color[0] );
+            image[idx+1] = static_cast<unsigned char>( 255.0 * color[1] );
+            image[idx+2] = static_cast<unsigned char>( 255.0 * color[2] );
          }
 
          if (icol < ray) icol++;
@@ -267,7 +267,7 @@ bool RealBeamRadar::computeGroundRanges(LCreal* const groundRange, const unsigne
       LCreal maxRng = maxRngNM * Basic::Distance::NM2M;
 
       // Delta range between points (m)
-      LCreal deltaRng = maxRng/LCreal(n);
+      LCreal deltaRng = maxRng/static_cast<LCreal>(n);
 
       // Step of the ground ranges (m)
       LCreal curRng = 0;
@@ -333,7 +333,7 @@ bool RealBeamRadar::computeEarthCurvature(LCreal* const curvature, const unsigne
       LCreal radius = radiusNM * Basic::Distance::NM2M;
       LCreal maxRng = maxRngNM * Basic::Distance::NM2M;
       for (unsigned int idx = 0; idx < n; idx++) {
-         LCreal curRng = maxRng * LCreal(idx)/LCreal(n);
+         LCreal curRng = maxRng * static_cast<LCreal>(idx)/static_cast<LCreal>(n);
          LCreal arc = curRng / radius;
          LCreal cs = 1.0f;
          LCreal c0 = lcCos(arc);

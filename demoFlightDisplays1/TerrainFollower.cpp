@@ -290,8 +290,8 @@ void TerrainFollower::drawFunc()
     // draw the plane outline
     glPushMatrix();
         // translate to the proper position
-        glTranslatef( GLfloat(temp), GLfloat(moveY + start), 0);
-        glLineWidth(4);   
+        glTranslatef( static_cast<GLfloat>(temp), static_cast<GLfloat>(moveY + start), 0);
+        glLineWidth(4);
         glBegin(GL_LINES);
             glVertex2f(0, 0);
             glVertex2f(0.4f, 0);
@@ -311,7 +311,7 @@ void TerrainFollower::drawFunc()
     
     // make a series of polygons that will allow the terrain to be displayed
     glPushMatrix();
-        glTranslatef(1.6f, GLfloat(start), 0);
+        glTranslatef(1.6f, static_cast<GLfloat>(start), 0);
         for (int i = 0; i < numElevPts; i++) {
             glBegin(GL_POLYGON);
                 moveY = (elevPts[i] - minAlt) * aScale;
@@ -332,13 +332,13 @@ void TerrainFollower::drawFunc()
     // now we draw the flight path line, using an average factor for determining the slope of the line
     glColor3f(0, 1, 1);
     glPushMatrix();
-        glTranslatef(1.6f, GLfloat(start), 0);
+        glTranslatef(1.6f, static_cast<GLfloat>(start), 0);
         LCreal myAvg = 0;
         LCreal mySum = 0;
         // make a line strip that follows the terrain
         glBegin(GL_LINE_STRIP);
             // this draws every point
-            for (int i = 0; i < numElevPts; i++) {    
+            for (int i = 0; i < numElevPts; i++) {
             
                 // average our six values
                 int myPlace = (numElevPts - (i +1));
@@ -372,7 +372,7 @@ void TerrainFollower::drawFunc()
                 myAvg = ((myAvg + aboveTerr) - minAlt) * aScale;
                 lcVertex2(temp, myAvg);
                 temp += rScale;
-            }           
+            }
         glEnd();
     glPopMatrix();
         
@@ -389,7 +389,6 @@ void TerrainFollower::updateData(const LCreal dt)
     BaseClass::updateData(dt);
 
 #ifdef TEST_ALT
-
 
     planeAlt += testPA * dt;
     if (planeAlt > 50000) {
@@ -437,8 +436,7 @@ void TerrainFollower::updateData(const LCreal dt)
         // figure our range scale 
         rScale = width / numElevPts;
     }
-    
-   
+
     LCreal tempR = 0.75f * range;
     send("thirdr", UPDATE_VALUE, tempR, tRSD);
     tempR = range/4;

@@ -172,7 +172,7 @@ void TestDisplay::updateData(const LCreal dt)
 
              maintainAirTrackSymbols(myLoader, range);
           }
-       }        
+       }
     }
 
     // Update base classes stuff
@@ -210,8 +210,8 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
       // search for air vehicles or missiles within range
       Basic::List::Item* item = plist->getFirstItem();
       while (item != 0 && nNewTracks < maxTracks) {
-         Basic::Pair* pair = (Basic::Pair*) item->getValue();
-         Simulation::Player* p = (Simulation::Player*)( pair->object() );
+         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+         Simulation::Player* p = static_cast<Simulation::Player*>(pair->object());
          osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
          LCreal x = rpos[0] * Basic::Distance::M2NM;
          LCreal y = rpos[1] * Basic::Distance::M2NM;

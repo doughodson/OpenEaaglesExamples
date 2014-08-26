@@ -2,6 +2,7 @@
 // Class: SituationalDisplay
 //------------------------------------------------------------------------------
 #include "SituationalDisplay.h"
+#include <cstring>
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -13,7 +14,7 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(SituationalDisplay,"SituationalDisplay")
 EMPTY_SERIALIZER(SituationalDisplay)
-                           
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ SituationalDisplay::SituationalDisplay()
     headingSD.empty();
     range = 80;
     rangeSD.empty();
-    // navaid 1 
+    // navaid 1
     nav1Brg = 0;
     nav1Dme = 0; 
     nav1Id[0] = ' ';
@@ -61,8 +62,8 @@ SituationalDisplay::SituationalDisplay()
     rangeSD.empty();
     refLatSD.empty();
     refLonSD.empty();
-    centeredSD.empty(); 
-    headingCRSD.empty();       
+    centeredSD.empty();
+    headingCRSD.empty();
 }
 
 //------------------------------------------------------------------------------
@@ -83,7 +84,7 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     // navaid 1   
     nav1Brg = org.nav1Brg;
     nav1Dme = org.nav1Dme;
-    strncpy(nav1Id, org.nav1Id, NCHAR_NAV1_ID);
+    std::strncpy(nav1Id, org.nav1Id, NCHAR_NAV1_ID);
     nav1BrgROSD.empty();
     nav1BrgSD.empty();
     nav1DmeSD.empty();
@@ -91,7 +92,7 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     // navaid 2 
     nav2Brg = org.nav2Brg;
     nav2Dme = org.nav2Dme;
-    strncpy(nav2Id, org.nav2Id, NCHAR_NAV2_ID);
+    std::strncpy(nav2Id, org.nav2Id, NCHAR_NAV2_ID);
     nav2BrgROSD.empty();
     nav2BrgSD.empty();
     nav2DmeSD.empty();
@@ -168,7 +169,7 @@ bool SituationalDisplay::setNav1Id(const char* const newId)
 {
     bool ok = false;
     if (newId != 0) {
-        strncpy(nav1Id,newId,NCHAR_NAV1_ID);
+        std::strncpy(nav1Id,newId,NCHAR_NAV1_ID);
         nav1Id[NCHAR_NAV1_ID] = '\0';
         ok = true;
     }
@@ -188,7 +189,7 @@ bool SituationalDisplay::setNav2Id(const char* const newId)
 {
     bool ok = false;
     if (newId != 0) {
-        strncpy(nav2Id,newId,NCHAR_NAV2_ID);
+        std::strncpy(nav2Id, newId, NCHAR_NAV2_ID);
         nav2Id[NCHAR_NAV2_ID] = '\0';
         ok = true;
     }
@@ -222,20 +223,20 @@ void SituationalDisplay::updateData(const LCreal dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
-        
+
     // update our map page 
     send("mainmap", UPDATE_VALUE, range, rangeSD);
     send("mainmap", UPDATE_VALUE2, heading, headingSD);
-    send("mainmap", UPDATE_VALUE3, (LCreal)refLat, refLatSD);
-    send("mainmap", UPDATE_VALUE4, (LCreal)refLon, refLonSD);
+    send("mainmap", UPDATE_VALUE3, static_cast<LCreal>(refLat), refLatSD);
+    send("mainmap", UPDATE_VALUE4, static_cast<LCreal>(refLon), refLonSD);
     send("mainmap", UPDATE_VALUE5, true, centeredSD);
-    
+
     // update our compass rose
     send("compassrose", UPDATE_VALUE, heading, headingCRSD);
-    
+
     // update our terrain follower
     send("tfollow", UPDATE_VALUE, planeAlt, planeAltSD);
-    
+
     // update our readouts
     send("selhdg", UPDATE_VALUE6, -hdgBug, hdgBugSD);
     send("heading", UPDATE_VALUE, heading, headingROSD);
@@ -251,7 +252,7 @@ void SituationalDisplay::updateData(const LCreal dt)
     send("nav2dme", UPDATE_VALUE, nav2Dme, nav2DmeSD);
     send("nav2Id", UPDATE_VALUE, nav2Id, nav2IdSD);
     send("nav2brgptr", UPDATE_VALUE6, -nav2Brg, nav2BrgSD);
-    
+
 }
 
 }; // end of Demo namespace

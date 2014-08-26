@@ -106,7 +106,7 @@ int exec(int argc, char* argv[])
     sys->event(Basic::Component::RESET_EVENT);
 
     // System Time of Day
-    double dt = 1.0/double(UPDATE_RATE);             // Delta time
+    double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time
     double simTime = 0.0;                            // Simulator time reference
     double startTime = Eaagles::getComputerTime();   // Time of day (sec) run started
 
@@ -114,15 +114,15 @@ int exec(int argc, char* argv[])
     std::cout << "Starting main loop ..." << std::endl;
     for(;;) {
 
-        sys->updateTC( LCreal(dt) );
-        sys->updateData( LCreal(dt) );
+        sys->updateTC( static_cast<LCreal>(dt) );
+        sys->updateData( static_cast<LCreal>(dt) );
 
         simTime += dt;                       // time of next frame
         double timeNow = Eaagles::getComputerTime();  // time now
 
         double elapsedTime = timeNow - startTime;
         double nextFrameStart = simTime - elapsedTime;
-        int sleepTime = int(nextFrameStart*1000.0);
+        int sleepTime = static_cast<int>(nextFrameStart*1000.0);
 
         // wait for the next frame
         if (sleepTime > 0)

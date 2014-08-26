@@ -137,7 +137,7 @@ void run(Tester* const tester)
       Basic::Timer::freeze(true);
 
       // Time between printing the timer data
-      double dt = 1.0/double(TIMERS_PRINT_RATE);
+      double dt = 1.0 / static_cast<double>(TIMERS_PRINT_RATE);
 
       // Our main test control timer
       Basic::UpTimer* mainTimer = new Basic::UpTimer();
@@ -152,7 +152,7 @@ void run(Tester* const tester)
 
       Basic::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
-         lcSleep( (unsigned int)(dt * 1000.0 + 0.5) );
+         lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }
@@ -177,7 +177,7 @@ void run(Tester* const tester)
 
       Basic::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
-         lcSleep( (unsigned int)(dt * 1000.0 + 0.5) );
+         lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }

@@ -430,7 +430,7 @@ void TestElectronic::updateData(const LCreal dt)
                 else moveX = -1.8f;
             }
 
-            int tempCurBug = int(curBug);
+            int tempCurBug = static_cast<int>(curBug);
             if (tempCurBug < 0) tempCurBug += 360;
         
             // heading bug readout value and x position.
@@ -580,7 +580,7 @@ void TestElectronic::updateData(const LCreal dt)
         }
         // elapsed time
         else if (readoutMode == ND_ET) {
-            int hour = int(elapsedTime / 3600);
+            int hour = static_cast<int>(elapsedTime / 3600);
             bool isMin = false;    // default to show hours
             if (hour < 1) {
                 isMin = true; // show in minutes
@@ -626,7 +626,7 @@ void TestElectronic::updateData(const LCreal dt)
 
     // glide slope
     { 
-        LCreal gsDev = LCreal(alim (gsDots, 2.1f) * 0.35f);
+        LCreal gsDev = static_cast<LCreal>(alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
 

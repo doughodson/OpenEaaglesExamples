@@ -138,23 +138,23 @@ void MapPage::drawFunc()
     // get our viewport
     Display* dis = static_cast<Display*>(getDisplay());
     if (dis != 0) {
-        int start = nint((LCreal)southernLat - 1);
+        int start = nint(static_cast<LCreal>(southernLat) - 1);
         GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
         dis->getOrtho(l, r, b, t, n, f);
         double inchPerDegNS = t*2 / latRange;
         glPushMatrix();
             glBegin(GL_LINES);
                 int count = 0;
-                while (start < nint((LCreal)northernLat) + 1) {
-                    GLfloat disFromRef = GLfloat(refLat - start);
-                    disFromRef *= (GLfloat)inchPerDegNS;
+                while (start < nint( static_cast<LCreal>(northernLat) ) + 1) {
+                    GLfloat disFromRef = static_cast<GLfloat>(refLat - start);
+                    disFromRef *= static_cast<GLfloat>(inchPerDegNS);
                     if (count < MAX_READOUTS) {
                         lats[count] = start;
-                        latReadoutYPos[count] = float(-disFromRef + 0.2);
-                        latReadoutXPos[count++] = float(l + 0.5f);
+                        latReadoutYPos[count] = static_cast<float>(-disFromRef + 0.2);
+                        latReadoutXPos[count++] = static_cast<float>(l + 0.5f);
                     }
-                    glVertex2f((GLfloat)l, -disFromRef);
-                    glVertex2f((GLfloat)r, -disFromRef);
+                    glVertex2f(static_cast<GLfloat>(l), -disFromRef);
+                    glVertex2f(static_cast<GLfloat>(r), -disFromRef);
                     start++;
                 }
             glEnd();
@@ -168,21 +168,21 @@ void MapPage::drawFunc()
         double westernLon = refLon + lonRange;
 
         lonRange *= 2;
-        start = nint((LCreal)easternLon - 1);
+        start = nint( static_cast<LCreal>(easternLon) - 1);
         double inchPerDegEW = r*2 / lonRange;
         glPushMatrix();
             glBegin(GL_LINES);
                 count = 0;
-                while (start < nint((LCreal)westernLon) + 1) {
-                    GLfloat disFromRef = GLfloat(refLon - start);
+                while (start < nint( static_cast<LCreal>(westernLon) ) + 1) {
+                    GLfloat disFromRef = static_cast<GLfloat>(refLon - start);
                     if (count < MAX_READOUTS) {
                         lons[count] = start;
-                        disFromRef *= (GLfloat)inchPerDegEW;
-                        lonReadoutXPos[count] = float(-disFromRef + 0.2);
-                        lonReadoutYPos[count++] = float(t - 0.5f);
+                        disFromRef *= static_cast<GLfloat>(inchPerDegEW);
+                        lonReadoutXPos[count] = static_cast<float>(-disFromRef + 0.2);
+                        lonReadoutYPos[count++] = static_cast<float>(t - 0.5f);
                     }
-                    glVertex2f(-disFromRef, (GLfloat)b);
-                    glVertex2f(-disFromRef, (GLfloat)t);
+                    glVertex2f(-disFromRef, static_cast<GLfloat>(b));
+                    glVertex2f(-disFromRef, static_cast<GLfloat>(t));
                     start++;
                 }
                 for (int i = count; i < MAX_READOUTS; i++) lonReadoutYPos[i] = -10000;
@@ -233,7 +233,7 @@ void MapPage::updateData(const LCreal dt)
             // go through all of our non-ownship players and populate our new list
             Basic::List::Item* item = stream->getFirstItem();
             while (item != 0 && numNewPlayers < MAX_PLAYERS) {
-                Basic::Pair* pair = (Basic::Pair*)item->getValue();
+                Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
                 if (pair != 0) {
                     Simulation::Player* ply = dynamic_cast<Simulation::Player*>(pair->object());
                     if (ply != 0) {

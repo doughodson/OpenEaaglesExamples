@@ -20,7 +20,6 @@
 
 #include <cstring>
 
-
 namespace Example {
 
 // Frame Rate
@@ -36,14 +35,14 @@ static class Eaagles::Glut::GlutDisplay* sys = 0;
 // timerFunc() -- Time critical stuff)
 static void timerFunc(int)
 {
-   double dt = 1.0/double(frameRate);
+   double dt = 1.0/static_cast<double>(frameRate);
 
-   unsigned int millis = (unsigned int)(dt * 1000);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   Eaagles::Basic::Timer::updateTimers((Eaagles::LCreal) dt);
-   Eaagles::BasicGL::Graphic::flashTimer((Eaagles::LCreal) dt);
-   sys->tcFrame((Eaagles::LCreal) dt);
+   Eaagles::Basic::Timer::updateTimers(static_cast<Eaagles::LCreal>(dt));
+   Eaagles::BasicGL::Graphic::flashTimer(static_cast<Eaagles::LCreal>(dt));
+   sys->tcFrame(static_cast<Eaagles::LCreal>(dt));
 }
 
 // our class factory
@@ -118,8 +117,8 @@ int process(int argc, char* argv[])
 // ---
 // Set timer
 // ---
-    double dt = 1.0/double(frameRate);
-    unsigned int millis = (unsigned int)(dt * 1000);
+    double dt = 1.0/static_cast<double>(frameRate);
+    unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
     
 // ---

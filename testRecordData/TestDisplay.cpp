@@ -318,14 +318,14 @@ bool TestDisplay::onIncRngKey()
       Simulation::Radar* rdr = 0;
       {
          Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
-         if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+         if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
       }
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != 0) {
          // But could be GMTI ...
          if (sms->isWeaponDeliveryMode(Simulation::StoresMgr::A2G)) {
             Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Gmti));
-            if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+            if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
          }
       }
       if (rdr != 0) {
@@ -345,14 +345,14 @@ bool TestDisplay::onDecRngKey()
       Simulation::Radar* rdr = 0;
       {
          Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
-         if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+         if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
       }
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != 0) {
          // But could be GMTI ...
          if (sms->isWeaponDeliveryMode(Simulation::StoresMgr::A2G)) {
             Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Gmti));
-            if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+            if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
          }
       }
       if (rdr != 0) {
@@ -405,14 +405,14 @@ void TestDisplay::updateData(const LCreal dt)
       Simulation::Radar* rdr = 0;
       {
          Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
-         if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+         if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
       }
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != 0) {
          // But could be GMTI ...
          if (sms->isWeaponDeliveryMode(Simulation::StoresMgr::A2G)) {
             Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Gmti));
-            if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+            if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
          }
       }
       rdrDisplay->setRadar(rdr);
@@ -427,7 +427,7 @@ void TestDisplay::updateData(const LCreal dt)
    if (rwrDisplay != 0 && getOwnship() != 0) {
       Simulation::Rwr* rwr = 0;
       Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Simulation::Rwr));
-      if (pair != 0) rwr = (Simulation::Rwr*)( pair->object() );
+      if (pair != 0) rwr = static_cast<Simulation::Rwr*>(pair->object());
       rwrDisplay->setRwr(rwr);
    }
 
@@ -437,14 +437,14 @@ void TestDisplay::updateData(const LCreal dt)
          Simulation::Radar* rdr = 0;
          {
             Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Tws));
-            if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+            if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
          }
          Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
          if (sms != 0) {
             // But could be GMTI ...
             if (sms->isWeaponDeliveryMode(Simulation::StoresMgr::A2G)) {
                Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Sensor::Gmti));
-               if (pair != 0) rdr = (Simulation::Radar*)( pair->object() );
+               if (pair != 0) rdr = static_cast<Simulation::Radar*>(pair->object());
             }
          }
          if (rdr != 0) range = rdr->getRange();
@@ -531,8 +531,8 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
         Basic::List::Item* item = plist->getFirstItem();
         while (item != 0 && nNewTracks < maxTracks) {
        
-            Basic::Pair* pair = (Basic::Pair*) item->getValue();
-            Simulation::Player* p = (Simulation::Player*)( pair->object() );
+            Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+            Simulation::Player* p = static_cast<Simulation::Player*>(pair->object());
             osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
             LCreal x = rpos[0] * Basic::Distance::M2NM;
             LCreal y = rpos[1] * Basic::Distance::M2NM;
@@ -670,7 +670,7 @@ Simulation::Station* TestDisplay::getStation()
 //------------------------------------------------------------------------------
 void TestDisplay::updatePfd(const LCreal)
 {    
-    Simulation::AirVehicle* av = (Simulation::AirVehicle*) getOwnship();
+    Simulation::AirVehicle* av = static_cast<Simulation::AirVehicle*>(getOwnship());
 
     // pitch
     pitch = av->getPitchD();
@@ -729,7 +729,7 @@ void TestDisplay::updatePfd(const LCreal)
         
     Basic::Pair* pair = findByType(typeid(xPanel::Pfd));
     if (pair != 0) {
-        xPanel::Pfd* p = (xPanel::Pfd*)(pair->object());
+        xPanel::Pfd* p = static_cast<xPanel::Pfd*>(pair->object());
         if (p != 0) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);

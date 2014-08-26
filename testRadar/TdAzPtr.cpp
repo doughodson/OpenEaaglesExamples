@@ -13,7 +13,7 @@ EMPTY_SERIALIZER(TdAzPtr)
 EMPTY_DELETEDATA(TdAzPtr)
 
 BEGIN_EVENT_HANDLER(TdAzPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)   
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------

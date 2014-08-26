@@ -86,7 +86,7 @@ void Sender::updateData(const Eaagles::LCreal dt)
         else {
             char buffer[MAX_SIZE];
             sprintf(buffer, "Message(%d)", ++msgCounter);
-            unsigned int n = (unsigned int)strlen(buffer);
+            unsigned int n = static_cast<unsigned int>(std::strlen(buffer));
             Eaagles::lcSleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {

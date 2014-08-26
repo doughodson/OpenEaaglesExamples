@@ -11,6 +11,7 @@ codelite/
 *.idb
 *.ilk
 *.pdb
+*.exp
 
 #
 # Qt not needed directories (created upon build)

@@ -31,14 +31,14 @@ static class Glut::GlutDisplay* sys = 0;
 // timerFunc() -- Time critical stuff)
 static void timerFunc(int)
 {
-    double dt = 1.0/double(frameRate);
+    double dt = 1.0 / static_cast<double>(frameRate);
 
-    unsigned int millis = (unsigned int)(dt * 1000);
+    unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
-    Basic::Timer::updateTimers((float)dt);
-    BasicGL::Graphic::flashTimer((LCreal)dt);
-    sys->tcFrame((LCreal)dt);
+    Basic::Timer::updateTimers(static_cast<float>(dt));
+    BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+    sys->tcFrame(static_cast<LCreal>(dt));
 }
 
 // our class factory
@@ -102,8 +102,8 @@ int main(int argc, char* argv[])
   sys->createWindow();
 
   // set timer
-  double dt = 1.0/double(frameRate);
-  unsigned int millis = (unsigned int)(dt * 1000);
+  double dt = 1.0/static_cast<double>(frameRate);
+  unsigned int millis = static_cast<unsigned int>(dt * 1000);
   glutTimerFunc(millis, timerFunc, 1);
 
   // main loop
