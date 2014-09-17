@@ -1,7 +1,10 @@
 
+#define APPLICATION_ID              112                      // Unique DIS identifier (last IP octet)
+#define MY_IP                       "192.168.1.112"          // Ownship IP Address
+#define MY_NETMASK                  "255.255.255.0"          // Ownship Net mask
+
 networks: {
    ( DisNetIO
-   
       //enableTimingStats: true
       //printTimingStats: true
 
@@ -20,7 +23,6 @@ networks: {
       
       netInput:  ( UdpBroadcastHandler localIpAddress: MY_IP networkMask: MY_NETMASK port: 3000 shared: true )
       netOutput: ( UdpBroadcastHandler localIpAddress: MY_IP networkMask: MY_NETMASK port: 3000 localPort: 3001 shared: true )
-
 
       // DIS entity type files
       #include "disIncomingEntityTypes.epp"

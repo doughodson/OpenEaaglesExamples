@@ -2,6 +2,12 @@
 // Example SubrScene Out-The-Window (visual system) and HUD setup file
 // -----------------------------------------------------------------------------
 
+#define OTW_INPUT_IP                "127.0.0.1"              // IP address for Out The Window input (local TN)
+#define OTW_INPUT_PORT              8008                     // Port number the OTW machine is broadcasting on; OneView's "Remote Simulation Port"
+#define OTW_OUTPUT_IP               "127.0.0.1"              // IP address for OTW output (remote TN)
+#define OTW_OUTPUT_PORT             8108                     // OneView's "Incoming Port"
+#define OTW_OUTPUT_SOURCE_PORT      8208
+
 otw: {
    ( OtwCigiCl
       maxRange: ( NauticalMiles 20.0 )

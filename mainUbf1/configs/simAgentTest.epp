@@ -1,11 +1,10 @@
 // ---
 // Example simulation
 // ---
-#include "Station_Settings.def"
 
 //
-#define REF_LATITUDE     DB_LAT
-#define REF_LONGITUDE    DB_LONG
+#define REF_LATITUDE     30.8
+#define REF_LONGITUDE   -86.8
 #define OTW_LATITUDE   REF_LATITUDE
 #define OTW_LONGITUDE  REF_LONGITUDE
 
