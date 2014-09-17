@@ -1,7 +1,7 @@
 
 #include "TestIoHandler.h"
 #include "SimStation.h"
-#include "configs/f16HotasIo.h"
+#include "configs/io/f16HotasIo.h"
 
 #include "openeaagles/simulation/Autopilot.h"
 #include "openeaagles/simulation/AirVehicle.h"

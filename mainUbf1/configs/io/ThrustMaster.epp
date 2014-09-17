@@ -1,7 +1,7 @@
 
 // =============================================================================
 // I/O Device mapping for the Thrustmaster HOTAS Cougar device 
-//   -- UsbJoystick (e.g., the thrustmaster couger) channels are zero(0) based.
+//   -- UsbJoystick (e.g., the thrustmaster cougar) channels are zero(0) based.
 // =============================================================================
 
 #include "f16HotasIo.h"
@@ -15,7 +15,14 @@
       // ---
       ( AnalogInput ai: ROLL_AI           channel: 0  offset: 0.0  gain: 1.0 )
       ( AnalogInput ai: PITCH_AI          channel: 1  offset: 0.0  gain: 1.0 )
-      ( AnalogInput ai: THROTTLE_AI       channel: 2  offset: 0.0  gain: 1.0 )
+
+      ( AnalogInput ai: THROTTLE_AI       channel: 2  offset: 0.0  gain: 1.0
+                                                       table: ( Table1
+                                                            x:    [  1.0 -1.0 ]
+                                                            data: [  0.0  1.0 ]
+                                                        )
+      )
+
       ( AnalogInput ai: RANGE_AI          channel: 3  offset: 0.0  gain: 1.0 )
       ( AnalogInput ai: ANT_ELEV_AI       channel: 4  offset: 0.0  gain: 1.0 )
       ( AnalogInput ai: CURSOR_X_AI       value: 0.0 )
