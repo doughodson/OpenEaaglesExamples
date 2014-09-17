@@ -53,7 +53,7 @@
       ( DiscreteInput di: TRIM_PUSH_SW        value: false ) // Not connected
 
       // ---
-      // Sim conrol DIs
+      // Sim control DIs
       // ---
       ( DiscreteInput di: CTL_ENABLE_SW   port: 0  channel:   2 )  // pinky
       ( DiscreteInput di: FREEZE_SW       port: 0  channel:  4 )   // NWS
