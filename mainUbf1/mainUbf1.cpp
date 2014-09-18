@@ -11,13 +11,13 @@
 #include <cstring>
 #include <cstdlib>
 
-// Default configuration file
-static const char* const DEFAULT_CONFIG_FILE = "agentTest.edl";
+// default configuration file
+static const char* const DEFAULT_CONFIG_FILE = "test00.edl";
 
 // default background frame rate
 static const int BG_RATE = 10;
 
-// Top level Station
+// top level Station
 static Eaagles::Simulation::Station* station = 0;
 
 // build a station
@@ -46,7 +46,6 @@ static Eaagles::Simulation::Station* builder(const char* const fileName)
       // What we should have here is the Station object
       p = dynamic_cast<Eaagles::Simulation::Station*>(q1);
    }
-    
    return p;
 }
 
@@ -59,10 +58,10 @@ static void updateDataCB(int msecs)
 {
    glutTimerFunc(msecs, updateDataCB, msecs);
 
-   // Current time
+   // current time
    double time = Eaagles::getComputerTime();
 
-   // Compute delta time
+   // compute delta time
    static double time0 = time;   // N-1 Time
    Eaagles::LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
    time0 = time;
@@ -80,15 +79,15 @@ int main(int argc, char* argv[])
    // configuration file
    const char* configFile = DEFAULT_CONFIG_FILE;
 
-   // Parse arguments
+   // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i], "-f") == 0) {
          configFile = argv[++i];
       }
    }
 
    // ---
-   // Build a station
+   // build a station
    // ---
    station = builder(configFile);
    if (station == 0) {
@@ -97,12 +96,12 @@ int main(int argc, char* argv[])
    }
 
    // ---
-   // Reset the Simulation
+   // reset simulation
    // ---
    station->event(Eaagles::Basic::Component::RESET_EVENT);
 
    // ---
-   // Set timer for the background tasks
+   // set timer for the background tasks
    // ---
    double dt = 1.0/static_cast<double>(BG_RATE);
    int msecs = static_cast<int>(dt * 1000);

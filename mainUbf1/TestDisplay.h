@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
+
 #ifndef __Eaagles_Example_TestDisplay_H__
 #define __Eaagles_Example_TestDisplay_H__
 
@@ -15,6 +13,7 @@ namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
+//
 // Description: Test GLUT-display that will manage a simple real-beam, b-scan radar
 //              display, plus a Radar receiver display, which shows received
 //              signal strength and angle of arrival, a simple situation
@@ -36,7 +35,7 @@ namespace Example {
 //------------------------------------------------------------------------------
 class TestDisplay : public Glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay,Glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay, Glut::GlutDisplay)
 
 public:
     enum { MAX_TRACKS = 60 };
@@ -78,8 +77,8 @@ private:
     xPanel::DspRwr*     rwrDisplay;     // Test RWR display
     LCreal          range;          // SD range
 
-    SendData        headingSD;
-    SendData        rangeSD;
+    SendData headingSD;
+    SendData rangeSD;
     
     SPtr<Simulation::Station> myStation;
 

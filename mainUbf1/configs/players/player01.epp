@@ -1,0 +1,142 @@
+
+#include "parts/dynamics.epp"
+#include "parts/agents.epp"
+#include "parts/patterns.epp"
+#include "parts/missiles.epp"
+
+p01: ( Aircraft
+
+   id: 1
+   side: blue
+   type: "F-15"
+   signature: ( SigSphere radius: 2.0 )
+
+   initLatitude:  ( LatLon direction: "n" degrees: 39 minutes: 54.0 )
+   initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.5 )
+
+   initAlt: ( Feet 5000 )
+   initHeading: ( Degrees 0.0 )
+   initVelocity: 250
+
+   positionFreeze: false
+   killRemoval: true
+   fuelFreeze: true
+
+   components: {
+
+      dynamicsModel: JSBSIM_DYNAMICS("f16")
+      //dynamicsModel: LAERO_DYNAMICS()
+
+      ubf1: UBF_AGENT1()
+
+      pilot: ( Autopilot
+         navMode: false
+         altitudeHoldMode: false
+         headingHoldMode: false
+         velocityHoldMode: true
+      )
+
+      antennas: ( Gimbal
+         components: {
+            radar: ( Antenna
+               maxPlayersOfInterest: 6
+               playerOfInterestTypes: { "air" "weapon" }
+               polarization: horizontal
+               gain: ( dB 42 )
+               gainPattern: ANTENNA_PATTERN()
+               initPosition: [ 0 0 ]
+               maxRates: [ 0.8727 0.8727 ]
+               commandRates: [ 0.43633 0.6981 ]
+               reference: [ 0 0 ]
+               searchVolume: [ 1.0472 0.05 ]
+               numBars: 2
+               playerOfInterestTypes: { air ground weapon ship building lifeform space }
+               maxPlayersOfInterest: 20
+               maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+               maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+               localPlayersOfInterestOnly: false
+               useWorldCoordinates: false
+            )
+            rwr: ( Antenna 
+               scanMode: manual
+               polarization: horizontal
+               gain: ( dB 12 )
+            )
+            jammer: ( Antenna
+               polarization: horizontal
+               gain: ( dB 5 )
+               //initPosition: [ -0.17 0 ]
+               initPosition: [ 0.0 0 ]
+               gainPattern: JAMMER_PATTERN()
+               //useWorldCoordinates: USE_WORLD
+            )
+         }
+      )
+
+      sensors: ( SensorMgr
+         components: {
+            ( Tws
+               trackManagerName: twsTrkMgr
+               antennaName: radar
+               powerPeak:  ( KiloWatts 500.0 )
+               frequency:  ( GigaHertz 3.0 )
+               bandwidth:  ( GigaHertz 2.0 )
+               PRF:        ( Hertz 500.0 ) 
+               pulseWidth: ( MilliSeconds 0.01 )
+               threshold:  ( dB 0.0 )
+               ranges:     [ 10 20 40 80 160 ]
+               initRangeIdx: 2
+            )
+            ( Rwr 
+               trackManagerName: rwrTrkMgr
+               antennaName: rwr  
+               threshold:  ( dB 0.0 )
+               frequency:  ( GigaHertz 3.0 )
+               bandwidth:  ( GigaHertz 2.0 )
+            )
+            ( Jammer
+               antennaName: jammer
+               powerPeak:  ( KiloWatts 500.0 )
+               frequency:  ( GigaHertz 3.0 )
+               bandwidth:  ( KiloHertz 500.0 )
+               ranges:     [ 80 ]
+            )
+         }
+      )
+
+      obc: ( OnboardComputer
+         components: {
+            twsTrkMgr: ( AirTrkMgr
+               maxTracks: 50
+               alpha: 1.0
+               beta:  0.5
+               gamma: 0.0
+               positionGate: 1500
+               rangeGate:     500
+               velocityGate:   10
+               firstTrackId: 2000
+            )
+            rwrTrkMgr: ( RwrTrkMgr
+               maxTracks: 50
+               alpha: 1.0
+               beta:  0.5
+               gamma: 0.0
+               //positionGate: 1500
+               // rangeGate:     500
+               // velocityGate:   10
+               firstTrackId: 2000
+            )
+         }
+      )
+
+      sms: ( StoresMgr
+         numStations: 4
+         stores: {
+            1: AAM_MISSILE(201)
+            2: AAM_MISSILE(202)
+            3: AAM_MISSILE(203)
+            4: AAM_MISSILE(204)
+         }
+      )
+   }
+)

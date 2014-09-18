@@ -14,13 +14,14 @@
 namespace Eaagles {
 namespace Example {
 
-//==============================================================================
+//------------------------------------------------------------------------------
 // TestIoHandler
-//==============================================================================
+//------------------------------------------------------------------------------
 
 IMPLEMENT_SUBCLASS(TestIoHandler,"TestIoHandler")
 EMPTY_SLOTTABLE(TestIoHandler)
 EMPTY_SERIALIZER(TestIoHandler)
+EMPTY_DELETEDATA(TestIoHandler)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -72,13 +73,6 @@ void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
    autopilotSw1 = org.autopilotSw1;
    incStptSw1 = org.incStptSw1;
    decStptSw1 = org.decStptSw1;
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void TestIoHandler::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------
@@ -319,4 +313,4 @@ void TestIoHandler::clear()
 }
 
 } // End Example namespace
-} // end Eaagles namespace
+} // End Eaagles namespace

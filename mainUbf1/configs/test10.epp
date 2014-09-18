@@ -19,7 +19,6 @@
 // Simulation scenario
 // ---
 
-
 ownship: p01
 simulation: ( Simulation
 
