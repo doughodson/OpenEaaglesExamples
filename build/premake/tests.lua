@@ -150,7 +150,7 @@ project "testRadar"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeVehicles", "JSBSim"}
+      links {"oeDynamics", "JSBSim"}
       links {"oeOtw", LibCigi}
       links {"oeDis", "oeSensors", "oeIoDevice"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
@@ -158,7 +158,7 @@ project "testRadar"
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeVehicles_d", "JSBSim_d"}
+      links {"oeDynamics_d", "JSBSim_d"}
       links {"oeOtw_d", LibCigi_d}
       links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
@@ -182,7 +182,7 @@ project "testRecordData"
    links       { "libxRecorder", "libxPanel" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeVehicles", "JSBSim" }
+      links {"oeDynamics", "JSBSim" }
       links {"oeOtw", LibCigi }
       links {"oeDis", "oeRecorder", "oeSensors", "oeIoDevice" }
       links {"oeSimulation", "oeDafif", "oeTerrain" }
@@ -191,7 +191,7 @@ project "testRecordData"
       links {"libprotobuf" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeVehicles_d", "JSBSim_d" }
+      links {"oeDynamics_d", "JSBSim_d" }
       links {"oeOtw_d",  LibCigi_d }
       links {"oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d" }

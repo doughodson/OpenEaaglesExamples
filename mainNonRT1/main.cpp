@@ -5,7 +5,7 @@
 
 // class factories
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/vehicles/Factory.h"
+#include "openeaagles/dynamics/Factory.h"
 #include "openeaagles/sensors/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
@@ -29,7 +29,7 @@ static Basic::Object* factory(const char* name)
   Basic::Object* obj = 0;
 
   if (obj == 0) obj = Simulation::Factory::createObj(name);
-  if (obj == 0) obj = Vehicle::Factory::createObj(name);
+  if (obj == 0) obj = Dynamics::Factory::createObj(name);
   if (obj == 0) obj = Sensor::Factory::createObj(name);
   if (obj == 0) obj = Basic::Factory::createObj(name);
 

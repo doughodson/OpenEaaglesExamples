@@ -12,7 +12,7 @@ OBJS =  \
 	TestStation.o
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
-LDFLAGS += -loeSimulation -loeVehicles -loeDafif
+LDFLAGS += -loeSimulation -loeDynamics -loeDafif
 LDFLAGS += -loeSensors -loeDis
 LDFLAGS += -lJSBSim
 LDFLAGS += -loeGlut -loeInstruments -loeBasicGL -loeBasic

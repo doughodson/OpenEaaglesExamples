@@ -22,7 +22,7 @@
 #include "openeaagles/otw/Factory.h"
 #include "openeaagles/sensors/Factory.h"
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/vehicles/Factory.h"
+#include "openeaagles/dynamics/Factory.h"
 
 #include <cstring>
 
@@ -55,7 +55,7 @@ Basic::Object* Factory::createObj(const char* name)
     if (obj == 0) obj = Instruments::Factory::createObj(name);
     if (obj == 0) obj = IoDevice::Factory::createObj(name);
     if (obj == 0) obj = Instruments::Factory::createObj(name);
-    if (obj == 0) obj = Vehicle::Factory::createObj(name);
+    if (obj == 0) obj = Dynamics::Factory::createObj(name);
     if (obj == 0) obj = Sensor::Factory::createObj(name);
     if (obj == 0) obj = Otw::Factory::createObj(name);
     if (obj == 0) obj = Network::Dis::Factory::createObj(name);

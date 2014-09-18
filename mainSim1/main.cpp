@@ -10,7 +10,7 @@
 // class factories
 #include "../shared/xZeroMQHandlers/Factory.h"
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/vehicles/Factory.h"
+#include "openeaagles/dynamics/Factory.h"
 #include "openeaagles/sensors/Factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/otw/Factory.h"
@@ -42,7 +42,7 @@ static Basic::Object* factory(const char* name)
   // Framework libraries
   if (obj == 0) obj = Otw::Factory::createObj(name);
   if (obj == 0) obj = Simulation::Factory::createObj(name);
-  if (obj == 0) obj = Vehicle::Factory::createObj(name);
+  if (obj == 0) obj = Dynamics::Factory::createObj(name);
   if (obj == 0) obj = Sensor::Factory::createObj(name);
   if (obj == 0) obj = Network::Dis::Factory::createObj(name);
   if (obj == 0) obj = Basic::Factory::createObj(name);

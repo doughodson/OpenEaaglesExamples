@@ -9,7 +9,7 @@ OBJS += Factory.o testy.o
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
 LDFLAGS += -lxPanel
-LDFLAGS += -loeRecorder -loeSensors -loeVehicles
+LDFLAGS += -loeRecorder -loeSensors -loeDynamics
 LDFLAGS += -loeSimulation -loeInstruments -loeDis
 LDFLAGS += -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic
