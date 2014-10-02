@@ -1,35 +1,39 @@
+//------------------------------------------------------------------------------
+// main test routine
+//------------------------------------------------------------------------------
+
+#include "TestStation.h"
 
 #include "Factory.h"
 
-#include "openeaagles/simulation/Station.h"
 #include "openeaagles/basicGL/Graphic.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
-
-#include <cstdlib>
-#include <cstring>
-
 #include <GL/glut.h>
 
-// Default configuration file
-static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
+#include <cstring>
+#include <cstdlib>
 
-// default background frame rate
-static const int BG_RATE = 10;
+namespace Eaagles {
+namespace Example {
 
-// Top level Station
-static Eaagles::Simulation::Station* station = 0;
+// Background frame rate
+const int bgRate = 10;
 
-// build a station
-static Eaagles::Simulation::Station* builder(const char* const fileName)
+// System descriptions
+static TestStation* station = 0;
+
+//-----------------------------------------------------------------------------
+// Read the configuration file
+//-----------------------------------------------------------------------------
+static TestStation* readConfigFile(const char* const fileName)
 {
-   Eaagles::Simulation::Station* p = 0;
+   TestStation* p = 0;
 
    // Read the description file
    int errors = 0;
-   Eaagles::Basic::Object* q1 =
-         Eaagles::Basic::lcParser(fileName, Eaagles::Example::Factory::createObj, &errors);
+   Basic::Object* q1 = lcParser(fileName, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
       return 0;
@@ -37,47 +41,54 @@ static Eaagles::Simulation::Station* builder(const char* const fileName)
 
    if (q1 != 0) {
       // When we were given a Basic::Pair, get the pointer to its object.
-      Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
+      Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
       if (pp != 0) {
          q1 = pp->object();
       }
 
       // What we should have here is the Station object
-      p = dynamic_cast<Eaagles::Simulation::Station*>(q1);
+      p = dynamic_cast<TestStation*>(q1);
    }
-    
+
    return p;
 }
 
 //-----------------------------------------------------------------------------
-// Station's background tasks -- a callback from a GLUT timer, it's basicly the
+// Station's background tasks -- a callback from a GLUT timer, it's the
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------
-static void updateDataCB(int msecs)
+static void updateDataCB(int)
 {
-   glutTimerFunc(msecs, updateDataCB, msecs);
+   double dt0 = 1.0/static_cast<double>(bgRate);
+   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   glutTimerFunc(millis, updateDataCB, 1);
 
    // Current time
-   double time = Eaagles::getComputerTime();
+   double time = getComputerTime();
+
+   // N-1 Time
+   static double time0 = time;
 
    // Compute delta time
-   static double time0 = time;   // N-1 Time
-   Eaagles::LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
+   LCreal dt = static_cast<LCreal>(time - time0);
    time0 = time;
 
+   Basic::Timer::updateTimers(dt);
+   BasicGL::Graphic::flashTimer(dt);
    station->updateData(dt);
 }
 
+
 //-----------------------------------------------------------------------------
-// main() -- Main routine
+// Eaagles::MainIR::main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
    // configuration file
-   const char* configFile = DEFAULT_CONFIG_FILE;
+   const char* configFile = "test1.edl";
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
@@ -87,9 +98,9 @@ int main(int argc, char* argv[])
    }
 
    // ---
-   // Build a station
+   // Read in the description files
    // ---
-   station = builder(configFile);
+   station = readConfigFile(configFile);
    if (station == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -98,20 +109,21 @@ int main(int argc, char* argv[])
    // ---
    // Reset the Simulation
    // ---
-   station->event(Eaagles::Basic::Component::RESET_EVENT);
+   station->event(Basic::Component::RESET_EVENT);
 
    // ---
    // Set timer for the background tasks
    // ---
-   double dt = 1.0/static_cast<double>(BG_RATE);
-   int msecs = static_cast<int>(dt * 1000);
+
+   double dt = 1.0/static_cast<double>(bgRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    station->updateData(dt);
    station->updateTC(dt);
    station->event(Eaagles::Basic::Component::RESET_EVENT);
 
-   glutTimerFunc(msecs, updateDataCB, msecs);
+   glutTimerFunc(millis, updateDataCB, 1);
 
    // ---
    // Create the Time Critical Thread (updateTC())
@@ -122,5 +134,17 @@ int main(int argc, char* argv[])
    // Main loop
    // ---
    glutMainLoop();
-   return EXIT_SUCCESS;
+   return 0;
 }
+
+} // End Example namespace
+} // End Eaagles namespace
+
+//-----------------------------------------------------------------------------
+// main() -- Main routine
+//-----------------------------------------------------------------------------
+int main(int argc, char* argv[])
+{
+   return Eaagles::Example::main(argc, argv);
+}
+

@@ -1,6 +1,5 @@
 //*****************************************************************************
-// MainLaero -- test program that will test out the 4 degrees of
-// freedom Laero model
+// Example program that demostrates Laero model functionality
 //*****************************************************************************
 
 #include "openeaagles/basicGL/Graphic.h"

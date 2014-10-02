@@ -19,7 +19,7 @@
 namespace Eaagles {
 namespace Tutorial {
 
-// Description (input) File -- After being processed by the C preprocessor
+// default configuration file
 const char* inputFileName = "file0.edl";
 
 // Frame Rate

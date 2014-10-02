@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainw
 
-OBJS = MfdDisplay.o MfdPage.o TdAzPtr.o TdElevPtr.o TestOne.o TestRotator.o TestTwo.o testw.o 
+OBJS = MfdDisplay.o MfdPage.o TdAzPtr.o TdElevPtr.o TestOne.o TestRotator.o TestTwo.o main.o 
 
 LDFLAGS += -loeInstruments -loeGlut -loeBasicGL -loeBasic -lpthread
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11

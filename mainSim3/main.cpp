@@ -21,7 +21,7 @@
 namespace Eaagles {
 namespace Example {
 
-// Default configuration file
+// default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "test0.edl";
 
 // Default background frame rate

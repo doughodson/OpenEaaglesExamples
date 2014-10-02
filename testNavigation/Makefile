@@ -2,7 +2,7 @@
 include ../makedefs
 
 PGM = testNavigation
-OBJS =  testNavigation.o
+OBJS =  main.o
 
 LDFLAGS += -loeBasic
 

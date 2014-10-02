@@ -77,6 +77,7 @@ static DataRecordTest* builder(const char* const testFile)
 
 int exec(int argc, char* argv[])
 {
+   // default configuration file
    const char* testFile = "test.edl";
 
    // Get the command line arguments

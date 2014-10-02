@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // Description (input) File -- After being processed by the C preprocessor
+   // default configuration file
    const char* fileName = "test1.edl";
 
    for (int i = 1; i < argc; i++) {

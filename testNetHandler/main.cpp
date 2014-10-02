@@ -77,6 +77,7 @@ static Endpoint* builder(const char* const testFile)
 
 int exec(int argc, char* argv[])
 {
+	// default configuration file
     const char* testFile = "configs/senderUdpBroadcast.edl";
 
     // Get the command line arguments

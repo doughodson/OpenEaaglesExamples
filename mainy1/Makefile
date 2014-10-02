@@ -5,7 +5,7 @@ PGM = mainy1
 
 OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
-OBJS += Factory.o testy.o
+OBJS += Factory.o main.o
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
 LDFLAGS += -lxPanel

@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = testTimer
 
-OBJS = testTimer.o Tester.o 
+OBJS = main.o Tester.o 
 
 LDFLAGS += -loeBasic 
 LDFLAGS += -lpthread -lrt

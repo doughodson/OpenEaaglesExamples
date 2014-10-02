@@ -9,7 +9,7 @@ OBJS = \
 	SimStation.o \
 	SimIoHandler.o \
 	SimPlayer.o \
-	mainSim3.o
+	main.o
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
 LDFLAGS += -loeDis -loeSensors -loeDynamics -loeSimulation -lJSBSim 

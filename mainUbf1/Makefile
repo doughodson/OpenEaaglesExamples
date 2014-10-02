@@ -4,7 +4,7 @@ include ../makedefs
 PGM = mainUbf1
 
 #
-OBJS = mainUbf1.o
+OBJS = main.o
 OBJS += SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o Factory.o
 

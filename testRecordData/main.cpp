@@ -12,7 +12,7 @@
 #include <cstring>
 #include <cstdlib>
 
-// Default configuration file
+// default configuration file
 static const char* const DEFAULT_CONFIG_FILE = "test.edl";
 
 // default background frame rate

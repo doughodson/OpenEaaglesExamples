@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// testRadar -- A general purpose radar test program.
+// A general purpose radar test program.
 //------------------------------------------------------------------------------
 
 #include "TestStation.h"
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // configuration file
+   // default configuration file
    const char* configFile = "test2a.edl";
 
    // Parse arguments

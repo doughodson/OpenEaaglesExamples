@@ -208,7 +208,7 @@ int main(int argc, char* argv[])
 {
     glutInit(&argc, argv);
 
-   // configuration file
+   // default configuration file
    const char* configFile = "test.edl";
 
    // Parse arguments

@@ -26,7 +26,7 @@
 namespace Eaagles {
 namespace Example {
 
-// Description (input) File -- After being processed by the C preprocessor
+// default configuration file
 const char* testFileName = "test.edl";
 
 // Frame Rate
