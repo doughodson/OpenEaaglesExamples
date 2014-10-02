@@ -1,9 +1,14 @@
+
+//
+// Scenario description : single helicopter player
+//
+
 ( Station
 
   tcPriority: 0.5
 
-//#include "otwSetupPC.epp"
-#include "networkSetup.epp"
+//#include "io/otwSetupPC.epp"
+#include "io/networkSetup.epp"
 
   // Simulation scenario
   ownship: xper

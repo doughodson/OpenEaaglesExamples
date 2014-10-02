@@ -17,8 +17,8 @@ EPPFLAGS +=  -I.
 all: $(PGM) 
 
 edl:
-	cpp configs/test.epp >test.edl   $(EPPFLAGS)
-	cpp configs/testH.epp >testH.edl $(EPPFLAGS)
+	cpp configs/test00.epp >test00.edl $(EPPFLAGS)
+	cpp configs/test01.epp >test01.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS) 

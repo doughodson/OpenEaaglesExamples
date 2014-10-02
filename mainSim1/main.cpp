@@ -22,8 +22,8 @@
 namespace Eaagles {
 namespace Example {
 
-// Test file
-const char* testFile = "test.edl";
+// default configuration file
+const char* testFile = "test00.edl";
 
 // Background frame rate
 const int bgRate = 10;
