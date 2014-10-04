@@ -16,98 +16,84 @@
 namespace Eaagles {
 namespace Example {
 
-// Description (input) File -- After being processed by the C preprocessor
-static const char* fileName = "puzzle.edl";
-
-// Frame Rate
+// frame rate
 static const int frameRate = 20;
 
-// System descriptions
-static class Board* sys = 0;
+static class Board* board = 0;
 
-
-// timerCB() -- 
+//
 static void timerCB(int)
 {
-    double dt0 = 1.0/static_cast<double>(frameRate);
-    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
-    glutTimerFunc(millis, timerCB, 1);
+   double dt0 = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   glutTimerFunc(millis, timerCB, 1);
     
-    // Current time
-    double time = getComputerTime();
+   // current time
+   double time = getComputerTime();
 
-    // N-1 Time
-    static double time0 = time;
+   // N-1 Time
+   static double time0 = time;
 
-    // Compute delta time
-    double dt = (time - time0);
-    time0 = time;
+   // compute delta time
+   double dt = (time - time0);
+   time0 = time;
 
-    Basic::Timer::updateTimers(static_cast<LCreal>(dt));
-    BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
-    sys->tcFrame(static_cast<LCreal>(dt));
+   Basic::Timer::updateTimers(static_cast<LCreal>(dt));
+   BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+   board->tcFrame(static_cast<LCreal>(dt));
 }
 
-// build a board
-static void builder()
+// board builder
+static Board* builder(const char* const filename)
 {
-    // Read the description file
-    int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(fileName, Factory::createObj, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
-        exit(1);
-    }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, Factory::createObj, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Set 'sys' to our basic description object.
-    sys = 0;
-    if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-        if (pp != 0) {
-           std::cout << "Form: " << *pp->slot() << std::endl;
-            q1 = pp->object();
-        }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // What we should have here is the description object and
-        // it should be of type 'Board'.
-        sys = dynamic_cast<Board*>(q1);
-
-    }
-
-    // Make sure we did get a valid object (we must have one!)
-    if (sys == 0) {
-        std::cout << "Invalid description file!" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
+   // try to cast to proper object, and check
+   Board* board = dynamic_cast<Board*>(obj);
+   if (board == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return board;
 }
 
 int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // ---
-   // Build a board
-   // ---
-   builder();
+   // default configuration filename
+   const char* configFilename = "puzzle.edl";
 
-   // ---
-   // Create a display window
-   // ---
-   sys->createWindow();
+   board = builder(configFilename);
 
-   // ---
-   // Set timer
-   // ---
+   // create a display window
+   board->createWindow();
+
+   // set timer
    double dt = 1.0/static_cast<double>(frameRate);
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerCB, 1);
 
-   // ---
-   // Main loop
-   // ---
    glutMainLoop();
 
    return 0;
