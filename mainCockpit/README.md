@@ -1,8 +1,7 @@
 
-A general purpose test program
 
 To run:
-  mainy1 -f test1.edl
+  mainCockpit -f test1.edl
 
 keyboard controls:
 

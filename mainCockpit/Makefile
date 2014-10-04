@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = mainy1
+PGM = mainCockpit
 
 OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
@@ -34,4 +34,3 @@ edl:
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-

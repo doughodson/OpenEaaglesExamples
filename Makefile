@@ -39,8 +39,8 @@ APPLICATIONS += mainUbf1
 # example of Laero model and autopilot functionality
 APPLICATIONS += mainLaero
 
-#
-APPLICATIONS += mainy1
+# simple cockpit
+APPLICATIONS += mainCockpit
 
 # test table, state machines, events and timer
 APPLICATIONS += testEvents

@@ -2,6 +2,43 @@
 -- Example applications
 --------------------------------------------------------
 
+-- Simple cockpit
+project "mainCockpit"
+   targetname "mainCockpit"
+   targetdir "../../mainCockpit"
+   debugdir "../../mainCockpit"
+   files {
+      "../../mainCockpit/**.cpp",
+      "../../mainCockpit/**.h",
+      "../../mainCockpit/**.epp",
+      "../../mainCockpit/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
+   links       { "libxPanel" }
+   -- zeromq nethandlers
+   defines { "ZMQ_STATIC" }
+   links { "libxZeroMQHandlers" }
+   defines { "_CONSOLE" }
+   configuration "Release"
+      links { "oeDynamics", "JSBSim", "libzmq" }
+      links { "oeOtw", LibCigi }
+      links { "oeDis", "oeRecorder", "oeSensors", "oeIoDevice" }
+      links { "oeSimulation", "oeDafif", "oeTerrain" }
+      links { "oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
+      links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
+      links { "libprotobuf" }
+      links { "Ws2_32", "Winmm", "comctl32", "gdi32"}
+   configuration "Debug"
+      links { "oeDynamics_d", "JSBSim_d", "libzmq_d" }
+      links { "oeOtw_d",  LibCigi_d }
+      links { "oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
+      links { "oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
+      links { "oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
+      links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
+      links { "libprotobuf_d" }
+      links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
+
 -- OpenGL example
 project "mainGL"
    targetname "mainGL"
@@ -383,40 +420,4 @@ project "mainUbf1"
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
--- mainy1
-project "mainy1"
-   targetname "mainy1"
-   targetdir "../../mainy1"
-   debugdir "../../mainy1"
-   files {
-      "../../mainy1/**.cpp",
-      "../../mainy1/**.h",
-      "../../mainy1/**.epp",
-      "../../mainy1/**.edl"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxPanel" }
-   -- zeromq nethandlers
-   defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
-   defines { "_CONSOLE" }
-   configuration "Release"
-      links { "oeDynamics", "JSBSim", "libzmq" }
-      links { "oeOtw", LibCigi }
-      links { "oeDis", "oeRecorder", "oeSensors", "oeIoDevice" }
-      links { "oeSimulation", "oeDafif", "oeTerrain" }
-      links { "oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
-      links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
-      links { "libprotobuf" }
-      links { "Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
-      links { "oeDynamics_d", "JSBSim_d", "libzmq_d" }
-      links { "oeOtw_d",  LibCigi_d }
-      links { "oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
-      links { "oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
-      links { "oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
-      links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
-      links { "libprotobuf_d" }
-      links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 

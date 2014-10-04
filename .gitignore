@@ -36,6 +36,7 @@ demoFlightDisplays1/demoFlightDisplays1
 demoFlightDisplays2/demoFlightDisplays2
 demoInstruments/demoInstruments
 demoSubDisplays/demoSubDisplays
+mainCockpit/mainCockpit
 mainFltk1/mainFltk1
 mainFox1/mainFox1
 mainGL/mainGL
@@ -50,7 +51,6 @@ mainSim2/mainSim2
 mainSim3/mainSim3
 mainSim4/mainSim4
 mainTerrain/mainTerrain
-mainy1/mainy1
 mainUbf1/mainUbf1
 testEvents/testEvents
 testGraphics/testGraphics

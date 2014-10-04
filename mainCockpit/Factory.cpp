@@ -46,11 +46,11 @@ Basic::Object* Factory::createObj(const char* name)
         obj = new TestIoHandler();
     }
 
-    // Example libraries
+    // example libraries
     if (obj == 0) obj = xPanel::Factory::createObj(name);
     if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
 
-    // Framework libraries
+    // framework libraries
     if (obj == 0) obj = Eaagles::Simulation::Factory::createObj(name);
     if (obj == 0) obj = Instruments::Factory::createObj(name);
     if (obj == 0) obj = IoDevice::Factory::createObj(name);
