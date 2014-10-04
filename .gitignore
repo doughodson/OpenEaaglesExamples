@@ -30,7 +30,6 @@ codelite/
 # preprocessed input (scenario) files
 *.edl
 
-
 # linux executables
 demoEfis/demoEfis
 demoFlightDisplays1/demoFlightDisplays1
@@ -51,10 +50,10 @@ mainSim2/mainSim2
 mainSim3/mainSim3
 mainSim4/mainSim4
 mainTerrain/mainTerrain
-mainw/mainw
 mainy1/mainy1
 mainUbf1/mainUbf1
 testEvents/testEvents
+testGraphics/testGraphics
 testIoHandler/testIoHandler
 testLinearSys/testLinearSys
 testMatrix/testMatrix

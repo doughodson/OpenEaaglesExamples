@@ -383,29 +383,6 @@ project "mainUbf1"
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
--- mainw : basic graphics example
-project "mainw"
-   targetname "mainw"
-   targetdir "../../mainw"
-   debugdir "../../mainw"
-   files {
-      "../../mainw/**.cpp",
-      "../../mainw/**.h",
-      "../../mainw/**.epp",
-      "../../mainw/**.edl"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
-   configuration "Release"
-      links {"oeGlut", "oeBasicGL", "oeBasic"}
-      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
-      links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
-      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-
 -- mainy1
 project "mainy1"
    targetname "mainy1"

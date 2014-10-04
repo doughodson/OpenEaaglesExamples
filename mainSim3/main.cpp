@@ -1,6 +1,6 @@
-//=============================================================================
+//------------------------------------------------------------------------------
 // Example simulation #3
-//=============================================================================
+//------------------------------------------------------------------------------
 
 #include "SimStation.h"
 
@@ -21,42 +21,43 @@
 namespace Eaagles {
 namespace Example {
 
-// default configuration file
-static const char* const DEFAULT_CONFIG_FILE = "test0.edl";
-
-// Default background frame rate
+// default background frame rate
 static const int BG_RATE = 10;
 
-// System descriptions
-static SimStation* station = 0;
+static SimStation* simStation = 0;
 
-//-----------------------------------------------------------------------------
-// readTest() -- function to the read description files
-//-----------------------------------------------------------------------------
-static SimStation* readTest(const char* const fileName)
+// SimStation builder
+static SimStation* builder(const char* const filename)
 {
+   // read configuration file
    int errors = 0;
-   Basic::Object* q1 = lcParser(fileName, Factory::createObj, &errors);
+   Basic::Object* obj = Basic::lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
-      std::cerr << "Errors in reading file: " << errors << std::endl;
-      return 0;
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   SimStation* sys = 0;
-   if (q1 != 0) {
-
-      // When we were given a Basic::Pair, get the pointer to its object.
-      Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-         if (pp != 0) {
-         q1 = pp->object();
-      }
-
-      // What we should have here is the description object and
-      // it should be of the correct type
-      sys = dynamic_cast<SimStation*>(q1);
-
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
    }
-   return sys;
+
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   SimStation* simStation = dynamic_cast<SimStation*>(obj);
+   if (simStation == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return simStation;
 }
 
 //-----------------------------------------------------------------------------
@@ -74,76 +75,48 @@ static void updateDataCB(int msecs)
    Eaagles::LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
    time0 = time;
 
-   station->updateData(dt);
+   simStation->updateData(dt);
 }
 
-
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // configuration file
-   const char* configFile = DEFAULT_CONFIG_FILE;
-
+   // default configuration filename
+   const char* configFilename = "test0.edl";
+   // parse arguments
    for (int i = 1; i < argc; i++) {
       if (std::strcmp(argv[i],"-f") == 0) {
-         configFile = argv[++i];
+         configFilename = argv[++i];
       }
    }
+   simStation = builder(configFilename);
 
-// ---
-// Read in the description files
-// ---
-   station = readTest(configFile);
-
-    // Make sure we did get a valid object (we must have one!)
-    if (station == 0) {
-        std::cout << "Invalid description file!" << std::endl;
-        return 0;
-    }
-
-// ---
-// Reset the station
-// ---
-    station->event(Basic::Component::RESET_EVENT);
+   // reset station
+   simStation->event(Basic::Component::RESET_EVENT);
     
-// ---
-// Set timer for background tasks
-// ---
-
+   // set timer for background tasks
    double dt = 1.0/static_cast<double>(BG_RATE);
    int msecs = static_cast<int>(dt * 1000);
 
    // ensure everything is reset
-   station->updateData(dt);
-   station->updateTC(dt);
-   station->event(Eaagles::Basic::Component::RESET_EVENT);
+   simStation->updateData(dt);
+   simStation->updateTC(dt);
+   simStation->event(Basic::Component::RESET_EVENT);
 
    glutTimerFunc(msecs, updateDataCB, msecs);
 
-// ---
-// Create Time Critical Thread
-// ---
-    station->createTimeCriticalProcess();
+   simStation->createTimeCriticalProcess();
 
-// ---
-// Main loop
-// ---
-
-    glutMainLoop();
-    return 0;
+   glutMainLoop();
+   return 0;
 }
 
 } // End Example namespace
 } // End Eaagles namespace
 
-
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return Eaagles::Example::main(argc, argv);

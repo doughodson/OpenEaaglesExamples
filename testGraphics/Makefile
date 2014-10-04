@@ -1,9 +1,9 @@
 #
 include ../makedefs
 
-PGM = mainw
+PGM = testGraphics
 
-OBJS = MfdDisplay.o MfdPage.o TdAzPtr.o TdElevPtr.o TestOne.o TestRotator.o TestTwo.o main.o 
+OBJS = MfdDisplay.o MfdPage.o TdAzPtr.o TdElevPtr.o TestOne.o TestRotator.o TestTwo.o TestDisplay main.o 
 
 LDFLAGS += -loeInstruments -loeGlut -loeBasicGL -loeBasic -lpthread
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11

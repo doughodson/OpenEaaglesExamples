@@ -12,7 +12,7 @@ APPLICATIONS += demoInstruments
 APPLICATIONS += demoSubDisplays
 
 # graphic oriented examples
-APPLICATIONS += mainw
+APPLICATIONS += testGraphics
 APPLICATIONS += mainGL
 
 # non-real-time simulation
@@ -43,9 +43,9 @@ APPLICATIONS += mainLaero
 APPLICATIONS += mainy1
 
 # test table, state machines, events and timer
+APPLICATIONS += testEvents
 APPLICATIONS += testTables
 APPLICATIONS += testStateMach
-APPLICATIONS += testEvents
 APPLICATIONS += testTimer
 
 # radar test program

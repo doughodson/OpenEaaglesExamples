@@ -1,5 +1,5 @@
 
-'mainw' -- Used to tests 'basic' classes
+'testGraphics' -- Used to test 'basic' and 'basicGL' classes
 
    test.d  -- default
    test2.d -- double page
@@ -15,5 +15,3 @@ Pick/Select test:
     Selected items with mouse and single, left mouse click
     Selected item will flash
     Use the lower, left corner to text strings
-    
-    
