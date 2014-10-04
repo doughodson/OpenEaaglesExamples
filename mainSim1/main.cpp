@@ -22,131 +22,127 @@
 namespace Eaagles {
 namespace Example {
 
-// default configuration file
-const char* testFile = "test00.edl";
-
-// Background frame rate
+// background frame rate
 const int bgRate = 10;
 
-// System descriptions
-static Simulation::Station* sys = 0; 
+static Simulation::Station* station = 0; 
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-  Basic::Object* obj = 0;
+   Basic::Object* obj = 0;
 
-  // Example libraries
-  if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+   // example libraries
+   if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
 
-  // Framework libraries
-  if (obj == 0) obj = Otw::Factory::createObj(name);
-  if (obj == 0) obj = Simulation::Factory::createObj(name);
-  if (obj == 0) obj = Dynamics::Factory::createObj(name);
-  if (obj == 0) obj = Sensor::Factory::createObj(name);
-  if (obj == 0) obj = Network::Dis::Factory::createObj(name);
-  if (obj == 0) obj = Basic::Factory::createObj(name);
+   // framework libraries
+   if (obj == 0) obj = Otw::Factory::createObj(name);
+   if (obj == 0) obj = Simulation::Factory::createObj(name);
+   if (obj == 0) obj = Dynamics::Factory::createObj(name);
+   if (obj == 0) obj = Sensor::Factory::createObj(name);
+   if (obj == 0) obj = Network::Dis::Factory::createObj(name);
+   if (obj == 0) obj = Basic::Factory::createObj(name);
 
-  return obj;
+   return obj;
 }
 
-// build Station
-static void builder()
+// station builder
+static Simulation::Station* builder(const char* const filename)
 {
-  std::cout << "Reading file : " << testFile << std::endl;
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  // Read the description file
-  int errors = 0;
-  Basic::Object* q1 = lcParser(testFile, factory, &errors);
-  if (errors > 0) {
-    std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
-    std::exit(1);
-  }
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  // Set 'sys' to our basic description object.
-  sys = 0;
-  if (q1 != 0) {
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-    // When we were given a Pair, get the pointer to its object.
-    Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-    if (pp != 0) {
-      q1 = pp->object();
-    }
-
-    // What we should have here is the description object and
-    // it should be of type 'Station'.
-    sys = dynamic_cast<Simulation::Station*>(q1);
-
-  }
-
-  // Make sure we did get a valid Station object (we must have one!)
-  if (sys == 0) {
-    std::cout << "Invalid description file!" << std::endl;
-    std::exit(EXIT_FAILURE);
-  }
+   // try to cast to proper object, and check
+   Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
+   if (station == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return station;
 }
 
-int exec(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
-  for (int i = 1; i < argc; i++) {
-    if (std::strcmp(argv[i],"-f") == 0) {
-      testFile = argv[++i];
-    }
-  }
+   // default configuration filename
+   const char* configFilename = "test00.edl";
 
-  // build Station
-  builder();
-  // send a reset event and frame sim once
-  sys->event(Basic::Component::RESET_EVENT);
-  sys->tcFrame( static_cast<LCreal>(1.0/static_cast<double>(sys->getTimeCriticalRate())) );
+   for (int i = 1; i < argc; i++) {
+      if (std::strcmp(argv[i],"-f") == 0) {
+         configFilename = argv[++i];
+      }
+   }
 
-  // Create Time Critical Thread
-  sys->createTimeCriticalProcess();
-  // short pause to allow os to startup thread
-  lcSleep(2000);
+   // build Station
+   station = builder(configFilename);
 
-  // Calc delta time for background thread
-  double dt = 1.0/static_cast<double>(bgRate);
+   // send a reset event and frame sim once
+   station->event(Basic::Component::RESET_EVENT);
+   station->tcFrame( static_cast<LCreal>(1.0/static_cast<double>(station->getTimeCriticalRate())) );
 
-  // System Time of Day 
-  double simTime = 0.0;                   // Simulator time reference
-  double startTime = getComputerTime();   // Time of day (sec) run started
+   // create time critical thread
+   station->createTimeCriticalProcess();
+   // short pause to allow os to startup thread
+   lcSleep(2000);
 
-  int k = 0;
-  std::cout << "Starting background main loop ..." << std::endl;
-  for(;;) {
+   // calc delta time for background thread
+   double dt = 1.0/static_cast<double>(bgRate);
 
-    // Update background thread
-    sys->updateData( static_cast<LCreal>(dt) );
+   // system Time of Day 
+   double simTime = 0.0;                   // Simulator time reference
+   double startTime = getComputerTime();   // Time of day (sec) run started
 
-    simTime += dt;                       // time of next frame
-    double timeNow = getComputerTime();  // time now
+   int k = 0;
+   std::cout << "Starting background main loop ..." << std::endl;
+   for(;;) {
 
-    double elapsedTime = timeNow - startTime;
-    double nextFrameStart = simTime - elapsedTime;
-    int sleepTime = static_cast<int>(nextFrameStart*1000.0);
+      // update background thread
+      station->updateData( static_cast<LCreal>(dt) );
 
-    // wait for the next frame
-    if (sleepTime > 0)
-      lcSleep(sleepTime);
+      simTime += dt;                       // time of next frame
+      double timeNow = getComputerTime();  // time now
 
-    std::cout << ".";
-    k += 1;
-    if ( k == 40 ) {
-      std::cout << "\n";
-      k = 0;
-    }
-  }
-  return 0;
+      double elapsedTime = timeNow - startTime;
+      double nextFrameStart = simTime - elapsedTime;
+      int sleepTime = static_cast<int>(nextFrameStart*1000.0);
+
+      // wait for the next frame
+      if (sleepTime > 0)
+         lcSleep(sleepTime);
+
+      std::cout << ".";
+      k += 1;
+      if ( k == 40 ) {
+         std::cout << "\n";
+         k = 0;
+      }
+   }
+   return 0;
 }
 
 } // namespace Example
 } // namespace Eaagles
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-  return Eaagles::Example::exec(argc, argv);
+   return Eaagles::Example::main(argc, argv);
 }
