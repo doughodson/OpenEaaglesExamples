@@ -12,14 +12,14 @@ namespace Tutorial {
 
 class MyPager : public BasicGL::Page
 {
-  DECLARE_SUBCLASS(MyPager, BasicGL::Page)
+   DECLARE_SUBCLASS(MyPager, BasicGL::Page)
 
 public:
 
-  MyPager();
+   MyPager();
 
-  // Page Interface
-  virtual bool onEntry();
+   // Page Interface
+   virtual bool onEntry();
 };
 
 } // namespace Tutorial

@@ -33,7 +33,7 @@ static Simulation::Station* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // test to see if an object was defined
+   // test to see if an object was created
    if (obj == 0) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -47,7 +47,7 @@ static Simulation::Station* builder(const char* const filename)
       pair->unref();
    }
 
-   // try to cast to a Station object, and check
+   // try to cast to proper object, and check
    Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
    if (station == 0) {
       std::cerr << "Invalid configuration file!" << std::endl;

@@ -15,79 +15,81 @@
 namespace Eaagles {
 namespace Tutorial {
 
-// default configuration file
-const char* inputFileName = "file0.edl";
-
-static class Random* sys = 0;
+static class Random* random = 0;
 
 // our class factory
 static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* obj = 0;
+   Basic::Object* obj = 0;
 
-  // look in application's classes
-  if ( std::strcmp(name, Uniform::getFactoryName()) == 0 ) {
-    obj = new Uniform();
-  }
-  else if ( std::strcmp(name, Exp::getFactoryName()) == 0 ) {
-    obj = new Exp();
-  }
+   // look in application's classes
+   if ( std::strcmp(name, Uniform::getFactoryName()) == 0 ) {
+      obj = new Uniform();
+   }
+   else if ( std::strcmp(name, Exp::getFactoryName()) == 0 ) {
+      obj = new Exp();
+   }
 
-  // look in base classes
-  if (obj == 0) obj = Basic::Factory::createObj(name);
+   // look in base classes
+   if (obj == 0) obj = Basic::Factory::createObj(name);
 
-  return obj;
+   return obj;
 }
 
-// build random
-static void builder()
+// random builder
+static Random* builder(const char* const filename)
 {
-  // Read the description file
-  int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
-  if (errors > 0) {
-    std::cerr << "Errors in reading file: " << errors << std::endl;
-    std::exit(1);
-  }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  // Set 'sys' to our basic description object.
-  sys = 0;
-  if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // When we were given a Pair, get the pointer to its object.
-    Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-    if (pp != 0) {
-      q1 = pp->object();
-    }
-    sys = dynamic_cast<Random*>(q1);
-  }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-  // Make sure we did get a valid object (we must have one!)
-  if (sys == 0) {
-    std::cout << "example: invalid description file!" << std::endl;
-    std::exit(1);
-  }
+   // try to cast to proper object, and check
+   Random* random = dynamic_cast<Random*>(obj);
+   if (random == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return random;
 }
 
 int main(int argc, char* argv[])
 {
-  // build random
-  builder();
+   // default configuration filename
+   const char* configFilename = "file0.edl";
 
-  for(unsigned int i=0; i<10; i++)
-    std::cout << sys->getNum() << std::endl;
+   // build random
+   random = builder(configFilename);
 
-  sys->unref();
+   for (unsigned int i=0; i<10; i++)
+      std::cout << random->getNum() << std::endl;
 
-  return 0;
+   random->unref();
+
+   return 0;
 }
 
 } // namespace Tutorial
 } // namespace Eaagles
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
   Eaagles::Tutorial::main(argc, argv);

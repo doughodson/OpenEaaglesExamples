@@ -16,13 +16,10 @@
 namespace Eaagles {
 namespace Tutorial {
 
-// default configuration file
-const char* inputFileName = "file0.edl";
-
-// Frame Rate
+// frame rate
 const int frameRate = 20;
 
-static class MyComp* sys = 0;
+static class MyComp* myComp = 0;
 
 // our class factory
 static Basic::Object* factory(const char* const name)
@@ -39,61 +36,69 @@ static Basic::Object* factory(const char* const name)
   return obj;
 }
 
-// build my component
-static void builder()
+// MyComp builder
+static MyComp* builder(const char* const filename)
 {
-  // Read the description file
-  int errors = 0;
-  Basic::Object* q1 = lcParser(inputFileName, factory, &errors);
-  if (errors > 0) {
-    std::cerr << "Errors in reading file: " << errors << std::endl;
-    std::exit(1);
-  }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  // Set 'sys' to our basic description object.
-  sys = 0;
-  if (q1 != 0) {
-    // When we were given a Pair, get the pointer to its object.
-    Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-    if (pp != 0) {
-      q1 = pp->object();
-    }
-    sys = dynamic_cast<MyComp*>(q1);
-  }
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  // Make sure we did get a valid object (we must have one!)
-  if (sys == 0) {
-    std::cout << "example: invalid description file!" << std::endl;
-    std::exit(1);
-  }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   MyComp* myComp = dynamic_cast<MyComp*>(obj);
+   if (myComp == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return myComp;
 }
 
 int main(int argc, char *argv[])
 {
-  // allow user to specify input file
-  for (int i = 1; i < argc; i++) {
-    if (std::strcmp(argv[i],"-f") == 0) {
-      inputFileName = argv[++i];
-    }
-  }
+   // default configuration filename
+   const char* configFilename = "file0.edl";
 
-  // build my component
-  builder();
+   // allow user to specify input file
+   for (int i = 1; i < argc; i++) {
+      if (std::strcmp(argv[i],"-f") == 0) {
+         configFilename = argv[++i];
+      }
+   }
 
-  // compute a delta time
-  double dt = 1.0 / static_cast<double>(frameRate);
-  // process component tree
-  sys->tcFrame(dt);     // time critical
-  sys->updateData(dt);  // non-time critical
+   // build my component
+   myComp = builder(configFilename);
 
-  // reset component tree
-  sys->reset();
+   // compute a delta time
+   double dt = 1.0 / static_cast<double>(frameRate);
+   // process component tree
+   myComp->tcFrame(dt);     // time critical
+   myComp->updateData(dt);  // non-time critical
 
-  // process component tree again
-  sys->tcFrame(dt);     // time critical
-  sys->updateData(dt);  // non-time critical
+   // reset component tree
+   myComp->reset();
 
-  sys->unref();
+   // process component tree again
+   myComp->tcFrame(dt);     // time critical
+   myComp->updateData(dt);  // non-time critical
+
+   myComp->unref();
 
   return 0;
 }
@@ -101,10 +106,8 @@ int main(int argc, char *argv[])
 } // namespace Tutorial
 } // namespace Eaagles
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-  Eaagles::Tutorial::main(argc, argv);
+   Eaagles::Tutorial::main(argc, argv);
 }

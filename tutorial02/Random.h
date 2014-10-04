@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
-// Class:  Random
-// Description:  Generates Random Numbers
+// Class: Random
+// Description: Generates Random Numbers
 //------------------------------------------------------------------------------
 
 #ifndef __Eaagles_Tutorial_Random_H__
@@ -13,14 +13,14 @@ namespace Tutorial {
 
 class Random : public Basic::Object
 {
-  DECLARE_SUBCLASS(Random, Basic::Object)
+   DECLARE_SUBCLASS(Random, Basic::Object)
 
 public:
 
-  Random();
+   Random();
 
-  int getNum() const;
-  void setSeed(const unsigned int);
+   int getNum() const;
+   void setSeed(const unsigned int);
 };
 
 } // namespace Tutorial
