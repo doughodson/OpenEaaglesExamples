@@ -19,85 +19,88 @@
 namespace Eaagles {
 namespace Example {
 
-// default configuration file
-static const char* const DEFAULT_CONFIG_FILE = "testfox.edl";
-static const char* fileName = DEFAULT_CONFIG_FILE;
-
-static FoxStation* station = 0;
+static FoxStation* foxStation = 0;
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-  Basic::Object* obj = 0;
+   Basic::Object* obj = 0;
 
-  if ( std::strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
-    obj = new FoxDisplay();
-  }
-  else if ( std::strcmp(name, FoxStation::getFactoryName()) == 0 ) {
-    obj = new FoxStation();
-  }
-  else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
-    obj = new Worm();
-  }
+   if ( std::strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
+      obj = new FoxDisplay();
+   }
+   else if ( std::strcmp(name, FoxStation::getFactoryName()) == 0 ) {
+      obj = new FoxStation();
+   }
+   else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
+      obj = new Worm();
+   }
 
-  if (obj == 0) obj = BasicGL::Factory::createObj(name);
-  if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == 0) obj = BasicGL::Factory::createObj(name);
+   if (obj == 0) obj = Basic::Factory::createObj(name);
 
-  return obj;
+   return obj;
 }
 
-// build a station
-static void builder(const char* const name)
+// FOX station builder
+static FoxStation* builder(const char* const filename)
 {
-   // Read the description file
+   // read configuration file
    int errors = 0;
-   Basic::Object* q1 = Basic::lcParser(name, factory, &errors);
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
-      std::cerr << "Errors in reading file: " << errors << std::endl;
-      q1 = 0;
-   }
-
-   if (q1 != 0) {
-      // When we were given a Pair, get the pointer to its object.
-      Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-      if (pp != 0) {
-         q1 = pp->object();
-      }
-      // What we should have here is the description object and
-      // it should be of type 'Station'.
-      station = dynamic_cast<FoxStation*>(q1);
-   }
-
-   // Make sure we did get a valid Station object (we must have one!)
-   if (station == 0) {
-      std::cout << "Invalid description file!" << std::endl;
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
+
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   FoxStation* foxStation = dynamic_cast<FoxStation*>(obj);
+   if (foxStation == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return foxStation;
 }
 
-int exec(int argc, char* argv[])
+//
+int main(int argc, char* argv[])
 {
+   // default configuration filename
+   const char* configFilename = "testfox.edl";
    // set optional input file
    for (int i = 1; i < argc; i++) {
       if (std::strcmp(argv[i],"-f") == 0) {
-         fileName = argv[++i];
+         configFilename = argv[++i];
       }
    }
-
    // build a station
-   builder(fileName);
+   foxStation = builder(configFilename);
 
    // send a reset pulse to station
-   station->event(Basic::Component::RESET_EVENT);
+   foxStation->event(Basic::Component::RESET_EVENT);
    // start real-time thread
-   station->createTimeCriticalProcess();
+   foxStation->createTimeCriticalProcess();
 
    // create Fox application object
    // this will be our non-real-time main loop
    Application application("Application", "FoxDefault");
 
    // it needs a station pointer to call updateData()
-   application.setStation(station);
+   application.setStation(foxStation);
 
    // initialize Fox and setup non-real-time timer
    application.init(argc,argv);
@@ -120,10 +123,8 @@ int exec(int argc, char* argv[])
 } // end Eaagles namespace
 
 
-//-----------------------------------------------------------------------------
-// main()
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-  Eaagles::Example::exec(argc, argv);
+  Eaagles::Example::main(argc, argv);
 }

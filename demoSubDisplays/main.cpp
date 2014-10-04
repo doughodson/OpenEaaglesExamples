@@ -15,7 +15,7 @@
 #include "openeaagles/basicGL/Factory.h"
 #include "openeaagles/instruments/Factory.h"
 
-// here are the test files
+// test files
 #include "TestSpeedBrake.h"
 #include "TestEngineDial.h"
 #include "TestCas.h"
@@ -42,196 +42,173 @@
 namespace Eaagles {
 namespace Demo {
 
-// Description (input) File -- After being processed by the C preprocessor
-const char* testFileName = "test.edl";
-
-// Frame Rate
+// frame rate
 const int frameRate = 20;
 
-// System descriptions
-static class Glut::GlutDisplay* sys = 0;
+static class Glut::GlutDisplay* glutDisplay = 0;
 
-//=============================================================================
-// Main test functions
-//=============================================================================
-
-// timerFunc() -- Time critical stuff)
+// timerFunc() -- Time critical stuff
 static void timerFunc(int)
 {
-    LCreal dt = 1.0f/static_cast<LCreal>(frameRate);
+   LCreal dt = 1.0f/static_cast<LCreal>(frameRate);
 
-    unsigned int millis = static_cast<unsigned int>(dt * 1000);
-    glutTimerFunc(millis, timerFunc, 1);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   glutTimerFunc(millis, timerFunc, 1);
 
-    Basic::Timer::updateTimers(dt);
-    BasicGL::Graphic::flashTimer(dt);
-    sys->updateTC(dt);
+   Basic::Timer::updateTimers(dt);
+   BasicGL::Graphic::flashTimer(dt);
+   glutDisplay->updateTC(dt);
 }
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-    Basic::Object* obj = 0;
+   Basic::Object* obj = 0;
 
-    // speed brake page
-    if ( std::strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
-        obj = new TestSpeedBrake;
-    }
-    // engine dial page
-    else if (std::strcmp(name, TestEngineDial::getFactoryName()) == 0 ) {
-        obj = new TestEngineDial;
-    }
-    // calibrated air speed (cas) page
-    else if (std::strcmp(name, TestCas::getFactoryName()) == 0 ) {
-        obj = new TestCas;
-    }
-    // ftit page
-    else if (std::strcmp(name, TestFtitDial::getFactoryName()) == 0 ) {
-        obj = new TestFtitDial;
-    }
-    // TestOilPressure page
-    else if (std::strcmp(name, TestOilPressure::getFactoryName()) == 0 ) {
-        obj = new TestOilPressure;
-    }
-    // TestNozzle page
-    else if (std::strcmp(name, TestNozzle::getFactoryName()) == 0 ) {
-        obj = new TestNozzle;
-    }
-    // TestRpmDial page
-    else if (std::strcmp(name, TestRpmDial::getFactoryName()) == 0 ) {
-        obj = new TestRpmDial;
-    }
-    // TestHsi page
-    else if (std::strcmp(name, TestHsi::getFactoryName()) == 0 ) {
-        obj = new TestHsi;
-    }
-    // TestGauge1 page
-    else if (std::strcmp(name, TestGauge1::getFactoryName()) == 0 ) {
-        obj = new TestGauge1;
-    }
-    // TestVVI page
-    else if (std::strcmp(name, TestVVI::getFactoryName()) == 0 ) {
-        obj = new TestVVI;
-    }
-    // TestAlt page
-    else if (std::strcmp(name, TestAlt::getFactoryName()) == 0 ) {
-        obj = new TestAlt;
-    }
-    // Compass Rose
-    else if (std::strcmp(name, TestCompass::getFactoryName()) == 0 ) {
-        obj = new TestCompass;
-    }
-    // Digital Gauge
-    else if (std::strcmp(name, TestDigitalGauge::getFactoryName()) == 0 ) {
-        obj = new TestDigitalGauge;
-    }
-    // TestGMeterDial page
-    else if (std::strcmp(name, TestGMeterDial::getFactoryName()) == 0 ) {
-        obj = new TestGMeterDial;
-    }
-    // TestLandingGear page
-    else if (std::strcmp(name, TestLandingGear::getFactoryName()) == 0 ) {
-        obj = new TestLandingGear;
-    }
-    // TestEngPage
-    else if (std::strcmp(name, TestEngPage::getFactoryName()) == 0 ) {
-        obj = new TestEngPage;
-    }
-    // TestButtons
-    else if (std::strcmp(name, TestButtons::getFactoryName()) == 0 ) {
-        obj = new TestButtons;
-    }
-    // TestAdi
-    else if (std::strcmp(name, TestAdi::getFactoryName()) == 0 ) {
-        obj = new TestAdi;
-    }
-    else if (std::strcmp(name, TestAdi2::getFactoryName()) == 0 ) {
-        obj = new TestAdi2;
-    }
+   // speed brake page
+   if ( std::strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
+      obj = new TestSpeedBrake;
+   }
+   // engine dial page
+   else if (std::strcmp(name, TestEngineDial::getFactoryName()) == 0 ) {
+      obj = new TestEngineDial;
+   }
+   // calibrated air speed (cas) page
+   else if (std::strcmp(name, TestCas::getFactoryName()) == 0 ) {
+      obj = new TestCas;
+   }
+   // ftit page
+   else if (std::strcmp(name, TestFtitDial::getFactoryName()) == 0 ) {
+      obj = new TestFtitDial;
+   }
+   // TestOilPressure page
+   else if (std::strcmp(name, TestOilPressure::getFactoryName()) == 0 ) {
+      obj = new TestOilPressure;
+   }
+   // TestNozzle page
+   else if (std::strcmp(name, TestNozzle::getFactoryName()) == 0 ) {
+      obj = new TestNozzle;
+   }
+   // TestRpmDial page
+   else if (std::strcmp(name, TestRpmDial::getFactoryName()) == 0 ) {
+      obj = new TestRpmDial;
+   }
+   // TestHsi page
+   else if (std::strcmp(name, TestHsi::getFactoryName()) == 0 ) {
+      obj = new TestHsi;
+   }
+   // TestGauge1 page
+   else if (std::strcmp(name, TestGauge1::getFactoryName()) == 0 ) {
+      obj = new TestGauge1;
+   }
+   // TestVVI page
+   else if (std::strcmp(name, TestVVI::getFactoryName()) == 0 ) {
+      obj = new TestVVI;
+   }
+   // TestAlt page
+   else if (std::strcmp(name, TestAlt::getFactoryName()) == 0 ) {
+      obj = new TestAlt;
+   }
+   // Compass Rose
+   else if (std::strcmp(name, TestCompass::getFactoryName()) == 0 ) {
+      obj = new TestCompass;
+   }
+   // Digital Gauge
+   else if (std::strcmp(name, TestDigitalGauge::getFactoryName()) == 0 ) {
+      obj = new TestDigitalGauge;
+   }
+   // TestGMeterDial page
+   else if (std::strcmp(name, TestGMeterDial::getFactoryName()) == 0 ) {
+      obj = new TestGMeterDial;
+   }
+   // TestLandingGear page
+   else if (std::strcmp(name, TestLandingGear::getFactoryName()) == 0 ) {
+      obj = new TestLandingGear;
+   }
+   // TestEngPage
+   else if (std::strcmp(name, TestEngPage::getFactoryName()) == 0 ) {
+      obj = new TestEngPage;
+   }
+   // TestButtons
+   else if (std::strcmp(name, TestButtons::getFactoryName()) == 0 ) {
+      obj = new TestButtons;
+   }
+   // TestAdi
+   else if (std::strcmp(name, TestAdi::getFactoryName()) == 0 ) {
+      obj = new TestAdi;
+   }
+   else if (std::strcmp(name, TestAdi2::getFactoryName()) == 0 ) {
+      obj = new TestAdi2;
+   }
 
-    else {
-        if (obj == 0) obj = Instruments::Factory::createObj(name);
-        if (obj == 0) obj = BasicGL::Factory::createObj(name);
-        if (obj == 0) obj = Glut::Factory::createObj(name);
-        if (obj == 0) obj = Basic::Factory::createObj(name);
-    }
+   else {
+      if (obj == 0) obj = Instruments::Factory::createObj(name);
+      if (obj == 0) obj = BasicGL::Factory::createObj(name);
+      if (obj == 0) obj = Glut::Factory::createObj(name);
+      if (obj == 0) obj = Basic::Factory::createObj(name);
+   }
 
-    return obj;
+   return obj;
 }
 
-// build a display
-static void builder()
+// display builder
+static Glut::GlutDisplay* builder(const char* const filename)
 {
-    // Read the description file
-    int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
-        std::exit(1);
-    }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Set 'sys' to our basic description object.
-    sys = 0;
-    if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-        if (pp != 0) {
-            q1 = pp->object();
-        }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // What we should have here is the description object and
-        // it should be of type 'InstDisplay'.
-        sys = dynamic_cast<Glut::GlutDisplay*>(q1);
-
-    }
-
-    // Make sure we did get a valid object (we must have one!)
-    if (sys == 0) {
-        std::cout << "Invalid description file!" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
-    //sys->serialize(std::cout);
+   // try to cast to proper object, and check
+   Glut::GlutDisplay* glutDisplay = dynamic_cast<Glut::GlutDisplay*>(obj);
+   if (glutDisplay == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return glutDisplay;
 }
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-    glutInit(&argc, argv);
+   glutInit(&argc, argv);
 
-// ---
-// Build a display
-// ---
-    builder();
+   // default configuration filename
+   const char* configFilename = "test.edl";
+   glutDisplay = builder(configFilename);
 
-// ---
-// Create a display window
-// ---
-    sys->createWindow();
+   glutDisplay->createWindow();
 
-// ---
-// Set timer
-// ---
-    double dt = 1.0/static_cast<double>(frameRate);
-    unsigned int millis = static_cast<unsigned int>(dt * 1000);
-    glutTimerFunc(millis, timerFunc, 1);
+   // set timer
+   double dt = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   glutTimerFunc(millis, timerFunc, 1);
 
-// ---
-// Main loop
-// ---
-    glutMainLoop();
-    return 0;
+   glutMainLoop();
+   return 0;
 }
 
-} // End Demo namespace
-} // End Eaagles namespace
+} // end Demo namespace
+} // end Eaagles namespace
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return Eaagles::Demo::main(argc, argv);

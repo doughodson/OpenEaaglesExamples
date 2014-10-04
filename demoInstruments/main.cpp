@@ -17,7 +17,7 @@
 
 #include <GL/glut.h>
 
-// here are the test files
+// test files
 #include "TestSpeedBrake.h"
 #include "TestEngineDial.h"
 #include "TestCas.h"
@@ -44,20 +44,13 @@
 namespace Eaagles {
 namespace Demo {
 
-// Description (input) File -- After being processed by the C preprocessor
-const char* testFileName = "testinstruments.edl";
-
-// Frame Rate
+// frame rate
 const int frameRate = 20;
 
 // System descriptions
-static class Glut::GlutDisplay* sys = 0;
+static class Glut::GlutDisplay* glutDisplay = 0;
 
-//=============================================================================
-// Main test functions
-//=============================================================================
-
-// timerFunc() -- Time critical stuff)
+// timerFunc() -- Time critical stuff
 static void timerFunc(int)
 {
     LCreal dt = 1.0f/static_cast<LCreal>(frameRate);
@@ -67,7 +60,7 @@ static void timerFunc(int)
 
     Basic::Timer::updateTimers(dt);
     BasicGL::Graphic::flashTimer(dt);
-    sys->updateTC(dt);
+    glutDisplay->updateTC(dt);
 }
 
 // our class factory
@@ -162,79 +155,64 @@ static Basic::Object* factory(const char* name)
     return obj;
 }
 
-// build a display as specified by configuration file
-static void builder()
+// display builder
+static Glut::GlutDisplay* builder(const char* const filename)
 {
-    // Read the description file
-    int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
-        std::exit(1);
-    }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Set 'sys' to our basic description object.
-    sys = 0;
-    if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-        if (pp != 0) {
-            q1 = pp->object();
-        }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // What we should have here is the description object and
-        // it should be of type 'GlutDisplay'
-        sys = dynamic_cast<Glut::GlutDisplay*>(q1);
-
-    }
-
-    // Make sure we did get a valid object (we must have one!)
-    if (sys == 0) {
-        std::cout << "Invalid description file!" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
-    //sys->serialize(std::cout);
+   // try to cast to proper object, and check
+   Glut::GlutDisplay* glutDisplay = dynamic_cast<Glut::GlutDisplay*>(obj);
+   if (glutDisplay == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return glutDisplay;
 }
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-    glutInit(&argc, argv);
+   glutInit(&argc, argv);
 
-// ---
-// build display
-// ---
-    builder();
+   // default configuration filename
+   const char* configFilename = "testinstruments.edl";
+   glutDisplay = builder(configFilename);
 
-// ---
-// Create a display window
-// ---
-    sys->createWindow();
+   glutDisplay->createWindow();
 
-// ---
-// Set timer
-// ---
-    double dt = 1.0/static_cast<double>(frameRate);
-    unsigned int millis = static_cast<unsigned int>(dt * 1000);
-    glutTimerFunc(millis, timerFunc, 1);
+   // setup timer
+   double dt = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   glutTimerFunc(millis, timerFunc, 1);
 
-// ---
-// Main loop
-// ---
-    glutMainLoop();
-    return 0;
+   glutMainLoop();
+   return 0;
 }
 
-} // End Demo namespace
-} // End Eaagles namespace
+} // end Demo namespace
+} // end Eaagles namespace
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return Eaagles::Demo::main(argc, argv);

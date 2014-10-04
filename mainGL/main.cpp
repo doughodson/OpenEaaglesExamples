@@ -1,8 +1,7 @@
-//*****************************************************************************
+//----------------------------------------------------------------
 // Simple example program that creates a GLUT window and draws an image 
-// as defined by an EDL file.
-//*****************************************************************************
-
+// as defined by EDL file.
+//----------------------------------------------------------------
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
@@ -20,19 +19,15 @@
 
 #include <cstring>
 
+namespace Eaagles {
 namespace Example {
 
-// Frame Rate
+// frame rate
 static const int frameRate = 20;
 
-// The System
-static class Eaagles::Glut::GlutDisplay* sys = 0;
+static class Glut::GlutDisplay* glutDisplay = 0;
 
-//=============================================================================
-// MainGL functions
-//=============================================================================
-
-// timerFunc() -- Time critical stuff)
+// timerFunc() -- Time critical stuff
 static void timerFunc(int)
 {
    double dt = 1.0/static_cast<double>(frameRate);
@@ -40,100 +35,88 @@ static void timerFunc(int)
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   Eaagles::Basic::Timer::updateTimers(static_cast<Eaagles::LCreal>(dt));
-   Eaagles::BasicGL::Graphic::flashTimer(static_cast<Eaagles::LCreal>(dt));
-   sys->tcFrame(static_cast<Eaagles::LCreal>(dt));
+   Basic::Timer::updateTimers(static_cast<LCreal>(dt));
+   BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+   glutDisplay->tcFrame(static_cast<LCreal>(dt));
 }
 
 // our class factory
 static Eaagles::Basic::Object* factory(const char* name)
 {
-   Eaagles::Basic::Object* obj = 0;
-   if (obj == 0) obj = Eaagles::Glut::Factory::createObj(name);
-   if (obj == 0) obj = Eaagles::BasicGL::Factory::createObj(name);
-   if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
+   Basic::Object* obj = 0;
+   if (obj == 0) obj = Glut::Factory::createObj(name);
+   if (obj == 0) obj = BasicGL::Factory::createObj(name);
+   if (obj == 0) obj = Basic::Factory::createObj(name);
 
    return obj;
 }
 
-// build a display as specified by configuration file
-static Eaagles::Glut::GlutDisplay* builder(const char* const filename)
+// display builder
+static Glut::GlutDisplay* builder(const char* const filename)
 {
-    // Read the description file
-    int errors = 0;
-    Eaagles::Basic::Object* q1 = lcParser(filename, factory, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
-        return 0;
-    }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Find our main system object
-    Eaagles::Glut::GlutDisplay* sys0 = 0;
-    if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
-        if (pp != 0) {
-            q1 = pp->object();
-        }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // What we should have here is the description object and
-        // it should be of type 'Display'.
-        sys0 = dynamic_cast<Eaagles::Glut::GlutDisplay*>(q1);
-    }
-    return sys0;
+   // try to cast to proper object, and check
+   Glut::GlutDisplay* glutDisplay = dynamic_cast<Glut::GlutDisplay*>(obj);
+   if (glutDisplay == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return glutDisplay;
 }
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
-int process(int argc, char* argv[])
+//
+int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   const char* fileName = "test.edl";
+   // default configuration filename
+   const char* configFilename = "test.edl";
    for (int i = 1; i < argc; i++) {
       if (std::strcmp(argv[i],"-f") == 0) {
-         fileName = argv[++i];
+         configFilename = argv[++i];
       }
    }
 
-// ---
-// Build a display
-// ---
-    sys = builder(fileName);
+   glutDisplay = builder(configFilename);
 
-    // Make sure we did get a valid object (we must have one!)
-    if (sys == 0) {
-        std::cout << "mainGL: invalid description file!" << std::endl;
-        exit(EXIT_FAILURE);
-    }
+   // create a display window
+   glutDisplay->createWindow();
 
-// ---
-// Create a display window
-// ---
-    sys->createWindow();
-
-// ---
-// Set timer
-// ---
-    double dt = 1.0/static_cast<double>(frameRate);
-    unsigned int millis = static_cast<unsigned int>(dt * 1000);
-    glutTimerFunc(millis, timerFunc, 1);
+   // set timer
+   double dt = 1.0/static_cast<double>(frameRate);
+   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   glutTimerFunc(millis, timerFunc, 1);
     
-// ---
-// Main loop
-// ---
-    glutMainLoop();
-    return 0;
+   glutMainLoop();
+   return 0;
 }
 
-} // Example namespace
+} // end Example namespace
+} // end Eaagles namespace
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-    return Example::process(argc,argv);
+   return Eaagles::Example::main(argc,argv);
 }

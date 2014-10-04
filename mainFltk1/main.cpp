@@ -22,21 +22,20 @@
 // ----------------------------------------------------------------------------
 static void update(void* pData)
 {
-    if (pData != NULL) {
-        Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
-        if (stn != 0) {
-            double dt = 1 / 20.0f;
-            stn->updateData((Eaagles::LCreal)dt);
-            Fl::repeat_timeout(dt, update, pData);
-        }
-    }
+   if (pData != NULL) {
+      Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
+      if (stn != 0) {
+         double dt = 1 / 20.0f;
+         stn->updateData(static_cast<Eaagles::LCreal>(dt));
+         Fl::repeat_timeout(dt, update, pData);
+      }
+   }
 }
 
 namespace Eaagles {
 namespace Example {
 
-static FltkStation* sys = 0;
-static const char* testFileName = "test.edl";
+static FltkStation* fltkStation = 0;
 
 // our class factory
 static Basic::Object* factory(const char* name)
@@ -60,68 +59,62 @@ static Basic::Object* factory(const char* name)
     return obj;
 }
 
-// build a station
-static void builder()
+// FLTK station builder
+static FltkStation* builder(const char* const filename)
 {
-    // Read the description file
-    int errors = 0;
-    Eaagles::Basic::Object* q1 = Eaagles::Basic::lcParser(testFileName, factory, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
-        std::exit(1);
-    }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Set 'sys' to our basic description object.
-    sys = 0;
-    if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-        if (pp != 0) {
-            std::cout << "Form: " << *pp->slot() << std::endl;
-            q1 = pp->object();
-        }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // we should have a FltkStation
-        sys = dynamic_cast<FltkStation*>(q1);
-
-    }
-
-    // Make sure we did get a valid object
-    if (sys == 0) {
-        std::cout << "Invalid description file!" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
+   // try to cast to proper object, and check
+   FltkStation* fltkStation = dynamic_cast<FltkStation*>(obj);
+   if (fltkStation == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return fltkStation;
 }
 
 int main(int, char* [])
 {
+   // default configuration filename
+   const char* configFilename = "test.edl";
+   fltkStation = builder(configFilename);
 
-    // build a station
-    builder();
+   // now do a reset
+   fltkStation->reset();
+   fltkStation->updateData(0.025f);
 
-    // now do a reset
-    sys->reset();
-    sys->updateData(0.025f);
+   // run at 20 HZ roughly, background thread
+   double dt = 1 / 20.0f;
+   // create our update data timer
+   Fl::add_timeout(dt, update, fltkStation);
 
-    // test our real time process (not needed here)
-    //sys->createRealTimeProcess();
-
-    // run at 20 HZ roughly, background thread
-    double dt = 1 / 20.f;
-    // create our update data timer
-    Fl::add_timeout(dt, update, sys);
-
-    return Fl::run();
+   return Fl::run();
 }
 
 }
 }
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return Eaagles::Example::main(argc,argv);
