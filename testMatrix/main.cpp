@@ -535,7 +535,7 @@ void test_getInverse()
 } // end namespace Basic 
 } // end namespace Eaagles
 
-//==============================================================================
+//
 int main(int argc, char* argv[])
 {
    Eaagles::Basic::testMatrixFns();

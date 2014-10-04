@@ -17,7 +17,7 @@
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Thread.h"
 
-// class factories
+// class factory
 #include "openeaagles/basic/Factory.h"
 
 #include <cstdio>
@@ -90,46 +90,42 @@ static Basic::Object* factory(const char* const name)
   return obj;
 }
 
-// build a tester
-static Tester* builder(const char* const testFileName)
+// Tester builder
+static Tester* builder(const char* const filename)
 {
-    // Read the description file
-    int errors = 0;
-    Basic::Object* q1 = Basic::lcParser(testFileName, factory, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
-        std::exit(1);
-    }
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Set 'sys' to our basic description object.
-    Tester* sys = 0;
-    if (q1 != 0) {
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-        if (pp != 0) {
-           std::cout << "Form: " << *pp->slot() << std::endl;
-            q1 = pp->object();
-        }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // What we should have here is the description object and
-        // it should be of type 'Tester'.
-        sys = dynamic_cast<Tester*>(q1);
-    }
-
-    // Make sure we did get a valid object (we must have one!)
-    if (sys == 0) {
-        std::cout << "Invalid description file!" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
-    //sys->serialize(std::cout);
-    return sys;
+   // try to cast to proper object, and check
+   Tester* tester = dynamic_cast<Tester*>(obj);
+   if (tester == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return tester;
 }
 
-
 //------------------------------------------------------------------------------
-// Run the test
+// run the test
 //------------------------------------------------------------------------------
 void run(Tester* const tester)
 {
@@ -144,7 +140,6 @@ void run(Tester* const tester)
       mainTimer->setAlarmTime(MAIN_TIMER_VALUE);
       mainTimer->start();
 
-
       // ---
       // First pass
       // ---
@@ -157,7 +152,6 @@ void run(Tester* const tester)
          tester->printTimers();
       }
 
-
       // ---
       // Restart the timers
       // ---
@@ -167,7 +161,6 @@ void run(Tester* const tester)
       std::cout << "#### Restarting Timers (all active) ####" << std::endl;
       tester->restartAllTimers();
       mainTimer->restart();
-
 
       // ---
       // Second pass
@@ -181,47 +174,40 @@ void run(Tester* const tester)
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }
-
    }
 }
 
-//------------------------------------------------------------------------------
-// main test executive
-//------------------------------------------------------------------------------
-int exec(int argc, char* argv[])
+//
+int main(int argc, char* argv[])
 {
+   // default configuration filename
+   const char* configFilename = "test01.edl";
 
-   // configuration file
-   const char* configFile = "test01.edl";
-
-   // Parse arguments
+   // parse arguments
    for (int i = 1; i < argc; i++) {
       if (std::strcmp(argv[i],"-f") == 0) {
-         configFile = argv[++i];
+         configFilename = argv[++i];
       }
    }
 
-   // Read in the description files
-   Tester* tester = builder(configFile);
-   if (tester != 0) {
+   // build tester
+   Tester* tester = builder(configFilename);
 
-      // create the thread
-      TimerThread* thread = createTheThread(tester);
-      if (thread != 0) {
+   // create the thread
+   TimerThread* thread = createTheThread(tester);
+   if (thread != 0) {
 
-         // Run the test
-         run(tester);
+      // run the test
+      run(tester);
 
-         tester->event(Basic::Component::SHUTDOWN_EVENT);
-         tester->unref();
-         tester = 0;
+      tester->event(Basic::Component::SHUTDOWN_EVENT);
+      tester->unref();
+      tester = 0;
 
-         // Stop the thread
-         thread->terminate();
-         thread->unref();
-         thread = 0;
-      }
-
+      // stop the thread
+      thread->terminate();
+      thread->unref();
+      thread = 0;
    }
 
    return 0;
@@ -230,11 +216,9 @@ int exec(int argc, char* argv[])
 } // namespace Test
 } // namespace Eaagles
 
-//=============================================================================
-// main() -- Main routine
-//=============================================================================
+//
 int main(int argc, char* argv[])
 {
-   Eaagles::Test::exec(argc, argv);
+   Eaagles::Test::main(argc, argv);
 }
 

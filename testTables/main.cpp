@@ -18,57 +18,62 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
 
-// class factories
+// class factory
 #include "openeaagles/basic/Factory.h"
 
-// Parameters
-static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
+namespace Eaagles {
+namespace Test {
+
 static const unsigned int TIMING_LOOPS = 10000;
 
-//-----------------------------------------------------------------------------
-// Read the configuration file
-//-----------------------------------------------------------------------------
-static const Eaagles::Basic::Table* builder(const char* const fileName)
+// table builder
+static Basic::Table* builder(const char* const filename)
 {
-   const Eaagles::Basic::Table* p = 0;
-
-   // Read the description file
+   // read configuration file
    int errors = 0;
-   Eaagles::Basic::Object* q1 =
-         Eaagles::Basic::lcParser(fileName, Eaagles::Basic::Factory::createObj, &errors);
+   Basic::Object* obj = Basic::lcParser(filename, Basic::Factory::createObj, &errors);
    if (errors > 0) {
-      std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
-      return 0;
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   if (q1 != 0) {
-      // When we were given a Basic::Pair, get the pointer to its object.
-      Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
-      if (pp != 0) {
-         q1 = pp->object();
-      }
-
-      // What we should have here is the Station object
-      p = dynamic_cast<const Eaagles::Basic::Table*>(q1);
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
    }
-    
-   return p;
+
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   Basic::Table* table = dynamic_cast<Basic::Table*>(obj);
+   if (table == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return table;
 }
 
 //-----------------------------------------------------------------------------
 // Test 1D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const Eaagles::Basic::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const Basic::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   Eaagles::Basic::FStorage* s = 0;
+   Basic::FStorage* s = 0;
    if (sflg) s = tbl->storageFactory();
 
-   Eaagles::LCreal maxX = tbl->getMaxX();
-   Eaagles::LCreal minX = tbl->getMinX();
-   Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(20);
+   LCreal maxX = tbl->getMaxX();
+   LCreal minX = tbl->getMinX();
+   LCreal dx = (maxX - minX) / static_cast<LCreal>(20);
 
    if (!tflg) {
       std::cout << std::endl;
@@ -78,12 +83,12 @@ testIt(const Eaagles::Basic::Table1* const tbl, const bool tflg, const bool sflg
       std::cout << "x, value" << std::endl;
    }
 
-   Eaagles::LCreal x = minX - 2*dx;
+   LCreal x = minX - 2*dx;
    while ( x <= (maxX + 2*dx) ) {
-      Eaagles::LCreal x1 = x;
-      if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand()) / static_cast<Eaagles::LCreal>(RAND_MAX));
+      LCreal x1 = x;
+      if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand()) / static_cast<LCreal>(RAND_MAX));
 
-      Eaagles::LCreal value = tbl->lfi(x1,s);
+      LCreal value = tbl->lfi(x1,s);
       cnt++;
 
       if (!tflg) std::cout << x1 << ", " << value << std::endl;
@@ -98,20 +103,20 @@ testIt(const Eaagles::Basic::Table1* const tbl, const bool tflg, const bool sflg
 // Test 2D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const Eaagles::Basic::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const Basic::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   Eaagles::Basic::FStorage* s = 0;
+   Basic::FStorage* s = 0;
    if (sflg) s = tbl->storageFactory();
 
-   Eaagles::LCreal maxY = tbl->getMaxY();
-   Eaagles::LCreal minY = tbl->getMinY();
-   Eaagles::LCreal dy = (maxY - minY) / static_cast<Eaagles::LCreal>(10);
+   LCreal maxY = tbl->getMaxY();
+   LCreal minY = tbl->getMinY();
+   LCreal dy = (maxY - minY) / static_cast<LCreal>(10);
 
-   Eaagles::LCreal maxX = tbl->getMaxX();
-   Eaagles::LCreal minX = tbl->getMinX();
-   Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(20);
+   LCreal maxX = tbl->getMaxX();
+   LCreal minX = tbl->getMinX();
+   LCreal dx = (maxX - minX) / static_cast<LCreal>(20);
 
    if (!tflg) {
       std::cout << std::endl;
@@ -121,17 +126,17 @@ testIt(const Eaagles::Basic::Table2* const tbl, const bool tflg, const bool sflg
       std::cout << "x, y, value" << std::endl;
    }
 
-   Eaagles::LCreal y = minY - 2*dy;
+   LCreal y = minY - 2*dy;
    while ( y <= (maxY + 2*dy) ) {
-      Eaagles::LCreal y1 = y;
-      if (rflg) y1 = (minY + (maxY - minY) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+      LCreal y1 = y;
+      if (rflg) y1 = (minY + (maxY - minY) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-      Eaagles::LCreal x = minX - 2*dx;
+      LCreal x = minX - 2*dx;
       while ( x <= (maxX + 2*dx) ) {
-         Eaagles::LCreal x1 = x;
-         if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+         LCreal x1 = x;
+         if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-         Eaagles::LCreal value = tbl->lfi(x1,y1,s);
+         LCreal value = tbl->lfi(x1,y1,s);
          cnt++;
 
          if (!tflg) std::cout << x1 << ", " << y1 << ", " << value << std::endl;
@@ -148,27 +153,27 @@ testIt(const Eaagles::Basic::Table2* const tbl, const bool tflg, const bool sflg
 // Test 3D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const Eaagles::Basic::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const Basic::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   Eaagles::Basic::FStorage* s = 0;
+   Basic::FStorage* s = 0;
    if (sflg) s = tbl->storageFactory();
 
    // Setup Z
-   Eaagles::LCreal maxZ = tbl->getMaxZ();
-   Eaagles::LCreal minZ = tbl->getMinZ();
-   Eaagles::LCreal dz = (maxZ - minZ) / static_cast<Eaagles::LCreal>(2*(tbl->getNumZPoints()-1));
+   LCreal maxZ = tbl->getMaxZ();
+   LCreal minZ = tbl->getMinZ();
+   LCreal dz = (maxZ - minZ) / static_cast<LCreal>(2*(tbl->getNumZPoints()-1));
 
    // Setup Y
-   Eaagles::LCreal maxY = tbl->getMaxY();
-   Eaagles::LCreal minY = tbl->getMinY();
-   Eaagles::LCreal dy = (maxY - minY) / static_cast<Eaagles::LCreal>(2*(tbl->getNumYPoints()-1));
+   LCreal maxY = tbl->getMaxY();
+   LCreal minY = tbl->getMinY();
+   LCreal dy = (maxY - minY) / static_cast<LCreal>(2*(tbl->getNumYPoints()-1));
 
    // Setup X
-   Eaagles::LCreal maxX = tbl->getMaxX();
-   Eaagles::LCreal minX = tbl->getMinX();
-   Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(2*(tbl->getNumXPoints()-1));
+   LCreal maxX = tbl->getMaxX();
+   LCreal minX = tbl->getMinX();
+   LCreal dx = (maxX - minX) / static_cast<LCreal>(2*(tbl->getNumXPoints()-1));
 
    if (!tflg) {
       std::cout << std::endl;
@@ -178,22 +183,22 @@ testIt(const Eaagles::Basic::Table3* const tbl, const bool tflg, const bool sflg
       std::cout << "x, y, z, value" << std::endl;
    }
 
-   Eaagles::LCreal z = minZ - dz;
+   LCreal z = minZ - dz;
    while ( z <= (maxZ + dz) ) {
-      Eaagles::LCreal z1 = z;
-      if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+      LCreal z1 = z;
+      if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-      Eaagles::LCreal y = minY - dy;
+      LCreal y = minY - dy;
       while ( y <= (maxY + dy) ) {
-         Eaagles::LCreal y1 = y;
-         if (rflg) y1 = (minY + (maxY - minY) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+         LCreal y1 = y;
+         if (rflg) y1 = (minY + (maxY - minY) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-         Eaagles::LCreal x = minX - dx;
+         LCreal x = minX - dx;
          while ( x <= (maxX + dx) ) {
-            Eaagles::LCreal x1 = x;
-            if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+            LCreal x1 = x;
+            if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-            Eaagles::LCreal value = tbl->lfi(x1,y1,z1,s);
+            LCreal value = tbl->lfi(x1,y1,z1,s);
             cnt++;
 
             if (!tflg) std::cout << x1 << ", " << y1 << ", " << z1 << ", " << value << std::endl;
@@ -213,29 +218,29 @@ testIt(const Eaagles::Basic::Table3* const tbl, const bool tflg, const bool sflg
 // Test 4D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const Eaagles::Basic::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const Basic::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   Eaagles::Basic::FStorage* s = 0;
+   Basic::FStorage* s = 0;
    if (sflg) s = tbl->storageFactory();
 
    // Setup W
-   const Eaagles::LCreal minW = tbl->getMinW();
-   const Eaagles::LCreal maxW = tbl->getMaxW();
-   const Eaagles::LCreal dw = (maxW - minW) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumWPoints() - 1));
+   const LCreal minW = tbl->getMinW();
+   const LCreal maxW = tbl->getMaxW();
+   const LCreal dw = (maxW - minW) / static_cast<LCreal>(2 * (tbl->getNumWPoints() - 1));
         
-   const Eaagles::LCreal minZ = tbl->getMinZ();
-   const Eaagles::LCreal maxZ = tbl->getMaxZ();
-   const Eaagles::LCreal dz = (maxZ - minZ) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumZPoints() - 1));
+   const LCreal minZ = tbl->getMinZ();
+   const LCreal maxZ = tbl->getMaxZ();
+   const LCreal dz = (maxZ - minZ) / static_cast<LCreal>(2 * (tbl->getNumZPoints() - 1));
 
-   const Eaagles::LCreal minY = tbl->getMinY();
-   const Eaagles::LCreal maxY = tbl->getMaxY();
-   const Eaagles::LCreal dy = (maxY - minY) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumYPoints() - 1));
+   const LCreal minY = tbl->getMinY();
+   const LCreal maxY = tbl->getMaxY();
+   const LCreal dy = (maxY - minY) / static_cast<LCreal>(2 * (tbl->getNumYPoints() - 1));
 
-   const Eaagles::LCreal minX = tbl->getMinX();
-   const Eaagles::LCreal maxX = tbl->getMaxX();
-   const Eaagles::LCreal dx = (maxX - minX) / static_cast<Eaagles::LCreal>(2 * (tbl->getNumXPoints() - 1));
+   const LCreal minX = tbl->getMinX();
+   const LCreal maxX = tbl->getMaxX();
+   const LCreal dx = (maxX - minX) / static_cast<LCreal>(2 * (tbl->getNumXPoints() - 1));
 
    if (!tflg) {
       std::cout << std::endl;
@@ -245,27 +250,27 @@ testIt(const Eaagles::Basic::Table4* const tbl, const bool tflg, const bool sflg
       std::cout << "x, y, z, w, value" << std::endl;
    }
 
-   Eaagles::LCreal w = minW - dw;
+   LCreal w = minW - dw;
    while (w <= (maxW + dw)) {
-      Eaagles::LCreal w1 = w;
-      if (rflg) w1 = (minW + (maxW - minW) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+      LCreal w1 = w;
+      if (rflg) w1 = (minW + (maxW - minW) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-      Eaagles::LCreal z = minZ - dz;
+      LCreal z = minZ - dz;
       while (z <= (maxZ + dz)) {
-         Eaagles::LCreal z1 = z;
-         if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+         LCreal z1 = z;
+         if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-         Eaagles::LCreal y = minY - dy;
+         LCreal y = minY - dy;
          while (y <= (maxY + dy)) {
-            Eaagles::LCreal y1 = y;
-            if (rflg) y1 = (minY + (maxY - minY) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+            LCreal y1 = y;
+            if (rflg) y1 = (minY + (maxY - minY) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-            Eaagles::LCreal x = minX - dx;
+            LCreal x = minX - dx;
             while (x <= (maxX + dx)) {
-               Eaagles::LCreal x1 = x;
-               if (rflg) x1 = (minX + (maxX - minX) * static_cast<Eaagles::LCreal>(rand())/static_cast<Eaagles::LCreal>(RAND_MAX));
+               LCreal x1 = x;
+               if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
 
-               Eaagles::LCreal value = tbl->lfi(x1, y1, z1, w1, s);
+               LCreal value = tbl->lfi(x1, y1, z1, w1, s);
                cnt++;
 
                if (!tflg) {
@@ -301,13 +306,13 @@ int main(int argc, char* argv[])
    bool sflg = false;   // TableStoreage flag
    bool tflg = false;   // Timing flag
 
-   // configuration file
-   const char* configFile = DEFAULT_CONFIG_FILE;
+   // default configuration filename
+   const char* configFilename = "test1.edl";
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
       if (strcmp(argv[i],"-f") == 0) {
-         configFile = argv[++i];
+         configFilename = argv[++i];
       }
       else if (strcmp(argv[i],"-a") == 0) {
          aflg = true;
@@ -323,14 +328,8 @@ int main(int argc, char* argv[])
       }
    }
 
-   // ---
-   // Read in the description files
-   // ---
-   const Eaagles::Basic::Table* table = builder(configFile);
-   if (table == 0) {
-      std::cerr << "Invalid configuration file!" << std::endl;
-      exit(EXIT_FAILURE);
-   }
+   // build table
+   const Basic::Table* table = builder(configFilename);
 
    // ---
    // Serialize the table to the output stream
@@ -340,15 +339,15 @@ int main(int argc, char* argv[])
    // ---
    // Cast table pointers
    // ---
-   const Eaagles::Basic::Table1* t1 = dynamic_cast<const Eaagles::Basic::Table1*>(table);
-   const Eaagles::Basic::Table2* t2 = dynamic_cast<const Eaagles::Basic::Table2*>(table);
-   const Eaagles::Basic::Table3* t3 = dynamic_cast<const Eaagles::Basic::Table3*>(table);
-   const Eaagles::Basic::Table4* t4 = dynamic_cast<const Eaagles::Basic::Table4*>(table);
+   const Basic::Table1* t1 = dynamic_cast<const Basic::Table1*>(table);
+   const Basic::Table2* t2 = dynamic_cast<const Basic::Table2*>(table);
+   const Basic::Table3* t3 = dynamic_cast<const Basic::Table3*>(table);
+   const Basic::Table4* t4 = dynamic_cast<const Basic::Table4*>(table);
 
    // ---
    // Call the test function for this LFI table type
    // ---
-   double startTime = Eaagles::getComputerTime();
+   double startTime = getComputerTime();
    unsigned int cnt = 0;
    unsigned int n = 1;
    if (tflg) n = TIMING_LOOPS;
@@ -383,4 +382,13 @@ int main(int argc, char* argv[])
    }
 
    return EXIT_SUCCESS;
+}
+
+}
+}
+
+//
+int main(int argc, char* argv[])
+{
+   return Eaagles::Test::main(argc, argv);
 }

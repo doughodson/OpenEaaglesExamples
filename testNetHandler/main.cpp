@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Description: application to test NetHandler functionality
+// Test NetHandler functionality
 //-----------------------------------------------------------------------------
 
 #include "Endpoint.h"
@@ -19,128 +19,113 @@
 namespace Eaagles {
 namespace Test {
 
-const float UPDATE_RATE = 10.0; // Main loop update rate
+const float UPDATE_RATE = 10.0; // main loop update rate
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-    Basic::Object* obj = 0;
+   Basic::Object* obj = 0;
 
-    if ( std::strcmp(name, Sender::getFactoryName()) == 0 ) {
-        obj = new Sender();
-    }
-    else if ( std::strcmp(name, Echo::getFactoryName()) == 0 ) {
-        obj = new Echo();
-    }
+   if ( std::strcmp(name, Sender::getFactoryName()) == 0 ) {
+      obj = new Sender();
+   }
+   else if ( std::strcmp(name, Echo::getFactoryName()) == 0 ) {
+      obj = new Echo();
+   }
 
-    // Example libraries
-    if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
-    // Framework libraries
-    if (obj == 0) obj = Basic::Factory::createObj(name);
+   // example libraries
+   if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+   // framework libraries
+   if (obj == 0) obj = Basic::Factory::createObj(name);
 
-    return obj;
+   return obj;
 }
 
-// build an endpoint as specified by configuration file
-static Endpoint* builder(const char* const testFile)
+// endpoint builder
+static Endpoint* builder(const char* const filename)
 {
-  if (testFile == 0) return 0;
+   // read configuration file
+   int errors = 0;
+   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   if (errors > 0) {
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  std::cout << "Reading file : " << testFile << std::endl;
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-  // Read the description file
-  int errors = 0;
-  Basic::Object* q1 = lcParser(testFile, factory, &errors);
-  if (errors > 0) {
-    std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
-    std::exit(1);
-  }
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-  // Set 'sys' to our basic description object.
-  Endpoint* sys = 0;
-  if (q1 != 0) {
-
-    // When we were given a Pair, get the pointer to its object.
-    Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-    if (pp != 0) {
-      q1 = pp->object();
-    }
-
-    // What we should have here is the description object and
-    // it should be of type 'Station'.
-    sys = dynamic_cast<Endpoint*>(q1);
-
-  }
-
-  return sys;
+   // try to cast to proper object, and check
+   Endpoint* endpoint = dynamic_cast<Endpoint*>(obj);
+   if (endpoint == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return endpoint;
 }
 
-int exec(int argc, char* argv[])
-{
-	// default configuration file
-    const char* testFile = "configs/senderUdpBroadcast.edl";
-
-    // Get the command line arguments
-    for (int i = 1; i < argc; i++) {
-        if (std::strcmp(argv[i],"-f") == 0) {
-            testFile = argv[++i];
-        }
-    }
-
-    // Must have a test file name
-    if (testFile == 0) {
-        std::cerr << "usage: testNetHandler -f testFile" << std::endl;
-        return EXIT_FAILURE;
-    }
-
-    // build an endpoint
-    Endpoint* sys = builder(testFile);
-
-    // Must have a valid system of type Endpoint (e.g., Sender or Echo)
-    if (sys == 0) {
-        std::cerr << "Invalid test file -- requires a Sender or Echo component." << std::endl;
-        return EXIT_FAILURE;
-    }
-
-    // Send a reset event
-    std::cout << "Reset event: which will establish the networks." << std::endl;
-    sys->event(Basic::Component::RESET_EVENT);
-
-    // System Time of Day
-    double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time
-    double simTime = 0.0;                            // Simulator time reference
-    double startTime = Eaagles::getComputerTime();   // Time of day (sec) run started
-
-    // Main loop !!!!
-    std::cout << "Starting main loop ..." << std::endl;
-    for(;;) {
-
-        sys->updateTC( static_cast<LCreal>(dt) );
-        sys->updateData( static_cast<LCreal>(dt) );
-
-        simTime += dt;                       // time of next frame
-        double timeNow = Eaagles::getComputerTime();  // time now
-
-        double elapsedTime = timeNow - startTime;
-        double nextFrameStart = simTime - elapsedTime;
-        int sleepTime = static_cast<int>(nextFrameStart*1000.0);
-
-        // wait for the next frame
-        if (sleepTime > 0)
-            lcSleep(sleepTime);
-    }
-
-    return EXIT_SUCCESS;
-}
-
-}
-}
-
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-    Eaagles::Test::exec(argc, argv);
+   // default configuration filename
+   const char* configFilename = "configs/senderUdpBroadcast.edl";
+   // parse command line arguments
+   for (int i = 1; i < argc; i++) {
+      if (std::strcmp(argv[i],"-f") == 0) {
+         configFilename = argv[++i];
+      }
+   }
+
+   // build an endpoint
+   Endpoint* endpoint = builder(configFilename);
+
+   // send a reset event
+   std::cout << "Reset event: which will establish the networks." << std::endl;
+   endpoint->event(Basic::Component::RESET_EVENT);
+
+   // system time of day
+   double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time
+   double simTime = 0.0;                            // Simulator time reference
+   double startTime = Eaagles::getComputerTime();   // Time of day (sec) run started
+
+   // main loop
+   std::cout << "Starting main loop ..." << std::endl;
+   for(;;) {
+
+      endpoint->updateTC( static_cast<LCreal>(dt) );
+      endpoint->updateData( static_cast<LCreal>(dt) );
+
+      simTime += dt;                       // time of next frame
+      double timeNow = Eaagles::getComputerTime();  // time now
+
+      double elapsedTime = timeNow - startTime;
+      double nextFrameStart = simTime - elapsedTime;
+      int sleepTime = static_cast<int>(nextFrameStart*1000.0);
+
+      // wait for the next frame
+      if (sleepTime > 0)
+         lcSleep(sleepTime);
+   }
+
+   return EXIT_SUCCESS;
 }
 
+}
+}
+
+//
+int main(int argc, char* argv[])
+{
+   Eaagles::Test::main(argc, argv);
+}

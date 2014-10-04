@@ -19,17 +19,15 @@
 namespace Eaagles {
 namespace Test {
 
-// Background frame rate
+// background frame rate
 const int bgRate = 10;
 
-// System descriptions
-static TestStation* station = 0;
+//
+static TestStation* testStation = 0;
 
-// build a station
-static TestStation* builder(const char* const fileName)
+// test station builder
+static TestStation* builder(const char* const filename)
 {
-   TestStation* p = 0;
-
 #ifdef PARSE_TIMING_TEST
     LARGE_INTEGER cFreq;
     QueryPerformanceFrequency(&cFreq);
@@ -40,12 +38,12 @@ static TestStation* builder(const char* const fileName)
     LONGLONG startCnt = fcnt.QuadPart;
 #endif
 
-   // Read the description file
+   // read configuration file
    int errors = 0;
-   Basic::Object* q1 = lcParser(fileName, Factory::createObj, &errors);
+   Basic::Object* obj = Basic::lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
-      std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
-      return 0;
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
 #ifdef PARSE_TIMING_TEST
@@ -58,20 +56,27 @@ static TestStation* builder(const char* const fileName)
     std::cout << "dtime1 = " << dtime1 << "MS" << std::endl;
 #endif
 
-   if (q1 != 0) {
-      // When we were given a Basic::Pair, get the pointer to its object.
-      Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-      if (pp != 0) {
-         q1 = pp->object();
-      }
-
-      // What we should have here is the Station object
-      p = dynamic_cast<TestStation*>(q1);
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   //p->serialize(std::cout);
-    
-   return p;
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   TestStation* testStation = dynamic_cast<TestStation*>(obj);
+   if (testStation == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return testStation;
 }
 
 //-----------------------------------------------------------------------------
@@ -85,83 +90,63 @@ static void updateDataCB(int)
    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 
-   // Current time
+   // current time
    double time = getComputerTime();
 
    // N-1 Time
    static double time0 = time;
 
-   // Compute delta time
+   // compute delta time
    LCreal dt = static_cast<LCreal>(time - time0);
    time0 = time;
 
-   station->updateData(dt);
+   testStation->updateData(dt);
 }
 
-
-//-----------------------------------------------------------------------------
-// Eaagles::Test::main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // default configuration file
-   const char* configFile = "test2a.edl";
+   // default configuration filename
+   const char* configFilename = "test2a.edl";
 
-   // Parse arguments
+   // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
-         configFile = argv[++i];
+      if (std::strcmp(argv[i], "-f") == 0) {
+         configFilename = argv[++i];
       }
    }
 
-// ---
-// Build a station
-// ---
-   station = builder(configFile);
-   if (station == 0) {
-      std::cerr << "Invalid configuration file!" << std::endl;
-      std::exit(EXIT_FAILURE);
-   }
+   // build a station
+   testStation = builder(configFilename);
 
-// ---
-// Reset the Simulation
-// ---
-   station->event(Basic::Component::RESET_EVENT);
+   // reset the Simulation
+   testStation->event(Basic::Component::RESET_EVENT);
 
-// ---
-// Set timer for the background tasks
-// ---
-
+   // set timer for the background tasks
    double dt = 1.0/static_cast<double>(bgRate);
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
-   station->updateData(dt);
-   station->updateTC(dt);
-   station->event(Eaagles::Basic::Component::RESET_EVENT);
+   testStation->updateData(dt);
+   testStation->updateTC(dt);
+   testStation->event(Basic::Component::RESET_EVENT);
 
    glutTimerFunc(millis, updateDataCB, 1);
 
-// ---
-// Create the Time Critical Thread (updateTC())
-// ---
-    station->createTimeCriticalProcess();
+   // create the Time Critical Thread (updateTC())
+   testStation->createTimeCriticalProcess();
 
-// ---
-// Main loop
-// ---
+   // main loop
    glutMainLoop();
    return 0;
 }
 
-} // End Test namespace
-} // End Eaagles namespace
+} // end Test namespace
+} // end Eaagles namespace
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return Eaagles::Test::main(argc, argv);
