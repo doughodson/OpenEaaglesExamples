@@ -1,5 +1,5 @@
 //--------------------------------------------------------------
-// Example program that demostrates Laero model functionality
+// Example that demonstrates Laero model functionality
 //--------------------------------------------------------------
 
 #include "openeaagles/basicGL/Graphic.h"
