@@ -5,6 +5,7 @@
 --     vs2008     (Visual Studio 2008)
 --     vs2010     (Visual Studio 2010)
 --     vs2012     (Visual Studio 2012)
+--     vs2013     (Visual Studio 2013)
 --     codeblocks (Code::Blocks)
 --     codelite   (CodeLite)
 --
@@ -52,7 +53,7 @@ print ("  Libraries :"..OEExamplesLibPath)
 --
 -- directory location for HLA include and library paths
 --
-HLA_ROOT = "../../../portico-2.0.0"
+HLA_ROOT = "../../../portico-2.0.1"
 HLAIncPath = HLA_ROOT.."/include/hla13"
 if (_ACTION == "vs2008") then
   HLALibPath = HLA_ROOT.."/lib/vc9"
@@ -63,6 +64,9 @@ end
 if (_ACTION == "vs2012") then
   HLALibPath = HLA_ROOT.."/lib/vc11"
 end
+if (_ACTION == "vs2013") then
+  HLALibPath = HLA_ROOT.."/lib/vc12"
+end
 print ("HLA Paths:")
 print ("  Include   : "..HLALibPath)
 --print ("  Libraries : "..OELibPath)
@@ -70,9 +74,9 @@ print ("  Include   : "..HLALibPath)
 locationPath  = "../" .. _ACTION
 
 -- for now, premake does not support this action, so use 2012 instead
-if (_ACTION == "vs2013") then
-   _ACTION = "vs2012"
-end
+--if (_ACTION == "vs2013") then
+--   _ACTION = "vs2012"
+--end
 
 --
 -- 3rd party library names
@@ -111,7 +115,7 @@ solution "examples"
    -- common release configuration flags and symbols
    configuration { "Release" }
       flags { "Optimize" }
-      if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
+      if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
          -- enable compiler intrinsics and favour speed over size
          buildoptions { "/Oi", "/Ot" }
          defines { "WIN32", "NDEBUG" }
@@ -120,7 +124,7 @@ solution "examples"
    -- common debug configuration flags and symbols
    configuration { "Debug" }
       flags { "Symbols" }
-      if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") then
+      if (_ACTION == "vs2008") or (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
          -- enable compiler intrinsics
          buildoptions { "/Oi" }
          defines { "WIN32", "_DEBUG" }
