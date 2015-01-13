@@ -1,22 +1,22 @@
 // -----------------------------------------------------------------------------
 // Example Protocol file -- extends the original DataRecorder and messages
-// 
+//
 // Notes:
 //
 //    1) The DataRecord.pb.h and DataRecord.pb.cc files were
-//       generated with 'protoc' version 2.5.0;
+//       generated with 'protoc' version 2.6.1
 //
 //    2) Compile with the 'protoc' compiler using the following commands
 //
 //       For Windows ...
-//          protoc -I%OE_EXAMPLES_ROOT%\shared-libs -I%OE_ROOT%\include --cpp_out=%OE_EXAMPLES_ROOT%\shared-libs %OE_EXAMPLES_ROOT%\shared-libs\xRecorder\DataRecord.proto
+//          protoc -I%OE_EXAMPLES_ROOT%\shared -I%OE_ROOT%\include --cpp_out=%OE_EXAMPLES_ROOT%\shared %OE_EXAMPLES_ROOT%\shared\xRecorder\protobuf\DataRecord.proto
 //
 //       For Linux ...
-//          protoc -I$OE_EXAMPLES_ROOT/shared-libs -I$OE_ROOT/include --cpp_out=$OE_EXAMPLES_ROOT/shared-libs $OE_EXAMPLES_ROOT/shared-libs/xRecorder/DataRecord.proto
+//          protoc -I$OE_EXAMPLES_ROOT/shared -I$OE_ROOT/include --cpp_out=$OE_EXAMPLES_ROOT/shared $OE_EXAMPLES_ROOT/shared/xRecorder/protobuf/DataRecord.proto
 //
 // -----------------------------------------------------------------------------
 
-import "openeaagles/recorder/DataRecord.proto";
+import "openeaagles/recorder/protobuf/DataRecord.proto";
 
 package Eaagles.xRecorder.Pb;
 

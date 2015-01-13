@@ -2,7 +2,7 @@
 // Class: DataRecorder
 //------------------------------------------------------------------------------
 #include "DataRecorder.h"
-#include "DataRecord.pb.h"
+#include "protobuf/DataRecord.pb.h"
 #include "dataRecorderTokens.h"
 
 #include "openeaagles/simulation/Player.h"

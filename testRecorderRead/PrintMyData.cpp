@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "PrintMyData.h"
 
-#include "xRecorder/DataRecord.pb.h"
+#include "xRecorder/protobuf/DataRecord.pb.h"
 #include "xRecorder/dataRecorderTokens.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 

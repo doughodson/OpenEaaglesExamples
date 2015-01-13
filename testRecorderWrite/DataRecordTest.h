@@ -11,7 +11,7 @@
 #include "openeaagles/recorder/FileWriter.h"
 #include "openeaagles/recorder/FileReader.h"
 #include "openeaagles/recorder/DataRecorder.h"
-#include "openeaagles/recorder/DataRecord.pb.h"
+#include "openeaagles/recorder/protobuf/DataRecord.pb.h"
 
 #include "openeaagles/simulation/Simulation.h"
 
