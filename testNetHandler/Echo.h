@@ -25,8 +25,8 @@ public:
    Echo();
 
    // Component interface
-   virtual void updateData(const LCreal dt = 0.0f);
-   virtual void reset();
+   void updateData(const LCreal dt = 0.0f) override;
+   void reset() override;
 
 private:
     unsigned int loopCounter;

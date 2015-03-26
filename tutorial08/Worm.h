@@ -26,7 +26,7 @@ public:
    Worm();
 
    void getPosition(LCreal& xx, Eaagles::LCreal& yy) const      { xx = xPos; yy = yPos; }
-   void setPosition(const LCreal xx, const LCreal yy)  { xPos = xx; yPos = yy; }
+   void setPosition(const LCreal xx, const LCreal yy)           { xPos = xx; yPos = yy; }
 
    virtual bool realSpeed(const Basic::Number* const rsobj);
    virtual bool setAngle(const Basic::Angle* const saobj);
@@ -48,13 +48,13 @@ public:
    void setSpeed(const LCreal xx);
 
    // Graphic class Interface
-   virtual void drawFunc();
+   void drawFunc() override;
 
    // Component class Interface
-   virtual void updateTC(const LCreal dt = 0.0);
-   virtual void updateData(const LCreal dt = 0.0);
-   virtual bool event(const int event, Basic::Object* const obj = 0);
-   virtual void reset();
+   void updateTC(const LCreal dt = 0.0) override;
+   void updateData(const LCreal dt = 0.0) override;
+   bool event(const int event, Basic::Object* const obj = 0) override;
+   void reset() override;
 
 private:
     

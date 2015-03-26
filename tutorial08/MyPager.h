@@ -19,7 +19,7 @@ public:
    MyPager();
 
    // Page Interface
-   virtual bool onEntry();
+   bool onEntry() override;
 };
 
 } // namespace Tutorial

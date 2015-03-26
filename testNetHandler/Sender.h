@@ -24,8 +24,8 @@ public:
     Sender();
 
     // Component interface
-    virtual void updateData(const Eaagles::LCreal dt = 0.0f);
-    virtual void reset();
+    void updateData(const Eaagles::LCreal dt = 0.0f) override;
+    void reset() override;
 
 private:
     unsigned int msgCounter;    // test message counter

@@ -20,7 +20,6 @@ class MyObj : public Basic::Object
   DECLARE_SUBCLASS(MyObj, Basic::Object)
 
 public:
-
   MyObj();
 
   // data access functions
@@ -51,7 +50,7 @@ public:
 
    // Object class method this can be overridden to check object data
    // This method is called by the parser after object construction
-   virtual bool isValid() const;
+   bool isValid() const override;
 
 private:
   const Basic::PairStream* colorTable;

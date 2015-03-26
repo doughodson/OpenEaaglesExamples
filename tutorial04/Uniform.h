@@ -16,10 +16,9 @@ namespace Tutorial {
 
 class Uniform : public Random
 {
-   DECLARE_SUBCLASS(Uniform,Random)
+   DECLARE_SUBCLASS(Uniform, Random)
 
 public:
-
    Uniform(void);
 
    // data access functions
@@ -31,7 +30,7 @@ public:
    bool setSlotMin(const Basic::Number* const);
 
    // Random class interface
-   virtual int getNum(void) const;
+   int getNum(void) const override;
 
 private:
    int max;

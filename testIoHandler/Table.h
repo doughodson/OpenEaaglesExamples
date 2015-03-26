@@ -43,7 +43,7 @@ public:
    virtual int column(const int cc);
 
    // Basic::Component class interface
-   virtual void reset();
+   void reset() override;
 
 private:
    void initData();

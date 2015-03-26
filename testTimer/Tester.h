@@ -34,7 +34,7 @@ public:
    void restartAllTimers();
 
    // Component class Interface
-   virtual void reset();
+   void reset() override;
 
 protected:
    bool setSlotTimers(const Basic::PairStream* const msg);

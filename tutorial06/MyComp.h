@@ -19,7 +19,6 @@ class MyComp : public Basic::Component
    DECLARE_SUBCLASS(MyComp, Basic::Component)
 
 public:
-
    MyComp();
 
    // data access functions
@@ -30,9 +29,9 @@ public:
    bool setSlotStr(const Basic::String* const);
 
    // Component class methods
-   virtual void reset();
-   virtual void updateTC(const LCreal dt = 0.0);
-   virtual void updateData(const LCreal dt = 0.0);
+   void reset() override;
+   void updateTC(const LCreal dt = 0.0) override;
+   void updateData(const LCreal dt = 0.0) override;
 
 protected:
 

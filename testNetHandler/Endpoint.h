@@ -56,7 +56,7 @@ public:
     virtual bool setSlotLoops(Basic::Number* const msg);
 
     // Component interface
-    virtual void reset();
+    void reset() override;
 
 protected:
     void closeConnections();

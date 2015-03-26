@@ -20,7 +20,7 @@ namespace Test {
 //------------------------------------------------------------------------------
 class DspRadar : public BasicGL::Graphic
 {
-   DECLARE_SUBCLASS(DspRadar,BasicGL::Graphic)
+   DECLARE_SUBCLASS(DspRadar, BasicGL::Graphic)
 
 public:
    DspRadar();
@@ -30,10 +30,10 @@ public:
    bool setRadar(Simulation::Radar* const s)   { radar = s; return true; }
 
    // BasicGL::Graphic class functions
-   virtual void drawFunc();
+   void drawFunc() override;
 
    // Basic::Component class functions 
-   virtual void updateData(const LCreal dt = 0.0);
+   void updateData(const LCreal dt = 0.0) override;
 
 private:
     const Simulation::Radar* radar;     // The test RADAR sensor

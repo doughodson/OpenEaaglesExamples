@@ -16,7 +16,6 @@ class Random : public Basic::Object
    DECLARE_SUBCLASS(Random, Basic::Object)
 
 public:
-
    Random();
 
    int getNum() const;

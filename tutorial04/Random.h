@@ -19,11 +19,10 @@ class Random : public Basic::Object
    DECLARE_SUBCLASS(Random, Basic::Object)
 
 public:
-
    Random();
 
    // data access functions
-   virtual int getNum() const =0;
+   virtual int getNum() const = 0;
    bool setSeed(const unsigned int);
 
    // slot table functions

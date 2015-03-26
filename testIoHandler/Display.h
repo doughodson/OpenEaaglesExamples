@@ -49,9 +49,9 @@ public:
    Display();
 
    // Basic::Component functions
-   virtual void reset();
-   virtual void updateData(const LCreal dt = 0.0f);
-   virtual void updateTC(const LCreal dt = 0.0f);
+   void reset() override;
+   void updateData(const LCreal dt = 0.0f) override;
+   void updateTC(const LCreal dt = 0.0f) override;
 
 protected:
    virtual bool setSlotIoHandler(Basic::IoHandler* const msg);
@@ -61,7 +61,7 @@ protected:
    virtual bool setSlotLabel(const Basic::String* const msg);
 
    // BasicGL::GlutDisplay functions
-   virtual bool onEscKey();
+   bool onEscKey() override;
 
 private:
    enum Type { NONE, AI, DI };
