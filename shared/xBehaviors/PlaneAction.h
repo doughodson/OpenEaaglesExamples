@@ -23,7 +23,7 @@ class PlaneAction : public Basic::Ubf::Action
 public:
    PlaneAction();
 
-   virtual bool execute(Basic::Component* actor);
+   bool execute(Basic::Component* actor) override;
 
    // get/set methods
    void setPitch(const double);

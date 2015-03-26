@@ -29,9 +29,9 @@ public:
    FltkDisplay* getDisplay()   { return display; }
 
    // Fltk interface
-   virtual void draw();
-   virtual int handle(int x);
-   virtual void resize(int x, int y, int w, int h);
+   void draw() override;
+   int handle(int x) override;
+   void resize(int x, int y, int w, int h) override;
 
 private:
 

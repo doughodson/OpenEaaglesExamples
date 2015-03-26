@@ -39,8 +39,8 @@ public:
    Simulation::Station* getStation();
 
    // Basic::Component Interface
-   virtual bool event(const int event, Basic::Object* const obj = 0);
-   virtual void updateData(const LCreal dt = 0.0f);
+   bool event(const int event, Basic::Object* const obj = 0) override;
+   void updateData(const LCreal dt = 0.0f) override;
 
 protected:
    // Key event handlers

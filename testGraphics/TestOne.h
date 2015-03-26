@@ -31,7 +31,6 @@ public:
     virtual bool setAngle(Basic::Angle* saobj);
     virtual bool setAngle(const Basic::Number* const saobj);
 
-
     LCreal leftLimit() const                { return left; }
     void leftLimit(const LCreal ll)         { left = ll; }
 
@@ -49,10 +48,10 @@ public:
 
     virtual void drawFunc();
 
-    virtual void updateTC(const LCreal dt = 0.0);
-    virtual void updateData(const LCreal dt = 0.0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    virtual void reset();
+    void updateTC(const LCreal dt = 0.0) override;
+    void updateData(const LCreal dt = 0.0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
+    void reset() override;
 
 private:
     

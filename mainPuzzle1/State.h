@@ -21,7 +21,7 @@ class Puzzle;
 //------------------------------------------------------------------------------
 class State : public Basic::Component
 {
-    DECLARE_SUBCLASS(State,Basic::Component)
+    DECLARE_SUBCLASS(State, Basic::Component)
 
 public:
    static const unsigned int MAX_BLOCKS = 30;         // Max number of blocks in each state

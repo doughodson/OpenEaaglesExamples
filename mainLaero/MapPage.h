@@ -29,11 +29,11 @@ public:
    MapPage();  
 
    // BasicGL::Graphic interface
-   virtual void drawFunc();
+   void drawFunc() override;
    //virtual void drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tgs);
 
    // Basic::Component interface
-   virtual void updateData(const LCreal dt = 0.000000);
+   void updateData(const LCreal dt = 0.0) override;
 
 private:
    void drawLine(const double x, const double y);

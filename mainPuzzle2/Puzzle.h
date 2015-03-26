@@ -54,7 +54,6 @@ public:
    // Adds a state to the 'open' list
    virtual void putOpen(State* const s);
 
-
 protected:
    virtual State* getOpen();                          // Returns the next state from the 'open' list
    virtual void removeOpen(const State* const s);     // Removes this state from the 'open' list

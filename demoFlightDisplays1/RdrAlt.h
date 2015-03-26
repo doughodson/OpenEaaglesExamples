@@ -32,8 +32,8 @@ public:
     LCreal getRdrMinAltFt() { return rAltMin; }
         
     // Component interface
-    virtual void updateData(const LCreal dt = 0.0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void updateData(const LCreal dt = 0.0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
     
 private:
     // event functions

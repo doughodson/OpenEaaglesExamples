@@ -18,8 +18,8 @@ class TdAzPtr : public BasicGL::Graphic
 public:
     TdAzPtr();
 
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    virtual void draw();
+    bool event(const int event, Basic::Object* const obj = 0) override;
+    void draw() override;
 
 private:
     LCreal azimuth;

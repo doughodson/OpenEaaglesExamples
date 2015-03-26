@@ -13,13 +13,13 @@ namespace Demo {
 
 class TestAlt : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestAlt,BasicGL::Page)
+   DECLARE_SUBCLASS(TestAlt, BasicGL::Page)
 
 public:
     TestAlt();
    
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal alt;             // our heading 

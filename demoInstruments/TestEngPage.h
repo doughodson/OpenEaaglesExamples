@@ -14,13 +14,13 @@ namespace Demo {
 
 class TestEngPage : public Eaagles::BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestEngPage,Eaagles::BasicGL::Page )
+   DECLARE_SUBCLASS(TestEngPage, Eaagles::BasicGL::Page )
 
 public:
     TestEngPage();    
     
     // Basic::Component Interface
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // engine 1 n1 

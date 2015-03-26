@@ -18,18 +18,16 @@ class FoxStation : public Simulation::Station
    DECLARE_SUBCLASS(FoxStation, Simulation::Station)
 
 public:
-
    FoxStation();
 
    // Displays
-   FoxDisplay* getMainDisplay()    { return display; }
+   FoxDisplay* getMainDisplay()                     { return display; }
 
    // Component Interface
-   virtual void updateTC(const LCreal dt = 0.0f);
-   virtual void updateData(const LCreal dt = 0.0f);
+   void updateTC(const LCreal dt = 0.0f) override;
+   void updateData(const LCreal dt = 0.0f) override;
 
 protected:
-
    // Slot functions
    bool setSlotMainDisplay(FoxDisplay* const msg);
 

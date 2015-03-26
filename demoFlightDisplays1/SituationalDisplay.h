@@ -49,7 +49,7 @@ public:
     bool getNav2Id(const int index, char* newString);
 
     // Basic::Component Interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
     double refLat;              // latitude

@@ -18,10 +18,10 @@ class TestTwo : public BasicGL::Graphic
 public:
     TestTwo();
 
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    virtual void updateTC(const LCreal dt = 0.0);
-    virtual void updateData(const LCreal dt = 0.0);
-    virtual void reset();
+    bool event(const int event, Basic::Object* const obj = 0) override;
+    void updateTC(const LCreal dt = 0.0) override;
+    void updateData(const LCreal dt = 0.0) override;
+    void reset() override;
 
     //macro functions for slot table mapping
     virtual bool setV1(const Basic::Number* const sv1obj);

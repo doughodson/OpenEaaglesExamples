@@ -13,13 +13,13 @@ namespace Demo {
 
 class TestNozzle : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestNozzle,BasicGL::Page)
+   DECLARE_SUBCLASS(TestNozzle, BasicGL::Page)
 
 public:
     TestNozzle();
 
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
     LCreal nozPos;

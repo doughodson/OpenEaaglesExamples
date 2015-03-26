@@ -15,13 +15,13 @@ namespace Demo {
 
 class TestSpeedBrake : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestSpeedBrake,BasicGL::Page)
+   DECLARE_SUBCLASS(TestSpeedBrake, BasicGL::Page)
 
 public:
     TestSpeedBrake();
 
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
     LCreal sbrakePosition;          // our speed brake position (1 - 100) 

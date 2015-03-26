@@ -14,7 +14,7 @@ namespace xPanel {
 
 class Pfd : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(Pfd,BasicGL::Page)
+   DECLARE_SUBCLASS(Pfd, BasicGL::Page)
 
 public:
     Pfd();  
@@ -73,9 +73,8 @@ public:
     LCreal getGLoad()               { return gLoad; }
     LCreal getMach()                { return mach; }
     
-    
     // Component interface
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // pitch and roll

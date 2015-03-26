@@ -14,13 +14,13 @@ namespace Demo {
 
 class TestCas : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestCas,BasicGL::Page)
+   DECLARE_SUBCLASS(TestCas, BasicGL::Page)
 
 public:
     TestCas();
        
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal tas;                     // our cas dial rotation position (1 - 900)

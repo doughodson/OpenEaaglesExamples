@@ -13,13 +13,13 @@ namespace Demo {
 
 class TestMechanical : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestMechanical,BasicGL::Page)
+   DECLARE_SUBCLASS(TestMechanical, BasicGL::Page)
 
 public:
     TestMechanical();
     
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0.000000);
+    void updateData(const LCreal dt = 0.0) override;
    
 private:
     static const LCreal T1;     // heading slew rate (deg/sec)

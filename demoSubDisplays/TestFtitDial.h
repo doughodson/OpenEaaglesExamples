@@ -15,13 +15,13 @@ namespace Demo {
 
 class TestFtitDial : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestFtitDial,BasicGL::Page)
+   DECLARE_SUBCLASS(TestFtitDial, BasicGL::Page)
 
 public:
     TestFtitDial();
    
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal ftitRotation;        // our ftit position (0 - 1000) 

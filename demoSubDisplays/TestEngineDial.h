@@ -14,13 +14,13 @@ namespace Demo {
 
 class TestEngineDial : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestEngineDial,BasicGL::Page)
+    DECLARE_SUBCLASS(TestEngineDial, BasicGL::Page)
 
 public:
     TestEngineDial();
    
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal engineRotation;          // our engine rpm position (1 - 100) 

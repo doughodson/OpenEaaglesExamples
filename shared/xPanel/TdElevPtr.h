@@ -27,7 +27,7 @@ namespace xPanel {
 //------------------------------------------------------------------------------
 class TdElevPtr : public BasicGL::Graphic
 {
-   DECLARE_SUBCLASS(TdElevPtr,BasicGL::Graphic)
+   DECLARE_SUBCLASS(TdElevPtr, BasicGL::Graphic)
 
 public:
    TdElevPtr();
@@ -36,10 +36,10 @@ public:
    bool setElevation(const LCreal); // degs
 
    // BasicGL::Graphic class functions
-   virtual void draw();
+   void draw() override;
 
    // Basic::Component class functions 
-   virtual bool event(const int event, Basic::Object* const obj = 0);
+   bool event(const int event, Basic::Object* const obj = 0) override;
 
 private:
    bool onUpdateValue(const Basic::Number* const);

@@ -28,10 +28,10 @@ public:
    const State* getFinalState() const  { return finalState; }  // Returns the final state
 
    // BasicGL::Graphic interface
-   virtual void drawFunc(); 
+   void drawFunc() override; 
 
    // Component interface
-   virtual void updateData(const LCreal dt = 0.0);
+   void updateData(const LCreal dt = 0.0) override;
 
 protected:
    virtual bool setSlotPuzzle(Puzzle* const s);                       // Sets the Puzzle controller

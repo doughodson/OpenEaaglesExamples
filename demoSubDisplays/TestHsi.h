@@ -13,13 +13,13 @@ namespace Demo {
 
 class TestHsi : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestHsi,BasicGL::Page)
+   DECLARE_SUBCLASS(TestHsi, BasicGL::Page)
 
 public:
     TestHsi();
 
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
     LCreal heading;             // our heading 

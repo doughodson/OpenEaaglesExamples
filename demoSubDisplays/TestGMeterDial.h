@@ -14,13 +14,13 @@ namespace Demo {
 
 class TestGMeterDial : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestGMeterDial,BasicGL::Page)
+   DECLARE_SUBCLASS(TestGMeterDial, BasicGL::Page)
 
 public:
     TestGMeterDial();
     
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal currGs;      // current G's

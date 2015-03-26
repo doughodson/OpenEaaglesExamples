@@ -17,10 +17,10 @@ class MfdPage : public BasicGL::Page {
 public:
    MfdPage();
    
-   virtual bool onEntry();
+   bool onEntry() override;
    
-   virtual bool event(const int event, Basic::Object* const obj = 0);
-   virtual void updateData(const LCreal dt = 0);
+   bool event(const int event, Basic::Object* const obj = 0) override;
+   void updateData(const LCreal dt = 0) override;
 
 private:
     LCreal rotate;

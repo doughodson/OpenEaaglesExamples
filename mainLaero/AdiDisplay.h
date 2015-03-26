@@ -24,7 +24,7 @@ public:
    Simulation::Aircraft* getOwnship();
    Simulation::Station* getStation();
 
-   virtual void updateData(const LCreal dt = 0.0f);
+   void updateData(const LCreal dt = 0.0f) override;
 
 private:
    SPtr<Simulation::Station> myStation;

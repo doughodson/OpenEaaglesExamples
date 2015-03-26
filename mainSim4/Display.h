@@ -20,11 +20,11 @@ public:
     Display();
 
     // Display interface
-    virtual void mouseMotionEvent(const int x, const int y);
-    virtual void mouseEvent(const int button, const int state, const int x, const int y);
-    virtual void passiveMotionEvent(const int x, const int y);
-    virtual void buttonEvent(const int b);
-    virtual void updateData(const LCreal dt = 0.000000);
+    void mouseMotionEvent(const int x, const int y) override;
+    void mouseEvent(const int button, const int state, const int x, const int y) override;
+    void passiveMotionEvent(const int x, const int y) override;
+    void buttonEvent(const int b) override;
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     int startX;         // startX of our last mouse position

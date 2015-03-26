@@ -23,11 +23,11 @@ public:
    TestIoHandler();
 
    // Basic::IoHandler interface functions
-   virtual void inputDevices(const LCreal dt);    // Handle input devices
+   void inputDevices(const LCreal dt) override;    // Handle input devices
 
 protected:
    // Basic::IoHandler protected functions
-   virtual void clear(); // called from Basic::IoHandler::reset()
+   void clear() override; // called from Basic::IoHandler::reset()
 
 private:
    void initData();

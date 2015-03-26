@@ -31,9 +31,9 @@ public:
    TestStation();
 
    // Basic::Component functions
-   virtual void updateTC(const LCreal dt = 0.0f);
-   virtual void updateData(const LCreal dt = 0.0f);
-   virtual void reset();
+   void updateTC(const LCreal dt = 0.0f) override;
+   void updateData(const LCreal dt = 0.0f) override;
+   void reset() override;
     
 private:
    bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);

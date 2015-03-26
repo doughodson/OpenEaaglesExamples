@@ -30,10 +30,10 @@ public:
     bool isAltSelected()    { return isAlt; }
     
     // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
     
     // Basic::Component interface
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    bool event(const int event, Basic::Object* const obj = 0) override;
     
 protected:
     bool setSlotIsAlt(const Basic::Number* newIsAlt);

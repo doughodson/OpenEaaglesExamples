@@ -15,16 +15,16 @@ namespace Demo {
 
 class SpdLines : public BasicGL::Graphic
 {
-    DECLARE_SUBCLASS(SpdLines,BasicGL::Graphic)
+    DECLARE_SUBCLASS(SpdLines, BasicGL::Graphic)
 
 public:
     SpdLines();
 
     // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
 
     // Basic::Component interface
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
     // set functions
     virtual bool setIsAlt(const bool newIsAlt) { isAlt = newIsAlt; return true; }

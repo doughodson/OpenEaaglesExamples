@@ -25,7 +25,7 @@ public:
     Station();
     
     // Basic::Component interface
-    virtual void reset();
+    void reset() override;
 
 protected:
     // SLOT function(s)

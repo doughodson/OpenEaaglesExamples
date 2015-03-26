@@ -27,11 +27,11 @@ public:
     TerrainFollower();
 
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void updateData(const LCreal dt = 0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
     // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
 
     // set functions
     virtual bool setPlaneAlt(const LCreal newAlt);

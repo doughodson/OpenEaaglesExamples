@@ -19,8 +19,8 @@ public:
     TestSD();     
 
     // Basic::Component Interface
-    virtual void updateData(const LCreal dt = 0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void updateData(const LCreal dt = 0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;

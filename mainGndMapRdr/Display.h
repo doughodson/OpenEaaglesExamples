@@ -38,7 +38,7 @@ public:
    virtual void configure();
 
    // BasicGL::Graphic interface
-   virtual void drawFunc(); 
+   void drawFunc() override; 
 
 private: 
    SPtr<Simulation::Station> myStation;

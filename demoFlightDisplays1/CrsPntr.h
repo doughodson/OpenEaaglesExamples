@@ -41,11 +41,11 @@ public:
     bool isToFromOn()       { return showToFrom; }
     
     // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
     
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0.0f);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void updateData(const LCreal dt = 0.0f) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
     
 protected:
     // slot functions

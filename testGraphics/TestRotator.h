@@ -13,13 +13,13 @@ namespace Example {
 
 class TestRotator : public BasicGL::Graphic
 {
-   DECLARE_SUBCLASS(TestRotator,BasicGL::Graphic)
+   DECLARE_SUBCLASS(TestRotator, BasicGL::Graphic)
 
 public:
     TestRotator();
 
-    virtual void drawFunc();
-    virtual void updateData(const LCreal dt = 0.000000);
+    void drawFunc() override;
+    void updateData(const LCreal dt = 0.0) override;
     
 private:
     LCreal t1Pos;

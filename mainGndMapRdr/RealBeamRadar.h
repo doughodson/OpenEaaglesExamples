@@ -50,7 +50,7 @@ public:
 protected:
 
    // System class -- phase callbacks
-    virtual void transmit(const LCreal dt);
+   void transmit(const LCreal dt) override;
 
 private:
    bool initImageMemory(const int width, const int height);

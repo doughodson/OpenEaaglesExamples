@@ -22,14 +22,15 @@ namespace xBehaviors {
 class PlaneState : public Basic::Ubf::State
 {
    DECLARE_SUBCLASS(PlaneState, Basic::Ubf::State)
+
 public:
    PlaneState();
 
    // Basic::Component Interface
-   virtual void reset();
+   void reset() override;
 
-   // NewUbf::UbfState interface
-   virtual void updateState(const Basic::Component* const actor);
+   // 
+   void updateState(const Basic::Component* const actor) override;
 
    // set/get
    virtual void setAlive(const bool x)                 { alive = x; return; }

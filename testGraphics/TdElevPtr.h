@@ -18,8 +18,8 @@ class TdElevPtr : public BasicGL::Graphic
 public:
     TdElevPtr();
 
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    virtual void draw();
+    bool event(const int event, Basic::Object* const obj = 0) override;
+    void draw() override;
 
     //event handler macro functions
     virtual bool onUpdateValue(const Basic::Number* const ouvobj);

@@ -13,7 +13,7 @@ namespace Demo {
 
 class TestButtons : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestButtons,BasicGL::Page)
+   DECLARE_SUBCLASS(TestButtons, BasicGL::Page)
 
 public:
    TestButtons();
@@ -21,9 +21,8 @@ public:
    enum { REGULAR = 0, PUSH_MAINTAINED, PUSH_MOMENTARY, ROTARY, KNOB, SOLENOID };
 
    // Basic::Component interface
-   virtual void updateData(const LCreal dt = 0);
-
-   virtual bool event(const int event, Basic::Object* const obj = 0);
+   void updateData(const LCreal dt = 0) override;
+   bool event(const int event, Basic::Object* const obj = 0) override;
    
 private:
     bool regularButton();

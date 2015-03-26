@@ -20,7 +20,7 @@ public:
     SpdLines();
 
     // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
 
     // set functions
     virtual bool setIsAlt(const bool newIsAlt);

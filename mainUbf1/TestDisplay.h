@@ -52,11 +52,11 @@ public:
     void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
 
     // Display Interface
-    virtual void mouseEvent(const int button, const int state, const int x, const int y);
+    void mouseEvent(const int button, const int state, const int x, const int y) override;
 
     // Component interface
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    virtual void updateData(const LCreal dt = 0.0f);
+    bool event(const int event, Basic::Object* const obj = 0) override;
+    void updateData(const LCreal dt = 0.0f) override;
 
 private:
     // Key event handlers

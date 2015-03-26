@@ -15,13 +15,13 @@ namespace Demo {
 
 class TestGauge1 : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestGauge1,BasicGL::Page)
+   DECLARE_SUBCLASS(TestGauge1, BasicGL::Page)
 
 public:
     TestGauge1();
    
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal gaugePosition;       // our gauge position (inches)

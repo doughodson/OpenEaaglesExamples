@@ -19,7 +19,7 @@ public:
     TestHsi();
 
     // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
     LCreal heading;             // our heading 

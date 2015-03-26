@@ -19,8 +19,8 @@ namespace FX {
 namespace Eaagles {
 namespace Example {
 
-class FoxDisplay : public BasicGL::Display {
-
+class FoxDisplay : public BasicGL::Display
+{
    DECLARE_SUBCLASS(FoxDisplay, BasicGL::Display)
 
 public:
@@ -40,15 +40,15 @@ public:
    virtual bool setCanvasSize(const float newW = 0, const float newH = 0);
     
    // Component interface
-   virtual void updateData(const LCreal dt = 0.000000);
+   void updateData(const LCreal dt = 0.0) override;
  
    // mouse event to handle the pick event
    Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1); 
    void printSelectBuffer(const GLuint sbuff[], const int size);
    void clearSelectBuffer(GLuint sbuff[], const int size);
    BasicGL::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
-   FX::FXGLCanvas* getCanvas()     { return glCanvas; };
-   FX::FXComposite* getParentWindow()  { return myComp; };
+   FX::FXGLCanvas* getCanvas()                                                               { return glCanvas; };
+   FX::FXComposite* getParentWindow()                                                        { return myComp; };
     
    // interface for the fox main window to manipulate our graphics - YOU CAN PULL THIS OUT!
    virtual void toggleRotation();

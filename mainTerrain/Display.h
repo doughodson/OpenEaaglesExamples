@@ -32,7 +32,8 @@ namespace Example {
 
 class MainWindow;
 
-class Display : public Glut::GlutDisplay {
+class Display : public Glut::GlutDisplay
+{
    DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
 
 public:
@@ -68,14 +69,14 @@ public:
    virtual bool setSlotTextureTest(const Basic::Number* const msg);
 
    // GlutDisplay interface
-   virtual void configure();
+   void configure() override;
 
    // BasicGL::Graphic interface
-   virtual void drawFunc(); 
+   void drawFunc() override; 
 
    // Basic::Component interface
-   virtual void reset();
-   virtual void updateData(const LCreal dt = 0.0);
+   void reset() override;
+   void updateData(const LCreal dt = 0.0) override;
 
 private:
    bool initImageMemory(const GLsizei width, const GLsizei height);

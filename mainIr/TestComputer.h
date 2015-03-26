@@ -31,17 +31,17 @@ public:
 // the updateTC interface is re-implemented only to
 //  override the System:: version so that we can get process call to our 
 // components (our TM) before we do our own processing
-   virtual void updateTC(const LCreal dt = 0.0);
+   void updateTC(const LCreal dt = 0.0) override;
 
    // Basic::Component interface
-   virtual void reset();
+   void reset() override;
 
 protected:
    // process() subfunction, tells computer if we are tracking a target or not
    virtual bool processIr();
 
    // System class Interface -- phase() callbacks
-   virtual void process(const LCreal dt);     // Phase 3
+   void process(const LCreal dt) override;     // Phase 3
 
 private:
    bool uncaged;      // flag that indicates whether gimbal is free to track target

@@ -15,13 +15,13 @@ namespace Demo {
 
 class TestDigitalGauge : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestDigitalGauge,BasicGL::Page)
+   DECLARE_SUBCLASS(TestDigitalGauge, BasicGL::Page)
 
 public:
    TestDigitalGauge();
    
    // Basic::Component interface
-   virtual void updateData(const LCreal dt = 0);
+   void updateData(const LCreal dt = 0) override;
    
 private:
     LCreal aoa;

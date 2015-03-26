@@ -26,8 +26,8 @@ public:
 
    FltkStation();
 
-   virtual void reset();
-   virtual void updateData(const LCreal dt = 0.000000);
+   void reset() override;
+   void updateData(const LCreal dt = 0.0) override;
 
 protected:
 

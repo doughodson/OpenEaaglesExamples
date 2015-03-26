@@ -105,7 +105,7 @@ public:
     LCreal getMach()                { return mach; }
 
     // Component interface
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // pitch and roll
