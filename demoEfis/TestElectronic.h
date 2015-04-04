@@ -27,7 +27,6 @@ private:
     LCreal heading;         // our compass heading
     LCreal headingRate;
     LCreal headingBug;      // our heading indicator bug
-    LCreal hbRate;
     SendData headingSD;
     SendData headingBugSD;  // for sending to our heading indicator
     LCreal bearing;         // our bearing
