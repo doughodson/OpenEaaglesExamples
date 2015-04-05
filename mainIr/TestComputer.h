@@ -17,31 +17,25 @@
 namespace Eaagles {
 namespace Example {
 
-class TestComputer : public Simulation::OnboardComputer  
+class TestComputer : public Simulation::OnboardComputer
 {
     DECLARE_SUBCLASS(TestComputer, Simulation::OnboardComputer)
-   
+
 public:
    TestComputer();
    bool haveTgt() const { return haveTarget; }
 
-   // Tracks
-   virtual void updateShootList(const bool step = false);      // Updates the shoot list
+   void updateShootList(const bool step = false) override;      // Updates the shoot list
 
-// the updateTC interface is re-implemented only to
-//  override the System:: version so that we can get process call to our 
-// components (our TM) before we do our own processing
    void updateTC(const LCreal dt = 0.0) override;
 
-   // Basic::Component interface
    void reset() override;
 
 protected:
    // process() subfunction, tells computer if we are tracking a target or not
    virtual bool processIr();
 
-   // System class Interface -- phase() callbacks
-   void process(const LCreal dt) override;     // Phase 3
+   void process(const LCreal dt) override;
 
 private:
    bool uncaged;      // flag that indicates whether gimbal is free to track target

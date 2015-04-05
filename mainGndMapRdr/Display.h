@@ -34,13 +34,10 @@ public:
    // Slot functions
    virtual bool setSlotTextureTest(const Basic::Number* const msg);
 
-   // GlutDisplay interface
-   virtual void configure();
+   virtual void configure() override;
+   void drawFunc() override;
 
-   // BasicGL::Graphic interface
-   void drawFunc() override; 
-
-private: 
+private:
    SPtr<Simulation::Station> myStation;
 
    bool              testTexture;      // Texture image test

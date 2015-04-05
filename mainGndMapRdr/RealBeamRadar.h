@@ -26,9 +26,9 @@ public:
    LCreal getAltitude() const                { return altitude; }    // Ref altitude (meters)
    LCreal getAntennaAzimuthAngle() const     { return antAzAngle; }  // Antenna look angle (degs)
    LCreal getAntennaElevationAngle() const   { return antElAngle; }  // Antenna look angle (degs)
-   LCreal getBeamWidth() const               { return beamWidth; }   // Antenna beam width (degs)
+   LCreal getBeamWidth() const override      { return beamWidth; }   // Antenna beam width (degs)
 
-   // The RADAR image pixels 
+   // The RADAR image pixels
    //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
    //   --   irow : [ 0 ... (imgHeight-1) ]
    //   --   icol : [ 0 ... (imgWidth-1) ]
@@ -48,8 +48,6 @@ public:
    static bool computeEarthCurvature(LCreal* const curvature, const unsigned int n, const LCreal maxRngNM, const LCreal radiusNM);
 
 protected:
-
-   // System class -- phase callbacks
    void transmit(const LCreal dt) override;
 
 private:
@@ -78,7 +76,7 @@ private:
 
    int             imgWidth;         // Image width  (number of columns)
    int             imgHeight;        // Image height (number of rows)
-   unsigned  char* image;            // The image pixels 
+   unsigned  char* image;            // The image pixels
                                      //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
                                      //   --   irow : [ 0 ... (imgHeight-1) ]
                                      //   --   icol : [ 0 ... (imgWidth-1) ]

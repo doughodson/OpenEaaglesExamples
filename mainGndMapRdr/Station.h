@@ -21,7 +21,6 @@ class TestStation : public Simulation::Station
 public:
     TestStation();
 
-    // Component Interface
     void updateTC(const LCreal dt = 0.0f) override;
     void reset() override;
 

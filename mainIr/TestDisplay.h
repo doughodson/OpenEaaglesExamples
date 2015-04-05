@@ -39,7 +39,6 @@ public:
 
     virtual void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
 
-    // Basic::Component interface
     bool event(const int event, Basic::Object* const obj = 0) override;
     void updateData(const LCreal dt = 0.0f) override;
 
@@ -58,7 +57,7 @@ private:
 
     SendData        headingSD;
     SendData        rangeSD;
-    
+
     SPtr<Simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;

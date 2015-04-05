@@ -28,28 +28,27 @@ public:
    FoxDisplay();
 
    // Create with the Fox toolkit
-   virtual void create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObject* tgt, unsigned short selector, unsigned short opt, unsigned short x =0, unsigned short y = 0, unsigned short w = 0, unsigned short h = 0);  
+   virtual void create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObject* tgt, unsigned short selector, unsigned short opt, unsigned short x =0, unsigned short y = 0, unsigned short w = 0, unsigned short h = 0);
 
    // initialize our display
-   virtual void initialize();  
+   virtual void initialize();
 
-   // Display interface
-   virtual void reshapeIt(int w, int h);
-   virtual void drawIt();
-   virtual void swapBuffers();
+   void reshapeIt(int w, int h) override;
+   void drawIt() override;
+   void swapBuffers() override;
+
    virtual bool setCanvasSize(const float newW = 0, const float newH = 0);
-    
-   // Component interface
+
    void updateData(const LCreal dt = 0.0) override;
- 
+
    // mouse event to handle the pick event
-   Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1); 
+   Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1);
    void printSelectBuffer(const GLuint sbuff[], const int size);
    void clearSelectBuffer(GLuint sbuff[], const int size);
    BasicGL::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
    FX::FXGLCanvas* getCanvas()                                                               { return glCanvas; };
    FX::FXComposite* getParentWindow()                                                        { return myComp; };
-    
+
    // interface for the fox main window to manipulate our graphics - YOU CAN PULL THIS OUT!
    virtual void toggleRotation();
    virtual void toggleTranslation();

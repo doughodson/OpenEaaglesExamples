@@ -32,7 +32,6 @@ public:
    // Step our "ownship" to the next local air vehicle
    void stepOwnshipPlayer();
 
-   // Basic::Component functions
    void updateTC(const LCreal dt = 0.0f) override;
    void updateData(const LCreal dt = 0.0f) override;
    void reset() override;

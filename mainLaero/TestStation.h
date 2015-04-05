@@ -26,15 +26,14 @@ namespace Example {
 class TestStation : public Simulation::Station
 {
    DECLARE_SUBCLASS(TestStation,Simulation::Station)
-    
+
 public:
    TestStation();
 
-   // Basic::Component functions
    void updateTC(const LCreal dt = 0.0f) override;
    void updateData(const LCreal dt = 0.0f) override;
    void reset() override;
-    
+
 private:
    bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
    bool setSlotMapDisplay(Glut::GlutDisplay* const msg);

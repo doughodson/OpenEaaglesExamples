@@ -10,9 +10,9 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-   namespace Simulation { 
-      class Station; 
-      class Aircraft; 
+   namespace Simulation {
+      class Station;
+      class Aircraft;
    }
 
 namespace Example {
@@ -22,12 +22,11 @@ class MapDisplay : public Glut::GlutDisplay
    DECLARE_SUBCLASS(MapDisplay, Glut::GlutDisplay)
 
 public:
-   MapDisplay();  
+   MapDisplay();
 
    Simulation::Aircraft* getOwnship();
    Simulation::Station* getStation();
 
-   // MapDisplay interface
    void mouseMotionEvent(const int x, const int y) override;
    void mouseEvent(const int button, const int state, const int x, const int y) override;
    void passiveMotionEvent(const int x, const int y) override;
@@ -44,11 +43,11 @@ private:
       INC_CMD_AS,
       DEC_CMD_ALT,               // Increase / decrease the commanded altitude (Ft - only works with no autopilot mode engaged)
       INC_CMD_ALT,
-      DEC_CMD_HDG,               // Increase / decrease the commanded heading (Degs - only works with no autopilot mode engaged) 
+      DEC_CMD_HDG,               // Increase / decrease the commanded heading (Degs - only works with no autopilot mode engaged)
       INC_CMD_HDG,
       PASSIVE_ENABLE,
       PASSIVE_DISABLE,
-      INC_CMD_AS_NPS,            // Increase / decrease our rate of acceleration 
+      INC_CMD_AS_NPS,            // Increase / decrease our rate of acceleration
       DEC_CMD_AS_NPS,
       INC_CMD_ALT_MPS,           // Increase / decrease our rate of climb / dive
       DEC_CMD_ALT_MPS,

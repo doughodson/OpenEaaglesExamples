@@ -27,10 +27,8 @@ public:
 
    const State* getFinalState() const  { return finalState; }  // Returns the final state
 
-   // BasicGL::Graphic interface
-   void drawFunc() override; 
+   void drawFunc() override;
 
-   // Component interface
    void updateData(const LCreal dt = 0.0) override;
 
 protected:

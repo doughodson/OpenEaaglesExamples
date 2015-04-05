@@ -23,7 +23,6 @@ public:
    // Displays
    FoxDisplay* getMainDisplay()                     { return display; }
 
-   // Component Interface
    void updateTC(const LCreal dt = 0.0f) override;
    void updateData(const LCreal dt = 0.0f) override;
 

@@ -46,17 +46,15 @@ public:
   void setStartAngle(const LCreal deg);
   void setSpeed(const LCreal xx);
 
-  // Graphic class Interface
   void drawFunc() override;
 
-  // Component class Interface
   void updateTC(const LCreal dt = 0.0) override;
   void updateData(const LCreal dt = 0.0) override;
   bool event(const int event, Basic::Object* const obj = 0) override;
   void reset() override;
 
 private:
-    
+
   enum { maxHist = 10 };
   LCreal left, right;         // X limits
   LCreal bottom, top;         // Y limits
