@@ -19,10 +19,9 @@ class TestVVI : public BasicGL::Page
 
 public:
    TestVVI();
-   
-   // Basic::Component interface
+
    void updateData(const LCreal dt = 0) override;
-   
+
 private:
     LCreal gaugePosition;       // our gauge position (inches)
     SendData gaugePositionSD;

@@ -18,11 +18,10 @@ class TestHsi : public BasicGL::Page
 public:
     TestHsi();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0) override;
 
 private:
-    LCreal heading;             // our heading 
+    LCreal heading;             // our heading
     SendData headingSD;
     LCreal  headingRate;        // rate which are going (up or down)
     SendData headingROSD;

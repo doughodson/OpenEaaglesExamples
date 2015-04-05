@@ -18,7 +18,6 @@ class TestNozzle : public BasicGL::Page
 public:
     TestNozzle();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0) override;
 
 private:

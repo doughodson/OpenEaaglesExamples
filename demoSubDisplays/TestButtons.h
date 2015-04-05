@@ -20,26 +20,25 @@ public:
 
    enum { REGULAR = 0, PUSH_MAINTAINED, PUSH_MOMENTARY, ROTARY, KNOB, SOLENOID };
 
-   // Basic::Component interface
    void updateData(const LCreal dt = 0) override;
    bool event(const int event, Basic::Object* const obj = 0) override;
-   
+
 private:
-    bool regularButton();
-    bool pushButtonMaintained();
-    bool pushButtonMomentary();
-    bool rotarySwitch();
-    bool knobMoved();
-    bool resetSolenoid();
-    bool solenoidUp();
-    bool solenoidDown();
-    
-    int whichButton;
-    LCreal value;
-    
-    SendData whichButtonSD;
-    SendData valueSD;
-    SendData latchedSD;
+   bool regularButton();
+   bool pushButtonMaintained();
+   bool pushButtonMomentary();
+   bool rotarySwitch();
+   bool knobMoved();
+   bool resetSolenoid();
+   bool solenoidUp();
+   bool solenoidDown();
+
+   int whichButton;
+   LCreal value;
+
+   SendData whichButtonSD;
+   SendData valueSD;
+   SendData latchedSD;
 };
 
 } // end of Demo namespace

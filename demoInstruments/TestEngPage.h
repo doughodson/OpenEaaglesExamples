@@ -17,27 +17,26 @@ class TestEngPage : public Eaagles::BasicGL::Page
    DECLARE_SUBCLASS(TestEngPage, Eaagles::BasicGL::Page )
 
 public:
-    TestEngPage();    
-    
-    // Basic::Component Interface
+    TestEngPage();
+
     void updateData(const LCreal dt = 0.0) override;
 
 private:
-    // engine 1 n1 
-    LCreal n1[Eaagles::Instruments::EngPage::NUM_ENG];          
-    LCreal n1Rate[Eaagles::Instruments::EngPage::NUM_ENG];
+    // engine 1 n1
+    LCreal n1[Instruments::EngPage::NUM_ENG];
+    LCreal n1Rate[Instruments::EngPage::NUM_ENG];
 
-    // engine 1 n2 
-    LCreal n2[Eaagles::Instruments::EngPage::NUM_ENG];          
-    LCreal n2Rate[Eaagles::Instruments::EngPage::NUM_ENG];
+    // engine 1 n2
+    LCreal n2[Instruments::EngPage::NUM_ENG];
+    LCreal n2Rate[Instruments::EngPage::NUM_ENG];
 
     // engine 1 tit
-    LCreal tit[Eaagles::Instruments::EngPage::NUM_ENG];       
-    LCreal titRate[Eaagles::Instruments::EngPage::NUM_ENG];
+    LCreal tit[Instruments::EngPage::NUM_ENG];
+    LCreal titRate[Instruments::EngPage::NUM_ENG];
 
     // engin1 1 fuel flow
-    LCreal ff[Eaagles::Instruments::EngPage::NUM_ENG];
-    LCreal ffRate[Eaagles::Instruments::EngPage::NUM_ENG];
+    LCreal ff[Instruments::EngPage::NUM_ENG];
+    LCreal ffRate[Instruments::EngPage::NUM_ENG];
 };
 
 } // end of Demo namespace

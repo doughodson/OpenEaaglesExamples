@@ -13,15 +13,14 @@ namespace Demo {
 
 class TestAdi : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestAdi, BasicGL::Page)
+    DECLARE_SUBCLASS(TestAdi, BasicGL::Page)
 
 public:
     TestAdi();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0) override;
 
-private:                            
+private:
     LCreal pitch;           // our pitch (90 to -90)
     SendData pitchSD;
     LCreal  pitchRate;

@@ -18,7 +18,6 @@ class TestPfd : public BasicGL::Page
 public:
     TestPfd();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0.0) override;
 
 private:
@@ -69,7 +68,7 @@ private:
     LCreal fDirBankRate;
     LCreal fDirPitch;
     LCreal fDirPitchRate;
-    
+
     // barometric pressure
     LCreal baro;
     LCreal baroRate;

@@ -17,21 +17,20 @@ class TestMechanical : public BasicGL::Page
 
 public:
     TestMechanical();
-    
-    // Basic::Component interface
+
     void updateData(const LCreal dt = 0.0) override;
-   
+
 private:
     static const LCreal T1;     // heading slew rate (deg/sec)
     static const LCreal T2;     // rate of slew rate (pointer_widths/sec)
 
-    LCreal pitch;           // actual pitch    
+    LCreal pitch;           // actual pitch
     SendData pitchSD;
-    LCreal  pitchRate;      
-    LCreal roll;            // actual roll    
-    SendData rollSD;    
+    LCreal  pitchRate;
+    LCreal roll;            // actual roll
+    SendData rollSD;
     LCreal rollRate;
-    LCreal slip;            
+    LCreal slip;
     SendData slipSD;
     LCreal slipRate;
     LCreal cmdPitch;        // commanded pitch
@@ -51,9 +50,9 @@ private:
     SendData locDotsSD;     // localizer dots
     LCreal rAlt;            // radio altitude
     LCreal rAltRate;
-    SendData rAltSD;    
+    SendData rAltSD;
     // glideslope stuff
-    bool gsFail;            
+    bool gsFail;
     LCreal gsDots;          // glideslope dots
     LCreal gsDotsRate;
     SendData gsDotsSD;
@@ -67,7 +66,7 @@ private:
     LCreal gaTimer;
     // mdaLight stuff
     int mdaMode;
-    LCreal mdaTimer;    
+    LCreal mdaTimer;
     // cmptr stuff
     bool cmptrFail;         // our computer fail flag (on = true)
     SendData cmptrFailSD;
@@ -75,7 +74,7 @@ private:
     SendData gaModeSD;
     // gryo stuff
     bool gryoFail;          // our gryo fail flag (on = true)
-    LCreal gryoFailTimer;  
+    LCreal gryoFailTimer;
     SendData gryoFailSD;
     SendData gsFailSD;
     SendData gsFailVisSD;
@@ -88,7 +87,7 @@ private:
     SendData rwFailSD;
     SendData sdFailSD;
     LCreal curRot;          // current rate of turn
-    LCreal rotRate;     
+    LCreal rotRate;
     SendData curRotSD;
 };
 

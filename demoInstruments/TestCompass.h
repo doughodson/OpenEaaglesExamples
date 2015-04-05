@@ -17,15 +17,14 @@ class TestCompass : public BasicGL::Page
 
 public:
     TestCompass();
-   
-    // Basic::Component interface
+
     void updateData(const LCreal dt = 0) override;
     bool event(const int event, Basic::Object* const obj = 0) override;
-    
+
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;
     static const int MAX_NAV_AIDS = 8;
-   
+
 private:
     bool onToggleRangeTestCompass();
     bool onToggleCenteredTestCompass();
@@ -58,15 +57,15 @@ private:
     };
 
     // air track stuff
-    mySymbols myTracks[MAX_TRACKS];     // holds our track data 
+    mySymbols myTracks[MAX_TRACKS];     // holds our track data
     bool tracksLoaded;                  // tracks have been loaded
 
     // airport stuff
-    mySymbols myAP[MAX_AIRPORTS];       // holds our airport data 
+    mySymbols myAP[MAX_AIRPORTS];       // holds our airport data
     bool airportsLoaded;                // airports have been loaded
 
     // navaid stuff
-    mySymbols myNA[MAX_NAV_AIDS];       // holds our navaid data 
+    mySymbols myNA[MAX_NAV_AIDS];       // holds our navaid data
     bool navAidsLoaded;                 // navaids have been loaded
 };
 

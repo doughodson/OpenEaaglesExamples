@@ -19,7 +19,6 @@ class TestOilPressure : public BasicGL::Page
 public:
     TestOilPressure();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0) override;
 
 private:

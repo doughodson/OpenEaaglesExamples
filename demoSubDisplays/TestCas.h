@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: TestCas
 //
-// Description: Example Analog Dial Page 
+// Description: Example Analog Dial Page
 // This page will supply test data to a generic calibrated air speed
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Demo_TestCas_H__
@@ -14,14 +14,13 @@ namespace Demo {
 
 class TestCas : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestCas, BasicGL::Page)
+    DECLARE_SUBCLASS(TestCas, BasicGL::Page)
 
 public:
     TestCas();
-       
-    // Basic::Component interface
+
     void updateData(const LCreal dt = 0) override;
-   
+
 private:
     LCreal tas;                     // our cas dial rotation position (1 - 900)
     SendData tasSD;

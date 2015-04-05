@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: TestFtitDial
 //
-// Description: Example Analog Dial Page 
+// Description: Example Analog Dial Page
 // This page will supply test data to the fuel temperature internal dial
 //
 //------------------------------------------------------------------------------
@@ -15,16 +15,15 @@ namespace Demo {
 
 class TestFtitDial : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestFtitDial, BasicGL::Page)
+    DECLARE_SUBCLASS(TestFtitDial, BasicGL::Page)
 
 public:
     TestFtitDial();
-   
-    // Basic::Component interface
+
     void updateData(const LCreal dt = 0) override;
-   
+
 private:
-    LCreal ftitRotation;        // our ftit position (0 - 1000) 
+    LCreal ftitRotation;        // our ftit position (0 - 1000)
     SendData ftitRotationSD;
     LCreal  ftitRate;           // rate which are going (up or down)
     SendData ftitRotationROSD;  // for our readout

@@ -17,13 +17,12 @@ class TestElectronic : public BasicGL::Page
 
 public:
     TestElectronic();
-   
-    // Basic::Component interface
+
     void updateData(const LCreal dt = 0.0) override;
-   
+
 private:
     void updateTestValues(const LCreal dt);    // update our data
-    
+
     LCreal heading;         // our compass heading
     LCreal headingRate;
     LCreal headingBug;      // our heading indicator bug
@@ -34,7 +33,7 @@ private:
     LCreal brgRate;
     bool brgVis;            // bearing visibility
     // nav stuff
-    int navSource;      
+    int navSource;
     int navType;
     int secNavType;
     int navMode;
@@ -59,7 +58,7 @@ private:
     LCreal dist;               // distance (miles) to our next navaid
     LCreal distRate;
     // data
-    LCreal timeToGo;            
+    LCreal timeToGo;
     LCreal ttgRate;
     LCreal groundSpeed;
     LCreal driftAngle;
@@ -70,18 +69,18 @@ private:
     LCreal etRate;
     LCreal windDir;
     LCreal windSpeed;
-    int    readoutMode;         // primary or secondary    
+    int    readoutMode;         // primary or secondary
     // glideslope
     LCreal gsDots;
     LCreal gsDotsRate;
-    bool   vhfGSValid;          
-    bool   vhfGSOOV;    
+    bool   vhfGSValid;
+    bool   vhfGSOOV;
 
     // SLS - transfer from Electronic HSI class
     LCreal curHdg;              // current slewed heading
     LCreal curBug;              // current heading bug
     SendData hdgBugROMoveXSD;   // where to move our heading bug readout
-    SendData hdgBugROSD;        // heading bug readout 
+    SendData hdgBugROSD;        // heading bug readout
     SendData distTypeSD;        // type of distance data we are using
     SendData distVisSD;         // distance data readout visibility
     SendData curDistSD;         // current distance to navaid

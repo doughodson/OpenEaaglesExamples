@@ -17,12 +17,11 @@ class TestAlt : public BasicGL::Page
 
 public:
     TestAlt();
-   
-    // Basic::Component interface
+
     void updateData(const LCreal dt = 0) override;
-   
+
 private:
-    LCreal alt;             // our heading 
+    LCreal alt;             // our heading
     SendData altSD;
     LCreal  altRate;        // rate which are going (up or down)
     SendData altROSD;

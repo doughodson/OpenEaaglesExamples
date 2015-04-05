@@ -17,15 +17,14 @@ class TestLandingGear : public BasicGL::Page
 
 public:
    TestLandingGear();
-   
-   // Basic::Component interface
+
    bool event(const int event, Basic::Object* const obj = 0) override;
    void updateData(const LCreal dt = 0) override;
-   
+
 private:
     // event functions
     bool onUpdateLandingGearTestLandingGear();
-    
+
     LCreal gearPosition;       // our landing gear position (0 is down, 1 is up)
     SendData gearPositionSD;
     SendData gearPositionROSD;

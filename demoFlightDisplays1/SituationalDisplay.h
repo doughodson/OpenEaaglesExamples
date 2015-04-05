@@ -18,7 +18,7 @@ class SituationalDisplay : public BasicGL::Page
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
 
 public:
-    SituationalDisplay(); 
+    SituationalDisplay();
 
     // set functions
     virtual bool setReferenceLat(const double newL);      // Sets latitude (degs)
@@ -48,13 +48,12 @@ public:
     LCreal getNav2Dme()         { return nav2Dme; }
     bool getNav2Id(const int index, char* newString);
 
-    // Basic::Component Interface
     void updateData(const LCreal dt = 0) override;
 
 private:
     double refLat;              // latitude
     double refLon;              // longitude
-    
+
     LCreal heading;             // our heading (degs)
     SendData headingROSD;
     LCreal range;               // our range (NM)
@@ -66,9 +65,9 @@ private:
     SendData hdgBugSD;
     SendData hdgBugROSD;
 
-    // navaid 1 
-    LCreal nav1Brg;       // degs
-    LCreal nav1Dme;       // Nm
+    // navaid 1
+    LCreal nav1Brg;                   // degs
+    LCreal nav1Dme;                   // Nm
     char   nav1Id[NCHAR_NAV1_ID+1];   // ID
     SendData nav1DmeSD;
     SendData nav1BrgROSD;
@@ -82,9 +81,9 @@ private:
     SendData refLonSD;
     SendData centeredSD;
 
-    // navaid 2 
-    LCreal nav2Brg;       // degs
-    LCreal nav2Dme;       // Nm
+    // navaid 2
+    LCreal nav2Brg;                   // degs
+    LCreal nav2Dme;                   // Nm
     char   nav2Id[NCHAR_NAV2_ID+1];   // TACAN ID
     SendData nav2DmeSD;
     SendData nav2BrgROSD;
@@ -92,9 +91,9 @@ private:
     SendData nav2IdSD;
 
     // Terrain follower
-    LCreal planeAlt;   
+    LCreal planeAlt;
     SendData planeAltSD;
-    SendData headingCRSD;    
+    SendData headingCRSD;
 };
 
 }; // end of Demo namespace

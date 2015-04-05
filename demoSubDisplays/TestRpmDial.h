@@ -18,7 +18,6 @@ class TestRpmDial : public BasicGL::Page
 public:
     TestRpmDial();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0) override;
 
 private:
