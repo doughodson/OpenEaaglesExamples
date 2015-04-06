@@ -23,8 +23,7 @@ public:
    PrintMyData();
 
 protected:
-   // OutputHandler class private functions
-   virtual void processRecordImp(const Recorder::DataRecordHandle* const handle);
+   void processRecordImp(const Recorder::DataRecordHandle* const handle) override;
 
 private:
    void initData();

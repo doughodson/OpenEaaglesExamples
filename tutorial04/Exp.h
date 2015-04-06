@@ -20,7 +20,7 @@ class Exp : public Random
 
 public:
 
-   Exp(void);
+   Exp();
 
    // data access functions
    virtual void setMean(const double);
@@ -28,8 +28,7 @@ public:
    // slot table functions
    virtual bool setSlotMean(const Basic::Number* const);
 
-   // Random class interface
-   virtual int getNum(void) const;
+   int getNum(void) const override;
 
 private:
 

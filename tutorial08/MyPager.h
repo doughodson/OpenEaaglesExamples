@@ -18,7 +18,6 @@ public:
 
    MyPager();
 
-   // Page Interface
    bool onEntry() override;
 };
 

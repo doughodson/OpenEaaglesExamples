@@ -11,7 +11,7 @@ namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine01
-// Description: State Machine Test #1 -- 
+// Description: State Machine Test #1 --
 //
 //    Tests the standard state transition functions (e.g., next(), goTo(), call(),
 //    and rtn()), as well as arguments passed and returned.   There's one common
@@ -30,7 +30,6 @@ public:
    TestStateMachine01();
 
 protected:
-   // Basic::StateMachine protected interface function
    void preStateProc(const LCreal dt) override;
    void postStateProc(const LCreal dt) override;
    unsigned short stateTable(

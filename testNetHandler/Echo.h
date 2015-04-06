@@ -24,7 +24,6 @@ class Echo : public Endpoint
 public:
    Echo();
 
-   // Component interface
    void updateData(const LCreal dt = 0.0f) override;
    void reset() override;
 

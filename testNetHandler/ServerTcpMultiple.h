@@ -24,7 +24,6 @@ class ServerTcpMultiple : public Endpoint
 public:
    ServerTcpMultiple();
 
-   // Component interface
    void updateData(const LCreal dt = 0.0f) override;
    void reset() override;
 

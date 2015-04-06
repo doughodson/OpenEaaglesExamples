@@ -19,7 +19,7 @@ class Uniform : public Random
    DECLARE_SUBCLASS(Uniform, Random)
 
 public:
-   Uniform(void);
+   Uniform();
 
    // data access functions
    void setMax(const int);
@@ -29,7 +29,6 @@ public:
    bool setSlotMax(const Basic::Number* const);
    bool setSlotMin(const Basic::Number* const);
 
-   // Random class interface
    int getNum(void) const override;
 
 private:

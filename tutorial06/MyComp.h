@@ -28,7 +28,6 @@ public:
    // slot table functions
    bool setSlotStr(const Basic::String* const);
 
-   // Component class methods
    void reset() override;
    void updateTC(const LCreal dt = 0.0) override;
    void updateData(const LCreal dt = 0.0) override;

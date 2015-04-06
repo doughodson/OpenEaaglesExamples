@@ -11,7 +11,7 @@ namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine02
-// Description: State Machine Test #2 -- 
+// Description: State Machine Test #2 --
 //
 //    Same as Test #1 except that we're using separate state specific functions.
 //
@@ -27,7 +27,6 @@ public:
    TestStateMachine02();
 
 protected:
-   // Basic::StateMachine protected interface function
    void preStateProc(const LCreal dt) override;
    void postStateProc(const LCreal dt) override;
    unsigned short stateTable(

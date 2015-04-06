@@ -33,7 +33,6 @@ public:
    // Restart all of the timers -- they're left in an active state
    void restartAllTimers();
 
-   // Component class Interface
    void reset() override;
 
 protected:

@@ -27,7 +27,6 @@ public:
    TestStateMachine04();
 
 protected:
-   // Basic::StateMachine protected interface function
    void preStateProc(const LCreal dt) override;
    void postStateProc(const LCreal dt) override;
    unsigned short stateTable(

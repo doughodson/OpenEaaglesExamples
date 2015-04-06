@@ -30,7 +30,7 @@ static int testNumber = 0;
 static char ynCont = 'y';
 static char ynMenu = 'y';
 static const char* enterYourOwnData = "Enter your own data? (y/n) : ";
-   
+
 //------------------------------------------------------------------------------
 // prototype functions
 //------------------------------------------------------------------------------
@@ -76,17 +76,17 @@ void selectNavTestFunction(int n);
 
 
 //------------------------------------------------------------------------------
-// Test Nav class functions 
+// Test Nav class functions
 //------------------------------------------------------------------------------
 int testNavFns()
 {
    while (ynCont != 'n') {
          displayNavTestFunctions();
-      
-      std::cout << "Enter a Nav function test number: ";
-      std::cin  >> testNumber; 
 
-      
+      std::cout << "Enter a Nav function test number: ";
+      std::cin  >> testNumber;
+
+
       switch (testNumber) {
          // Direct and Inverse Methods
          case  0: std::exit(0);
@@ -125,12 +125,12 @@ int testNavFns()
 
          // Print All Results
          case 99: test99_printAllExamples();             break;
-         
+
          default:
             std::cout << "Bad selection. Try again." << std::endl;
             break;
       }
-      
+
       std::cout << "Continue?  (y/n)";
       std::cin  >> ynCont;
       std::cout << std::endl;
@@ -140,14 +140,14 @@ int testNavFns()
 }
 
 //------------------------------------------------------------------------------
-// Display Nav Test Functions 
+// Display Nav Test Functions
 //------------------------------------------------------------------------------
 void displayNavTestFunctions()
 {
    std::cout << "=====================================================" << std::endl;
    std::cout << "Nav Test Functions" << std::endl;
    std::cout << "=====================================================" << std::endl;
-   
+
    // Direct and Inverse Methods
    std::cout << "   0)  exit()"                              << std::endl
              << "   1)  test fbd2llE()"                      << std::endl
@@ -166,16 +166,16 @@ void displayNavTestFunctions()
              << "  14)  test glla2bdS()"                     << std::endl
              << "  15)  test vbd2ll()"                       << std::endl
              << "  16)  test vll2bd()"                       << std::endl
-                                                             
-   // Matrix Generators                                      
+
+   // Matrix Generators
              << "  17)  test computeWorldMatrix()"           << std::endl
              << "  18)  test computeEulerAnglesDeg()"        << std::endl
-             
+
              << "  19)  test computeRotationalMatrix()"      << std::endl
              << "  20)  test computeRotationalMatrix()"      << std::endl
              << "  21)  test computeRotationalMatrixDeg()"   << std::endl
              << "  22)  test computeRotationalMatrixDeg()"   << std::endl
-             
+
              << "  23)  test convertPosVec2llE()"             << std::endl
              << "  24)  test convertLL2PosVecE()"             << std::endl
              << "  25)  test convertEcef2Geod()"             << std::endl
@@ -188,7 +188,7 @@ void displayNavTestFunctions()
 }
 
 //------------------------------------------------------------------------------
-// Test Nav class functions 
+// Test Nav class functions
 //------------------------------------------------------------------------------
 void test99_printAllExamples()
 {
@@ -242,7 +242,7 @@ void test01_fbd2llE()
              << "=====================================================" << std::endl
              << "Example problem 1: test01_fbd2llE                    " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // function prototype
    //-----------------------------------
@@ -276,11 +276,11 @@ void test01_fbd2llE()
    double dist = 100.0;
    double tlat = 0.0;
    double tlon = 0.0;
-   
+
    const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
    const double TGT_LAT = 1.1843;
    const double TGT_LON = 1.1764;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -297,7 +297,7 @@ void test01_fbd2llE()
              << "  dist = " << std::setw(10) << dist    << "  // target distance    [NM]" << std::endl
              << "  pEM  = " << std::setw(10) << "wgs84" << "  // earth model pointer    " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
@@ -310,7 +310,7 @@ void test01_fbd2llE()
    // calculate actual results
    //-----------------------------------
    Basic::Nav::fbd2llE(slat,slon,brng,dist,&tlat,&tlon,pEM);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -407,7 +407,7 @@ void test02_fll2bdE()
    double brng = 0.0;
    double dist = 0.0;
    const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
-   
+
    const double TGT_BRNG = 45.1924;
    const double TGT_DIST = 84.7211;
 
@@ -427,7 +427,7 @@ void test02_fll2bdE()
              << "  tlon = " << std::setw(10) << tlon    << "  // target longitude  [DEG]" << std::endl
              << "  pEM  = " << std::setw(10) << "wgs84" << "  // pointer to earth model " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
@@ -440,7 +440,7 @@ void test02_fll2bdE()
    // calculate actual results
    //-----------------------------------
    Basic::Nav::fll2bdE(slat,slon,tlat,tlon,&brng,&dist,pEM);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -462,7 +462,7 @@ void test02_fll2bdE()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -479,7 +479,7 @@ void test02_fll2bdE()
          std::cout << "Enter target latitude   [DEG] : "; std::cin >> tlat;
          std::cout << "Enter target longitude  [DEG] : "; std::cin >> tlon;
          std::cout << std::endl;
-            
+
          Basic::Nav::fll2bdE(slat, slon, tlat, tlon, &brng, &dist, pEM);
 
          // output results
@@ -534,7 +534,7 @@ void test03_fbd2llS()
    double dist = 100.0;
    double tlat = 0.0;
    double tlon = 0.0;
-   
+
    const double TGT_LAT = 1.1785;
    const double TGT_LON = 1.1785;
 
@@ -553,11 +553,11 @@ void test03_fbd2llS()
              << "  brng = " << std::setw(10) << brng << "  // target bearing    [DEG]" << std::endl
              << "  dist = " << std::setw(10) << dist << "  // target distance    [NM]" << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
-   std::cout << "Expected Results:" << std::endl;   
+   std::cout << "Expected Results:" << std::endl;
    std::cout << "  tlat = " << std::setw(10) << TGT_LAT << std::endl
              << "  tlon = " << std::setw(10) << TGT_LON << std::endl
              << std::endl;
@@ -566,7 +566,7 @@ void test03_fbd2llS()
    // calculate actual results
    //-----------------------------------
    Basic::Nav::fbd2llS(slat,slon,brng,dist,&tlat,&tlon);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -588,7 +588,7 @@ void test03_fbd2llS()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -605,11 +605,11 @@ void test03_fbd2llS()
          std::cout << "Enter source bearing    [DEG] : "; std::cin >> brng;
          std::cout << "Enter source distance    [NM] : "; std::cin >> dist;
          std::cout << std::endl;
-            
+
          Basic::Nav::fbd2llS(slat, slon, brng, dist, &tlat, &tlon);
 
          // output results
-         std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);   
+         std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "tlat = " << std::setw(10) << tlat << " [DEG]" << std::endl;
          std::cout << "tlon = " << std::setw(10) << tlon << " [DEG]" << std::endl;
          std::cout << std::endl;
@@ -650,7 +650,7 @@ void test04_fll2bdS()
              << "Nav Function Usage: " << std::endl
              << "  Basic::Nav::fll2bdS(slat,slon,tlat,tlon,&brng,&dist,pEM)" << std::endl
              << std::endl;
-             
+
    //-----------------------------------
    // declare function parameters
    //-----------------------------------
@@ -660,7 +660,7 @@ void test04_fll2bdS()
    double tlon = 1.0;
    double brng = 0.0;
    double dist = 0.0;
-   
+
    const double TGT_BRNG = 45.0;
    const double TGT_DIST = 84.8528;
 
@@ -679,7 +679,7 @@ void test04_fll2bdS()
              << "  tlat = " << std::setw(10) << tlat     << "  // target latitude   [DEG]" << std::endl
              << "  tlon = " << std::setw(10) << tlon     << "  // target longitude  [DEG]" << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
@@ -692,7 +692,7 @@ void test04_fll2bdS()
    // calculate actual results
    //-----------------------------------
    Basic::Nav::fll2bdS(slat,slon,tlat,tlon,&brng,&dist);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -714,7 +714,7 @@ void test04_fll2bdS()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -725,13 +725,13 @@ void test04_fll2bdS()
          tlon = 0.0;
          brng = 0.0;
          dist = 0.0;
-         
+
          std::cout << "Enter source latitude   [DEG] : "; std::cin >> slat;
          std::cout << "Enter source longitude  [DEG] : "; std::cin >> slon;
          std::cout << "Enter target latitude   [DEG] : "; std::cin >> tlat;
          std::cout << "Enter target longitude  [DEG] : "; std::cin >> tlon;
          std::cout << std::endl;
-            
+
          Basic::Nav::fll2bdS(slat, slon, tlat, tlon, &brng, &dist);
 
          // output results
@@ -767,7 +767,7 @@ void test05_aer2xyz()
              << "       const double elev,       // IN:  elevation (body)  (positive up)              [RAD]            " << std::endl
              << "       const double ranj)       // IN:  range                                        [M]              " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // function usage
    //-----------------------------------
@@ -783,7 +783,7 @@ void test05_aer2xyz()
    double elev = 30.0;
    double ranj = 1000.0;
    osg::Vec3d pos;
-   
+
    const double XPOS = 612.3724;
    const double YPOS = 612.3724;
    const double ZPOS = -500.0;
@@ -802,7 +802,7 @@ void test05_aer2xyz()
              << "  elev   = " << std::setw(10) << elev << "  // elevation  [DEG]" << std::endl
              << "  ranj   = " << std::setw(10) << ranj << "  // range      [M]  " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
@@ -817,7 +817,7 @@ void test05_aer2xyz()
    //-----------------------------------
    azim *= Basic::Angle::D2RCC;
    elev *= Basic::Angle::D2RCC;
-   
+
    //-----------------------------------
    // calculate position
    //-----------------------------------
@@ -831,7 +831,7 @@ void test05_aer2xyz()
              << "  pos[1] = " << std::setw(10) <<  pos[1] << "  // y  [M]" << std::endl
              << "  pos[2] = " << std::setw(10) <<  pos[2] << "  // z  [M]" << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
@@ -845,7 +845,7 @@ void test05_aer2xyz()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -854,7 +854,7 @@ void test05_aer2xyz()
          double elev = 0.0;
          double ranj = 0.0;
          osg::Vec3d pos;
-         
+
          std::cout << "Enter azimuth    [DEG] : "; std::cin >> azim;
          std::cout << "Enter elevation  [DEG] : "; std::cin >> elev;
          std::cout << "Enter range      [M]   : "; std::cin >> ranj;
@@ -898,7 +898,7 @@ void test06_aer2xyz()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Phase 1: Calculate a rotation matrix"                    << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // function prototype
    //-----------------------------------
@@ -906,7 +906,7 @@ void test06_aer2xyz()
              << "Nav Function Prototype:"                               << std::endl
              << "  bool computeRotationalMatrixDeg("                    << std::endl
              << "       const osg::Vec3d& angles,    // IN:  [ phi theta psi ]  [DEG]  " << std::endl
-             << "       osg::Matrixd* const rm,      // OUT: Matrix                    " << std::endl  
+             << "       osg::Matrixd* const rm,      // OUT: Matrix                    " << std::endl
              << "       osg::Vec2d* const scPhi=0,   // OUT: Sin/Cos of phi   (opt)    " << std::endl
              << "       osg::Vec2d* const scTht=0,   // OUT: Sin/Cos of theta (opt)    " << std::endl
              << "       osg::Vec2d* const scPsi=0);  // OUT: Sin/Cos of psi   (opt)    " << std::endl
@@ -931,13 +931,13 @@ void test06_aer2xyz()
    const double NORTH =   39.0485;
    const double EAST  =  819.1647;
    const double DOWN  = -572.2276;
-   
-   
+
+
    double azim  = 45.0;
    double elev  = 30.0;
    double ranj  = 1000.0;
    osg::Vec3d pos;
-   
+
    osg::Matrixd ER;
    ER(0,0) =  0.8138;
    ER(0,1) =  0.4698;
@@ -948,12 +948,12 @@ void test06_aer2xyz()
    ER(2,0) =  0.3785;
    ER(2,1) =  0.0180;
    ER(2,2) =  0.9254;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
-   
+
    //-----------------------------------
    // show test inputs for rotation matrix
    //-----------------------------------
@@ -962,7 +962,7 @@ void test06_aer2xyz()
              << "pitch  = " << pitch << "  [DEG]"  << std::endl
              << "yaw    = " << yaw   << "  [DEG]"  << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // Calculate rotation matrix using...
    //   Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);
@@ -989,7 +989,7 @@ void test06_aer2xyz()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Phase 2: Calculate Position (pos)"                     << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // function prototype
    //-----------------------------------
@@ -1003,7 +1003,7 @@ void test06_aer2xyz()
              << "       const double ranj)       // IN:  range                                        [M]              " << std::endl
              << std::endl;
 
-   //-----------------------------------    
+   //-----------------------------------
    // function usage
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
@@ -1031,7 +1031,7 @@ void test06_aer2xyz()
    //-----------------------------------
    // show expected results
    //-----------------------------------
-   std::cout << "Position Vector (Expected Results):" << std::endl   
+   std::cout << "Position Vector (Expected Results):" << std::endl
              << "pos[0] = " << std::setw(10) << NORTH  << "  [M]  // north " << std::endl
              << "pos[1] = " << std::setw(10) << EAST   << "  [M]  // east  " << std::endl
              << "pos[2] = " << std::setw(10) << DOWN   << "  [M]  // down  " << std::endl
@@ -1041,7 +1041,7 @@ void test06_aer2xyz()
    // calculate actual results
    //-----------------------------------
    Basic::Nav::aer2xyz(&pos, rm, azim, elev, ranj);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -1054,17 +1054,17 @@ void test06_aer2xyz()
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
-   std::cout << "Position Vector (Errors):" << std::endl   
+   std::cout << "Position Vector (Errors):" << std::endl
              << std::setw(10) << pos[0] - NORTH << std::endl
              << std::setw(10) << pos[1] - EAST  << std::endl
              << std::setw(10) << pos[2] - DOWN  << std::endl
              << std::endl;
-   
+
    //---------------------------------------------------------------------------
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1078,16 +1078,16 @@ void test06_aer2xyz()
          double elev  = 0.0;
          double ranj  = 0.0;
          osg::Vec3d pos;
-         
+
          std::cout << "Enter roll   [DEG] : "; std::cin >> roll;
          std::cout << "Enter pitch  [DEG] : "; std::cin >> pitch;
          std::cout << "Enter yaw    [DEG  : "; std::cin >> yaw;
          std::cout << std::endl;
-         
+
          roll  *= Basic::Angle::D2RCC;
          pitch *= Basic::Angle::D2RCC;
          yaw   *= Basic::Angle::D2RCC;
-         
+
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "roll   = " << std::setw(12) << roll  << " [RAD]" << std::endl;
          std::cout << "pitch  = " << std::setw(12) << pitch << " [RAD]" << std::endl;
@@ -1149,7 +1149,7 @@ void test07_xyz2aer()
              << "   const double y,         // IN:  y                [M]            "  << std::endl
              << "   const double z)         // IN:  z                [M]            "  << std::endl
              << std::endl;
- 
+
    //-----------------------------------
    // function usage
    //-----------------------------------
@@ -1169,7 +1169,7 @@ void test07_xyz2aer()
    const double AZIM =  63.4349;
    const double ELEV = -53.3008;
    const double RANJ = 374.1657;
-   
+
    //-------------------------
    // set output formats
    //-------------------------
@@ -1185,7 +1185,7 @@ void test07_xyz2aer()
              << "y = " << y << "  [M]  // y position" << std::endl
              << "z = " << z << "  [M]  // z position" << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // compute the aer vector (azim,elev,ranj)
    //-----------------------------------
@@ -1197,12 +1197,12 @@ void test07_xyz2aer()
    //-----------------------------------
    // show expected results
    //-----------------------------------
-   std::cout << "Expected Results (azim,elev,ranj):" << std::endl   
+   std::cout << "Expected Results (azim,elev,ranj):" << std::endl
              << "  AZIM   = " << std::setw(10) << AZIM   << "  [DEG]  // azim" << std::endl
              << "  ELEV   = " << std::setw(10) << ELEV   << "  [DEG]  // elev" << std::endl
              << "  RANJ   = " << std::setw(10) << RANJ   << "    [M]  // ranj" << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -1226,7 +1226,7 @@ void test07_xyz2aer()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1244,7 +1244,7 @@ void test07_xyz2aer()
          std::cout << std::endl;
 
          Basic::Nav::xyz2aer(&aer, x, y, z);
-         
+
          //-----------------------------------
          // show output results
          //-----------------------------------
@@ -1282,7 +1282,7 @@ void test08_xyz2aer()
              << "       const double y,          // IN:  y                        [M]        " << std::endl
              << "       const double z)          // IN:  z                        [M]        " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // function usage
    //-----------------------------------
@@ -1290,7 +1290,7 @@ void test08_xyz2aer()
              << "Nav Function Usage: "                                  << std::endl
              << "  Basic::Nav::xyz2aer(aer, rm, x, y, z);"              << std::endl
              << std::endl;
-             
+
    //-----------------------------------
    // declare function parameters
    //-----------------------------------
@@ -1316,8 +1316,8 @@ void test08_xyz2aer()
    erm(2,0) =  0.3785;
    erm(2,1) =  0.0180;
    erm(2,2) =  0.9254;
-   
-   
+
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -1335,14 +1335,14 @@ void test08_xyz2aer()
              << "  y     =  200    [M] east  " << std::endl
              << "  z     = -300    [M] down  " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // compute the rotation matrix
    //-----------------------------------
    std::cout << "Compute the rotation matrix (rm):" << std::endl
              << "Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);" << std::endl
              << std::endl;
-   
+
    Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);
 
 
@@ -1352,7 +1352,7 @@ void test08_xyz2aer()
    std::cout << "Expected Rotation Matrix:" << std::endl
              << "  erm = " << std::endl;
              displayMatrix(erm);
-             
+
              //<< "    0.8138    0.4698   -0.3420 " << std::endl
              //<< "   -0.4410    0.8826    0.1632 " << std::endl
              //<< "    0.3785    0.0180    0.9254 " << std::endl
@@ -1364,7 +1364,7 @@ void test08_xyz2aer()
    std::cout << "Actual Rotation Matrix:" << std::endl
              << "  rm = " << std::endl;
              displayMatrix(rm);
-             
+
    //-----------------------------------
    // show rotation matrix errors
    //-----------------------------------
@@ -1378,9 +1378,9 @@ void test08_xyz2aer()
    std::cout << "Compute aer vector" << std::endl
              << "Basic::Nav::xyz2aer(&aer, rm, x, y, z);" << std::endl
              << std::endl;
-   
+
    Basic::Nav::xyz2aer(&aer, rm, x, y, z);
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
@@ -1413,7 +1413,7 @@ void test08_xyz2aer()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1424,7 +1424,7 @@ void test08_xyz2aer()
          yaw   = 0.0;
          pitch = 0.0;
          roll  = 0.0;
-         
+
          std::cout << "Enter x - north  [M] : "; std::cin >> x;
          std::cout << "Enter y - east   [M] : "; std::cin >> y;
          std::cout << "Enter z - down   [M] : "; std::cin >> z;
@@ -1434,11 +1434,11 @@ void test08_xyz2aer()
          std::cout << "Enter pitch  [DEG] : "; std::cin >> pitch;
          std::cout << "Enter yaw    [DEG  : "; std::cin >> yaw;
          std::cout << std::endl;
-         
+
          roll  *= Basic::Angle::D2RCC;
          pitch *= Basic::Angle::D2RCC;
          yaw   *= Basic::Angle::D2RCC;
-         
+
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "roll  = " << std::setw(12) << roll  << " [RAD]" << std::endl
                    << "pitch = " << std::setw(12) << pitch << " [RAD]" << std::endl
@@ -1447,15 +1447,15 @@ void test08_xyz2aer()
 
          std::cout << "Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);" << std::endl
                    << std::endl;
-         
+
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
-         
+
          std::cout << "=> rm = " << std::endl;
          displayMatrix(rm);
 
          std::cout << "Basic::Nav::xyz2aer(&aer, rm, x, y, z);" << std::endl
                    << std::endl;
-                   
+
          Basic::Nav::xyz2aer(&aer, rm, x, y, z);
 
          // output results
@@ -1517,7 +1517,7 @@ void test09_gbd2ll()
 
    const double TLAT = 1.1763;
    const double TLON = 1.1845;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -1549,7 +1549,7 @@ void test09_gbd2ll()
    // calculate actual results
    //-----------------------------------
    Basic::Nav::gbd2ll(slat, slon, brng, dist, &tlat, &tlon, pEM);
-      
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -1571,7 +1571,7 @@ void test09_gbd2ll()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1583,17 +1583,17 @@ void test09_gbd2ll()
          dist = 0.0;
          tlat = 0.0;
          tlon = 0.0;
-         
+
          // enter own data from keyboard
          std::cout << "Enter slat  [DEG] : "; std::cin >> slat;
          std::cout << "Enter slon  [DEG] : "; std::cin >> slon;
          std::cout << "Enter brng  [DEG] : "; std::cin >> brng;
          std::cout << "Enter dist   [NM] : "; std::cin >> dist;
          std::cout << std::endl;
-         
+
          // compute results
          Basic::Nav::gbd2ll(slat, slon, brng, dist, &tlat, &tlon, pEM);
-         
+
          // show results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "tlat = " << std::setw(12) << tlat << " [DEG]" << std::endl;
@@ -1630,7 +1630,7 @@ void test10_gll2bd()
              << "   const Basic::EarthModel* const eem=0)                  " << std::endl
              << "                          // IN: Earth model (dflt: WGS-84)" << std::endl
              << std::endl;
-      
+
    //-----------------------------------
    // function usage
    //-----------------------------------
@@ -1705,7 +1705,7 @@ void test10_gll2bd()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1723,9 +1723,9 @@ void test10_gll2bd()
          std::cout << "Enter tlat [DEG] : "; std::cin >> tlat;
          std::cout << "Enter tlon [DEG] : "; std::cin >> tlon;
          std::cout << std::endl;
-         
+
          Basic::Nav::gll2bd(slat, slon, tlat, tlon, &brng, &dist, pEM);
-         
+
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "brng = " << std::setw(12) << brng << "  [DEG]" << std::endl;
@@ -1781,7 +1781,7 @@ void test11_gbd2llS()
 
    const double TLAT = 1.1784;
    const double TLON = 1.1787;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -1810,7 +1810,7 @@ void test11_gbd2llS()
    // compute actual results
    //-----------------------------------
    Basic::Nav::gbd2llS(slat, slon, brng, dist, &tlat, &tlon);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -1825,14 +1825,14 @@ void test11_gbd2llS()
    std::cout << "Errors: " << std::endl
              << "  tlat error = " << std::setw(10) << tlat - TLAT << std::endl
              << "  tlon error = " << std::setw(10) << tlon - TLON << std::endl
-             << std::endl;   
-      
+             << std::endl;
+
 
    //---------------------------------------------------------------------------
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1844,15 +1844,15 @@ void test11_gbd2llS()
          dist = 0.0;
          tlat = 0.0;
          tlon = 0.0;
-         
+
          std::cout << "Enter slat  [DEG] : "; std::cin >> slat;
          std::cout << "Enter slon  [DEG] : "; std::cin >> slon;
          std::cout << "Enter brng  [DEG] : "; std::cin >> brng;
          std::cout << "Enter dist   [NM] : "; std::cin >> dist;
          std::cout << std::endl;
-         
+
          Basic::Nav::gbd2llS(slat, slon, brng, dist, &tlat, &tlon);
-         
+
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "tlat = " << std::setw(12) << tlat << " [DEG]" << std::endl;
          std::cout << "tlon = " << std::setw(12) << tlon << " [DEG]" << std::endl;
@@ -1904,7 +1904,7 @@ void test12_gll2bdS()
    double brng = 0.0;
    double dist = 0.0;
    const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
-   
+
    const double BRNG = 44.9956;
    const double DIST = 84.8507;
 
@@ -1936,7 +1936,7 @@ void test12_gll2bdS()
    // compute actual results
    //-----------------------------------
    Basic::Nav::gll2bdS(slat, slon, tlat, tlon, &brng, &dist);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -1952,13 +1952,13 @@ void test12_gll2bdS()
              << "brng error = " << std::setw(10) << brng - BRNG << "  [DEG]" << std::endl
              << "dist error = " << std::setw(10) << dist - DIST << "   [NM]" << std::endl
              << std::endl;
-             
+
 
    //---------------------------------------------------------------------------
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -1976,9 +1976,9 @@ void test12_gll2bdS()
          std::cout << "Enter tlat [DEG] : "; std::cin >> tlat;
          std::cout << "Enter tlon [DEG] : "; std::cin >> tlon;
          std::cout << std::endl;
-         
+
          Basic::Nav::gll2bdS(slat, slon, tlat, tlon, &brng, &dist);
-         
+
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "brng = " << std::setw(12) << brng << "  [DEG]" << std::endl;
@@ -2044,7 +2044,7 @@ void test13_glla2bd()
    double dist = 0.0;
    double elev = 0.0;
    const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;  // default earth model
-   
+
    const double BRNG = 44.8043;
    const double SRNG = 84.8908;
    const double DIST = 84.7189;
@@ -2078,11 +2078,11 @@ void test13_glla2bd()
              << "DIST = " << std::setw(12) << DIST << "   [NM]  // target ground range" << std::endl
              << "ELEV = " << std::setw(12) << ELEV << "  [DEG]  // target elevation   " << std::endl
              << std::endl;
-             
+
    //-----------------------------------
    // compute actual results
    //-----------------------------------
-   Basic::Nav::glla2bd(slat, slon, salt, tlat, tlon, talt,  
+   Basic::Nav::glla2bd(slat, slon, salt, tlat, tlon, talt,
                        &brng, &srng, &dist, &elev);
 
    //-----------------------------------
@@ -2111,7 +2111,7 @@ void test13_glla2bd()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -2126,7 +2126,7 @@ void test13_glla2bd()
          srng = 0.0;
          dist = 0.0;
          elev = 0.0;
-         
+
          std::cout << "Enter slat  [DEG] : "; std::cin >> slat;
          std::cout << "Enter slon  [DEG] : "; std::cin >> slon;
          std::cout << "Enter salt  [M]   : "; std::cin >> salt;
@@ -2265,7 +2265,7 @@ void test14_glla2bdS()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -2280,7 +2280,7 @@ void test14_glla2bdS()
          srng     = 0.0;
          dist     = 0.0;
          elev     = 0.0;
-         
+
          std::cout << "Enter slat  [DEG] : "; std::cin >> slat;
          std::cout << "Enter slon  [DEG] : "; std::cin >> slon;
          std::cout << "Enter salt  [M]   : "; std::cin >> salt;
@@ -2352,7 +2352,7 @@ void test15_vbd2ll()
 
    const double TLAT = 1.18424220;
    const double TLON = 1.17656578;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -2381,7 +2381,7 @@ void test15_vbd2ll()
    // compute actual results
    //-----------------------------------
    Basic::Nav::vbd2ll(slat, slon, brng, dist, &tlat, &tlon, pEM);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -2397,13 +2397,13 @@ void test15_vbd2ll()
              << "  tlat error = " << std::setw(14) << tlat - TLAT << std::endl
              << "  tlon error = " << std::setw(14) << tlon - TLON << std::endl
              << std::endl;
-             
+
 
    //---------------------------------------------------------------------------
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -2421,7 +2421,7 @@ void test15_vbd2ll()
          std::cout << "Enter source bearing    [DEG] : "; std::cin  >> brg1;
          std::cout << "Enter source distance    [NM] : "; std::cin  >> dist;
          std::cout << std::endl;
-            
+
          Basic::Nav::vbd2ll(slat, slon, brg1, dist, &tlat, &tlon, pEM);
 
          // output results
@@ -2494,7 +2494,7 @@ void test16_vll2bd()
    const double BRG1 =   45.18804023;
    const double DIST =   84.71898935;
    const double BRG2 = -134.80323268;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -2524,7 +2524,7 @@ void test16_vll2bd()
    // compute actual results
    //-----------------------------------
    Basic::Nav::vll2bd(slat, slon, tlat, tlon, &brg1, &dist, &brg2, pEM);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -2548,7 +2548,7 @@ void test16_vll2bd()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -2566,7 +2566,7 @@ void test16_vll2bd()
          std::cout << "Enter target latitude   [DEG] : "; std::cin  >> tlat;
          std::cout << "Enter target longitude  [DEG] : "; std::cin  >> tlon;
          std::cout << std::endl;
-            
+
          Basic::Nav::vll2bd(slat, slon, tlat, tlon, &brg1, &dist, &brg2, pEM);
 
          std::cout << std::setprecision(8) << std::setiosflags(std::ios::fixed);
@@ -2633,7 +2633,7 @@ void test17_computeWorldMatrix()
    worldMatrix(2,0) = -0.4924;
    worldMatrix(2,1) = -0.5868;
    worldMatrix(2,2) = -0.6428;
-   
+
 
    //-----------------------------------
    // set output formats
@@ -2689,13 +2689,13 @@ void test17_computeWorldMatrix()
    //-----------------------------------
    std::cout << "Errors: " << std::endl;
    displayMatrix(wm - worldMatrix);
-  
+
 
    //---------------------------------------------------------------------------
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -2709,7 +2709,7 @@ void test17_computeWorldMatrix()
          std::cout << std::endl;
 
          Basic::Nav::computeWorldMatrix(rlat, rlon, &wm);
-         
+
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "wm = " << std::endl;
          displayMatrix(wm);
@@ -2736,10 +2736,10 @@ void test18_computeEulerAnglesDeg()
              << "Nav Function Prototype: " << std::endl
              << "  bool computeEulerAnglesDeg( " << std::endl
              << "       const osg::Matrixd& rm,     // IN: Rotational matrix            " << std::endl
-             << "       osg::Vec3d* const anglesD,  // OUT: euler angles [DEG]          " << std::endl 
-             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi (Optional)   " << std::endl 
-             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional) " << std::endl 
-             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi (Optional)   " << std::endl 
+             << "       osg::Vec3d* const anglesD,  // OUT: euler angles [DEG]          " << std::endl
+             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi (Optional)   " << std::endl
+             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional) " << std::endl
+             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi (Optional)   " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -2752,7 +2752,7 @@ void test18_computeEulerAnglesDeg()
 
    //-----------------------------------
    // declare function parameters
-   //-----------------------------------   
+   //-----------------------------------
    double roll  = 0.0;
    double pitch = 0.0;
    double yaw   = 0.0;
@@ -2765,7 +2765,7 @@ void test18_computeEulerAnglesDeg()
    const double ROLL  = 10.0;
    const double PITCH = 20.0;
    const double YAW   = 30.0;
-   
+
    const double SIN_PHI = std::sin(ROLL  * Basic::Angle::D2RCC);
    const double COS_PHI = std::cos(ROLL  * Basic::Angle::D2RCC);
    const double SIN_THT = std::sin(PITCH * Basic::Angle::D2RCC);
@@ -2785,7 +2785,7 @@ void test18_computeEulerAnglesDeg()
    //-----------------------------------
    std::cout << "-----------------------------------------------------" << std::endl
              << "Test Inputs: " << std::endl;
-             
+
    //-----------------------------------
    // compute rotation matrix from euler angles
    //-----------------------------------
@@ -2855,7 +2855,7 @@ void test18_computeEulerAnglesDeg()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -2869,13 +2869,13 @@ void test18_computeEulerAnglesDeg()
          std::cout << "Enter pitch angle  [DEG] : "; std::cin  >> pitch;
          std::cout << "Enter yaw   angle  [DEG] : "; std::cin  >> yaw;
          std::cout << std::endl;
-         
+
          std::cout << "Compute rotational matrix from roll, pitch, yaw:" << std::endl
                    << std::endl;
-                   
+
          std::cout << "Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);" << std::endl
                    << std::endl;
-                   
+
          Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);
 
          std::cout << "rm = " << std::endl;
@@ -2883,14 +2883,14 @@ void test18_computeEulerAnglesDeg()
 
          std::cout << "Basic::Nav::computeEulerAnglesDeg(rm, &angles, &scPhi, &scTht, &scPsi);" << std::endl
                    << std::endl;
-                   
+
          Basic::Nav::computeEulerAnglesDeg(rm, &angles, &scPhi, &scTht, &scPsi);
-         
+
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "angles = (phi, tht, psi)'" << std::endl;
          showVec3(angles);
-         
+
          std::cout << "scPhi = " << std::endl;
          showVec2(scPhi);
          std::cout << "scTht = " << std::endl;
@@ -2946,16 +2946,16 @@ void test19_computeRotationalMatrix()
    osg::Vec3d angles;
 
    // outputs
-   osg::Matrixd rm;   
+   osg::Matrixd rm;
    osg::Vec2d scPhi;
    osg::Vec2d scTht;
    osg::Vec2d scPsi;
-    
+
    const double ROLL    = 0.2;
    const double PITCH   = 0.4;
    const double YAW     = 0.6;
-   
-   osg::Matrixd testRotMatrix;   
+
+   osg::Matrixd testRotMatrix;
    testRotMatrix(0,0) =  0.7602;
    testRotMatrix(0,1) =  0.5201;
    testRotMatrix(0,2) = -0.3894;
@@ -2972,7 +2972,7 @@ void test19_computeRotationalMatrix()
    const double COS_THT = std::cos(PITCH);
    const double SIN_PSI = std::sin(YAW);
    const double COS_PSI = std::cos(YAW);
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -3009,7 +3009,7 @@ void test19_computeRotationalMatrix()
    // compute actual results
    //-----------------------------------
    Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm, &scPhi, &scTht, &scPsi);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -3017,7 +3017,7 @@ void test19_computeRotationalMatrix()
 
    std::cout << "  rm = " << std::endl;
    displayMatrix(rm);
-   
+
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
              << "  scTht[0]  = " << std::setw(12) << scTht[0] << std::endl
@@ -3025,7 +3025,7 @@ void test19_computeRotationalMatrix()
              << "  scPsi[0]  = " << std::setw(12) << scPsi[0] << std::endl
              << "  scPsi[1]  = " << std::setw(12) << scPsi[1] << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
@@ -3033,7 +3033,7 @@ void test19_computeRotationalMatrix()
 
    std::cout << "  rm error = " << std::endl;
    displayMatrix(rm - testRotMatrix);
- 
+
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
              << "  scTht[0] error = " << std::setw(12) << scTht[0] - SIN_THT << std::endl
@@ -3046,7 +3046,7 @@ void test19_computeRotationalMatrix()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -3060,10 +3060,10 @@ void test19_computeRotationalMatrix()
          std::cout << "Enter pitch  [RAD] : "; std::cin  >> pitch;
          std::cout << "Enter yaw    [RAD] : "; std::cin  >> yaw;
          std::cout << std::endl;
-         
+
          std::cout << "Compute rotational matrix from roll, pitch, yaw:" << std::endl;
          std::cout << std::endl;
-         
+
          std::cout << "Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);" << std::endl;
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
 
@@ -3116,16 +3116,16 @@ void test20_computeRotationalMatrix()
    angles[2] = 0.6;  // [RAD]
 
    // outputs
-   osg::Matrixd rm;   
+   osg::Matrixd rm;
    osg::Vec2d scPhi;
    osg::Vec2d scTht;
    osg::Vec2d scPsi;
-    
+
    const double ROLL    = 0.2;
    const double PITCH   = 0.4;
    const double YAW     = 0.6;
-   
-   osg::Matrixd testRotMatrix;   
+
+   osg::Matrixd testRotMatrix;
    testRotMatrix(0,0) =  0.7602;
    testRotMatrix(0,1) =  0.5201;
    testRotMatrix(0,2) = -0.3894;
@@ -3142,7 +3142,7 @@ void test20_computeRotationalMatrix()
    const double COS_THT = std::cos(PITCH);
    const double SIN_PSI = std::sin(YAW);
    const double COS_PSI = std::cos(YAW);
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -3178,7 +3178,7 @@ void test20_computeRotationalMatrix()
    // compute actual results
    //-----------------------------------
    Basic::Nav::computeRotationalMatrix(angles, &rm, &scPhi, &scTht, &scPsi);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -3186,7 +3186,7 @@ void test20_computeRotationalMatrix()
 
    std::cout << "  rm = " << std::endl;
    displayMatrix(rm);
-   
+
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
              << "  scTht[0]  = " << std::setw(12) << scTht[0] << std::endl
@@ -3194,7 +3194,7 @@ void test20_computeRotationalMatrix()
              << "  scPsi[0]  = " << std::setw(12) << scPsi[0] << std::endl
              << "  scPsi[1]  = " << std::setw(12) << scPsi[1] << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
@@ -3202,7 +3202,7 @@ void test20_computeRotationalMatrix()
 
    std::cout << "  rm error = " << std::endl;
    displayMatrix(rm - testRotMatrix);
- 
+
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
              << "  scTht[0] error = " << std::setw(12) << scTht[0] - SIN_THT << std::endl
@@ -3216,7 +3216,7 @@ void test20_computeRotationalMatrix()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -3228,22 +3228,22 @@ void test20_computeRotationalMatrix()
          osg::Vec3d angles;
 
          // outputs
-         osg::Matrixd rm;   
+         osg::Matrixd rm;
          osg::Vec2d scPhi;
          osg::Vec2d scTht;
-         osg::Vec2d scPsi; 
+         osg::Vec2d scPsi;
 
          std::cout << "Enter roll  angle  [RAD] : "; std::cin  >> roll;
          std::cout << "Enter pitch angle  [RAD] : "; std::cin  >> pitch;
          std::cout << "Enter yaw   angle  [RAD] : "; std::cin  >> yaw;
          std::cout << std::endl;
-         
+
          std::cout << "rotational matrix from roll, pitch, yaw:" << std::endl;
          std::cout << "Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);" << std::endl;
          Basic::Nav::computeRotationalMatrix(roll, pitch, yaw, &rm);
          std::cout << "rm = " << std::endl;
          displayMatrix(rm);
-               
+
          angles[0] = roll;
          angles[1] = pitch;
          angles[2] = yaw;
@@ -3253,7 +3253,7 @@ void test20_computeRotationalMatrix()
          std::cout << "angles[1] = pitch;" << std::endl;
          std::cout << "angles[2] = yaw;"   << std::endl;
          std::cout << std::endl;
-         
+
          std::cout << "rotational matrix from angles vector:" << std::endl;
          std::cout << "Basic::Nav::computeRotationalMatrix(angles, &rm, &scPhi, &scTht, &scPsi);" << std::endl;
          Basic::Nav::computeRotationalMatrix(angles, &rm, &scPhi, &scTht, &scPsi);
@@ -3262,7 +3262,7 @@ void test20_computeRotationalMatrix()
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "rm = " << std::endl;
          displayMatrix(rm);
-         
+
          std::cout << "scPhi = " << std::endl;
          showVec2(scPhi);
          std::cout << "scTht = " << std::endl;
@@ -3318,16 +3318,16 @@ void test21_computeRotationalMatrixDeg()
    osg::Vec3d angles;
 
    // outputs
-   osg::Matrixd rm;   
+   osg::Matrixd rm;
    osg::Vec2d scPhi;
    osg::Vec2d scTht;
    osg::Vec2d scPsi;
-    
+
    const double ROLL    = 10.0;
    const double PITCH   = 20.0;
    const double YAW     = 30.0;
-   
-   osg::Matrixd testRotMatrix;   
+
+   osg::Matrixd testRotMatrix;
 
    testRotMatrix(0,0) =  0.8138;
    testRotMatrix(0,1) =  0.4698;
@@ -3345,7 +3345,7 @@ void test21_computeRotationalMatrixDeg()
    const double COS_THT = std::cos(PITCH * Basic::Angle::D2RCC);
    const double SIN_PSI = std::sin(YAW   * Basic::Angle::D2RCC);
    const double COS_PSI = std::cos(YAW   * Basic::Angle::D2RCC);
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -3381,7 +3381,7 @@ void test21_computeRotationalMatrixDeg()
    // compute actual results
    //-----------------------------------
    Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm, &scPhi, &scTht, &scPsi);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -3389,7 +3389,7 @@ void test21_computeRotationalMatrixDeg()
 
    std::cout << "  rm = " << std::endl;
    displayMatrix(rm);
-   
+
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
              << "  scTht[0]  = " << std::setw(12) << scTht[0] << std::endl
@@ -3397,7 +3397,7 @@ void test21_computeRotationalMatrixDeg()
              << "  scPsi[0]  = " << std::setw(12) << scPsi[0] << std::endl
              << "  scPsi[1]  = " << std::setw(12) << scPsi[1] << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
@@ -3405,7 +3405,7 @@ void test21_computeRotationalMatrixDeg()
 
    std::cout << "  rm error = " << std::endl;
    displayMatrix(rm - testRotMatrix);
- 
+
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
              << "  scTht[0] error = " << std::setw(12) << scTht[0] - SIN_THT << std::endl
@@ -3418,7 +3418,7 @@ void test21_computeRotationalMatrixDeg()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -3432,16 +3432,16 @@ void test21_computeRotationalMatrixDeg()
          std::cout << "Enter pitch  [DEG] : "; std::cin  >> pitch;
          std::cout << "Enter yaw    [DEG] : "; std::cin  >> yaw;
          std::cout << std::endl;
-         
+
          std::cout << "Compute rotational matrix from roll, pitch, yaw:" << std::endl;
          std::cout << std::endl;
-         
+
          std::cout << "Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);" << std::endl;
          Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm, &scPhi, &scTht, &scPsi);
 
          std::cout << "rm = " << std::endl;
          displayMatrix(rm);
-         
+
          std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
                    << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
                    << "  scTht[0]  = " << std::setw(12) << scTht[0] << std::endl
@@ -3499,7 +3499,7 @@ void test22_computeRotationalMatrixDeg()
    const double COS_THT = std::cos(PITCH * Basic::Angle::D2RCC);
    const double SIN_PSI = std::sin(YAW   * Basic::Angle::D2RCC);
    const double COS_PSI = std::cos(YAW   * Basic::Angle::D2RCC);
-   
+
    // inputs
    osg::Vec3d angles;
    angles[0] = 10.0;  // [DEG]
@@ -3507,12 +3507,12 @@ void test22_computeRotationalMatrixDeg()
    angles[2] = 30.0;  // [DEG]
 
    // outputs
-   osg::Matrixd rm;   
+   osg::Matrixd rm;
    osg::Vec2d scPhi;
    osg::Vec2d scTht;
    osg::Vec2d scPsi;
-    
-   osg::Matrixd testRotMatrix;   
+
+   osg::Matrixd testRotMatrix;
    testRotMatrix(0,0) =  0.8138;
    testRotMatrix(0,1) =  0.4698;
    testRotMatrix(0,2) = -0.3420;
@@ -3558,7 +3558,7 @@ void test22_computeRotationalMatrixDeg()
    // compute actual results
    //-----------------------------------
    Basic::Nav::computeRotationalMatrixDeg(angles, &rm, &scPhi, &scTht, &scPsi);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -3566,7 +3566,7 @@ void test22_computeRotationalMatrixDeg()
 
    std::cout << "  rm = " << std::endl;
    displayMatrix(rm);
-   
+
    std::cout << "  scPhi[0]  = " << std::setw(12) << scPhi[0] << std::endl
              << "  scPhi[1]  = " << std::setw(12) << scPhi[1] << std::endl
              << "  scTht[0]  = " << std::setw(12) << scTht[0] << std::endl
@@ -3574,7 +3574,7 @@ void test22_computeRotationalMatrixDeg()
              << "  scPsi[0]  = " << std::setw(12) << scPsi[0] << std::endl
              << "  scPsi[1]  = " << std::setw(12) << scPsi[1] << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show errors between actual and expected results
    //-----------------------------------
@@ -3582,7 +3582,7 @@ void test22_computeRotationalMatrixDeg()
 
    std::cout << "  rm error = " << std::endl;
    displayMatrix(rm - testRotMatrix);
- 
+
    std::cout << "  scPhi[0] error = " << std::setw(12) << scPhi[0] - SIN_PHI << std::endl
              << "  scPhi[1] error = " << std::setw(12) << scPhi[1] - COS_PHI << std::endl
              << "  scTht[0] error = " << std::setw(12) << scTht[0] - SIN_THT << std::endl
@@ -3596,7 +3596,7 @@ void test22_computeRotationalMatrixDeg()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -3608,26 +3608,26 @@ void test22_computeRotationalMatrixDeg()
          osg::Vec3d angles;
 
          // outputs
-         osg::Matrixd rm;   
+         osg::Matrixd rm;
          osg::Vec2d scPhi;
          osg::Vec2d scTht;
-         osg::Vec2d scPsi; 
+         osg::Vec2d scPsi;
 
          std::cout << "Enter roll  angle  [DEG] : "; std::cin  >> roll;
          std::cout << "Enter pitch angle  [DEG] : "; std::cin  >> pitch;
          std::cout << "Enter yaw   angle  [DEG] : "; std::cin  >> yaw;
          std::cout << std::endl;
-         
+
          angles[0] = roll;
          angles[1] = pitch;
          angles[2] = yaw;
-         
+
          std::cout << "rotational matrix from roll, pitch, yaw:" << std::endl;
          std::cout << "Basic::Nav::computeRotationalMatrixDeg(angles, &rm, &scPhi, &scTht, &scPsi);" << std::endl;
          Basic::Nav::computeRotationalMatrixDeg(roll, pitch, yaw, &rm);
          std::cout << "rm = " << std::endl;
          displayMatrix(rm);
-               
+
          angles[0] = roll;
          angles[1] = pitch;
          angles[2] = yaw;
@@ -3637,7 +3637,7 @@ void test22_computeRotationalMatrixDeg()
          std::cout << "angles[1] = pitch;" << std::endl;
          std::cout << "angles[2] = yaw;"   << std::endl;
          std::cout << std::endl;
-         
+
          std::cout << "rotational matrix from angles vector:" << std::endl;
          std::cout << "Basic::Nav::computeRotationalMatrixDeg(angles, &rm, &scPhi, &scTht, &scPsi);" << std::endl;
          Basic::Nav::computeRotationalMatrixDeg(angles, &rm, &scPhi, &scTht, &scPsi);
@@ -3646,7 +3646,7 @@ void test22_computeRotationalMatrixDeg()
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "rm = " << std::endl;
          displayMatrix(rm);
-         
+
          std::cout << "scPhi = " << std::endl;
          showVec2(scPhi);
          std::cout << "scTht = " << std::endl;
@@ -3696,12 +3696,12 @@ void test23_convertPosVec2llE()
    //-----------------------------------
    double rlat = 40.0;  // IN: source (reference) latitude  [DEG]
    double rlon = 50.0;  // IN: source (reference) longitude [DEG]
-   
+
    osg::Vec3d pos;      // IN: NED position vector from ref point (meters)
    pos[0] = 1000.0;     //     North  [M]
    pos[1] = 2000.0;     //     East   [M]
    pos[2] = 3000.0;     //     Down   [M]
-   
+
    double lat = 0.0;    // OUT: Latitude  [DEG]
    double lon = 0.0;    // OUT: Longitude [DEG]
    double alt = 0.0;    // OUT: Altitude    [M]
@@ -3709,7 +3709,7 @@ void test23_convertPosVec2llE()
    const double LAT =    40.0090;
    const double LON =    50.0234;
    const double ALT = -3000.0000;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -3740,7 +3740,7 @@ void test23_convertPosVec2llE()
    // compute actual results
    //-----------------------------------
    Basic::Nav::convertPosVec2llE(rlat, rlon, pos, &lat, &lon, &alt);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -3764,7 +3764,7 @@ void test23_convertPosVec2llE()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -3772,7 +3772,7 @@ void test23_convertPosVec2llE()
          // reset inputs
          rlat = 0.0;  // IN: source (reference) latitude  [DEG]
          rlon = 0.0;  // IN: source (reference) longitude [DEG]
-         
+
          lat = 0.0;   // OUT: Latitude  [DEG]
          lon = 0.0;   // OUT: Longitude [DEG]
          alt = 0.0;   // OUT: Altitude  [M]
@@ -3780,14 +3780,14 @@ void test23_convertPosVec2llE()
          std::cout << "Enter reference latitude   [DEG] : "; std::cin >> rlat;
          std::cout << "Enter reference longitude  [DEG] : "; std::cin >> rlon;
          std::cout << std::endl;
-         
+
          std::cout << "Enter x  [M] : "; std::cin >> pos[0];
          std::cout << "Enter y  [M] : "; std::cin >> pos[1];
          std::cout << "Enter z  [M] : "; std::cin >> pos[2];
          std::cout << std::endl;
 
          Basic::Nav::convertPosVec2llE(rlat, rlon, pos, &lat, &lon, &alt);
-         
+
          // output results
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "lat = " << std::setw(12) << lat << " [DEG]" << std::endl;
@@ -3837,11 +3837,11 @@ void test24_convertLL2PosVecE()
    //-----------------------------------
    double rlat =   40.0;  // IN: Reference latitude    [DEG]
    double rlon =   50.0;  // IN: Reference longitude   [DEG]
-                                                     
+
    double tlat =   41.0;  // IN: Target latitude       [DEG]
    double tlon =   51.0;  // IN: Target longitude      [DEG]
    double talt = 5000.0;  // IN: Target altitude       [M]
-     
+
    osg::Vec3d pos;        // OUT: NED position vector  [M,M,M]
 
    //const double NORTH = 111120.0000;
@@ -3850,7 +3850,7 @@ void test24_convertLL2PosVecE()
    const double NORTH = 111034.6326;
    const double EAST  =  85393.8570;
    const double DOWN  =  -5000.0000;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -3882,7 +3882,7 @@ void test24_convertLL2PosVecE()
    // compute actual results
    //-----------------------------------
    Basic::Nav::convertLL2PosVecE(rlat, rlon, tlat, tlon, talt, &pos);
-   
+
    //-----------------------------------
    // show actual results
    //-----------------------------------
@@ -3906,7 +3906,7 @@ void test24_convertLL2PosVecE()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -3921,14 +3921,14 @@ void test24_convertLL2PosVecE()
          std::cout << "Enter reference latitude   [DEG] : "; std::cin >> rlat;
          std::cout << "Enter reference longitude  [DEG] : "; std::cin >> rlon;
          std::cout << std::endl;
-         
+
          std::cout << "Enter target latitude   [M] : "; std::cin >> tlat;
          std::cout << "Enter target longitude  [M] : "; std::cin >> tlon;
          std::cout << "Enter target altitude   [M] : "; std::cin >> talt;
          std::cout << std::endl;
 
          Basic::Nav::convertLL2PosVecE(rlat, rlon, tlat, tlon, talt, &pos);
-         
+
          // output results
          std::cout << std::setprecision(2) << std::setiosflags(std::ios::fixed);
          std::cout << "pos[0] = " << std::setw(12) << pos[0] << " [M]  north" << std::endl;
@@ -4004,10 +4004,10 @@ void test25_convertEcef2Geod()
 
    osg::Vec3d xyz(x, y, z);
    osg::Vec3d lla;
-   
+
    double XYZ[3] = {x, y, z};
    double LLA[3];
-   
+
    //osg::Vec3d result(35.4314, 45.0000, 557215.8470);  // expected result (x, y, z)
    const double LAT = 35.4314;
    const double LON = 45.0000;
@@ -4062,7 +4062,7 @@ void test25_convertEcef2Geod()
              << "  LLA[1] = " << std::setw(12) << LLA[1] << std::endl
              << "  LLA[2] = " << std::setw(12) << LLA[2] << std::endl
              << std::endl;
-   
+
 
    //-----------------------------------
    // show errors between actual and expected results
@@ -4072,24 +4072,24 @@ void test25_convertEcef2Geod()
              << "  lat    error = " << std::setw(12) << (lat - LAT)    << std::endl
              << "  lon    error = " << std::setw(12) << (lon - LON)    << std::endl
              << "  alt    error = " << std::setw(12) << (alt - ALT)    << std::endl
-             << std::endl           
+             << std::endl
              << "  lla[0] error = " << std::setw(12) << (lla[0] - LAT) << std::endl
              << "  lla[1] error = " << std::setw(12) << (lla[1] - LON) << std::endl
              << "  lla[2] error = " << std::setw(12) << (lla[2] - ALT) << std::endl
-             << std::endl           
+             << std::endl
              << "  LLA[0] error = " << std::setw(12) << (LLA[0] - LAT) << std::endl
              << "  LLA[1] error = " << std::setw(12) << (LLA[1] - LON) << std::endl
              << "  LLA[2] error = " << std::setw(12) << (LLA[2] - ALT) << std::endl
              << std::endl;
 
 
-   
+
    //std::cout << "----------------------------------------------------------------------" << std::endl
    //          << "Form 1:" << std::endl
    //          << "Basic::Nav::convertEcef2Geod(x, y, z, &lat, &lon, &alt, pEM);" << std::endl
    //          << std::endl;
 
-   //   
+   //
    //std::cout << "----------------------------------------------------------------------" << std::endl
    //          << "Form 2:" << std::endl
    //          << "osg::Vec3d xyz;" << std::endl
@@ -4097,7 +4097,7 @@ void test25_convertEcef2Geod()
    //          << "Basic::Nav::convertEcef2Geod(xyz, &lla, pEM);" << std::endl
    //          << std::endl;
 
-   //   
+   //
    //   std::cout << "Results:" << std::endl
    //
    //std::cout << "----------------------------------------------------------------------" << std::endl
@@ -4107,7 +4107,7 @@ void test25_convertEcef2Geod()
    //          << "Basic::Nav::convertEcef2Geod(XYZ, LLA, pEM);" << std::endl
    //          << std::endl;
 
-   //   
+   //
    //   std::cout << "Results:" << std::endl
    //             << std::endl;
 
@@ -4116,7 +4116,7 @@ void test25_convertEcef2Geod()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -4140,17 +4140,17 @@ void test25_convertEcef2Geod()
          std::cout << "Enter longitude [DEG] : "; std::cin >> lon;
          std::cout << "Enter altitude  [M]   : "; std::cin >> alt;
          std::cout << std::endl;
-         
+
          // copy to lla
          lla[0] = lat;
          lla[1] = lon;
          lla[2] = alt;
-         
+
          // copy to LLA
          LLA[0] = lat;
          LLA[1] = lon;
          LLA[2] = alt;
-         
+
          Basic::Nav::convertEcef2Geod(x, y, z, &lat, &lon, &alt, pEM);
 
          std::cout << "*** double variables: lat,lon,alt => x,y,z ***" << std::endl
@@ -4160,14 +4160,14 @@ void test25_convertEcef2Geod()
                    << std::endl;
 
          Basic::Nav::convertEcef2Geod(xyz, &lla, pEM);
-           
+
          // output results
          std::cout << "*** osg::vec3d vector: lla => xyz ***" << std::endl
                    << "xyz[0] = " << std::setw(12) << xyz[0] << " [M]" << std::endl
                    << "xyz[1] = " << std::setw(12) << xyz[1] << " [M]" << std::endl
                    << "xyz[2] = " << std::setw(12) << xyz[2] << " [M]" << std::endl
                    << std::endl;
-           
+
          Basic::Nav::convertEcef2Geod(XYZ, LLA, pEM);
 
          std::cout << "*** double array: LLA => XYZ ***" << std::endl
@@ -4230,12 +4230,12 @@ void test26_convertGeod2Ecef()
    double lat = 40.0;
    double lon = 50.0;
    double alt =  0.0;
-   
+
    osg::Vec3d result;  // expected result (x, y, z)
    result[0] = 3144971.8231;
    result[1] = 3748031.4688;
    result[2] = 4077985.5722;
-   
+
    //-----------------------------------
    // set output formats
    //-----------------------------------
@@ -4252,7 +4252,7 @@ void test26_convertGeod2Ecef()
              << "  lon = " << std::setw(12) << lon << ";  // [DEG]" << std::endl
              << "  alt = " << std::setw(12) << alt << ";  // [M]  " << std::endl
              << std::endl;
-   
+
    //-----------------------------------
    // show expected results
    //-----------------------------------
@@ -4279,7 +4279,7 @@ void test26_convertGeod2Ecef()
       std::cout << "  z      = " << std::setw(12) << z << "; err = " << std::setw(8) << (z-result[2]) << std::endl;
       std::cout << std::endl;
    }
-   
+
    std::cout << "----------------------------------------------------------------------" << std::endl;
    std::cout << "Form 2:" << std::endl;
    std::cout << "Basic::Nav::convertGeod2Ecef(lla, &xyz, pEM);" << std::endl;
@@ -4294,7 +4294,7 @@ void test26_convertGeod2Ecef()
       std::cout << "  xyz[2] = " << std::setw(12) << xyz[2] << "; err = " << std::setw(8) << (xyz[2]-result[2]) << std::endl;
       std::cout << std::endl;
    }
-   
+
    std::cout << "----------------------------------------------------------------------" << std::endl;
    std::cout << "Form 3:" << std::endl << std::endl;
    std::cout << "Basic::Nav::convertGeod2Ecef(LLA, XYZ, pEM);" << std::endl;
@@ -4315,7 +4315,7 @@ void test26_convertGeod2Ecef()
    // calculate results with own data
    //---------------------------------------------------------------------------
    if (testNumber != 99) {
-      std::cout << enterYourOwnData; std::cin >> ynCont;   
+      std::cout << enterYourOwnData; std::cin >> ynCont;
       std::cout << std::endl;
 
       if (ynCont != 'n') {
@@ -4339,17 +4339,17 @@ void test26_convertGeod2Ecef()
          std::cout << "Enter longitude [DEG] : "; std::cin >> lon;
          std::cout << "Enter altitude  [M]   : "; std::cin >> alt;
          std::cout << std::endl;
-         
+
          // copy to lla
          lla[0] = lat;
          lla[1] = lon;
          lla[2] = alt;
-         
+
          // copy to LLA
          LLA[0] = lat;
          LLA[1] = lon;
          LLA[2] = alt;
-         
+
          Basic::Nav::convertGeod2Ecef(lat, lon, alt, &x, &y, &z, pEM);
 
          std::cout << std::setprecision(2) << std::setiosflags(std::ios::fixed);
@@ -4360,7 +4360,7 @@ void test26_convertGeod2Ecef()
          std::cout << std::endl;
 
          Basic::Nav::convertGeod2Ecef(lla, &xyz, pEM);
-           
+
          // output results
          std::cout << std::setprecision(2) << std::setiosflags(std::ios::fixed);
          std::cout << "*** osg::vec3d vector: lla => xyz ***" << std::endl;
@@ -4368,7 +4368,7 @@ void test26_convertGeod2Ecef()
          std::cout << "xyz[1] = " << std::setw(12) << xyz[1] << " [M]" << std::endl;
          std::cout << "xyz[2] = " << std::setw(12) << xyz[2] << " [M]" << std::endl;
          std::cout << std::endl;
-           
+
          Basic::Nav::convertGeod2Ecef(LLA, XYZ, pEM);
 
          std::cout << std::setprecision(2) << std::setiosflags(std::ios::fixed);
@@ -4386,7 +4386,7 @@ void test26_convertGeod2Ecef()
 int showVec2(const osg::Vec2d V)
 {
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
-   std::cout << std::setw(12) << V[0] << std::endl 
+   std::cout << std::setw(12) << V[0] << std::endl
              << std::setw(12) << V[1] << std::endl
              << std::endl;
 
@@ -4396,7 +4396,7 @@ int showVec2(const osg::Vec2d V)
 int showVec3(const osg::Vec3d V)
 {
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
-   std::cout << std::setw(12) << V[0] << std::endl 
+   std::cout << std::setw(12) << V[0] << std::endl
              << std::setw(12) << V[1] << std::endl
              << std::setw(12) << V[2] << std::endl
              << std::endl;
@@ -4410,12 +4410,12 @@ int displayMatrix(const osg::Matrixd M)
    //std::cout << "Matrix: " << std::endl
 #if 1
    // 3x3 matrix
-   std::cout << std::setw(12) << M(0,0) << std::setw(12) << M(0,1) << std::setw(12) << M(0,2) << std::endl 
+   std::cout << std::setw(12) << M(0,0) << std::setw(12) << M(0,1) << std::setw(12) << M(0,2) << std::endl
              << std::setw(12) << M(1,0) << std::setw(12) << M(1,1) << std::setw(12) << M(1,2) << std::endl
              << std::setw(12) << M(2,0) << std::setw(12) << M(2,1) << std::setw(12) << M(2,2) << std::endl
 #else
    // 4x4 matrix
-             << std::setw(12) << M(0,0) << std::setw(12) << M(0,1) << std::setw(12) << M(0,2) << std::setw(12) << M(0,3) << std::endl 
+             << std::setw(12) << M(0,0) << std::setw(12) << M(0,1) << std::setw(12) << M(0,2) << std::setw(12) << M(0,3) << std::endl
              << std::setw(12) << M(1,0) << std::setw(12) << M(1,1) << std::setw(12) << M(1,2) << std::setw(12) << M(1,3) << std::endl
              << std::setw(12) << M(2,0) << std::setw(12) << M(2,1) << std::setw(12) << M(2,2) << std::setw(12) << M(2,3) << std::endl
              << std::setw(12) << M(3,0) << std::setw(12) << M(3,1) << std::setw(12) << M(3,2) << std::setw(12) << M(3,3) << std::endl
@@ -4438,7 +4438,7 @@ void test27_convertUtm()
    //                            10.0,  20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,   90.0,
    //                           -90.0, -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0,   0.0,
    //                            10.0,  20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,   90.0 };
-   //                             
+   //
    //double lon[ARRAY_SIZE] = {  0.0,   10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,  90.0,
    //                          100.0,  110.0,  120.0,  130.0,  140.0,  150.0,  160.0,  170.0,  180.0,
    //                            0.0,  -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0, -90.0,
@@ -4448,7 +4448,7 @@ void test27_convertUtm()
                                10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,    0.0,
                               -80.0,  -70.0,  -60.0,  -50.0,  -40.0,  -30.0,  -20.0,  -10.0,    0.0,
                                10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,    0.0 };
-                                
+
    double lon[ARRAY_SIZE] = {  10.0,   20.0,   30.0,   40.0,   50.0,   60.0,   70.0,   80.0,   90.0,
                              100.0,  110.0,  120.0,  130.0,  140.0,  150.0,  160.0,  170.0,  180.0,
                               -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0,  -90.0,
@@ -4456,21 +4456,21 @@ void test27_convertUtm()
 
    char   Zone[6];
    char*  pZone = Zone;
-   
+
    //===========================================================================
    double latitude  = 0.0;
    double longitude = 0.0;
-   
+
    char   latZone   = '*';
    int    lonZone   = 0;
    double N         = 0.0;
    double E         = 0.0;
-   
+
    const Basic::EarthModel* pEM = &Basic::EarthModel::wgs84;
 
 
    for (int i=0; i<ARRAY_SIZE; i++) {
-   
+
       std::cout << "==============================================" << std::endl;
       std::cout << "lat       = " << std::setw(14) << lat[i] << std::endl;
       std::cout << "lon       = " << std::setw(14) << lon[i] << std::endl << std::endl;
@@ -4482,13 +4482,13 @@ void test27_convertUtm()
       std::cout << "lonZone   = " << std::setw(14) << lonZone << std::endl;
       std::cout << "N         = " << std::setw(14) << N       << std::endl;
       std::cout << "E         = " << std::setw(14) << E       << std::endl << std::endl;
-            
+
       std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
       Basic::Nav::convertUtm2LL(N, E, latZone, lonZone, &latitude, &longitude, pEM);
 
       std::cout << "latitude  = " << std::setw(14) << latitude  << std::endl;
       std::cout << "longitude = " << std::setw(14) << longitude << std::endl << std::endl;
-      
+
       std::cout << "latitude  error = " << std::setw(14) << latitude  - lat[i] << std::endl;
       std::cout << "longitude error = " << std::setw(14) << longitude - lon[i] << std::endl;
 

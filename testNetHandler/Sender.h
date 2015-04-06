@@ -23,7 +23,6 @@ class Sender : public Endpoint
 public:
     Sender();
 
-    // Component interface
     void updateData(const Eaagles::LCreal dt = 0.0f) override;
     void reset() override;
 
