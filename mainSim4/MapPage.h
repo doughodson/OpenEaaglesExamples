@@ -11,8 +11,8 @@
 #include "openeaagles/basicGL/MapPage.h"
 
 namespace Eaagles {
-namespace Simulation { 
-    class Player; 
+namespace Simulation {
+    class Player;
 }
 namespace BasicGL {
     class SymbolLoader;
@@ -24,14 +24,12 @@ class Station;
 class MapPage : public BasicGL::MapPage
 {
     DECLARE_SUBCLASS(MapPage, BasicGL::MapPage)
-    
+
 public:
     MapPage();
 
-    // BasicGL::Graphic interface
     void drawFunc() override;
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0.0) override;
 
 private:

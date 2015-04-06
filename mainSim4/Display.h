@@ -19,7 +19,6 @@ class Display : public Glut::GlutDisplay
 public:
     Display();
 
-    // Display interface
     void mouseMotionEvent(const int x, const int y) override;
     void mouseEvent(const int button, const int state, const int x, const int y) override;
     void passiveMotionEvent(const int x, const int y) override;

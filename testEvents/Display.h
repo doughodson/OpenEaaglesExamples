@@ -20,7 +20,6 @@ class Display : public Glut::GlutDisplay
 public:
    Display();
 
-    // Basic::Component interface
     void updateData(const LCreal dt = 0.0) override;
 
 private:

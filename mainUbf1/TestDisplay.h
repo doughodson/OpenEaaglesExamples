@@ -51,10 +51,8 @@ public:
 
     void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
 
-    // Display Interface
     void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    // Component interface
     bool event(const int event, Basic::Object* const obj = 0) override;
     void updateData(const LCreal dt = 0.0f) override;
 
@@ -79,7 +77,7 @@ private:
 
     SendData headingSD;
     SendData rangeSD;
-    
+
     SPtr<Simulation::Station> myStation;
 
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
@@ -132,7 +130,7 @@ private:
     LCreal fDirBankRate;
     LCreal fDirPitch;
     LCreal fDirPitchRate;
-    
+
     // barometric pressure
     LCreal baro;
     LCreal baroRate;

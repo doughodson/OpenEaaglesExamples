@@ -16,9 +16,9 @@ class MfdPage : public BasicGL::Page {
 
 public:
    MfdPage();
-   
+
    bool onEntry() override;
-   
+
    bool event(const int event, Basic::Object* const obj = 0) override;
    void updateData(const LCreal dt = 0) override;
 

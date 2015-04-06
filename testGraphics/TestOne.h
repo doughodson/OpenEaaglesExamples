@@ -46,7 +46,7 @@ public:
     void setStartAngle(const LCreal deg);
     void setSpeed(const LCreal xx);
 
-    virtual void drawFunc();
+    void drawFunc() override;
 
     void updateTC(const LCreal dt = 0.0) override;
     void updateData(const LCreal dt = 0.0) override;
@@ -54,7 +54,7 @@ public:
     void reset() override;
 
 private:
-    
+
     enum { maxHist = 10 };
     LCreal left, right;             // X limits
     LCreal bottom, top;             // Y limits

@@ -20,10 +20,10 @@ public:
 
     void drawFunc() override;
     void updateData(const LCreal dt = 0.0) override;
-    
+
 private:
     LCreal t1Pos;
-    LCreal t1Rate; 
+    LCreal t1Rate;
     LCreal t2Pos;
     LCreal t2Rate;
     LCreal t3Pos;

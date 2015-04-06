@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: TestTwo
 //
-// Description: Control and Send values 'v1' and 'v2' to components 
+// Description: Control and Send values 'v1' and 'v2' to components
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Example_TestTwo_H__
 #define __Eaagles_Example_TestTwo_H__
@@ -34,13 +34,13 @@ public:
     virtual bool setV2Min(const Basic::Number* const sv2miobj);
 
 private:
-    
+
     LCreal v1, v1Rate;
     LCreal v1Max, v1Min;
-    
+
     LCreal v2, v2Rate;
     LCreal v2Max, v2Min;
-    
+
     LCreal iv1, iv1Rate;
     LCreal iv2, iv2Rate;
 
