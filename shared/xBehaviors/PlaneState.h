@@ -26,10 +26,8 @@ class PlaneState : public Basic::Ubf::State
 public:
    PlaneState();
 
-   // Basic::Component Interface
    void reset() override;
 
-   // 
    void updateState(const Basic::Component* const actor) override;
 
    // set/get

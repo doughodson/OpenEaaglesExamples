@@ -35,10 +35,8 @@ public:
    LCreal getElevation() const;     // degs
    bool setElevation(const LCreal); // degs
 
-   // BasicGL::Graphic class functions
    void draw() override;
 
-   // Basic::Component class functions 
    bool event(const int event, Basic::Object* const obj = 0) override;
 
 private:

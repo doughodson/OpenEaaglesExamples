@@ -29,10 +29,8 @@ public:
    const Simulation::Radar* getRadar() const   { return radar; }
    bool setRadar(Simulation::Radar* const s)   { radar = s; return true; }
 
-   // BasicGL::Graphic class functions
    void drawFunc() override;
 
-   // Basic::Component class functions 
    void updateData(const LCreal dt = 0.0) override;
 
 private:
