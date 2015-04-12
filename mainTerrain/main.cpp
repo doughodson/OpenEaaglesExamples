@@ -9,7 +9,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/Tables.h"
+#include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basicGL/Graphic.h"
 #include "openeaagles/basicGL/basicGLFF.h"
@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
    // default configuration filename
    const char* configFilename = "test.edl";
 
-   // build a display 
+   // build a display
    display = builder(configFilename);
 
    // resetting the system will load the data files

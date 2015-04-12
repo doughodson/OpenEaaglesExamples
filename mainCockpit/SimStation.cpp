@@ -12,7 +12,7 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/Tables.h"
+#include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/units/Times.h"
@@ -30,7 +30,7 @@ BEGIN_SLOTTABLE(SimStation)
     "autoResetTimer",           //  2: Auto RESET timer value (Basic::Time); default: zero (no auto reset)
 END_SLOTTABLE(SimStation)
 
-//  Map slot table to handles 
+//  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay,         Glut::GlutDisplay)
     ON_SLOT( 2, setSlotAutoResetTime,       Basic::Time)
@@ -58,7 +58,7 @@ void SimStation::copyData(const SimStation& org, const bool cc)
     BaseClass::copyData(org);
     if (cc) {
         autoResetTimer0 = 0;
-    }    
+    }
 
     setSlotAutoResetTime(org.autoResetTimer0);
     autoResetTimer = org.autoResetTimer;
@@ -69,7 +69,7 @@ void SimStation::deleteData()
 }
 
 //------------------------------------------------------------------------------
-// reset() -- Reset the station 
+// reset() -- Reset the station
 //------------------------------------------------------------------------------
 void SimStation::reset()
 {
@@ -90,8 +90,8 @@ void SimStation::reset()
     else {
         autoResetTimer = 0;
     }
-    
-    // reset our baseclass 
+
+    // reset our baseclass
     BaseClass::reset();
 }
 
@@ -105,7 +105,7 @@ void SimStation::updateTC(const LCreal dt)
 
     Basic::Timer::updateTimers(dt);
     BasicGL::Graphic::flashTimer(dt);
-    
+
     // Update any TC stuff in our main display
     if (mainDisplay != 0) mainDisplay->updateTC(dt);
 }
@@ -132,7 +132,7 @@ void SimStation::updateData(const LCreal dt)
     }
 
     BaseClass::updateData(dt);
-} 
+}
 
 //------------------------------------------------------------------------------
 // stepOwnshipPlayer() -- Step to the next local player

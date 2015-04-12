@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// LFI Table tester -- 
-//        
+// LFI Table tester --
+//
 //   usage:  testTables.exe  [-a] [-r] [-s] [-t] -f <file>
-//        
+//
 //   where:
 //       -a          Test all base table classes as well
 //                     e.g.,  Table1 and Table2 are tested with Table3
@@ -13,7 +13,7 @@
 //
 //-----------------------------------------------------------------------------
 
-#include "openeaagles/basic/Tables.h"
+#include "openeaagles/basic/functors/Tables.h"
 
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
@@ -229,7 +229,7 @@ testIt(const Basic::Table4* const tbl, const bool tflg, const bool sflg, const b
    const LCreal minW = tbl->getMinW();
    const LCreal maxW = tbl->getMaxW();
    const LCreal dw = (maxW - minW) / static_cast<LCreal>(2 * (tbl->getNumWPoints() - 1));
-        
+
    const LCreal minZ = tbl->getMinZ();
    const LCreal maxZ = tbl->getMaxZ();
    const LCreal dz = (maxZ - minZ) / static_cast<LCreal>(2 * (tbl->getNumZPoints() - 1));

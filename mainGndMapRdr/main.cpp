@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/Tables.h"
+#include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/units/Angles.h"
 
 #include "openeaagles/basicGL/Graphic.h"

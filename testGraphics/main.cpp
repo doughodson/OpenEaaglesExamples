@@ -4,7 +4,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/Tables.h"
+#include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/Nav.h"
 #include "openeaagles/basic/units/Angles.h"
 
@@ -72,7 +72,7 @@ static Basic::Object* factory(const char* name)
    else if ( std::strcmp(name, TestOne::getFactoryName()) == 0 ) {
       obj = new TestOne;
    }
-    
+
    // TestY
    else if ( std::strcmp(name, TestTwo::getFactoryName()) == 0 ) {
       obj = new TestTwo;
@@ -86,7 +86,7 @@ static Basic::Object* factory(const char* name)
    else if ( std::strcmp(name, TestRotator::getFactoryName()) == 0 ) {
       obj = new TestRotator;
    }
-    
+
    else {
       if (obj == 0) obj = BasicGL::Factory::createObj(name);
       if (obj == 0) obj = Glut::Factory::createObj(name);

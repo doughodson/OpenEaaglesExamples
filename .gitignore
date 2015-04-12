@@ -13,6 +13,13 @@ codelite/
 *.pdb
 *.exp
 
+#
+# eclipse files (for now)
+#
+.cproject
+.project
+.settings/
+
 # gcc compiled object files
 *.[oa]
 
