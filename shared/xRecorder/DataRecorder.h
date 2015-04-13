@@ -33,18 +33,16 @@ public:
    DataRecorder();
 
 protected:
-   // Simulation::DataRecorder class protected interface functions
-   virtual bool recordDataImp(
+   bool recordDataImp(
       const unsigned int id,              // Recorder event Id
       const Basic::Object* pObjects[4],   // Sample objects
       const double values[4]              // Sample values
-   );
+   ) override;
 
    // Recorder data event handlers
    virtual bool recordMyData(const Basic::Object* objs[4], const double values[4]);
 
-   // Override Recorder::DataRecorder event handlers
-   virtual bool recordMarker(const Basic::Object* objs[4], const double values[4]);
+   bool recordMarker(const Basic::Object* objs[4], const double values[4]) override;
 
 private:
    void initData();

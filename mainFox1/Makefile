@@ -10,7 +10,7 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = mainFox1.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
+OBJS = main.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
 
 LDFLAGS += -loeSimulation -loeDafif -loeInstruments -loeBasicGL -loeBasic
 LDFLAGS += -lftgl -lfreetype

@@ -19,7 +19,7 @@ namespace Test {
 // Slots --
 //    ioHandler   <Basic::IoHandler>     Single I/O data handler
 //    item        <Basic::Integer>       Item number [ 1 ... TBL_SIZE ];
-//                                         -- clear current channel number and 
+//                                         -- clear current channel number and
 //                                         -- type for this item.  Next 'ai' or
 //                                         -- 'di' will define for this 'item'.
 //    di          <Basic::Integer>       DI channel number for last 'item'
@@ -48,10 +48,9 @@ public:
 public:
    Display();
 
-   // Basic::Component functions
-   virtual void reset();
-   virtual void updateData(const LCreal dt = 0.0f);
-   virtual void updateTC(const LCreal dt = 0.0f);
+   void reset() override;
+   void updateData(const LCreal dt = 0.0f) override;
+   void updateTC(const LCreal dt = 0.0f) override;
 
 protected:
    virtual bool setSlotIoHandler(Basic::IoHandler* const msg);
@@ -60,8 +59,7 @@ protected:
    virtual bool setSlotDiChannel(const Basic::Number* const msg);
    virtual bool setSlotLabel(const Basic::String* const msg);
 
-   // BasicGL::GlutDisplay functions
-   virtual bool onEscKey();
+   bool onEscKey() override;
 
 private:
    enum Type { NONE, AI, DI };

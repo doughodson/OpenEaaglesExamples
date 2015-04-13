@@ -14,14 +14,11 @@ codelite/
 *.exp
 
 #
-# Qt not needed directories (created upon build)
+# eclipse files (for now)
 #
-tmp/
-build/qt/*Makefile*
-build/qt/*/*Makefile*
-build/qt/*/*/*Makefile*
-*.pro.user
-
+.cproject
+.project
+.settings/
 
 # gcc compiled object files
 *.[oa]
@@ -41,13 +38,13 @@ build/qt/*/*/*Makefile*
 # preprocessed input (scenario) files
 *.edl
 
-
 # linux executables
 demoEfis/demoEfis
 demoFlightDisplays1/demoFlightDisplays1
 demoFlightDisplays2/demoFlightDisplays2
 demoInstruments/demoInstruments
 demoSubDisplays/demoSubDisplays
+mainCockpit/mainCockpit
 mainFltk1/mainFltk1
 mainFox1/mainFox1
 mainGL/mainGL
@@ -62,10 +59,9 @@ mainSim2/mainSim2
 mainSim3/mainSim3
 mainSim4/mainSim4
 mainTerrain/mainTerrain
-mainw/mainw
-mainy1/mainy1
 mainUbf1/mainUbf1
 testEvents/testEvents
+testGraphics/testGraphics
 testIoHandler/testIoHandler
 testLinearSys/testLinearSys
 testMatrix/testMatrix

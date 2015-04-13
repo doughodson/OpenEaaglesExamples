@@ -9,98 +9,88 @@
 #include <cstring>
 #include <cstdlib>
 
-// Default configuration file
-static const char* const DEFAULT_CONFIG_FILE = "test1.edl";
-
 namespace Eaagles {
 namespace Test {
 
-// build a state machine
-static Basic::StateMachine* builder(const char* const fileName)
+// state machine builder
+static Basic::StateMachine* builder(const char* const filename)
 {
-   Basic::StateMachine* p = 0;
-
-   // Read the description file
+   // read configuration file
    int errors = 0;
-   Eaagles::Basic::Object* q1 =
-         Eaagles::Basic::lcParser(fileName, Factory::createObj, &errors);
+   Basic::Object* obj = Basic::lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
-      std::cerr << "File: " << fileName << ", errors: " << errors << std::endl;
-      return 0;
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   if (q1 != 0) {
-      // When we were given a Basic::Pair, get the pointer to its object.
-      Eaagles::Basic::Pair* pp = dynamic_cast<Basic::Pair*>(q1);
-      if (pp != 0) {
-         q1 = pp->object();
-      }
-
-      // What we should have here is the State Machine object
-      p = dynamic_cast<Basic::StateMachine*>(q1);
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   return p;
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   Basic::StateMachine* stateMachine = dynamic_cast<Basic::StateMachine*>(obj);
+   if (stateMachine == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return stateMachine;
 }
 
-//-----------------------------------------------------------------------------
-// The main test loop
-//-----------------------------------------------------------------------------
-static void theTest(Basic::StateMachine* sys)
+// main test loop
+static void theTest(Basic::StateMachine* stateMachine)
 {
    LCreal dt = 0.05f;  // Fake delta time
 
-   while (sys->getState() != 99) {
+   while (stateMachine->getState() != 99) {
       Basic::Timer::updateTimers(static_cast<LCreal>(dt));
-      sys->updateTC(dt);
-      sys->updateData(dt);
+      stateMachine->updateTC(dt);
+      stateMachine->updateData(dt);
    }
 }
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-   // configuration file
-   const char* configFile = DEFAULT_CONFIG_FILE;
+   // default configuration filename
+   const char* configFilename = "test1.edl";
 
-   // Parse arguments
+   // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
-         configFile = argv[++i];
+      if (std::strcmp(argv[i], "-f") == 0) {
+         configFilename = argv[++i];
       }
    }
 
    // ---
    // Read in the description files
    // ---
-   Basic::StateMachine* sys = builder(configFile);
-   if (sys == 0) {
-      std::cerr << "Invalid configuration file!" << std::endl;
-      std::exit(EXIT_FAILURE);
-   }
-   //sys->serialize(std::cout);
+   Basic::StateMachine* stateMachine = builder(configFilename);
 
-   // ---
-   // Reset the system
-   // ---
-   sys->event(Eaagles::Basic::Component::RESET_EVENT);
+   //stateMachine->serialize(std::cout);
 
-   // ---
-   // Run the test
-   // ---
-   theTest(sys);
+   // reset the system
+   stateMachine->event(Eaagles::Basic::Component::RESET_EVENT);
+
+   // run the test
+   theTest(stateMachine);
 
    return EXIT_SUCCESS;
 }
 
-} // End TestStateMach namespace
-} // End Eaagles namespace
+} // end TestStateMach namespace
+} // end Eaagles namespace
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return Eaagles::Test::main(argc,argv);

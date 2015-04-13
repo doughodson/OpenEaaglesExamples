@@ -20,7 +20,7 @@ namespace Test {
 //------------------------------------------------------------------------------
 class DspRwr : public BasicGL::Graphic
 {
-    DECLARE_SUBCLASS(DspRwr,BasicGL::Graphic)
+    DECLARE_SUBCLASS(DspRwr, BasicGL::Graphic)
 
 public:
     DspRwr();
@@ -29,11 +29,9 @@ public:
     const Simulation::Rwr* getRwr() const { return rwr; }
     void setRwr(Simulation::Rwr* s)       { rwr = s; }
 
-    // BasicGL::Graphic class functions
-    virtual void drawFunc();
+    void drawFunc() override;
 
-    // Basic::Component class functions 
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     Simulation::Rwr* rwr;     // The test RWR sensor

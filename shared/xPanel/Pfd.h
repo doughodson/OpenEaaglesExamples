@@ -14,15 +14,15 @@ namespace xPanel {
 
 class Pfd : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(Pfd,BasicGL::Page)
+   DECLARE_SUBCLASS(Pfd, BasicGL::Page)
 
 public:
-    Pfd();  
+    Pfd();
 
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
-      
+
     // set functions
-    virtual bool setPitchDeg(const LCreal newP);        // Sets pitch angle (degs) 
+    virtual bool setPitchDeg(const LCreal newP);        // Sets pitch angle (degs)
     virtual bool setPitchRad(const LCreal newP);        // Sets pitch angle (rads)
     virtual bool setRollDeg(const LCreal newR);         // Sets roll angle (degs)
     virtual bool setRollRad(const LCreal newR);         // Sets roll angle (rads)
@@ -41,11 +41,11 @@ public:
     virtual bool setFltDirBankRad(const LCreal newFDB); // Sets flight directory commanded bank (rad)
     virtual bool setFltDirPitchRad(const LCreal newFDP);// Sets flight director commanded pitch (rad)
     virtual bool setBaroPress(const LCreal newBOP);     // Sets baro pressure (inches)
-    virtual bool setRefLat(const double newRL);         // reference latitude 
-    virtual bool setRefLon(const double newRL);         // reference longitude 
-    virtual bool setRange(const LCreal newR);           // range 
+    virtual bool setRefLat(const double newRL);         // reference latitude
+    virtual bool setRefLon(const double newRL);         // reference longitude
+    virtual bool setRange(const LCreal newR);           // range
     virtual bool setGLoad(const LCreal newLoad);        // our g load
-    virtual bool setMach(const LCreal x);               // machine speed    
+    virtual bool setMach(const LCreal x);               // machine speed
 
     // get functions
     LCreal getPitchDeg()            { return pitch; }
@@ -72,10 +72,8 @@ public:
     LCreal getRange()               { return range; }
     LCreal getGLoad()               { return gLoad; }
     LCreal getMach()                { return mach; }
-    
-    
-    // Component interface
-    virtual void updateData(const LCreal dt = 0.0);
+
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // pitch and roll
@@ -84,18 +82,18 @@ private:
     SendData hdgPitchSD;    // heading pitch for the heading tape
     LCreal roll;            // Roll angle (degs)
     SendData rollSD;
-    
+
     // bank angle
     SendData baSD;
     SendData bascaleSD;
-    
+
     // heading and nav stuff
     LCreal trueHdg;         // True heading (degs)
     SendData tHdgSD;
 
     LCreal cmdHdg;          // commanded heading (heading bug)
     SendData cmdHdgROSD;
-    
+
     // airspeed
     LCreal airSpd;          // Kts
     SendData airSpdTpSD;    // for the airspeed tape
@@ -153,7 +151,7 @@ private:
     SendData trueHdgSD;
     SendData hdgTapeSD;
     SendData cmdHdgSD;
-   
+
     double refLat;
     double refLon;
     LCreal range;

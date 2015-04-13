@@ -20,13 +20,9 @@ class Display : public Glut::GlutDisplay
 public:
    Display();
 
-    // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0.000000);
-
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
-    // here is our data and send datas
-
     // boolean
     bool myBool;
     SendData boolSD;

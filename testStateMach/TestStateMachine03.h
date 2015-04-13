@@ -16,8 +16,9 @@ namespace Test {
 //    functions: nextSubstate() and goToSubstate().
 //
 //------------------------------------------------------------------------------
-class TestStateMachine03 : public Basic::StateMachine {
-   DECLARE_SUBCLASS(TestStateMachine03,Basic::StateMachine)
+class TestStateMachine03 : public Basic::StateMachine
+{
+   DECLARE_SUBCLASS(TestStateMachine03, Basic::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };
@@ -26,14 +27,13 @@ public:
    TestStateMachine03();
 
 protected:
-   // Basic::StateMachine protected interface function
-   virtual void preStateProc(const LCreal dt);
-   virtual void postStateProc(const LCreal dt);
-   virtual unsigned short stateTable(
+   void preStateProc(const LCreal dt) override;
+   void postStateProc(const LCreal dt) override;
+   unsigned short stateTable(
          const unsigned short cstate,
          const StateTableCode code,
          const LCreal dt=0
-      );
+      ) override;
 
 private:
    // State specific functions

@@ -147,7 +147,6 @@ void TestDisplay::copyData(const TestDisplay& org, const bool)
    rangeSD.empty();
    headingSD.empty();
 
-
    // pitch and roll
    pitch = org.pitch;
    pitchRate = org.pitchRate;
@@ -248,7 +247,6 @@ bool TestDisplay::onRtn2SearchKey()
    }
    return true;
 }
-
 
 // Air to Air mode key
 bool TestDisplay::onAir2AirKey()
@@ -555,7 +553,6 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
                 else if (newTracks[inew]->isClassType(typeid(Simulation::Missile))) {
                    type = 5; // Missile
                 }
-
 
                 tracks[islot] = newTracks[inew];
                 trkIdx[islot] = loader->addSymbol( type, 0);

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // Class: SpdLines
-// 
+//
 // Description: Draws the lines for the airspeed graphic
 // Inputs:
 //      UPDATE_VALUE  -> altitude flag on or off
@@ -15,16 +15,13 @@ namespace Demo {
 
 class SpdLines : public BasicGL::Graphic
 {
-    DECLARE_SUBCLASS(SpdLines,BasicGL::Graphic)
+    DECLARE_SUBCLASS(SpdLines, BasicGL::Graphic)
 
 public:
     SpdLines();
 
-    // BasicGL::Graphic interface
-    virtual void drawFunc();
-
-    // Basic::Component interface
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void drawFunc() override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
     // set functions
     virtual bool setIsAlt(const bool newIsAlt) { isAlt = newIsAlt; return true; }

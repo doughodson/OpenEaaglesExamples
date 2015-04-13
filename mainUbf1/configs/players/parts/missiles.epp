@@ -1,0 +1,21 @@
+
+// ----------------------
+// missiles
+// ----------------------
+
+#define AAM_MISSILE(ID)                               \
+( AamMissile                                          \
+   id: ID                                             \
+   type: "AIM-120C"                                   \
+   signature: ( SigDihedralCR a: 0.1 )                \
+   mode: inactive                                     \
+   minSpeed: 0                                        \
+   maxSpeed: 800                                      \
+   speedMaxG: 800                                     \
+   maxg: 9                                            \
+   maxAccel: 200                                      \
+   maxBurstRng: 50                                    \
+   maxTOF: 30                                         \
+   eobt: 90                                           \
+   tsg: 0                                             \
+)

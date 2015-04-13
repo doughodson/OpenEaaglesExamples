@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainGL
 
-OBJS = mainGL.o 
+OBJS = main.o 
 
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread

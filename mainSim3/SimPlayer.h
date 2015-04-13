@@ -17,9 +17,8 @@ class SimPlayer : public Simulation::Aircraft
 
 public:
     SimPlayer();
-    
-    // Basic::Component interface
-    virtual void reset();
+
+    void reset() override;
 
 private:
 };

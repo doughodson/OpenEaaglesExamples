@@ -23,7 +23,7 @@ public:
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
 
     // set functions
-    virtual bool setPitchDeg(const LCreal newP);        // Sets pitch angle (degs) 
+    virtual bool setPitchDeg(const LCreal newP);        // Sets pitch angle (degs)
     virtual bool setPitchRad(const LCreal newP);        // Sets pitch angle (rads)
     virtual bool setRollDeg(const LCreal newR);         // Sets roll angle (degs)
     virtual bool setRollRad(const LCreal newR);         // Sets roll angle (rads)
@@ -55,9 +55,9 @@ public:
     virtual bool setNav2Brg(const LCreal newB);         // Sets our second nav aid bearing (degs)
     virtual bool setNav2DME(const LCreal newDME);       // Sets our second nav aid DME (NM)
     virtual bool setNav2Id(const char* const newId);    // Sets our second nav aid identifier
-    virtual bool setRefLat(const double newRL);         // reference latitude 
-    virtual bool setRefLon(const double newRL);         // reference longitude 
-    virtual bool setRange(const LCreal newR);           // range 
+    virtual bool setRefLat(const double newRL);         // reference latitude
+    virtual bool setRefLon(const double newRL);         // reference longitude
+    virtual bool setRange(const LCreal newR);           // range
     virtual bool setFPMX(const LCreal newX);            // flight path marker x
     virtual bool setFPMY(const LCreal newY);            // flight path marker y
     virtual bool setGLoad(const LCreal newLoad);        // our g load
@@ -95,7 +95,7 @@ public:
     bool getNav1Id(const int index, char* newString);
     LCreal getNav2Brg()             { return nav2Brg; }
     LCreal getNav2Dme()             { return nav2Dme; }
-    bool getNav2Id(const int index, char* newString); 
+    bool getNav2Id(const int index, char* newString);
     double getRefLat()              { return refLat; }
     double getRefLon()              { return refLon; }
     LCreal getRange()               { return range; }
@@ -104,8 +104,7 @@ public:
     LCreal getGLoad()               { return gLoad; }
     LCreal getMach()                { return mach; }
 
-    // Component interface
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // pitch and roll
@@ -125,7 +124,7 @@ private:
 
     LCreal cmdCrs;          // commanded course (degs)
     SendData cmdCrsROSD;
-    
+
     LCreal cmdHdg;          // commanded heading (heading bug)
     SendData cmdHdgROSD;
 

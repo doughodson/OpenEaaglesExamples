@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: TestSpeedBrake
 //
-// Description: Example Analog Dial Page 
+// Description: Example Analog Dial Page
 // This page will supply test data to the speed brake (generic)
 //
 //------------------------------------------------------------------------------
@@ -15,16 +15,15 @@ namespace Demo {
 
 class TestSpeedBrake : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestSpeedBrake,BasicGL::Page)
+   DECLARE_SUBCLASS(TestSpeedBrake, BasicGL::Page)
 
 public:
     TestSpeedBrake();
 
-    // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
-    LCreal sbrakePosition;          // our speed brake position (1 - 100) 
+    LCreal sbrakePosition;          // our speed brake position (1 - 100)
     SendData sbrakePositionSD;
     SendData sbrakePositionROSD;
     LCreal  sbrakeRate;             // rate which are going (up or down)

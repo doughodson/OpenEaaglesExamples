@@ -38,9 +38,8 @@ public:
    Simulation::Simulation* getSimulation();
    Simulation::Station* getStation();
 
-   // Basic::Component Interface
-   virtual bool event(const int event, Basic::Object* const obj = 0);
-   virtual void updateData(const LCreal dt = 0.0f);
+   bool event(const int event, Basic::Object* const obj = 0) override;
+   void updateData(const LCreal dt = 0.0f) override;
 
 protected:
    // Key event handlers
@@ -52,7 +51,7 @@ private:
    SPtr<Simulation::Station> myStation;
 
    // ALT Stuff
-   LCreal altitude;             // our current altitude 
+   LCreal altitude;             // our current altitude
    SendData altitudeSD;
 
    // VVI Stuff
@@ -61,7 +60,7 @@ private:
    LCreal pastVvi;              // our past vvi value (to create a linear filter)
 
    // AOA Stuff
-   LCreal aoa;                  // angle of attack 
+   LCreal aoa;                  // angle of attack
    SendData aoaSD;
    SendData aoaDigSD;            // angle of attack (digital)
 
@@ -78,7 +77,7 @@ private:
    LCreal airSpeed;             // our air speed (in knots)
    SendData airSpeedSD;
 
-   // G Stuff                  
+   // G Stuff
    LCreal gForce;               // g's we are pulling
    SendData gForceSD;
    SendData gForce2SD;         // this is for the analog meter

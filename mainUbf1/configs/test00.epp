@@ -1,0 +1,42 @@
+
+#define REF_LATITUDE     30.8
+#define REF_LONGITUDE   -86.8
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( SimStation
+
+   tcPriority: 1
+   
+   //#include "common/networkSetup.epp"
+   //#include "common/otwSetup.epp"
+
+   // ---
+   // Simulation scenario
+   // ---
+
+   ownship: p01
+   simulation: ( Simulation
+
+      //enableTimingStats: true
+      //printTimingStats: true
+
+      // Initial freeze condition
+      freeze: false
+
+      // Reference position (player positions are relative to this location)
+      latitude:  REF_LATITUDE
+      longitude: REF_LONGITUDE
+
+      // The initial player list
+      players: {
+
+         #include "players/player01.epp"
+         #include "players/player02.epp"
+         #include "players/player03.epp"
+
+      }
+   )
+
+   #include "xPanel/xPanel.epp"
+)

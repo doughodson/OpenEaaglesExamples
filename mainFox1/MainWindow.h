@@ -16,8 +16,8 @@ namespace Example {
 class Application;
 class FoxDisplay;  
 
-class MainWindow : public FX::FXMainWindow {
-
+class MainWindow : public FX::FXMainWindow
+{
    FXDECLARE(MainWindow)
 
 public:

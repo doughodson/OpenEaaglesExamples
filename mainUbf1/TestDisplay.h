@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
+
 #ifndef __Eaagles_Example_TestDisplay_H__
 #define __Eaagles_Example_TestDisplay_H__
 
@@ -15,6 +13,7 @@ namespace Example {
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
+//
 // Description: Test GLUT-display that will manage a simple real-beam, b-scan radar
 //              display, plus a Radar receiver display, which shows received
 //              signal strength and angle of arrival, a simple situation
@@ -36,7 +35,7 @@ namespace Example {
 //------------------------------------------------------------------------------
 class TestDisplay : public Glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay,Glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay, Glut::GlutDisplay)
 
 public:
     enum { MAX_TRACKS = 60 };
@@ -52,12 +51,10 @@ public:
 
     void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
 
-    // Display Interface
-    virtual void mouseEvent(const int button, const int state, const int x, const int y);
+    void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    // Component interface
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    virtual void updateData(const LCreal dt = 0.0f);
+    bool event(const int event, Basic::Object* const obj = 0) override;
+    void updateData(const LCreal dt = 0.0f) override;
 
 private:
     // Key event handlers
@@ -78,9 +75,9 @@ private:
     xPanel::DspRwr*     rwrDisplay;     // Test RWR display
     LCreal          range;          // SD range
 
-    SendData        headingSD;
-    SendData        rangeSD;
-    
+    SendData headingSD;
+    SendData rangeSD;
+
     SPtr<Simulation::Station> myStation;
 
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
@@ -133,7 +130,7 @@ private:
     LCreal fDirBankRate;
     LCreal fDirPitch;
     LCreal fDirPitchRate;
-    
+
     // barometric pressure
     LCreal baro;
     LCreal baroRate;

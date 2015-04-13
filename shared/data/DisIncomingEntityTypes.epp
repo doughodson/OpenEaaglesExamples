@@ -141,7 +141,7 @@ inputEntityTypes: {
                
                               
     // -------------------------------------------------------------
-    // Category: Gound stations (?)
+    // Category: Ground stations (?)
     // -------------------------------------------------------------
  
     // Generic UAV Ground Station
@@ -1170,7 +1170,7 @@ inputEntityTypes: {
 // -------------------------------------------------------------
 // KIND => PLATFORM; DOMAIN => SUBSURFACE; COUNTRY => USA
 // -------------------------------------------------------------
-//  Default: Atack Submarine
+//  Default: Attack Submarine
     ( DisNtm 
         disEntityType: [ 1  4  225  3  0  0  0 ]
         template: ( Ship  type: "AttackSubmarine"  signature: ( SigConstant rcs: ( dB 100 ) ) )
@@ -1424,7 +1424,7 @@ inputEntityTypes: {
     // Category: LifeForms
     // -------------------------------------------------------------
     
-    // Default Life Form - lithuanian
+    // Default Life Form
     ( DisNtm
         disEntityType: [ 3  1  222   1  41  1  0 ]
         template: ( LifeForm type: "Soldier1" signature: ( SigConstant rcs: ( dB 5 ) ) )
@@ -1456,7 +1456,5 @@ inputEntityTypes: {
         disEntityType: [ 5  1  222  2  1 3  0 ]
         template: ( Building  type: "BermedBunker"  signature: ( SigConstant rcs: ( dB 10 ) ) )
     )
-
-
 
 }

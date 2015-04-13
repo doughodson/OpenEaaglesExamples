@@ -1,7 +1,7 @@
 
 // =============================================================================
 // I/O Device mapping for the Thrustmaster HOTAS Cougar device 
-//   -- UsbJoystick (e.g., the thrustmaster couger) channels are zero(0) based.
+//   -- UsbJoystick (e.g., the thrustmaster cougar) channels are zero(0) based.
 //   -- Your Thrustmaster AI channels may be a little different (
 // =============================================================================
 

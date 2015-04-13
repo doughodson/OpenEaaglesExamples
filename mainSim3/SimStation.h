@@ -28,8 +28,8 @@ namespace Example {
 //------------------------------------------------------------------------------
 class SimStation : public Simulation::Station
 {
-    DECLARE_SUBCLASS(SimStation,Simulation::Station)
-    
+    DECLARE_SUBCLASS(SimStation, Simulation::Station)
+
 public:
     SimStation();
 
@@ -40,10 +40,9 @@ public:
    virtual bool setSlotMainDisplay(Glut::GlutDisplay* const d);
    virtual bool setSlotAutoResetTime(const Basic::Time* const num);     // Sets the auto RESET timer
 
-   // Basic::Component Interface
-   virtual void updateTC(const LCreal dt = 0.0f);
-   virtual void updateData(const LCreal dt = 0.0f);
-   virtual void reset();
+   void updateTC(const LCreal dt = 0.0f) override;
+   void updateData(const LCreal dt = 0.0f) override;
+   void reset() override;
 
 private:
     // Main Display

@@ -42,10 +42,10 @@
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       targetdir (OEExamplesLibPath)
       files {
-         "../../shared/xRecorder/*.cpp",
-         "../../shared/xRecorder/*.cc",
-         "../../shared/xRecorder/*.h",
-         "../../shared/xRecorder/*.proto",
+         "../../shared/xRecorder/**.cpp",
+         "../../shared/xRecorder/**.cc",
+         "../../shared/xRecorder/**.h",
+         "../../shared/xRecorder/**.proto",
       }
       defines { "_LIB" }
       defines { "_SCL_SECURE_NO_WARNINGS" } -- suppress protocol buffer warning

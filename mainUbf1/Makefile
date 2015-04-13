@@ -4,13 +4,13 @@ include ../makedefs
 PGM = mainUbf1
 
 #
-OBJS = mainUbf1.o
+OBJS = main.o
 OBJS += SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o Factory.o
 
 LDFLAGS += -lxBehaviors -lxPanel
 LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation
-LDFLAGS += -loeDis -loeSensors -loeVehicles -loeIoDevice -loeOtw -loeDafif
+LDFLAGS += -loeDis -loeSensors -loeDynamics -loeIoDevice -loeOtw -loeDafif
 LDFLAGS += -lJSBSim -loeBasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 LDFLAGS += -lcigicl
@@ -27,8 +27,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	cpp configs/agentTest.epp    >agentTest.edl   $(EPPFLAGS)
-	cpp configs/simAgentTest.epp >simAgentTest.edl   $(EPPFLAGS)
+	cpp configs/test00.epp > test00.edl $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

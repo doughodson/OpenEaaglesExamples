@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestIoHandler
-//------------------------------------------------------------------------------
+
 #ifndef __Eaagles_Example_TestIoHandler_H__
 #define __Eaagles_Example_TestIoHandler_H__
 
@@ -15,21 +13,19 @@ namespace Example {
 // Class: TestIoHandler
 //
 // Description:  Handles the flow of I/O data to and from the
-//               stick and throttle hardware.
+//               stick and throttle hardware
 //------------------------------------------------------------------------------
 class TestIoHandler : public Basic::IoHandler
 {
-   DECLARE_SUBCLASS(TestIoHandler,Basic::IoHandler)
+   DECLARE_SUBCLASS(TestIoHandler, Basic::IoHandler)
 
 public:
    TestIoHandler();
 
-   // Basic::IoHandler interface functions
-   virtual void inputDevices(const LCreal dt);    // Handle input devices
+   void inputDevices(const LCreal dt) override;
 
 protected:
-   // Basic::IoHandler protected functions
-   virtual void clear(); // called from Basic::IoHandler::reset()
+   void clear() override;
 
 private:
    void initData();

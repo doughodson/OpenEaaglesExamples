@@ -11,7 +11,7 @@ namespace Test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine01
-// Description: State Machine Test #1 -- 
+// Description: State Machine Test #1 --
 //
 //    Tests the standard state transition functions (e.g., next(), goTo(), call(),
 //    and rtn()), as well as arguments passed and returned.   There's one common
@@ -19,8 +19,9 @@ namespace Test {
 //    select each state's specific code.
 //
 //------------------------------------------------------------------------------
-class TestStateMachine01 : public Basic::StateMachine {
-   DECLARE_SUBCLASS(TestStateMachine01,Basic::StateMachine)
+class TestStateMachine01 : public Basic::StateMachine
+{
+   DECLARE_SUBCLASS(TestStateMachine01, Basic::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };
@@ -29,14 +30,13 @@ public:
    TestStateMachine01();
 
 protected:
-   // Basic::StateMachine protected interface function
-   virtual void preStateProc(const LCreal dt);
-   virtual void postStateProc(const LCreal dt);
-   virtual unsigned short stateTable(
+   void preStateProc(const LCreal dt) override;
+   void postStateProc(const LCreal dt) override;
+   unsigned short stateTable(
          const unsigned short cstate,
          const StateTableCode code,
          const LCreal dt=0
-      );
+      ) override;
 
 private:
    // State specific functions

@@ -36,14 +36,12 @@ public:
    virtual bool setSlotSpacing(Basic::Number* const);
    virtual bool setSlotColumns(Basic::PairStream* const);
 
-   // BasicGL::Field class interface
-   virtual int line() const;
-   virtual int line(const int ll);
-   virtual int column() const;
-   virtual int column(const int cc);
+   int line() const override;
+   int line(const int ll) override;
+   int column() const override;
+   int column(const int cc) override;
 
-   // Basic::Component class interface
-   virtual void reset();
+   void reset() override;
 
 private:
    void initData();

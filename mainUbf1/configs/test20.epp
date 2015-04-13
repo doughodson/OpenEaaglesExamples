@@ -1,0 +1,409 @@
+// ---
+// Example simulation
+// ---
+
+//
+#define REF_LATITUDE     30.8
+#define REF_LONGITUDE   -86.8
+#define OTW_LATITUDE   REF_LATITUDE
+#define OTW_LONGITUDE  REF_LONGITUDE
+
+( SimStation
+
+   tcPriority: 1
+
+   components: {
+
+      ubf1: ( SimAgent
+         actorPlayerName: p01
+         state: ( PlaneState )
+         behavior: ( PriorityArbiter
+            behaviors: {
+               ( PlaneFlyStraight 
+                  vote: 10
+                  voteOnCriticalAltitude: 100
+                  criticalAltitude: ( Meters 3500 ) 
+               )
+               ( PlaneFire vote: 50 )
+               ( PlaneFollowEnemy vote: 50 )
+               ( PlaneTurn vote: 15 )
+               ( PlaneTrim vote: 100 )
+            }
+         )
+      )
+      
+      ubf2: ( SimAgent
+         actorPlayerName: duck11
+         behavior: ( PriorityArbiter
+            behaviors: {
+               ( PlaneFlyStraight 
+                  vote: 10
+                  voteOnCriticalAltitude: 100
+                  criticalAltitude: ( Meters 3500 ) 
+               )
+               ( PlaneFollowEnemy vote: 50 )
+               ( PlaneTurn vote: 15 )
+               ( PlaneTrim vote: 100 )
+            }
+         )
+      )
+         
+   }
+   
+//#include "networkSetup.epp"
+//#include "otwSetup.epp"
+
+// ---
+// Simulation scenario
+// ---
+
+
+ownship: p01
+simulation: ( Simulation
+
+  //enableTimingStats: true
+  //printTimingStats: true
+
+   // Initial freeze condition
+   freeze: false
+
+   // Reference position (player positions are relative to this location)
+   latitude:  REF_LATITUDE
+   longitude: REF_LONGITUDE
+
+   // The initial player list
+   players: {
+
+      p01:
+      ( Aircraft
+
+          id: 1
+          side: blue
+          type: "F-15"
+          signature: ( SigSphere radius: 2.0 )
+
+          initLatitude:  ( LatLon direction: "n" degrees: 39 minutes: 54.0 )
+          initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.5 )
+        
+          initAlt: ( Feet 5000 )
+          initHeading: ( Degrees 0.0 )      // Initial heading
+          initVelocity: 250  //was 250
+          
+          positionFreeze: false
+          killRemoval: true
+          fuelFreeze: true
+          
+          components: {
+
+            dynamicsModel: ( JSBSimModel
+                rootDir: JSBSIM_PATH
+                model: "f16"
+            )
+           
+            pilot: ( Autopilot
+               navMode: false
+               altitudeHoldMode: false
+               headingHoldMode: false
+               velocityHoldMode: true
+            )
+          
+            antennas: ( Gimbal
+               components: {
+                  radar: ( Antenna
+                        maxPlayersOfInterest: 6
+                        playerOfInterestTypes: { "air" "weapon" }
+                        polarization: horizontal
+                        gain: ( dB 42 )
+                        #include "gainPattern.epp"
+                        initPosition: [ 0 0 ]
+                        maxRates: [ 0.8727 0.8727 ]
+                        commandRates: [ 0.43633 0.6981 ]
+                        reference: [ 0 0 ]
+                        searchVolume: [ 1.0472 0.05 ]
+                        numBars: 2
+                        playerOfInterestTypes: { air ground weapon ship building lifeform space }
+                        maxPlayersOfInterest: 20
+                        maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                        maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                        localPlayersOfInterestOnly: false
+                        useWorldCoordinates: false
+                  )
+                  rwr: ( Antenna 
+                        scanMode: manual
+                        polarization: horizontal
+                        gain: ( dB 12 )
+                  )
+                  jammer: ( Antenna
+                           polarization: horizontal
+                           gain: ( dB 5 )
+                           //initPosition: [ -0.17 0 ]
+                           initPosition: [ 0.0 0 ]
+                           #include "gainPatternJammer.epp"
+                           //useWorldCoordinates: USE_WORLD
+                   )
+               }
+            )
+            
+            sensors: ( SensorMgr
+               components: {
+                  ( Tws
+                     trackManagerName: twsTrkMgr
+                     antennaName: radar
+                     powerPeak:  ( KiloWatts 500.0 )
+                     frequency:  ( GigaHertz 3.0 )
+                     bandwidth:  ( GigaHertz 2.0 )
+                     PRF:        ( Hertz 500.0 ) 
+                     pulseWidth: ( MilliSeconds 0.01 )
+                     threshold:  ( dB 0.0 )
+                     ranges:     [ 10 20 40 80 160 ]
+                     initRangeIdx: 2
+                  )
+                  ( Rwr 
+                      trackManagerName: rwrTrkMgr
+                      antennaName: rwr  
+                      threshold:  ( dB 0.0 )
+                      frequency:  ( GigaHertz 3.0 )
+                      bandwidth:  ( GigaHertz 2.0 )
+                  )
+                  ( Jammer
+                              antennaName: jammer
+                              powerPeak:  ( KiloWatts 500.0 )
+                              frequency:  ( GigaHertz 3.0 )
+                              bandwidth:  ( KiloHertz 500.0 )
+                              ranges:     [ 80 ]
+                        )
+               }
+            )
+            
+            obc: ( OnboardComputer
+               components: {
+                  twsTrkMgr: ( AirTrkMgr
+                      maxTracks: 50
+                      alpha: 1.0
+                      beta:  0.5
+                      gamma: 0.0
+                      positionGate: 1500
+                      rangeGate:     500
+                      velocityGate:   10
+                      firstTrackId: 2000
+                  )
+                  rwrTrkMgr: ( RwrTrkMgr
+                      maxTracks: 50
+                      alpha: 1.0
+                      beta:  0.5
+                      gamma: 0.0
+                      //positionGate: 1500
+                     // rangeGate:     500
+                     // velocityGate:   10
+                      firstTrackId: 2000
+                  )
+               }
+            )
+
+            sms: ( StoresMgr
+               numStations: 4
+               stores: {
+                     1: ( AamMissile
+                        id: 201
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     2: ( AamMissile
+                        id: 202
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     3: ( AamMissile
+                        id: 203
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                     4: ( AamMissile
+                        id: 204
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                  }
+              )
+              
+          }
+      )
+
+      duck11:
+      ( Aircraft
+          side: red
+          type: "F-16"
+          id: 1000
+          signature: ( SigSphere radius: 2.0 )
+          initLatitude:  ( LatLon direction: "n" degrees: 40 minutes:  5.0 )
+          initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.5 )
+          initAlt: ( Feet 15000 )
+          initHeading: ( Degrees 180.0 )      // Initial heading
+          initVelocity: 250   //was 250
+          positionFreeze: false
+          killRemoval: true
+          fuelFreeze: true
+          
+          components: {
+
+            dynamicsModel: ( JSBSimModel
+                rootDir: JSBSIM_PATH
+                model: "f15"
+            )
+           
+            pilot: ( Autopilot
+               navMode: false
+               altitudeHoldMode: false
+               headingHoldMode: false
+               velocityHoldMode: false
+            )
+          
+            antennas: ( Gimbal
+               components: {
+                  radar: ( Antenna
+                        maxPlayersOfInterest: 6
+                        playerOfInterestTypes: { "air" "weapon" }
+                        polarization: horizontal
+                        gain: ( dB 42 )
+                        #include "gainPattern.epp"
+                        initPosition: [ 0 0 ]
+                        maxRates: [ 0.8727 0.8727 ]
+                        commandRates: [ 0.43633 0.6981 ]
+                        reference: [ 0 0 ]
+                        searchVolume: [ 1.0472 0.05 ]
+                        numBars: 2
+                        playerOfInterestTypes: { air ground weapon ship building lifeform space }
+                        maxPlayersOfInterest: 20
+                        maxRange2PlayersOfInterest: ( KiloMeters 100.0 )
+                        maxAngle2PlayersOfInterest: ( Degrees 90.0 )
+                        localPlayersOfInterestOnly: false
+                        useWorldCoordinates: false
+                  )
+                  rwr: ( Antenna 
+                        scanMode: manual
+                        polarization: horizontal
+                        gain: ( dB 12 )
+                  )
+               }
+            )
+            sensors: ( SensorMgr
+               components: {
+                  ( Tws
+                     trackManagerName: twsTrkMgr2
+                     antennaName: radar
+                     powerPeak:  ( KiloWatts 500.0 )
+                     frequency:  ( GigaHertz 3.0 )
+                     bandwidth:  ( GigaHertz 2.0 )
+                     PRF:        ( Hertz 500.0 ) 
+                     pulseWidth: ( MilliSeconds 0.01 )
+                     threshold:  ( dB 0.0 )
+                     ranges:     [ 10 20 40 80 160 ]
+                     initRangeIdx: 2
+                  )
+                  ( Rwr 
+                      antennaName: rwr  
+                      threshold:  ( dB 0.0 )
+                      frequency:  ( GigaHertz 3.0 )
+                      bandwidth:  ( GigaHertz 2.0 )
+                  )
+               }
+            )
+            obc: ( OnboardComputer
+               components: {
+                  twsTrkMgr2: ( AirTrkMgr
+                      maxTracks: 50
+                      alpha: 1.0
+                      beta:  0.5
+                      gamma: 0.0
+                      positionGate: 1500
+                      rangeGate:     500
+                      velocityGate:   10
+                      firstTrackId: 2000
+                  )
+               }
+            )
+
+            sms: ( StoresMgr
+               numStations: 1
+               stores: {
+                     1: ( AamMissile
+                        id: 201
+                        type: "AIM-120C"
+                        signature: ( SigDihedralCR a: 0.1 )
+                        mode: inactive
+                        minSpeed: 0
+                        maxSpeed: 800
+                        speedMaxG: 800
+                        maxg: 9
+                        maxAccel: 200
+                        maxBurstRng: 50
+                        maxTOF: 30
+                        eobt: 90
+                        tsg: 0
+                     )
+                  }
+              )
+              
+          }
+      )
+
+      duck12:
+      ( Aircraft
+          side: red
+          type: "F-16"
+          id: 1001
+          signature: ( SigSphere radius: 2.0 )
+          initLatitude:  ( LatLon direction: "n" degrees: 40 minutes:  4.5 )
+          initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.0 )
+          initAlt: ( Feet 15000 )
+          initHeading: ( Degrees 180.0 )      // Initial heading
+          positionFreeze: true
+          killRemoval: true
+          fuelFreeze: true
+      )
+  }
+)
+
+   #include "xPanel/xPanel.epp"
+)
+

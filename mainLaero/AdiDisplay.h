@@ -7,9 +7,9 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace Eaagles {
-   namespace Simulation { 
-      class Station; 
-      class Aircraft; 
+   namespace Simulation {
+      class Station;
+      class Aircraft;
    }
 
 namespace Example {
@@ -24,7 +24,7 @@ public:
    Simulation::Aircraft* getOwnship();
    Simulation::Station* getStation();
 
-   virtual void updateData(const LCreal dt = 0.0f);
+   void updateData(const LCreal dt = 0.0f) override;
 
 private:
    SPtr<Simulation::Station> myStation;
@@ -49,11 +49,11 @@ private:
    SendData phiRO_SD;
    SendData velRO_SD;
    SendData altRO_SD;
-    
+
    SendData pRO_SD;
    SendData qRO_SD;
    SendData rRO_SD;
-    
+
    SendData bankADI_SD;
    SendData pitchADI_SD;
 };

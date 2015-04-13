@@ -6,7 +6,7 @@
 #include "TestStation.h"
 #include "MapPage.h"
 
-#include "openeaagles/vehicles/LaeroModel.h"
+#include "openeaagles/dynamics/LaeroModel.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Autopilot.h"
 #include "openeaagles/simulation/Player.h"

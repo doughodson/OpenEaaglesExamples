@@ -1,0 +1,14 @@
+
+duck12: ( Aircraft
+   side: red
+   type: "F-16"
+   id: 1001
+   signature: ( SigSphere radius: 2.0 )
+   initLatitude:  ( LatLon direction: "n" degrees: 40 minutes:  4.5 )
+   initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.0 )
+   initAlt: ( Feet 15000 )
+   initHeading: ( Degrees 180.0 )
+   positionFreeze: true
+   killRemoval: true
+   fuelFreeze: true
+)

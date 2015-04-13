@@ -14,7 +14,7 @@ namespace Demo {
 
 class Pfd : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(Pfd,BasicGL::Page)
+   DECLARE_SUBCLASS(Pfd, BasicGL::Page)
 
 public:
     Pfd();
@@ -41,9 +41,9 @@ public:
     virtual bool setFltDirBankRad(const LCreal newFDB); // Sets flight directory commanded bank (rad)
     virtual bool setFltDirPitchRad(const LCreal newFDP);// Sets flight director commanded pitch (rad)
     virtual bool setBaroPress(const LCreal newBOP);     // Sets baro pressure (inches)
-    virtual bool setRefLat(const double newRL);         // reference latitude 
-    virtual bool setRefLon(const double newRL);         // reference longitude 
-    virtual bool setRange(const LCreal newR);           // range 
+    virtual bool setRefLat(const double newRL);         // reference latitude
+    virtual bool setRefLon(const double newRL);         // reference longitude
+    virtual bool setRange(const LCreal newR);           // range
     virtual bool setGLoad(const LCreal newLoad);        // our G-load
     virtual bool setMach(const LCreal x);               // machine speed
 
@@ -73,8 +73,7 @@ public:
     LCreal getGLoad()               { return gLoad; }
     LCreal getMach()                { return mach; }
 
-    // Component interface
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // pitch and roll
@@ -147,12 +146,12 @@ private:
     // barometric pressure
     LCreal baro;
     SendData baroSD;
-        
+
     // Hsi send data
     SendData trueHdgSD;
     SendData hdgTapeSD;
     SendData cmdHdgSD;
-   
+
     double refLat;
     double refLon;
     LCreal range;

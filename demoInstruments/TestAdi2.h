@@ -13,14 +13,13 @@ namespace Demo {
 
 class TestAdi2 : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestAdi2,BasicGL::Page)
+   DECLARE_SUBCLASS(TestAdi2, BasicGL::Page)
 
 public:
     TestAdi2();
-   
-    // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
-   
+
+    void updateData(const LCreal dt = 0) override;
+
 private:
     LCreal pitch;           // our pitch (90 to -90)
     SendData pitchSD;
@@ -45,7 +44,7 @@ private:
     LCreal cdmY;            // y (slip) value of our climb dive marker (inches)
     SendData cdmXSD;
     SendData cdmYSD;
-    SendData cdmRollSD;        
+    SendData cdmRollSD;
     SendData ghostPitchSD;  // ghost horizon pitch
     SendData ghostRollSD;   // ghost horizon roll
 };

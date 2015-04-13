@@ -33,7 +33,6 @@ class SimStation : public Simulation::Station
    DECLARE_SUBCLASS(SimStation, Simulation::Station)
 
 public:
-
     SimStation();
 
    // Step our "ownship" to the next local air vehicle
@@ -42,9 +41,8 @@ public:
    // Slot functions
    virtual bool setSlotMainDisplay(Glut::GlutDisplay* const d);
 
-   // Basic::Component Interface
-   virtual void updateTC(const LCreal dt = 0.0f);
-   virtual void reset();
+   void updateTC(const LCreal dt = 0.0f) override;
+   void reset() override;
 
 private:
 

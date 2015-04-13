@@ -32,7 +32,8 @@ namespace Example {
 
 class MainWindow;
 
-class Display : public Glut::GlutDisplay {
+class Display : public Glut::GlutDisplay
+{
    DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
 
 public:
@@ -41,7 +42,7 @@ public:
 public:
    Display();
 
-   const Basic::Terrain* getTerrain() const      { return terrain; }
+   const Basic::Terrain* getTerrain() const                 { return terrain; }
 
    bool isMinElevValid() const { return haveMinElev; }      // Ture if the min elevation is valid
    LCreal getMinElevation() const { return minElev; }       // Returns the min elevation (meters)
@@ -67,15 +68,11 @@ public:
    virtual bool setSlotEarthCurvatureTest(const Basic::Number* const msg);
    virtual bool setSlotTextureTest(const Basic::Number* const msg);
 
-   // GlutDisplay interface
-   virtual void configure();
+   void configure() override;
+   void drawFunc() override;
 
-   // BasicGL::Graphic interface
-   virtual void drawFunc(); 
-
-   // Basic::Component interface
-   virtual void reset();
-   virtual void updateData(const LCreal dt = 0.0);
+   void reset() override;
+   void updateData(const LCreal dt = 0.0) override;
 
 private:
    bool initImageMemory(const GLsizei width, const GLsizei height);
@@ -104,7 +101,7 @@ private:
    GLuint            texture;          // Texture
    GLsizei           imgWidth;         // Image width  (number of columns)
    GLsizei           imgHeight;        // Image height (number of rows)
-   GLubyte*          image;            // The image pixels 
+   GLubyte*          image;            // The image pixels
                                        //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
                                        //   --   irow : [ 0 ... (imgHeight-1) ]
                                        //   --   icol : [ 0 ... (imgWidth-1) ]

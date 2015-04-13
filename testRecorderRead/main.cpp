@@ -10,70 +10,58 @@
 namespace Eaagles {
 namespace Test {
 
-//=============================================================================
-// Main test functions
-//=============================================================================
-
-//
-static DataRecordTest* builder(const char* const testFile)
+// DataRecordTest builder
+static DataRecordTest* builder(const char* const filename)
 {
-   if (testFile == 0) return 0;
-
- //  std::cout << "Reading file : " << testFile << std::endl;
-
-   // Read the description file
+   // read configuration file
    int errors = 0;
-   Basic::Object* q1 = lcParser(testFile, Factory::createObj, &errors);
+   Basic::Object* obj = Basic::lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
-      std::cerr << "File: " << testFile << ", errors: " << errors << std::endl;
+      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   // Set 'sys' to our basic description object.
-   DataRecordTest* sys = 0;
-   if (q1 != 0) {
-      // When we were given a Pair, get the pointer to its object.
-      Eaagles::Basic::Pair* pp = dynamic_cast<Eaagles::Basic::Pair*>(q1);
-      if (pp != 0) {
-         q1 = pp->object();
-      }
-
-      // What we should have here is the description object and
-      // it should be of type 'Station'.
-      sys = dynamic_cast<DataRecordTest*>(q1);
+   // test to see if an object was created
+   if (obj == 0) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
    }
 
-   return sys;
+   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
+   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   if (pair != 0) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   DataRecordTest* dataRecordTest = dynamic_cast<DataRecordTest*>(obj);
+   if (dataRecordTest == 0) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return dataRecordTest;
 }
 
-int exec(int argc, char* argv[])
+//
+int main(int argc, char* argv[])
 {
-   const char* testFile = "test.edl";
+   // default configuration filename
+   const char* configFilename = "test.edl";
 
-   // Get the command line arguments
+   // parse command line arguments
    for (int i = 1; i < argc; i++) {
       if (std::strcmp(argv[i],"-f") == 0) {
-         testFile = argv[++i];
+         configFilename = argv[++i];
       }
-   }
-
-   // Must have a test file name
-   if (testFile == 0) {
-      std::cerr << "usage:  test -f testFile" << std::endl;
-      return EXIT_FAILURE;
    }
 
    // build data recorder test
-   DataRecordTest* sys = builder(testFile);
+   DataRecordTest* dataRecordTest = builder(configFilename);
 
-   // Must have a valid system of type DataRecordTest
-   if (sys == 0) {
-      std::cerr << "Invalid test file" << std::endl;
-      return EXIT_FAILURE;
-   }
-
-   // Run test
-   sys->runTest();
-
+   // run test
+   dataRecordTest->runTest();
 
    return EXIT_SUCCESS;
 }
@@ -81,11 +69,9 @@ int exec(int argc, char* argv[])
 }
 }
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
-    Eaagles::Test::exec(argc, argv);
+    Eaagles::Test::main(argc, argv);
 }
 

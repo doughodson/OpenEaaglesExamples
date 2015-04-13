@@ -16,16 +16,15 @@ class TestSD : public BasicGL::Page
    DECLARE_SUBCLASS(TestSD, BasicGL::Page )
 
 public:
-    TestSD();     
+    TestSD();
 
-    // Basic::Component Interface
-    virtual void updateData(const LCreal dt = 0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void updateData(const LCreal dt = 0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;
     static const int MAX_NAV_AIDS = 8;
-    
+
 private:
     bool onToggleRange();
 
@@ -41,7 +40,7 @@ private:
     LCreal orbRange;            // our orbit range
     LCreal hdgBug;              // selected heading bug
     LCreal hdgBugRate;
-    
+
     // Structure for our symbol loader
     struct mySymbols {
         double     x;       // X position or latitude
@@ -52,15 +51,15 @@ private:
     };
 
     // air track stuff
-    mySymbols myTracks[MAX_TRACKS];     // holds our track data 
+    mySymbols myTracks[MAX_TRACKS];     // holds our track data
     bool tracksLoaded;                  // tracks have been loaded
 
     // airport stuff
-    mySymbols myAP[MAX_AIRPORTS];       // holds our airport data 
+    mySymbols myAP[MAX_AIRPORTS];       // holds our airport data
     bool airportsLoaded;                // airports have been loaded
 
     // navaid stuff
-    mySymbols myNA[MAX_NAV_AIDS];       // holds our navaid data 
+    mySymbols myNA[MAX_NAV_AIDS];       // holds our navaid data
     bool navAidsLoaded;                 // navaids have been loaded
 };
 

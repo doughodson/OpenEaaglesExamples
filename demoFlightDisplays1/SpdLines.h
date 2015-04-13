@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: SpdLines
-// 
-// Description: Draws the lines for the airspeed graphic 
+//
+// Description: Draws the lines for the airspeed graphic
 // Inputs:  Slots only
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Demo_SpdLines_H__
@@ -19,8 +19,7 @@ class SpdLines : public BasicGL::Graphic
 public:
     SpdLines();
 
-    // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
 
     // set functions
     virtual bool setIsAlt(const bool newIsAlt);

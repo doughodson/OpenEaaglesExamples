@@ -15,7 +15,6 @@
 #include "openeaagles/basic/Boolean.h"
 #include <GL/glut.h>
 
-
 namespace Eaagles {
 namespace Example {
 
@@ -32,14 +31,12 @@ BEGIN_EVENT_HANDLER(InstrumentPanel)
    ON_EVENT('+',onStepOwnshipKey)
 END_EVENT_HANDLER()
 
-
 //------------------------------------------------------------------------------
 // Constructor
 //------------------------------------------------------------------------------
 InstrumentPanel::InstrumentPanel() 
 {
    STANDARD_CONSTRUCTOR()
-
    myStation = 0;
 }
 

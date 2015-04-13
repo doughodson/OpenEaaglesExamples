@@ -1,0 +1,39 @@
+
+// ----------------------
+// agents
+// ----------------------
+
+#define UBF_AGENT1()                                         \
+( UbfAgent                                                   \
+   state: ( PlaneState )                                     \
+   behavior: ( PriorityArbiter                               \
+      behaviors: {                                           \
+         ( PlaneFlyStraight                                  \
+            vote: 10                                         \
+            voteOnCriticalAltitude: 100                      \
+            criticalAltitude: ( Meters 3500 )                \
+         )                                                   \
+         ( PlaneFire vote: 50 )                              \
+         ( PlaneFollowEnemy vote: 50 )                       \
+         ( PlaneTurn vote: 15 )                              \
+         ( PlaneTrim vote: 100 )                             \
+      }                                                      \
+   )                                                         \
+)
+
+#define UBF_AGENT2()                                         \
+( UbfAgent                                                   \
+   behavior: ( PriorityArbiter                               \
+      behaviors: {                                           \
+         ( PlaneFlyStraight                                  \
+            vote: 10                                         \
+            voteOnCriticalAltitude: 100                      \
+            criticalAltitude: ( Meters 3500 )                \
+         )                                                   \
+         ( PlaneFollowEnemy vote: 50 )                       \
+         ( PlaneTurn vote: 15 )                              \
+         ( PlaneTrim vote: 100 )                             \
+      }                                                      \
+   )                                                         \
+)
+

@@ -12,21 +12,20 @@
 namespace Eaagles {
 namespace Demo {
 
-class TestOilPressure : public Eaagles::BasicGL::Page
+class TestOilPressure : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestOilPressure,Eaagles::BasicGL::Page)
+   DECLARE_SUBCLASS(TestOilPressure, BasicGL::Page)
 
 public:
     TestOilPressure();
 
-    // Basic::Component interface
-    virtual void updateData(const Eaagles::LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
-    Eaagles::LCreal oilPressure;
+    LCreal oilPressure;
     SendData oilPressureSD;
     SendData oilPressureROSD;       // sends our readout data (to a numeric readout)
-    Eaagles::LCreal  oilRate;
+    LCreal  oilRate;
 };
 
 } // end of Demo namespace

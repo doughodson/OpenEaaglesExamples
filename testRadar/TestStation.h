@@ -26,18 +26,17 @@ namespace Test {
 class TestStation : public Simulation::Station
 {
    DECLARE_SUBCLASS(TestStation,Simulation::Station)
-    
+
 public:
    TestStation();
 
    // Step our "ownship" to the next local air vehicle
    void stepOwnshipPlayer();
 
-   // Basic::Component functions
-   virtual void updateTC(const LCreal dt = 0.0f);
-   virtual void updateData(const LCreal dt = 0.0f);
-   virtual void reset();
-    
+   void updateTC(const LCreal dt = 0.0f) override;
+   void updateData(const LCreal dt = 0.0f) override;
+   void reset() override;
+
 private:
    bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
 

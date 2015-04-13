@@ -4,6 +4,8 @@
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/units/LinearVelocity.h"
 
+#include <cmath>
+
 namespace Eaagles {
 namespace Demo {
 
@@ -569,7 +571,7 @@ void TestElectronic::updateData(const LCreal dt)
             // ground speed
             send("groundspeed", UPDATE_VALUE, groundSpeed, groundSpeedSD);
             // drift angle
-            send("driftangle", UPDATE_VALUE, abs(driftAngle), driftAngleSD);
+            send("driftangle", UPDATE_VALUE, std::abs(driftAngle), driftAngleSD);
             if (driftAngle < 0) send("driftangleside", SELECT, true, driftAngSideSD);
             else send("driftangleside", SELECT, false, driftAngSideSD);
         }
@@ -598,7 +600,7 @@ void TestElectronic::updateData(const LCreal dt)
             // wind speed
             send("windspeed", UPDATE_VALUE, windSpeed, windSpeedSD);
             // wind drift angle (same as drift angle for test purposes)
-            send("driftanglewind", UPDATE_VALUE, abs(driftAngle), driftAngleWindSD);
+            send("driftanglewind", UPDATE_VALUE, std::abs(driftAngle), driftAngleWindSD);
             bool left = false;  // false is right side, true is left
             // drift angle side
             if (driftAngle < 0) left = true;

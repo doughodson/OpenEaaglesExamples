@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // Class: ObjectHandler
 // Description: This is a simple generic class that will take in a send
-// command from it's parent as an object, and will then fill it's own 
+// command from it's parent as an object, and will then fill it's own
 // private data from that object.
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Test_ObjectHandler_H__
@@ -21,8 +21,7 @@ class ObjectHandler : public BasicGL::Graphic
 public:
    ObjectHandler();
 
-    // Basic::Component interface
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
 private:
     bool onUpdateObject(const TestObject* const x);

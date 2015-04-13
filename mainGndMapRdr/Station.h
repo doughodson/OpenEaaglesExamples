@@ -16,14 +16,13 @@ class Display;
 
 class TestStation : public Simulation::Station
 {
-    DECLARE_SUBCLASS(TestStation,Simulation::Station)
+    DECLARE_SUBCLASS(TestStation, Simulation::Station)
 
 public:
     TestStation();
 
-    // Component Interface
-    virtual void updateTC(const LCreal dt = 0.0f);
-    virtual void reset();
+    void updateTC(const LCreal dt = 0.0f) override;
+    void reset() override;
 
 private:
     bool setDisplay(Display* const d);

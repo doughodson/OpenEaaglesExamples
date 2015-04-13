@@ -5,7 +5,7 @@ PGM = mainFltk1
 
 CPPFLAGS += -I/usr/include/Fl
 
-OBJS = FltkDisplay.o MainWindow.o GLWindow.o FltkStation.o mainFltk1.o
+OBJS = FltkDisplay.o MainWindow.o GLWindow.o FltkStation.o main.o
 
 LDFLAGS += -loeSimulation -loeInstruments -loeDafif  -loeBasicGL -loeBasic 
 LDFLAGS += -lfltk_images -lfltk_gl -lfltk

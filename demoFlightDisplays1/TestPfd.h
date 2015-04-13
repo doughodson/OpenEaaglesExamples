@@ -18,8 +18,7 @@ class TestPfd : public BasicGL::Page
 public:
     TestPfd();
 
-    // Basic::Component Interface
-    virtual void updateData(const LCreal dt = 0.0);
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // pitch and roll
@@ -114,7 +113,7 @@ private:
     LCreal fpmXRate;
     LCreal fpmY;
     LCreal fpmYRate;
-    
+
     // Send datas
     SendData sixtyVisSD;    // sixty degree bank marker visibility
     SendData ninetyVisSD;   // ninety  "        "       "       "

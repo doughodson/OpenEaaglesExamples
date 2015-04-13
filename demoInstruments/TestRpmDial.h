@@ -13,13 +13,12 @@ namespace Demo {
 
 class TestRpmDial : public BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestRpmDial,BasicGL::Page)
+   DECLARE_SUBCLASS(TestRpmDial, BasicGL::Page)
 
 public:
     TestRpmDial();
 
-    // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
+    void updateData(const LCreal dt = 0) override;
 
 private:
     LCreal rpm;

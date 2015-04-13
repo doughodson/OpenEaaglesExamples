@@ -13,20 +13,20 @@ namespace Test {
 // Class: TestStateMachine04C
 //
 //------------------------------------------------------------------------------
-class TestStateMachine04C : public Basic::StateMachine {
-   DECLARE_SUBCLASS(TestStateMachine04C,Basic::StateMachine)
+class TestStateMachine04C : public Basic::StateMachine
+{
+   DECLARE_SUBCLASS(TestStateMachine04C, Basic::StateMachine)
 
 public:
    TestStateMachine04C();
 
 protected:
-   // Basic::StateMachine protected interface function
-   virtual void preStateProc(const LCreal dt);
-   virtual unsigned short stateTable(
+   void preStateProc(const LCreal dt) override;
+   unsigned short stateTable(
          const unsigned short cstate,
          const StateTableCode code,
          const LCreal dt=0
-      );
+      ) override;
 
 private:
    // State specific functions

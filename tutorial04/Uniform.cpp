@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------
 // Uniform
 //------------------------------------------------------------------------------
-
 #include "Uniform.h"
 #include "openeaagles/basic/Number.h"
 #include <cstdlib>
@@ -28,11 +27,11 @@ EMPTY_SERIALIZER(Uniform)
 //------------------------------------------------------------------------------
 Uniform::Uniform(void)
 {
-  STANDARD_CONSTRUCTOR()
-  min = 0;
-  max = 1;
+   STANDARD_CONSTRUCTOR()
+   min = 0;
+   max = 1;
 
-  std::cout << "Uniform::Uniform() called\n";
+   std::cout << "Uniform::Uniform() called\n";
 }
 
 //------------------------------------------------------------------------------
@@ -59,17 +58,17 @@ void Uniform::deleteData()
 //------------------------------------------------------------------------------
 void Uniform::setMin(const int x)
 {
-  min = x;
+   min = x;
 }
 
 void Uniform::setMax(const int x)
 {
-  max = x;
+   max = x;
 }
 
 int Uniform::getNum(void) const
 {
-  return static_cast<int>((min+(max-min)*(std::rand()/(RAND_MAX+1.0))));
+   return static_cast<int>((min+(max-min)*(std::rand()/(RAND_MAX+1.0))));
 }
 
 //------------------------------------------------------------------------------
@@ -77,21 +76,21 @@ int Uniform::getNum(void) const
 //------------------------------------------------------------------------------
 Basic::Object* Uniform::getSlotByIndex(const int si)
 {
-  return BaseClass::getSlotByIndex(si);
+   return BaseClass::getSlotByIndex(si);
 }
 
 bool Uniform::setSlotMin(const Basic::Number* const x)
 {
-  if(x != 0)
-    setMin(x->getInt());
-  return true;
+   if (x != 0)
+      setMin(x->getInt());
+   return true;
 }
 
 bool Uniform::setSlotMax(const Basic::Number* const x)
 {
-  if(x != 0)
-    setMax(x->getInt());
-  return true;
+   if (x != 0)
+      setMax(x->getInt());
+   return true;
 }
 
 } // namespace Tutorial

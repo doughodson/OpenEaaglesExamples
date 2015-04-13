@@ -2,7 +2,7 @@
 include ../makedefs
 
 PGM = testMatrix
-OBJS =  testMatrix.o
+OBJS =  main.o
 
 LDFLAGS += -loeBasic -lX11
 #LDFLAGS += -lXi -lXmu 

@@ -23,9 +23,8 @@ class Station : public Simulation::Station
 
 public:
     Station();
-    
-    // Basic::Component interface
-    virtual void reset();
+
+    void reset() override;
 
 protected:
     // SLOT function(s)
@@ -33,7 +32,7 @@ protected:
     bool setSlotDisplay(Glut::GlutDisplay* dis);
 
 private:
-    Glut::GlutDisplay* display;     // this is our main display that 
+    Glut::GlutDisplay* display;     // this is our main display that
     bool displayInit;               // is our display created?
 };
 

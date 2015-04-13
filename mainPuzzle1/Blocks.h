@@ -83,10 +83,9 @@ class Block1x1 : public Block
 public:
    Block1x1();
 
-   // Block class interface
-   virtual BlockId getTypeId() const;
-   virtual unsigned int getSizeX() const;
-   virtual unsigned int getSizeY() const;
+   BlockId getTypeId() const override;
+   unsigned int getSizeX() const override;
+   unsigned int getSizeY() const override;
 };
 
 //------------------------------------------------------------------------------
@@ -100,10 +99,9 @@ class Block1x2 : public Block
 public:
    Block1x2();
 
-   // Block class interface
-   virtual BlockId getTypeId() const;
-   virtual unsigned int getSizeX() const;
-   virtual unsigned int getSizeY() const;
+   BlockId getTypeId() const override;
+   unsigned int getSizeX() const override;
+   unsigned int getSizeY() const override;
 };
 
 //------------------------------------------------------------------------------
@@ -117,10 +115,9 @@ class Block2x1 : public Block
 public:
    Block2x1();
 
-   // Block class interface
-   virtual BlockId getTypeId() const;
-   virtual unsigned int getSizeX() const;
-   virtual unsigned int getSizeY() const;
+   BlockId getTypeId() const override;
+   unsigned int getSizeX() const override;
+   unsigned int getSizeY() const override;
 };
 
 //------------------------------------------------------------------------------
@@ -134,10 +131,9 @@ class Block2x2 : public Block
 public:
    Block2x2();
 
-   // Block class interface
-   virtual BlockId getTypeId() const;
-   virtual unsigned int getSizeX() const;
-   virtual unsigned int getSizeY() const;
+   BlockId getTypeId() const override;
+   unsigned int getSizeX() const override;
+   unsigned int getSizeY() const override;
 };
 
 }  // End of Example namespace

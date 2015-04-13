@@ -17,7 +17,7 @@
 #include "openeaagles/recorder/PrintPlayer.h"
 #include "openeaagles/recorder/PrintSelected.h"
 
-#include "openeaagles/recorder/DataRecord.pb.h"
+#include "openeaagles/recorder/protobuf/DataRecord.pb.h"
 
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Station.h"

@@ -12,7 +12,7 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/Tables.h"
+#include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/units/Times.h"
@@ -31,7 +31,7 @@ BEGIN_SLOTTABLE(SimStation)
     "display",                  //  1) Main Display
 END_SLOTTABLE(SimStation)
 
-//  Map slot table to handles 
+//  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay, Glut::GlutDisplay)
 END_SLOT_MAP()
@@ -48,7 +48,7 @@ SimStation::SimStation()
 }
 
 //------------------------------------------------------------------------------
-// reset() -- Reset the station 
+// reset() -- Reset the station
 //------------------------------------------------------------------------------
 void SimStation::reset()
 {
@@ -65,7 +65,7 @@ void SimStation::reset()
     // reset all of our subcomponents
     if (mainDisplay != 0) mainDisplay->reset();
 
-    // reset our baseclass 
+    // reset our baseclass
     BaseClass::reset();
 }
 
@@ -79,7 +79,7 @@ void SimStation::updateTC(const LCreal dt)
 
     Basic::Timer::updateTimers(dt);
     BasicGL::Graphic::flashTimer(dt);
-    
+
     // Update any TC stuff in our main display
     if (mainDisplay != 0) mainDisplay->updateTC(dt);
 }

@@ -2,14 +2,14 @@
 // Class: TerrainFollower
 //
 // Description: Takes in a series of elevation points and a range, and draws
-// a bar graph type representation of those elevation points in relation to the 
+// a bar graph type representation of those elevation points in relation to the
 // aircraft.
 // Inputs:
 //      UPDATE_VALUE  -> plane altitude (ft)
 //      UPDATE_VALUE2 -> scan range (nm)
 //      UPDATE_VALUE3 -> viewable height on screen (inches)
 //      UPDATE_VALUE4 -> viewable width on screen (inches
-//      The list of points is sent in as an LCreal array 
+//      The list of points is sent in as an LCreal array
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Demo_TerrainFollower_H__
 #define __Eaagles_Demo_TerrainFollower_H__
@@ -26,12 +26,10 @@ class TerrainFollower : public BasicGL::Graphic
 public:
     TerrainFollower();
 
-    // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
+    void updateData(const LCreal dt = 0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
 
-    // BasicGL::Graphic interface
-    virtual void drawFunc();
+    void drawFunc() override;
 
     // set functions
     virtual bool setPlaneAlt(const LCreal newAlt);
@@ -74,7 +72,7 @@ private:
     LCreal testPA;
     LCreal timer;
     LCreal timerRate;
-    
+
 };
 
 }; // end of Demo namespace

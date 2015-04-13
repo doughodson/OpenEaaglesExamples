@@ -5,7 +5,7 @@ PGM = mainSim1
 OBJS = main.o 
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
-LDFLAGS += -loeDis -loeSensors -loeVehicles -loeSimulation
+LDFLAGS += -loeDis -loeSensors -loeDynamics -loeSimulation
 LDFLAGS += -loeOtw -loeDafif -loeBasic
 LDFLAGS += -lcigicl -lJSBSim 
 LDFLAGS += -lrt -lpthread 
@@ -17,8 +17,8 @@ EPPFLAGS +=  -I.
 all: $(PGM) 
 
 edl:
-	cpp configs/test.epp >test.edl   $(EPPFLAGS)
-	cpp configs/testH.epp >testH.edl $(EPPFLAGS)
+	cpp configs/test00.epp >test00.edl $(EPPFLAGS)
+	cpp configs/test01.epp >test01.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS) 

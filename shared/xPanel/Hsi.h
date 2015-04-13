@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // Class: Hsi
-// 
+//
 // Description: simple Hsi that will rotate the compass and display readouts
 // Inputs:
 //      UPDATE_VALUE 1 and 2 (from rotators) -> true heading
@@ -9,7 +9,7 @@
 //      UPDATE_VALUE5 -> nav 1 bearing
 //      UPDATE_VALUE6 -> nav 2 bearing
 //      UPDATE_VALUE7 -> cdi dots
-//      UPDATE_VALUE8 -> to from 
+//      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_XPanel_Hsi_H__
 #define __Eaagles_XPanel_Hsi_H__
@@ -22,10 +22,10 @@ namespace xPanel {
 class Hsi : public BasicGL::Rotators
 {
     DECLARE_SUBCLASS(Hsi,BasicGL::Rotators)
-    
+
 public:
     Hsi();
-    
+
     // set functions
     virtual bool setSelectedHeading(const LCreal newSH);    // Sets selected heading (degs)
     virtual bool setSelectedCourse(const LCreal newC);      // Selected course (degs)
@@ -33,7 +33,7 @@ public:
     virtual bool setNav2Brg(const LCreal newB);             // Sets Navaid 2 bearing (degs)
     virtual bool setCdiDots(const LCreal newCDI);           // Sets CDI deflection (dots)
     virtual bool setToFrom(const LCreal newTF);             // Sets TO/FROM value [ to(1); from(0) ]
-    
+
     // get functions
     LCreal getSelHdg()  { return selHdg; }
     LCreal getSelCrs()  { return selCrs; }
@@ -41,11 +41,10 @@ public:
     LCreal getNav2Brg() { return nav2Brg; }
     LCreal getCdiDots() { return cdiDots; }
     LCreal getToFrom()  { return toFrom; }
-    
-    // Basic::Component interface
-    virtual void updateData(const LCreal dt = 0.0);
-    virtual bool event(const int event, Basic::Object* const obj = 0);
-    
+
+    void updateData(const LCreal dt = 0.0) override;
+    bool event(const int event, Basic::Object* const obj = 0) override;
+
 private:
     // event functions
     bool onUpdateSelHdgHsi(const Basic::Number* const x);
@@ -54,7 +53,7 @@ private:
     bool onUpdateNav2BrgHsi(const Basic::Number* const x);
     bool onUpdateCdiDotsHsi(const Basic::Number* const x);
     bool onUpdateToFromHsi(const Basic::Number* const x);
-    
+
     LCreal selHdg;      // selected heading (degs)
     SendData selHdgSD;
     LCreal selCrs;      // selected course (degs)

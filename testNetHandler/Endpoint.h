@@ -6,7 +6,7 @@
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles { 
+namespace Eaagles {
 
 namespace Basic { class NetHandler; class Number; }
 
@@ -55,8 +55,7 @@ public:
     virtual bool setSlotNoWait(Basic::Number* const msg);
     virtual bool setSlotLoops(Basic::Number* const msg);
 
-    // Component interface
-    virtual void reset();
+    void reset() override;
 
 protected:
     void closeConnections();
