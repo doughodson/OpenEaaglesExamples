@@ -67,7 +67,7 @@ void DspRadar::updateData(const LCreal dt)
       // ---
       // Get the track list and convert them to display coordinates
       if (tm != 0) {
-         SPtr<Simulation::Track> trackList[MAX_TRKS];
+         Basic::safe_ptr<Simulation::Track> trackList[MAX_TRKS];
          unsigned int n = tm->getTrackList(trackList,MAX_TRKS);
          for (unsigned int i = 0; i < n; i++) {
             osg::Vec3 pos = trackList[i]->getPosition();
@@ -92,7 +92,7 @@ void DspRadar::updateData(const LCreal dt)
 }
 
 //------------------------------------------------------------------------------
-// drawFunc() -- 
+// drawFunc() --
 //------------------------------------------------------------------------------
 void DspRadar::drawFunc()
 {

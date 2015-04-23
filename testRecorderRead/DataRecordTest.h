@@ -33,8 +33,8 @@ protected:
 private:
    void initData();
 
-   SPtr<Recorder::InputHandler> inputHandler;
-   SPtr<Recorder::OutputHandler> outputHandler;
+   Basic::safe_ptr<Recorder::InputHandler> inputHandler;
+   Basic::safe_ptr<Recorder::OutputHandler> outputHandler;
 };
 
 }

@@ -46,7 +46,7 @@ public:
 
 private:
     // Main Display
-    SPtr<Glut::GlutDisplay> mainDisplay;
+    Basic::safe_ptr<Glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
     // Auto reset timer

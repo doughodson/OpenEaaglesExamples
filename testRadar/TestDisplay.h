@@ -75,7 +75,7 @@ private:
     SendData        headingSD;
     SendData        rangeSD;
 
-    SPtr<Simulation::Station> myStation;
+    Basic::safe_ptr<Simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying

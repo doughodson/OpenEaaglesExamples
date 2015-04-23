@@ -32,7 +32,7 @@ protected:
 
 private:
 
-   SPtr<FoxDisplay> display;
+   Basic::safe_ptr<FoxDisplay> display;
 };
 
 } // End Example namespace
