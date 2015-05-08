@@ -38,8 +38,8 @@ private:
    bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
    bool setSlotMapDisplay(Glut::GlutDisplay* const msg);
 
-   SPtr<Glut::GlutDisplay> glutDisplay;
-   SPtr<Glut::GlutDisplay> mapDisplay;
+   Basic::safe_ptr<Glut::GlutDisplay> glutDisplay;
+   Basic::safe_ptr<Glut::GlutDisplay> mapDisplay;
    bool glutDisplayInit;
    bool mapDisplayInit;
 };

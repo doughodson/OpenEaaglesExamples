@@ -40,7 +40,7 @@ public:
 private:
    bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
 
-   SPtr<Glut::GlutDisplay> glutDisplay;
+   Basic::safe_ptr<Glut::GlutDisplay> glutDisplay;
    bool glutDisplayInit;
 
    // Past (N-1) switches and values

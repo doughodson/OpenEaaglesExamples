@@ -3,7 +3,7 @@
 //
 // Description: Simulation player
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_SimPlayer_H_
+#ifndef __Eaagles_Example_SimPlayer_H__
 #define __Eaagles_Example_SimPlayer_H__
 
 #include "openeaagles/simulation/AirVehicle.h"

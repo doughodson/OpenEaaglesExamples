@@ -52,7 +52,7 @@ void TestComputer::copyData(const TestComputer& org, const bool cc)
 }
 
 //------------------------------------------------------------------------------
-// updateTC() -- override the System:: version so that we can get process call to our 
+// updateTC() -- override the System:: version so that we can get process call to our
 //               components (our TM) before we do our own processing
 //------------------------------------------------------------------------------
 void TestComputer::updateTC(const LCreal dt0)
@@ -67,7 +67,7 @@ void TestComputer::updateTC(const LCreal dt0)
    // ---
    // Delta time
    // ---
-   
+
    // real or frozen?
    LCreal dt = dt0;
    if (isFrozen()) dt = 0.0;
@@ -155,7 +155,7 @@ bool TestComputer::processIr()
    Simulation::Weapon* ourWeapon = dynamic_cast<Simulation::Weapon*>(getOwnship());
 
    // update the weapon's tracking if the target changed (includes loss of target)
-   // weapon::targetPlayer tells the dynamics model where the target is - 
+   // weapon::targetPlayer tells the dynamics model where the target is -
    // if the seeker has no track, then the targetPlayer must be cleared
 
    Simulation::Player* irTarget=0;
@@ -182,12 +182,12 @@ void TestComputer::updateShootList(const bool step)
 
    // First, let's get the active track list
    const unsigned int MAX_TRKS = 20;
-   SPtr<Simulation::Track> trackList[MAX_TRKS];
+   Basic::safe_ptr<Simulation::Track> trackList[MAX_TRKS];
 
    int n = 0;
    Simulation::TrackManager* tm = getTrackManagerByType(typeid(Simulation::AngleOnlyTrackManager));
    if (tm != 0) n = tm->getTrackList(trackList, MAX_TRKS);
-    
+
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
          Simulation::Track* trk = trackList[i];
@@ -242,7 +242,7 @@ void TestComputer::updateShootList(const bool step)
       //   // 3) Keep the same next-to-shoot track
       //   nNTS = cNTS;
       //}
-        
+
       // ---
       // update the shoot list index values in the tracks
       // ---

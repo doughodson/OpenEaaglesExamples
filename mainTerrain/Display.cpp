@@ -625,20 +625,18 @@ void Display::configure()
 //------------------------------------------------------------------------------
 bool Display::copyImageMemory(const Display& org)
 {
-   if (&org != 0) {
-      // First free our old memory
-      freeImageMemory();
+   // First free our old memory
+   freeImageMemory();
 
-      // Now allocate the new memory (if needed)
-      bool ok = initImageMemory(org.imgWidth, org.imgHeight);
-      if (ok) {
-         for (GLsizei irow = 0; irow < imgHeight; irow++) {
-            for (GLsizei icol = 0; icol < imgWidth; icol++) {
-               GLsizei idx = irow*imgWidth*PIXEL_SIZE + icol*PIXEL_SIZE;
-               image[idx+0] = org.image[idx+0];
-               image[idx+1] = org.image[idx+1];
-               image[idx+2] = org.image[idx+2];
-            }
+   // Now allocate the new memory (if needed)
+   bool ok = initImageMemory(org.imgWidth, org.imgHeight);
+   if (ok) {
+      for (GLsizei irow = 0; irow < imgHeight; irow++) {
+         for (GLsizei icol = 0; icol < imgWidth; icol++) {
+            GLsizei idx = irow*imgWidth*PIXEL_SIZE + icol*PIXEL_SIZE;
+            image[idx+0] = org.image[idx+0];
+            image[idx+1] = org.image[idx+1];
+            image[idx+2] = org.image[idx+2];
          }
       }
    }

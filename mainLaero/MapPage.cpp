@@ -151,7 +151,7 @@ void MapPage::drawLine(const double x, const double y)
          glVertex2d(0.0, 0.0);
          glVertex2d(x, y);
       glEnd();
-} 
+}
 
 void MapPage::drawSemiCircle(const double startAngle, const double radius)
 {
@@ -212,7 +212,7 @@ void MapPage::drawHoldingPattern()
             double rocNM = (osVel / Basic::Time::H2S) / omegaRps;       //nm
             //double obTimeMin = 2.0;                                     //min
             //double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
-            
+
             //double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
 
             double obDistNM = 0;
@@ -272,7 +272,7 @@ void MapPage::drawFunc()
 {
 
       //-------------------------------------------------------
-      // get data pointers 
+      // get data pointers
       //-------------------------------------------------------
    if (pStn != 0) {
       Simulation::Player* pPlr  = pStn->getOwnship();
@@ -372,7 +372,7 @@ void MapPage::drawFunc()
 void MapPage::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     // get our pointers
     if (loader == 0) {
         Basic::Pair* pair = findByName("playerLoader");
@@ -411,7 +411,7 @@ void MapPage::updateData(const LCreal dt)
                if (nav != 0) {
                   Simulation::Route* rte = nav->getPriRoute();
                   if (rte != 0) {
-                     SPtr<Simulation::Steerpoint> stpts[10];
+                     Basic::safe_ptr<Simulation::Steerpoint> stpts[10];
                      unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
                      for (unsigned int i = 0; i < numStpts; i++) {
                         if (stpts[i] != 0) {
@@ -457,10 +457,10 @@ void MapPage::updateData(const LCreal dt)
             // players that arent in the old list
             for (int i = 0; i < MAX_PLAYERS; i++) {
                 if (player[i] != 0) {
-                    bool match = false; 
+                    bool match = false;
                     for (int j = 0; j < numNewPlayers && !match; j++) {
                         if (player[i] == newPlayers[j]) {
-                            // if they do match, get rid of our new player, so we don't re-add it 
+                            // if they do match, get rid of our new player, so we don't re-add it
                             // later accidentally
                             match = true;
                             newPlayers[j]->unref();
@@ -511,7 +511,7 @@ void MapPage::updateData(const LCreal dt)
             }
         }
     }
-    
+
 
     // now send our lat / lon text data
     send("lattext%d", UPDATE_VALUE,  lats,           latsSD,           MAX_READOUTS);

@@ -58,7 +58,7 @@ private:
       CHANGE_AP_MODE             // Change the autopilot mode (Nav/Loiter/FollowTheLead or None)
    };
 
-   SPtr<Simulation::Station> myStation;
+   Basic::safe_ptr<Simulation::Station> myStation;
 
    int startX;         // startX of our last mouse position
    int startY;         // startY of our last mouse position

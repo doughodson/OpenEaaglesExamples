@@ -68,7 +68,7 @@ private:
    void initData();
    void updateDisplay();
 
-   SPtr<Basic::IoHandler> ioHandler;   // The I/O data handler
+   Basic::safe_ptr<Basic::IoHandler> ioHandler;   // The I/O data handler
 
    // Item/Channel mapping
    unsigned short item;

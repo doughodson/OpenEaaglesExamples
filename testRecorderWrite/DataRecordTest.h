@@ -87,13 +87,13 @@ protected:
 
 private:
    const char* fileName;
-   SPtr<Recorder::PrintPlayer> myPrintPlayer;
-   SPtr<Recorder::PrintSelected> myPrintSelected;
-   SPtr<Recorder::PrintSelected> myPrintSelected2;
-   SPtr<Recorder::TabPrinter> myRecPrint;
-   SPtr<Recorder::FileWriter> myFileWrite;
-   SPtr<Recorder::FileReader> myFileRead;
-   SPtr<Simulation::DataRecorder> myDataRec;
+   Basic::safe_ptr<Recorder::PrintPlayer> myPrintPlayer;
+   Basic::safe_ptr<Recorder::PrintSelected> myPrintSelected;
+   Basic::safe_ptr<Recorder::PrintSelected> myPrintSelected2;
+   Basic::safe_ptr<Recorder::TabPrinter> myRecPrint;
+   Basic::safe_ptr<Recorder::FileWriter> myFileWrite;
+   Basic::safe_ptr<Recorder::FileReader> myFileRead;
+   Basic::safe_ptr<Simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
    Recorder::PrintSelected::Condition condition;

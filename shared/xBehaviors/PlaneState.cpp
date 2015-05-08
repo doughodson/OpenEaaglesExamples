@@ -138,14 +138,14 @@ void PlaneState::updateState(const Basic::Component* const actor)
          const Simulation::Radar* radar = static_cast<const Simulation::Radar*>(sensorPair->object());
          if (radar != 0) {
             const Simulation::TrackManager* trackManager = radar->getTrackManager();
-            SPtr<Simulation::Track> trackList[50];
+            Basic::safe_ptr<Simulation::Track> trackList[50];
             unsigned int nTracks = trackManager->getTrackList(trackList, 50);
 
             for (int trackIndex = nTracks -1; trackIndex >= 0; trackIndex--) {
                setHeadingToTracked(trackIndex, trackList[trackIndex]->getRelAzimuth());
                setPitchToTracked(trackIndex, trackList[trackIndex]->getElevation());
                setDistanceToTracked(trackIndex, trackList[trackIndex]->getRange());
-               
+
                // do we have a live "target track"? (shootlist is 1-based)
                if (getTargetTrack()==MAX_TRACKS && (trackList[trackIndex]->getShootListIndex() == 1) && trackList[trackIndex]->getTarget()->isActive()  ) {
                   setTargetTrack(trackIndex);
@@ -174,7 +174,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
       if (oc != 0) {
          const Simulation::TrackManager* rtm = oc->getTrackManagerByType(typeid(Simulation::RwrTrkMgr));
          if(rtm !=0) {
-            SPtr<Simulation::Track> trackList[50];
+            Basic::safe_ptr<Simulation::Track> trackList[50];
             unsigned int nTracks = rtm->getTrackList(trackList, 50);
             int newTracks = 0;
             for (unsigned int trackIndex = 0; trackIndex < nTracks; trackIndex++) {

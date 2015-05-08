@@ -87,7 +87,7 @@ private:
     SendData        headingSD;
     SendData        rangeSD;
 
-    SPtr<Simulation::Station> myStation;
+    Basic::safe_ptr<Simulation::Station> myStation;
 
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
     int                 trkIdx[MAX_TRACKS];    // Index of track symbols

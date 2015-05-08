@@ -38,7 +38,7 @@ public:
    void drawFunc() override;
 
 private:
-   SPtr<Simulation::Station> myStation;
+   Basic::safe_ptr<Simulation::Station> myStation;
 
    bool              testTexture;      // Texture image test
    GLuint            texture;          // Texture

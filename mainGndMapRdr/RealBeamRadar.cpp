@@ -380,29 +380,26 @@ bool RealBeamRadar::setSlotInterpolate(const Basic::Number* const msg)
 //------------------------------------------------------------------------------
 bool RealBeamRadar::copyImageMemory(const RealBeamRadar& org)
 {
-   if (&org != 0) {
-      // First free our old memory
-      freeImageMemory();
+   // First free our old memory
+   freeImageMemory();
 
-      // Now allocate the new memory (if needed)
-      bool ok = initImageMemory(org.imgWidth, org.imgHeight);
-      if (ok) {
+   // Now allocate the new memory (if needed)
+   bool ok = initImageMemory(org.imgWidth, org.imgHeight);
+   if (ok) {
 
-         // and copy the data
-         for (int irow = 0; irow < imgHeight; irow++) {
+      // and copy the data
+      for (int irow = 0; irow < imgHeight; irow++) {
 
-            elevations[irow] = org.elevations[irow];
-            validFlgs[irow] = org.validFlgs[irow];
-            aacData[irow] = org.aacData[irow];
-            maskFlgs[irow] = org.maskFlgs[irow];
+         elevations[irow] = org.elevations[irow];
+         validFlgs[irow] = org.validFlgs[irow];
+         aacData[irow] = org.aacData[irow];
+         maskFlgs[irow] = org.maskFlgs[irow];
 
-            for (int icol = 0; icol < imgWidth; icol++) {
-               int idx = irow*imgWidth*PIXEL_SIZE + icol*PIXEL_SIZE;
-               image[idx+0] = org.image[idx+0];
-               image[idx+1] = org.image[idx+1];
-               image[idx+2] = org.image[idx+2];
-            }
-
+         for (int icol = 0; icol < imgWidth; icol++) {
+            int idx = irow*imgWidth*PIXEL_SIZE + icol*PIXEL_SIZE;
+            image[idx+0] = org.image[idx+0];
+            image[idx+1] = org.image[idx+1];
+            image[idx+2] = org.image[idx+2];
          }
       }
    }

@@ -48,7 +48,7 @@ protected:
    bool onStepOwnshipKey();
 
 private:
-   SPtr<Simulation::Station> myStation;
+   Basic::safe_ptr<Simulation::Station> myStation;
 
    // ALT Stuff
    LCreal altitude;             // our current altitude
