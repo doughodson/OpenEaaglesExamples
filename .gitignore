@@ -24,7 +24,8 @@ codelite/
 *.[oa]
 
 # windows executables
-*.exe
+*.exe*
+
 # windows libraries
 *.lib
 # keep premake executable

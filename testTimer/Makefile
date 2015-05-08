@@ -14,7 +14,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
 
 edl:
-	@echo "No input files to process"
+	cpp inputs/test01.epp >test01.edl   $(EPPFLAGS)
 
 clean:
 	-rm -f *.o
