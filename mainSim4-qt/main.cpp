@@ -34,7 +34,6 @@ static Eaagles::Basic::Object* factory(const char* name)
     return obj;
 }
 
-
 // build a display
 static void builder(const char* const testFileName)
 {
@@ -81,14 +80,10 @@ int main(int argc, char* argv[])
       }
    }
 
-//   char* funcCall = 0;
    char fileNames[80];
 
-#if WIN32
-   const char* funcCall = "mcpp.exe ";
-#else
+#if !defined(WIN32)
    const char* funcCall = "cpp ";
-#endif
    std::strcpy(fileNames, funcCall);
    std::strcat(fileNames, "configs/");
    if (std::strlen(fileName) < 60){
@@ -101,6 +96,7 @@ int main(int argc, char* argv[])
    std::cout << "Precompiling: " << fileName << std::endl;
    std::cout << funcCall << std::endl;
    system(funcCall);
+#endif
 
    builder(fileName);
 
