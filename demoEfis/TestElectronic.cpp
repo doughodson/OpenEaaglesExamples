@@ -20,25 +20,25 @@ TestElectronic::TestElectronic()
 
     STANDARD_CONSTRUCTOR()
     // compass heading and heading bug
-    heading = 0;
-    headingRate = 3;
-    headingBug = 0;
+    heading = 0.0;
+    headingRate = 3.0;
+    headingBug = 0.0;
     headingSD.empty();
     headingBugSD.empty();
     // bearing
-    bearing = 0;
-    brgRate = 5;
-    secBearing = 0;
+    bearing = 0.0;
+    brgRate = 5.0;
+    secBearing = 0.0;
     brgVis = true;
     // nav stuff
     navSource = PRIMARY;
     navType = TACAN;
     navMode = ARC_MODE;
     secNavType = VORTAC;
-    secNavMode = ARC_MODE; 
+    secNavMode = ARC_MODE;
     // course and validity checks
-    course = 0;
-    secCourse = 0;
+    course = 0.0;
+    secCourse = 0.0;
     vhfReceive = true;
     secVhfReceive = true;
     vhfDIC = true;
@@ -49,35 +49,35 @@ TestElectronic::TestElectronic()
     secVhfLGS = true;
     dmeValid = true;
     secDmeValid = true;
-    cdi = 0;
-    cdiRate = 0.3f;
-    secCdi = 0;
+    cdi = 0.0;
+    cdiRate = 0.3;
+    secCdi = 0.0;
     // location
     loc = PILOT;
     // distance
-    dist = 0;
-    distRate = 3;
+    dist = 0.0;
+    distRate = 3.0;
     // made up data
-    timeToGo = 0;            
-    ttgRate = 50;
-    groundSpeed = 0;
-    driftAngle = 0;
-    daRate = 10;
-    trueAirSpeed = 0;
-    tasRate = 10;
-    elapsedTime = 3500;
-    etRate = 20;
-    windDir = 0;
-    windSpeed = 0;
-    readoutMode = ND_TTG;    
+    timeToGo = 0.0;
+    ttgRate = 50.0;
+    groundSpeed = 0.0;
+    driftAngle = 0.0;
+    daRate = 10.0;
+    trueAirSpeed = 0.0;
+    tasRate = 10.0;
+    elapsedTime = 3500.0;
+    etRate = 20.0;
+    windDir = 0.0;
+    windSpeed = 0.0;
+    readoutMode = ND_TTG;
     // glideslope
-    gsDots = 0;
-    gsDotsRate = 0.2f;
+    gsDots = 0.0;
+    gsDotsRate = 0.2;
     vhfGSValid = true;
     vhfGSOOV = true;
 
-    curHdg = 0;
-    curBug = 0;
+    curHdg = 0.0;
+    curBug = 0.0;
     hdgBugROMoveXSD.empty();
     distTypeSD.empty();
     distVisSD.empty();
@@ -105,10 +105,10 @@ TestElectronic::TestElectronic()
     compassHdgSD.empty();
     hdgBugSD.empty();
     priCourseDevSD.empty();
-    curCdi = 0;
+    curCdi = 0.0;
     crsPntrSD.empty();
     whichCrsPtrSD.empty();
-    curCourse = 0;
+    curCourse = 0.0;
     priCrsPtrColorSD.empty();
     secCourseDevSD.empty();
     secCrsPntrSD.empty();
@@ -118,7 +118,7 @@ TestElectronic::TestElectronic()
     secondaryPosSD.empty();
     primaryCrsVisSD.empty();
     secondaryCrsVisSD.empty();
-    curToFrom = 0;
+    curToFrom = 0.0;
     toOrFromSD.empty();
     toFromSD.empty();
 }
@@ -168,7 +168,7 @@ void TestElectronic::copyData(const TestElectronic& org, const bool)
     dist = org.dist;
     distRate = org.distRate;
     // made up data
-    timeToGo = org.timeToGo;            
+    timeToGo = org.timeToGo;
     ttgRate = org.ttgRate;
     groundSpeed = org.groundSpeed;
     driftAngle = org.driftAngle;
@@ -179,7 +179,7 @@ void TestElectronic::copyData(const TestElectronic& org, const bool)
     etRate = org.etRate;
     windDir = org.windDir;
     windSpeed = org.windSpeed;
-    readoutMode = org.readoutMode;    
+    readoutMode = org.readoutMode;
     // glideslope
     gsDots = org.gsDots;
     gsDotsRate = org.gsDotsRate;
@@ -253,8 +253,8 @@ void TestElectronic::updateTestValues(const LCreal dt)
         headingRate = -headingRate;
     }
     if (headingBug > 360) headingBug = 0;
-    
-    // bearing 
+
+    // bearing
     bearing += brgRate * dt;
     if (bearing > 180) {
         bearing = 180;
@@ -265,14 +265,14 @@ void TestElectronic::updateTestValues(const LCreal dt)
         brgRate = -brgRate;
     }
     // testing the secondary bearing
-    secBearing = bearing * 0.9f;
-    
+    secBearing = bearing * 0.9;
+
     // course && nav type
     course += 10 * dt;
     if (course > 360) course = 0;
     // testing the secondary course
-    secCourse = course * 0.9f;
-    
+    secCourse = course * 0.9;
+
     // course deviation
     cdi += cdiRate * dt;
     if (cdi > 2) {
@@ -283,11 +283,11 @@ void TestElectronic::updateTestValues(const LCreal dt)
         cdi = -2;
         cdiRate = -cdiRate;
     }
-    secCdi = cdi * 1.1f;
+    secCdi = cdi * 1.1;
 
     dist += distRate * dt;
     if (dist > 999.9) {
-        dist = 999.9f;
+        dist = 999.9;
         distRate = -distRate;
     }
     if (dist < 0) {
@@ -305,11 +305,11 @@ void TestElectronic::updateTestValues(const LCreal dt)
         timeToGo = 0;
         ttgRate = -ttgRate;
     }
-    
+
     // ground speed
     groundSpeed += 3 * dt;
     if (groundSpeed > 999) groundSpeed = 0;
-    
+
     // da
     driftAngle += daRate * dt;
     if (driftAngle > 90) {
@@ -320,7 +320,7 @@ void TestElectronic::updateTestValues(const LCreal dt)
         driftAngle = -90;
         daRate = -daRate;
     }
-    
+
     // tas
     trueAirSpeed += tasRate * dt;
     if (trueAirSpeed > 1500) {
@@ -331,7 +331,7 @@ void TestElectronic::updateTestValues(const LCreal dt)
         trueAirSpeed = 0;
         tasRate = -tasRate;
     }
-    
+
     // et
     elapsedTime += etRate * dt;
     if (elapsedTime > 20000) {
@@ -342,14 +342,14 @@ void TestElectronic::updateTestValues(const LCreal dt)
         elapsedTime = 0;
         etRate = -etRate;
     }
-    
+
     // wind speed and direction
     windDir += 10 * dt;
     if (windDir > 360) windDir = 0;
-    
+
     windSpeed += 20 * dt;
     if (windSpeed > 800) windSpeed = 0;
-    
+
     // change the readout modes and bearing source here
     if (windSpeed > 500) {
         readoutMode = ND_TTG;
@@ -382,11 +382,11 @@ void TestElectronic::updateTestValues(const LCreal dt)
         secNavType = TACAN;
     }
     else {
-        readoutMode = ND_TTG;    
+        readoutMode = ND_TTG;
         navType = VORTAC;
         secNavType = TACAN;
     }
-    
+
     // glideslope dots
     gsDots += gsDotsRate * dt;
     if (gsDots > 2.5) {
@@ -413,14 +413,14 @@ void TestElectronic::updateData(const LCreal dt)
     updateTestValues(dt);
 
     // current heading / current heading bug
-    { 
+    {
         // max rate here is 120 degs / second
         LCreal delta = alim(lcAepcDeg(heading - curHdg), 120 * dt);
         curHdg = lcAepcDeg(curHdg + delta);
 
         // now figure our heading bug
         delta = alim(lcAepcDeg(headingBug - curBug), 120 * dt);
-        curBug = lcAepcDeg(curBug + delta);  
+        curBug = lcAepcDeg(curBug + delta);
 
         if (navMode == ARC_MODE) {
             // we either move it to the left or right, depending on how far
@@ -428,13 +428,13 @@ void TestElectronic::updateData(const LCreal dt)
             LCreal diff = lcAepcDeg(curHdg - curBug);
             LCreal moveX = -1.8f;
             if (diff >= -36 && diff < 36) {
-                if (diff > 0) moveX = 1.53f;
-                else moveX = -1.8f;
+                if (diff > 0) moveX = 1.53;
+                else moveX = -1.8;
             }
 
             int tempCurBug = static_cast<int>(curBug);
             if (tempCurBug < 0) tempCurBug += 360;
-        
+
             // heading bug readout value and x position.
             send("bugro", UPDATE_VALUE, tempCurBug, hdgBugROSD);
             send("headingbugro", UPDATE_VALUE, moveX, hdgBugROMoveXSD);
@@ -448,7 +448,7 @@ void TestElectronic::updateData(const LCreal dt)
         // are we a distance type or DME type?
         bool distType = true;   // initial type is DME
         bool distVis = true;    // initial visibility is true
-        LCreal curDist = alim(dist, 999.9f);    // current distance to DME
+        LCreal curDist = alim(dist, 999.9);    // current distance to DME
 
         if (navSource == PRIMARY) {
             // valid DME makes our label visible
@@ -473,8 +473,8 @@ void TestElectronic::updateData(const LCreal dt)
         send("whichcourseptr", SELECT, navSource, whichCrsPtrSD);
 
         int curIntCourse = 0;
-        LCreal tempCDI = 0;
-        LCreal tempCourse = 0;
+        LCreal tempCDI = 0.0;
+        LCreal tempCourse = 0.0;
         // primary nav course
         if (navSource == PRIMARY) {
             curIntCourse = nint(course);
@@ -488,16 +488,16 @@ void TestElectronic::updateData(const LCreal dt)
             tempCourse = secCourse;
         }
 
-        if (curIntCourse < 0) curIntCourse += 360;                    
+        if (curIntCourse < 0) curIntCourse += 360;
         // send the course readout
         send("course", UPDATE_VALUE, curIntCourse, courseSD);
 
         // here is the course deviation
         LCreal delta = alim (lcAepcDeg(tempCDI - curCdi), 4 * dt);
         curCdi = alim (curCdi + delta, 2.0);
-        
+
         // now find our inches to translate the cdi
-        LCreal cdiInch = curCdi * 0.43f;   
+        LCreal cdiInch = curCdi * 0.43f;
 
         // now figure our course slew
         delta = alim(lcAepcDeg(tempCourse - curCourse), 120 * dt);
@@ -589,7 +589,7 @@ void TestElectronic::updateData(const LCreal dt)
                 send("elapsedtimemin", UPDATE_VALUE, elapsedTime, elapsedTimeSD);
             }
             else send("elapsedtimehour", UPDATE_VALUE, elapsedTime, elapsedTimeHRSD);
-            
+
             // send which readout
             send("whichelapsedtimero", SELECT, isMin, whichETSD);
         }
@@ -614,7 +614,7 @@ void TestElectronic::updateData(const LCreal dt)
         int brgSrc = 1; // default to INAV
         if (navSource == PRIMARY) {
             if (navType == VORTAC) brgSrc = 2;  // primary vortac
-            else if (navType == TACAN) brgSrc = 3; // primary tacan 
+            else if (navType == TACAN) brgSrc = 3; // primary tacan
             send("bearingro", UPDATE_VALUE, bearing, brgROSD);
         }
         else {
@@ -627,7 +627,7 @@ void TestElectronic::updateData(const LCreal dt)
     }
 
     // glide slope
-    { 
+    {
         LCreal gsDev = static_cast<LCreal>(alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
@@ -683,18 +683,18 @@ void TestElectronic::updateData(const LCreal dt)
     }
 
     // TO / FROM arrow - HSI mode only
-    { 
+    {
         LCreal toFrom = 0;
         if (navSource == PRIMARY) toFrom = 1 - lcAbs(lcAepcDeg(bearing - course)) / 90;
         else toFrom = 1 - lcAbs(lcAepcDeg(secBearing - secCourse)) / 90;
 
         LCreal delta = alim(toFrom - curToFrom, dt);
-        curToFrom = alim(curToFrom + delta, 0.65f);
-    
+        curToFrom = alim(curToFrom + delta, 0.65);
+
         // if we are positive, we are to, negative, from
         bool whichToFrom = (curToFrom > 0);
         send("toorfrom", SELECT, whichToFrom, toOrFromSD);
-        
+
         // now send down where to translate
         send("tofrom", UPDATE_VALUE2, curToFrom, toFromSD);
     }

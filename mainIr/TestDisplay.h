@@ -39,8 +39,8 @@ public:
 
     virtual void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
 
-    bool event(const int event, Basic::Object* const obj = 0) override;
-    void updateData(const LCreal dt = 0.0f) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
+    void updateData(const LCreal dt = 0.0) override;
 
 private:
     // Key event handlers

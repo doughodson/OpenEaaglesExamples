@@ -21,19 +21,19 @@ public:
     SpdLines();
 
     void drawFunc() override;
-    bool event(const int event, Basic::Object* const obj = 0) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
 
-    // set functions
+    // set methods
     virtual bool setIsAlt(const bool newIsAlt) { isAlt = newIsAlt; return true; }
 
-    // get functions
+    // get methods
     bool isAltSelected()    { return isAlt; }
 
 protected:
     bool setSlotIsAlt(const Basic::Number* newIsAlt);
 
 private:
-    // event function
+    // event method
     bool onEventSetIsAltSpdLines(const Basic::Number* const x);
 
     bool isAlt;     // are we drawing the altitude lines instead?

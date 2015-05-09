@@ -18,8 +18,8 @@ class TestCompass : public BasicGL::Page
 public:
     TestCompass();
 
-    void updateData(const LCreal dt = 0) override;
-    bool event(const int event, Basic::Object* const obj = 0) override;
+    void updateData(const LCreal dt = 0.0) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
 
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;

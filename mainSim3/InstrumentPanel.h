@@ -38,8 +38,8 @@ public:
    Simulation::Simulation* getSimulation();
    Simulation::Station* getStation();
 
-   bool event(const int event, Basic::Object* const obj = 0) override;
-   void updateData(const LCreal dt = 0.0f) override;
+   bool event(const int event, Basic::Object* const obj = nullptr) override;
+   void updateData(const LCreal dt = 0.0) override;
 
 protected:
    // Key event handlers

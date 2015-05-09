@@ -41,7 +41,7 @@ public:
    // Slot functions
    virtual bool setSlotMainDisplay(Glut::GlutDisplay* const d);
 
-   void updateTC(const LCreal dt = 0.0f) override;
+   void updateTC(const LCreal dt = 0.0) override;
    void reset() override;
 
 private:

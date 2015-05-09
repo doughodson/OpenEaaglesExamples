@@ -24,7 +24,7 @@ public:
    Simulation::Aircraft* getOwnship();
    Simulation::Station* getStation();
 
-   void updateData(const LCreal dt = 0.0f) override;
+   void updateData(const LCreal dt = 0.0) override;
 
 private:
    Basic::safe_ptr<Simulation::Station> myStation;
