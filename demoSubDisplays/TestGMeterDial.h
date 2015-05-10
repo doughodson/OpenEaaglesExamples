@@ -14,7 +14,7 @@ namespace Demo {
 
 class TestGMeterDial : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestGMeterDial, BasicGL::Page)
+   DECLARE_SUBCLASS(TestGMeterDial, BasicGL::Page)
 
 public:
     TestGMeterDial();

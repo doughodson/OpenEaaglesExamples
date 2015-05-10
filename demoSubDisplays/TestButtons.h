@@ -24,21 +24,21 @@ public:
    bool event(const int event, Basic::Object* const obj = nullptr) override;
 
 private:
-   bool regularButton();
-   bool pushButtonMaintained();
-   bool pushButtonMomentary();
-   bool rotarySwitch();
-   bool knobMoved();
-   bool resetSolenoid();
-   bool solenoidUp();
-   bool solenoidDown();
+    bool regularButton();
+    bool pushButtonMaintained();
+    bool pushButtonMomentary();
+    bool rotarySwitch();
+    bool knobMoved();
+    bool resetSolenoid();
+    bool solenoidUp();
+    bool solenoidDown();
 
-   int whichButton;
-   LCreal value;
+    int whichButton;
+    LCreal value;
 
-   SendData whichButtonSD;
-   SendData valueSD;
-   SendData latchedSD;
+    SendData whichButtonSD;
+    SendData valueSD;
+    SendData latchedSD;
 };
 
 } // end of Demo namespace

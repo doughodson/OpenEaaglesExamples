@@ -18,96 +18,96 @@ TestPfd::TestPfd()
 {
     STANDARD_CONSTRUCTOR()
     // pitch and roll
-    pitch = 0;
-    pitchRate = 10;
-    roll = 0;
+    pitch = 0.0;
+    pitchRate = 10.0;
+    roll = 0.0;
     rollRate = -9.0;
 
     // heading and nav stuff
-    trueHdg = 0;  
-    tHdgRate = 11;
-    cmdCrs = 0;
-    cmdCrsRate = 2;
-    cmdHdg = 0;
-    cmdHdgRate = 3;
+    trueHdg = 0.0;
+    tHdgRate = 11.0;
+    cmdCrs = 0.0;
+    cmdCrsRate = 2.0;
+    cmdHdg = 0.0;
+    cmdHdgRate = 3.0;
 
     // cdi
-    cdiDots = 0;
-    cdiRate = 0.15f;
+    cdiDots = 0.0;
+    cdiRate = 0.15;
 
     // to from
-    toFrom = -1;
+    toFrom = -1.0;
 
     // airspeed
-    airSpd = 0;
-    airSpdRate = 5;
+    airSpd = 0.0;
+    airSpdRate = 5.0;
 
     // altitude
-    alt = 0;
-    altRate = 300;
-    
+    alt = 0.0;
+    altRate = 300.0;
+
     // side slip
-    slip = 0;
-    slipRate = 10;
-    
+    slip = 0.0;
+    slipRate = 10.0;
+
     // glideslope
-    gSlope = 0;
-    gSlopeRate = 0.2f;
-    
+    gSlope = 0.0;
+    gSlopeRate = 0.2;
+
     // lateral deviation
-    latDev = 0;
-    ldRate = 0.3f;
+    latDev = 0.0;
+    ldRate = 0.3;
 
     // commanded speed
-    cmdSpd = 150;
+    cmdSpd = 150.0;
 
     // commanded alt
-    cmdAlt = 5000;
+    cmdAlt = 5000.0;
 
     // master caution
     mstrCtn = false;
 
     // vvi
-    vvi = 0;
-    vviRate = 500;
-    maxVvi = 3.0f;      
-    minVvi = 3.0f;      
+    vvi = 0.0;
+    vviRate = 500.0;
+    maxVvi = 3.0;
+    minVvi = 3.0;
 
     // aoa
-    aoa = 0;
-    aoaRate = -1;
+    aoa = 0.0;
+    aoaRate = -1.0;
 
     // ground speed
-    gSpd = 0;
-    gSpdRate = 1.5f;
+    gSpd = 0.0;
+    gSpdRate = 1.5;
 
     // flight director (command bars)
-    fDirBank = 0;
-    fDirBankRate = 10;
-    fDirPitch = 0;
-    fDirPitchRate = 5;
+    fDirBank = 0.0;
+    fDirBankRate = 10.0;
+    fDirPitch = 0.0;
+    fDirPitchRate = 5.0;
 
     // selected barometric pressure
-    baro = 0;
-    baroRate = 0.5f;
+    baro = 0.0;
+    baroRate = 0.5;
 
     // radar alt
-    rAlt = 0;
-    rAltRate = 50;
-    rAltMin = 500;
+    rAlt = 0.0;
+    rAltRate = 50.0;
+    rAltMin = 500.0;
 
     // navaid bearings
-    nav1Brg = 0;
-    nav1BrgRate = 4;
-    nav2Brg = 0;
-    nav2BrgRate = 10;
+    nav1Brg = 0.0;
+    nav1BrgRate = 4.0;
+    nav2Brg = 0.0;
+    nav2BrgRate = 10.0;
 
     // FPM
-    fpmX = 0;
-    fpmY = 0;
-    fpmXRate = 0.05f;
-    fpmYRate = 0.05f;
-    
+    fpmX = 0.0;
+    fpmY = 0.0;
+    fpmXRate = 0.05;
+    fpmYRate = 0.05;
+
     // Visibility flags
     sixtyVisSD.empty();
     ninetyVisSD.empty();
@@ -120,13 +120,13 @@ void TestPfd::copyData(const TestPfd& org, const bool)
 {
     // Always copy base class stuff first
     BaseClass::copyData(org);
-    
+
     // pitch and roll
     pitch = org.pitch;
     pitchRate = org.pitchRate;
     roll = org.roll;
     rollRate = org.rollRate;
-    
+
     // hdg and nav
     trueHdg = org.trueHdg;
     tHdgRate = org.tHdgRate;
@@ -174,8 +174,8 @@ void TestPfd::copyData(const TestPfd& org, const bool)
     // vvi
     vvi = org.vvi;
     vviRate = org.vviRate;
-    maxVvi = org.minVvi;      
-    minVvi = org.minVvi;      
+    maxVvi = org.minVvi;
+    minVvi = org.minVvi;
 
     // aoa
     aoa = org.aoa;
@@ -211,7 +211,7 @@ void TestPfd::copyData(const TestPfd& org, const bool)
     fpmY = org.fpmY;
     fpmXRate = org.fpmXRate;
     fpmYRate = org.fpmYRate;
-    
+
     sixtyVisSD.empty();
     ninetyVisSD.empty();
 
@@ -318,7 +318,7 @@ void TestPfd::updateData(const LCreal dt)
     if (nav2Brg < 0) {
         nav2Brg = 0;
         nav2BrgRate = -nav2BrgRate;
-    }     
+    }
 
     // airspeed
     airSpd += airSpdRate * dt;
@@ -473,7 +473,7 @@ void TestPfd::updateData(const LCreal dt)
         fpmYRate = -fpmYRate;
     }
 #endif
-    
+
     // Since we have so much data to send, it
     // is easier to get a pointer and use
     // member functions than to just send
@@ -510,21 +510,21 @@ void TestPfd::updateData(const LCreal dt)
             p->setFPMY(fpmY);
         }
     }
-    
+
     // we only display the 60 and 90 degree marks if we are past 45 and 60 degrees,
     // respectively
     bool sixtyVis = false, ninetyVis = false;
     if (roll > 45 || roll < -45) {
         sixtyVis = true;
     }
-    
+
     if (roll > 60 || roll < -60) {
         ninetyVis = true;
     }
 
     send("60indices", SET_VISIBILITY, sixtyVis, sixtyVisSD);
     send("90indices", SET_VISIBILITY, ninetyVis, ninetyVisSD);
-    
+
 }
 
 } // end of Demo namespace

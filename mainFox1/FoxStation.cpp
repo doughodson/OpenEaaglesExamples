@@ -16,7 +16,7 @@ BEGIN_SLOTTABLE(FoxStation)
    "maindisplay",         // 1) main display
 END_SLOTTABLE(FoxStation)
 
-//  Map slot table to handles 
+//  Map slot table to handles
 BEGIN_SLOT_MAP(FoxStation)
    ON_SLOT(1, setSlotMainDisplay, FoxDisplay)
 END_SLOT_MAP()
@@ -66,17 +66,17 @@ void FoxStation::updateData(const LCreal dt)
    if (display != 0) display->updateData(dt);
 
    BaseClass::updateData(dt);
-} 
+}
 
 //
 //
 bool FoxStation::setSlotMainDisplay(FoxDisplay* const msg)
 {
-   if (display != 0) {
-      display->container(0);
+   if (display != nullptr) {
+      display->container(nullptr);
    }
    display = msg;
-   if (display != 0) {
+   if (display != nullptr) {
       display->container(this);
    }
    return true;

@@ -127,9 +127,9 @@ void SimStation::stepOwnshipPlayer()
 // Main display
 bool SimStation::setSlotMainDisplay(Glut::GlutDisplay* const d)
 {
-    if (mainDisplay != 0) mainDisplay->container(0);
+    if (mainDisplay != nullptr) mainDisplay->container(nullptr);
     mainDisplay = d;
-    if (mainDisplay != 0) mainDisplay->container(this);
+    if (mainDisplay != nullptr) mainDisplay->container(this);
     displayInit = false;
     return true;
 }

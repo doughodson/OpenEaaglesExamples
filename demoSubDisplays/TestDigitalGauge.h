@@ -23,11 +23,11 @@ public:
    void updateData(const LCreal dt = 0) override;
 
 private:
-   LCreal aoa;
-   SendData aoaSD;
-   LCreal  aoaRate;        // rate which are going (up or down)
-   SendData aoaROSD;       // aoa readout
-   SendData aoaASD;        // analog readout
+    LCreal aoa;
+    SendData aoaSD;
+    LCreal  aoaRate;        // rate which are going (up or down)
+    SendData aoaROSD;       // aoa readout
+    SendData aoaASD;        // analog readout
 };
 
 } // end of Instruments namespace

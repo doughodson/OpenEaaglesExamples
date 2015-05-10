@@ -6,19 +6,20 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngPage,"TestEngPage")
 EMPTY_SERIALIZER(TestEngPage)
-                            
+EMPTY_DELETEDATA(TestEngPage)
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
 TestEngPage::TestEngPage()
 {
     STANDARD_CONSTRUCTOR()
-    
+
     const LCreal n1rates[Eaagles::Instruments::EngPage::NUM_ENG]  = {  5, 10,  2, 15 };
     const LCreal n2rates[Eaagles::Instruments::EngPage::NUM_ENG]  = {  2,  6,  8, 14 };
-    const LCreal titrates[Eaagles::Instruments::EngPage::NUM_ENG] = { 50, 30, 12, 23 }; 
+    const LCreal titrates[Eaagles::Instruments::EngPage::NUM_ENG] = { 50, 30, 12, 23 };
     const LCreal ffrates[Eaagles::Instruments::EngPage::NUM_ENG]  = {  1000,  5000, 500, 2000 };
-    
+
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
         n1[i] = 0.0;
         n1Rate[i] = n1rates[i];
@@ -41,7 +42,7 @@ void TestEngPage::copyData(const TestEngPage& org, const bool)
 {
     // Always copy base class stuff first
     BaseClass::copyData(org);
-    
+
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
         n1[i] = org.n1[i];
         n1Rate[i] = org.n1Rate[i];
@@ -58,13 +59,6 @@ void TestEngPage::copyData(const TestEngPage& org, const bool)
 }
 
 //------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void TestEngPage::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
 void TestEngPage::updateData(const LCreal dt)
@@ -72,7 +66,7 @@ void TestEngPage::updateData(const LCreal dt)
     // update our BaseClass
     BaseClass::updateData(dt);
 
-    // engine N1 
+    // engine N1
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
         n1[i] += n1Rate[i] * dt;
         if (n1[i] > 115) {
@@ -85,7 +79,7 @@ void TestEngPage::updateData(const LCreal dt)
         }
     }
 
-    // engine N2 
+    // engine N2
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
         n2[i] += n2Rate[i] * dt;
         if (n2[i] > 115) {
@@ -110,8 +104,8 @@ void TestEngPage::updateData(const LCreal dt)
             titRate[i] = -titRate[i];
         }
     }
- 
-    
+
+
     // engine fuel flow (pph)
     for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
         ff[i] += ffRate[i] * dt;
@@ -128,9 +122,9 @@ void TestEngPage::updateData(const LCreal dt)
     {
         // Set to the engine display
         Basic::Pair* pair = findByType(typeid(Eaagles::Instruments::EngPage));
-        if (pair != 0) {
+        if (pair != nullptr) {
             Eaagles::Instruments::EngPage* p = static_cast<Eaagles::Instruments::EngPage*>(pair->object());
-            if (p != 0) {
+            if (p != nullptr) {
                 for (int i = 0; i < Eaagles::Instruments::EngPage::NUM_ENG; i++) {
                     int idx = (i + 1);
                     p->setEngN1(idx, n1[i]);

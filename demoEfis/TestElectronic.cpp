@@ -186,7 +186,6 @@ void TestElectronic::copyData(const TestElectronic& org, const bool)
     vhfGSValid = org.vhfGSValid;
     vhfGSOOV = org.vhfGSOOV;
 
-
     // SLS
     curHdg = org.curHdg;
     curBug = org.curBug;

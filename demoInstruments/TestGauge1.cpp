@@ -3,7 +3,7 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGauge1,"TestGauge1")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGauge1, "TestGauge1")
 EMPTY_SERIALIZER(TestGauge1)
 
 //------------------------------------------------------------------------------
@@ -12,12 +12,12 @@ EMPTY_SERIALIZER(TestGauge1)
 TestGauge1::TestGauge1()
 {
     STANDARD_CONSTRUCTOR()
-    gaugePosition = 0;
+    gaugePosition = 0.0;
     gaugePositionSD.empty();
-    gaugeRate = 10;
+    gaugeRate = 10.0;
     gaugePositionROSD.empty();
-    tapePos = 0;
-    tapeRate = 10;
+    tapePos = 0.0;
+    tapeRate = 10.0;
     tapePosSD.empty();
     tapePosROSD.empty();
 }
@@ -49,7 +49,7 @@ EMPTY_DELETEDATA(TestGauge1)
 void TestGauge1::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     gaugePosition += (gaugeRate * dt);
     tapePos += (tapeRate * dt);
     if (tapePos > 500) {
@@ -69,8 +69,8 @@ void TestGauge1::updateData(const LCreal dt)
         gaugePosition = 0;
         gaugeRate = -gaugeRate;
     }
-    
-    // here is the gauge display 
+
+    // here is the gauge display
     send("gauge", UPDATE_INSTRUMENTS, gaugePosition, gaugePositionSD);
     // here is the readout
     send("gr", UPDATE_VALUE, gaugePosition, gaugePositionROSD);

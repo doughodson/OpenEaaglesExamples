@@ -15,7 +15,7 @@ namespace Demo {
 
 class TestGauge1 : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestGauge1, BasicGL::Page)
+   DECLARE_SUBCLASS(TestGauge1, BasicGL::Page)
 
 public:
     TestGauge1();

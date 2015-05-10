@@ -13,7 +13,7 @@ namespace Demo {
 
 class TestCompass : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestCompass, BasicGL::Page)
+   DECLARE_SUBCLASS(TestCompass, BasicGL::Page)
 
 public:
     TestCompass();

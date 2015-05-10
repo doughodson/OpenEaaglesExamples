@@ -12,9 +12,9 @@
 namespace Eaagles {
 namespace Demo {
 
-class TestEngPage : public BasicGL::Page
+class TestEngPage : public Eaagles::BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestEngPage, BasicGL::Page )
+   DECLARE_SUBCLASS(TestEngPage, Eaagles::BasicGL::Page )
 
 public:
     TestEngPage();

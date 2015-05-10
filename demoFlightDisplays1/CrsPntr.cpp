@@ -20,10 +20,10 @@ BEGIN_SLOTTABLE(CrsPntr)
     "showCdi",      // do we display the cdi?
     "showCrsPntr",  // show to course pointer?
     "showToFrom",   // show our to from pointer?
-END_SLOTTABLE(CrsPntr)       
+END_SLOTTABLE(CrsPntr)
 
 //------------------------------------------------------------------------------
-//  Map slot table 
+//  Map slot table
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(CrsPntr)
     ON_SLOT(1, setSlotNumCdiDots, Basic::Number)
@@ -39,11 +39,11 @@ END_SLOT_MAP()
 CrsPntr::CrsPntr()
 {
     STANDARD_CONSTRUCTOR()
-    cdiDots = 0;
-    toFrom = 0;     // assume going to for now
-    numDots = 4;        
-    inchesPerDot = 0;
-    inches = 1.76f;  // default
+    cdiDots = 0.0;
+    toFrom = 0.0;     // assume going to for now
+    numDots = 4;
+    inchesPerDot = 0.0;
+    inches = 1.76;  // default
     showCdi = true;
     showCrsPtr = true;
     showToFrom = true;
@@ -120,13 +120,13 @@ bool CrsPntr::setShowToFrom(const bool newTF)
 bool CrsPntr::onUpdateCdiDotsCrsPntr(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setCdiDots(x->getReal());
+    if (x != nullptr) ok = setCdiDots(x->getReal());
     return ok;
 }
 bool CrsPntr::onUpdateToFromCrsPntr(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setToFrom(x->getReal());
+    if (x != nullptr) ok = setToFrom(x->getReal());
     return ok;
 }
 
@@ -135,12 +135,12 @@ bool CrsPntr::onUpdateToFromCrsPntr(const Basic::Number* const x)
 // drawFunc() - draw our objects
 //------------------------------------------------------------------------------
 void CrsPntr::drawFunc()
-{    
+{
     GLfloat ocolor[4];
     GLfloat lw;
     glGetFloatv(GL_CURRENT_COLOR, ocolor);
     glGetFloatv(GL_LINE_WIDTH, &lw);
-    
+
     glColor3f(1, 1, 1);
     glLineWidth(2);
 
@@ -163,7 +163,7 @@ void CrsPntr::drawFunc()
                 glVertex2f( 0.044f, -0.676f);
                 glVertex2f(0, -0.6f);
             glEnd();
-        glPopMatrix();  
+        glPopMatrix();
     }
 
     if (showCdi) {
@@ -172,7 +172,7 @@ void CrsPntr::drawFunc()
         // limit ourself to the size of the scale
         if (scale > 0.88) scale = 0.88f;
         if (scale < -0.88) scale = -0.88f;
-        
+
         // cdi
         glPushMatrix();
             glTranslatef(static_cast<GLfloat>(scale), 0, 0);
@@ -185,7 +185,7 @@ void CrsPntr::drawFunc()
             glEnd();
         glPopMatrix();
     }
-    
+
     // our to from arrow will not be display unless we get a 1 (to) or a 0 (from)
     if (showToFrom) {
         if (toFrom == 1) {
@@ -205,10 +205,10 @@ void CrsPntr::drawFunc()
                     glVertex2f(0.044f, 0.37f);
                 glEnd();
             glPopMatrix();
-        
+
         }
     }
-      
+
     glColor4fv(ocolor);
     glLineWidth(lw);
 }
@@ -221,62 +221,62 @@ void CrsPntr::updateData(const LCreal dt)
 {
     // update base class first
     BaseClass::updateData(dt);
-       
+
     // figure our scaling per dot
     inchesPerDot = inches / numDots;
-        
+
 }
 
 // SLOT FUNCTIONS
 //------------------------------------------------------------------------------
 // setSlotNumCdiDots() - set the number of cdi dots we are using
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotNumCdiDots(const Basic::Number* const newCDI) 
+bool CrsPntr::setSlotNumCdiDots(const Basic::Number* const newCDI)
 {
     bool ok = false;
-    if (newCDI != 0) ok = setNumCdiDots(newCDI->getInt());
+    if (newCDI != nullptr) ok = setNumCdiDots(newCDI->getInt());
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotNumInches() - set the number of inches we are scaling across the dots
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotNumInches(const Basic::Number* const newNI) 
+bool CrsPntr::setSlotNumInches(const Basic::Number* const newNI)
 {
     bool ok = false;
-    if (newNI != 0) ok = setNumInches(newNI->getReal());
+    if (newNI != nullptr) ok = setNumInches(newNI->getReal());
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotShowCdi() - display the cdi?
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotShowCdi(const Basic::Number* const newSCDI) 
+bool CrsPntr::setSlotShowCdi(const Basic::Number* const newSCDI)
 {
     bool ok = false;
-    if (newSCDI != 0) ok = setShowCdi(newSCDI->getBoolean());
+    if (newSCDI != nullptr) ok = setShowCdi(newSCDI->getBoolean());
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotShowCrsPntr() - display the course pointer?
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotShowCrsPntr(const Basic::Number* const newSCP) 
+bool CrsPntr::setSlotShowCrsPntr(const Basic::Number* const newSCP)
 {
     bool ok = false;
-    if (newSCP != 0) ok = setShowCrsPntr(newSCP->getBoolean());
+    if (newSCP != nullptr) ok = setShowCrsPntr(newSCP->getBoolean());
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotShowToFrom() - display the to from arrow?
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotShowToFrom(const Basic::Number* const newTF) 
+bool CrsPntr::setSlotShowToFrom(const Basic::Number* const newTF)
 {
     bool ok = false;
-    if (newTF != 0) ok = setShowToFrom(newTF->getBoolean());
+    if (newTF != nullptr) ok = setShowToFrom(newTF->getBoolean());
     return ok;
 }
 
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 Basic::Object* CrsPntr::getSlotByIndex(const int si)
 {

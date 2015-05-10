@@ -11,7 +11,9 @@ codelite/
 #
 # qt user project file and build directories
 #
-mainSim4-qt.pro.user
+mainSim4-qt/mainSim4-qt.pro.user
+mainSim4-qt/Makefile
+mainSim4-qt/tmp/
 build-mainSim4-qt-Desktop_Qt*
 
 # visual studio generated files

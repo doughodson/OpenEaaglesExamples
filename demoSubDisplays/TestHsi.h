@@ -13,7 +13,7 @@ namespace Demo {
 
 class TestHsi : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestHsi, BasicGL::Page)
+   DECLARE_SUBCLASS(TestHsi,BasicGL::Page)
 
 public:
     TestHsi();

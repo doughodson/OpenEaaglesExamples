@@ -29,7 +29,7 @@ END_EVENT_HANDLER()
 TerrainFollower::TerrainFollower()
 {
     STANDARD_CONSTRUCTOR()
-    
+
     numElevPts = 89;
     //LCreal elev = 500;
     // fill our elevation points with test data right now
@@ -40,7 +40,7 @@ TerrainFollower::TerrainFollower()
         else elev += 0.5;
     }
     */
-    
+
     elevPts[0] = 750;
     elevPts[1] = 790;
     elevPts[2] = 800;
@@ -130,14 +130,14 @@ TerrainFollower::TerrainFollower()
     elevPts[86] = 630;
     elevPts[87] = 650;
     elevPts[88] = 690;
-    
-    range = 10;   
-    maxAlt = 1500;       // feet
-    minAlt = 100;       // feet
-    height = 1.8f;       // inches
-    width = 4.3f;        // inches
-    rScale = 0;       
-    aScale = 0;         
+
+    range = 10.0;
+    maxAlt = 1500.0;       // feet
+    minAlt = 100.0;       // feet
+    height = 1.8;       // inches
+    width = 4.3;        // inches
+    rScale = 0.0;
+    aScale = 0.0;
     planeAlt = 800;
     midAltSD.empty();
     maxAltSD.empty();
@@ -145,12 +145,12 @@ TerrainFollower::TerrainFollower()
     secRSD.empty();
     tRSD.empty();
     fRSD.empty();
-    aboveTerr = 500;
-    
+    aboveTerr = 500.0;
+
     // test
-    testPA = 500;
-    timer = 0;
-    timerRate = 0.5f;
+    testPA = 500.0;
+    timer = 0.0;
+    timerRate = 0.5;
 }
 
 
@@ -162,9 +162,9 @@ void TerrainFollower::copyData(const TerrainFollower& org, const bool)
     // always copy baseclass stuff FIRST
     BaseClass::copyData(org);
     numElevPts = org.numElevPts;
-    
+
     for (int i = 0; i < numElevPts; i++) elevPts[i] = org.elevPts[i];
-    range = org.range;   
+    range = org.range;
     maxAlt = org.maxAlt;
     minAlt = org.minAlt;
     height = org.height;
@@ -179,7 +179,7 @@ void TerrainFollower::copyData(const TerrainFollower& org, const bool)
     tRSD.empty();
     fRSD.empty();
     aboveTerr = org.aboveTerr;
-    
+
     // test
     testPA = org.testPA;
 }
@@ -205,30 +205,30 @@ void TerrainFollower::testElevPoints()
         if (i == numElevPts - 1) elevPts[i] = first;
         else elevPts[i] = elevPts[i+1];
     }
-    
+
 }
 
 // set functions
-bool TerrainFollower::setPlaneAlt(const LCreal newAlt) 
-{ 
-    planeAlt = newAlt; 
-    return true; 
+bool TerrainFollower::setPlaneAlt(const LCreal newAlt)
+{
+    planeAlt = newAlt;
+    return true;
 }
-bool TerrainFollower::setScanRange(const LCreal newR)  
-{   
-    range = newR; 
-    return true; 
+bool TerrainFollower::setScanRange(const LCreal newR)
+{
+    range = newR;
+    return true;
 }
-bool TerrainFollower::setViewHeight(const LCreal newH) 
-{ 
-    height = newH; 
-    return true; 
+bool TerrainFollower::setViewHeight(const LCreal newH)
+{
+    height = newH;
+    return true;
 }
-bool TerrainFollower::setViewWidth(const LCreal newW)  
-{ 
-    width = newW; 
-    return true; 
-}    
+bool TerrainFollower::setViewWidth(const LCreal newW)
+{
+    width = newW;
+    return true;
+}
 bool TerrainFollower::setElevPts(const int num, const LCreal newEPts[])
 {
     bool ok = false;
@@ -245,25 +245,25 @@ bool TerrainFollower::setElevPts(const int num, const LCreal newEPts[])
 bool TerrainFollower::onEventSetPlaneAltTerrainFollower(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setPlaneAlt(x->getReal());
+    if (x != nullptr) ok = setPlaneAlt(x->getReal());
     return ok;
 }
 bool TerrainFollower::onEventSetScanRangeTerrainFollower(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setScanRange(x->getReal());
+    if (x != nullptr) ok = setScanRange(x->getReal());
     return ok;
 }
 bool TerrainFollower::onEventSetViewHeightTerrainFollower(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setViewHeight(x->getReal());
+    if (x != nullptr) ok = setViewHeight(x->getReal());
     return ok;
 }
 bool TerrainFollower::onEventSetViewWidthTerrainFollower(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setViewWidth(x->getReal());
+    if (x != nullptr) ok = setViewWidth(x->getReal());
     return ok;
 }
 
@@ -271,20 +271,20 @@ bool TerrainFollower::onEventSetViewWidthTerrainFollower(const Basic::Number* co
 // drawFunc() -- draws the object(s)
 //------------------------------------------------------------------------------
 void TerrainFollower::drawFunc()
-{       
+{
     GLfloat ocolor[4];
     GLfloat lw;
     glGetFloatv(GL_CURRENT_COLOR, ocolor);
     glGetFloatv(GL_LINE_WIDTH, &lw);
-    
+
     // initialize local variables
-    LCreal temp = 1.4f;
+    LCreal temp = 1.4;
     LCreal moveY = 0;
     LCreal moveYNext = 0;
     //LCreal lastMoveY = 0;
-    LCreal start = 0.2f;
-    
-    
+    LCreal start = 0.2;
+
+
     glColor3f(1, 1, 0);
     moveY = (planeAlt - minAlt) * aScale;
     // draw the plane outline
@@ -294,24 +294,24 @@ void TerrainFollower::drawFunc()
         glLineWidth(4);
         glBegin(GL_LINES);
             glVertex2f(0, 0);
-            glVertex2f(0.4f, 0);
+            glVertex2f(0.4, 0);
         glEnd();
         glLineWidth(2);
         glBegin(GL_LINE_STRIP);
             glVertex2f(0, 0);
-            glVertex2f(0, 0.1f);
-            glVertex2f(0.1f, 0);
+            glVertex2f(0, 0.1);
+            glVertex2f(0.1, 0);
         glEnd();
     glPopMatrix();
 
-    
+
     temp = 0;
-    glColor3f(0.596f, 0.4f, 0.208f);
+    glColor3f(0.596, 0.4, 0.208);
     glLineWidth(2);
-    
+
     // make a series of polygons that will allow the terrain to be displayed
     glPushMatrix();
-        glTranslatef(1.6f, static_cast<GLfloat>(start), 0);
+        glTranslatef(1.6, static_cast<GLfloat>(start), 0);
         for (int i = 0; i < numElevPts; i++) {
             glBegin(GL_POLYGON);
                 moveY = (elevPts[i] - minAlt) * aScale;
@@ -327,7 +327,7 @@ void TerrainFollower::drawFunc()
             glEnd();
         }
     glPopMatrix();
-        
+
     temp = 0;
     // now we draw the flight path line, using an average factor for determining the slope of the line
     glColor3f(0, 1, 1);
@@ -339,7 +339,7 @@ void TerrainFollower::drawFunc()
         glBegin(GL_LINE_STRIP);
             // this draws every point
             for (int i = 0; i < numElevPts; i++) {
-            
+
                 // average our six values
                 int myPlace = (numElevPts - (i +1));
                 if (myPlace >= 6) {
@@ -353,21 +353,21 @@ void TerrainFollower::drawFunc()
                 else if ( myPlace >= 4) {
                     mySum = (elevPts[i] + elevPts[i+1] + elevPts[i+2] + elevPts[i+3] + elevPts[i+4]);
                     myAvg = mySum / 5;
-                }               
+                }
                 else if ( myPlace >= 3) {
                     mySum = (elevPts[i] + elevPts[i+1] + elevPts[i+2] + elevPts[i+3]);
                     myAvg = mySum / 4;
-                }       
+                }
                 else if (myPlace >= 2) {
                     mySum = (elevPts[i] + elevPts[i+1] + elevPts[i+2]);
                     myAvg = mySum / 3;
-                }       
+                }
                 else if (myPlace >= 1) {
                     mySum = (elevPts[i] + elevPts[i+1]);
                     myAvg = mySum / 2;
                 }
                 else myAvg = elevPts[i];
-                         
+
                 // make sure our moveY is above our terrain average
                 myAvg = ((myAvg + aboveTerr) - minAlt) * aScale;
                 lcVertex2(temp, myAvg);
@@ -375,7 +375,7 @@ void TerrainFollower::drawFunc()
             }
         glEnd();
     glPopMatrix();
-        
+
     glLineWidth(lw);
     glColor4fv(ocolor);
 }
@@ -401,7 +401,7 @@ void TerrainFollower::updateData(const LCreal dt)
     }
 #endif
 
-#ifdef TEST_ONE 
+#ifdef TEST_ONE
     // run this test right now
     timer += timerRate * dt;
     if (timer > 0.1) {
@@ -409,9 +409,9 @@ void TerrainFollower::updateData(const LCreal dt)
         timer = 0;
     }
 #endif
- 
+
     // determine our min and max ranges from the plane altitude (add and subtract 2000)
-    // always start from 0 feet 
+    // always start from 0 feet
     minAlt = 0;
     if (planeAlt > 20000) maxAlt = 50000;
     else if (planeAlt > 18000) maxAlt = 20000;
@@ -424,16 +424,16 @@ void TerrainFollower::updateData(const LCreal dt)
     else if (planeAlt > 4000) maxAlt = 6000;
     else if (planeAlt > 2000) maxAlt = 4000;
     else if (planeAlt > 0) maxAlt = 2000;
-    
+
     // figure our altitude scale
     // get our range of altitude in feet
     LCreal temp = maxAlt - minAlt;
-    if (temp != 0 && temp > 0) { 
+    if (temp != 0 && temp > 0) {
         // divide by the number of inches to give us a inches/feet
         aScale = height / temp;
     }
     if (numElevPts > 0) {
-        // figure our range scale 
+        // figure our range scale
         rScale = width / numElevPts;
     }
 
@@ -443,7 +443,7 @@ void TerrainFollower::updateData(const LCreal dt)
     send("firstr", UPDATE_VALUE, tempR, firstRSD);
     tempR = range/2;
     send("secondr", UPDATE_VALUE, tempR, secRSD);
-    
+
     // send our alt values out
     send("middlealt", UPDATE_VALUE, maxAlt/2, midAltSD);
     send("maxalt", UPDATE_VALUE, maxAlt, maxAltSD);

@@ -3,8 +3,9 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSpeedBrake,"TestSpeedBrake")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSpeedBrake, "TestSpeedBrake")
 EMPTY_SERIALIZER(TestSpeedBrake)
+EMPTY_DELETEDATA(TestSpeedBrake)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -12,13 +13,12 @@ EMPTY_SERIALIZER(TestSpeedBrake)
 TestSpeedBrake::TestSpeedBrake()
 {
     STANDARD_CONSTRUCTOR()
-    
-    sbrakePosition = 0;
-    sbrakePositionSD.empty();
-    sbrakePositionROSD.empty();    
-    sbrakeRate = 3;
-}
 
+    sbrakePosition = 0.0;
+    sbrakePositionSD.empty();
+    sbrakePositionROSD.empty();
+    sbrakeRate = 3.0;
+}
 
 //------------------------------------------------------------------------------
 // copyData()
@@ -28,12 +28,9 @@ void TestSpeedBrake::copyData(const TestSpeedBrake& org, const bool)
     BaseClass::copyData(org);
     sbrakePosition = org.sbrakePosition;
     sbrakePositionSD.empty();
-    sbrakePositionROSD.empty();    
+    sbrakePositionROSD.empty();
     sbrakeRate = org.sbrakeRate;
 }
-
-EMPTY_DELETEDATA(TestSpeedBrake)
-
 
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
@@ -41,7 +38,7 @@ EMPTY_DELETEDATA(TestSpeedBrake)
 void TestSpeedBrake::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     // Each time update data is called, we are just incrementing our speedbrake position
     sbrakePosition += (sbrakeRate * dt);
     if (sbrakePosition > 60) {

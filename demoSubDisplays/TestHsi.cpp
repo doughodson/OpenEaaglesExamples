@@ -3,8 +3,9 @@
 namespace Eaagles {
 namespace Demo  {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestHsi,"TestHsi")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestHsi, "TestHsi")
 EMPTY_SERIALIZER(TestHsi)
+EMPTY_DELETEDATA(TestHsi)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -12,14 +13,13 @@ EMPTY_SERIALIZER(TestHsi)
 TestHsi::TestHsi()
 {
     STANDARD_CONSTRUCTOR()
-    heading = 0;
+    heading = 0.0;
     headingSD.empty();
-    headingRate = 20;
+    headingRate = 20.0;
     headingROSD.empty();
-    dme = 0;
+    dme = 0.0;
     dmeROSD.empty();
 }
-
 
 //------------------------------------------------------------------------------
 // copyData()
@@ -35,16 +35,13 @@ void TestHsi::copyData(const TestHsi& org, const bool)
     dmeROSD.empty();
 }
 
-EMPTY_DELETEDATA(TestHsi)
-
-
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
 void TestHsi::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     heading += (headingRate * dt);
     if (heading > 360) {
         heading = 360;
@@ -54,10 +51,10 @@ void TestHsi::updateData(const LCreal dt)
         heading = 0;
         headingRate = -headingRate;
     }
-    
+
     dme += dt;
     if (dme > 100) dme = 0;
-                
+
     send("hsi", UPDATE_VALUE6, heading, headingSD);
     send("hsiRO", UPDATE_VALUE, heading, headingROSD);
     send("dmeRO", UPDATE_VALUE, dme, dmeROSD);

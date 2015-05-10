@@ -24,10 +24,10 @@ public:
     bool event(const int event, Basic::Object* const obj = nullptr) override;
 
     // set methods
-    virtual bool setIsAlt(const bool newIsAlt) { isAlt = newIsAlt; return true; }
+    virtual bool setIsAlt(const bool newIsAlt)          { isAlt = newIsAlt; return true; }
 
     // get methods
-    bool isAltSelected()    { return isAlt; }
+    bool isAltSelected()                                { return isAlt; }
 
 protected:
     bool setSlotIsAlt(const Basic::Number* newIsAlt);

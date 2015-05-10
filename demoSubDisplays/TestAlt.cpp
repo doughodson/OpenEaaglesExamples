@@ -3,8 +3,9 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAlt,"TestAlt")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAlt, "TestAlt")
 EMPTY_SERIALIZER(TestAlt)
+EMPTY_DELETEDATA(TestAlt)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -13,9 +14,9 @@ TestAlt::TestAlt()
 {
     STANDARD_CONSTRUCTOR()
     // altitude (feet)
-    alt = 0;
+    alt = 0.0;
     altSD.empty();
-    altRate = 500;
+    altRate = 500.0;
     altROSD.empty();
 }
 
@@ -31,15 +32,13 @@ void TestAlt::copyData(const TestAlt& org, const bool)
     altROSD.empty();
 }
 
-EMPTY_DELETEDATA(TestAlt)
-
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
 void TestAlt::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     alt += (altRate * dt);
     if (alt > 65000) {
         alt = 65000;
@@ -50,7 +49,7 @@ void TestAlt::updateData(const LCreal dt)
         altRate = -altRate;
     }
 
-    // send the data down          
+    // send the data down
     send("alt", UPDATE_INSTRUMENTS, alt, altSD);
     send("altRO", UPDATE_VALUE, alt, altROSD);
 }

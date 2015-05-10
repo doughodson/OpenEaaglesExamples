@@ -364,14 +364,12 @@ void TestMechanical::updateData(const LCreal dt)
     send("rwpointer", UPDATE_INSTRUMENTS, locDots, locDotsSD);
     send("rwpointervert", UPDATE_INSTRUMENTS, rAlt, rAltSD);
 
-
     // send our speed dots down
     send("speeddots", UPDATE_INSTRUMENTS, speedDots, speedDotsSD);
 
     // Roll indicator
     // we have to roll negative in order to keep with the adi
     send("rollind", UPDATE_VALUE, -static_cast<float>(roll * Basic::Angle::D2RCC), rollIndSD);
-
 
     // send our visibility data down (for failure flags)
     send("rtfail", SET_VISIBILITY, rtFail, rtFailSD);
