@@ -29,7 +29,7 @@ namespace Demo {
 const int frameRate = 20;
 
 // System descriptions
-static class Glut::GlutDisplay* glutDisplay = 0;
+static class Glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff)
 static void timerFunc(int)
