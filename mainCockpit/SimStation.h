@@ -7,9 +7,10 @@
 #include "openeaagles/simulation/Station.h"
 
 namespace Eaagles {
-   namespace Basic { class Table1; }
-   namespace Glut  { class GlutDisplay; }
-   namespace Simulation { class AirVehicle; }
+
+namespace Basic { class Table1; }
+namespace Glut  { class GlutDisplay; }
+namespace Simulation { class AirVehicle; }
 
 namespace Example {
 
@@ -40,8 +41,8 @@ public:
    virtual bool setSlotMainDisplay(Glut::GlutDisplay* const d);
    virtual bool setSlotAutoResetTime(const Basic::Time* const num);     // Sets the auto RESET timer
 
-   void updateTC(const LCreal dt = 0.0f) override;
-   void updateData(const LCreal dt = 0.0f) override;
+   void updateTC(const LCreal dt = 0.0) override;
+   void updateData(const LCreal dt = 0.0) override;
    void reset() override;
 
 private:

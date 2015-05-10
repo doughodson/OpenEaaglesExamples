@@ -3,7 +3,7 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngineDial,"TestEngineDial")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngineDial, "TestEngineDial")
 EMPTY_SERIALIZER(TestEngineDial)
 
 //------------------------------------------------------------------------------
@@ -12,9 +12,9 @@ EMPTY_SERIALIZER(TestEngineDial)
 TestEngineDial::TestEngineDial()
 {
     STANDARD_CONSTRUCTOR()
-    engineRotation = 0;
+    engineRotation = 0.0;
     engineRotationSD.empty();
-    engineRate = 10;
+    engineRate = 10.0;
     engineReadoutSD.empty();
 }
 
@@ -39,7 +39,7 @@ EMPTY_DELETEDATA(TestEngineDial)
 void TestEngineDial::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     engineRotation += (engineRate * dt);
     if (engineRotation > 120) {
         engineRotation = 120;
@@ -49,7 +49,7 @@ void TestEngineDial::updateData(const LCreal dt)
         engineRotation = 0;
         engineRate = -engineRate;
     }
-                      
+
     // send the data down to our instruments and readouts
     send("enginedial", UPDATE_INSTRUMENTS, engineRotation, engineRotationSD);
     send("enginereadout", UPDATE_VALUE, engineRotation, engineReadoutSD);

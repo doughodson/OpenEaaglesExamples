@@ -8,6 +8,8 @@
 #include "ZeroMQContext.h"
 #include "ZeroMQHandler.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace xZeroMQHandlers {
 
@@ -16,12 +18,12 @@ Factory::Factory()
 
 Basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
-    if (strcmp (name, ZeroMQContext::getFactoryName ()) == 0) {
+    if (std::strcmp (name, ZeroMQContext::getFactoryName ()) == 0) {
         obj = new ZeroMQContext;
     }
-    else if (strcmp (name, ZeroMQHandler::getFactoryName ()) == 0) {
+    else if (std::strcmp (name, ZeroMQHandler::getFactoryName ()) == 0) {
         obj = new ZeroMQHandler;
     }
 

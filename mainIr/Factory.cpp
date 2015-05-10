@@ -29,7 +29,7 @@ Factory::Factory()
 
 Basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
    if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
       obj = new TestStation;
@@ -41,14 +41,14 @@ Basic::Object* Factory::createObj(const char* name)
       obj = new TestComputer;
    }
 
-   if (obj == 0) obj = Otw::Factory::createObj(name);
-   if (obj == 0) obj = Simulation::Factory::createObj(name);
-   if (obj == 0) obj = Sensor::Factory::createObj(name);
-   if (obj == 0) obj = Network::Dis::Factory::createObj(name);
-   if (obj == 0) obj = Instruments::Factory::createObj(name);
-   if (obj == 0) obj = BasicGL::Factory::createObj(name);
-   if (obj == 0) obj = Glut::Factory::createObj(name);
-   if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = Otw::Factory::createObj(name);
+   if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = Network::Dis::Factory::createObj(name);
+   if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+   if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+   if (obj == nullptr) obj = Glut::Factory::createObj(name);
+   if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
     return obj;
 }

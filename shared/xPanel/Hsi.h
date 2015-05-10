@@ -43,7 +43,7 @@ public:
     LCreal getToFrom()  { return toFrom; }
 
     void updateData(const LCreal dt = 0.0) override;
-    bool event(const int event, Basic::Object* const obj = 0) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
 
 private:
     // event functions

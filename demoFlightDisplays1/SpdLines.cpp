@@ -14,7 +14,7 @@ EMPTY_SERIALIZER(SpdLines)
 BEGIN_SLOTTABLE(SpdLines)
     "isAlt",              // draw for the altitude scale (instead of making a new class)
     "isBackground",       // do we draw the background?
-END_SLOTTABLE(SpdLines)       
+END_SLOTTABLE(SpdLines)
 
 //------------------------------------------------------------------------------
 //  Map slot table to handles for Analog Dial
@@ -53,15 +53,15 @@ void SpdLines::deleteData()
 }
 
 // Set functions
-bool SpdLines::setIsAlt(const bool newIsAlt) 
-{ 
-    isAlt = newIsAlt; 
-    return true; 
+bool SpdLines::setIsAlt(const bool newIsAlt)
+{
+    isAlt = newIsAlt;
+    return true;
 }
-bool SpdLines::setDrawBack(const bool newDB) 
-{ 
-    drawBack = newDB; 
-    return true; 
+bool SpdLines::setDrawBack(const bool newDB)
+{
+    drawBack = newDB;
+    return true;
 }
 
 
@@ -69,12 +69,12 @@ bool SpdLines::setDrawBack(const bool newDB)
 // drawFunc() - draw our objects
 //------------------------------------------------------------------------------
 void SpdLines::drawFunc()
-{    
+{
     GLfloat ocolor[4];
     GLfloat lw;
     glGetFloatv(GL_CURRENT_COLOR, ocolor);
     glGetFloatv(GL_LINE_WIDTH, &lw);
-    
+
     BEGIN_DLIST
 
         if (!isAlt) {
@@ -85,26 +85,26 @@ void SpdLines::drawFunc()
             for (int i = 0; i < 51; i++) {
                 glPushMatrix();
                     glBegin(GL_LINES);
-                        lcVertex2(0.6f, startPoint);
-                        lcVertex2(0.48f, startPoint);
+                        lcVertex2(0.6, startPoint);
+                        lcVertex2(0.48, startPoint);
                     glEnd();
                 glPopMatrix();
                 // move up to the next line
-                startPoint += 0.9f;
+                startPoint += 0.9;
             }
             // now draw the small lines
-            startPoint = 0.45f;
+            startPoint = 0.45;
             for (int i = 0; i < 50; i++) {
                 glPushMatrix();
                     glBegin(GL_LINES);
-                        lcVertex2(0.6f, startPoint);
-                        lcVertex2(0.52f, startPoint);
+                        lcVertex2(0.6, startPoint);
+                        lcVertex2(0.52, startPoint);
                     glEnd();
                 glPopMatrix();
                 // move up to the next line
-                startPoint += 0.9f;
+                startPoint += 0.9;
             }
-            
+
             if (drawBack) {
                 glLineWidth(1);
                 glColor3f(0, 0, 0);
@@ -113,8 +113,8 @@ void SpdLines::drawFunc()
                     glBegin(GL_POLYGON);
                         glVertex2f(0, 15);
                         glVertex2f(0, -15);
-                        glVertex2f(0.6f, -15);
-                        glVertex2f(0.6f, 15);
+                        glVertex2f(0.6, -15);
+                        glVertex2f(0.6, 15);
                     glEnd();
                 glPopMatrix();
             }
@@ -129,23 +129,23 @@ void SpdLines::drawFunc()
                 glPushMatrix();
                     glBegin(GL_LINES);
                         lcVertex2(0, startPoint);
-                        lcVertex2(0.12f, startPoint);
+                        lcVertex2(0.12, startPoint);
                     glEnd();
                 glPopMatrix();
                 // move up to the next line
-                startPoint += 0.9f;
+                startPoint += 0.9;
             }
             // now draw the small lines
-            startPoint = 0.45f;
+            startPoint = 0.45;
             for (int i = 0; i < 280; i++) {
                 glPushMatrix();
                     glBegin(GL_LINES);
                         lcVertex2(0, startPoint);
-                        lcVertex2(0.08f, startPoint);
+                        lcVertex2(0.08, startPoint);
                     glEnd();
                 glPopMatrix();
                 // move up to the next line
-                startPoint += 0.9f;
+                startPoint += 0.9;
             }
 
             if (drawBack) {
@@ -162,9 +162,9 @@ void SpdLines::drawFunc()
                     glEnd();
                 glPopMatrix();
             }
-        }        
-    END_DLIST  
-      
+        }
+    END_DLIST
+
     glColor4fv(ocolor);
     glLineWidth(lw);
 }
@@ -176,7 +176,7 @@ void SpdLines::drawFunc()
 bool SpdLines::setSlotIsAlt(const Basic::Number* const newAltFlag)
 {
     bool ok = false;
-    if (newAltFlag != 0) ok = setIsAlt(newAltFlag->getBoolean());
+    if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
     return ok;
 }
 
@@ -186,12 +186,12 @@ bool SpdLines::setSlotIsAlt(const Basic::Number* const newAltFlag)
 bool SpdLines::setSlotDrawBack(const Basic::Number* const newDB)
 {
     bool ok = false;
-    if (newDB != 0) ok = setDrawBack(newDB->getBoolean());
+    if (newDB != nullptr) ok = setDrawBack(newDB->getBoolean());
     return ok;
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 Basic::Object* SpdLines::getSlotByIndex(const int si)
 {

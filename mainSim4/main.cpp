@@ -29,7 +29,7 @@ namespace Example {
 // frame rate
 const int frameRate = 20;
 
-static class Station* station = 0;
+static class Station* station = nullptr;
 
 // timer function, in this case, the background (updateData) function
 static void timerFunc(int)
@@ -56,7 +56,7 @@ static void timerFunc(int)
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
     if (std::strcmp(name, MapPage::getFactoryName()) == 0) {
         obj = new MapPage();
@@ -69,17 +69,17 @@ static Basic::Object* factory(const char* name)
     }
 
     // example libraries
-    if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
     // framework libraries
-    if (obj == 0) obj = Otw::Factory::createObj(name);
-    if (obj == 0) obj = Instruments::Factory::createObj(name);
-    if (obj == 0) obj = Simulation::Factory::createObj(name);
-    if (obj == 0) obj = Network::Dis::Factory::createObj(name);
-    if (obj == 0) obj = BasicGL::Factory::createObj(name);
-    if (obj == 0) obj = Glut::Factory::createObj(name);
-    if (obj == 0) obj = Basic::Factory::createObj(name);
-    
+    if (obj == nullptr) obj = Otw::Factory::createObj(name);
+    if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = Network::Dis::Factory::createObj(name);
+    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+    if (obj == nullptr) obj = Glut::Factory::createObj(name);
+    if (obj == nullptr) obj = Basic::Factory::createObj(name);
+
     return obj;
 }
 
@@ -95,14 +95,14 @@ static Station* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -110,7 +110,7 @@ static Station* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Station* station = dynamic_cast<Station*>(obj);
-   if (station == 0) {
+   if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

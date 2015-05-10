@@ -13,7 +13,7 @@ namespace Demo {
 
 class TestAlt : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestAlt,BasicGL::Page)
+   DECLARE_SUBCLASS(TestAlt, BasicGL::Page)
 
 public:
     TestAlt();

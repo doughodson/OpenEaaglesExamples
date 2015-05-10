@@ -6,8 +6,9 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi2,"TestAdi2")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi2, "TestAdi2")
 EMPTY_SERIALIZER(TestAdi2)
+EMPTY_DELETEDATA(TestAdi2)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -15,34 +16,33 @@ EMPTY_SERIALIZER(TestAdi2)
 TestAdi2::TestAdi2()
 {
     STANDARD_CONSTRUCTOR()
-    pitch = 0;
+    pitch = 0.0;
     pitchSD.empty();
-    pitchRate = 15;
-    roll = 0;
+    pitchRate = 15.0;
+    roll = 0.0;
     rollSD.empty();
     rollBASD.empty();
-    rollRate = 10;
-    slip = 0;
+    rollRate = 10.0;
+    slip = 0.0;
     slipSD.empty();
-    slipRate = 5;
-    calAS = 0;
-    calASRate = 20;
+    slipRate = 5.0;
+    calAS = 0.0;
+    calASRate = 20.0;
     calASSD.empty();
-    alt = 0;
-    altRate = 100;
+    alt = 0.0;
+    altRate = 100.0;
     altSD.empty();
-    mag = 0;
-    magRate = 15;
+    mag = 0.0;
+    magRate = 15.0;
     magSD.empty();
-    cdmX = 0;
-    cdmY = 0;
+    cdmX = 0.0;
+    cdmY = 0.0;
     cdmXSD.empty();
     cdmYSD.empty();
     cdmRollSD.empty();
     ghostPitchSD.empty();
     ghostRollSD.empty();
 }
-
 
 //------------------------------------------------------------------------------
 // copyData()
@@ -78,16 +78,13 @@ void TestAdi2::copyData(const TestAdi2& org, const bool)
     ghostRollSD.empty();
 }
 
-EMPTY_DELETEDATA(TestAdi2)
-
-
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
 void TestAdi2::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     // pitch
     pitch += (pitchRate * dt);
     if (pitch > 90) {
@@ -118,7 +115,7 @@ void TestAdi2::updateData(const LCreal dt)
         slip = -20;
         slipRate = -slipRate;
     }
-        
+
     // airspeed
     calAS += (calASRate * dt);
     if (calAS > 999 || calAS < 0) calASRate = -calASRate;
@@ -148,31 +145,29 @@ void TestAdi2::updateData(const LCreal dt)
     //    cdmY = -2;
     //    cdmYRate = -cdmYRate;
     //}
-    
+
 
     // we'll assume an aoa of 2.5degress
     LCreal aoaRad = static_cast<LCreal>(5.0 * Basic::Angle::D2RCC);
     LCreal rollRad = static_cast<LCreal>(roll * Basic::Angle::D2RCC);
     LCreal tempAoaDiff = aoaRad * lcCos(rollRad);
-        
+
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;
-    
+
     // determine exact positioning of our Climb dive
     cdmX = tempAoaDiff * std::sin(rollRad);
     cdmY = -tempAoaDiff * std::cos(rollRad);
-        
+
     //std::cout << "FPM Y = " << fpmY << std::endl;
-    // convert to screen coordinates 
-    
-    
+    // convert to screen coordinates
+
     LCreal ratio = 20/(PI/2);
     //LCreal myTest = (aoaRad * lcCos(rollRad)) * ratio;
-    
+
     cdmX *= ratio;
     cdmY *= ratio;
 
-    
 
     // send our data down (including pitch and roll)
     send("mfdadi", UPDATE_INSTRUMENTS, pitch, pitchSD);
@@ -185,7 +180,7 @@ void TestAdi2::updateData(const LCreal dt)
     //
     //
     send("sideslip", UPDATE_INSTRUMENTS, -(slip + roll), slipSD);
-    send("calibratedreadout", UPDATE_VALUE, calAS, calASSD); 
+    send("calibratedreadout", UPDATE_VALUE, calAS, calASSD);
     send("altreadout", UPDATE_VALUE, alt, altSD);
     send("magreadout", UPDATE_VALUE, mag, magSD);
     send("bankangle", UPDATE_INSTRUMENTS, -roll, rollBASD);

@@ -12,7 +12,7 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
-                            
+
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
@@ -20,25 +20,25 @@ Pfd::Pfd()
 {
     STANDARD_CONSTRUCTOR()
     // pitch and roll
-    pitch = 0;
+    pitch = 0.0;
     pitchSD.empty();
-    roll = 0;
+    roll = 0.0;
     rollSD.empty();
     // bank angle
     baSD.empty();
-    bascaleSD.empty();  
+    bascaleSD.empty();
     // heading and nav stuff
-    trueHdg = 0;  
+    trueHdg = 0.0;
     tHdgSD.empty();
-    cmdHdg = 0;
+    cmdHdg = 0.0;
     cmdHdgROSD.empty();
     // airspeed
-    airSpd = 100;
+    airSpd = 100.0;
     airSpdTpSD.empty();
     onesSD.empty();
     spdRstSD.empty();
     // altitude
-    alt = 1000;
+    alt = 1000.0;
     altSD.empty();
     alt1SD.empty();
     alt2SD.empty();
@@ -47,46 +47,46 @@ Pfd::Pfd()
     altTensSD.empty();
     altSelectSD.empty();
     // side slip
-    
-    slip = 0;
+
+    slip = 0.0;
     slipSD.empty();
     // glideslope
-    gSlope = 0;
+    gSlope = 0.0;
     gSlopeSD.empty();
     // lateral deviation
-    latDev = 0;
+    latDev = 0.0;
     latDevSD.empty();
     // commanded speed
-    cmdSpd = 0;
+    cmdSpd = 0.0;
     aBugSD.empty();
     diffSD.empty();
     // commanded alt
-    cmdAlt = 5000;
+    cmdAlt = 5000.0;
     altBugSD.empty();
     altDiffSD.empty();
     // vvi
-    vvi = 0;
+    vvi = 0.0;
     vviSD.empty();
     vviROSD.empty();
     // flight director (command bars)
-    fDirBank = 0;
+    fDirBank = 0.0;
     fDirBankSD.empty();
-    fDirPitch = 0;
+    fDirPitch = 0.0;
     fDirPitchSD.empty();
     // selected barometric pressure
-    baro = 0;
+    baro = 0.0;
     baroSD.empty();
     // Hsi send data
     trueHdgSD.empty();
     cmdHdgSD.empty();
     // lat and lon
-    refLat = 0;
-    refLon = 0;
-    range = 0;
+    refLat = 0.0;
+    refLon = 0.0;
+    range = 0.0;
     // Gs
-    gLoad = 0;
+    gLoad = 0.0;
     // mach
-    mach = 0;
+    mach = 0.0;
     //// altitude (meters)
     mAltSD.empty();
     cmdMAltSD.empty();
@@ -148,7 +148,7 @@ bool Pfd::setPitchRad(const LCreal newP)
 }
 
 bool Pfd::setRollDeg(const LCreal newR)
-{ 
+{
     roll = newR;
     return true;
 }
@@ -252,7 +252,7 @@ bool Pfd::setBaroPress(const LCreal newBOP)
 }
 
 bool Pfd::setMach(const LCreal x)
-{ 
+{
     mach = x;
     return true;
 }
@@ -285,25 +285,25 @@ void Pfd::updateData(const LCreal dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
-    
+
     // find the last digit for the readout tape
     LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
-    int rest = static_cast<int>(airSpd / 10.0f);
-    
+    int rest = static_cast<int>(airSpd / 10.0);
+
     LCreal diff = airSpd - cmdSpd;
-    
+
     LCreal altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
     LCreal altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
     int altRest = static_cast<int>(alt/99.9999);
-        
+
     // all the sends are here
     // hsi
     send("cmdhdg", UPDATE_VALUE, cmdHdg, cmdHdgROSD);
-    send("hsi", UPDATE_VALUE6, trueHdg, trueHdgSD);   
+    send("hsi", UPDATE_VALUE6, trueHdg, trueHdgSD);
     send("selhdg", UPDATE_VALUE6, -cmdHdg, cmdHdgSD);
     send("spdtape", UPDATE_INSTRUMENTS, ones, onesSD);
     send("spdrest", UPDATE_VALUE, rest, spdRstSD);
@@ -326,13 +326,13 @@ void Pfd::updateData(const LCreal dt)
         send("altrest3", UPDATE_VALUE, altRest, alt3SD);
     }
     // gslope
-    send("glideslope", UPDATE_INSTRUMENTS, gSlope, gSlopeSD);    
+    send("glideslope", UPDATE_INSTRUMENTS, gSlope, gSlopeSD);
     send("alttens", UPDATE_INSTRUMENTS, altTens, altTensSD);
     send("alttape", UPDATE_INSTRUMENTS, alt, altTpSD);
     send("altbug", UPDATE_INSTRUMENTS, altDiff, altDiffSD);
     send("cmdalt", UPDATE_VALUE, cmdAlt, altBugSD);
     send("spdbug", UPDATE_INSTRUMENTS, diff, diffSD);
-    send("cmdspd", UPDATE_VALUE, cmdSpd, aBugSD);    
+    send("cmdspd", UPDATE_VALUE, cmdSpd, aBugSD);
     // actual airspeed tape, not just the readout
     send("airspd", UPDATE_INSTRUMENTS, airSpd, airSpdTpSD);
     // send our pitch(1) and roll(2) to our adi
@@ -342,11 +342,11 @@ void Pfd::updateData(const LCreal dt)
     send("bankscale", UPDATE_INSTRUMENTS, roll, bascaleSD);
     // send our bank angle the roll
     send("bankangle", UPDATE_INSTRUMENTS, -roll, baSD);
-    // sideslip 
-    send("sideslip", UPDATE_INSTRUMENTS, slip, slipSD);   
+    // sideslip
+    send("sideslip", UPDATE_INSTRUMENTS, slip, slipSD);
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
-    // convert alt to meters and send it to our meters readout    
+    // convert alt to meters and send it to our meters readout
     int mAlt = static_cast<int>(Basic::Distance::FeetToMeters(alt));
     LCreal mAltBug = Basic::Distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);

@@ -16,6 +16,7 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCompass,"TestCompass")
 EMPTY_SERIALIZER(TestCompass)
+EMPTY_DELETEDATA(TestCompass)
 
 // Test event handler
 BEGIN_EVENT_HANDLER(TestCompass)
@@ -31,7 +32,7 @@ static const char* navNames[TestCompass::MAX_NAV_AIDS] = {
     "VOR1", "VTC1", "TCN1", "VDE1",
     "VOR2", "VTC2", "TCN2", "VDE2",
 };
-         
+
 // airport names
 static const char* apNames[TestCompass::MAX_AIRPORTS] = {
     "AP1", "AP2", "AP3", "AP4",
@@ -44,23 +45,23 @@ static const char* apNames[TestCompass::MAX_AIRPORTS] = {
 TestCompass::TestCompass()
 {
     STANDARD_CONSTRUCTOR()
-    heading = 0;
+    heading = 0.0;
     headingSD.empty();
     headingCRSD.empty();
     isCenteredCRSD.empty();
-    headingRate = 10;
+    headingRate = 10.0;
     headingROSD.empty();
-    bearing = 0;
+    bearing = 0.0;
     bearingBRGSD.empty();
     bearingROSD.empty();
-    bearingRate = 0.4f;
-    range = 10;
+    bearingRate = 0.4;
+    range = 10.0;
     rangeSD.empty();
     rangeROSD.empty();
     centered = true;
     headingBRGSD.empty();
     isCenteredBRGSD.empty();
-    
+
     // initialize our air tracks to test data
     {
         double trkX = 0.0;
@@ -149,15 +150,12 @@ void TestCompass::copyData(const TestCompass& org, const bool)
     rangeROSD.empty();
     centered = org.centered;
     headingCRSD.empty();
-    isCenteredCRSD.empty();    
+    isCenteredCRSD.empty();
     navAidsLoaded = org.navAidsLoaded;
     airportsLoaded = org.airportsLoaded;
     headingBRGSD.empty();
     isCenteredBRGSD.empty();
 }
-
-EMPTY_DELETEDATA(TestCompass)
-
 
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
@@ -165,75 +163,75 @@ EMPTY_DELETEDATA(TestCompass)
 void TestCompass::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     heading += (headingRate * dt);
     if (heading > 360 || heading < 0) headingRate = -headingRate;
     bearing += (bearingRate * dt);
     if (bearing > 6.28 || bearing < 0) bearingRate = -bearingRate;
 
     // Load test tracks (once) - load the default (0)
-    if (!tracksLoaded) { 
+    if (!tracksLoaded) {
         Basic::Pair* pair = findByName("airTracks");
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (myLoader != 0) {
+            if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_TRACKS; i++) {
                     int idx = myLoader->addSymbol(myTracks[i].type, myTracks[i].id);
                     myLoader->updateSymbolPositionXY(idx, myTracks[i].x, myTracks[i].y);
                     myLoader->updateSymbolHeading(idx, myTracks[i].hdg);
-                    //std::cout << "added track: " << myTracks[i].x << ", " <<  myTracks[i].y<< ", " <<  myTracks[i].hdg  << ", " <<  myTracks[i].type << ", " << myTracks[i].id << std::endl; 
+                    //std::cout << "added track: " << myTracks[i].x << ", " <<  myTracks[i].y<< ", " <<  myTracks[i].hdg  << ", " <<  myTracks[i].type << ", " << myTracks[i].id << std::endl;
                 }
             }
             pair->unref();
-        }        
+        }
         tracksLoaded = true;
     }
 
     // Load test airports (once)
-    if (!airportsLoaded) { 
+    if (!airportsLoaded) {
         Basic::Pair* pair = findByName("airports");
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (myLoader != 0) {
+            if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_AIRPORTS; i++) {
                     int idx = myLoader->addSymbol(myAP[i].type, myAP[i].id);
                     myLoader->updateSymbolPositionLL(idx, myAP[i].x, myAP[i].y);
                     myLoader->updateSymbolText(idx, "name", myAP[i].id);
-                    //std::cout << "added airport: " << myAP[i].x << ", " <<  myAP[i].y << ", " <<  myAP[i].type << ", " << myAP[i].id << std::endl; 
+                    //std::cout << "added airport: " << myAP[i].x << ", " <<  myAP[i].y << ", " <<  myAP[i].type << ", " << myAP[i].id << std::endl;
                 }
             }
             pair->unref();
-        }        
+        }
         airportsLoaded = true;
     }
 
     // Load test navaids (once)
-    if (!navAidsLoaded) { 
+    if (!navAidsLoaded) {
         Basic::Pair* pair = findByName("navaids");
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (myLoader != 0) {
+            if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_NAV_AIDS; i++) {
                     int idx = myLoader->addSymbol(myNA[i].type, myNA[i].id);
                     myLoader->updateSymbolPositionLL(idx, myNA[i].x, myNA[i].y);
                     myLoader->updateSymbolText(idx, "name", myNA[i].id);
-                    //std::cout << "added navaid: " << myNA[i].x << ", " <<  myNA[i].y << ", " <<  myNA[i].type << ", " << myNA[i].id << std::endl; 
+                    //std::cout << "added navaid: " << myNA[i].x << ", " <<  myNA[i].y << ", " <<  myNA[i].type << ", " << myNA[i].id << std::endl;
                 }
             }
             pair->unref();
-        }        
+        }
         navAidsLoaded = true;
-    }    
-    
+    }
+
     // send our data down to our map page parent, who will update the rest of the map pages
     // UPDATE_VALUE = range, UPDATE_VALUE2 = heading, UPDATE_VALUE3 = centered
     send("mappage", UPDATE_VALUE, range, rangeSD);
     send("mappage", UPDATE_VALUE2, heading, headingSD);
     send("mappage", UPDATE_VALUE5, centered, centeredSD);
-        
+
     // send our bearing and compass rose the same values
     send("bearing", UPDATE_VALUE7, bearing, bearingBRGSD);
     send("bearing", UPDATE_VALUE6, centered, isCenteredBRGSD);
@@ -241,7 +239,7 @@ void TestCompass::updateData(const LCreal dt)
     // send our data down to our compass rose, if we have one
     send("compassrose", UPDATE_VALUE, heading, headingCRSD);
     send("compassrose", UPDATE_VALUE6, centered, isCenteredCRSD);
-    
+
     // here is the compass rose display readouts
     send("compassRO", UPDATE_VALUE, heading, headingROSD);
 //    send("bearingRO", UPDATE_VALUE, bearing * Basic::Angle::R2DCC, bearingROSD);

@@ -13,7 +13,7 @@ namespace Demo {
 
 class TestAdi : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestAdi, BasicGL::Page)
+   DECLARE_SUBCLASS(TestAdi, BasicGL::Page)
 
 public:
     TestAdi();
@@ -36,3 +36,4 @@ private:
 } // end of Eaagles namespace
 
 #endif
+

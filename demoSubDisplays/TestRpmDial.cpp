@@ -3,8 +3,9 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRpmDial,"TestRpmDial")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRpmDial, "TestRpmDial")
 EMPTY_SERIALIZER(TestRpmDial)
+EMPTY_DELETEDATA(TestRpmDial)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -12,12 +13,11 @@ EMPTY_SERIALIZER(TestRpmDial)
 TestRpmDial::TestRpmDial()
 {
     STANDARD_CONSTRUCTOR()
-    rpm = 0;
-    rpmRate = 5;
+    rpm = 0.0;
+    rpmRate = 5.0;
     rpmSD.empty();
     rpmROSD.empty();
 }
-
 
 //------------------------------------------------------------------------------
 // copyData()
@@ -31,16 +31,13 @@ void TestRpmDial::copyData(const TestRpmDial& org, const bool)
     rpmROSD.empty();
 }
 
-EMPTY_DELETEDATA(TestRpmDial)
-
-
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
 void TestRpmDial::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     rpm += (rpmRate * dt);
     if (rpm > 110) {
         rpm = 110;
@@ -50,9 +47,9 @@ void TestRpmDial::updateData(const LCreal dt)
         rpm = 0;
         rpmRate = -rpmRate;
     }
-     
+
     //rpm = 100;
-                       
+
     send("rpm", UPDATE_INSTRUMENTS, rpm, rpmSD);
     send("rpmRO", UPDATE_VALUE, rpm, rpmROSD);
 }

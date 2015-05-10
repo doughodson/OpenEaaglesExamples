@@ -18,7 +18,7 @@ namespace Example {
 // default background frame rate
 static const int BG_RATE = 10;
 
-static Simulation::Station* station = 0;
+static Simulation::Station* station = nullptr;
 
 // station builder
 static Simulation::Station* builder(const char* const filename)
@@ -32,14 +32,14 @@ static Simulation::Station* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -47,7 +47,7 @@ static Simulation::Station* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
-   if (station == 0) {
+   if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
    station->event(Basic::Component::RESET_EVENT);
 
    // set timer for the background tasks
-   double dt = 1.0/static_cast<double>(BG_RATE);
+   double dt = 1.0 / static_cast<double>(BG_RATE);
    int msecs = static_cast<int>(dt * 1000);
 
    // ensure everything is reset

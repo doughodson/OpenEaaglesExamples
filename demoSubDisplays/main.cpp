@@ -45,12 +45,12 @@ namespace Demo {
 // frame rate
 const int frameRate = 20;
 
-static class Glut::GlutDisplay* glutDisplay = 0;
+static class Glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff
 static void timerFunc(int)
 {
-   LCreal dt = 1.0f/static_cast<LCreal>(frameRate);
+   LCreal dt = 1.0 / static_cast<LCreal>(frameRate);
 
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
@@ -63,7 +63,7 @@ static void timerFunc(int)
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
    // speed brake page
    if ( std::strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
@@ -142,10 +142,10 @@ static Basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == 0) obj = Instruments::Factory::createObj(name);
-      if (obj == 0) obj = BasicGL::Factory::createObj(name);
-      if (obj == 0) obj = Glut::Factory::createObj(name);
-      if (obj == 0) obj = Basic::Factory::createObj(name);
+      if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+      if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+      if (obj == nullptr) obj = Glut::Factory::createObj(name);
+      if (obj == nullptr) obj = Basic::Factory::createObj(name);
    }
 
    return obj;
@@ -163,14 +163,14 @@ static Glut::GlutDisplay* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -178,7 +178,7 @@ static Glut::GlutDisplay* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Glut::GlutDisplay* glutDisplay = dynamic_cast<Glut::GlutDisplay*>(obj);
-   if (glutDisplay == 0) {
+   if (glutDisplay == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -197,7 +197,7 @@ int main(int argc, char* argv[])
    glutDisplay->createWindow();
 
    // set timer
-   double dt = 1.0/static_cast<double>(frameRate);
+   double dt = 1.0 / static_cast<double>(frameRate);
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 

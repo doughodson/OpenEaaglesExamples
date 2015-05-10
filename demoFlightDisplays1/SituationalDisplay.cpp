@@ -22,24 +22,24 @@ SituationalDisplay::SituationalDisplay()
 {
     STANDARD_CONSTRUCTOR()
 
-    refLat = 0;
-    refLon = 0;
-    heading = 0;
+    refLat = 0.0;
+    refLon = 0.0;
+    heading = 0.0;
     headingSD.empty();
-    range = 80;
+    range = 80.0;
     rangeSD.empty();
     // navaid 1
-    nav1Brg = 0;
-    nav1Dme = 0; 
+    nav1Brg = 0.0;
+    nav1Dme = 0.0;
     nav1Id[0] = ' ';
     nav1Id[1] = '\0';
     nav1BrgROSD.empty();
     nav1BrgSD.empty();
     nav1DmeSD.empty();
     nav1IdSD.empty();
-    // navaid 2 
-    nav2Brg = 0;
-    nav2Dme = 0; 
+    // navaid 2
+    nav2Brg = 0.0;
+    nav2Dme = 0.0;
     nav2Id[0] = ' ';
     nav2Id[1] = '\0';
     nav2BrgROSD.empty();
@@ -47,13 +47,13 @@ SituationalDisplay::SituationalDisplay()
     nav2DmeSD.empty();
     nav2IdSD.empty();
     // orbit range
-    orbRange = 5;
+    orbRange = 5.0;
     // heading
-    hdgBug = 0;
+    hdgBug = 0.0;
     hdgBugSD.empty();
     hdgBugROSD.empty();
     // plane alt
-    planeAlt = 1000;
+    planeAlt = 1000.0;
     planeAltSD.empty();
     // map page
     headingROSD.empty();
@@ -81,7 +81,7 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     range = org.range;
     rangeSD.empty();
     orbRange = org.orbRange;
-    // navaid 1   
+    // navaid 1
     nav1Brg = org.nav1Brg;
     nav1Dme = org.nav1Dme;
     std::strncpy(nav1Id, org.nav1Id, NCHAR_NAV1_ID);
@@ -89,7 +89,7 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     nav1BrgSD.empty();
     nav1DmeSD.empty();
     nav1IdSD.empty();
-    // navaid 2 
+    // navaid 2
     nav2Brg = org.nav2Brg;
     nav2Dme = org.nav2Dme;
     std::strncpy(nav2Id, org.nav2Id, NCHAR_NAV2_ID);
@@ -111,8 +111,8 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     rangeSD.empty();
     refLatSD.empty();
     refLonSD.empty();
-    centeredSD.empty();    
-    headingCRSD.empty();       
+    centeredSD.empty();
+    headingCRSD.empty();
 }
 
 //------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ bool SituationalDisplay::setNav1Dme(const LCreal newDME)
 bool SituationalDisplay::setNav1Id(const char* const newId)
 {
     bool ok = false;
-    if (newId != 0) {
+    if (newId != nullptr) {
         std::strncpy(nav1Id,newId,NCHAR_NAV1_ID);
         nav1Id[NCHAR_NAV1_ID] = '\0';
         ok = true;
@@ -188,7 +188,7 @@ bool SituationalDisplay::setNav2Dme(const LCreal newDME)
 bool SituationalDisplay::setNav2Id(const char* const newId)
 {
     bool ok = false;
-    if (newId != 0) {
+    if (newId != nullptr) {
         std::strncpy(nav2Id, newId, NCHAR_NAV2_ID);
         nav2Id[NCHAR_NAV2_ID] = '\0';
         ok = true;
@@ -200,7 +200,7 @@ bool SituationalDisplay::setNav2Id(const char* const newId)
 bool SituationalDisplay::getNav1Id(const int index, char* newString)
 {
     bool ok = false;
-    if (newString != 0 && nav1Id[index] != 0) {
+    if (newString != nullptr && nav1Id[index] != 0) {
         lcStrcpy(newString, sizeof(newString), &nav1Id[index]);
         ok = true;
     }
@@ -209,7 +209,7 @@ bool SituationalDisplay::getNav1Id(const int index, char* newString)
 bool SituationalDisplay::getNav2Id(const int index, char* newString)
 {
     bool ok = false;
-    if (newString != 0 && nav2Id[index] != 0) {
+    if (newString != nullptr && nav2Id[index] != 0) {
         lcStrcpy(newString, sizeof(newString), &nav2Id[index]);
         ok = true;
     }
@@ -224,7 +224,7 @@ void SituationalDisplay::updateData(const LCreal dt)
     // update our BaseClass
     BaseClass::updateData(dt);
 
-    // update our map page 
+    // update our map page
     send("mainmap", UPDATE_VALUE, range, rangeSD);
     send("mainmap", UPDATE_VALUE2, heading, headingSD);
     send("mainmap", UPDATE_VALUE3, static_cast<LCreal>(refLat), refLatSD);

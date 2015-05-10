@@ -54,8 +54,8 @@ public:
 
     void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    bool event(const int event, Basic::Object* const obj = 0) override;
-    void updateData(const LCreal dt = 0.0f) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
+    void updateData(const LCreal dt = 0.0) override;
 
 protected:
    bool shutdownNotification() override;

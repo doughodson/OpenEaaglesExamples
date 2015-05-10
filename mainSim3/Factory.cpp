@@ -33,7 +33,7 @@ Factory::Factory()
 
 Basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
     // Sim3 Station & IoHandler
     if ( std::strcmp(name, SimStation::getFactoryName()) == 0 ) {
@@ -42,29 +42,29 @@ Basic::Object* Factory::createObj(const char* name)
      else if ( std::strcmp(name, SimIoHandler::getFactoryName()) == 0 ) {
         obj = new SimIoHandler();
     }
-   
+
     // Sim3 Player
     else if ( std::strcmp(name, SimPlayer::getFactoryName()) == 0 ) {
         obj = new SimPlayer();
     }
-    
+
     // InstrumentPanel
     else if ( std::strcmp(name, InstrumentPanel::getFactoryName()) == 0 ) {
         obj = new InstrumentPanel();
     }
 
-   if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+   if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
-   if (obj == 0) obj = Otw::Factory::createObj(name);
-   if (obj == 0) obj = Dynamics::Factory::createObj(name);
-   if (obj == 0) obj = Sensor::Factory::createObj(name);
-   if (obj == 0) obj = Simulation::Factory::createObj(name);
-   if (obj == 0) obj = Network::Dis::Factory::createObj(name);
-   if (obj == 0) obj = IoDevice::Factory::createObj(name);
-   if (obj == 0) obj = Instruments::Factory::createObj(name);
-   if (obj == 0) obj = BasicGL::Factory::createObj(name);
-   if (obj == 0) obj = Glut::Factory::createObj(name);
-   if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = Otw::Factory::createObj(name);
+   if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
+   if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = Network::Dis::Factory::createObj(name);
+   if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
+   if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+   if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+   if (obj == nullptr) obj = Glut::Factory::createObj(name);
+   if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
     return obj;
 }

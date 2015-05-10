@@ -14,7 +14,7 @@ namespace Demo {
 
 class TestCas : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestCas, BasicGL::Page)
+   DECLARE_SUBCLASS(TestCas, BasicGL::Page)
 
 public:
     TestCas();

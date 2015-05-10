@@ -56,6 +56,8 @@ Example Applications
 
 * mainSim4 -- simulation that display all players on a map
 
+* mainSim4-qt -- simulation that display all players on a map using a Qt-based GUI
+
 * mainTerrain -- Displays terrain elevation data
 
 * mainUbf1 -- A version of 'mainCockpit' used to test UBF behaviors

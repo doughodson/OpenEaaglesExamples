@@ -14,7 +14,7 @@ namespace Demo {
 
 class TestEngineDial : public BasicGL::Page
 {
-    DECLARE_SUBCLASS(TestEngineDial, BasicGL::Page)
+   DECLARE_SUBCLASS(TestEngineDial, BasicGL::Page)
 
 public:
     TestEngineDial();

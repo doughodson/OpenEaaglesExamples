@@ -37,7 +37,7 @@ public:
 
    void draw() override;
 
-   bool event(const int event, Basic::Object* const obj = 0) override;
+   bool event(const int event, Basic::Object* const obj = nullptr) override;
 
 private:
    bool onUpdateValue(const Basic::Number* const msg);

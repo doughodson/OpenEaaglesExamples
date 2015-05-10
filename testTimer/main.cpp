@@ -79,14 +79,14 @@ TimerThread* createTheThread(Tester* const tester)
 // our class factory
 static Basic::Object* factory(const char* const name)
 {
-  Basic::Object* obj = 0;
+  Basic::Object* obj = nullptr;
 
   if ( std::strcmp(name, Tester::getFactoryName()) == 0 ) {
     obj = new Tester;
   }
-   
+
   // Default to base classes
-  if (obj == 0) obj = Basic::Factory::createObj(name);
+  if (obj == nullptr) obj = Basic::Factory::createObj(name);
   return obj;
 }
 
@@ -102,14 +102,14 @@ static Tester* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -117,7 +117,7 @@ static Tester* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Tester* tester = dynamic_cast<Tester*>(obj);
-   if (tester == 0) {
+   if (tester == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -129,7 +129,7 @@ static Tester* builder(const char* const filename)
 //------------------------------------------------------------------------------
 void run(Tester* const tester)
 {
-   if (tester != 0) {
+   if (tester != nullptr) {
       Basic::Timer::freeze(true);
 
       // Time between printing the timer data
@@ -195,19 +195,19 @@ int main(int argc, char* argv[])
 
    // create the thread
    TimerThread* thread = createTheThread(tester);
-   if (thread != 0) {
+   if (thread != nullptr) {
 
       // run the test
       run(tester);
 
       tester->event(Basic::Component::SHUTDOWN_EVENT);
       tester->unref();
-      tester = 0;
+      tester = nullptr;
 
       // stop the thread
       thread->terminate();
       thread->unref();
-      thread = 0;
+      thread = nullptr;
    }
 
    return 0;

@@ -21,29 +21,29 @@ Pfd::Pfd()
 {
     STANDARD_CONSTRUCTOR()
     // pitch and roll
-    pitch = 0;
+    pitch = 0.0;
     pitchSD.empty();
     pitchGhostSD.empty();
     hdgPitchSD.empty();
-    roll = 0;
+    roll = 0.0;
     rollSD.empty();
     // bank angle
     baSD.empty();
     bascaleSD.empty();
     // heading and nav stuff
-    trueHdg = 0;  
+    trueHdg = 0.0;
     tHdgSD.empty();
     hdgTapeSD.empty();
-    cmdCrs = 0;
+    cmdCrs = 0.0;
     cmdCrsROSD.empty();
-    cmdHdg = 0;
+    cmdHdg = 0.0;
     cmdHdgROSD.empty();
     // cdi
-    cdiDots = 0;
+    cdiDots = 0.0;
     // to from
-    toFrom = -1;
+    toFrom = -1.0;
     // airspeed
-    airSpd = 100;
+    airSpd = 100.0;
     airSpdSD.empty();
     airSpdTpSD.empty();
     airSpdHundSD.empty();
@@ -62,28 +62,28 @@ Pfd::Pfd()
     altHundredsSD.empty();
     altThouSD.empty();
     // side slip
-    
-    slip = 0;
+
+    slip = 0.0;
     slipSD.empty();
     // glideslope
-    gSlope = 0;
+    gSlope = 0.0;
     gSlopeSD.empty();
     // lateral deviation
-    latDev = 0;
+    latDev = 0.0;
     latDevSD.empty();
     // commanded speed
-    cmdSpd = 0;
+    cmdSpd = 0.0;
     aBugSD.empty();
     diffSD.empty();
     // commanded alt
-    cmdAlt = 5000;
+    cmdAlt = 5000.0;
     altBugSD.empty();
     altDiffSD.empty();
     // master caution
     mstrCtn = false;
     mstrCtnSD.empty();
     // vvi
-    vvi = 0;
+    vvi = 0.0;
     vviSD.empty();
     maxVvi = 3.0;
     minVvi = 3.0;
@@ -93,31 +93,31 @@ Pfd::Pfd()
     maxVviROSD.empty();
     minVviROSD.empty();
     // aoa
-    aoa = 0;
+    aoa = 0.0;
     aoaSD.empty();
     // ground speed
-    gSpd = 0;
+    gSpd = 0.0;
     gSpdSD.empty();
     // flight director (command bars)
-    fDirBank = 0;
+    fDirBank = 0.0;
     fDirBankSD.empty();
-    fDirPitch = 0;
+    fDirPitch = 0.0;
     fDirPitchSD.empty();
     // selected barometric pressure
-    baro = 0;
+    baro = 0.0;
     baroSD.empty();
     // radar alt
-    rAlt = 0;
+    rAlt = 0.0;
     rAltMin = 500;
     // tacan and waypoint course
-    nav1Brg = 0;
-    nav1Dme = 0; 
+    nav1Brg = 0.0;
+    nav1Dme = 0.0;
     nav1Id[0] = ' ';
     nav1Id[1] = '\0';
     nav1DmeSD.empty();
     nav1IdSD.empty();
-    nav2Brg = 0;
-    nav2Dme = 0; 
+    nav2Brg = 0.0;
+    nav2Dme = 0.0;
     nav2Id[0] = ' ';
     nav2Id[1] = '\0';
     nav2DmeSD.empty();
@@ -134,18 +134,18 @@ Pfd::Pfd()
     rAltSD.empty();
     rAltMinSD.empty();
     // lat and lon
-    refLat = 0;
-    refLon = 0;
-    range = 0;
-    // FPM 
-    fpmX = 0;
-    fpmY = 0;
+    refLat = 0.0;
+    refLon = 0.0;
+    range = 0.0;
+    // FPM
+    fpmX = 0.0;
+    fpmY = 0.0;
     fpmXSD.empty();
     fpmYSD.empty();
     // Gs
-    gLoad = 0;
+    gLoad = 0.0;
     // mach
-    mach = 0;
+    mach = 0.0;
 }
 
 //------------------------------------------------------------------------------
@@ -181,7 +181,7 @@ void Pfd::copyData(const Pfd& org, const bool)
     airSpdSD.empty();
     airSpdHundSD.empty();
     airSpdTpSD.empty();
-    onesSD.empty();    
+    onesSD.empty();
     tensSD.empty();
     spdRstSD.empty();
     // altitude
@@ -304,7 +304,7 @@ bool Pfd::setPitchRad(const LCreal newP)
 }
 
 bool Pfd::setRollDeg(const LCreal newR)
-{ 
+{
     roll = newR;
     return true;
 }
@@ -388,7 +388,7 @@ bool Pfd::setCmdAltFt(const LCreal newCA)
     return true;
 }
 
-bool Pfd::setMstrCtn(const bool newMC)   
+bool Pfd::setMstrCtn(const bool newMC)
 {
     mstrCtn = newMC;
     return true;
@@ -463,7 +463,7 @@ bool Pfd::setNav1DME(const LCreal newDME)
 bool Pfd::setNav1Id(const char* const newId)
 {
     bool ok = false;
-    if (newId != 0) {
+    if (newId != nullptr) {
         std::strncpy(nav1Id, newId, NCHAR_NAV1_ID);
         nav1Id[NCHAR_NAV1_ID] = '\0';
         ok = true;
@@ -486,7 +486,7 @@ bool Pfd::setNav2DME(const LCreal newDME)
 bool Pfd::setNav2Id(const char* const newId)
 {
     bool ok = false;
-    if (newId != 0) {
+    if (newId != nullptr) {
         std::strncpy(nav2Id, newId, NCHAR_NAV2_ID);
         nav2Id[NCHAR_NAV2_ID] = '\0';
         ok = true;
@@ -499,12 +499,12 @@ bool Pfd::setFPMX(const LCreal newX)
     return true;
 }
 bool Pfd::setFPMY(const LCreal newY)
-{ 
+{
     fpmY = newY;
     return true;
 }
 bool Pfd::setMach(const LCreal x)
-{ 
+{
     mach = x;
     return true;
 }
@@ -514,8 +514,8 @@ bool Pfd::getNav1Id(const int index, char* newString)
 {
     bool ok = false;
     if (nav1Id[index] != 0) {
-        lcStrcpy(newString, sizeof(newString), &nav1Id[index]); 
-        ok = true; 
+        lcStrcpy(newString, sizeof(newString), &nav1Id[index]);
+        ok = true;
     }
     return ok;
 }
@@ -523,8 +523,8 @@ bool Pfd::getNav2Id(const int index, char* newString)
 {
     bool ok = false;
     if (nav2Id[index] != 0) {
-        lcStrcpy(newString, sizeof(newString), &nav2Id[index]); 
-        ok = true; 
+        lcStrcpy(newString, sizeof(newString), &nav2Id[index]);
+        ok = true;
     }
     return ok;
 }
@@ -559,7 +559,7 @@ void Pfd::updateData(const LCreal dt)
     LCreal temp = 0;
 
     // local variables
-    LCreal tHdg = trueHdg;    
+    LCreal tHdg = trueHdg;
     if (tHdg < 0.5f) tHdg += 360.0f;
 
     // find the last digit for the readout tape
@@ -574,15 +574,15 @@ void Pfd::updateData(const LCreal dt)
     //std::cout << "air speed tens = " << asTens << std::endl;
     //std::cout << "air speed hunds = " << airSpdHunds << std::endl;
 
-    int rest = static_cast<int>(airSpd / 10.0f);
-    
+    int rest = static_cast<int>(airSpd / 10.0);
+
     //cmdSpd = 450;
     //airSpd += (dt * 10);
     LCreal diff = airSpd - cmdSpd;
     //std::cout << "AIRSPEED = " << airSpd << std::endl;
     //std::cout << "CMD SPEED = " << cmdSpd << std::endl;
     //std::cout << "DIFF = " << diff << std::endl;
-    
+
     LCreal altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
@@ -601,21 +601,21 @@ void Pfd::updateData(const LCreal dt)
     LCreal altThousands = alt/1000;
     temp = altThousands - static_cast<int>(altThousands);
     if (temp < 8.5f) altThousands = static_cast<LCreal>(static_cast<int>(altThousands));
-    
+
     // vvi max and min test
     LCreal maxVviColorRO = 0;
     if (vvi > 6000) maxVviColorRO = vvi;
     else maxVviColorRO = 3000;
-    
+
     LCreal minVviColorRO = 0;
     if (vvi < -6000) minVviColorRO = -vvi;
     else minVviColorRO = 3000;
-    
+
     // now for the vvi readouts
     LCreal maxVviRO = 0;
     if (vvi > 3000) maxVviRO = vvi/1000;
     else maxVviRO = 3.0;
-    
+
     LCreal minVviRO = 0;
     if (vvi < -3000) minVviRO = -vvi/1000;
     else minVviRO = 3.0;
@@ -628,14 +628,14 @@ void Pfd::updateData(const LCreal dt)
     send("cmdcrs", UPDATE_VALUE, cmdCrs, cmdCrsROSD);
     send("cmdhdg", UPDATE_VALUE, cmdHdg, cmdHdgROSD);
     send("hsi", UPDATE_VALUE6, trueHdg, trueHdgSD);
-    
+
     send("hsi", UPDATE_VALUE7, cmdHdg, cmdHdgSD);
     send("hsi", UPDATE_VALUE8, cmdCrs, cmdCrsSD);
     send("hsi", UPDATE_VALUE9, nav1Brg, nav1BrgSD);
     send("hsi", USER_EVENTS + 1, nav2Brg, nav2BrgSD);
     send("hsi", USER_EVENTS + 2, cdiDots, cdiDotsSD);
     send("hsi", USER_EVENTS + 3, toFrom, toFromSD);
-    
+
     send("spdtape", UPDATE_INSTRUMENTS, ones, onesSD);
     send("spdrest", UPDATE_VALUE, rest, spdRstSD);
     send("spdtens", UPDATE_INSTRUMENTS, asTens, tensSD);
@@ -668,7 +668,7 @@ void Pfd::updateData(const LCreal dt)
         send("altrest3", UPDATE_VALUE, altRest, alt3SD);
     }
     // gslope
-    send("glideslope", UPDATE_INSTRUMENTS, gSlope, gSlopeSD);    
+    send("glideslope", UPDATE_INSTRUMENTS, gSlope, gSlopeSD);
     send("alttens", UPDATE_INSTRUMENTS, altTens, altTensSD);
    send("alttape", UPDATE_INSTRUMENTS, alt, altTpSD);
     send("alt", UPDATE_INSTRUMENTS, altHundreds, altHundredsSD);
@@ -678,7 +678,7 @@ void Pfd::updateData(const LCreal dt)
     send("altbug", UPDATE_INSTRUMENTS, altDiff, altDiffSD);
     send("cmdalt", UPDATE_VALUE, cmdAlt, altBugSD);
     send("spdbug", UPDATE_INSTRUMENTS, diff, diffSD);
-    send("cmdspd", UPDATE_VALUE, cmdSpd, aBugSD);    
+    send("cmdspd", UPDATE_VALUE, cmdSpd, aBugSD);
     // actual airspeed tape, not just the readout
     send("airspd", UPDATE_INSTRUMENTS, airSpd, airSpdTpSD);
     send("airspdhund", UPDATE_INSTRUMENTS, airSpdHunds, airSpdHundSD);
@@ -687,7 +687,7 @@ void Pfd::updateData(const LCreal dt)
 
     send("nav1dme", UPDATE_VALUE, nav1Dme, nav1DmeSD);
     send("nav1Id", UPDATE_VALUE, nav1Id, nav1IdSD);
-    
+
     send("nav2dme", UPDATE_VALUE, nav2Dme, nav2DmeSD);
     send("nav2Id", UPDATE_VALUE, nav2Id, nav2IdSD);
 
@@ -700,7 +700,7 @@ void Pfd::updateData(const LCreal dt)
     // send our bank angle the roll
     send("bankangle", UPDATE_INSTRUMENTS, -roll, baSD);
     // send our sideslip down
-    send("sideslip", UPDATE_INSTRUMENTS, slip, slipSD);   
+    send("sideslip", UPDATE_INSTRUMENTS, slip, slipSD);
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // send our flight path marker it's data
@@ -722,11 +722,11 @@ void Pfd::updateData(const LCreal dt)
     // If we have a SituationalDisplay as a component, (which we do in one instance) then we will send it the proper data
     {
         Basic::Pair* pair = findByType(typeid(SituationalDisplay));
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
                  // give the SituationalDisplay all the appropriate map page data
                SituationalDisplay* myPage = dynamic_cast<SituationalDisplay*>(pair->object());
-                if (myPage != 0) {
+                if (myPage != nullptr) {
                     myPage->setReferenceLat(refLat);
                     myPage->setReferenceLon(refLon);
                     myPage->setHeading(trueHdg);

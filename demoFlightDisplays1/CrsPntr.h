@@ -42,8 +42,8 @@ public:
 
     void drawFunc() override;
 
-    void updateData(const LCreal dt = 0.0f) override;
-    bool event(const int event, Basic::Object* const obj = 0) override;
+    void updateData(const LCreal dt = 0.0) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
 
 protected:
     // slot functions
@@ -60,11 +60,11 @@ private:
 
     LCreal toFrom;          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
     LCreal cdiDots;         // course deviation dots
-    int     numDots;        // how many dots are we using?
+    int    numDots;         // how many dots are we using?
     LCreal inchesPerDot;    // how far to translate per dot
     LCreal inches;
     bool showCdi;           // display the cdi?
-    bool showCrsPtr;       // show the course pointer?
+    bool showCrsPtr;        // show the course pointer?
     bool showToFrom;        // show our to from arrow?
 };
 

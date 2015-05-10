@@ -14,7 +14,7 @@ END_EVENT_HANDLER()
 
 BEGIN_SLOTTABLE(SpdLines)
     "isAlt",              // draw for the altitude scale (instead of making a new class)
-END_SLOTTABLE(SpdLines)       
+END_SLOTTABLE(SpdLines)
 
 //------------------------------------------------------------------------------
 //  Map slot table to handles for Analog Dial
@@ -54,12 +54,12 @@ void SpdLines::deleteData()
 // drawFunc() - draw our objects
 //------------------------------------------------------------------------------
 void SpdLines::drawFunc()
-{    
+{
     GLfloat ocolor[4];
     GLfloat lw;
     glGetFloatv(GL_CURRENT_COLOR, ocolor);
     glGetFloatv(GL_LINE_WIDTH, &lw);
-    
+
     BEGIN_DLIST
 
         if (!isAlt) {
@@ -143,9 +143,9 @@ void SpdLines::drawFunc()
                     glVertex2f(0.879f, 1500);
                 glEnd();
             glPopMatrix();
-        }        
-    END_DLIST  
-      
+        }
+    END_DLIST
+
     glColor4fv(ocolor);
     glLineWidth(lw);
 }
@@ -154,7 +154,7 @@ void SpdLines::drawFunc()
 bool SpdLines::onEventSetIsAltSpdLines(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setIsAlt(x->getBoolean());
+    if (x != nullptr) ok = setIsAlt(x->getBoolean());
     return ok;
 }
 
@@ -165,12 +165,12 @@ bool SpdLines::onEventSetIsAltSpdLines(const Basic::Number* const x)
 bool SpdLines::setSlotIsAlt(const Basic::Number* const newAltFlag)
 {
     bool ok = false;
-    if (newAltFlag != 0) ok = setIsAlt(newAltFlag->getBoolean());
+    if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
     return ok;
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 Basic::Object* SpdLines::getSlotByIndex(const int si)
 {

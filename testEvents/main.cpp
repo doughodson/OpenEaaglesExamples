@@ -24,12 +24,12 @@ namespace Test {
 // frame rate
 const int frameRate = 20;
 
-static class Display* display = 0;
+static class Display* display = nullptr;
 
 // timerFunc()
 static void timerFunc(int)
 {
-   double dt = 1.0/static_cast<double>(frameRate);
+   double dt = 1.0 / static_cast<double>(frameRate);
 
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
@@ -42,7 +42,7 @@ static void timerFunc(int)
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
    if (std::strcmp(name, Display::getFactoryName()) == 0) {
       obj = new Display();
@@ -51,9 +51,9 @@ static Basic::Object* factory(const char* name)
       obj = new ObjectHandler();
    }
    else {
-      if (obj == 0) obj = BasicGL::Factory::createObj(name);
-      if (obj == 0) obj = Glut::Factory::createObj(name);
-      if (obj == 0) obj = Basic::Factory::createObj(name);
+      if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+      if (obj == nullptr) obj = Glut::Factory::createObj(name);
+      if (obj == nullptr) obj = Basic::Factory::createObj(name);
    }
 
    return obj;
@@ -71,14 +71,14 @@ static Display* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -86,7 +86,7 @@ static Display* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Display* display = dynamic_cast<Display*>(obj);
-   if (display == 0) {
+   if (display == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

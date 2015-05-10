@@ -9,6 +9,8 @@
 #include "openeaagles/basic/Rng.h"
 #include "openeaagles/basic/Number.h"
 
+#include <cstring>
+
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
 #if(_MSC_VER>=1400)   // VC8+
@@ -27,7 +29,7 @@ EMPTY_SERIALIZER(Display)
 Display::Display()
 {
     STANDARD_CONSTRUCTOR()
-    
+
     myBool = false;
     boolSD.empty();
     myInt = 0;
@@ -36,15 +38,15 @@ Display::Display()
     floatSD.empty();
     myDouble = 0.0;
     doubleSD.empty();
-    myLCreal = 0;
+    myLCreal = 0.0;
     lcrealSD.empty();
     obj = new TestObject();
     lcStrcpy(myChar, sizeof(myChar), "ASCII");
     charSD.empty();
     myColor = new Basic::Color();
-    myColor->setRed(0.0f);
-    myColor->setBlue(0.0f);
-    myColor->setGreen(0.0f);
+    myColor->setRed(0.0);
+    myColor->setBlue(0.0);
+    myColor->setGreen(0.0);
 
     // setup a random number generator to start our colors
     Basic::Rng* rng = new Basic::Rng();
@@ -86,8 +88,8 @@ void Display::copyData(const Display& org, const bool cc)
     BaseClass::copyData(org);
 
     if (cc) {
-        obj = 0;
-        myColor = 0;
+        obj = nullptr;
+        myColor = nullptr;
         for (int i = 0; i < MAX_MATERIALS; i++) materials[i] = 0;
     }
 
@@ -101,19 +103,19 @@ void Display::copyData(const Display& org, const bool cc)
     doubleSD.empty();
     myLCreal = org.myLCreal;
     lcrealSD.empty();
-    if (obj != 0) obj->unref(); 
-    if (org.obj != 0) {
+    if (obj != nullptr) obj->unref();
+    if (org.obj != nullptr) {
         obj = org.obj->clone();
     }
-    if (myColor != 0) myColor->unref();
-    if (org.myColor != 0) {
+    if (myColor != nullptr) myColor->unref();
+    if (org.myColor != nullptr) {
         myColor = org.myColor->clone();
     }
 
     for (int i = 0; i < MAX_MATERIALS; i++) {
-        if (materials[i] != 0) {
+        if (materials[i] != nullptr) {
             materials[i]->unref();
-            materials[i] = 0;
+            materials[i] = nullptr;
         }
         diffColorRate[i] = org.diffColorRate[i];
         if (org.materials[i] != 0) materials[i] = org.materials[i]->clone();
@@ -132,18 +134,18 @@ void Display::copyData(const Display& org, const bool cc)
 //------------------------------------------------------------------------------
 void Display::deleteData()
 {
-    if (obj != 0) {
+    if (obj != nullptr) {
         obj->unref();
-        obj = 0;
+        obj = nullptr;
     }
-    if (myColor != 0) {
+    if (myColor != nullptr) {
         myColor->unref();
-        myColor = 0;
+        myColor = nullptr;
     }
     for (int i = 0; i < MAX_MATERIALS; i++) {
-        if (materials[i] != 0) {
+        if (materials[i] != nullptr) {
             materials[i]->unref();
-            materials[i] = 0;
+            materials[i] = nullptr;
         }
     }
 }
@@ -158,7 +160,7 @@ void Display::updateData(const LCreal dt)
     counter++;
     if (counter > 1) {
         myBool = !myBool;
-    
+
         myInt++;
         if (myInt > 999) myInt = 0;
 
@@ -166,12 +168,12 @@ void Display::updateData(const LCreal dt)
         if (myFloat > 100) myFloat = 0;
 
         myDouble += 0.00002f;
-        if (myDouble > 2) myDouble = 0;    
-      
+        if (myDouble > 2) myDouble = 0;
+
         myLCreal += 0.15f;
         if (myLCreal > 15) myLCreal = 0;
 
-        if (strcmp(myChar, "ASCII") == 0) lcStrcpy(myChar, sizeof(myChar), "TEXT");
+        if (std::strcmp(myChar, "ASCII") == 0) lcStrcpy(myChar, sizeof(myChar), "TEXT");
         else lcStrcpy(myChar, sizeof(myChar), "ASCII");
 
         obj->setBoolean(!obj->getBoolean());
@@ -179,7 +181,7 @@ void Display::updateData(const LCreal dt)
         obj->setFloat(obj->getFloat() + 0.01f);
         obj->setDouble(obj->getDouble() + 0.0003);
         obj->setReal(obj->getReal() + 0.1f);
-        if (strcmp(obj->getChar(), "ASCII") == 0) obj->setChar("TEXT");
+        if (std::strcmp(obj->getChar(), "ASCII") == 0) obj->setChar("TEXT");
         else obj->setChar("ASCII");
 
         if (myColor->red() < 0.9f) myColor->setRed(myColor->red() + dt);

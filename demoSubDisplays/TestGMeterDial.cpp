@@ -5,8 +5,9 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGMeterDial,"TestGMeterDial")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGMeterDial, "TestGMeterDial")
 EMPTY_SERIALIZER(TestGMeterDial)
+EMPTY_DELETEDATA(TestGMeterDial)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -14,14 +15,13 @@ EMPTY_SERIALIZER(TestGMeterDial)
 TestGMeterDial::TestGMeterDial()
 {
     STANDARD_CONSTRUCTOR()
-    currGs = 0;
+    currGs = 0.0;
     currGsSD.empty();
     currGsROSD.empty();
-    gRate = 2;
-    timer = 0;
-    timerRate = 0.2f;
+    gRate = 2.0;
+    timer = 0.0;
+    timerRate = 0.2;
 }
-
 
 //------------------------------------------------------------------------------
 // copyData()
@@ -35,9 +35,6 @@ void TestGMeterDial::copyData(const TestGMeterDial& org, const bool)
     timer = org.timer;
     timerRate = org.timerRate;
 }
-
-EMPTY_DELETEDATA(TestGMeterDial)
-
 
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
@@ -53,7 +50,7 @@ void TestGMeterDial::updateData(const LCreal dt)
         currGs = -4;
         gRate = -gRate;
     }
-    
+
     //std::cout << "TIMER = " << timer << std::endl;
     // we test the reset pulse here
     timer += (timerRate * dt);
@@ -73,10 +70,10 @@ void TestGMeterDial::updateData(const LCreal dt)
         //std::cout << "RESET EVENT SENT!" << std::endl;
         send("gdial", RESET_EVENT);
     }
-    
+
     send("gdial", UPDATE_INSTRUMENTS, currGs, currGsSD);
     send("gs", UPDATE_VALUE, currGs, currGsROSD);
-    
+
     BaseClass::updateData(dt);
 }
 

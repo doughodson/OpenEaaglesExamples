@@ -24,7 +24,7 @@ class Echo : public Endpoint
 public:
    Echo();
 
-   void updateData(const LCreal dt = 0.0f) override;
+   void updateData(const LCreal dt = 0.0) override;
    void reset() override;
 
 private:

@@ -1,7 +1,7 @@
 #include "TestMechanical.h"
 
 #include "openeaagles/basic/units/Angles.h"
-                              
+
 namespace Eaagles {
 namespace Demo {
 
@@ -18,57 +18,57 @@ EMPTY_SERIALIZER(TestMechanical)
 TestMechanical::TestMechanical()
 {
     STANDARD_CONSTRUCTOR()
-    pitch = 0;
+    pitch = 0.0;
     pitchSD.empty();
-    pitchRate = 20;
-    roll = 0;
+    pitchRate = 20.0;
+    roll = 0.0;
     rollSD.empty();
-    rollRate = 10;
-    slip = 0;
+    rollRate = 10.0;
+    slip = 0.0;
     slipSD.empty();
-    slipRate = 5;
-    cmdPitch = 0;
+    slipRate = 5.0;
+    cmdPitch = 0.0;
     cmdPitchSD.empty();
-    cmdRoll = 0;
+    cmdRoll = 0.0;
     cmdRollSD.empty();
-    cmdPitchRate = 30;
-    cmdRollRate = 5;
+    cmdPitchRate = 30.0;
+    cmdRollRate = 5.0;
     inView = true;
-    heading = 0;
-    headingRate = 3;
+    heading = 0.0;
+    headingRate = 3.0;
     rtFail = false;
     // runway stuff
     rwFail = false;
-    locDots = 0;
+    locDots = 0.0;
     locDotsSD.empty();
-    locDotsRate = 0.2f;
-    rAlt = 0;            
-    rAltRate = 10;
+    locDotsRate = 0.2;
+    rAlt = 0.0;
+    rAltRate = 10.0;
     rAltSD.empty();
     // glideslope
-    gsDots = 0;
+    gsDots = 0.0;
     gsDotsSD.empty();
-    gsDotsRate = 0.2f;
+    gsDotsRate = 0.2;
     gsFail = false;
     // speed deviation
     sdFail = false;
-    speedDots = 0;
-    speedDotsRate = 0.4f;
+    speedDots = 0.0;
+    speedDotsRate = 0.4;
     speedDotsSD.empty();
     // ga stuff
     gaMode = 1;
-    gaTimer = 0;
+    gaTimer = 0.0;
     // mda stuff
     mdaMode = 1;
-    mdaTimer = 0;
+    mdaTimer = 0.0;
     mdaModeSD.empty();
-    // cmptr 
+    // cmptr
     cmptrFail = false;
     cmptrFailSD.empty();
     gaModeSD.empty();
     // gryo
     gryoFail = false;
-    gryoFailTimer = 0;
+    gryoFailTimer = 0.0;
     gryoFailSD.empty();
     gsFail = false;
     gsFailVisSD.empty();
@@ -82,8 +82,8 @@ TestMechanical::TestMechanical()
     rollIndSD.empty();
     rwFailSD.empty();
     sdFailSD.empty();
-    curRot = 0;
-    rotRate = 0.5f;
+    curRot = 0.0;
+    rotRate = 0.5;
     curRotSD.empty();
 }
 
@@ -118,7 +118,7 @@ void TestMechanical::copyData(const TestMechanical& org, const bool)
     locDots = org.locDots;
     locDotsSD.empty();
     locDotsRate = org.locDotsRate;
-    rAlt = org.rAlt;            
+    rAlt = org.rAlt;
     rAltRate = org.rAltRate;
     rAltSD.empty();
     // glideslope
@@ -138,7 +138,7 @@ void TestMechanical::copyData(const TestMechanical& org, const bool)
     mdaMode = org.mdaMode;
     mdaTimer = org.mdaTimer;
     mdaModeSD.empty();
-    // cmptr 
+    // cmptr
     cmptrFail = org.cmptrFail;
     cmptrFailSD.empty();
     // galight
@@ -146,7 +146,7 @@ void TestMechanical::copyData(const TestMechanical& org, const bool)
     gaModeSD.empty();
     // gryo
     gryoFail = org.gryoFail;
-    gryoFailSD.empty();      
+    gryoFailSD.empty();
     gsFail = org.gsFail;
     gsFailVisSD.empty();
     gsFailSD.empty();
@@ -156,7 +156,7 @@ void TestMechanical::copyData(const TestMechanical& org, const bool)
     // rate of turn
     rtFail = org.rtFail;
     rtFailSD.empty();
-    rollIndSD.empty();    
+    rollIndSD.empty();
     rwFailSD.empty();
     sdFailSD.empty();
     gryoFailTimer = org.gryoFailTimer;
@@ -174,10 +174,10 @@ EMPTY_DELETEDATA(TestMechanical)
 void TestMechanical::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     // pitch
     pitch += (pitchRate * dt);
-    
+
     if (pitch > 90) {
         pitch = 90;
         pitchRate = -pitchRate;
@@ -186,7 +186,7 @@ void TestMechanical::updateData(const LCreal dt)
         pitch = -90;
         pitchRate = -pitchRate;
     }
-            
+
     // roll
     roll += (rollRate * dt);
     if (roll > 180) {
@@ -207,11 +207,11 @@ void TestMechanical::updateData(const LCreal dt)
         slip = -20;
         slipRate = -slipRate;
     }
-    
+
     // test our commanded pitch and roll
     cmdPitch += (cmdPitchRate * dt);
     cmdRoll += (cmdRollRate * dt);
-        
+
     if (cmdPitch > 90) {
         cmdPitch = 90;
         cmdPitchRate = -cmdPitchRate;
@@ -228,19 +228,19 @@ void TestMechanical::updateData(const LCreal dt)
         cmdRoll = -30;
         cmdRollRate = -cmdRollRate;
     }
-    
+
     // test our gryo flag
     //bool gryoFlag = false;
-    //if (cmdRoll < 1) gryoFlag = true; 
+    //if (cmdRoll < 1) gryoFlag = true;
 
     // test our computer flag (cmptr)
     cmptrFail = false;
     if (pitch > 60 || pitch < -60) cmptrFail = true;
-    
+
     // test our in view flag
     if (cmdPitch > 60 || cmdPitch < -60) inView = false;
     else inView = true;
-    
+
     gryoFailTimer += dt;
     if (gryoFailTimer > 2) {
         gryoFail = !gryoFail;
@@ -262,7 +262,7 @@ void TestMechanical::updateData(const LCreal dt)
     else rtFail = false;
     if (heading < 20) rwFail = true;
     else rwFail = false;
-    
+
     // runway indicator stuff
     rAlt += (rAltRate * dt);
     if (rAlt > 210) {
@@ -295,7 +295,7 @@ void TestMechanical::updateData(const LCreal dt)
         gsDots = -2.5;
         gsDotsRate = -gsDotsRate;
     }
-    // test our validity and flag 
+    // test our validity and flag
     if (gsDots < 1) gsFail = true;
 //    if (gsDots < -2) gsIsValid = false;
 
@@ -320,7 +320,7 @@ void TestMechanical::updateData(const LCreal dt)
     if (gaTimer > 5 ) {
         gaMode = !gaMode;
         gaTimer = 1;
-    }    
+    }
 
     // mda light
     mdaTimer += dt;
@@ -328,12 +328,12 @@ void TestMechanical::updateData(const LCreal dt)
         mdaMode = !mdaMode;
         mdaTimer = 1;
     }
-    
-    // send our command bars their pitch and roll 
+
+    // send our command bars their pitch and roll
     send("cmdpitch", UPDATE_INSTRUMENTS, cmdPitch, cmdPitchSD);
     send("cmdroll", UPDATE_VALUE2, cmdRoll, cmdRollSD);
-    
-    
+
+
     // make up some rate of turn indicator (we assume rate of turn is deg/sec)
     curRot += (rotRate * dt);
     if (curRot > 2) {
@@ -344,37 +344,35 @@ void TestMechanical::updateData(const LCreal dt)
         curRot = -2;
         rotRate = -rotRate;
     }
-    
+
     send("rtpointer", UPDATE_INSTRUMENTS, curRot, curRotSD);
-    
+
     // glideslope dots
     send("glideslope", UPDATE_INSTRUMENTS, gsDots, gsDotsSD);
-        
+
     // send pitch and roll to our adi
     send("adi", UPDATE_INSTRUMENTS, pitch, pitchSD);
     send("adi", UPDATE_VALUE, roll, rollSD);
-    
+
     // send our ga light the proper mode
     send("galight", SELECT, gaMode, gaModeSD);
 
     // send the mda light the proper mode
     send("mdalight", SELECT, mdaMode, mdaModeSD);
-    
-    // send our localizer dots to our runway pointer 
+
+    // send our localizer dots to our runway pointer
     send("rwpointer", UPDATE_INSTRUMENTS, locDots, locDotsSD);
-    send("rwpointervert", UPDATE_INSTRUMENTS, rAlt, rAltSD); 
-        
+    send("rwpointervert", UPDATE_INSTRUMENTS, rAlt, rAltSD);
 
     // send our speed dots down
     send("speeddots", UPDATE_INSTRUMENTS, speedDots, speedDotsSD);
-    
+
     // Roll indicator
     // we have to roll negative in order to keep with the adi
-    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * Basic::Angle::D2RCC), rollIndSD); 
+    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * Basic::Angle::D2RCC), rollIndSD);
 
-              
     // send our visibility data down (for failure flags)
-    send("rtfail", SET_VISIBILITY, rtFail, rtFailSD);   
+    send("rtfail", SET_VISIBILITY, rtFail, rtFailSD);
     send("gryo", SET_VISIBILITY, gryoFail, gryoFailSD);
     send("cmptr", SET_VISIBILITY, cmptrFail, cmptrFailSD);
     send("gslopefail", SET_VISIBILITY, gsFail, gsFailVisSD);

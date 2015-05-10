@@ -6,6 +6,8 @@
 
 #include "openeaagles/hla/rprFom/NetIO.h"
 
+#include <cstring>
+
 namespace Eaagles {
 namespace Network {
 namespace Hla {
@@ -13,9 +15,9 @@ namespace RprFom {
 
 Basic::Object* formFunc(const char* const formname)
 {
-    Basic::Object* newform = 0;
+    Basic::Object* newform = nullptr;
 
-    if ( strcmp(formname, Hla::RprFom::NetIO::getFormName()) == 0 ) {
+    if ( std::strcmp(formname, Hla::RprFom::NetIO::getFormName()) == 0 ) {
         newform = new Hla::RprFom::NetIO();
     }
 

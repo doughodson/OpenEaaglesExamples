@@ -23,7 +23,7 @@ class Sender : public Endpoint
 public:
     Sender();
 
-    void updateData(const Eaagles::LCreal dt = 0.0f) override;
+    void updateData(const LCreal dt = 0.0) override;
     void reset() override;
 
 private:

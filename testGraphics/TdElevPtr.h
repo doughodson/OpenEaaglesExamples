@@ -18,7 +18,7 @@ class TdElevPtr : public BasicGL::Graphic
 public:
     TdElevPtr();
 
-    bool event(const int event, Basic::Object* const obj = 0) override;
+    bool event(const int event, Basic::Object* const obj = nullptr) override;
     void draw() override;
 
     //event handler macro functions

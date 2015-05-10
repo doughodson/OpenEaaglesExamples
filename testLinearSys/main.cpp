@@ -32,7 +32,7 @@ int main(int, char**)
    }
 
    LCreal time = 0;
-   LCreal deltaTime = 1.0f / static_cast<LCreal>(RATE);
+   LCreal deltaTime = 1.0 / static_cast<LCreal>(RATE);
 
    for (unsigned int i = 0; i < RATE; i++) {
       time += deltaTime;

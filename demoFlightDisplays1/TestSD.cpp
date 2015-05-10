@@ -26,13 +26,13 @@ BEGIN_EVENT_HANDLER(TestSD)
     ON_EVENT('r', onToggleRange)
 END_EVENT_HANDLER()
 
-         
+
 // navaid names
 static const char* navNames[TestSD::MAX_NAV_AIDS] = {
     "VOR1", "VTC1", "TCN1", "VDE1",
     "VOR2", "VTC2", "TCN2", "VDE2",
 };
-         
+
 // airport names
 static const char* apNames[TestSD::MAX_AIRPORTS] = {
     "AP1", "AP2", "AP3", "AP4",
@@ -47,19 +47,19 @@ TestSD::TestSD()
     STANDARD_CONSTRUCTOR()
     heading = 0.0;
     headingRate = static_cast<LCreal>(0.2f * Basic::Angle::R2DCC);
-    bearing = 0;
+    bearing = 0.0;
     bearingRate = static_cast<LCreal>(0.4f * Basic::Angle::R2DCC);
-    range = 80;
+    range = 80.0;
     // navaid bearings
-    nav1Brg = 0;
-    nav1BrgRate = 4;
-    nav2Brg = 0;
-    nav2BrgRate = 6;
+    nav1Brg = 0.0;
+    nav1BrgRate = 4.0;
+    nav2Brg = 0.0;
+    nav2BrgRate = 6.0;
     // orbit range
-    orbRange = 5;
+    orbRange = 5.0;
     // heading
-    hdgBug = 0;
-    hdgBugRate = 2;
+    hdgBug = 0.0;
+    hdgBugRate = 2.0;
 
     // initialize our air tracks to test data
     {
@@ -167,7 +167,7 @@ void TestSD::updateData(const LCreal dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
-    
+
     heading += (headingRate * dt);
     if (heading > 360 || heading < 0) headingRate = -headingRate;
     bearing += (bearingRate * dt);
@@ -183,7 +183,7 @@ void TestSD::updateData(const LCreal dt)
         nav1Brg = 0;
         nav1BrgRate = -nav1BrgRate;
     }
-    
+
     nav2Brg += nav2BrgRate * dt;
     if (nav2Brg > 360) {
         nav2Brg = 360;
@@ -193,7 +193,7 @@ void TestSD::updateData(const LCreal dt)
         nav2Brg = 0;
         nav2BrgRate = -nav2BrgRate;
     }
-                
+
     // heading bug
     hdgBug += hdgBugRate *dt;
     if (hdgBug > 360) {
@@ -206,7 +206,7 @@ void TestSD::updateData(const LCreal dt)
     }
 
     // find our situational display (SD) - we do this because there are too many variables to be set
-    // to use send commands for every one, so it's easier just to get a pointer to the object and 
+    // to use send commands for every one, so it's easier just to get a pointer to the object and
     // set the variables using member functions.
     {
     Basic::Pair* pair = findByType(typeid(SituationalDisplay));
@@ -226,7 +226,7 @@ void TestSD::updateData(const LCreal dt)
     }
 
     // Load test tracks (once)
-    if (!tracksLoaded) { 
+    if (!tracksLoaded) {
         Basic::Pair* pair = findByName("airTracks");
         if (pair != 0) {
             pair->ref();
@@ -236,16 +236,16 @@ void TestSD::updateData(const LCreal dt)
                     int idx = myLoader->addSymbol(myTracks[i].type, myTracks[i].id);
                     myLoader->updateSymbolPositionXY(idx, myTracks[i].x, myTracks[i].y);
                     myLoader->updateSymbolHeading(idx, myTracks[i].hdg);
-                    //std::cout << "added track: " << myTracks[i].x << ", " <<  myTracks[i].y<< ", " <<  myTracks[i].hdg  << ", " <<  myTracks[i].type << ", " << myTracks[i].id << std::endl; 
+                    //std::cout << "added track: " << myTracks[i].x << ", " <<  myTracks[i].y<< ", " <<  myTracks[i].hdg  << ", " <<  myTracks[i].type << ", " << myTracks[i].id << std::endl;
                 }
             }
             pair->unref();
-        }        
+        }
         tracksLoaded = true;
     }
-    
+
     // Load test airports (once)
-    if (!airportsLoaded) { 
+    if (!airportsLoaded) {
         Basic::Pair* pair = findByName("airports");
         if (pair != 0) {
             pair->ref();
@@ -254,16 +254,16 @@ void TestSD::updateData(const LCreal dt)
                 for (int i = 0; i < MAX_AIRPORTS; i++) {
                     int idx = myLoader->addSymbol(myAP[i].type, myAP[i].id);
                     myLoader->updateSymbolPositionLL(idx, myAP[i].x, myAP[i].y);
-                    //std::cout << "added airport: " << myAP[i].x << ", " <<  myAP[i].y << ", " <<  myAP[i].type << ", " << myAP[i].id << std::endl; 
+                    //std::cout << "added airport: " << myAP[i].x << ", " <<  myAP[i].y << ", " <<  myAP[i].type << ", " << myAP[i].id << std::endl;
                 }
             }
             pair->unref();
-        }        
+        }
         airportsLoaded = true;
     }
 
     // Load test navaids (once)
-    if (!navAidsLoaded) { 
+    if (!navAidsLoaded) {
         Basic::Pair* pair = findByName("navaids");
         if (pair != 0) {
             pair->ref();
@@ -272,11 +272,11 @@ void TestSD::updateData(const LCreal dt)
                 for (int i = 0; i < MAX_NAV_AIDS; i++) {
                     int idx = myLoader->addSymbol(myNA[i].type, myNA[i].id);
                     myLoader->updateSymbolPositionLL(idx, myNA[i].x, myNA[i].y);
-                    //std::cout << "added navaid: " << myNA[i].x << ", " <<  myNA[i].y << ", " <<  myNA[i].type << ", " << myNA[i].id << std::endl; 
+                    //std::cout << "added navaid: " << myNA[i].x << ", " <<  myNA[i].y << ", " <<  myNA[i].type << ", " << myNA[i].id << std::endl;
                 }
             }
             pair->unref();
-        }        
+        }
         navAidsLoaded = true;
     }
 }

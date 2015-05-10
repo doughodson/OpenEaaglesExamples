@@ -21,8 +21,8 @@ END_EVENT_HANDLER()
 RdrAlt::RdrAlt()
 {
     STANDARD_CONSTRUCTOR()
-    rAlt = 0;
-    rAltMin = 0;
+    rAlt = 0.0;
+    rAltMin = 0.0;
     rAltSD.empty();
     rAltMinSD.empty();
 }
@@ -45,7 +45,7 @@ void RdrAlt::copyData(const RdrAlt& org, const bool)
 void RdrAlt::deleteData()
 {
 }
-    
+
 //------------------------------------------------------------------------------
 // set functions
 //------------------------------------------------------------------------------
@@ -61,16 +61,16 @@ bool RdrAlt::setRAlt(const LCreal newRA)
 }
 
 // Event functions
-bool RdrAlt::onEventSetRAltRdrAlt(const Basic::Number* const x) 
+bool RdrAlt::onEventSetRAltRdrAlt(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setRAlt(x->getReal());
+    if (x != nullptr) ok = setRAlt(x->getReal());
     return ok;
 }
 bool RdrAlt::onEventSetRAltMinRdrAlt(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setRAltMin(x->getReal());
+    if (x != nullptr) ok = setRAltMin(x->getReal());
     return ok;
 }
 
@@ -86,33 +86,33 @@ void RdrAlt::updateData(const LCreal dt)
     // else one is white and the other is magenta
     bool tooLow = false;
     if (rAlt < rAltMin) tooLow = true;
-       
-    // we have to find each readout separately, get it's individual display, and 
+
+    // we have to find each readout separately, get it's individual display, and
     // change the color
     // here is the minimum readout display
     Basic::Pair* pair = findByName("rmin");
-    if (pair != 0) {
+    if (pair != nullptr) {
         BasicGL::NumericReadout* r = dynamic_cast<BasicGL::NumericReadout*>(pair->object());
-        if (r != 0) {
+        if (r != nullptr) {
             Basic::Identifier* id = new Basic::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
             r->setColor(id);
             id->unref();
             //Display* d1 = r->getDisplay();
-                
+
             //if (d1 != 0) {
                 //if (tooLow) d1->setColor("yellow");
                 //else d1->setColor("magenta");
                 //r->draw();
-                
+
             //}
         }
     }
     // actual radar readout
     Basic::Pair* pair2 = findByName("ralt");
-    if (pair2 != 0) {
+    if (pair2 != nullptr) {
         BasicGL::NumericReadout* r1 = dynamic_cast<BasicGL::NumericReadout*>(pair2->object());
-        if (r1 != 0) {
+        if (r1 != nullptr) {
             Basic::Identifier* id = new Basic::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
             r1->setColor(id);
@@ -125,7 +125,7 @@ void RdrAlt::updateData(const LCreal dt)
             //}
         }
     }
-    
+
     // send our radar alts out
     send("rmin", UPDATE_VALUE, rAltMin, rAltMinSD);
     send("ralt", UPDATE_VALUE, rAlt, rAltSD);

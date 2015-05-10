@@ -7,6 +7,7 @@ namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestButtons,"TestButtons")
 EMPTY_SERIALIZER(TestButtons)
+EMPTY_DELETEDATA(TestButtons)
 
 BEGIN_EVENT_HANDLER(TestButtons)
     ON_EVENT(500, regularButton);
@@ -25,14 +26,13 @@ END_EVENT_HANDLER()
 TestButtons::TestButtons()
 {
     STANDARD_CONSTRUCTOR()
-    
+
     whichButton = -1;
     whichButtonSD.empty();
-    value = 0;
+    value = 0.0;
     valueSD.empty();
     latchedSD.empty();
 }
-
 
 //------------------------------------------------------------------------------
 // copyData()
@@ -46,9 +46,6 @@ void TestButtons::copyData(const TestButtons& org, const bool)
     value = org.value;
     valueSD.empty();
 }
-
-EMPTY_DELETEDATA(TestButtons)
-
 
 bool TestButtons::regularButton()
 {
@@ -117,15 +114,15 @@ bool TestButtons::solenoidDown()
 void TestButtons::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     if (whichButton == -1) send("whichbutton", UPDATE_VALUE, "Press A Button", whichButtonSD);
     else if (whichButton == REGULAR) send("whichbutton", UPDATE_VALUE, "Regular Button", whichButtonSD);
     else if (whichButton == PUSH_MAINTAINED) send("whichbutton", UPDATE_VALUE, "Push Button Maintained", whichButtonSD);
     else if (whichButton == PUSH_MOMENTARY) send("whichbutton", UPDATE_VALUE, "Push Button Momentary", whichButtonSD);
-    else if (whichButton == KNOB) send("whichbutton", UPDATE_VALUE, "Knob", whichButtonSD); 
+    else if (whichButton == KNOB) send("whichbutton", UPDATE_VALUE, "Knob", whichButtonSD);
     else if (whichButton == SOLENOID) send("whichbutton", UPDATE_VALUE, "Solenoid", whichButtonSD);
     else send("whichbutton", UPDATE_VALUE, "Rotary Switch", whichButtonSD);
-    
+
     // send our value out
     send("value", UPDATE_VALUE, value, valueSD);
 }

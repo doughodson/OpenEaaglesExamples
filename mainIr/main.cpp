@@ -21,7 +21,7 @@ namespace Example {
 // background frame rate
 const int bgRate = 10;
 
-static TestStation* testStation = 0;
+static TestStation* testStation = nullptr;
 
 // test station builder
 static TestStation* builder(const char* const filename)
@@ -35,14 +35,14 @@ static TestStation* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -50,7 +50,7 @@ static TestStation* builder(const char* const filename)
 
    // try to cast to proper object, and check
    TestStation* testStation = dynamic_cast<TestStation*>(obj);
-   if (testStation == 0) {
+   if (testStation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -64,7 +64,7 @@ static TestStation* builder(const char* const filename)
 //-----------------------------------------------------------------------------
 static void updateDataCB(int)
 {
-   double dt0 = 1.0/static_cast<double>(bgRate);
+   double dt0 = 1.0 / static_cast<double>(bgRate);
    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
    testStation->event(Basic::Component::RESET_EVENT);
 
    // set timer for the background tasks
-   double dt = 1.0/static_cast<double>(bgRate);
+   double dt = 1.0 / static_cast<double>(bgRate);
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
