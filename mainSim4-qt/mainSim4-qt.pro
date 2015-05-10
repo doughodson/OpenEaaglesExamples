@@ -2,10 +2,10 @@ MSVC_VER = vs2012
 
 # OpenEaagles package(s)
 OE_ROOT = $$(OE_ROOT)
-isEmpty(OE_ROOT) OE_ROOT = $$PWD/../OpenEaagles
+isEmpty(OE_ROOT) OE_ROOT = $$PWD/../../OpenEaagles
 message(OE_ROOT = $${OE_ROOT})
 OE_3RD_PARTY_ROOT = $$(OE_3RD_PARTY_ROOT)
-isEmpty(OE_3RD_PARTY_ROOT) OE_3RD_PARTY_ROOT = $$PWD/../OpenEaagles3rdParty
+isEmpty(OE_3RD_PARTY_ROOT) OE_3RD_PARTY_ROOT = $$PWD/../../OpenEaagles3rdParty
 message(OE_3RD_PARTY_ROOT = $${OE_3RD_PARTY_ROOT})
 
 QT += core widgets
