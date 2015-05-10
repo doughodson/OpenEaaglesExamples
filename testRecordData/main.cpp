@@ -18,7 +18,7 @@ namespace Test {
 // default background frame rate
 static const int BG_RATE = 10;
 
-static Simulation::Station* station = 0;
+static Simulation::Station* station = nullptr;
 
 // station builder
 static Simulation::Station* builder(const char* const filename)
@@ -32,14 +32,14 @@ static Simulation::Station* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -47,7 +47,7 @@ static Simulation::Station* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
-   if (station == 0) {
+   if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

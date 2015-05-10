@@ -11,6 +11,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <cstring>
 
 namespace Eaagles {
 namespace Test {
@@ -4505,10 +4506,10 @@ int main(int argc, char* argv[])
    bool imode = false;
 
    for (int i = 1; i < argc; i++) {
-      if (strcmp(argv[i],"-a") == 0) {
+      if (std::strcmp(argv[i],"-a") == 0) {
          runAll = true;
       }
-      else if (strcmp(argv[i],"-i") == 0) {
+      else if (std::strcmp(argv[i],"-i") == 0) {
          imode = true;
       }
    }

@@ -24,14 +24,14 @@ static Basic::StateMachine* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -39,7 +39,7 @@ static Basic::StateMachine* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Basic::StateMachine* stateMachine = dynamic_cast<Basic::StateMachine*>(obj);
-   if (stateMachine == 0) {
+   if (stateMachine == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -49,7 +49,7 @@ static Basic::StateMachine* builder(const char* const filename)
 // main test loop
 static void theTest(Basic::StateMachine* stateMachine)
 {
-   LCreal dt = 0.05f;  // Fake delta time
+   LCreal dt = 0.05;  // Fake delta time
 
    while (stateMachine->getState() != 99) {
       Basic::Timer::updateTimers(static_cast<LCreal>(dt));

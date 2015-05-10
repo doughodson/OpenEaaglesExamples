@@ -24,7 +24,7 @@ Factory::Factory()
 
 Basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
     // Main board
     if ( std::strcmp(name, Board::getFactoryName()) == 0 ) {
@@ -54,11 +54,11 @@ Basic::Object* Factory::createObj(const char* name)
     else if ( std::strcmp(name, Block2x2::getFactoryName()) == 0 ) {
         obj = new Block2x2();
     }
-    
+
     else {
-       if (obj == 0) obj = BasicGL::Factory::createObj(name);
-       if (obj == 0) obj = Glut::Factory::createObj(name);
-       if (obj == 0) obj = Basic::Factory::createObj(name);
+       if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+       if (obj == nullptr) obj = Glut::Factory::createObj(name);
+       if (obj == nullptr) obj = Basic::Factory::createObj(name);
     }
 
     return obj;

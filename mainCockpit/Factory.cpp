@@ -34,7 +34,7 @@ Factory::Factory()
 
 Basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
     if ( std::strcmp(name, SimStation::getFactoryName()) == 0 ) {
         obj = new SimStation();
@@ -47,21 +47,21 @@ Basic::Object* Factory::createObj(const char* name)
     }
 
     // example libraries
-    if (obj == 0) obj = xPanel::Factory::createObj(name);
-    if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+    if (obj == nullptr) obj = xPanel::Factory::createObj(name);
+    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
     // framework libraries
-    if (obj == 0) obj = Eaagles::Simulation::Factory::createObj(name);
-    if (obj == 0) obj = Instruments::Factory::createObj(name);
-    if (obj == 0) obj = IoDevice::Factory::createObj(name);
-    if (obj == 0) obj = Instruments::Factory::createObj(name);
-    if (obj == 0) obj = Dynamics::Factory::createObj(name);
-    if (obj == 0) obj = Sensor::Factory::createObj(name);
-    if (obj == 0) obj = Otw::Factory::createObj(name);
-    if (obj == 0) obj = Network::Dis::Factory::createObj(name);
-    if (obj == 0) obj = BasicGL::Factory::createObj(name);
-    if (obj == 0) obj = Glut::Factory::createObj(name);
-    if (obj == 0) obj = Basic::Factory::createObj(name);
+    if (obj == nullptr) obj = Eaagles::Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+    if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
+    if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+    if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
+    if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+    if (obj == nullptr) obj = Otw::Factory::createObj(name);
+    if (obj == nullptr) obj = Network::Dis::Factory::createObj(name);
+    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+    if (obj == nullptr) obj = Glut::Factory::createObj(name);
+    if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
     return obj;
 }

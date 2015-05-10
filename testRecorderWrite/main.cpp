@@ -21,7 +21,7 @@ namespace Test {
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
    //
    if ( std::strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
@@ -29,9 +29,9 @@ static Basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == 0) obj = Eaagles::Simulation::Factory::createObj(name);
-      if (obj == 0) obj = Eaagles::Basic::Factory::createObj(name);
-      if (obj == 0) obj = Eaagles::Recorder::Factory::createObj(name);
+      if (obj == nullptr) obj = Eaagles::Simulation::Factory::createObj(name);
+      if (obj == nullptr) obj = Eaagles::Basic::Factory::createObj(name);
+      if (obj == nullptr) obj = Eaagles::Recorder::Factory::createObj(name);
    }
 
    return obj;
@@ -49,14 +49,14 @@ static DataRecordTest* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -64,7 +64,7 @@ static DataRecordTest* builder(const char* const filename)
 
    // try to cast to proper object, and check
    DataRecordTest* dataRecordTest = dynamic_cast<DataRecordTest*>(obj);
-   if (dataRecordTest == 0) {
+   if (dataRecordTest == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

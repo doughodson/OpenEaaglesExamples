@@ -24,7 +24,7 @@ const float UPDATE_RATE = 10.0; // main loop update rate
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
    if ( std::strcmp(name, Sender::getFactoryName()) == 0 ) {
       obj = new Sender();
@@ -34,9 +34,9 @@ static Basic::Object* factory(const char* name)
    }
 
    // example libraries
-   if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+   if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
    // framework libraries
-   if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
    return obj;
 }
@@ -53,14 +53,14 @@ static Endpoint* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -68,7 +68,7 @@ static Endpoint* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Endpoint* endpoint = dynamic_cast<Endpoint*>(obj);
-   if (endpoint == 0) {
+   if (endpoint == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

@@ -24,7 +24,7 @@ namespace Example {
 // default background frame rate
 static const int BG_RATE = 10;
 
-static SimStation* simStation = 0;
+static SimStation* simStation = nullptr;
 
 // SimStation builder
 static SimStation* builder(const char* const filename)
@@ -38,14 +38,14 @@ static SimStation* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -53,7 +53,7 @@ static SimStation* builder(const char* const filename)
 
    // try to cast to proper object, and check
    SimStation* simStation = dynamic_cast<SimStation*>(obj);
-   if (simStation == 0) {
+   if (simStation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
 
    // reset station
    simStation->event(Basic::Component::RESET_EVENT);
-    
+
    // set timer for background tasks
    double dt = 1.0/static_cast<double>(BG_RATE);
    int msecs = static_cast<int>(dt * 1000);

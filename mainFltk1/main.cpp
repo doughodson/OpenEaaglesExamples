@@ -24,8 +24,8 @@ static void update(void* pData)
 {
    if (pData != NULL) {
       Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
-      if (stn != 0) {
-         double dt = 1 / 20.0f;
+      if (stn != nullptr) {
+         double dt = 1 / 20.0;
          stn->updateData(static_cast<Eaagles::LCreal>(dt));
          Fl::repeat_timeout(dt, update, pData);
       }
@@ -35,12 +35,12 @@ static void update(void* pData)
 namespace Eaagles {
 namespace Example {
 
-static FltkStation* fltkStation = 0;
+static FltkStation* fltkStation = nullptr;
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
     // This test ...
     if ( std::strcmp(name, FltkStation::getFactoryName()) == 0 ) {
@@ -50,10 +50,10 @@ static Basic::Object* factory(const char* name)
         obj = new FltkDisplay;
     }
     else {
-        if (obj == 0) obj = Simulation::Factory::createObj(name);
-        if (obj == 0) obj = Instruments::Factory::createObj(name);
-        if (obj == 0) obj = BasicGL::Factory::createObj(name);
-        if (obj == 0) obj = Basic::Factory::createObj(name);
+        if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+        if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+        if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+        if (obj == nullptr) obj = Basic::Factory::createObj(name);
     }
 
     return obj;
@@ -71,14 +71,14 @@ static FltkStation* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -86,7 +86,7 @@ static FltkStation* builder(const char* const filename)
 
    // try to cast to proper object, and check
    FltkStation* fltkStation = dynamic_cast<FltkStation*>(obj);
-   if (fltkStation == 0) {
+   if (fltkStation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -101,10 +101,10 @@ int main(int, char* [])
 
    // now do a reset
    fltkStation->reset();
-   fltkStation->updateData(0.025f);
+   fltkStation->updateData(0.025);
 
    // run at 20 HZ roughly, background thread
-   double dt = 1 / 20.0f;
+   double dt = 1 / 20.0;
    // create our update data timer
    Fl::add_timeout(dt, update, fltkStation);
 

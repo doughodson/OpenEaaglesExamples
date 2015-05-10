@@ -15,12 +15,12 @@
 namespace Eaagles {
 namespace Tutorial {
 
-static class Random* random = 0;
+static class Random* random = nullptr;
 
 // our class factory
 static Basic::Object* factory(const char* const name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
    // look in application's classes
    if ( std::strcmp(name, Uniform::getFactoryName()) == 0 ) {
@@ -31,7 +31,7 @@ static Basic::Object* factory(const char* const name)
    }
 
    // look in base classes
-   if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
    return obj;
 }
@@ -48,14 +48,14 @@ static Random* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -63,7 +63,7 @@ static Random* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Random* random = dynamic_cast<Random*>(obj);
-   if (random == 0) {
+   if (random == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

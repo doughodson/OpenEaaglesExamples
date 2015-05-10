@@ -25,7 +25,7 @@ Factory::Factory()
 
 Basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = 0;
+    Basic::Object* obj = nullptr;
 
     // Test #1
     if ( std::strcmp(name, TestStateMachine01::getFactoryName()) == 0 ) {
@@ -57,7 +57,7 @@ Basic::Object* Factory::createObj(const char* name)
     }
 
     // OpenEaagles packages
-    if (obj == 0) obj = Basic::Factory::createObj(name);
+    if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
     return obj;
 }

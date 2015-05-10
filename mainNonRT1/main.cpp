@@ -18,17 +18,17 @@ namespace Example {
 // frame rate (50 Hz)
 const unsigned int frameRate = 50;
 
-static Simulation::Simulation* simulation = 0;
+static Simulation::Simulation* simulation = nullptr;
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
-   if (obj == 0) obj = Simulation::Factory::createObj(name);
-   if (obj == 0) obj = Dynamics::Factory::createObj(name);
-   if (obj == 0) obj = Sensor::Factory::createObj(name);
-   if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
+   if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
    return obj;
 }
@@ -45,14 +45,14 @@ static Simulation::Simulation* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -60,7 +60,7 @@ static Simulation::Simulation* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Simulation::Simulation* simulation = dynamic_cast<Simulation::Simulation*>(obj);
-   if (simulation == 0) {
+   if (simulation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

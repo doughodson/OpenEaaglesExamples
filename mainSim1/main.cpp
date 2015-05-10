@@ -25,23 +25,23 @@ namespace Example {
 // background frame rate
 const int bgRate = 10;
 
-static Simulation::Station* station = 0; 
+static Simulation::Station* station = nullptr;
 
 // our class factory
 static Basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = 0;
+   Basic::Object* obj = nullptr;
 
    // example libraries
-   if (obj == 0) obj = xZeroMQHandlers::Factory::createObj(name);
+   if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
    // framework libraries
-   if (obj == 0) obj = Otw::Factory::createObj(name);
-   if (obj == 0) obj = Simulation::Factory::createObj(name);
-   if (obj == 0) obj = Dynamics::Factory::createObj(name);
-   if (obj == 0) obj = Sensor::Factory::createObj(name);
-   if (obj == 0) obj = Network::Dis::Factory::createObj(name);
-   if (obj == 0) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = Otw::Factory::createObj(name);
+   if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
+   if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = Network::Dis::Factory::createObj(name);
+   if (obj == nullptr) obj = Basic::Factory::createObj(name);
 
    return obj;
 }
@@ -58,14 +58,14 @@ static Simulation::Station* builder(const char* const filename)
    }
 
    // test to see if an object was created
-   if (obj == 0) {
+   if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
    // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
    Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
-   if (pair != 0) {
+   if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
       pair->unref();
@@ -73,7 +73,7 @@ static Simulation::Station* builder(const char* const filename)
 
    // try to cast to proper object, and check
    Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
-   if (station == 0) {
+   if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
    // calc delta time for background thread
    double dt = 1.0/static_cast<double>(bgRate);
 
-   // system Time of Day 
+   // system Time of Day
    double simTime = 0.0;                   // Simulator time reference
    double startTime = getComputerTime();   // Time of day (sec) run started
 
