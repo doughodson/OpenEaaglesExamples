@@ -17,16 +17,16 @@ IMPLEMENT_ABSTRACT_SUBCLASS(Block,"PuzzleBlock")
 // Slot table for this form type
 //------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Block)
-    "position",      //  1: initial position vector 
-    "id",            //  2: Block's reference ID 
+    "position",      //  1: initial position vector
+    "id",            //  2: Block's reference ID
 END_SLOTTABLE(Block)
 
 //------------------------------------------------------------------------------
-//  Map slot table to handles 
+//  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Block)
-    ON_SLOT( 1, setSlotPosition, Basic::List)        
-    ON_SLOT( 2, setSlotRefId, Basic::Integer)        
+    ON_SLOT( 1, setSlotPosition, Basic::List)
+    ON_SLOT( 2, setSlotRefId, Basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -128,13 +128,14 @@ bool Block::testMove(const int dx, const int dy) const
 bool Block::collisionCheck(const Block* const b2) const
 {
   bool c = false;
-  for (unsigned int i = 0; i < getSizeX() && !c; i++)
+  for (unsigned int i = 0; i < getSizeX() && !c; i++) {
     for (unsigned int j = 0; j < getSizeY() && !c; j++) {
        unsigned int xx = x + i;
        unsigned int yy = y + j;
        if ( xx >= b2->x && xx <= (b2->x + b2->getSizeX() - 1) &&
             yy >= b2->y && yy <= (b2->y + b2->getSizeY() - 1) ) c = true;
     }
+  }
   return c;
 }
 
@@ -187,7 +188,7 @@ bool Block::setReferenceID(const unsigned int v)
 bool Block::setSlotPosition(const Basic::List* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int values[2];
       int n = msg->getNumberList(values, 2);
       if (n == 2) {
@@ -200,7 +201,7 @@ bool Block::setSlotPosition(const Basic::List* const msg)
 bool Block::setSlotRefId(const Basic::Integer* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int i = msg->getInt();
       if (i >= 0) {
          unsigned int id = static_cast<unsigned int>(i);
@@ -325,7 +326,6 @@ Block2x1::Block2x1()
 Block::BlockId Block2x1::getTypeId() const   { return Block::BLOCK_2X1; }
 unsigned int Block2x1::getSizeX() const      { return 2; }
 unsigned int Block2x1::getSizeY() const      { return 1; }
-
 
 
 //==============================================================================

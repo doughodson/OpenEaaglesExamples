@@ -24,18 +24,18 @@ static class Board* board = nullptr;
 //
 static void timerCB(int)
 {
-   double dt0 = 1.0 / static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const double dt0 = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, timerCB, 1);
 
    // current time
-   double time = getComputerTime();
+   const double time = getComputerTime();
 
    // N-1 Time
    static double time0 = time;
 
    // compute delta time
-   double dt = (time - time0);
+   const double dt = (time - time0);
    time0 = time;
 
    Basic::Timer::updateTimers(static_cast<LCreal>(dt));
@@ -90,8 +90,8 @@ int main(int argc, char* argv[])
    board->createWindow();
 
    // set timer
-   double dt = 1.0 / static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerCB, 1);
 
    glutMainLoop();

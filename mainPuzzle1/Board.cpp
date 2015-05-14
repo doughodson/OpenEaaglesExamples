@@ -21,11 +21,11 @@ BEGIN_SLOTTABLE(Board)
 END_SLOTTABLE(Board)
 
 //------------------------------------------------------------------------------
-//  Map slot table to handles 
+//  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Board)
-    ON_SLOT( 1, setSlotPuzzle,    Puzzle )        
-    ON_SLOT( 2, setSlotTemplates, Basic::PairStream )        
+    ON_SLOT( 1, setSlotPuzzle,    Puzzle )
+    ON_SLOT( 2, setSlotTemplates, Basic::PairStream )
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -36,21 +36,21 @@ Board::Board()
    STANDARD_CONSTRUCTOR()
 
    // Clear our list of BasicGL::Graphic templates for each block type
-   templates = 0;
+   templates = nullptr;
 
    // clear the puzzle
-   puzzle = 0;
+   puzzle = nullptr;
 
    // Clear the solution path
    for (unsigned int i = 0; i < MAX_STATES; i++) {
-      path[i] = 0;
+      path[i] = nullptr;
    }
-   finalState = 0;
+   finalState = nullptr;
    nstates = 0;
 
    // Clear our blocks
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = 0;
+      blocks[i] = nullptr;
       blockId[i] = 0;
       xp[i] = 0;
       yp[i] = 0;
@@ -60,8 +60,8 @@ Board::Board()
    nblocks = 0;
 
    curPathState = 0;
-   moveTimer = 0;
-   startupTimer = 0;
+   moveTimer = 0.0;
+   startupTimer = 0.0;
    movingFlg = false;
 }
 
@@ -73,31 +73,31 @@ void Board::copyData(const Board& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      templates = 0;
-      puzzle = 0;
-      finalState = 0;
+      templates = nullptr;
+      puzzle = nullptr;
+      finalState = nullptr;
    }
 
-   setSlotPuzzle(0);
-   if (org.puzzle != 0) {
+   setSlotPuzzle(nullptr);
+   if (org.puzzle != nullptr) {
       setSlotPuzzle( org.puzzle->clone() );
    }
 
-   setSlotTemplates(0);
-   if (org.templates != 0) {
+   setSlotTemplates(nullptr);
+   if (org.templates != nullptr) {
       setSlotTemplates( org.templates->clone() );
    }
 
    // Clear the solution path
    for (unsigned int i = 0; i < MAX_STATES; i++) {
-      path[i] = 0;
+      path[i] = nullptr;
    }
-   finalState = 0;
+   finalState = nullptr;
    nstates = 0;
 
    // Clear our blocks
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = 0;
+      blocks[i] = nullptr;
       blockId[i] = 0;
       xp[i] = 0;
       yp[i] = 0;
@@ -116,8 +116,8 @@ void Board::copyData(const Board& org, const bool cc)
 //------------------------------------------------------------------------------
 void Board::deleteData()
 {
-   setSlotPuzzle(0);
-   setSlotTemplates(0);
+   setSlotPuzzle(nullptr);
+   setSlotTemplates(nullptr);
    clearGraphics();
 }
 
@@ -140,14 +140,14 @@ void Board::updateData(const LCreal dt)
    // ---
    // Try to solve the puzzle
    // ---
-   if (puzzle != 0 && finalState == 0 && startupTimer > 1.0f) {
+   if (puzzle != nullptr && finalState == nullptr && startupTimer > 1.0) {
       std::cout << "Starting to solve!" << std::endl;
       finalState = puzzle->solve();
 
       // ---
       // Get the path if we have a solution.
       // ---
-      if (finalState != 0) {
+      if (finalState != nullptr) {
          //puz->printPath(final);
          const State* s = finalState;
          while (s->getGeneration() > 0 && nstates < MAX_STATES) {
@@ -165,7 +165,7 @@ void Board::updateData(const LCreal dt)
    // ---
    // Run the puzzle solution path
    // ---
-   if (nblocks > 0 && finalState != 0) {
+   if (nblocks > 0 && finalState != nullptr) {
       updateSolutionPath(dt);
    }
 
@@ -179,18 +179,18 @@ unsigned int Board::setupBlockGraphics()
 {
    clearGraphics();
 
-   if (puzzle != 0 && templates != 0) {
+   if (puzzle != nullptr && templates != nullptr) {
       const State* s = puzzle->getInitState();
-      if (s != 0) {
+      if (s != nullptr) {
          bool finished = false;
          for (unsigned int i = 0; i < MAX_BLOCKS && !finished; i++) {
             const Block* b = s->getBlock(i+1);
-            if (b != 0) {
+            if (b != nullptr) {
                unsigned int typeId = b->getTypeId();
                const Basic::Pair* pair = templates->getPosition(typeId);
-               if (pair != 0) {
+               if (pair != nullptr) {
                   const BasicGL::Graphic* g = dynamic_cast<const BasicGL::Graphic*>( pair->object() );
-                  if (g != 0) {
+                  if (g != nullptr) {
                      // Ok, we've found a BasicGL::Graphic to draw this block!
                      blocks[nblocks] = g->clone();
                      blocks[nblocks]->container(this);
@@ -216,7 +216,7 @@ void Board::clearGraphics()
    while (nblocks > 0) {
       nblocks--;
       blocks[nblocks]->unref();
-      blocks[nblocks] = 0;
+      blocks[nblocks] = nullptr;
       blockId[nblocks] = 0;
       xp[nblocks] = 0;
       yp[nblocks] = 0;
@@ -234,9 +234,9 @@ void Board::updateSolutionPath(const LCreal dt)
 {
    if (movingFlg) {
       // Wait while we move between states
-      moveTimer += (dt*2.0f);
-      if (moveTimer > 1.0f) {
-         moveTimer = 1.0f;
+      moveTimer += (dt*2.0);
+      if (moveTimer > 1.0) {
+         moveTimer = 1.0;
          movingFlg = false;
       }
    }
@@ -274,7 +274,7 @@ void Board::updateBlockDeltaPositions()
 {
    if (curPathState < nstates) {
       const State* s = path[curPathState];
-      if (s != 0) {
+      if (s != nullptr) {
          for (unsigned int i = 0; i < nblocks; i++) {
 
             // Update the block position with the last deltas
@@ -285,7 +285,7 @@ void Board::updateBlockDeltaPositions()
             // compute the block position deltas for the current state
             //  (where we're going)
             const Block* b = s->getBlockByRefNum(blockId[i]);
-            if (b != 0) {
+            if (b != nullptr) {
                xd[i] = b->getX() - xp[i];
                yd[i] = b->getY() - yp[i];
             }
@@ -300,7 +300,7 @@ void Board::updateBlockDeltaPositions()
 void Board::drawFunc()
 {
    for (unsigned int i = 0; i < nblocks; i++) {
-      if (blocks[i] != 0) {
+      if (blocks[i] != nullptr) {
          glPushMatrix();
             glTranslated( (xp[i] + xd[i]*moveTimer), (yp[i] + yd[i]*moveTimer), 0.0);
             blocks[i]->draw();
@@ -314,9 +314,9 @@ void Board::drawFunc()
 //------------------------------------------------------------------------------
 bool Board::setSlotPuzzle(Puzzle* const p)
 {
-   if (puzzle != 0) puzzle->unref();
+   if (puzzle != nullptr) puzzle->unref();
    puzzle = p;
-   if (puzzle != 0) puzzle->ref();
+   if (puzzle != nullptr) puzzle->ref();
    return true;
 }
 
@@ -325,14 +325,14 @@ bool Board::setSlotPuzzle(Puzzle* const p)
 //------------------------------------------------------------------------------
 bool Board::setSlotTemplates(const Basic::PairStream* const p)
 {
-   if (templates != 0) templates->unref();
+   if (templates != nullptr) templates->unref();
    templates = p;
-   if (templates != 0) templates->ref();
+   if (templates != nullptr) templates->ref();
    return true;
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 Basic::Object* Board::getSlotByIndex(const int si)
 {
@@ -351,7 +351,7 @@ std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slots
    }
 
    // Puzzle controller
-   if (puzzle != 0) {
+   if (puzzle != nullptr) {
       indent(sout,i+j);
       sout << "puzzle: {" << std::endl;
       puzzle->serialize(sout,i+j+4,slotsOnly);
@@ -360,7 +360,7 @@ std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slots
    }
 
    // Puzzle controller
-   if (puzzle != 0) {
+   if (puzzle != nullptr) {
       indent(sout,i+j);
       sout << "puzzle: {" << std::endl;
       puzzle->serialize(sout,i+j+4,slotsOnly);

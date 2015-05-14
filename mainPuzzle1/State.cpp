@@ -19,10 +19,10 @@ BEGIN_SLOTTABLE(State)
 END_SLOTTABLE(State)
 
 //------------------------------------------------------------------------------
-//  Map slot table to handles 
+//  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(State)
-    ON_SLOT( 1, setSlotBlocks, Basic::PairStream )        
+    ON_SLOT( 1, setSlotBlocks, Basic::PairStream )
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ State::State()
    STANDARD_CONSTRUCTOR()
 
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = 0;
+      blocks[i] = nullptr;
    }
    nblocks = 0;
 
@@ -46,14 +46,14 @@ State::State(const State& org, const Block* const nb, const unsigned int idx)
    STANDARD_CONSTRUCTOR()
 
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = 0;
+      blocks[i] = nullptr;
    }
    nblocks = 0;
 
    setBlocks(org.blocks, org.nblocks);
 
-   if (nb != 0 && idx < nblocks) {
-      if (blocks[idx] != 0) blocks[idx]->unref();
+   if (nb != nullptr && idx < nblocks) {
+      if (blocks[idx] != nullptr) blocks[idx]->unref();
       blocks[idx] = nb->clone();
    }
    sortBlocks();
@@ -71,7 +71,7 @@ void State::copyData(const State& org, const bool cc)
 
    if (cc) {
       for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-         blocks[i] = 0;
+         blocks[i] = nullptr;
       }
       nblocks = 0;
    }
@@ -128,7 +128,7 @@ int State::h() const
 // Returns the i'th block (range: 1 .. getNumberOfBlocks()) (const version)
 const Block* State::getBlock(const unsigned int i) const
 {
-   const Block* p = 0;
+   const Block* p = nullptr;
    if (i > 0 && i <= nblocks) {
       p = blocks[i-1];
    }
@@ -138,7 +138,7 @@ const Block* State::getBlock(const unsigned int i) const
 // Returns the block with ref ID
 const Block* State::getBlockByRefNum(const unsigned int refId) const
 {
-   const Block* p = 0;
+   const Block* p = nullptr;
    for (unsigned int i = 0; i < nblocks && p == 0; i++) {
       if (refId == blocks[i]->getReferenceID()) {
          // found it
@@ -149,18 +149,18 @@ const Block* State::getBlockByRefNum(const unsigned int refId) const
 }
 
 //------------------------------------------------------------------------------
-// Expand the state, s, and 
+// Expand the state, s, and
 //  returns the state that matches the 'goal' state, if found, else zero
 //------------------------------------------------------------------------------
 const State* State::expand(const State* const goal, Puzzle* const puz)
 {
-   const State* endState = 0;
+   const State* endState = nullptr;
    expanded = true;
 
-   if (goal != 0 && puz != 0) {
+   if (goal != nullptr && puz != nullptr) {
 
       // for each block contained in the state ...
-      for (unsigned int idx = 0; idx < nblocks && endState == 0; idx++) {
+      for (unsigned int idx = 0; idx < nblocks && endState == nullptr; idx++) {
 
          // Current block
          const Block* const cb = blocks[idx];
@@ -245,8 +245,8 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
 //------------------------------------------------------------------------------
 const State* State::stateFactory(const Block* const nb, const unsigned int idx, const State* const goal, Puzzle* const puz)
 {
-   const State* endState = 0;
-   if (nb != 0 && idx < nblocks && goal != 0) {
+   const State* endState = nullptr;
+   if (nb != nullptr && idx < nblocks && goal != nullptr) {
 
       // create a new state with this block.
       State* ns = new State(*this,nb,idx);
@@ -327,9 +327,9 @@ unsigned int State::setBlocks(const Block* const newBlocks[], const unsigned int
 {
    // First clear out the old
    clearBlocks();
-   
+
    // Copy the new
-   if (newBlocks != 0 && numNumBlocks > 0) {
+   if (newBlocks != nullptr && numNumBlocks > 0) {
       unsigned int n = numNumBlocks;
       if (n > MAX_BLOCKS) n =MAX_BLOCKS;
       for (unsigned int i = 0; i < n; i++) {
@@ -358,7 +358,7 @@ void State::clearBlocks()
 {
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
       if (blocks[i] != 0) blocks[i]->unref();
-      blocks[i] = 0;
+      blocks[i] = nullptr;
    }
    nblocks = 0;
 }
@@ -371,7 +371,7 @@ void State::clearBlocks()
 bool State::setSlotBlocks(const Basic::PairStream* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
 
       // Array of blocks
       unsigned int n = 0;
@@ -382,10 +382,10 @@ bool State::setSlotBlocks(const Basic::PairStream* const msg)
 
       // Find all blocks (and check their type to make sure)
       const Basic::List::Item* item = msg->getFirstItem();
-      while (item != 0 && n < MAX_BLOCKS && ok) {
+      while (item != nullptr && n < MAX_BLOCKS && ok) {
          const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
          const Block* p = dynamic_cast<const Block*>( pair->object() );
-         if (p != 0) {
+         if (p != nullptr) {
             newBlocks[n++] = p;  // Save the point
          }
          else {
@@ -404,7 +404,7 @@ bool State::setSlotBlocks(const Basic::PairStream* const msg)
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 Basic::Object* State::getSlotByIndex(const int si)
 {

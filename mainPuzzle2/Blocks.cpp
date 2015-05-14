@@ -20,16 +20,16 @@ IMPLEMENT_ABSTRACT_SUBCLASS(Block,"PuzzleBlock")
 // Slot table for this form type
 //------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Block)
-    "position",      //  1: initial position vector 
-    "id",            //  2: Block's reference ID 
+    "position",      //  1: initial position vector
+    "id",            //  2: Block's reference ID
 END_SLOTTABLE(Block)
 
 //------------------------------------------------------------------------------
-//  Map slot table to handles 
+//  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Block)
-    ON_SLOT( 1, setSlotPosition, Basic::List)        
-    ON_SLOT( 2, setSlotRefId, Basic::Integer)        
+    ON_SLOT( 1, setSlotPosition, Basic::List)
+    ON_SLOT( 2, setSlotRefId, Basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ int compare(const Block& b1, const Block& b2)
 int comparePosition(const Block& b1, const Block& b2)
 {
    if ((b1.x == b2.x) && (b1.y == b2.y)) {
-      return 0; // Equal 
+      return 0; // Equal
    }
    else if (b1.y > b2.y) {
       // if b1 is at a higher row than b2, then it's "less than"
@@ -124,7 +124,7 @@ bool Block::move(const int dx, const int dy, const Puzzle* const puz)
 bool Block::testMove(const int dx, const int dy, const Puzzle* const puz) const
 {
    bool ok = false;
-   if (puz != 0) {
+   if (puz != nullptr) {
       ok = (
             (x + dx) >= 1 &&
             (x + getSizeX() + dx - 1) <= puz->getBoardSizeX() &&
@@ -211,7 +211,7 @@ bool Block::setReferenceID(const unsigned int v)
 bool Block::setSlotPosition(const Basic::List* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int values[2];
       int n = msg->getNumberList(values, 2);
       if (n == 2) {
@@ -224,7 +224,7 @@ bool Block::setSlotPosition(const Basic::List* const msg)
 bool Block::setSlotRefId(const Basic::Integer* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int i = msg->getInt();
       if (i >= 0) {
          unsigned int id = static_cast<unsigned int>(i);
@@ -289,10 +289,9 @@ Block1::Block1()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block1::getTypeId() const   { return 1; }
+unsigned int Block1::getTypeId() const     { return 1; }
 unsigned int Block1::getSizeX() const      { return 1; }
 unsigned int Block1::getSizeY() const      { return 1; }
-
 
 //==============================================================================
 // Class: Block2
@@ -316,7 +315,7 @@ Block2::Block2()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block2::getTypeId() const   { return 2; }
+unsigned int Block2::getTypeId() const     { return 2; }
 unsigned int Block2::getSizeX() const      { return 1; }
 unsigned int Block2::getSizeY() const      { return 1; }
 
@@ -343,7 +342,7 @@ Block3::Block3()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block3::getTypeId() const   { return 3; }
+unsigned int Block3::getTypeId() const     { return 3; }
 unsigned int Block3::getSizeX() const      { return 1; }
 unsigned int Block3::getSizeY() const      { return 1; }
 
@@ -370,7 +369,7 @@ Block4::Block4()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block4::getTypeId() const   { return 4; }
+unsigned int Block4::getTypeId() const     { return 4; }
 unsigned int Block4::getSizeX() const      { return 1; }
 unsigned int Block4::getSizeY() const      { return 1; }
 
@@ -397,7 +396,7 @@ Block5::Block5()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block5::getTypeId() const   { return 5; }
+unsigned int Block5::getTypeId() const     { return 5; }
 unsigned int Block5::getSizeX() const      { return 1; }
 unsigned int Block5::getSizeY() const      { return 1; }
 
@@ -424,7 +423,7 @@ Block6::Block6()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block6::getTypeId() const   { return 6; }
+unsigned int Block6::getTypeId() const     { return 6; }
 unsigned int Block6::getSizeX() const      { return 1; }
 unsigned int Block6::getSizeY() const      { return 1; }
 
@@ -451,7 +450,7 @@ Block7::Block7()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block7::getTypeId() const   { return 7; }
+unsigned int Block7::getTypeId() const     { return 7; }
 unsigned int Block7::getSizeX() const      { return 1; }
 unsigned int Block7::getSizeY() const      { return 1; }
 
@@ -478,7 +477,7 @@ Block8::Block8()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block8::getTypeId() const   { return 8; }
+unsigned int Block8::getTypeId() const     { return 8; }
 unsigned int Block8::getSizeX() const      { return 1; }
 unsigned int Block8::getSizeY() const      { return 1; }
 
@@ -505,7 +504,7 @@ Block9::Block9()
 //------------------------------------------------------------------------------
 // Access functions
 //------------------------------------------------------------------------------
-unsigned int Block9::getTypeId() const   { return 9; }
+unsigned int Block9::getTypeId() const     { return 9; }
 unsigned int Block9::getSizeX() const      { return 1; }
 unsigned int Block9::getSizeY() const      { return 1; }
 

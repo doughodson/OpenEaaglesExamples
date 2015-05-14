@@ -21,7 +21,8 @@ class State;
 //
 // Description:  Puzzle engine
 //------------------------------------------------------------------------------
-class Puzzle : public Basic::Component {
+class Puzzle : public Basic::Component
+{
     DECLARE_SUBCLASS(Puzzle,Basic::Component)
 
 public:
@@ -75,4 +76,5 @@ private:
 }  // End of Puzzle namespace
 }  // End of Eaagles namespace
 
-#endif /* __Puzzle_H_05CE6F5B_A367_4b67_B678_9141D79810B2__ */
+#endif
+

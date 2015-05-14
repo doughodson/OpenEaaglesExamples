@@ -56,12 +56,12 @@ private:
 
    static const unsigned int MAX_BLOCKS = 30;
    BasicGL::Graphic*  blocks[MAX_BLOCKS];    // Graphics for each block
-   unsigned int         blockId[MAX_BLOCKS]; // Block reference IDs
-   LCreal               xp[MAX_BLOCKS];      // Block X positions
-   LCreal               yp[MAX_BLOCKS];      // Block Y positions
-   LCreal               xd[MAX_BLOCKS];      // Block delta X positions
-   LCreal               yd[MAX_BLOCKS];      // Block delta Y positions
-   unsigned int         nblocks;             // number of blocks
+   unsigned int       blockId[MAX_BLOCKS];   // Block reference IDs
+   LCreal             xp[MAX_BLOCKS];        // Block X positions
+   LCreal             yp[MAX_BLOCKS];        // Block Y positions
+   LCreal             xd[MAX_BLOCKS];        // Block delta X positions
+   LCreal             yd[MAX_BLOCKS];        // Block delta Y positions
+   unsigned int       nblocks;               // number of blocks
 };
 
 }  // End of Example namespace

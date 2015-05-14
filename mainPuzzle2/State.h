@@ -30,7 +30,7 @@ public:
    State();
    State(const State& org, const Block* const nb, const unsigned int idx);
 
-   virtual int f() const               { return (g() + h()); }                // f() function
+   virtual int f() const              { return (g() + h()); }                 // f() function
    virtual int g() const              { return gValue; }                      // g() function
    virtual int h() const              { return hValue; }                      // h() function
    virtual bool isExpanded() const    { return expanded; }                    // Has this state been expanded?
@@ -40,7 +40,7 @@ public:
    virtual const Block* getBlock(const unsigned int n) const;                 // Returns the n'th block (range: 1 .. getNumberOfBlocks())
    virtual const Block* getBlockByRefNum(const unsigned int refId) const;     // Returns the block with ref ID
 
-   // Expand the state, s, and 
+   // Expand the state, s, and
    //  returns the state that matches the 'goal' state, if found, else zero
    virtual const State* expand(const State* const goal, Puzzle* const puz);
 

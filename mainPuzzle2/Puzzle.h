@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Class:  Puzzle
+// Class: Puzzle
 //------------------------------------------------------------------------------
 #ifndef __Eaagles_Example_Puzzle_H__
 #define __Eaagles_Example_Puzzle_H__
@@ -39,8 +39,8 @@ public:
    const State* getInitState() const      { return initState; }   // Returns our 'initial' or starting state
    const State* getGoalState() const      { return goalState; }   // Returns the 'goal' state
 
-   unsigned int getBoardSizeX() const        { return BOARD_X_SIZE; }
-   unsigned int getBoardSizeY() const        { return BOARD_Y_SIZE; }
+   unsigned int getBoardSizeX() const     { return BOARD_X_SIZE; }
+   unsigned int getBoardSizeY() const     { return BOARD_Y_SIZE; }
 
    // Solve (or try) the puzzle
    virtual const State* solve();

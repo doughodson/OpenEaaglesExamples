@@ -21,11 +21,11 @@ BEGIN_SLOTTABLE(Puzzle)
 END_SLOTTABLE(Puzzle)
 
 //------------------------------------------------------------------------------
-//  Map slot table to handles 
+//  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Puzzle)
-    ON_SLOT( 1, setInitState, State )        
-    ON_SLOT( 2, setGoalState, State )        
+    ON_SLOT( 1, setInitState, State )
+    ON_SLOT( 2, setGoalState, State )
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -35,12 +35,12 @@ Puzzle::Puzzle()
 {
    STANDARD_CONSTRUCTOR()
 
-   initState = 0;
-   goalState = 0;
-   openStates = 0;
+   initState = nullptr;
+   goalState = nullptr;
+   openStates = nullptr;
 
    for (unsigned int i = 0; i < MAX_STATES; i++) {
-      hashTable[i] = 0;
+      hashTable[i] = nullptr;
    }
    nhe = 0;
 }
@@ -53,22 +53,22 @@ void Puzzle::copyData(const Puzzle& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      initState = 0;
-      goalState = 0;
-      openStates = 0;
+      initState = nullptr;
+      goalState = nullptr;
+      openStates = nullptr;
       for (unsigned int i = 0; i < MAX_STATES; i++) {
-         hashTable[i] = 0;
+         hashTable[i] = nullptr;
       }
       nhe = 0;
    }
 
-   setInitState(0);
-   if (org.initState != 0) {
+   setInitState(nullptr);
+   if (org.initState != nullptr) {
       setInitState( org.initState->clone() );
    }
 
-   setGoalState(0);
-   if (org.goalState != 0) {
+   setGoalState(nullptr);
+   if (org.goalState != nullptr) {
       setGoalState( org.goalState->clone() );
    }
 
@@ -82,8 +82,8 @@ void Puzzle::copyData(const Puzzle& org, const bool cc)
 //------------------------------------------------------------------------------
 void Puzzle::deleteData()
 {
-   setInitState(0);
-   setGoalState(0);
+   setInitState(nullptr);
+   setGoalState(nullptr);
    clearOpenList();
    clearHashTable();
 }
@@ -94,13 +94,13 @@ void Puzzle::deleteData()
 const State* Puzzle::solve()
 {
    // ---
-   // Until we found the goal or we're out of states to check, 
+   // Until we found the goal or we're out of states to check,
    // expand, expand, expand, ...
    // ---
-   const State* found   = 0;
+   const State* found = nullptr;
    State* current = getOpen();
    int i = 0;
-   while ( (current != 0)  && (found == 0) ) {
+   while ( (current != nullptr)  && (found == nullptr) ) {
       if (i == (i/100)*100) {
          std::cout << "i: " << i << ", states= " << getHashEntries();
          std::cout << ", current=" << current;
@@ -117,7 +117,7 @@ const State* Puzzle::solve()
       //   while (item != 0 && icount < 10) {
       //      const State* s = (const State*) item->getValue();
       //      //s->serialize(std::cout);
-      //      std::cout << icount << " - f = " << s->f() << ", g = " << s->g() << ", h = " << s->h() << std::endl; 
+      //      std::cout << icount << " - f = " << s->f() << ", g = " << s->g() << ", h = " << s->h() << std::endl;
       //      item = item->getNext();
       //      icount++;
       //   }
@@ -135,7 +135,7 @@ const State* Puzzle::solve()
 //------------------------------------------------------------------------------
 void Puzzle::printPath(const State* tstate) const
 {
-   if ( tstate != 0 ) {
+   if ( tstate != nullptr ) {
       std::cout << std::endl;
       const State* s = tstate;
       while (s->getGeneration() > 0) {
@@ -154,9 +154,9 @@ void Puzzle::printPath(const State* tstate) const
 
 bool Puzzle::setInitState(State* const s)
 {
-   if (initState != 0) initState->unref();
+   if (initState != nullptr) initState->unref();
    initState = s;
-   if (initState != 0) {
+   if (initState != nullptr) {
       initState->ref();
       // Add to our lists (to be processed)
       putHash(initState);
@@ -167,9 +167,9 @@ bool Puzzle::setInitState(State* const s)
 
 bool Puzzle::setGoalState(State* const g)
 {
-   if (goalState != 0) goalState->unref();
+   if (goalState != nullptr) goalState->unref();
    goalState = g;
-   if (goalState != 0) {
+   if (goalState != nullptr) {
       goalState->ref();
       goalState->defineBoard(this);
    }
@@ -184,7 +184,7 @@ bool Puzzle::setGoalState(State* const g)
 unsigned int Puzzle::getOpenEntries() const
 {
    unsigned int n = 0;
-   if (openStates != 0) {
+   if (openStates != nullptr) {
       n = openStates->entries();
    }
    return n;
@@ -193,8 +193,8 @@ unsigned int Puzzle::getOpenEntries() const
 // Returns the next state from the 'open' list
 State* Puzzle::getOpen()
 {
-   State* p = 0;
-   if (openStates != 0) {
+   State* p = nullptr;
+   if (openStates != nullptr) {
       p = static_cast<State*>( openStates->get() );
    }
    return p;
@@ -203,12 +203,12 @@ State* Puzzle::getOpen()
 // Puts a state on to the 'open' list
 void Puzzle::putOpen(State* const s)
 {
-   if (openStates == 0) {
+   if (openStates == nullptr) {
       // create the list (as needed)
       openStates = new Basic::List();
    }
 
-   if (s != 0) {
+   if (s != nullptr) {
       // Create a new list item for this state and get the state's f() value
       Basic::List::Item* newItem = new Basic::List::Item();
       newItem->value = s;
@@ -217,8 +217,8 @@ void Puzzle::putOpen(State* const s)
 
       // Find where in the list to insert this new state (based on their f() values)
       Basic::List::Item* item = openStates->getFirstItem();
-      Basic::List::Item* refItem = 0;
-      while (item != 0 && refItem == 0) {
+      Basic::List::Item* refItem = nullptr;
+      while (item != nullptr && refItem == nullptr) {
          const State* p = static_cast<const State*>( item->getValue() );
          if (f < p->f()) {
             refItem = item;
@@ -235,7 +235,7 @@ void Puzzle::putOpen(State* const s)
 // Removes this state from the 'open' list
 void Puzzle::removeOpen(const State* const s)
 {
-   if (s != 0 && openStates != 0) {
+   if (s != nullptr && openStates != nullptr) {
       openStates->remove(s);
    }
 }
@@ -243,10 +243,10 @@ void Puzzle::removeOpen(const State* const s)
 // Clears the open states list
 void Puzzle::clearOpenList()
 {
-   if (openStates != 0) {
+   if (openStates != nullptr) {
       openStates->clear();
       openStates->unref();
-      openStates = 0;
+      openStates = nullptr;
    }
 }
 
@@ -259,7 +259,7 @@ bool Puzzle::putHash(const State* const s)
 {
    bool added = false;
 
-   if (s != 0) {
+   if (s != nullptr) {
 
       // Get our new state's g() value
       int g = s->g();
@@ -276,7 +276,7 @@ bool Puzzle::putHash(const State* const s)
          // Compute the state's hash value for use as the hash table index
          unsigned int idx = s->hash(rh,MAX_STATES);
 
-         if (hashTable[idx] == 0) {
+         if (hashTable[idx] == nullptr) {
             // when we found an empty slot in the table
             rehash = false;
             s->ref();
@@ -290,7 +290,7 @@ bool Puzzle::putHash(const State* const s)
             rehash = false;
 
             // If the state in the table has not been expanded yet, then check
-            // to see if our new state is closer to the start than the one 
+            // to see if our new state is closer to the start than the one
             // already in the table
             if ( !hashTable[idx]->isExpanded() && (g < hashTable[idx]->g()) ) {
                removeOpen(hashTable[idx]);
@@ -319,16 +319,16 @@ bool Puzzle::putHash(const State* const s)
 void Puzzle::clearHashTable()
 {
    for (unsigned int i = 0; i < MAX_STATES; i++) {
-      if (hashTable[i] != 0) {
+      if (hashTable[i] != nullptr) {
          hashTable[i]->unref();
-         hashTable[i] = 0;
+         hashTable[i] = nullptr;
       }
    }
    nhe = 0;
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 Basic::Object* Puzzle::getSlotByIndex(const int si)
 {
@@ -347,7 +347,7 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    }
 
    // Initial state
-   if (initState != 0) {
+   if (initState != nullptr) {
       indent(sout,i+j);
       sout << "initState: {" << std::endl;
       initState->serialize(sout,i+j+4,slotsOnly);
@@ -356,7 +356,7 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    }
 
    // Goal state
-   if (goalState != 0) {
+   if (goalState != nullptr) {
       indent(sout,i+j);
       sout << "goalState: {" << std::endl;
       goalState->serialize(sout,i+j+4,slotsOnly);
