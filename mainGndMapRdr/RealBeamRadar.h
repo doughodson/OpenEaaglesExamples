@@ -69,7 +69,7 @@ private:
    LCreal*           aacData;          // Aspect angle cosines
    bool*             maskFlgs;         // Mask flags
 
-   LCreal            antAz;                  //
+//   LCreal            antAz;                  //
    static const int MAX_IMAGE_WIDTH  = 2048; // maximum image width
    static const int MAX_IMAGE_HEIGHT = 2048; // maximum image height
    static const int PIXEL_SIZE = 3;          // pixel size in bytes { RGB }

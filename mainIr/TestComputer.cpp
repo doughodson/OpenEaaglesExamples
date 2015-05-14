@@ -62,7 +62,7 @@ void TestComputer::updateTC(const LCreal dt0)
    BaseClass::updateTC(dt0);
 #else
    // We're nothing without an ownship ...
-   if (getOwnship() == 0) return;
+   if (getOwnship() == nullptr) return;
 
    // ---
    // Delta time
@@ -73,13 +73,13 @@ void TestComputer::updateTC(const LCreal dt0)
    if (isFrozen()) dt = 0.0;
 
    // Delta time for methods that are running every fourth phase
-   LCreal dt4 = dt * 4.0f;
+   LCreal dt4 = dt * 4.0;
 
    // ---
    // Four phases per frame
    // ---
    Simulation::Simulation* sim = getOwnship()->getSimulation();
-   if (sim == 0) return;
+   if (sim == nullptr) return;
 
    // ---
    // bypass System:: version, forward call to Component directly,
@@ -135,7 +135,7 @@ bool TestComputer::processIr()
 
    // waiting on getnexttarget may mean missing one or two updates
    // because we have to wait for obc::updateShootList which is an updateData task
-   Simulation::Track *irTrk = getNextTarget();
+   Simulation::Track* irTrk = getNextTarget();
    if (irTrk && uncaged) {
       // we have a target and our gimbal must be updated
       LCreal pt_az = irTrk->getPredictedAzimuth();
@@ -158,7 +158,7 @@ bool TestComputer::processIr()
    // weapon::targetPlayer tells the dynamics model where the target is -
    // if the seeker has no track, then the targetPlayer must be cleared
 
-   Simulation::Player* irTarget=0;
+   Simulation::Player* irTarget = nullptr;
    if (irTrk)
       irTarget = irTrk->getTarget();
    // tell the missile what to track
@@ -166,7 +166,7 @@ bool TestComputer::processIr()
       std::cout << "TestComputer::processIr : changed target: old " << ourWeapon->getTargetPlayer() << " new: " << irTarget << std::endl;
       ourWeapon->setTargetPlayer(irTarget, true);
    }
-   return (irTarget!=0);
+   return (irTarget != nullptr);
 }
 
 
@@ -186,7 +186,7 @@ void TestComputer::updateShootList(const bool step)
 
    int n = 0;
    Simulation::TrackManager* tm = getTrackManagerByType(typeid(Simulation::AngleOnlyTrackManager));
-   if (tm != 0) n = tm->getTrackList(trackList, MAX_TRKS);
+   if (tm != nullptr) n = tm->getTrackList(trackList, MAX_TRKS);
 
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
@@ -262,7 +262,7 @@ void TestComputer::updateShootList(const bool step)
 
    // Update the next to shoot
    if (nNTS >= 0) setNextToShoot( trackList[nNTS] );
-   else setNextToShoot(0);
+   else setNextToShoot(nullptr);
 }
 
 } // End Example namespace

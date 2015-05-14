@@ -40,8 +40,8 @@ Display::Display()
 {
    STANDARD_CONSTRUCTOR()
 
-   myStation = 0;
-   testTexture = 0;
+   myStation = nullptr;
+   testTexture = false;
    texture = 0;
 }
 
@@ -53,8 +53,8 @@ void Display::copyData(const Display& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      myStation = 0;
-      testTexture = 0;
+      myStation = nullptr;
+      testTexture = false;
       texture = 0;
    }
 }
@@ -66,7 +66,7 @@ void Display::deleteData()
 {
    // Free the texture
    if (texture != 0) {
-      glDeleteTextures(1,&texture);
+      glDeleteTextures(1, &texture);
       texture = 0;
    }
 }
@@ -76,25 +76,25 @@ void Display::deleteData()
 //------------------------------------------------------------------------------
 Simulation::Player* Display::getOwnship()
 {
-    Simulation::Player* p = 0;
+    Simulation::Player* p = nullptr;
     Simulation::Station* sta = getStation();
-    if (sta != 0) p = sta->getOwnship();
+    if (sta != nullptr) p = sta->getOwnship();
     return p;
 }
 
 Simulation::Simulation* Display::getSimulation()
 {
-    Simulation::Simulation* s = 0;
+    Simulation::Simulation* s = nullptr;
     Simulation::Station* sta = getStation();
-    if (sta != 0) s = sta->getSimulation();
+    if (sta != nullptr) s = sta->getSimulation();
     return s;
 }
 
 Simulation::Station* Display::getStation()
 {
-    if (myStation == 0) {
+    if (myStation == nullptr) {
         Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
-        if (s != 0) myStation = s;
+        if (s != nullptr) myStation = s;
     }
     return myStation;
 }
@@ -107,7 +107,7 @@ Simulation::Station* Display::getStation()
 bool Display::setSlotTextureTest(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       testTexture = msg->getBoolean();
       ok = true;
    }
@@ -122,16 +122,16 @@ void Display::drawFunc()
 {
    Simulation::Player* own = getOwnship();
 
-   const Basic::Pair* pair = 0;
-   if (own != 0) pair = own->getSensorByType(typeid(RealBeamRadar));
+   const Basic::Pair* pair = nullptr;
+   if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));
 
-   const RealBeamRadar* rdr = 0;
-   if (pair != 0) rdr = static_cast<const RealBeamRadar*>( pair->object() );
+   const RealBeamRadar* rdr = nullptr;
+   if (pair != nullptr) rdr = static_cast<const RealBeamRadar*>( pair->object() );
 
-   const GLubyte* image = 0;  // The image pixels 
-   if (rdr != 0) image = rdr->getImage();
+   const GLubyte* image = 0;  // The image pixels
+   if (rdr != nullptr) image = rdr->getImage();
 
-   if (image != 0) {
+   if (image != nullptr) {
 
       // Image width  (number of columns)
       GLsizei imgWidth = rdr->getImageWidth();
@@ -152,7 +152,7 @@ void Display::drawFunc()
          glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
          if (texture == 0) {
-            glGenTextures(1,&texture);
+            glGenTextures(1, &texture);
          }
 
          glBindTexture(GL_TEXTURE_2D, texture);
@@ -193,12 +193,12 @@ void Display::drawFunc()
 
          glRasterPos2f(0.0, 0.0);
 
-//         double start = getComputerTime();
+         //double start = getComputerTime();
 
          glDrawPixels(imgWidth, imgHeight, format, GL_UNSIGNED_BYTE, image);
 
-//         double end = getComputerTime();
-//         double dtime = (end - start);
+         //double end = getComputerTime();
+         //double dtime = (end - start);
          //std::cout << "glDrawPixels() dtime = " << dtime << std::endl;
       }
    }

@@ -43,12 +43,12 @@ END_EVENT_HANDLER()
 //------------------------------------------------------------------------------
 
 // constructor
-TestDisplay::TestDisplay() : myStation(0)
+TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
 
    for (unsigned int i = 0; i < MAX_TRACKS; i++) {
-      tracks[i] = 0;
+      tracks[i] = nullptr;
       trkIdx[i] = 0;
    }
    range = 40.0;
@@ -59,9 +59,9 @@ void TestDisplay::copyData(const TestDisplay& org, const bool)
 {
    BaseClass::copyData(org);
 
-   myStation = 0;
+   myStation = nullptr;
    for (int i = 0; i < MAX_TRACKS; i++) {
-      tracks[i] = 0;
+      tracks[i] = nullptr;
       trkIdx[i] = 0;
    }
 
@@ -76,7 +76,7 @@ void TestDisplay::copyData(const TestDisplay& org, const bool)
 // reset simulation
 bool TestDisplay::onResetKey()
 {
-   if ( getSimulation() != 0 ) {
+   if ( getSimulation() != nullptr ) {
       getSimulation()->event(RESET_EVENT);
    }
    return true;
@@ -85,7 +85,7 @@ bool TestDisplay::onResetKey()
 // freeze simulation
 bool TestDisplay::onFreezeKey()
 {
-   if ( getSimulation() != 0 ) {
+   if ( getSimulation() != nullptr ) {
       Basic::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
@@ -96,7 +96,7 @@ bool TestDisplay::onFreezeKey()
 // Weapon Release Switch
 bool TestDisplay::onWpnRelKey()
 {
-   if (getOwnship() != 0) {
+   if (getOwnship() != nullptr) {
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != 0) {
          sms->setWeaponDeliveryMode(Simulation::StoresMgr::A2A);
@@ -109,12 +109,12 @@ bool TestDisplay::onWpnRelKey()
 // Pre-Release Switch
 bool TestDisplay::onPreRelKey()
 {
-    if (getOwnship() != 0) {
+    if (getOwnship() != nullptr) {
        Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
-        if (sms != 0) {
+        if (sms != nullptr) {
             sms->setWeaponDeliveryMode(Simulation::StoresMgr::A2A);
             Simulation::Weapon* wpn = sms->getCurrentWeapon();
-            if (wpn != 0) {
+            if (wpn != nullptr) {
                wpn->prerelease();
                std::cout << "Prelaunched wpn = " << wpn << std::endl;
             }
@@ -126,7 +126,7 @@ bool TestDisplay::onPreRelKey()
 // Increase range key
 bool TestDisplay::onIncRngKey()
 {
-   LCreal rng = range * 2.0f;
+   LCreal rng = range * 2.0;
    if (rng < 200) range =  rng;
    return true;
 }
@@ -134,7 +134,7 @@ bool TestDisplay::onIncRngKey()
 // Decrease range key
 bool TestDisplay::onDecRngKey()
 {
-   LCreal rng = range / 2.0f;
+   LCreal rng = range / 2.0;
    if (rng >= 2.0) range = rng;
    return true;
 }
@@ -143,7 +143,7 @@ bool TestDisplay::onDecRngKey()
 bool TestDisplay::onStepOwnshipKey()
 {
    TestStation* ts = dynamic_cast<TestStation*>(getStation());
-   if ( ts != 0 ) {
+   if ( ts != nullptr ) {
       ts->stepOwnshipPlayer();
    }
    return true;
@@ -155,7 +155,7 @@ bool TestDisplay::onStepOwnshipKey()
 void TestDisplay::updateData(const LCreal dt)
 {
     // Send flight data to readouts
-    if (getOwnship() != 0) {
+    if (getOwnship() != nullptr) {
 
        send("hsi", UPDATE_VALUE5, getOwnship()->getHeadingR(), headingSD);
        send("rangeRO", UPDATE_VALUE, range, rangeSD);
@@ -163,9 +163,9 @@ void TestDisplay::updateData(const LCreal dt)
 
        // Maintain Air Tracks
        Basic::Pair* pair = findByName("airTracks");
-       if (pair != 0) {
+       if (pair != nullptr) {
           BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-          if (myLoader != 0) {
+          if (myLoader != nullptr) {
              myLoader->setRange(range);
              myLoader->setHeadingDeg(getOwnship()->getHeadingD());
              myLoader->setNorthUp(false);
@@ -189,7 +189,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
 
    Simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
    int nNewTracks = 0;                         // Number of new tracks
-   Simulation::Player* target = 0;
+   Simulation::Player* target = nullptr;
 
    // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
    int maxTracks = loader->getMaxSymbols();
@@ -197,8 +197,8 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
 
    // Set the initial codes
    for (int i = 0; i < maxTracks; i++) {
-      if (tracks[i] != 0) codes[i] = -1;  // needs to be matched
-      else codes[i] = 0;                  // empty slot
+      if (tracks[i] != nullptr) codes[i] = -1;  // needs to be matched
+      else codes[i] = 0;                        // empty slot
    }
 
    // find all air vehicles within range
@@ -209,7 +209,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
 
       // search for air vehicles or missiles within range
       Basic::List::Item* item = plist->getFirstItem();
-      while (item != 0 && nNewTracks < maxTracks) {
+      while (item != nullptr && nNewTracks < maxTracks) {
          Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
          Simulation::Player* p = static_cast<Simulation::Player*>(pair->object());
          osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
@@ -222,7 +222,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
          }
 
          if (
-            p != getOwnship() && 
+            p != getOwnship() &&
             p->isActive() &&
             ((x*x + y*y) < rng2) &&
             (p->isClassType(typeid(Simulation::AirVehicle)) || p->isClassType(typeid(Simulation::Missile))) ) {
@@ -257,10 +257,10 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
       if (codes[i] == -1) {
          // This is an old symbol that wasn't matched with a valid player
          loader->removeSymbol( trkIdx[i] );
-         tracks[i]->unref(); // unref the player
-         tracks[i] = 0;      // clear the player pointer
-         trkIdx[i] = 0;      // clear the index
-         codes[i]  = 0;      // slot is now empty
+         tracks[i]->unref();       // unref the player
+         tracks[i] = nullptr;      // clear the player pointer
+         trkIdx[i] = 0;            // clear the index
+         codes[i]  = 0;            // slot is now empty
       }
    }
 
@@ -273,23 +273,22 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
          if (codes[islot] == 0) {
             // We have an empty slot, so add the symbol
 
-            int type = 4;                                       // unknown
+            int type = 4;                                                            // unknown
             if (newTracks[inew]->isClassType(typeid(Simulation::AirVehicle))) {
                if (newTracks[inew]->isSide(Simulation::Player::BLUE)) type = 1;      // friend
-               else if (newTracks[inew]->isSide(Simulation::Player::RED)) type = 2; // foe  
+               else if (newTracks[inew]->isSide(Simulation::Player::RED)) type = 2;  // foe
                else type = 3; // neutral/commercial
             }
             else if (newTracks[inew]->isClassType(typeid(Simulation::Missile))) {
-               type = 5; // Missile
+               type = 5;                                                             // missile
             }
-
 
             tracks[islot] = newTracks[inew];
             trkIdx[islot] = loader->addSymbol( type, 0);
             if (trkIdx[islot] == 0) {
                // it didn't make it in for some unknown reason
                tracks[islot]->unref();
-               tracks[islot] = 0;
+               tracks[islot] = nullptr;
             }
             inew++;
 
@@ -301,13 +300,13 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
       while (inew < nNewTracks) {
          newTracks[inew++]->unref();
       }
-   }    
+   }
 
    // now update the active tracks
    for (int i = 0; i < maxTracks; i++) {
       double osX = getOwnship()->getXPosition();
       double osY = getOwnship()->getYPosition();
-      if (tracks[i] != 0 && trkIdx[i] != 0) {
+      if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp = tracks[i]->getXPosition() - osX;
          double yp = tracks[i]->getYPosition() - osY;
          loader->updateSymbolPositionXY( trkIdx[i], (xp * Basic::Distance::M2NM), (yp * Basic::Distance::M2NM) );
@@ -327,25 +326,25 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
 //------------------------------------------------------------------------------
 Simulation::Player* TestDisplay::getOwnship()
 {
-   Simulation::Player* p = 0;
+   Simulation::Player* p = nullptr;
    Simulation::Station* sta = getStation();
-   if (sta != 0) p = sta->getOwnship();
+   if (sta != nullptr) p = sta->getOwnship();
    return p;
 }
 
 Simulation::Simulation* TestDisplay::getSimulation()
 {
-   Simulation::Simulation* s = 0;
+   Simulation::Simulation* s = nullptr;
    Simulation::Station* sta = getStation();
-   if (sta != 0) s = sta->getSimulation();
+   if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
 Simulation::Station* TestDisplay::getStation()
 {
-   if (myStation == 0) {
+   if (myStation == nullptr) {
       Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
-      if (s != 0) myStation = s;
+      if (s != nullptr) myStation = s;
    }
    return myStation;
 }

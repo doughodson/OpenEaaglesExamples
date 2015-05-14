@@ -20,7 +20,7 @@ BEGIN_SLOTTABLE(TestStation)
     "glutDisplay",
 END_SLOTTABLE(TestStation)
 
-//  Map slot table to handles 
+//  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
     ON_SLOT(1, setSlotGlutDisplay, Glut::GlutDisplay)
 END_SLOT_MAP()
@@ -34,7 +34,7 @@ TestStation::TestStation()
 {
    STANDARD_CONSTRUCTOR()
 
-   glutDisplay = 0;
+   glutDisplay = nullptr;
    glutDisplayInit = false;
 }
 
@@ -44,7 +44,7 @@ void TestStation::copyData(const TestStation& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      glutDisplay = 0;
+      glutDisplay = nullptr;
    }
 
    setSlotGlutDisplay(0);
@@ -54,7 +54,7 @@ void TestStation::copyData(const TestStation& org, const bool cc)
 // delete member data
 void TestStation::deleteData()
 {
-   setSlotGlutDisplay(0);
+   setSlotGlutDisplay(nullptr);
 }
 
 //------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ void TestStation::deleteData()
 //------------------------------------------------------------------------------
 void TestStation::updateTC(const LCreal dt)
 {
-   if (glutDisplay != 0) {
+   if (glutDisplay != nullptr) {
       glutDisplay->updateTC(dt);
    }
    BaseClass::updateTC(dt);
@@ -82,10 +82,10 @@ void TestStation::updateData(const LCreal dt)
    BasicGL::Graphic::flashTimer(dt);
 
    BaseClass::updateData(dt);
-} 
+}
 
 //------------------------------------------------------------------------------
-// reset() -- Reset the station 
+// reset() -- Reset the station
 //------------------------------------------------------------------------------
 void TestStation::reset()
 {
@@ -94,7 +94,7 @@ void TestStation::reset()
    // ---
    // Create the GLUT window
    // ---
-    if (!glutDisplayInit && glutDisplay != 0) {
+    if (!glutDisplayInit && glutDisplay != nullptr) {
         glutDisplay->createWindow();
         glutDisplay->focus(glutDisplay);
         glutDisplayInit = true;
@@ -107,30 +107,30 @@ void TestStation::reset()
 void TestStation::stepOwnshipPlayer()
 {
    Basic::PairStream* pl = getSimulation()->getPlayers();
-   if (pl != 0) {
+   if (pl != nullptr) {
 
-      Simulation::Player* f = 0;
-      Simulation::Player* n = 0;
+      Simulation::Player* f = nullptr;
+      Simulation::Player* n = nullptr;
       bool found = false;
 
       // Find the next player
       Basic::List::Item* item = pl->getFirstItem();
-      while (item != 0) {
+      while (item != nullptr) {
          Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
-         if (pair != 0) {
+         if (pair != nullptr) {
             Simulation::Player* ip = static_cast<Simulation::Player*>( pair->object() );
             if ( ip->isMode(Simulation::Player::ACTIVE) &&
                ip->isLocalPlayer()
                ) {
-                  if (f == 0) { f = ip; }  // Remember the first
+                  if (f == nullptr) { f = ip; }  // Remember the first
                   if (found) { n = ip; ; break; }
                   if (ip == getOwnship()) found = true;
             }
          }
          item = item->getNext();
       }
-      if (found && n == 0) n = f;
-      if (n != 0) setOwnshipPlayer(n);
+      if (found && n == nullptr) n = f;
+      if (n != nullptr) setOwnshipPlayer(n);
 
       pl->unref();
    }
@@ -146,7 +146,7 @@ bool TestStation::setSlotGlutDisplay(Glut::GlutDisplay* const d)
     glutDisplay->container(this);
     return true;
 }
- 
+
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
@@ -166,14 +166,14 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
       j = 4;
     }
 
-   if (glutDisplay != 0) {
+   if (glutDisplay != nullptr) {
       indent(sout,i+j);
       sout << "glutDisplay: ";
       glutDisplay->serialize(sout,i+j+4);
     }
-   
+
    BaseClass::serialize(sout,i+j,true);
-    
+
    if ( !slotsOnly ) {
       indent(sout,i);
       sout << ")" << std::endl;

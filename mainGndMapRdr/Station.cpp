@@ -26,7 +26,7 @@ BEGIN_SLOTTABLE(TestStation)
     "display",
 END_SLOTTABLE(TestStation)
 
-//  Map slot table to handles 
+//  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
    ON_SLOT(1, setDisplay, Example::Display)
 END_SLOT_MAP()
@@ -38,7 +38,7 @@ TestStation::TestStation()
 {
     STANDARD_CONSTRUCTOR()
 
-    display = 0;
+    display = nullptr;
     displayInit = false;
 }
 
@@ -49,7 +49,7 @@ void TestStation::copyData(const TestStation& org, const bool)
 {
     BaseClass::copyData(org);
 
-    display = 0;
+    display = nullptr;
     displayInit = false;
 }
 
@@ -62,16 +62,16 @@ void TestStation::updateTC(const LCreal dt)
 {
    BaseClass::updateTC(dt);
 
-   if (display != 0) display->updateTC(dt);
+   if (display != nullptr) display->updateTC(dt);
 }
 
 //------------------------------------------------------------------------------
-// reset() -- Reset the station 
+// reset() -- Reset the station
 //------------------------------------------------------------------------------
 void TestStation::reset()
 {
     BaseClass::reset();
-    if (!displayInit && display != 0) {
+    if (!displayInit && display != nullptr) {
         display->createWindow();
         display->focus(display);
         displayInit = true;

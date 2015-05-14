@@ -15,8 +15,8 @@
 
 namespace Eaagles {
 
-  namespace Basic { class Number; }
-  namespace Simulation { class Player; class Simulation; class Station; }
+namespace Basic { class Number; }
+namespace Simulation { class Player; class Simulation; class Station; }
 
 namespace Example {
 
@@ -27,9 +27,9 @@ class Display : public Glut::GlutDisplay
 public:
    Display();
 
-    Simulation::Player* getOwnship();
-    Simulation::Simulation* getSimulation();
-    Simulation::Station* getStation();
+   Simulation::Player* getOwnship();
+   Simulation::Simulation* getSimulation();
+   Simulation::Station* getStation();
 
    // Slot functions
    virtual bool setSlotTextureTest(const Basic::Number* const msg);
@@ -40,8 +40,8 @@ public:
 private:
    Basic::safe_ptr<Simulation::Station> myStation;
 
-   bool              testTexture;      // Texture image test
-   GLuint            texture;          // Texture
+   bool   testTexture;      // Texture image test
+   GLuint texture;          // Texture
 };
 
 }; // end Example namespace
