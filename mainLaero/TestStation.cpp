@@ -26,7 +26,7 @@ BEGIN_SLOTTABLE(TestStation)
     "mapDisplay",
 END_SLOTTABLE(TestStation)
 
-//  Map slot table to handles 
+//  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
     ON_SLOT(1, setSlotGlutDisplay, Glut::GlutDisplay)
     ON_SLOT(2, setSlotMapDisplay, Glut::GlutDisplay)
@@ -41,9 +41,9 @@ TestStation::TestStation()
 {
    STANDARD_CONSTRUCTOR()
 
-   glutDisplay = 0;
+   glutDisplay = nullptr;
    glutDisplayInit = false;
-   mapDisplay = 0;
+   mapDisplay = nullptr;
    mapDisplayInit = false;
 
 }
@@ -54,21 +54,21 @@ void TestStation::copyData(const TestStation& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      glutDisplay = 0;
-      mapDisplay = 0;
+      glutDisplay = nullptr;
+      mapDisplay = nullptr;
    }
 
-   setSlotGlutDisplay(0);
+   setSlotGlutDisplay(nullptr);
    glutDisplayInit = false;
-   setSlotMapDisplay(0);
+   setSlotMapDisplay(nullptr);
    mapDisplayInit = false;
 }
 
 // delete member data
 void TestStation::deleteData()
 {
-   setSlotGlutDisplay(0);
-   setSlotMapDisplay(0);
+   setSlotGlutDisplay(nullptr);
+   setSlotMapDisplay(nullptr);
 }
 
 //------------------------------------------------------------------------------
@@ -80,8 +80,8 @@ void TestStation::updateTC(const LCreal dt)
    Basic::Timer::updateTimers(dt);
    BasicGL::Graphic::flashTimer(dt);
 
-   if (glutDisplay != 0) glutDisplay->updateTC(dt);
-   if (mapDisplay != 0) mapDisplay->updateTC(dt);
+   if (glutDisplay != nullptr) glutDisplay->updateTC(dt);
+   if (mapDisplay != nullptr) mapDisplay->updateTC(dt);
 
    BaseClass::updateTC(dt);
 }
@@ -96,10 +96,10 @@ void TestStation::updateData(const LCreal dt)
    // own displays.
 
    BaseClass::updateData(dt);
-} 
+}
 
 //------------------------------------------------------------------------------
-// reset() -- Reset the station 
+// reset() -- Reset the station
 //------------------------------------------------------------------------------
 void TestStation::reset()
 {
@@ -108,14 +108,14 @@ void TestStation::reset()
    // ---
    // Create the GLUT window
    // ---
-   if (!glutDisplayInit && glutDisplay != 0) {
+   if (!glutDisplayInit && glutDisplay != nullptr) {
       glutDisplay->createWindow();
       glutDisplay->focus(glutDisplay);
       glutDisplayInit = true;
    }
 
    // create the MAP window
-   if (!mapDisplayInit && mapDisplay != 0) {
+   if (!mapDisplayInit && mapDisplay != nullptr) {
       mapDisplay->createWindow();
       mapDisplay->focus(mapDisplay);
       mapDisplayInit = true;
@@ -160,7 +160,7 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
       j = 4;
    }
 
-   if (glutDisplay != 0) {
+   if (glutDisplay != nullptr) {
       indent(sout,i+j);
       sout << "glutDisplay: ";
       glutDisplay->serialize(sout,i+j+4);

@@ -50,7 +50,6 @@ private:
    // is our route loaded?
    bool routeLoaded;
 
-
    // show where our lat/lons are
    SendData latsSD[MAX_READOUTS];
    int lats[MAX_READOUTS];

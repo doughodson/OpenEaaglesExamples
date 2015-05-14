@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 
    // read filename from command line if provided
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if (std::strcmp(argv[i], "-f") == 0) {
          configFilename = argv[++i];
       }
    }
@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
    simulation->reset();
 
    // delta time (20ms)
-   LCreal dt = static_cast<LCreal>(1.0)/static_cast<LCreal>(frameRate);
+   const LCreal dt = static_cast<LCreal>(1.0)/static_cast<LCreal>(frameRate);
 
    // execute simulation as fast as possible
    for(; simulation->getExecTimeSec() < 50.0; ) {
