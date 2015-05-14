@@ -3,7 +3,7 @@
 namespace Eaagles {
 namespace Demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestVVI,"TestVVI")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestVVI, "TestVVI")
 EMPTY_SERIALIZER(TestVVI)
 
 //------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ EMPTY_DELETEDATA(TestVVI)
 void TestVVI::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     gaugePosition += (gaugeRate * dt);
     if (gaugePosition > 6000) {
         gaugePosition = 6000;
@@ -52,8 +52,8 @@ void TestVVI::updateData(const LCreal dt)
         gaugePosition = -6000;
         gaugeRate = -gaugeRate;
     }
-    
-    // here is the gauge display 
+
+    // here is the gauge display
     send("vvi", UPDATE_INSTRUMENTS, gaugePosition, gaugePositionSD);
     // here is the readout
     send("vviro", UPDATE_VALUE, gaugePosition, gaugePositionROSD);

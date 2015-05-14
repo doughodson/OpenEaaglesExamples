@@ -12,7 +12,7 @@
 // ----------------------------------------------------------------------------
 void drawCallBack(void* pData)
 {
-    if (pData != NULL) {
+    if (pData != nullptr) {
         // we know GLWindow called this.
         Eaagles::Example::GLWindow* gl = reinterpret_cast<Eaagles::Example::GLWindow*>(pData);
         if (gl != 0) gl->redraw();
@@ -25,13 +25,13 @@ namespace Example {
 // ----------------------------------------------------------------------------
 // constructor(s) -
 // ----------------------------------------------------------------------------
-GLWindow::GLWindow(int x,int y,int w,int h,const char *l) : Fl_Gl_Window(x,y,w,h,l)
+GLWindow::GLWindow(int x, int y, int w, int h, const char* l) : Fl_Gl_Window(x,y,w,h,l)
 {
-    display = 0;
+    display = nullptr;
     // we can make an idle callback which will call this function
     // every time there is nothing going on.  This is working
-    // fine right now, but in the future we may have to scale it 
-    // back and call the add_timeout function if we need more 
+    // fine right now, but in the future we may have to scale it
+    // back and call the add_timeout function if we need more
     // CPU power.
     //Fl::add_timeout(1/frameRate, drawCallBack, this);
     // draw whenever idle
@@ -39,9 +39,9 @@ GLWindow::GLWindow(int x,int y,int w,int h,const char *l) : Fl_Gl_Window(x,y,w,h
     glInitialized = false;
 }
 
-GLWindow::GLWindow(int x,int y) : Fl_Gl_Window(x,y)
+GLWindow::GLWindow(int x, int y) : Fl_Gl_Window(x,y)
 {
-    display = 0;
+    display = nullptr;
     //Fl::add_timeout(1/frameRate, drawCallBack, this);
     Fl::add_idle(drawCallBack, this);
     glInitialized = false;
@@ -53,9 +53,9 @@ GLWindow::GLWindow(int x,int y) : Fl_Gl_Window(x,y)
 // ----------------------------------------------------------------------------
 GLWindow::~GLWindow()
 {
-    if (display != 0) {
+    if (display != nullptr) {
         display->unref();
-        display = 0;
+        display = nullptr;
     }
 }
 
@@ -67,13 +67,13 @@ void GLWindow::draw()
 {
     if (!glInitialized) {
         glInit();
-        if (display != 0) {
+        if (display != nullptr) {
             int w = 0, h = 0;
             display->getViewportSize(&w, &h);
             display->reshapeIt(w, h);
         }
     }
-    if (display != 0) display->drawIt();
+    if (display != nullptr) display->drawIt();
 }
 
 
@@ -82,7 +82,7 @@ void GLWindow::draw()
 // ----------------------------------------------------------------------------
 int GLWindow::handle(int x)
 {
-    if (display != 0) {
+    if (display != nullptr) {
         // get our x and y pos
         int xPos = Fl::event_x();
         int yPos = Fl::event_y();
@@ -102,11 +102,11 @@ int GLWindow::handle(int x)
 // ----------------------------------------------------------------------------
 void GLWindow::setDisplay(FltkDisplay* x)
 {
-    if (display != 0) {
+    if (display != nullptr) {
         display->unref();
-        display = 0;
+        display = nullptr;
     }
-    if (x != 0) {
+    if (x != nullptr) {
         display = x;
         display->ref();
     }
@@ -118,7 +118,7 @@ void GLWindow::setDisplay(FltkDisplay* x)
 void GLWindow::resize(int x, int y, int w, int h)
 {
     Fl_Gl_Window::resize(x, y, w, h);
-    if (display != 0) {
+    if (display != nullptr) {
         // make our display current
         make_current();
         display->reshapeIt(w, h);
@@ -156,12 +156,12 @@ void GLWindow::glInit()
     glPixelTransferi(GL_BLUE_SCALE, 1);
     glPixelTransferi(GL_BLUE_BIAS, 0);
     glPixelTransferi(GL_ALPHA_SCALE, 1);
-    glPixelTransferi(GL_ALPHA_BIAS, 0);    
+    glPixelTransferi(GL_ALPHA_BIAS, 0);
 
 
     // load our textures, if we have any!
     if (display != 0) display->loadTextures();
-    
+
     glInitialized = true;
 }
 

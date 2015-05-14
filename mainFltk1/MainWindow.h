@@ -16,12 +16,12 @@ namespace Example {
 class GLWindow;
 class FltkDisplay;
 
-class MainWindow :  public Fl_Window 
+class MainWindow :  public Fl_Window
 {
 public:
 
-   MainWindow(int x,int y,int w,int h,const char *l = 0); 
-   MainWindow(int x,int y); 
+   MainWindow(int x, int y, int w, int h, const char* l = nullptr);
+   MainWindow(int x, int y);
    virtual ~MainWindow();
 
    // set up our GUI

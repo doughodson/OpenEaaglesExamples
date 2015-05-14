@@ -28,7 +28,8 @@ public:
    FoxDisplay();
 
    // Create with the Fox toolkit
-   virtual void create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObject* tgt, unsigned short selector, unsigned short opt, unsigned short x =0, unsigned short y = 0, unsigned short w = 0, unsigned short h = 0);
+   virtual void create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObject* tgt, unsigned short selector,
+         unsigned short opt, unsigned short x = 0, unsigned short y = 0, unsigned short w = 0, unsigned short h = 0);
 
    // initialize our display
    virtual void initialize();
@@ -46,8 +47,9 @@ public:
    void printSelectBuffer(const GLuint sbuff[], const int size);
    void clearSelectBuffer(GLuint sbuff[], const int size);
    BasicGL::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
+
    FX::FXGLCanvas* getCanvas()                                                               { return glCanvas; };
-   FX::FXComposite* getParentWindow()                                                        { return myComp; };
+   FX::FXComposite* getParentWindow()                                                        { return myComp;   };
 
    // interface for the fox main window to manipulate our graphics - YOU CAN PULL THIS OUT!
    virtual void toggleRotation();

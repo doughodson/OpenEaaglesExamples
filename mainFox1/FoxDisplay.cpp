@@ -26,15 +26,15 @@ FoxDisplay::FoxDisplay()
 
 void FoxDisplay::initData()
 {
-  glCanvas = 0;
-  glVisual = 0;
-  myComp = 0;
+  glCanvas = nullptr;
+  glVisual = nullptr;
+  myComp = nullptr;
   rotate = false;
-  rotAng = 0;
-  rotRate = 0.05f;
+  rotAng = 0.0;
+  rotRate = 0.05;
   translate = false;
-  trans = 0;
-  transRate = 0.10f;
+  trans = 0.0;
+  transRate = 0.10;
 }
 
 //------------------------------------------------------------------------------
@@ -59,10 +59,10 @@ void FoxDisplay::copyData(const FoxDisplay& org, const bool cc)
 //------------------------------------------------------------------------------
 void FoxDisplay::deleteData()
 {
-   if (glVisual != 0)
+   if (glVisual != nullptr)
       delete glVisual;
-   glVisual = 0;
-   glCanvas = 0;
+   glVisual = nullptr;
+   glCanvas = nullptr;
    delete myComp;
 }
 
@@ -87,7 +87,7 @@ void FoxDisplay::create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObje
 //------------------------------------------------------------------------------
 void FoxDisplay::initialize()
 {
-   if (glCanvas != 0) {
+   if (glCanvas != nullptr) {
       if (!glCanvas->isCurrent()) {
          glCanvas->makeCurrent();
       }
@@ -121,17 +121,17 @@ void FoxDisplay::updateData(const LCreal dt)
    // now if we are rotating, drive our rotation around (radians)
    if (rotate) {
       rotAng += rotRate;
-      if (rotAng >= 6.28f) {
+      if (rotAng >= 6.28) {
          rotAng = 0;
       }
    }
    if (translate) {
       trans += transRate;
-      if (trans > 5.0f) {
+      if (trans > 5.0) {
          trans = 5.0;
          transRate = -transRate;
       }
-      if (trans < -5.0f) {
+      if (trans < -5.0) {
          trans = -5.0f;
          transRate = -transRate;
       }
@@ -144,7 +144,7 @@ void FoxDisplay::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 bool FoxDisplay::setCanvasSize(const float newW, const float newH)
 {
-   if (glCanvas != 0) {
+   if (glCanvas != nullptr) {
       glCanvas->setWidth((FX::FXint)newW);
       glCanvas->setHeight((FX::FXint)newH);
    }
@@ -156,7 +156,7 @@ bool FoxDisplay::setCanvasSize(const float newW, const float newH)
 //-----------------------------------------------------------------------------
 void FoxDisplay::reshapeIt(int, int)
 {
-   if (glCanvas != 0) {
+   if (glCanvas != nullptr) {
       if (!glCanvas->isCurrent()) {
          glCanvas->makeCurrent();
       }
@@ -172,15 +172,15 @@ void FoxDisplay::reshapeIt(int, int)
 //-----------------------------------------------------------------------------
 void FoxDisplay::drawIt()
 {
-   if (glCanvas != 0) {
+   if (glCanvas != nullptr) {
       if (!glCanvas->isCurrent()) {
          glCanvas->makeCurrent();
       }
       // if we are rotating, get our graphic and rotate it
       Basic::Pair* p = (Basic::Pair*)findByType(typeid(BasicGL::Polygon));
-      if (p != 0) {
+      if (p != nullptr) {
          BasicGL::Polygon* g = dynamic_cast<BasicGL::Polygon*>(p->object());
-         if (g != 0) {
+         if (g != nullptr) {
             g->lcSaveMatrix();
             g->lcTranslate(trans, 0);
             g->lcRotate(rotAng);
@@ -196,7 +196,7 @@ void FoxDisplay::drawIt()
 //------------------------------------------------------------------------------
 void FoxDisplay::swapBuffers()
 {
-   if (glVisual != 0 && glCanvas != 0) {
+   if (glVisual != nullptr && glCanvas != nullptr) {
       if(glVisual->isDoubleBuffer()) glCanvas->swapBuffers();
    }
 }
@@ -215,13 +215,13 @@ BasicGL::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int
 
    glMatrixMode(GL_PROJECTION);
    glPushMatrix();
-   glLoadIdentity();  
+   glLoadIdentity();
    gluPickMatrix(x, y, 10, 10, viewport);
    GLdouble tl = 0, tr = 0, tb = 0, tt = 0, tn = 0, tf = 0;
    getOrtho(tl, tr, tb, tt, tn, tf);
    glOrtho(tl, tr, tb, tt, tn, tf);
 
-   //std::cout << "viewport is " << viewport[2] << " " << viewport[3] << std::endl; 
+   //std::cout << "viewport is " << viewport[2] << " " << viewport[3] << std::endl;
    glMatrixMode(GL_MODELVIEW);
 
    GLuint sbuff[100];
@@ -234,10 +234,10 @@ BasicGL::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int
 
    printSelectBuffer(sbuff,100);
    Graphic* selected = findSelected(sbuff,100,item);
-    
+
    glMatrixMode(GL_PROJECTION);
    glPopMatrix();
-   glMatrixMode(GL_MODELVIEW);  
+   glMatrixMode(GL_MODELVIEW);
    getCanvas()->makeNonCurrent();
 
    return selected;
@@ -263,7 +263,7 @@ void FoxDisplay::clearSelectBuffer(GLuint sbuff[], const int size)
 //-----------------------------------------------------------------------------
 BasicGL::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size, const int item)
 {
-   BasicGL::Graphic* sel = 0;
+   BasicGL::Graphic* sel = nullptr;
    GLuint id = 0;
 
    GLuint dmin = 0;
@@ -274,11 +274,11 @@ BasicGL::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size,
       int n = sbuff[idx++];           // Number of select names
       GLuint xmin = sbuff[idx++];     // Min Depth
       GLuint xmax = sbuff[idx++];     // Max Depth
-        
+
       // First select name only
       GLuint xId = sbuff[idx++];
       for (int i = 1; i < n; i++) { idx++; }
-        
+
       if (cnt == 0) {
          // First item
          id = xId;
@@ -300,14 +300,14 @@ BasicGL::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size,
       }
       cnt++;
    }
-    
+
    // Find the Graphic with this id
    if (id > 0) {
       //std::cout << "selected id = " << id << std::endl;
       Basic::Pair* pair = findBySelectName(id);
-      if (pair != 0) {
+      if (pair != nullptr) {
          sel = dynamic_cast<BasicGL::Graphic*>(pair->object());
-         if (sel != 0) {
+         if (sel != nullptr) {
             return sel;
          }
       }

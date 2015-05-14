@@ -3,6 +3,8 @@
 #include "GLWindow.h"
 #include "FltkDisplay.h"
 
+#include <cstdlib>
+
 #include <FL/fl_ask.H>
 
 namespace Eaagles {
@@ -22,9 +24,9 @@ static void windowCallback(Fl_Widget*, void* data) {
 // ----------------------------------------------------------------------------
 static void hRollCallback(Fl_Widget* w, void* data) {
     Fl_Roller* r = (Fl_Roller*)w;
-    if (r != 0) {
+    if (r != nullptr) {
         // have to handle our own exiting.
-        (static_cast<MainWindow*>(data))->setYRotation(r->value());    
+        (static_cast<MainWindow*>(data))->setYRotation(r->value());
     }
 }
 
@@ -33,9 +35,9 @@ static void hRollCallback(Fl_Widget* w, void* data) {
 // ----------------------------------------------------------------------------
 static void vRollCallback(Fl_Widget* w, void* data) {
     Fl_Roller* r = (Fl_Roller*)w;
-    if (r != 0) {
+    if (r != nullptr) {
         // have to handle our own exiting.
-        (static_cast<MainWindow*>(data))->setXRotation(r->value());    
+        (static_cast<MainWindow*>(data))->setXRotation(r->value());
     }
 }
 
@@ -44,9 +46,9 @@ static void vRollCallback(Fl_Widget* w, void* data) {
 // ----------------------------------------------------------------------------
 static void zRollCallback(Fl_Widget* w, void* data) {
     Fl_Roller* r = (Fl_Roller*)w;
-    if (r != 0) {
+    if (r != nullptr) {
         // have to handle our own exiting.
-        (static_cast<MainWindow*>(data))->setZRotation(r->value());    
+        (static_cast<MainWindow*>(data))->setZRotation(r->value());
     }
 }
 
@@ -57,36 +59,36 @@ static void zRollCallback(Fl_Widget* w, void* data) {
 static void menuCallback(Fl_Widget* w, void* data) {
     Fl_Menu_* m = (Fl_Menu_*)w;
     const Fl_Menu_Item* mi = m->mvalue();
-    if (mi != 0) {
-        (static_cast<MainWindow*>(data))->menuCB(mi->label());    
+    if (mi != nullptr) {
+        (static_cast<MainWindow*>(data))->menuCB(mi->label());
     }
 }
 
 // ----------------------------------------------------------------------------
 // constructor(s) -
 // ----------------------------------------------------------------------------
-MainWindow::MainWindow(int x,int y,int w,int h,const char *l) : 
-Fl_Window(x,y,w,h,l) 
+MainWindow::MainWindow(int x, int y, int w, int h, const char* l) :
+Fl_Window(x,y,w,h,l)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) glWins[i] = 0;
     numWins = 0;
-    menuBar = 0;
-    vRoll = 0;
-    hRoll = 0;
-    zRoll = 0;
+    menuBar = nullptr;
+    vRoll = nullptr;
+    hRoll = nullptr;
+    zRoll = nullptr;
     callback(windowCallback, this);
 }
 
-MainWindow::MainWindow(int x,int y) : 
-Fl_Window(x,y) 
+MainWindow::MainWindow(int x, int y) :
+Fl_Window(x,y)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) glWins[i] = 0;
     numWins = 0;
-    menuBar = 0;
-    vRoll = 0;
-    hRoll = 0;
-    zRoll = 0;
-    callback(windowCallback, this);    
+    menuBar = nullptr;
+    vRoll = nullptr;
+    hRoll = nullptr;
+    zRoll = nullptr;
+    callback(windowCallback, this);
 }
 
 MainWindow::~MainWindow()
@@ -99,7 +101,7 @@ MainWindow::~MainWindow()
 // ----------------------------------------------------------------------------
 void MainWindow::setupGui(FltkDisplay* dis)
 {
-    // ok, now let's setup our menu bar and items 
+    // ok, now let's setup our menu bar and items
     menuBar = new Fl_Menu_Bar(0, 0, w(), 30);
     // setup our menu items
     menuBar->add("File/New", 0, menuCallback, this);
@@ -123,7 +125,7 @@ void MainWindow::setupGui(FltkDisplay* dis)
     zRoll->step(0.005);
     zRoll->callback(zRollCallback, this);
 
-    if (dis != 0) {
+    if (dis != nullptr) {
         if (numWins < MAX_GL_WINS) {
             int xPos = 0, yPos = 0;
             int width = 0, height = 0;
@@ -144,7 +146,9 @@ void MainWindow::setupGui(FltkDisplay* dis)
 void MainWindow::quitApp()
 {
     int ask = fl_choice("Do you really want to quit?", "Yes", "No", "Cancel");
-    if (ask == 0) exit(0);
+    if (ask == 0) {
+       std::exit(0);
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -161,9 +165,9 @@ void MainWindow::menuCB(const char* x)
 void MainWindow::setYRotation(const double y)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) {
-        if (glWins[i] != 0) {
+        if (glWins[i] != nullptr) {
             FltkDisplay* myDis = glWins[i]->getDisplay();
-            if (myDis != 0) myDis->setYRotation(y);
+            if (myDis != nullptr) myDis->setYRotation(y);
         }
     }
 }
@@ -174,9 +178,9 @@ void MainWindow::setYRotation(const double y)
 void MainWindow::setXRotation(const double x)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) {
-        if (glWins[i] != 0) {
+        if (glWins[i] != nullptr) {
             FltkDisplay* myDis = glWins[i]->getDisplay();
-            if (myDis != 0) myDis->setXRotation(x);
+            if (myDis != nullptr) myDis->setXRotation(x);
         }
     }
 }
@@ -187,9 +191,9 @@ void MainWindow::setXRotation(const double x)
 void MainWindow::setZRotation(const double x)
 {
     for (int i = 0; i < MAX_GL_WINS; i++) {
-        if (glWins[i] != 0) {
+        if (glWins[i] != nullptr) {
             FltkDisplay* myDis = glWins[i]->getDisplay();
-            if (myDis != 0) myDis->setZRotation(x);
+            if (myDis != nullptr) myDis->setZRotation(x);
         }
     }
 }

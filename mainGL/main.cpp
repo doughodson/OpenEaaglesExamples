@@ -30,9 +30,8 @@ static class Glut::GlutDisplay* glutDisplay = nullptr;
 // timerFunc() -- Time critical stuff
 static void timerFunc(int)
 {
-   double dt = 1.0 / static_cast<double>(frameRate);
-
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    Basic::Timer::updateTimers(static_cast<LCreal>(dt));
@@ -104,8 +103,8 @@ int main(int argc, char* argv[])
    glutDisplay->createWindow();
 
    // set timer
-   double dt = 1.0/static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0/static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    glutMainLoop();

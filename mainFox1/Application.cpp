@@ -13,7 +13,7 @@ namespace Example {
 // display refresh rate (Hz)
 static const FXuint DRAW_FRAME_RATE = 50;
 
-// Message Map 
+// Message Map
 FXDEFMAP(Application) AppMap[] = {
   //_Message_Type__________ID______________________________________Message_Handler__________________
   FXMAPFUNC(SEL_TIMEOUT,   Application::ID_TIMEOUT,                Application::onTimeout),
@@ -24,14 +24,14 @@ FXIMPLEMENT(Application,FXApp,AppMap,ARRAYNUMBER(AppMap))
 
 Application::Application(const FXString& name, const FXString& vendor) : FXApp(name, vendor)
 {
-   station = 0;
+   station = nullptr;
 }
 
 Application::~Application()
 {
-   if (station!=0) {
+   if (station!=nullptr) {
       station->unref();
-      station = 0;
+      station = nullptr;
    }
 }
 
@@ -46,7 +46,7 @@ void Application::init(int& argc, char** argv, bool connect)
 }
 
 // when we timeout
-long Application::onTimeout(FXObject*,FXSelector,void*)
+long Application::onTimeout(FXObject*, FXSelector, void*)
 {
    // ---
    // reschedule the display refresh timer
@@ -75,7 +75,7 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
    // ---
    // draw the FOX displays
    // ---
-   if (station->getMainDisplay() != 0) {
+   if (station->getMainDisplay() != nullptr) {
       station->getMainDisplay()->drawIt();
    }
    return 1;
@@ -83,7 +83,7 @@ long Application::onTimeout(FXObject*,FXSelector,void*)
 
 void Application::setStation(FoxStation* x)
 {
-   if (station!=0) {
+   if (station!=nullptr) {
       station->unref();
    }
    station = x;

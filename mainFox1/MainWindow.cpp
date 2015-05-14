@@ -25,20 +25,20 @@ FXDEFMAP(MainWindow) MainWindowMap[] = {
 };
 
 // Macro for the GLTestApp class hierarchy implementation
-FXIMPLEMENT(MainWindow,FXMainWindow,MainWindowMap,ARRAYNUMBER(MainWindowMap))
+FXIMPLEMENT(MainWindow, FXMainWindow, MainWindowMap, ARRAYNUMBER(MainWindowMap))
 
-MainWindow::MainWindow(Application* app) : 
-   FX::FXMainWindow(app, "Fox Main Window" ,NULL, NULL, DECOR_ALL, 100, 100, MAIN_WIN_WIDTH, MAIN_WIN_HEIGHT)
+MainWindow::MainWindow(Application* app) :
+   FX::FXMainWindow(app, "Fox Main Window", nullptr, nullptr, DECOR_ALL, 100, 100, MAIN_WIN_WIDTH, MAIN_WIN_HEIGHT)
 {
    // establish a pointer to display
    FoxStation* station = app->getStation();
-   if (station != 0) {
+   if (station != nullptr) {
       display = station->getMainDisplay();
-      if (display != 0) {
+      if (display != nullptr) {
          display->ref();
       }
    } else {
-      display = 0;
+      display = nullptr;
    }
 
    // ---
@@ -50,7 +50,7 @@ MainWindow::MainWindow(Application* app) :
 MainWindow::~MainWindow()
 {
    delete menuBar;
-   if (display != 0) {  display->unref();  display = 0;  }
+   if (display != nullptr) {  display->unref();  display = nullptr;  }
 }
 
 // Create and initialize
@@ -58,16 +58,16 @@ void MainWindow::create()
 {
    FXMainWindow::create();
    show(PLACEMENT_DEFAULT);
-   
+
    // load our texures and such
-   if (display != 0)
+   if (display != nullptr)
       display->initialize();
 }
 
 // OpenGL canvas area has been resized
-long MainWindow::onUpdateCanvas(FXObject*,FXSelector,void*)
+long MainWindow::onUpdateCanvas(FXObject*, FXSelector, void*)
 {
-   if (display != 0) {
+   if (display != nullptr) {
       FX::FXint x = leftFrame->getWidth();
       FX::FXint y = leftFrame->getHeight();
       display->reshapeIt(x,y);
@@ -76,17 +76,17 @@ long MainWindow::onUpdateCanvas(FXObject*,FXSelector,void*)
    return 1;
 }
 // canvas area needs to be redrawn
-long MainWindow::onPaintCanvas(FXObject*,FXSelector,void*)
+long MainWindow::onPaintCanvas(FXObject*, FXSelector, void*)
 {
-   if (display != 0)
+   if (display != nullptr)
       display->drawIt();
    return 1;
 }
 
 // on left button release (for picking!)
-long MainWindow::onLeftBtnRelease(FXObject*,FXSelector,void* ptr)
+long MainWindow::onLeftBtnRelease(FXObject*, FXSelector, void* ptr)
 {
-   if (display != 0) {
+   if (display != nullptr) {
       FXEvent* ev = (FXEvent*)ptr;
       display->pick(ev->win_x, ev->win_y);
    }
@@ -94,17 +94,17 @@ long MainWindow::onLeftBtnRelease(FXObject*,FXSelector,void* ptr)
 }
 
 // start/stop rotating the graphic!
-long MainWindow::onStartStopRotate(FXObject*,FXSelector,void*)
+long MainWindow::onStartStopRotate(FXObject*, FXSelector, void*)
 {
-   if (display != 0) {
+   if (display != nullptr) {
       display->toggleRotation();
    }
    return 1;
 }
 // start/stop translation the graphic!
-long MainWindow::onStartStopTranslate(FXObject*,FXSelector,void*)
+long MainWindow::onStartStopTranslate(FXObject*, FXSelector, void*)
 {
-   if (display != 0) {
+   if (display != nullptr) {
       display->toggleTranslation();
    }
    return 1;
@@ -118,14 +118,14 @@ void MainWindow::setupGUI()
    // (Display->create())
 
    // Main bar
-   menuBar = new FXMenuBar(this, LAYOUT_SIDE_TOP|LAYOUT_FILL_X);  
+   menuBar = new FXMenuBar(this, LAYOUT_SIDE_TOP|LAYOUT_FILL_X);
 
    // FILE menu
    {
       FXMenuPane* fileMenu = new FXMenuPane(this);
-      new FXMenuTitle(menuBar, "&File", NULL, fileMenu);
-      new FXMenuCommand(fileMenu, "Start/Stop Graphic Rotation", NULL, this, ID_START_STOP_ROTATE);
-      new FXMenuCommand(fileMenu, "Start/Stop Graphic Translation", NULL, this, ID_START_STOP_TRANSLATE);
+      new FXMenuTitle(menuBar, "&File", nullptr, fileMenu);
+      new FXMenuCommand(fileMenu, "Start/Stop Graphic Rotation", nullptr, this, ID_START_STOP_ROTATE);
+      new FXMenuCommand(fileMenu, "Start/Stop Graphic Translation", nullptr, this, ID_START_STOP_TRANSLATE);
    }
 
    // now make our display areas and such
@@ -140,14 +140,14 @@ void MainWindow::setupGUI()
    {
       FXHorizontalFrame* frame = new FXHorizontalFrame(rightFrame, LAYOUT_FILL|LAYOUT_SIDE_RIGHT);
       frame->setBackColor(FXRGB(150, 150, 150));
-      new FXLabel(frame, "LABEL 1", NULL, LAYOUT_FILL_X);
-      new FXButton(frame, "BUTTON", NULL, NULL, ID_MY_BUTTON, LAYOUT_FILL_X|FRAME_LINE|FRAME_THICK);
+      new FXLabel(frame, "LABEL 1", nullptr, LAYOUT_FILL_X);
+      new FXButton(frame, "BUTTON", nullptr, nullptr, ID_MY_BUTTON, LAYOUT_FILL_X|FRAME_LINE|FRAME_THICK);
    }
 
-   if (display != 0) {
+   if (display != nullptr) {
       // this will set it's own width and height
       display->create(getApp(), leftFrame, this, ID_CANVAS, LAYOUT_FIX_HEIGHT | LAYOUT_FIX_WIDTH, 0, 0, 0, 0);
-   } 
+   }
 }
 
 } // end Example namespace

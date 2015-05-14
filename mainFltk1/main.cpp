@@ -22,7 +22,7 @@
 // ----------------------------------------------------------------------------
 static void update(void* pData)
 {
-   if (pData != NULL) {
+   if (pData != nullptr) {
       Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
       if (stn != nullptr) {
          double dt = 1 / 20.0;
@@ -104,7 +104,7 @@ int main(int, char* [])
    fltkStation->updateData(0.025);
 
    // run at 20 HZ roughly, background thread
-   double dt = 1 / 20.0;
+   const double dt = 1 / 20.0;
    // create our update data timer
    Fl::add_timeout(dt, update, fltkStation);
 

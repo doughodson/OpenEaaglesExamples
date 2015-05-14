@@ -14,7 +14,7 @@ namespace Eaagles {
 namespace Example {
 
 class Application;
-class FoxDisplay;  
+class FoxDisplay;
 
 class MainWindow : public FX::FXMainWindow
 {
@@ -32,34 +32,34 @@ public:
    // This way, we know the ID's are all unique for this particular target.
    enum {
       ID_CANVAS=FX::FXMainWindow::ID_LAST,         // Canvas ID for the OpenGL window
-      ID_START_STOP_ROTATE,                        // Start and stop rotating our graphic 
+      ID_START_STOP_ROTATE,                        // Start and stop rotating our graphic
       ID_START_STOP_TRANSLATE,                     // Start and stop translating our graphic
-      ID_MY_BUTTON,                                // Button 
+      ID_MY_BUTTON,                                // Button
       ID_LAST,
    };
 
    // Message handlers
-   long onUpdateCanvas(FXObject*,FXSelector,void*);
-   long onPaintCanvas(FXObject*,FXSelector,void*);
+   long onUpdateCanvas(FXObject*, FXSelector, void*);
+   long onPaintCanvas(FXObject*, FXSelector, void*);
    long onLeftBtnRelease(FXObject*, FXSelector, void*);
    long onStartStopRotate(FXObject*, FXSelector, void*);
    long onStartStopTranslate(FXObject*, FXSelector, void*);
 
    virtual void setupGUI();
-  
+
 protected:
 
    MainWindow() {}
 
 private:
 
-   FoxDisplay* display; 
+   FoxDisplay* display;
 
    // menu stuff
    FXMenuBar* menuBar;
-   
+
    // left frame - to get width and height
-   FXComposite* leftFrame; 
+   FXComposite* leftFrame;
    FXComposite* rightFrame;
 
 };

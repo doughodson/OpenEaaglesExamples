@@ -20,7 +20,7 @@ class Application : public FX::FXApp {
 
    FXDECLARE(Application)
 
-public: 
+public:
 
    // We define additional ID's, starting from the last one used by the base class+1.
    // This way, we know the ID's are all unique for this particular target.
@@ -38,7 +38,7 @@ public:
    virtual void init(int& argc, char** argv, bool connect=true);
 
    // Message handlers
-   long onTimeout(FXObject*,FXSelector,void*);
+   long onTimeout(FXObject*, FXSelector, void*);
 
    void setStation(FoxStation* s);
    FoxStation* getStation();

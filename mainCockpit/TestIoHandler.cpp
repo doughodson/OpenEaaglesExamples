@@ -101,10 +101,10 @@ void TestIoHandler::inputDevices(const LCreal dt)
    // ---
    SimStation* const sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
-   Simulation::Simulation* sim = 0;
-   Simulation::AirVehicle* av = 0;
+   Simulation::Simulation* sim = nullptr;
+   Simulation::AirVehicle* av = nullptr;
 
-   if (sta != 0) {
+   if (sta != nullptr) {
       sim = sta->getSimulation();
       av = dynamic_cast<Simulation::AirVehicle*>(sta->getOwnship());
    }
@@ -112,13 +112,13 @@ void TestIoHandler::inputDevices(const LCreal dt)
    // ---
    // If we have everything we need ....
    // ---
-   if (av != 0 && sim != 0 && inData != 0) {
+   if (av != nullptr && sim != nullptr && inData != nullptr) {
 
       // find the (optional) autopilot
-      Simulation::Autopilot* ap = 0;
+      Simulation::Autopilot* ap = nullptr;
       {
          Basic::Pair* p = av->getPilotByType( typeid( Simulation::Autopilot) );
-         if (p != 0) ap = static_cast<Simulation::Autopilot*>( p->object() );
+         if (p != nullptr) ap = static_cast<Simulation::Autopilot*>( p->object() );
       }
 
       // ------------------------------------------------------------
@@ -252,7 +252,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
          inData->getDiscreteInput(PADDLE_SW, &autopilotSw);
          if (autopilotSw && !autopilotSw1) {
             Simulation::Autopilot* ap = dynamic_cast<Simulation::Autopilot*>(av->getPilot());
-            if (ap != 0) {
+            if (ap != nullptr) {
                ap->setHeadingHoldMode(false);
                ap->setAltitudeHoldMode(false);
                ap->setVelocityHoldMode(false);
@@ -263,7 +263,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
          autopilotSw1 = autopilotSw;
       }
 
-      { // Speedbrake switch  
+      { // Speedbrake switch
          bool sbExtSw = false;
          bool sbRetSw = false;
          inData->getDiscreteInput(SB_EXT_SW, &sbExtSw);
@@ -281,10 +281,10 @@ void TestIoHandler::inputDevices(const LCreal dt)
          if(incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
             Simulation::Navigation* myNav = av->getNavigation();
-            if (myNav != 0) {
+            if (myNav != nullptr) {
                myNav->ref();
                Simulation::Route* myRoute = myNav->getPriRoute();
-               if (myRoute != 0) {
+               if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->incStpt();
                   myRoute->unref();
@@ -300,10 +300,10 @@ void TestIoHandler::inputDevices(const LCreal dt)
          if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
             Simulation::Navigation* myNav = av->getNavigation();
-            if (myNav != 0) {
+            if (myNav != nullptr) {
                myNav->ref();
                Simulation::Route* myRoute = myNav->getPriRoute();
-               if (myRoute != 0) {
+               if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->decStpt();
                   myRoute->unref();
@@ -312,8 +312,6 @@ void TestIoHandler::inputDevices(const LCreal dt)
          }
          decStptSw1 = decStptSw;
       }
-
-
    }
 
 }

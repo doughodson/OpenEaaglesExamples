@@ -74,7 +74,7 @@ void SimStation::reset()
         mainDisplay->createWindow();
         Basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
         if (p != nullptr) mainDisplay->focus(static_cast<BasicGL::Graphic*>(p->object()));
-        else mainDisplay->focus(0);
+        else mainDisplay->focus(nullptr);
         displayInit = true;
     }
     // reset all of our subcomponents

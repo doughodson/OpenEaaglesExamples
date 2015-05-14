@@ -7,7 +7,7 @@
 namespace Eaagles {
 namespace Example {
 
-IMPLEMENT_SUBCLASS(FoxStation,"FoxStation")
+IMPLEMENT_SUBCLASS(FoxStation, "FoxStation")
 EMPTY_SERIALIZER(FoxStation)
 EMPTY_DELETEDATA(FoxStation)
 
@@ -36,10 +36,10 @@ void FoxStation::copyData(const FoxStation& org, const bool cc)
 {
    BaseClass::copyData(org);
 
-   if (org.display != 0)
+   if (org.display != nullptr)
       setSlotMainDisplay( org.display->clone() );
    else
-      setSlotMainDisplay(0);
+      setSlotMainDisplay(nullptr);
 }
 
 //------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ void FoxStation::updateTC(const LCreal dt)
    BasicGL::Graphic::flashTimer(dt);
 
    // Update any TC stuff in our main display
-   if (display != 0) display->updateTC(dt);
+   if (display != nullptr) display->updateTC(dt);
 }
 
 //------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ void FoxStation::updateTC(const LCreal dt)
 void FoxStation::updateData(const LCreal dt)
 {
    // Update any stuff in our main display
-   if (display != 0) display->updateData(dt);
+   if (display != nullptr) display->updateData(dt);
 
    BaseClass::updateData(dt);
 }

@@ -36,6 +36,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <cstdlib>
 
 #if(_MSC_VER>=1400)   // VC8+
 # pragma warning(disable: 4996)
@@ -62,7 +63,7 @@ BEGIN_SLOTTABLE(DataRecordTest)
    "printSelected2",      // 7) printer using reflection (std out only)
 END_SLOTTABLE(DataRecordTest)
 
-// Map slot table to handles 
+// Map slot table to handles
 BEGIN_SLOT_MAP(DataRecordTest)
    ON_SLOT(1, setSlotTabPrinter,     Recorder::TabPrinter)
    ON_SLOT(2, setSlotFileWriter,     Recorder::FileWriter)
@@ -516,7 +517,7 @@ bool DataRecordTest::testEvents()
       if (ynMenu != 'n') {
          eventTestMenu();   // put up the menu
       }
-      
+
       std::cout << "Select an event to test: ";
       std::cin  >> testNumber;
 
@@ -545,7 +546,7 @@ bool DataRecordTest::testEvents()
             case 15: { handle = testTrackDataMsg(); break; }
             case 16: { handle = testLastMsg(); break; }
             default:
-               { ynCont = 'n'; handle = 0; exit(0);  break; }
+               { ynCont = 'n'; handle = 0; std::exit(0);  break; }
          }
       }
       else ynCont = 'n';
@@ -563,7 +564,7 @@ void DataRecordTest::eventTestMenu()
    std::cout << "=====================================================" << std::endl;
    std::cout << "Event Tests" << std::endl;
    std::cout << "=====================================================" << std::endl;
-   
+
 
    std::cout <<
          "case  1:  testFileIdMsg" << std::endl <<
@@ -649,7 +650,7 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 
    timesCalled++;
    pId = 123 * timesCalled;
-      
+
    // required
    pIdMsg->set_id(pId);
    pIdMsg->set_name("Player123");
@@ -1362,7 +1363,7 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
                   myPrintSelected->setCompareToValue(str);
                   setCompareToValue(str);
                }
-               // 
+               //
                else if ((cppType == google::protobuf::FieldDescriptor::CPPTYPE_INT32) ||
                     (cppType == google::protobuf::FieldDescriptor::CPPTYPE_INT64)     ||
                     (cppType == google::protobuf::FieldDescriptor::CPPTYPE_UINT32)    ||
@@ -1389,7 +1390,7 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
                if ((cppType != google::protobuf::FieldDescriptor::CPPTYPE_BOOL) &&
                   (cppType != google::protobuf::FieldDescriptor::CPPTYPE_STRING)) {
 
-                  std::cout << "Enter compare condition: 0=EQ, 1=LT, 2=GT: "; 
+                  std::cout << "Enter compare condition: 0=EQ, 1=LT, 2=GT: ";
                   unsigned int cond;
                   std::cin >>  cond;
                   if (cond == 1) {
@@ -1420,7 +1421,7 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
             const google::protobuf::Message& sub_message = reflection->GetMessage(root, fieldDescriptor);
 
             // If sub message exists, process it
-            if (&sub_message != NULL) {
+            if (&sub_message != nullptr) {
                hasSubMessage = true;
                // Do we care?
                std::cout << "Select This Message? Y/N ";
