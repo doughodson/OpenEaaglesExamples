@@ -24,7 +24,7 @@ EMPTY_DELETEDATA(AdiDisplay)
 //------------------------------------------------------------------------------
 
 // constructor
-AdiDisplay::AdiDisplay() : myStation(0)
+AdiDisplay::AdiDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
 
@@ -36,7 +36,7 @@ AdiDisplay::AdiDisplay() : myStation(0)
    pRO      = 0.0;
    qRO      = 0.0;
    rRO      = 0.0;
-   bankADI  = 0.0; 
+   bankADI  = 0.0;
    pitchADI = 0.0;
 
    psiRO_SD.empty();
@@ -56,18 +56,18 @@ void AdiDisplay::copyData(const AdiDisplay& org, const bool)
 {
    BaseClass::copyData(org);
 
-   psiRO    = org.psiRO;   
-   thtRO    = org.thtRO;   
-   phiRO    = org.phiRO;   
-   velRO    = org.velRO;   
-   altRO    = org.altRO;   
-   pRO      = org.pRO;     
-   qRO      = org.qRO;     
-   rRO      = org.rRO;     
-   bankADI  = org.bankADI; 
+   psiRO    = org.psiRO;
+   thtRO    = org.thtRO;
+   phiRO    = org.phiRO;
+   velRO    = org.velRO;
+   altRO    = org.altRO;
+   pRO      = org.pRO;
+   qRO      = org.qRO;
+   rRO      = org.rRO;
+   bankADI  = org.bankADI;
    pitchADI = org.pitchADI;
 
-   myStation = 0;
+   myStation = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -82,20 +82,20 @@ void AdiDisplay::updateData(const LCreal dt)
 
    // get access pointer to ownship
    Simulation::Aircraft* pA = getOwnship();
-   if (pA != 0) {
+   if (pA != nullptr) {
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
       phiRO = pA->getRollD();
       //velRO = pA->getTotalVelocity() * Basic::Distance::M2NM / Basic::Time::S2H;
       velRO = pA->getTotalVelocityKts();
       altRO = pA->getAltitudeFt();
-      
+
       av = pA->getAngularVelocities();
-      
+
       pRO   = av[0] * Basic::Angle::R2DCC;
       qRO   = av[1] * Basic::Angle::R2DCC;
       rRO   = av[2] * Basic::Angle::R2DCC;
-      
+
       pitchADI = pA->getPitchD();
       bankADI  = pA->getRollD();
    }
@@ -106,7 +106,7 @@ void AdiDisplay::updateData(const LCreal dt)
    send("phiRO", UPDATE_VALUE, phiRO, phiRO_SD);
    send("velRO", UPDATE_VALUE, velRO, velRO_SD);
    send("altRO", UPDATE_VALUE, altRO, altRO_SD);
-   
+
    send("pRO",  UPDATE_VALUE, pRO, pRO_SD);
    send("qRO",  UPDATE_VALUE, qRO, qRO_SD);
    send("rRO",  UPDATE_VALUE, rRO, rRO_SD);
@@ -122,9 +122,9 @@ void AdiDisplay::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 Simulation::Station* AdiDisplay::getStation()
 {
-   if (myStation == 0) {
+   if (myStation == nullptr) {
       Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
-      if (s != 0) {
+      if (s != nullptr) {
          myStation = s;
       }
    }
@@ -133,9 +133,9 @@ Simulation::Station* AdiDisplay::getStation()
 
 Simulation::Aircraft* AdiDisplay::getOwnship()
 {
-   Simulation::Aircraft* pA = 0;
+   Simulation::Aircraft* pA = nullptr;
    Simulation::Station* sta = getStation();
-   if (sta != 0) {
+   if (sta != nullptr) {
       pA = dynamic_cast<Simulation::Aircraft*>(sta->getOwnship());
 
       //const unsigned int ffrate = 5;    //LDB

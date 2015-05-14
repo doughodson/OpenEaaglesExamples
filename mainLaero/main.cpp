@@ -63,18 +63,18 @@ static Simulation::Station* builder(const char* const filename)
 //-----------------------------------------------------------------------------
 static void updateDataCB(int)
 {
-   double dt0 = 1.0 / static_cast<double>(bgRate);
-   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const double dt0 = 1.0 / static_cast<double>(bgRate);
+   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 
    // current time
-   double time = getComputerTime();
+   const double time = getComputerTime();
 
    // N-1 Time
    static double time0 = time;
 
    // compute delta time
-   LCreal dt = static_cast<LCreal>(time - time0);
+   const LCreal dt = static_cast<LCreal>(time - time0);
    time0 = time;
 
    station->updateData(dt);
@@ -105,8 +105,8 @@ int main(int argc, char* argv[])
    station->createTimeCriticalProcess();
 
    // set timer for the background tasks
-   double dt = 1.0/static_cast<double>(bgRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0/static_cast<double>(bgRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    station->updateData(dt);
