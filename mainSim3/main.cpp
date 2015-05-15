@@ -68,11 +68,11 @@ static void updateDataCB(int msecs)
    glutTimerFunc(msecs, updateDataCB, msecs);
 
    // Current time
-   double time = Eaagles::getComputerTime();
+   const double time = getComputerTime();
 
    // Compute delta time
    static double time0 = time;   // N-1 Time
-   Eaagles::LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
+   const LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
    time0 = time;
 
    simStation->updateData(dt);
@@ -97,8 +97,8 @@ int main(int argc, char* argv[])
    simStation->event(Basic::Component::RESET_EVENT);
 
    // set timer for background tasks
-   double dt = 1.0/static_cast<double>(BG_RATE);
-   int msecs = static_cast<int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(BG_RATE);
+   const int msecs = static_cast<int>(dt * 1000);
 
    // ensure everything is reset
    simStation->updateData(dt);

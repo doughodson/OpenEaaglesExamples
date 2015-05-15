@@ -34,20 +34,20 @@ END_EVENT_HANDLER()
 //------------------------------------------------------------------------------
 // Constructor
 //------------------------------------------------------------------------------
-InstrumentPanel::InstrumentPanel() 
+InstrumentPanel::InstrumentPanel()
 {
    STANDARD_CONSTRUCTOR()
-   myStation = 0;
+   myStation = nullptr;
 }
 
 //------------------------------------------------------------------------------
 // copyData() - copies one object to another
 //------------------------------------------------------------------------------
-void InstrumentPanel::copyData(const InstrumentPanel& org, const bool) 
+void InstrumentPanel::copyData(const InstrumentPanel& org, const bool)
 {
    BaseClass::copyData(org);
 
-   myStation = 0;
+   myStation = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ void InstrumentPanel::copyData(const InstrumentPanel& org, const bool)
 //------------------------------------------------------------------------------
 void InstrumentPanel::deleteData()
 {
-   myStation = 0;
+   myStation = nullptr;
 }
 
 
@@ -64,25 +64,25 @@ void InstrumentPanel::deleteData()
 //------------------------------------------------------------------------------
 Simulation::Player* InstrumentPanel::getOwnship()
 {
-   Simulation::Player* p = 0;
+   Simulation::Player* p = nullptr;
    Simulation::Station* sta = getStation();
-   if (sta != 0) p = sta->getOwnship();
+   if (sta != nullptr) p = sta->getOwnship();
    return p;
 }
 
 Simulation::Simulation* InstrumentPanel::getSimulation()
 {
-   Simulation::Simulation* s = 0;
+   Simulation::Simulation* s = nullptr;
    Simulation::Station* sta = getStation();
-   if (sta != 0) s = sta->getSimulation();
+   if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
 Simulation::Station* InstrumentPanel::getStation()
 {
-   if (myStation == 0) {
+   if (myStation == nullptr) {
       Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
-      if (s != 0) myStation = s;
+      if (s != nullptr) myStation = s;
    }
    return myStation;
 }
@@ -100,7 +100,7 @@ void InstrumentPanel::updateData(const LCreal dt)
    // Get the data from our ownship, if we have a valid one.  Else everything goes to a default value
    // we need to dynamically cast to an AirVehicle* for this instrument panel
    Simulation::AirVehicle* tempOwnship = dynamic_cast<Simulation::AirVehicle*>( getOwnship() );
-   if (tempOwnship != 0) {    
+   if (tempOwnship != nullptr) {
       tempOwnship->ref();
 #if 0
       sBrakePos = tempOwnship->getSpeedBrakePosition();
@@ -121,7 +121,7 @@ void InstrumentPanel::updateData(const LCreal dt)
    }
    else {
       SimPlayer* player = dynamic_cast<SimPlayer*>( getOwnship() );
-      if (player != 0) {
+      if (player != nullptr) {
          player->ref();
 
 #if 0
@@ -154,14 +154,14 @@ void InstrumentPanel::updateData(const LCreal dt)
          heading = 0;
          altitude = 0;
          vvi.set(0,0,0);
-         bpAngle = 0;  
+         bpAngle = 0;
       }
    }
 
    Basic::Pair* a = findSubpageByType(typeid(Instruments::Eadi3DPage));
-   if (a != 0) {
+   if (a != nullptr) {
       Instruments::Eadi3DPage* eadi = dynamic_cast<Instruments::Eadi3DPage*>(a->object());
-      if (eadi != 0) {
+      if (eadi != nullptr) {
          eadi->setAltitude(altitude);
          eadi->setAirspeed(airSpeed);
          eadi->setHeading(heading);
@@ -193,7 +193,7 @@ void InstrumentPanel::updateData(const LCreal dt)
 // reset simulation
 bool InstrumentPanel::onResetKey()
 {
-   if ( getSimulation() != 0 ) {
+   if ( getSimulation() != nullptr ) {
       getSimulation()->event(RESET_EVENT);
    }
    return true;
@@ -202,7 +202,7 @@ bool InstrumentPanel::onResetKey()
 // freeze simulation
 bool InstrumentPanel::onFreezeKey()
 {
-   if ( getSimulation() != 0 ) {
+   if ( getSimulation() != nullptr ) {
       Basic::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
@@ -213,7 +213,7 @@ bool InstrumentPanel::onFreezeKey()
 bool InstrumentPanel::onStepOwnshipKey()
 {
    SimStation* ts = dynamic_cast<SimStation*>(getStation());
-   if ( ts != 0 ) {
+   if ( ts != nullptr ) {
       ts->stepOwnshipPlayer();
    }
    return true;

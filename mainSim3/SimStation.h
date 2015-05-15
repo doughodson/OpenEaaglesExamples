@@ -37,7 +37,7 @@ public:
    void stepOwnshipPlayer();
 
    // Slot functions
-   virtual bool setSlotMainDisplay(Glut::GlutDisplay* const d);
+   virtual bool setSlotMainDisplay(Glut::GlutDisplay* const);
    virtual bool setSlotAutoResetTime(const Basic::Time* const num);     // Sets the auto RESET timer
 
    void updateTC(const LCreal dt = 0.0) override;

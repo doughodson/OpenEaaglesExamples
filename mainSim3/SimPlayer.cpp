@@ -31,13 +31,13 @@ END_SLOT_MAP()
 SimPlayer::SimPlayer()
 {
     STANDARD_CONSTRUCTOR()
-    
+
     static Basic::String generic("Sim");
     setType(&generic);
 }
 
 //------------------------------------------------------------------------------
-// reset() -- 
+// reset() --
 //------------------------------------------------------------------------------
 void SimPlayer::reset()
 {

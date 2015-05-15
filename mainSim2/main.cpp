@@ -102,11 +102,11 @@ int main(int argc, char* argv[])
    lcSleep(2000);
 
    // calculate delta time for background thread
-   double dt = 1.0/static_cast<double>(bgRate);
+   const double dt = 1.0/static_cast<double>(bgRate);
 
    // system time of day
-   double simTime = 0.0;                    // Simulator time reference
-   double startTime = getComputerTime();    // Time of day (sec) run started
+   double simTime = 0.0;                          // Simulator time reference
+   const double startTime = getComputerTime();    // Time of day (sec) run started
 
    //int k = 0;
    std::cout << "Starting background main loop ..." << std::endl;
@@ -115,12 +115,11 @@ int main(int argc, char* argv[])
       // update background thread
       station->updateData( static_cast<LCreal>(dt) );
 
-      simTime += dt;                       // time of next frame
-      double timeNow = getComputerTime();  // time now
-
-      double elapsedTime = timeNow - startTime;
-      double nextFrameStart = simTime - elapsedTime;
-      int sleepTime = static_cast<int>(nextFrameStart*1000.0);
+      simTime += dt;                             // time of next frame
+      const double timeNow = getComputerTime();  // time now
+      const double elapsedTime = timeNow - startTime;
+      const double nextFrameStart = simTime - elapsedTime;
+      const int sleepTime = static_cast<int>(nextFrameStart*1000.0);
 
       // wait for the next frame
       if (sleepTime > 0)

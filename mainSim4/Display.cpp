@@ -19,7 +19,7 @@ Display::Display()
     dragging = false;
     range = 0;
     rangeSD.empty();
-}  
+}
 
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
@@ -73,9 +73,9 @@ void Display::mouseMotionEvent(const int x, const int y)
 {
     if (dragging) {
         MapPage* page = static_cast<MapPage*>(subpage());
-        if (page != 0) {
+        if (page != nullptr) {
             // get our ref lat, because we won't go passed 70 degrees lat (either way);
-            double lat = page->getReferenceLatDeg();
+            const double lat = page->getReferenceLatDeg();
             if (lat < 70 && lat > -70) {
                 page->moveMap(startX, startY, x, y);
             }
@@ -99,7 +99,7 @@ void Display::buttonEvent(const int b)
 {
     // range up, down
     MapPage* page = static_cast<MapPage*>(subpage());
-    if (page != 0) {
+    if (page != nullptr) {
         unsigned int myRange = static_cast<unsigned int>(page->getRange());
         if (b == 1000) {
             if (myRange < 320) {
@@ -124,8 +124,8 @@ void Display::updateData(const LCreal dt)
     BaseClass::updateData(dt);
 
     MapPage* page = static_cast<MapPage*>(subpage());
-    if (page != 0) range = static_cast<int>(page->getRange());
-    
+    if (page != nullptr) range = static_cast<int>(page->getRange());
+
     send("range", UPDATE_VALUE, range, rangeSD);
 }
 

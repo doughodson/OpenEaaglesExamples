@@ -23,27 +23,27 @@ MapPage::MapPage()
 {
     STANDARD_CONSTRUCTOR()
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        player[i] = 0;
+        player[i] = nullptr;
         playerIdx[i] = -1;
     }
-    stn = 0;
-    loader = 0;
+    stn = nullptr;
+    loader = nullptr;
 
     for (int i = 0; i < MAX_READOUTS; i++) {
         latsSD[i].empty();
         lats[i] = 0;
         latReadoutXPosSD[i].empty();
-        latReadoutXPos[i] = 0;
+        latReadoutXPos[i] = 0.0;
         latReadoutYPosSD[i].empty();
-        latReadoutYPos[i] = 0;
+        latReadoutYPos[i] = 0.0;
         lonsSD[i].empty();
         lons[i] = 0;
         lonReadoutXPosSD[i].empty();
-        lonReadoutXPos[i] = 0;
+        lonReadoutXPos[i] = 0.0;
         lonReadoutYPosSD[i].empty();
-        lonReadoutYPos[i] = 0;
+        lonReadoutYPos[i] = 0.0;
     }
-}  
+}
 
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
@@ -55,31 +55,31 @@ void MapPage::copyData(const MapPage& org, const bool)
 
     // regardless of copy, we will create all new symbols
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        if (player[i] != 0) {
+        if (player[i] != nullptr) {
             player[i]->unref();
-            player[i] = 0;
+            player[i] = nullptr;
         }
-        if (org.player[i] != 0) {
+        if (org.player[i] != nullptr) {
             player[i] = org.player[i];
             player[i]->ref();
         }
         playerIdx[i] = org.playerIdx[i];
     }
 
-    if (loader != 0) {
+    if (loader != nullptr) {
         loader->unref();
-        loader = 0;
+        loader = nullptr;
     }
-    if (org.loader != 0) {
+    if (org.loader != nullptr) {
         loader = org.loader;
         loader->ref();
     }
 
-    if (stn != 0) {
+    if (stn != nullptr) {
         stn->unref();
-        stn = 0;
+        stn = nullptr;
     }
-    if (org.stn != 0) {
+    if (org.stn != nullptr) {
         stn = org.stn;
         stn->ref();
     }
@@ -106,18 +106,18 @@ void MapPage::copyData(const MapPage& org, const bool)
 void MapPage::deleteData()
 {
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        if (player[i] != 0) {
+        if (player[i] != nullptr) {
             player[i]->unref();
-            player[i] = 0;
+            player[i] = nullptr;
         }
     }
-    if (stn != 0) {
+    if (stn != nullptr) {
         stn->unref();
-        stn = 0;
+        stn = nullptr;
     }
-    if (loader != 0) {
+    if (loader != nullptr) {
         loader->unref();
-        loader = 0;
+        loader = nullptr;
     }
 }
 
@@ -126,18 +126,18 @@ void MapPage::drawFunc()
 {
     // we are going to draw lat / lon lines
     // now let's draw our map lines
-    double refLat = getReferenceLatDeg();
-    double refLon = getReferenceLonDeg();
+    const double refLat = getReferenceLatDeg();
+    const double refLon = getReferenceLonDeg();
     // now get our range
-    double latRange = getRange() / 60;
-    double southernLat = refLat - latRange;
-    double northernLat = refLat + latRange;
+    double latRange = getRange() / 60.0;
+    const double southernLat = refLat - latRange;
+    const double northernLat = refLat + latRange;
     // after calcs, double our lat range to encompass the whole screen
-    latRange *= 2;  
+    latRange *= 2;
 
     // get our viewport
     Display* dis = static_cast<Display*>(getDisplay());
-    if (dis != 0) {
+    if (dis != nullptr) {
         int start = nint(static_cast<LCreal>(southernLat) - 1);
         GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
         dis->getOrtho(l, r, b, t, n, f);
@@ -164,8 +164,8 @@ void MapPage::drawFunc()
 
         // now for the longitude lines
         double lonRange = getRange() / (60 * getCosRefLat());
-        double easternLon = refLon - lonRange;
-        double westernLon = refLon + lonRange;
+        const double easternLon = refLon - lonRange;
+        const double westernLon = refLon + lonRange;
 
         lonRange *= 2;
         start = nint( static_cast<LCreal>(easternLon) - 1);
@@ -188,7 +188,6 @@ void MapPage::drawFunc()
                 for (int i = count; i < MAX_READOUTS; i++) lonReadoutYPos[i] = -10000;
             glEnd();
         glPopMatrix();
-
     }
 }
 
@@ -198,24 +197,24 @@ void MapPage::drawFunc()
 void MapPage::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
-    
+
     // get our pointers
-    if (loader == 0) {
+    if (loader == nullptr) {
         Basic::Pair* pair = findByType(typeid(BasicGL::SymbolLoader));
-        if (pair != 0) {
+        if (pair != nullptr) {
             loader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (loader != 0) loader->ref();
+            if (loader != nullptr) loader->ref();
         }
     }
-    if (stn == 0) {
+    if (stn == nullptr) {
         BasicGL::Display* dis = getDisplay();
         if (dis != 0) {
             stn = static_cast<Station*>(dis->findContainerByType(typeid(Station)));
-            if (stn != 0) {
+            if (stn != nullptr) {
                 stn->ref();
                 // set our reference lat / lon initially
                 Simulation::Simulation* sim = stn->getSimulation();
-                if (sim != 0) {
+                if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());
                 }
@@ -224,19 +223,19 @@ void MapPage::updateData(const LCreal dt)
     }
 
     // let's update our players
-    if (loader != 0 && stn != 0) {
-        Basic::PairStream* stream = stn->getPlayers();                      
-        if (stream != 0) {
+    if (loader != nullptr && stn != nullptr) {
+        Basic::PairStream* stream = stn->getPlayers();
+        if (stream != nullptr) {
             // create our new player list
             Simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             Basic::List::Item* item = stream->getFirstItem();
-            while (item != 0 && numNewPlayers < MAX_PLAYERS) {
+            while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
                 Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
-                if (pair != 0) {
+                if (pair != nullptr) {
                     Simulation::Player* ply = dynamic_cast<Simulation::Player*>(pair->object());
-                    if (ply != 0) {
+                    if (ply != nullptr) {
                         newPlayers[numNewPlayers] = ply;
                         newPlayers[numNewPlayers++]->ref();
                     }
@@ -248,22 +247,22 @@ void MapPage::updateData(const LCreal dt)
             // away any old players that aren't in the new list, and add any new
             // players that aren't in the old list
             for (int i = 0; i < MAX_PLAYERS; i++) {
-                if (player[i] != 0) {
-                    bool match = false; 
+                if (player[i] != nullptr) {
+                    bool match = false;
                     for (int j = 0; j < numNewPlayers && !match; j++) {
                         if (player[i] == newPlayers[j]) {
-                            // if they do match, get rid of our new player, so we don't re-add it 
+                            // if they do match, get rid of our new player, so we don't re-add it
                             // later accidentally
                             match = true;
                             newPlayers[j]->unref();
-                            newPlayers[j] = 0;
+                            newPlayers[j] = nullptr;
                         }
                     }
                     // if our player doesn't match, we remove it from our list
                     if (!match) {
                         loader->removeSymbol(playerIdx[i]);
                         player[i]->unref();
-                        player[i] = 0;
+                        player[i] = nullptr;
                         playerIdx[i] = -1;
                     }
                 }
@@ -272,10 +271,10 @@ void MapPage::updateData(const LCreal dt)
             // ok, now we have removed our old players (and our matched ones), let's add our new ones!
             for (int i = 0; i < numNewPlayers; i++) {
                 // make sure this player wasn't deleted earlier
-                if (newPlayers[i] != 0) {
+                if (newPlayers[i] != nullptr) {
                     bool found = false;
                     for (int j = 0; j < MAX_PLAYERS && !found; j++) {
-                        if (player[j] == 0) {
+                        if (player[j] == nullptr) {
                             found = true;
                             // found an empty player, let's set him!
                             player[j] = newPlayers[i];
@@ -283,12 +282,12 @@ void MapPage::updateData(const LCreal dt)
                             int type = 1;
                             if (player[j]->isSide(Simulation::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "player");
-                            if (player[j]->getName() != 0) {
+                            if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());
                             }
                             // now let's empty our new player list
                             newPlayers[i]->unref();
-                            newPlayers[i] = 0;
+                            newPlayers[i] = nullptr;
                         }
                     }
                 }
@@ -296,7 +295,7 @@ void MapPage::updateData(const LCreal dt)
 
             // ok, now update our symbols' positions
             for (int i = 0; i < MAX_PLAYERS; i++) {
-                if (player[i] != 0) {
+                if (player[i] != nullptr) {
                     loader->updateSymbolPositionLL(playerIdx[i], player[i]->getLatitude(), player[i]->getLongitude());
                     loader->updateSymbolHeading(playerIdx[i], player[i]->getHeadingD());
                 }

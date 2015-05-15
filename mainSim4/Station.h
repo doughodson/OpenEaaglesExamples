@@ -27,9 +27,8 @@ public:
     void reset() override;
 
 protected:
-    // SLOT function(s)
-    // set our display
-    bool setSlotDisplay(Glut::GlutDisplay* dis);
+    // slot methods
+    bool setSlotDisplay(Glut::GlutDisplay*);
 
 private:
     Glut::GlutDisplay* display;     // this is our main display that

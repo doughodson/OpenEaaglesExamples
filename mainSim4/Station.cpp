@@ -17,16 +17,15 @@ BEGIN_SLOT_MAP(Station)
     ON_SLOT(1, setSlotDisplay, Glut::GlutDisplay)
 END_SLOT_MAP()
 
-
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
 Station::Station()
 {
     STANDARD_CONSTRUCTOR()
-    display = 0;
+    display = nullptr;
     displayInit = false;
-}  
+}
 
 //------------------------------------------------------------------------------
 // copyData() -- copy member data
@@ -37,22 +36,21 @@ void Station::copyData(const Station& org, const bool cc)
     BaseClass::copyData(org);
 
     if (cc) {
-        display = 0;
+        display = nullptr;
         displayInit = false;
     }
 
-    if (display != 0) {
+    if (display != nullptr) {
         display->unref();
-        display = 0;
+        display = nullptr;
     }
 
-    if (org.display != 0) {
+    if (org.display != nullptr) {
         display = org.display;
         display->ref();
     }
 
     displayInit = org.displayInit;
-    
 }
 
 //------------------------------------------------------------------------------
@@ -60,9 +58,9 @@ void Station::copyData(const Station& org, const bool cc)
 //------------------------------------------------------------------------------
 void Station::deleteData()
 {
-    if (display != 0) {
+    if (display != nullptr) {
         display->unref();
-        display = 0;
+        display = nullptr;
     }
 }
 
@@ -73,7 +71,7 @@ void Station::deleteData()
 //------------------------------------------------------------------------------
 void Station::reset()
 {
-    if (display != 0 && !displayInit) {
+    if (display != nullptr && !displayInit) {
         display->createWindow();
         display->focus(display);
         displayInit = true;
@@ -91,12 +89,12 @@ bool Station::setSlotDisplay(Glut::GlutDisplay* dis)
 {
     bool ok = false;
     // clear out our old display first
-    if (display != 0) {
+    if (display != nullptr) {
         display->unref();
-        display = 0;
+        display = nullptr;
     }
 
-    if (dis != 0) {
+    if (dis != nullptr) {
         display = dis;
         display->ref();
         display->container(this);

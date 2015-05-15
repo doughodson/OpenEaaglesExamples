@@ -51,34 +51,34 @@ private:
    Basic::safe_ptr<Simulation::Station> myStation;
 
    // ALT Stuff
-   LCreal altitude;             // our current altitude
+   LCreal altitude;            // our current altitude
    SendData altitudeSD;
 
    // VVI Stuff
    osg::Vec3 vvi;              // velocity vector
    SendData vviSD;
-   LCreal pastVvi;              // our past vvi value (to create a linear filter)
+   LCreal pastVvi;             // our past vvi value (to create a linear filter)
 
    // AOA Stuff
-   LCreal aoa;                  // angle of attack
+   LCreal aoa;                 // angle of attack
    SendData aoaSD;
-   SendData aoaDigSD;            // angle of attack (digital)
+   SendData aoaDigSD;          // angle of attack (digital)
 
    // HSI Stuff - sends this to our Sim3Hsi class
    LCreal heading;             // our heading (in degrees)
    SendData headingSD;
-   LCreal bpAngle;              // our bearing pointer angle (degrees)
+   LCreal bpAngle;             // our bearing pointer angle (degrees)
    SendData bpAngleSD;
    LCreal dme;                 // dme (miles)
    SendData dmeSD;
 
 
    // CAS Stuff
-   LCreal airSpeed;             // our air speed (in knots)
+   LCreal airSpeed;            // our air speed (in knots)
    SendData airSpeedSD;
 
    // G Stuff
-   LCreal gForce;               // g's we are pulling
+   LCreal gForce;              // g's we are pulling
    SendData gForceSD;
    SendData gForce2SD;         // this is for the analog meter
 
@@ -95,7 +95,7 @@ private:
    SendData machSD;
 
    // G
-   LCreal gload;                // G
+   LCreal gload;               // G
    SendData gloadSD;
 };
 
