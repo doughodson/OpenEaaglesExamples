@@ -280,9 +280,9 @@ void TestPfd::updateData(const LCreal dt)
 
 
     Basic::Pair* pair = findByType(typeid(Pfd));
-    if (pair != 0) {
+    if (pair != nullptr) {
         Pfd* p = static_cast<Pfd*>(pair->object());
-        if (p != 0) {
+        if (p != nullptr) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);
             p->setTrueHeading(trueHdg);

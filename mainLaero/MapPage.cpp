@@ -99,7 +99,7 @@ void MapPage::copyData(const MapPage& org, const bool)
 
     if (pStn != nullptr) {
         pStn->unref();
-        pStn = 0;
+        pStn = nullptr;
     }
     if (org.pStn != nullptr) {
         pStn = org.pStn;

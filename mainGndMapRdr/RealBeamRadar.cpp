@@ -308,7 +308,7 @@ bool RealBeamRadar::computeSlantRanges2(LCreal* const slantRange2, const unsigne
 bool RealBeamRadar::computeRangeLoss(LCreal* const rangeLoss, const unsigned int n, const LCreal* const slantRange2)
 {
    bool ok = false;
-   if (rangeLoss != 0 && n > 0 && slantRange2 != 0) {
+   if (rangeLoss != nullptr && n > 0 && slantRange2 != nullptr) {
 
       for (unsigned int idx = 0; idx < n; idx++) {
          if (slantRange2[idx] > 0)
@@ -328,7 +328,7 @@ bool RealBeamRadar::computeRangeLoss(LCreal* const rangeLoss, const unsigned int
 bool RealBeamRadar::computeEarthCurvature(LCreal* const curvature, const unsigned int n, const LCreal maxRngNM, const LCreal radiusNM)
 {
    bool ok = false;
-   if (curvature != 0 && n > 0 && maxRngNM > 0 && radiusNM > 0) {
+   if (curvature != nullptr && n > 0 && maxRngNM > 0 && radiusNM > 0) {
 
       LCreal radius = radiusNM * Basic::Distance::NM2M;
       LCreal maxRng = maxRngNM * Basic::Distance::NM2M;

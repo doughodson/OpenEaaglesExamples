@@ -59,7 +59,7 @@ END_EVENT_HANDLER()
 //------------------------------------------------------------------------------
 
 // constructor
-TestDisplay::TestDisplay() : myStation(0)
+TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
 
@@ -390,7 +390,7 @@ void TestDisplay::updateData(const LCreal dt)
       Basic::Pair* p = findByType(typeid(xPanel::DspRwr));
       if (p != nullptr) rwrDisplay = dynamic_cast<xPanel::DspRwr*>( p->object() );
    }
-   if (rwrDisplay != 0 && getOwnship() != nullptr) {
+   if (rwrDisplay != nullptr && getOwnship() != nullptr) {
       Simulation::Rwr* rwr = nullptr;
       Basic::Pair* pair = getOwnship()->getSensorByType(typeid(Simulation::Rwr));
       if (pair != nullptr) rwr = static_cast<Simulation::Rwr*>(pair->object());
@@ -557,7 +557,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
 
                 int type = 4;                                       // unknown
                 if (newTracks[inew]->isClassType(typeid(Simulation::AirVehicle))) {
-                  if (newTracks[inew]->getSensorByType(typeid(Simulation::Jammer)) == 0) {
+                  if (newTracks[inew]->getSensorByType(typeid(Simulation::Jammer)) == nullptr) {
                      // non-jammers
                      if (newTracks[inew]->isSide(Simulation::Player::BLUE)) type = 1;      // friend
                      else if (newTracks[inew]->isSide(Simulation::Player::RED)) type = 2; // foe
@@ -569,7 +569,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
                 }
 
                 tracks[islot] = newTracks[inew];
-                trkIdx[islot] = loader->addSymbol( type, 0);
+                trkIdx[islot] = loader->addSymbol( type, nullptr);
                if (trkIdx[islot] == 0) {
                     // it didn't make it in for some unknown reason
                     tracks[islot]->unref();

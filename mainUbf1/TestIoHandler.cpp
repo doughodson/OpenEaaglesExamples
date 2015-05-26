@@ -90,10 +90,10 @@ void TestIoHandler::inputDevices(const LCreal)
 //    ---
    SimStation* const sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
-   Simulation::Simulation* sim = 0;
-   Simulation::AirVehicle* av = 0;
+   Simulation::Simulation* sim = nullptr;
+   Simulation::AirVehicle* av = nullptr;
 
-   if (sta != 0) {
+   if (sta != nullptr) {
       sim = sta->getSimulation();
       av = dynamic_cast<Simulation::AirVehicle*>(sta->getOwnship());
    }
@@ -101,13 +101,13 @@ void TestIoHandler::inputDevices(const LCreal)
    // ---
    // If we have everything we need ....
    // ---
-   if (av != 0 && sim != 0 && inData != 0) {
+   if (av != nullptr && sim != nullptr && inData != nullptr) {
 
       // find the (optional) autopilot
-      Simulation::Autopilot* ap = 0;
+      Simulation::Autopilot* ap = nullptr;
       {
          Basic::Pair* p = av->getPilotByType( typeid( Simulation::Autopilot) );
-         if (p != 0) ap = static_cast<Simulation::Autopilot*>(p->object());
+         if (p != nullptr) ap = static_cast<Simulation::Autopilot*>(p->object());
       }
 
       // ------------------------------------------------------------
@@ -159,7 +159,7 @@ void TestIoHandler::inputDevices(const LCreal)
          LCreal ai = 0;
          inData->getAnalogInput(ROLL_AI, &ai);
          LCreal aiLim = alim(ai, 1.0f);
-         if (ap != 0) ap->setControlStickRollInput(aiLim);
+         if (ap != nullptr) ap->setControlStickRollInput(aiLim);
          else av->setControlStickRollInput(aiLim);
       }
 
@@ -167,7 +167,7 @@ void TestIoHandler::inputDevices(const LCreal)
          LCreal ai = 0;
          inData->getAnalogInput(PITCH_AI, &ai);
          LCreal aiLim = alim(ai, 1.0f);
-         if (ap != 0) ap->setControlStickPitchInput(aiLim);
+         if (ap != nullptr) ap->setControlStickPitchInput(aiLim);
          else av->setControlStickPitchInput(aiLim);
       }
 
@@ -185,7 +185,7 @@ void TestIoHandler::inputDevices(const LCreal)
          if (value < 0.0f) value = 0.0f;
          else if (value > 2.0f) value = 2.0f;
 
-         if (ap != 0) ap->setThrottles(&value,1);
+         if (ap != nullptr) ap->setThrottles(&value,1);
          else av->setThrottles(&value,1);
       }
 
@@ -241,7 +241,7 @@ void TestIoHandler::inputDevices(const LCreal)
          inData->getDiscreteInput(PADDLE_SW, &autopilotSw);
          if (autopilotSw && !autopilotSw1) {
             Simulation::Autopilot* ap = dynamic_cast<Simulation::Autopilot*>(av->getPilot());
-            if (ap != 0) {
+            if (ap != nullptr) {
                ap->setHeadingHoldMode(false);
                ap->setAltitudeHoldMode(false);
                ap->setVelocityHoldMode(false);
@@ -270,10 +270,10 @@ void TestIoHandler::inputDevices(const LCreal)
          if (incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
             Simulation::Navigation* myNav = av->getNavigation();
-            if (myNav != 0) {
+            if (myNav != nullptr) {
                myNav->ref();
                Simulation::Route* myRoute = myNav->getPriRoute();
-               if (myRoute != 0) {
+               if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->incStpt();
                   myRoute->unref();
@@ -289,10 +289,10 @@ void TestIoHandler::inputDevices(const LCreal)
          if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
             Simulation::Navigation* myNav = av->getNavigation();
-            if (myNav != 0) {
+            if (myNav != nullptr) {
                myNav->ref();
                Simulation::Route* myRoute = myNav->getPriRoute();
-               if (myRoute != 0) {
+               if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->decStpt();
                   myRoute->unref();

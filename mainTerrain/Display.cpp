@@ -56,7 +56,7 @@ Display::Display()
 {
    STANDARD_CONSTRUCTOR()
 
-   terrain = 0;
+   terrain = nullptr;
 
    maxElev = 15000.0f * Basic::Distance::FT2M;
    minElev = 0;
@@ -73,7 +73,7 @@ Display::Display()
    testTexture = false;
 
    // the image
-   image = 0;
+   image = nullptr;
    imgWidth = 0;
    imgHeight = 0;
    texture = 0;
@@ -87,15 +87,15 @@ void Display::copyData(const Display& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      terrain = 0;
+      terrain = nullptr;
       texture = 0;
-      image = 0;
+      image = nullptr;
    }
 
-   if (org.terrain != 0)
+   if (org.terrain != nullptr)
       setSlotTerrain( org.terrain->clone() );
    else
-      setSlotTerrain( 0 );
+      setSlotTerrain( nullptr );
 
    maxElev = org.maxElev;
    minElev = org.minElev;
@@ -120,7 +120,7 @@ void Display::copyData(const Display& org, const bool cc)
 //------------------------------------------------------------------------------
 void Display::deleteData()
 {
-   setSlotTerrain( 0 );
+   setSlotTerrain( nullptr );
    freeImageMemory();
 }
 
@@ -129,7 +129,7 @@ void Display::deleteData()
 //------------------------------------------------------------------------------
 void Display::reset()
 {
-   if (terrain != 0) terrain->reset();
+   if (terrain != nullptr) terrain->reset();
    BaseClass::reset();
 }
 
@@ -169,9 +169,9 @@ bool Display::clearMaxElevation()
 //------------------------------------------------------------------------------
 bool Display::setSlotTerrain(Basic::Terrain* const msg)
 {
-   if (terrain != 0) terrain->unref();
+   if (terrain != nullptr) terrain->unref();
    terrain = msg;
-   if (terrain != 0) terrain->ref();
+   if (terrain != nullptr) terrain->ref();
    return true;
 }
 
@@ -179,7 +179,7 @@ bool Display::setSlotTerrain(Basic::Terrain* const msg)
 bool Display::setSlotMinElevation(const Basic::Distance* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       ok = setMinElevation( Basic::Meters::convertStatic(*msg) );
    }
    return ok;
@@ -189,7 +189,7 @@ bool Display::setSlotMinElevation(const Basic::Distance* const msg)
 bool Display::setSlotMaxElevation(const Basic::Distance* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       ok = setMaxElevation( Basic::Meters::convertStatic(*msg) );
    }
    return ok;
@@ -199,7 +199,7 @@ bool Display::setSlotMaxElevation(const Basic::Distance* const msg)
 bool Display::setSlotAltitude(const Basic::Distance* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       altitude = Basic::Meters::convertStatic(*msg);
       ok = true;
    }
@@ -210,7 +210,7 @@ bool Display::setSlotAltitude(const Basic::Distance* const msg)
 bool Display::setSlotLookAngle(const Basic::Angle* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       lookAngle = static_cast<LCreal>(Basic::Degrees::convertStatic(*msg));
       ok = true;
    }
@@ -221,7 +221,7 @@ bool Display::setSlotLookAngle(const Basic::Angle* const msg)
 bool Display::setSlotBeamWidth(const Basic::Angle* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       beamWidth = static_cast<LCreal>(Basic::Degrees::convertStatic(*msg));
       ok = true;
    }
@@ -232,7 +232,7 @@ bool Display::setSlotBeamWidth(const Basic::Angle* const msg)
 bool Display::setSlotColorScale(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int s = msg->getInt();
       if (s >= 0 && s <= 2) {
          colorScale = s;
@@ -246,7 +246,7 @@ bool Display::setSlotColorScale(const Basic::Number* const msg)
 bool Display::setSlotInterpolate(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       interpolate = msg->getBoolean();
       ok = true;
    }
@@ -257,7 +257,7 @@ bool Display::setSlotInterpolate(const Basic::Number* const msg)
 bool Display::setSlotShadowsTest(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       testShadows = msg->getBoolean();
       ok = true;
    }
@@ -268,7 +268,7 @@ bool Display::setSlotShadowsTest(const Basic::Number* const msg)
 bool Display::setSlotAacTest(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       testAac = msg->getBoolean();
       ok = true;
    }
@@ -279,7 +279,7 @@ bool Display::setSlotAacTest(const Basic::Number* const msg)
 bool Display::setSlotEarthCurvatureTest(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       testEarthCurv = msg->getBoolean();
       ok = true;
    }
@@ -291,7 +291,7 @@ bool Display::setSlotEarthCurvatureTest(const Basic::Number* const msg)
 bool Display::setSlotTextureTest(const Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       testTexture = msg->getBoolean();
       ok = true;
    }
@@ -310,9 +310,9 @@ void Display::updateData(const LCreal dt)
    getViewportSize(&vpWidth, &vpHeight);
 
    // Generate an image when we have the terrain, a view port and we don't have an image
-   if ( terrain != 0 && terrain->isDataLoaded() &&
+   if ( terrain != nullptr && terrain->isDataLoaded() &&
         vpWidth > 0 && vpHeight > 0 &&
-        image == 0) {
+        image == nullptr) {
 
       GLsizei vpWidth = 1024; // default is texture sizes
       GLsizei vpHeight = 1024;
@@ -337,10 +337,10 @@ void Display::updateData(const LCreal dt)
          const int NUM_ROWS = imgHeight;
 
          // Allocating space for 'multi-point' tests 
-         LCreal* elevations = 0;
-         LCreal* aacData = 0;
-         bool* validFlgs = 0;
-         bool* maskFlgs = 0;
+         LCreal* elevations = nullptr;
+         LCreal* aacData = nullptr;
+         bool* validFlgs = nullptr;
+         bool* maskFlgs = nullptr;
          if (testShadows || testAac || testEarthCurv) {
             elevations = new LCreal[NUM_ROWS];
             aacData = new LCreal[NUM_ROWS];
@@ -372,7 +372,7 @@ void Display::updateData(const LCreal dt)
          double spacingLon = deltaLon / NUM_COLUMNS;
 
          // Generate the earth's curvature effect
-         LCreal* curvature =0;
+         LCreal* curvature =nullptr;
          if (testEarthCurv) {
             curvature = new LCreal[NUM_ROWS];
             LCreal radius = static_cast<LCreal>(Basic::Nav::ERAD60 * Basic::Distance::NM2M);
@@ -542,7 +542,7 @@ void Display::updateData(const LCreal dt)
 void Display::drawFunc()
 {
 
-   if (image != 0) {
+   if (image != nullptr) {
       if (testTexture) {
          // ---
          // Draw using texture map
@@ -655,7 +655,7 @@ bool Display::initImageMemory(const GLsizei width, const GLsizei height)
 
       // allocate space for the image
       GLubyte* tmpImage = new GLubyte[width*height*PIXEL_SIZE];
-      if (tmpImage != 0) {
+      if (tmpImage != nullptr) {
 
          // and set our member variables
          image = tmpImage;
@@ -677,12 +677,12 @@ void Display::freeImageMemory()
    GLubyte* tmpImage = image;
 
    // Clear the member variables
-   image = 0;
+   image = nullptr;
    imgWidth = 0;
    imgHeight = 0;
 
    // Free the memory
-   if (tmpImage != 0) delete[] tmpImage;
+   if (tmpImage != nullptr) delete[] tmpImage;
 
    // Free the texture
    if (texture != 0) {

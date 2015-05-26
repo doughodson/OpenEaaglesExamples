@@ -192,7 +192,7 @@ void MapDisplay::buttonEvent(const int b)
    if (pA != nullptr) {
       ap = static_cast<Simulation::Autopilot*>(pA->getPilot());
    }
-   if (page != 0 && ap != nullptr) {
+   if (page != nullptr && ap != nullptr) {
       if (b == DEC_RANGE) {
          if (page->getRange() > 5) {
             page->setRange(page->getRange() - 5);

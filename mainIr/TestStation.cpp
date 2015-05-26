@@ -47,7 +47,7 @@ void TestStation::copyData(const TestStation& org, const bool cc)
       glutDisplay = nullptr;
    }
 
-   setSlotGlutDisplay(0);
+   setSlotGlutDisplay(nullptr);
    glutDisplayInit = false;
 }
 

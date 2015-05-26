@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
 
    // build a station
    station = builder(configFilename);
-   if (station == 0) {
+   if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }

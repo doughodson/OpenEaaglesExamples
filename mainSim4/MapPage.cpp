@@ -208,7 +208,7 @@ void MapPage::updateData(const LCreal dt)
     }
     if (stn == nullptr) {
         BasicGL::Display* dis = getDisplay();
-        if (dis != 0) {
+        if (dis != nullptr) {
             stn = static_cast<Station*>(dis->findContainerByType(typeid(Station)));
             if (stn != nullptr) {
                 stn->ref();

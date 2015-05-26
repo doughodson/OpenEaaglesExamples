@@ -98,7 +98,7 @@ bool TestDisplay::onWpnRelKey()
 {
    if (getOwnship() != nullptr) {
       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
-      if (sms != 0) {
+      if (sms != nullptr) {
          sms->setWeaponDeliveryMode(Simulation::StoresMgr::A2A);
          getOwnship()->event(WPN_REL_EVENT);
       }
@@ -284,7 +284,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
             }
 
             tracks[islot] = newTracks[inew];
-            trkIdx[islot] = loader->addSymbol( type, 0);
+            trkIdx[islot] = loader->addSymbol( type, nullptr);
             if (trkIdx[islot] == 0) {
                // it didn't make it in for some unknown reason
                tracks[islot]->unref();
@@ -314,7 +314,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
          if (tracks[i]==target) {
             //Basic::Identifier* temp = new Basic::Identifier("green");
             //loader->changeSymbolColor(trkIdx[i], 0, temp);
-            loader->setSymbolFlashRate(trkIdx[i], 0, 2);
+            loader->setSymbolFlashRate(trkIdx[i], nullptr, 2);
          }
       }
    }

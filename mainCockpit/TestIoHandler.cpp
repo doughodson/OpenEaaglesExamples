@@ -170,7 +170,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
          LCreal ai = 0;
          inData->getAnalogInput(ROLL_AI, &ai);
          LCreal aiLim = alim(ai, 1.0f);
-         if (ap != 0) ap->setControlStickRollInput(aiLim);
+         if (ap != nullptr) ap->setControlStickRollInput(aiLim);
          else av->setControlStickRollInput(aiLim);
       }
 
@@ -178,7 +178,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
          LCreal ai = 0;
          inData->getAnalogInput(PITCH_AI, &ai);
          LCreal aiLim = alim(ai, 1.0f);
-         if (ap != 0) ap->setControlStickPitchInput(aiLim);
+         if (ap != nullptr) ap->setControlStickPitchInput(aiLim);
          else av->setControlStickPitchInput(aiLim);
       }
 
@@ -196,7 +196,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
          if (value < 0.0f) value = 0.0f;
          else if (value > 2.0f) value = 2.0f;
 
-         if (ap != 0) ap->setThrottles(&value,1);
+         if (ap != nullptr) ap->setThrottles(&value,1);
          else av->setThrottles(&value,1);
       }
 

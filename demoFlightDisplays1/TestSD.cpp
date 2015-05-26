@@ -210,9 +210,9 @@ void TestSD::updateData(const LCreal dt)
     // set the variables using member functions.
     {
     Basic::Pair* pair = findByType(typeid(SituationalDisplay));
-        if (pair != 0) {
+        if (pair != nullptr) {
             SituationalDisplay* p = static_cast<SituationalDisplay*>(pair->object());
-            if (p != 0) {
+            if (p != nullptr) {
                 p->setHeading(heading);
                 p->setRange(range);
                 p->setNav1Brg(nav1Brg);
@@ -228,10 +228,10 @@ void TestSD::updateData(const LCreal dt)
     // Load test tracks (once)
     if (!tracksLoaded) {
         Basic::Pair* pair = findByName("airTracks");
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (myLoader != 0) {
+            if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_TRACKS; i++) {
                     int idx = myLoader->addSymbol(myTracks[i].type, myTracks[i].id);
                     myLoader->updateSymbolPositionXY(idx, myTracks[i].x, myTracks[i].y);
@@ -247,10 +247,10 @@ void TestSD::updateData(const LCreal dt)
     // Load test airports (once)
     if (!airportsLoaded) {
         Basic::Pair* pair = findByName("airports");
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (myLoader != 0) {
+            if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_AIRPORTS; i++) {
                     int idx = myLoader->addSymbol(myAP[i].type, myAP[i].id);
                     myLoader->updateSymbolPositionLL(idx, myAP[i].x, myAP[i].y);
@@ -265,10 +265,10 @@ void TestSD::updateData(const LCreal dt)
     // Load test navaids (once)
     if (!navAidsLoaded) {
         Basic::Pair* pair = findByName("navaids");
-        if (pair != 0) {
+        if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
-            if (myLoader != 0) {
+            if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_NAV_AIDS; i++) {
                     int idx = myLoader->addSymbol(myNA[i].type, myNA[i].id);
                     myLoader->updateSymbolPositionLL(idx, myNA[i].x, myNA[i].y);

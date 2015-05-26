@@ -139,7 +139,7 @@ const Block* State::getBlock(const unsigned int i) const
 const Block* State::getBlockByRefNum(const unsigned int refId) const
 {
    const Block* p = nullptr;
-   for (unsigned int i = 0; i < nblocks && p == 0; i++) {
+   for (unsigned int i = 0; i < nblocks && p == nullptr; i++) {
       if (refId == blocks[i]->getReferenceID()) {
          // found it
          p = blocks[i];
@@ -169,7 +169,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
          {
             bool collision = false;
             int dy = 0;
-            for (int dx = 1; !collision && endState == 0 && cb->testMove(dx,dy); dx++) {
+            for (int dx = 1; !collision && endState == nullptr && cb->testMove(dx,dy); dx++) {
                Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
@@ -186,7 +186,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
          {
             bool collision = false;
             int dy = 0;
-            for (int dx = -1; !collision && endState == 0 &&  cb->testMove(dx,dy); dx--) {
+            for (int dx = -1; !collision && endState == nullptr &&  cb->testMove(dx,dy); dx--) {
                Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
@@ -203,7 +203,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
          {
             bool collision = false;
             int dx = 0;
-            for (int dy = 1; !collision && endState == 0 &&  cb->testMove(dx,dy); dy++) {
+            for (int dy = 1; !collision && endState == nullptr &&  cb->testMove(dx,dy); dy++) {
                Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
@@ -220,7 +220,7 @@ const State* State::expand(const State* const goal, Puzzle* const puz)
          {
             bool collision = false;
             int dx = 0;
-            for (int dy = -1; !collision && endState == 0 &&  cb->testMove(dx,dy); dy--) {
+            for (int dy = -1; !collision && endState == nullptr &&  cb->testMove(dx,dy); dy--) {
                Block* nb = cb->clone();
                nb->move(dx,dy);
                for (unsigned int j = 0; j < nblocks && !collision; j++) {
@@ -357,7 +357,7 @@ void State::sortBlocks()
 void State::clearBlocks()
 {
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      if (blocks[i] != 0) blocks[i]->unref();
+      if (blocks[i] != nullptr) blocks[i]->unref();
       blocks[i] = nullptr;
    }
    nblocks = 0;

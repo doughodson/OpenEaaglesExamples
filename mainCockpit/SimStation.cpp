@@ -107,7 +107,7 @@ void SimStation::updateTC(const LCreal dt)
     BasicGL::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
-    if (mainDisplay != 0) mainDisplay->updateTC(dt);
+    if (mainDisplay != nullptr) mainDisplay->updateTC(dt);
 }
 
 //------------------------------------------------------------------------------
@@ -156,7 +156,7 @@ void SimStation::stepOwnshipPlayer()
                ip->isLocalPlayer() &&
                ip->isClassType(typeid(Simulation::AirVehicle))
                ) {
-                  if (f == 0) { f = ip; }  // Remember the first
+                  if (f == nullptr) { f = ip; }  // Remember the first
                   if (found) { n = ip; ; break; }
                   if (ip == getOwnship()) found = true;
             }

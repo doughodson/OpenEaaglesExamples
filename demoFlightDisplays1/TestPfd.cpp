@@ -479,9 +479,9 @@ void TestPfd::updateData(const LCreal dt)
     // member functions than to just send
     // it using the send function.
     Basic::Pair* pair = findByType(typeid(Pfd));
-    if (pair != 0) {
+    if (pair != nullptr) {
         Pfd* p = static_cast<Pfd*>(pair->object());
-        if (p != 0) {
+        if (p != nullptr) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);
             p->setTrueHeading(trueHdg);

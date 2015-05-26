@@ -128,7 +128,7 @@ void Display::drawFunc()
    const RealBeamRadar* rdr = nullptr;
    if (pair != nullptr) rdr = static_cast<const RealBeamRadar*>( pair->object() );
 
-   const GLubyte* image = 0;  // The image pixels
+   const GLubyte* image = nullptr;  // The image pixels
    if (rdr != nullptr) image = rdr->getImage();
 
    if (image != nullptr) {
