@@ -55,7 +55,7 @@ bool TdElevPtr::setElevation(const LCreal v)
 bool TdElevPtr::onUpdateValue(const Basic::Number* const msg)
 {
     bool ok = false;
-    if (msg != 0) {
+    if (msg != nullptr) {
       ok = setElevation(msg->getReal());
     }
     return ok;

@@ -147,7 +147,7 @@ void SpdLines::drawFunc()
 bool SpdLines::onEventSetIsAltSpdLines(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setIsAlt(x->getBoolean());
+    if (x != nullptr) ok = setIsAlt(x->getBoolean());
     return ok;
 }
 
@@ -158,7 +158,7 @@ bool SpdLines::onEventSetIsAltSpdLines(const Basic::Number* const x)
 bool SpdLines::setSlotIsAlt(const Basic::Number* const newAltFlag)
 {
     bool ok = false;
-    if (newAltFlag != 0) ok = setIsAlt(newAltFlag->getBoolean());
+    if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
     return ok;
 }
 

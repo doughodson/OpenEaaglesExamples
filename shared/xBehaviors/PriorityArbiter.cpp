@@ -30,9 +30,9 @@ Basic::Ubf::Action* PriorityArbiter::genComplexAction(Basic::List* const actionS
 
    // process entire action set
    const Basic::List::Item* item = actionSet->getFirstItem();
-   while (item != 0) {
+   while (item != nullptr) {
       const PlaneAction* action = dynamic_cast<const PlaneAction*>(item->getValue());
-      if (action!=0) {
+      if (action!=nullptr) {
          if (action->isHeadingChanged() && action->getVote() > maxHeadingVote) {
             complexAction->setHeading(action->getHeading());
             maxHeadingVote = action->getVote();

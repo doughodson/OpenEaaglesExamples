@@ -71,7 +71,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
 {
    const Simulation::AirVehicle* airVehicle = dynamic_cast<const Simulation::AirVehicle*>(actor);
    setAlive(false);
-   if (airVehicle != 0 && airVehicle->isActive()) {
+   if (airVehicle != nullptr && airVehicle->isActive()) {
       setAltitude(airVehicle->getAltitude());
       setAlive(airVehicle->getMode() == Simulation::Player::ACTIVE);
       setHeading(airVehicle->getHeading());
@@ -92,7 +92,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
       // determine if we have a missile to fire
 #if 1
       const Simulation::StoresMgr* stores = airVehicle->getStoresManagement();
-      if (stores == 0 || stores->getNextMissile() == 0) {
+      if (stores == nullptr || stores->getNextMissile() == nullptr) {
          // either we have no SMS, or we have no more missile
          setMissileFired(true);
       }
@@ -103,7 +103,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
          const Simulation::Simulation* sim = airVehicle->getSimulation();
          const Basic::PairStream* players = sim->getPlayers();
          bool finished = false;
-         for (const Basic::List::Item* item = players->getFirstItem(); item != 0 && !finished; item = item->getNext()) {
+         for (const Basic::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {
             // Get the pointer to the target player
             const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
             const Simulation::Player* player = static_cast<const Simulation::Player*>(pair->object());
@@ -134,9 +134,9 @@ void PlaneState::updateState(const Basic::Component* const actor)
       Simulation::AirVehicle* airVehicleX = const_cast<Simulation::AirVehicle*>(airVehicle);
       const Basic::Pair* sensorPair = airVehicleX->getSensorByType(typeid(Simulation::Radar));
 
-      if (sensorPair != 0) {
+      if (sensorPair != nullptr) {
          const Simulation::Radar* radar = static_cast<const Simulation::Radar*>(sensorPair->object());
-         if (radar != 0) {
+         if (radar != nullptr) {
             const Simulation::TrackManager* trackManager = radar->getTrackManager();
             Basic::safe_ptr<Simulation::Track> trackList[50];
             unsigned int nTracks = trackManager->getTrackList(trackList, 50);
@@ -158,7 +158,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
                   // is this track a weapon, and if so, is it targeting me?
                   Simulation::Player* target = trackList[trackIndex]->getTarget();
                   Simulation::Weapon* weapon = dynamic_cast<Simulation::Weapon*> (target);
-                  if (weapon!=0 && !weapon->isDead()) {
+                  if (weapon!=nullptr && !weapon->isDead()) {
                      Simulation::Player* wpntgt = weapon->getTargetPlayer();
                      if (wpntgt == airVehicle) {
                         setIncomingMissile(true);
@@ -171,9 +171,9 @@ void PlaneState::updateState(const Basic::Component* const actor)
       }
 
       const Simulation::OnboardComputer* oc = airVehicle->getOnboardComputer();
-      if (oc != 0) {
+      if (oc != nullptr) {
          const Simulation::TrackManager* rtm = oc->getTrackManagerByType(typeid(Simulation::RwrTrkMgr));
-         if(rtm !=0) {
+         if(rtm !=nullptr) {
             Basic::safe_ptr<Simulation::Track> trackList[50];
             unsigned int nTracks = rtm->getTrackList(trackList, 50);
             int newTracks = 0;
@@ -209,7 +209,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
                if (isIncomingMissile() == false) {
                   // is this track a weapon, and if so, is it targeting me?
                   Simulation::Weapon* weapon = dynamic_cast<Simulation::Weapon*> (target);
-                  if (weapon!=0 && !weapon->isDead()) {
+                  if (weapon!=nullptr && !weapon->isDead()) {
                      Simulation::Player* wpntgt = weapon->getTargetPlayer();
                      if (wpntgt == airVehicle) {
                         setIncomingMissile(true);

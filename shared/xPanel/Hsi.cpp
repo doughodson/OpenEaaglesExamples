@@ -108,37 +108,37 @@ bool Hsi::setToFrom(const LCreal newTF)
 bool Hsi::onUpdateSelHdgHsi(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setSelectedHeading(x->getReal());
+    if (x != nullptr) ok = setSelectedHeading(x->getReal());
     return ok;
 }
 bool Hsi::onUpdateSelCrsHsi(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setSelectedCourse(x->getReal());
+    if (x != nullptr) ok = setSelectedCourse(x->getReal());
     return ok;
 }
 bool Hsi::onUpdateNav1BrgHsi(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setNav1Brg(x->getReal());
+    if (x != nullptr) ok = setNav1Brg(x->getReal());
     return ok;
 }
 bool Hsi::onUpdateNav2BrgHsi(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setNav2Brg(x->getReal());
+    if (x != nullptr) ok = setNav2Brg(x->getReal());
     return ok;
 }
 bool Hsi::onUpdateCdiDotsHsi(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setCdiDots(x->getReal());
+    if (x != nullptr) ok = setCdiDots(x->getReal());
     return ok;
 }
 bool Hsi::onUpdateToFromHsi(const Basic::Number* const x)
 {
     bool ok = false;
-    if (x != 0) ok = setToFrom(x->getReal());
+    if (x != nullptr) ok = setToFrom(x->getReal());
     return ok;
 }
 

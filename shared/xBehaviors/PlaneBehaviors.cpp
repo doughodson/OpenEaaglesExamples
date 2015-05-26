@@ -53,7 +53,7 @@ PlaneBehaviorBase::PlaneBehaviorBase()
 bool PlaneBehaviorBase::setSlotCriticalAltitude(const Basic::Distance* const msg)
 {
     bool ok = false;
-    if (msg != 0) {
+    if (msg != nullptr) {
        double value = Basic::Meters::convertStatic( *msg );
        criticalAltitude = value;
        ok = true;
@@ -117,11 +117,11 @@ PlaneFire::PlaneFire()
 }
 Basic::Ubf::Action* PlaneFire::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
    
    //if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()>=0) {
-   if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
+   if (pState!=nullptr && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
       if (!pState->isMissileFired() && pState->getDistanceToTracked(pState->getTargetTrack()) < maxDistance) {
          action = new PlaneAction();
          action->setFireMissile(true);
@@ -135,7 +135,7 @@ Basic::Ubf::Action* PlaneFire::genAction(const Basic::Ubf::State* const state, c
 bool PlaneFire::setSlotMaxDistance(const Basic::Distance* const msg)
 {
     bool ok = false;
-    if (msg != 0) {
+    if (msg != nullptr) {
        double value = Basic::Meters::convertStatic( *msg );
        maxDistance = value;
        ok = true;
@@ -166,10 +166,10 @@ PlaneFlyStraight::PlaneFlyStraight()
 
 Basic::Ubf::Action* PlaneFlyStraight::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       action = new PlaneAction();
       
       //Reverse pitch to get level with the horizon
@@ -216,10 +216,10 @@ EMPTY_DELETEDATA(PlaneFollowEnemy)
 
 Basic::Ubf::Action* PlaneFollowEnemy::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
+   if (pState!=nullptr && pState->isAlive() && pState->isTracking() && pState->getTargetTrack()<PlaneState::MAX_TRACKS) {
       action = new PlaneAction();
 
       double pitch = -1 * pState->getPitch()+ .02;// pState->getPitchToEnemy() * 10;
@@ -262,10 +262,10 @@ EMPTY_DELETEDATA(PlaneTurn)
 
 Basic::Ubf::Action* PlaneTurn::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       action = new PlaneAction();
       //std::cout<<pState->getRoll()<<" "<<pState->getPitch()<<" "<<pState->getHeading()<<std::endl;
       //double currentAlt = pState->getAltitude();
@@ -303,10 +303,10 @@ EMPTY_DELETEDATA(PlaneSlowTurn)
 
 Basic::Ubf::Action* PlaneSlowTurn::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       action = new PlaneAction();
       //std::cout<<pState->getRoll()<<" "<<pState->getPitch()<<" "<<pState->getHeading()<<std::endl;
       //double currentAlt = pState->getAltitude();
@@ -345,10 +345,10 @@ EMPTY_DELETEDATA(PlaneClimb)
 
 Basic::Ubf::Action* PlaneClimb::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       double pitch = -1;
       action = new PlaneAction();
 
@@ -375,10 +375,10 @@ EMPTY_DELETEDATA(PlaneDive)
 
 Basic::Ubf::Action* PlaneDive::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       double pitch;
       action = new PlaneAction();
 
@@ -413,10 +413,10 @@ PlaneTrim::PlaneTrim()
 
 Basic::Ubf::Action* PlaneTrim::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       double pitchTrim = 0;
       action = new PlaneAction();
 
@@ -445,10 +445,10 @@ EMPTY_DELETEDATA(PlaneRoll)
 
 Basic::Ubf::Action* PlaneRoll::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       double roll=1;
       action = new PlaneAction();
 
@@ -472,10 +472,10 @@ EMPTY_DELETEDATA(PlaneBarrelRoll)
 
 Basic::Ubf::Action* PlaneBarrelRoll::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       action = new PlaneAction();
 
       action->setRoll(1);
@@ -505,10 +505,10 @@ PlaneLoop::PlaneLoop()
 
 Basic::Ubf::Action* PlaneLoop::genAction(const Basic::Ubf::State* const state, const LCreal dt)
 {
-   PlaneAction* action = 0;
+   PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
 
-   if (pState!=0 && pState->isAlive()) {
+   if (pState!=nullptr && pState->isAlive()) {
       action = new PlaneAction();
       action->setRoll(0.0);
       if(pState->getSpeed() < 600 && !keepGoing) {

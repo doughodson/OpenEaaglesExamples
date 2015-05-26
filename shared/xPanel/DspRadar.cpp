@@ -28,7 +28,7 @@ DspRadar::DspRadar()
 {
    STANDARD_CONSTRUCTOR()
 
-   radar = 0;
+   radar = nullptr;
    nTracks = 0;
    ntsTrk = -1;
    azSD.empty();
@@ -40,7 +40,7 @@ void DspRadar::copyData(const DspRadar& org, const bool)
 {
    BaseClass::copyData(org);
 
-   radar = 0;
+   radar = nullptr;
    nTracks = 0;
    ntsTrk = -1;
    azSD.empty();
@@ -52,11 +52,11 @@ void DspRadar::copyData(const DspRadar& org, const bool)
 //------------------------------------------------------------------------------
 void DspRadar::updateData(const LCreal dt)
 {
-   const Simulation::Antenna* antenna = 0;
+   const Simulation::Antenna* antenna = nullptr;
    nTracks = 0;
    ntsTrk = -1;
 
-   if (radar != 0) {
+   if (radar != nullptr) {
 
       // Get our antenna
       antenna = radar->getAntenna();
@@ -66,7 +66,7 @@ void DspRadar::updateData(const LCreal dt)
 
       // ---
       // Get the track list and convert them to display coordinates
-      if (tm != 0) {
+      if (tm != nullptr) {
          Basic::safe_ptr<Simulation::Track> trackList[MAX_TRKS];
          unsigned int n = tm->getTrackList(trackList,MAX_TRKS);
          for (unsigned int i = 0; i < n; i++) {
@@ -82,7 +82,7 @@ void DspRadar::updateData(const LCreal dt)
    }
 
    // Update antenna azimuth and elevation pointers
-   if (antenna != 0) {
+   if (antenna != nullptr) {
       send( "azPtr", UPDATE_VALUE, static_cast<float>(Basic::Angle::R2DCC * antenna->getAzimuth()),   azSD);
       send( "elPtr", UPDATE_VALUE, static_cast<float>(Basic::Angle::R2DCC * antenna->getElevation()), elSD);
    }
@@ -97,7 +97,7 @@ void DspRadar::updateData(const LCreal dt)
 void DspRadar::drawFunc()
 {
    // Need a RADAR to draw; if not, just draw a big X
-   if (radar == 0) {
+   if (radar == nullptr) {
       glBegin(GL_LINES);
          glVertex3d(-1.0,  0.0, 0.0);
          glVertex3d( 1.0,  2.0, 0.0);

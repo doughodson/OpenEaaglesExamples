@@ -56,7 +56,7 @@ END_SLOT_MAP()
 //------------------------------------------------------------------------------
 // Constructors
 //------------------------------------------------------------------------------
-ZeroMQContext* ZeroMQHandler::masterContext = 0;
+ZeroMQContext* ZeroMQHandler::masterContext = nullptr;
 
 s2i_t ZeroMQHandler::sts2i;
 i2s_t ZeroMQHandler::sti2s;
@@ -103,10 +103,10 @@ ZeroMQHandler::ZeroMQHandler()
 void ZeroMQHandler::initData()
 {
    // ZeroMQHandler information
-   context     = 0;
+   context     = nullptr;
    socketType  = -1;
    endpoint    = "";
-   socket      = 0;
+   socket      = nullptr;
    linger      = -1;
    subscribe   = "";
    backLog     = -1;
@@ -129,17 +129,17 @@ void ZeroMQHandler::copyData(const ZeroMQHandler& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      context = 0;
-      socket  = 0;
+      context = nullptr;
+      socket  = nullptr;
    }
 
    // Copy the socket information
-   if (context != 0) context->unref();
+   if (context != nullptr) context->unref();
    context = org.context;
-   if (context != 0) context->ref();
+   if (context != nullptr) context->ref();
 
    socketType  = org.socketType;
-   socket      = 0;
+   socket      = nullptr;
    endpoint    = org.endpoint;
    linger      = org.linger;
    subscribe   = org.subscribe;
@@ -164,7 +164,7 @@ void ZeroMQHandler::deleteData()
    closeConnection();
 
    // Detach the parent context
-   if (context != 0)  context->unref();
+   if (context != nullptr)  context->unref();
 
    // Finally set to initial state
    initData();
@@ -180,8 +180,8 @@ bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
    // and set the master.  This sharing is only done on the first context
    // and it is NOT referenced so once it is deleted the memory is
    // freed.
-   if (masterContext == 0) {
-      if (context == 0) {
+   if (masterContext == nullptr) {
+      if (context == nullptr) {
          masterContext = new ZeroMQContext;
          context       = masterContext;
       }
@@ -190,7 +190,7 @@ bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
 
    // Looks like we need to share the master context.  Just assign and
    // reference.
-   if (context == 0) {
+   if (context == nullptr) {
       context = masterContext;
       context->ref();
    }
@@ -200,7 +200,7 @@ bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
 
    // A context, a valid socket type, and an endpoint must be present to
    // initialize the network
-   if ((context == 0) || (socketType == -1) || endpoint.empty()) return false;
+   if ((context == nullptr) || (socketType == -1) || endpoint.empty()) return false;
 
    bool ok = false;
 
@@ -211,7 +211,7 @@ bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
    if (ok) {
       socket = zmq_socket(*context, socketType);
 
-      if (socket == 0) ok = false;
+      if (socket == nullptr) ok = false;
    }
 
    // Set the socket options
@@ -239,16 +239,16 @@ bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
 
 bool ZeroMQHandler::isConnected() const
 {
-   if (socket == 0) return false;
+   if (socket == nullptr) return false;
    else return ready;
 }
 
 bool ZeroMQHandler::closeConnection()
 {
    // Close the 0MQ socket
-   if (socket != 0) zmq_close(socket);
+   if (socket != nullptr) zmq_close(socket);
 
-   socket = 0;
+   socket = nullptr;
    ready  = false;
 
    return true;
@@ -268,7 +268,7 @@ bool ZeroMQHandler::setNoWait()
 
 bool ZeroMQHandler::sendData(const char* const packet, const int size)
 {
-   if (socket == 0 || !ready) return 0;
+   if (socket == nullptr || !ready) return 0;
 
    // We set the flags here.  We are not handling multi-part messages since
    // I have not found a good way to handle them in OpenEaagles yet. But,
@@ -291,7 +291,7 @@ bool ZeroMQHandler::sendData(const char* const packet, const int size)
 
 unsigned int ZeroMQHandler::recvData(char* const packet, const int maxSize)
 {
-   if (socket == 0 || !ready) return 0;
+   if (socket == nullptr || !ready) return 0;
 
    // We set the flags here.
    int flags = 0;
@@ -405,7 +405,7 @@ bool ZeroMQHandler::setSlotContext(ZeroMQContext* const msg)
    // Save the name and find the context for use in the initialization
    // of the socket
    bool ok = false;
-   if (msg != 0) ok = setContext(msg);
+   if (msg != nullptr) ok = setContext(msg);
    return ok;
 }
 
@@ -415,7 +415,7 @@ bool ZeroMQHandler::setSlotSocketType(const Basic::String* const msg)
    // Find the token in the map and get the enumeration for use in the
    // initialization of the socket
    bool ok = false;
-   if (msg != 0) ok = setSocketType(*msg);
+   if (msg != nullptr) ok = setSocketType(*msg);
    return ok;
 }
 
@@ -425,7 +425,7 @@ bool ZeroMQHandler::setSlotConnect(const Basic::String* const msg)
    // Save the endpoint definition for use in the initialization of
    // the socket
    bool ok = false;
-   if (msg != 0) ok = setConnect(*msg);
+   if (msg != nullptr) ok = setConnect(*msg);
    return ok;
 }
 
@@ -435,7 +435,7 @@ bool ZeroMQHandler::setSlotAccept(const Basic::String* const msg)
    // Save the endpoint definition for use in the initialization of
    // the socket
    bool ok = false;
-   if (msg != 0) ok = setAccept(*msg);
+   if (msg != nullptr) ok = setAccept(*msg);
    return ok;
 }
 
@@ -445,7 +445,7 @@ bool ZeroMQHandler::setSlotNoWait(const Basic::Boolean* const msg)
    // Save the nowait definition for use in the initialization of the
    // socket
    bool ok = false;
-   if (msg != 0) ok = setNoWait(*msg);
+   if (msg != nullptr) ok = setNoWait(*msg);
    return ok;
 }
 
@@ -455,7 +455,7 @@ bool ZeroMQHandler::setSlotLinger(const Basic::Integer* const msg)
    // Save the linger period for use in the initialization of the
    // socket
    bool ok = false;
-   if (msg != 0) ok = setLinger(*msg);
+   if (msg != nullptr) ok = setLinger(*msg);
    return ok;
 }
 
@@ -465,7 +465,7 @@ bool ZeroMQHandler::setSlotSubscribe(const Basic::String* const msg)
    // Save the subscribe filter for use in the initialization of the
    // socket.
    bool ok = false;
-   if (msg != 0) ok = setSubscribe(*msg);
+   if (msg != nullptr) ok = setSubscribe(*msg);
    return ok;
 }
 
@@ -475,7 +475,7 @@ bool ZeroMQHandler::setSlotBackLog(const Basic::Integer* const msg)
    // Save the connection back log count for use in the initialization
    // of the socket
    bool ok = false;
-   if (msg != 0) ok = setBackLog(*msg);
+   if (msg != nullptr) ok = setBackLog(*msg);
    return ok;
 }
 
@@ -485,7 +485,7 @@ bool ZeroMQHandler::setSlotIdentity(const Basic::String* const msg)
    // Save the socket identity for use in the initialization of the
    // socket
    bool ok = false;
-   if (msg != 0) ok = setIdentity(*msg);
+   if (msg != nullptr) ok = setIdentity(*msg);
    return ok;
 }
 
@@ -495,7 +495,7 @@ bool ZeroMQHandler::setSlotSendBufSize(const Basic::Integer* const msg)
    // Save the send buffer size for use in the initialization of the
    // socket
    bool ok = false;
-   if (msg != 0) ok = setSendBufSize(*msg * 1024);
+   if (msg != nullptr) ok = setSendBufSize(*msg * 1024);
    return ok;
 }
 
@@ -505,7 +505,7 @@ bool ZeroMQHandler::setSlotRecvBufSize(const Basic::Integer* const msg)
    // Save the receive buffer size for use in the initialization of the
    // socket
    bool ok = false;
-   if (msg != 0) ok = setRecvBufSize(*msg * 1024);
+   if (msg != nullptr) ok = setRecvBufSize(*msg * 1024);
    return ok;
 }
 
@@ -515,7 +515,7 @@ bool ZeroMQHandler::setSlotSendHWM(const Basic::Integer* const msg)
    // Save the send high-water-mark for use in the initialization of the
    // socket
    bool ok = false;
-   if (msg != 0) ok = setSendHWM (*msg);
+   if (msg != nullptr) ok = setSendHWM (*msg);
    return ok;
 }
 
@@ -525,7 +525,7 @@ bool ZeroMQHandler::setSlotRecvHWM(const Basic::Integer* const msg)
    // Save the receive high-water-mark for use in the initialization of
    // the socket
    bool ok = false;
-   if (msg != 0) ok = setRecvHWM (*msg);
+   if (msg != nullptr) ok = setRecvHWM (*msg);
    return ok;
 }
 
@@ -552,7 +552,7 @@ std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bo
    }
 
    // Output the context
-   if (context != 0) {
+   if (context != nullptr) {
       indent(sout,i+j);
       sout << "context: " << std::endl;
       context->serialize(sout, i+j+4, slotsOnly);

@@ -41,7 +41,7 @@ ZeroMQContext::ZeroMQContext()
 
 void ZeroMQContext::initData()
 {
-   context     = 0;
+   context     = nullptr;
    threadCount = -1;
    maxSockets  = -1;
    enableIPV6  = -1;
@@ -56,7 +56,7 @@ void ZeroMQContext::copyData(const ZeroMQContext& org, const bool cc)
    BaseClass::copyData (org);
 
    if (cc) {
-      context = 0;
+      context = nullptr;
    }
 
    threadCount = org.threadCount;
@@ -80,7 +80,7 @@ bool ZeroMQContext::initContext()
    // Create a new context
    if (ok) {
       context = zmq_ctx_new();
-      if (context == 0)
+      if (context == nullptr)
          ok = false;
    }
 
@@ -101,7 +101,7 @@ bool ZeroMQContext::terminateContext()
 
    // Terminate context.  All ZeroMQNetHandlers should be closed
    // before the context will successfully close.
-   if (context != 0) {
+   if (context != nullptr) {
       if (zmq_term(context) == 0) ok = true;
       else ok = false;
    }
@@ -116,7 +116,7 @@ bool ZeroMQContext::isInitialized() const
 {
    // If the context is not created automatically return false otherwise
    // return that the context is ready for use.
-   if (context != 0) return ready;
+   if (context != nullptr) return ready;
    else return false;
 }
 
@@ -149,7 +149,7 @@ bool ZeroMQContext::setEnableIPV6(bool enable)
 bool ZeroMQContext::setSlotThreadCount(const Basic::Integer* const msg)
 {
    bool ok = false;
-   if (msg != 0) ok = setThreadCount(*msg);
+   if (msg != nullptr) ok = setThreadCount(*msg);
    return ok;
 }
 
@@ -157,7 +157,7 @@ bool ZeroMQContext::setSlotThreadCount(const Basic::Integer* const msg)
 bool ZeroMQContext::setSlotMaxSockets(const Basic::Integer* const msg)
 {
    bool ok = false;
-   if (msg != 0) ok = setMaxSockets(*msg);
+   if (msg != nullptr) ok = setMaxSockets(*msg);
    return ok;
 }
 
@@ -165,7 +165,7 @@ bool ZeroMQContext::setSlotMaxSockets(const Basic::Integer* const msg)
 bool ZeroMQContext::setSlotEnableIPV6(const Basic::Boolean* const msg)
 {
    bool ok = false;
-   if (msg != 0) ok = setEnableIPV6(*msg);
+   if (msg != nullptr) ok = setEnableIPV6(*msg);
    return ok;
 }
 
