@@ -54,7 +54,7 @@ void TestStateMachine04C::stateFunc00(const LCreal)
          else {
             std::cout << "Returned from call; ";
             const Basic::Boolean* arg = dynamic_cast<const Basic::Boolean*>( getArgument() );
-            if (arg != 0) {
+            if (arg != nullptr) {
                std::cout << "arg(" << arg->getBoolean() << "); ";
             }
             std::cout << "nextSubstate()";

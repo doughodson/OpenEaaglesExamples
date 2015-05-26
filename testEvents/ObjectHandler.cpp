@@ -54,7 +54,7 @@ EMPTY_DELETEDATA(ObjectHandler)
 //------------------------------------------------------------------------------
 bool ObjectHandler::onUpdateObject(const TestObject* const x)
 {
-    if (x != 0) {
+    if (x != nullptr) {
         TestObject* obj = const_cast<TestObject*>(x);
         bool boolVal = obj->getBoolean();
         send("objboolean", UPDATE_VALUE, boolVal, boolSD);

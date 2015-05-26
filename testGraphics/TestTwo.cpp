@@ -210,7 +210,7 @@ std::ostream& TestTwo::serialize(std::ostream& sout, const int i, const bool slo
 //------------------------------------------------------------------------------
 bool TestTwo::setV1(const Basic::Number* const sv1obj)
 {
-    if (sv1obj != 0) iv1 = sv1obj->getReal();
+    if (sv1obj != nullptr) iv1 = sv1obj->getReal();
     return true;
 }
 
@@ -219,7 +219,7 @@ bool TestTwo::setV1(const Basic::Number* const sv1obj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV1Rate(const Basic::Number* const sv1robj)
 {
-    if (sv1robj != 0) iv1Rate = sv1robj->getReal();
+    if (sv1robj != nullptr) iv1Rate = sv1robj->getReal();
     return true;
 }
 
@@ -228,7 +228,7 @@ bool TestTwo::setV1Rate(const Basic::Number* const sv1robj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV1Max(const Basic::Number* const sv1mobj)
 {
-    if (sv1mobj != 0) v1Max = sv1mobj->getReal();
+    if (sv1mobj != nullptr) v1Max = sv1mobj->getReal();
     return true;
 }
 
@@ -237,7 +237,7 @@ bool TestTwo::setV1Max(const Basic::Number* const sv1mobj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV1Min(const Basic::Number* const sv1miobj)
 {
-    if (sv1miobj != 0) v1Min = sv1miobj->getReal();
+    if (sv1miobj != nullptr) v1Min = sv1miobj->getReal();
     return true;
 }
 
@@ -246,7 +246,7 @@ bool TestTwo::setV1Min(const Basic::Number* const sv1miobj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV2(const Basic::Number* const sv2obj)
 {
-    if (sv2obj != 0) iv2 = sv2obj->getReal();
+    if (sv2obj != nullptr) iv2 = sv2obj->getReal();
     return true;
 }
 
@@ -255,7 +255,7 @@ bool TestTwo::setV2(const Basic::Number* const sv2obj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV2Rate(const Basic::Number* const sv2robj)
 {
-    if (sv2robj != 0) iv2Rate = sv2robj->getReal();
+    if (sv2robj != nullptr) iv2Rate = sv2robj->getReal();
     return true;
 }
 
@@ -264,7 +264,7 @@ bool TestTwo::setV2Rate(const Basic::Number* const sv2robj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV2Max(const Basic::Number* const sv2mobj)
 {
-    if (sv2mobj != 0) v2Max = sv2mobj->getReal();
+    if (sv2mobj != nullptr) v2Max = sv2mobj->getReal();
     return true;
 }
 
@@ -273,7 +273,7 @@ bool TestTwo::setV2Max(const Basic::Number* const sv2mobj)
 //------------------------------------------------------------------------------
 bool TestTwo::setV2Min(const Basic::Number* const sv2miobj)
 {
-    if (sv2miobj != 0) v2Min = sv2miobj->getReal();
+    if (sv2miobj != nullptr) v2Min = sv2miobj->getReal();
     return true;
 }
 

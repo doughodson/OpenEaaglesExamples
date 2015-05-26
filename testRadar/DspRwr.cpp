@@ -22,14 +22,14 @@ EMPTY_DELETEDATA(DspRwr)
 DspRwr::DspRwr()
 {
    STANDARD_CONSTRUCTOR()
-   rwr = 0;
+   rwr = nullptr;
 }
 
 // copy member data
 void DspRwr::copyData(const DspRwr& org, const bool)
 {
    BaseClass::copyData(org);
-   rwr = 0;
+   rwr = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ void DspRwr::updateData(const LCreal dt)
 void DspRwr::drawFunc()
 {
    // Need a RWR to draw; if not, just draw a big X
-   if (rwr == 0) {
+   if (rwr == nullptr) {
       glBegin(GL_LINES);
          glVertex3d(-1.0, -1.0, 0.0);
          glVertex3d( 1.0,  1.0, 0.0);

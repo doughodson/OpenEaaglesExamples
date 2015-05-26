@@ -90,7 +90,7 @@ void Display::copyData(const Display& org, const bool cc)
     if (cc) {
         obj = nullptr;
         myColor = nullptr;
-        for (int i = 0; i < MAX_MATERIALS; i++) materials[i] = 0;
+        for (int i = 0; i < MAX_MATERIALS; i++) materials[i] = nullptr;
     }
 
     myBool = org.myBool;
@@ -118,7 +118,7 @@ void Display::copyData(const Display& org, const bool cc)
             materials[i] = nullptr;
         }
         diffColorRate[i] = org.diffColorRate[i];
-        if (org.materials[i] != 0) materials[i] = org.materials[i]->clone();
+        if (org.materials[i] != nullptr) materials[i] = org.materials[i]->clone();
         materialSD[i].empty();
         rotations[i] = org.rotations[i];
         rotationsSD[i].empty();
@@ -195,7 +195,7 @@ void Display::updateData(const LCreal dt)
         osg::Vec4 diff;
         LCreal x = 0, y = 0, z = 0;
         for (int i = 0; i < MAX_MATERIALS; i++) {
-            if (materials[i] != 0) {
+            if (materials[i] != nullptr) {
                 if (i == 0) {
                     diff = materials[i]->getDiffuseColor();
                     rotations[i] += 40 * dt;

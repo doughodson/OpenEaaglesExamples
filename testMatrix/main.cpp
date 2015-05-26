@@ -167,8 +167,8 @@ void testConstructors()
    //---------------------------------------------
    // cleanup
    //---------------------------------------------
-   if (pM1 != 0) pM1->unref();                    // Decrement the reference counter for pointer pM1
-   if (pM2 != 0) pM2->unref();                    // Decrement the reference counter for pointer pM2.
+   if (pM1 != nullptr) pM1->unref();                    // Decrement the reference counter for pointer pM1
+   if (pM2 != nullptr) pM2->unref();                    // Decrement the reference counter for pointer pM2.
 
 }
 
@@ -206,7 +206,7 @@ void testInformation()
    std::cout << "Symmetric?       = " << std::boolalpha << pA->isSymmetric()    << std::endl;
    
    // Cleanup
-   if (pA != 0) pA->unref();                    // Decrement the reference counter for pointer pA
+   if (pA != nullptr) pA->unref();                    // Decrement the reference counter for pointer pA
 }
 
 //------------------------------------------------------------------------------
@@ -269,8 +269,8 @@ void testOverloadedOps()
    pV->showVector(3,16);
 
    // Cleanup
-   if (pA != 0) pA->unref();                    // Decrement the reference counter for pointer pA
-   if (pV != 0) pV->unref();                    // Decrement the reference counter for pointer pV
+   if (pA != nullptr) pA->unref();                    // Decrement the reference counter for pointer pA
+   if (pV != nullptr) pV->unref();                    // Decrement the reference counter for pointer pV
 }
 
 
@@ -299,8 +299,8 @@ void test_getTriDiagonal()
    pB->showMatrix(); std::cout << std::endl;
 
    // cleanup
-   if (pA != 0) pA->unref();                    // Decrement the reference counter for pointer pA
-   if (pB != 0) pB->unref();                    // Decrement the reference counter for pointer pB
+   if (pA != nullptr) pA->unref();                    // Decrement the reference counter for pointer pA
+   if (pB != nullptr) pB->unref();                    // Decrement the reference counter for pointer pB
 }
 
 
@@ -361,11 +361,11 @@ void test_getQR()
    pV->showVector(); std::cout << std::endl;
 
    // cleanup
-   if (pQ != 0) pQ->unref();                      // Decrement the reference counter for pointer pQ
-   if (pR != 0) pR->unref();                      // Decrement the reference counter for pointer pR
-   if (pQT != 0) pQT->unref();                    // Decrement the reference counter for pointer pQT
-   if (pQinv != 0) pQinv->unref();                // Decrement the reference counter for pointer pQinv
-   if (pI != 0) pI->unref();                      // Decrement the reference counter for pointer pI
+   if (pQ != nullptr) pQ->unref();                      // Decrement the reference counter for pointer pQ
+   if (pR != nullptr) pR->unref();                      // Decrement the reference counter for pointer pR
+   if (pQT != nullptr) pQT->unref();                    // Decrement the reference counter for pointer pQT
+   if (pQinv != nullptr) pQinv->unref();                // Decrement the reference counter for pointer pQinv
+   if (pI != nullptr) pI->unref();                      // Decrement the reference counter for pointer pI
 }
 
 //------------------------------------------------------------------------------
@@ -403,11 +403,11 @@ void test_getLU()
    pB->showMatrix(); std::cout << std::endl;
 
    // cleanup
-   if (pA != 0) pA->unref();                     // Decrement the reference counter for pointer pA
-   if (pB != 0) pB->unref();                     // Decrement the reference counter for pointer pB
-   if (pL != 0) pL->unref();                     // Decrement the reference counter for pointer pL
-   if (pU != 0) pU->unref();                     // Decrement the reference counter for pointer pU
-   if (pV != 0) pV->unref();                     // Decrement the reference counter for pointer pV
+   if (pA != nullptr) pA->unref();                     // Decrement the reference counter for pointer pA
+   if (pB != nullptr) pB->unref();                     // Decrement the reference counter for pointer pB
+   if (pL != nullptr) pL->unref();                     // Decrement the reference counter for pointer pL
+   if (pU != nullptr) pU->unref();                     // Decrement the reference counter for pointer pU
+   if (pV != nullptr) pV->unref();                     // Decrement the reference counter for pointer pV
 }
 
 //------------------------------------------------------------------------------
@@ -430,27 +430,27 @@ void test_getCholesky()
    std::cout << "getCholesky function return value = " << std::boolalpha << b1 << std::endl;
    std::cout << std::endl; 
 
-   if (pL != 0) {
+   if (pL != nullptr) {
       std::cout << "L = " << std::endl;
       pL->showMatrix(); std::cout << std::endl;
    }
 
-   if (pU != 0) {
+   if (pU != nullptr) {
       std::cout << "U = " << std::endl;
       pU->showMatrix(); std::cout << std::endl;
    }
 
    Matrix* pB = multiply(*pL, *pU);
-   if (pB != 0) {
+   if (pB != nullptr) {
       std::cout << "L*U = A (?)" << std::endl;
       pB->showMatrix(); std::cout << std::endl;
    }
 
    // cleanup
-   if (pA != 0) pA->unref();                      // Decrement the reference counter for pointer pA
-   if (pB != 0) pB->unref();                      // Decrement the reference counter for pointer pB
-   if (pL != 0) pL->unref();                      // Decrement the reference counter for pointer pL
-   if (pU != 0) pU->unref();                      // Decrement the reference counter for pointer pU
+   if (pA != nullptr) pA->unref();                      // Decrement the reference counter for pointer pA
+   if (pB != nullptr) pB->unref();                      // Decrement the reference counter for pointer pB
+   if (pL != nullptr) pL->unref();                      // Decrement the reference counter for pointer pL
+   if (pU != nullptr) pU->unref();                      // Decrement the reference counter for pointer pU
 }
 
 //------------------------------------------------------------------------------

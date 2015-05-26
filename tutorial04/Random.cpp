@@ -68,7 +68,7 @@ Basic::Object* Random::getSlotByIndex(const int si)
 bool Random::setSlotSeed(const Basic::Number* const seed)
 {
    bool ok = false;
-   if (seed != 0)
+   if (seed != nullptr)
       ok = setSeed(seed->getInt());
    return ok;
 }

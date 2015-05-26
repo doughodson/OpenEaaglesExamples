@@ -38,7 +38,7 @@ END_SLOT_MAP()
 //------------------------------------------------------------------------------
 // Constructor(s)
 //------------------------------------------------------------------------------
-Endpoint::Endpoint() : netHandler(0), netInput(0) 
+Endpoint::Endpoint() : netHandler(nullptr), netInput(nullptr) 
 {
    STANDARD_CONSTRUCTOR()
 
@@ -56,16 +56,16 @@ void Endpoint::copyData(const Endpoint& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      netHandler = 0;
-      netInput = 0;
+      netHandler = nullptr;
+      netInput = nullptr;
    }
 
    noWaitFlag = org.noWaitFlag;
    loops = org.loops;
 
    // We need to init this ourselves, so
-   netHandler = 0;
-   netInput = 0;
+   netHandler = nullptr;
+   netInput = nullptr;
    networkInitialized = false;
    networkInitFailed = false;
 }
@@ -75,8 +75,8 @@ void Endpoint::copyData(const Endpoint& org, const bool cc)
 //------------------------------------------------------------------------------
 void Endpoint::deleteData()
 {
-   netHandler = 0;
-   netInput = 0;
+   netHandler = nullptr;
+   netInput = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -100,11 +100,11 @@ bool Endpoint::initNetworks()
 {
     // Init the main net handler
     bool ok1 = false; // (required)
-    if (netHandler != 0) ok1 = netHandler->initNetwork(noWaitFlag);
+    if (netHandler != nullptr) ok1 = netHandler->initNetwork(noWaitFlag);
 
     // Init the input net handler
     bool ok2 = true; // (optional)
-    if (netInput != 0) ok2 = netInput->initNetwork(noWaitFlag);
+    if (netInput != nullptr) ok2 = netInput->initNetwork(noWaitFlag);
 
     return (ok1 && ok2);
 }
@@ -116,12 +116,12 @@ bool Endpoint::initNetworks()
 bool Endpoint::sendData(const char* const msg, const unsigned int size)
 {
    bool ok = false;
-   if (msg != 0 && size > 0 && size < MAX_SIZE  && areNetworksEnabled()) {
+   if (msg != nullptr && size > 0 && size < MAX_SIZE  && areNetworksEnabled()) {
       ok = netHandler->sendData(msg, size);
    }
    else {
       std::cerr << "NetTester::sendData(): unable to send data; ";
-      if (msg == 0) std::cerr << "No message buffer.";
+      if (msg == nullptr) std::cerr << "No message buffer.";
       if (size == 0 || size >= MAX_SIZE) std::cerr << "invalid message size.";
       if (!areNetworksEnabled()) std::cerr << "No network connection.";
       std::cerr << std::endl;
@@ -136,10 +136,10 @@ bool Endpoint::sendData(const char* const msg, const unsigned int size)
 unsigned int Endpoint::recvData(char* const msg, const unsigned int maxsize)
 {
     int n = 0;
-    if (msg != 0 && maxsize > 0 && maxsize <= MAX_SIZE && areNetworksEnabled()) {
+    if (msg != nullptr && maxsize > 0 && maxsize <= MAX_SIZE && areNetworksEnabled()) {
         char buffer[MAX_SIZE];
         unsigned int n0 = 0;
-        if (netInput != 0) {
+        if (netInput != nullptr) {
             // use the optional 'netInput' handler
             n0 = netInput->recvData( buffer, MAX_SIZE );
         }
@@ -156,7 +156,7 @@ unsigned int Endpoint::recvData(char* const msg, const unsigned int maxsize)
     }
     else {
       std::cerr << "NetTester::recvData(): unable to receive data; ";
-      if (msg == 0) std::cerr << "No message buffer.";
+      if (msg == nullptr) std::cerr << "No message buffer.";
       if (maxsize == 0 || maxsize >= MAX_SIZE) std::cerr << "invalid max message size.";
       if (!areNetworksEnabled()) std::cerr << "No network connection.";
       std::cerr << std::endl;
@@ -171,8 +171,8 @@ unsigned int Endpoint::recvData(char* const msg, const unsigned int maxsize)
 bool Endpoint::areNetworksEnabled() const
 {
     bool ok = networkInitialized;
-    if (ok && netHandler != 0) ok = netHandler->isConnected();
-    if (ok && netInput != 0)   ok = netInput->isConnected();
+    if (ok && netHandler != nullptr) ok = netHandler->isConnected();
+    if (ok && netInput != nullptr)   ok = netInput->isConnected();
     return ok;
 }
 
@@ -181,8 +181,8 @@ bool Endpoint::areNetworksEnabled() const
 //------------------------------------------------------------------------------
 void Endpoint::closeConnections()
 {
-    if (netHandler != 0) netHandler->closeConnection();
-    if (netInput != 0)   netInput->closeConnection();
+    if (netHandler != nullptr) netHandler->closeConnection();
+    if (netInput != nullptr)   netInput->closeConnection();
 }
 
 //------------------------------------------------------------------------------
@@ -207,7 +207,7 @@ bool Endpoint::setSlotNetInput(Eaagles::Basic::NetHandler* const msg)
 bool Endpoint::setSlotNoWait(Eaagles::Basic::Number* const msg)
 {
     bool ok = false;
-    if (msg != 0) {
+    if (msg != nullptr) {
         noWaitFlag = msg->getBoolean();
         ok = true;
     }
@@ -218,7 +218,7 @@ bool Endpoint::setSlotNoWait(Eaagles::Basic::Number* const msg)
 bool Endpoint::setSlotLoops(Eaagles::Basic::Number* const msg)
 {
     bool ok = false;
-    if (msg != 0) {
+    if (msg != nullptr) {
         int ia = msg->getInt();
         if (ia >= 0) {
             loops = static_cast<unsigned int>(ia);

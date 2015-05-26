@@ -77,7 +77,7 @@ void Table::initData()
 {
    rows = DEFAULT_ROW;
    spacing = DEFAULT_SPACING;
-   columns = 0;
+   columns = nullptr;
 }
 
 // copyData() -- copy this object's data
@@ -95,7 +95,7 @@ void Table::copyData(const Table& org, const bool cc)
       setSlotColumns(p);
    }
    else {
-      setSlotColumns(0);
+      setSlotColumns(nullptr);
    }
 
    build();
@@ -107,7 +107,7 @@ void Table::copyData(const Table& org, const bool cc)
 //deleteData() -- delete this object's data
 void Table::deleteData()
 {
-   setSlotColumns(0);
+   setSlotColumns(nullptr);
 }
 
 //------------------------------------------------------------------------------
@@ -168,14 +168,14 @@ int Table::column(const int cc)
 void Table::position()
 {
    Basic::PairStream* subcomponents = getComponents();
-   if (subcomponents != 0) {
+   if (subcomponents != nullptr) {
    
       int ln = line();
       int cp = column();
 
       // Position our subcomponents, which are all TableRow objects (see build())
       Basic::List::Item* item = subcomponents->getFirstItem();
-      while (item != 0) {
+      while (item != nullptr) {
          Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
          TableRow* row = static_cast<TableRow*>(pair->object());
 
@@ -186,7 +186,7 @@ void Table::position()
          item = item->getNext();
       }
       subcomponents->unref();
-      subcomponents = 0;
+      subcomponents = nullptr;
    }
 }
 
@@ -195,9 +195,9 @@ void Table::position()
 //------------------------------------------------------------------------------
 void Table::build()
 {
-   Basic::PairStream* newList = 0;
+   Basic::PairStream* newList = nullptr;
 
-   if (rows > 0 && columns != 0) {
+   if (rows > 0 && columns != nullptr) {
 
       newList = new Basic::PairStream();
 
@@ -209,7 +209,7 @@ void Table::build()
          row->container(this);
 
          const Basic::List::Item* item = columns->getFirstItem();
-         while (item != 0) {
+         while (item != nullptr) {
             const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
             const Basic::Object* obj = pair->object();
             if (obj->isClassType(typeid(BasicGL::Graphic))) {
@@ -241,7 +241,7 @@ void Table::build()
 
    // These are new our subcomponents ...
    processComponents(newList,typeid(Basic::Component));
-   if (newList != 0) newList->unref();
+   if (newList != nullptr) newList->unref();
 }
 
 
@@ -251,7 +251,7 @@ void Table::build()
 bool Table::setSlotRows(Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int v = msg->getInt();
       if (v >= 0) {
          rows = static_cast<unsigned int>(v);
@@ -264,7 +264,7 @@ bool Table::setSlotRows(Basic::Number* const msg)
 bool Table::setSlotSpacing(Basic::Number* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       int v = msg->getInt();
       if (v >= 0) {
          spacing = static_cast<unsigned int>(v);
@@ -276,15 +276,15 @@ bool Table::setSlotSpacing(Basic::Number* const msg)
 
 bool Table::setSlotColumns(Basic::PairStream* const msg)
 {
-   if (columns != 0) { columns->unref(); columns = 0; }
-   if (msg != 0) {
+   if (columns != nullptr) { columns->unref(); columns = nullptr; }
+   if (msg != nullptr) {
       // Make a copy of the list and Make sure we have only Field objexts
       Basic::PairStream* newColumns = new Basic::PairStream();
       Basic::List::Item* item = msg->getFirstItem();
-      while (item != 0) {
+      while (item != nullptr) {
           Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
           BasicGL::Field* g = dynamic_cast<BasicGL::Field*>(pair->object());
-          if (g != 0) {
+          if (g != nullptr) {
               // We have a Field object, so add it to the new columns list
               newColumns->put(pair);
           }
@@ -324,7 +324,7 @@ std::ostream& Table::serialize(std::ostream& sout, const int i, const bool slots
 
    indent(sout,i+j);
    sout << "columns: {" << std::endl;
-    if (columns != 0) {
+    if (columns != nullptr) {
         columns->serialize(sout,i+j+4,slotsOnly);
     }
    indent(sout,i+j);
@@ -390,20 +390,20 @@ void  TableRow::put(Basic::Pair* pp)
 {
    Basic::PairStream* subcomponents = getComponents();
    BaseClass::processComponents(subcomponents, typeid(BasicGL::Field), pp);
-   if (subcomponents != 0) subcomponents->unref();
+   if (subcomponents != nullptr) subcomponents->unref();
 }
 
 void TableRow::position()
 {
    // position the fields in this table item
    Basic::PairStream* subcomponents = getComponents();
-   if (subcomponents != 0) {
+   if (subcomponents != nullptr) {
    
       int ln = line();
       int cp = column();
       
       Basic::List::Item* item = subcomponents->getFirstItem();
-      while (item != 0) {
+      while (item != nullptr) {
          Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
          BasicGL::Field* ti = static_cast<BasicGL::Field*>(pair->object());
         
@@ -414,7 +414,7 @@ void TableRow::position()
          item = item->getNext();
       }
       subcomponents->unref();
-      subcomponents = 0;
+      subcomponents = nullptr;
    }
 }
 

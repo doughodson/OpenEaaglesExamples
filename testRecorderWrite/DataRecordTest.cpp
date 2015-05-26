@@ -82,12 +82,12 @@ DataRecordTest::DataRecordTest()
 {
    STANDARD_CONSTRUCTOR()
    fileName = "";
-   myRecPrint = 0;
-   myPrintPlayer = 0;
-   myPrintSelected = 0;
-   myFileWrite = 0;
-   myFileRead = 0;
-   myDataRec = 0;
+   myRecPrint = nullptr;
+   myPrintPlayer = nullptr;
+   myPrintSelected = nullptr;
+   myFileWrite = nullptr;
+   myFileRead = nullptr;
+   myDataRec = nullptr;
    fieldSelected = false;
    timesCalled = 0;
    selectionNum = 0;
@@ -114,13 +114,13 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
    fileName = org.fileName;
 
    if (cc) {
-      myRecPrint = 0;
-      myFileWrite = 0;
-      myFileRead = 0;
-      myDataRec = 0;
-      myPrintPlayer = 0;
-      myPrintSelected = 0;
-      myPrintSelected2 = 0;
+      myRecPrint = nullptr;
+      myFileWrite = nullptr;
+      myFileRead = nullptr;
+      myDataRec = nullptr;
+      myPrintPlayer = nullptr;
+      myPrintSelected = nullptr;
+      myPrintSelected2 = nullptr;
       fieldSelected = false;
       selectionNum = 0;
    }
@@ -131,13 +131,13 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
 //------------------------------------------------------------------------------
 void DataRecordTest::deleteData()
 {
-   myRecPrint = 0;
-   myFileWrite = 0;
-   myFileRead = 0;
-   myDataRec = 0;
-   myPrintPlayer = 0;
-   myPrintSelected = 0;
-   myPrintSelected2 = 0;
+   myRecPrint = nullptr;
+   myFileWrite = nullptr;
+   myFileRead = nullptr;
+   myDataRec = nullptr;
+   myPrintPlayer = nullptr;
+   myPrintSelected = nullptr;
+   myPrintSelected2 = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -150,7 +150,7 @@ void DataRecordTest::deleteData()
 bool DataRecordTest::setSlotTabPrinter(Recorder::TabPrinter* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myRecPrint = p;
       myRecPrint ->ref();
       ok = true;
@@ -164,7 +164,7 @@ bool DataRecordTest::setSlotTabPrinter(Recorder::TabPrinter* const p)
 bool DataRecordTest::setSlotPrintPlayer(Recorder::PrintPlayer* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myPrintPlayer = p;
       myPrintPlayer ->ref();
       ok = true;
@@ -178,7 +178,7 @@ bool DataRecordTest::setSlotPrintPlayer(Recorder::PrintPlayer* const p)
 bool DataRecordTest::setSlotPrintSelected(Recorder::PrintSelected* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myPrintSelected = p;
       myPrintSelected ->ref();
       ok = true;
@@ -192,7 +192,7 @@ bool DataRecordTest::setSlotPrintSelected(Recorder::PrintSelected* const p)
 bool DataRecordTest::setSlotPrintSelected2(Recorder::PrintSelected* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myPrintSelected2 = p;
       myPrintSelected2 ->ref();
       ok = true;
@@ -206,7 +206,7 @@ bool DataRecordTest::setSlotPrintSelected2(Recorder::PrintSelected* const p)
 bool DataRecordTest::setSlotFileWriter(Recorder::FileWriter* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myFileWrite = p;
       myFileWrite ->ref();
       ok = true;
@@ -221,7 +221,7 @@ bool DataRecordTest::setSlotFileWriter(Recorder::FileWriter* const p)
 bool DataRecordTest::setSlotFileReader(Recorder::FileReader* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myFileRead = p;
       myFileRead ->ref();
       ok = true;
@@ -235,7 +235,7 @@ bool DataRecordTest::setSlotFileReader(Recorder::FileReader* const p)
 bool DataRecordTest::setSlotFileName(Basic::String* const msg)
 {
    bool ok = false;
-   if (msg != 0) {
+   if (msg != nullptr) {
       fileName = msg->getCopyString();
       ok = true;
    }
@@ -248,7 +248,7 @@ bool DataRecordTest::setSlotFileName(Basic::String* const msg)
 bool DataRecordTest::setSlotRecordData(Simulation::DataRecorder* const p)
 {
    bool ok = false;
-   if (p != 0) {
+   if (p != nullptr) {
       myDataRec = p;
       myDataRec ->ref();
       ok = true;
@@ -358,7 +358,7 @@ void DataRecordTest::readSerialFromFile()
       //    myPrintPlayer->openFile();
    }
 
-   if ((outType == 3) && (myPrintSelected != 0)) {
+   if ((outType == 3) && (myPrintSelected != nullptr)) {
       // Need to open a file for print selection if that's what we're using
       myPrintSelected->openFile();
       // For more than one set of criteria, loop till done
@@ -399,7 +399,7 @@ void DataRecordTest::readSerialFromFile()
                   setMsgToken(eventNum);
 
                   // Go through the message to select the field and criteria to match
-                  const google::protobuf::Message* processMsg = 0;
+                  const google::protobuf::Message* processMsg = nullptr;
                   const Recorder::Pb::DataRecord* testDr = new Recorder::Pb::DataRecord();
                   switch (eventNum) {
                      case REID_FILE_ID:           processMsg = &testDr->file_id_msg();                 break;
@@ -421,7 +421,7 @@ void DataRecordTest::readSerialFromFile()
                   }
 
                   // Traverse the message and save the selection criteria
-                  if (processMsg != 0) {
+                  if (processMsg != nullptr) {
                      fieldSelected = false;  // start over
                      processMessage(processMsg);
                      selectionNum++;
@@ -435,13 +435,13 @@ void DataRecordTest::readSerialFromFile()
       }
    }
 
-   if (myFileRead != 0) {
+   if (myFileRead != nullptr) {
       while (!fileDone) {
          std::cout << std::endl << "Parsing from file msg: " << msgNum+1 << std::endl;
          msgNum++;
          const Recorder::DataRecordHandle* readHandle = myFileRead->readRecord();
 
-         if (readHandle != 0) {
+         if (readHandle != nullptr) {
             // Check for last message
             const Eaagles::Recorder::Pb::DataRecord* testDr = readHandle->getRecord();
             unsigned int recId = testDr->id();
@@ -452,13 +452,13 @@ void DataRecordTest::readSerialFromFile()
             }
 
             // print the message
-            if (outType == 1 && (myRecPrint != 0)) {
+            if (outType == 1 && (myRecPrint != nullptr)) {
                myRecPrint->processRecord(readHandle);
             }
-            if (outType == 2 && (myPrintPlayer != 0)) {
+            if (outType == 2 && (myPrintPlayer != nullptr)) {
                myPrintPlayer->processRecord(readHandle);
             }
-            if (outType == 3 && (myPrintSelected != 0)) {
+            if (outType == 3 && (myPrintSelected != nullptr)) {
                // Process the message according to criteria already set
                // Do for each set of selection criteria. It should append to already
                // opened file.
@@ -488,13 +488,13 @@ void DataRecordTest::readSerialFromFile()
 
       // Close whichever output handler we're using for test
       if (outType == 1) {
-         if (myRecPrint != 0) myRecPrint->closeFile();
+         if (myRecPrint != nullptr) myRecPrint->closeFile();
       }
       if (outType == 2) {
-         if (myPrintPlayer != 0) myPrintPlayer->closeFile();
+         if (myPrintPlayer != nullptr) myPrintPlayer->closeFile();
       }
       if (outType == 3) {
-         if (myPrintSelected != 0) myPrintSelected->closeFile();
+         if (myPrintSelected != nullptr) myPrintSelected->closeFile();
       }
 
    }
@@ -526,7 +526,7 @@ bool DataRecordTest::testEvents()
 //         std::cin  >> outSelect;
 //         if (outSelect > 0) sendToFile = true;
 
-        const Eaagles::Recorder::DataRecordHandle* handle = 0;
+        const Eaagles::Recorder::DataRecordHandle* handle = nullptr;
 
          switch (testNumber) {
             case  1: { handle = testFileIdMsg(1); break; }
@@ -546,7 +546,7 @@ bool DataRecordTest::testEvents()
             case 15: { handle = testTrackDataMsg(); break; }
             case 16: { handle = testLastMsg(); break; }
             default:
-               { ynCont = 'n'; handle = 0; std::exit(0);  break; }
+               { ynCont = 'n'; handle = nullptr; std::exit(0);  break; }
          }
       }
       else ynCont = 'n';
@@ -1331,7 +1331,7 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
    const google::protobuf::Reflection* reflection = msg->GetReflection();
 
    int fieldCount = descriptor->field_count();
-   const google::protobuf::FieldDescriptor* fieldDescriptor = 0;
+   const google::protobuf::FieldDescriptor* fieldDescriptor = nullptr;
 
    // look at fields to find a match with the slot condition
    if (fieldCount > 0) {

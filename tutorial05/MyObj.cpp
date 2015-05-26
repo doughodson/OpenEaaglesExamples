@@ -42,11 +42,11 @@ EMPTY_SERIALIZER(MyObj)
 MyObj::MyObj(void)
 {
   STANDARD_CONSTRUCTOR()
-  colorTable = 0;
-  textColor = 0;
-  backColor = 0;
-  vector = 0;
-  message = 0;
+  colorTable = nullptr;
+  textColor = nullptr;
+  backColor = nullptr;
+  vector = nullptr;
+  message = nullptr;
   visible = false;
 }
 
@@ -57,27 +57,27 @@ void MyObj::copyData(const MyObj& org, const bool cc)
 {
   BaseClass::copyData(org);
   if (cc) {
-    colorTable = 0;
-    textColor = 0;
-    backColor = 0;
-    vector = 0;
-    message = 0;
+    colorTable = nullptr;
+    textColor = nullptr;
+    backColor = nullptr;
+    vector = nullptr;
+    message = nullptr;
   }
 
-  if (colorTable != 0) { colorTable->unref(); colorTable = 0; }
-  if (org.colorTable != 0) colorTable = org.colorTable->clone();
+  if (colorTable != nullptr) { colorTable->unref(); colorTable = nullptr; }
+  if (org.colorTable != nullptr) colorTable = org.colorTable->clone();
 
-  if (textColor != 0) { textColor->unref(); textColor = 0; }
-  if (org.textColor != 0) textColor = org.textColor->clone();
+  if (textColor != nullptr) { textColor->unref(); textColor = nullptr; }
+  if (org.textColor != nullptr) textColor = org.textColor->clone();
 
-  if (backColor != 0) { backColor->unref(); backColor = 0; }
-  if (org.backColor != 0) backColor = org.backColor->clone();
+  if (backColor != nullptr) { backColor->unref(); backColor = nullptr; }
+  if (org.backColor != nullptr) backColor = org.backColor->clone();
 
-  if (vector != 0) { vector->unref(); vector = 0; }
-  if (org.vector != 0) vector = org.vector->clone();
+  if (vector != nullptr) { vector->unref(); vector = nullptr; }
+  if (org.vector != nullptr) vector = org.vector->clone();
 
-  if (message != 0) { message->unref(); message = 0; }
-  if (org.message != 0) message = org.message->clone();
+  if (message != nullptr) { message->unref(); message = nullptr; }
+  if (org.message != nullptr) message = org.message->clone();
 
   visible = org.visible;
 }
@@ -87,11 +87,11 @@ void MyObj::copyData(const MyObj& org, const bool cc)
 //------------------------------------------------------------------------------
 void MyObj::deleteData()
 {
-  setColorTable(0);
-  setTextColor(0);
-  setBackColor(0);
-  setVector(0);
-  setMessage(0);
+  setColorTable(nullptr);
+  setTextColor(nullptr);
+  setBackColor(nullptr);
+  setVector(nullptr);
+  setMessage(nullptr);
 }
 
 //------------------------------------------------------------------------------
@@ -99,9 +99,9 @@ void MyObj::deleteData()
 //------------------------------------------------------------------------------
 bool MyObj::setColorTable(const Basic::PairStream* const x)
 {
-  if (colorTable != 0) colorTable->unref();
+  if (colorTable != nullptr) colorTable->unref();
   colorTable = x;
-  if (colorTable != 0) colorTable->ref();
+  if (colorTable != nullptr) colorTable->ref();
   return true;
 }
 
@@ -112,9 +112,9 @@ const Basic::PairStream* MyObj::getColorTable(void) const
 
 bool MyObj::setTextColor(const Basic::Identifier* const x)
 {
-  if (textColor != 0) textColor->unref();
+  if (textColor != nullptr) textColor->unref();
   textColor = x;
-  if (textColor != 0) textColor->ref();
+  if (textColor != nullptr) textColor->ref();
   return true;
 }
 
@@ -125,9 +125,9 @@ const Basic::Identifier* MyObj::getTextColor(void) const
 
 bool MyObj::setBackColor(const Basic::Identifier* const x)
 {
-  if (backColor != 0) backColor->unref();
+  if (backColor != nullptr) backColor->unref();
   backColor = x;
-  if (backColor != 0) backColor->ref();
+  if (backColor != nullptr) backColor->ref();
   return true;
 }
 
@@ -138,9 +138,9 @@ const Basic::Identifier* MyObj::getBackColor(void) const
 
 bool MyObj::setVector(const Basic::List* const x)
 {
-  if (vector != 0) vector->unref();
+  if (vector != nullptr) vector->unref();
   vector = x;
-  if (vector != 0) vector->ref();
+  if (vector != nullptr) vector->ref();
   return true;
 }
 
@@ -162,9 +162,9 @@ bool MyObj::getVisible(void) const
 
 bool MyObj::setMessage(const Basic::String* const x)
 {
-  if (message != 0) message->unref();
+  if (message != nullptr) message->unref();
   message = x;
-  if (message != 0) message->ref();
+  if (message != nullptr) message->ref();
   return true;
 }
 
@@ -184,7 +184,7 @@ Basic::Object* MyObj::getSlotByIndex(const int si)
 bool MyObj::setSlotColorTable(const Basic::PairStream* const x)
 {
   bool ok = false;
-  if(x != 0) {
+  if(x != nullptr) {
     ok = setColorTable(x);
   }
   return ok;
@@ -193,7 +193,7 @@ bool MyObj::setSlotColorTable(const Basic::PairStream* const x)
 bool MyObj::setSlotTextColor(const Basic::Identifier* const x)
 {
   bool ok = false;
-  if(x != 0) {
+  if(x != nullptr) {
     ok = setTextColor(x);
   }
   return ok;
@@ -202,7 +202,7 @@ bool MyObj::setSlotTextColor(const Basic::Identifier* const x)
 bool MyObj::setSlotBackColor(const Basic::Identifier* const x)
 {
   bool ok = false;
-  if(x != 0) {
+  if(x != nullptr) {
     ok = setBackColor(x);
   }
   return ok;
@@ -211,7 +211,7 @@ bool MyObj::setSlotBackColor(const Basic::Identifier* const x)
 bool MyObj::setSlotVector(const Basic::List* const x)
 {
   bool ok = false;
-  if(x != 0) {
+  if(x != nullptr) {
     ok = setVector(x);
   }
   return ok;
@@ -220,7 +220,7 @@ bool MyObj::setSlotVector(const Basic::List* const x)
 bool MyObj::setSlotVisible(const Basic::Number* const x)
 {
   bool ok = false;
-  if(x != 0) {
+  if(x != nullptr) {
     ok = setVisible(x->getBoolean());
   }
   return ok;
@@ -229,7 +229,7 @@ bool MyObj::setSlotVisible(const Basic::Number* const x)
 bool MyObj::setSlotMessage(const Basic::String* const x)
 {
   bool ok = false;
-  if(x != 0) {
+  if(x != nullptr) {
     ok = setMessage(x);
   }
   return ok;

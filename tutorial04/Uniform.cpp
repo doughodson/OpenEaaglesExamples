@@ -81,14 +81,14 @@ Basic::Object* Uniform::getSlotByIndex(const int si)
 
 bool Uniform::setSlotMin(const Basic::Number* const x)
 {
-   if (x != 0)
+   if (x != nullptr)
       setMin(x->getInt());
    return true;
 }
 
 bool Uniform::setSlotMax(const Basic::Number* const x)
 {
-   if (x != 0)
+   if (x != nullptr)
       setMax(x->getInt());
    return true;
 }

@@ -103,7 +103,7 @@ void TestStateMachine04::stateFunc15(const LCreal)
 void TestStateMachine04::stateFunc21(const LCreal)
 {
    const Basic::Number* arg = dynamic_cast<const Basic::Number*>( getArgument() );
-   if (arg != 0) {
+   if (arg != nullptr) {
       std::cout << "arg(" << arg->getReal() << "); ";
    }
 

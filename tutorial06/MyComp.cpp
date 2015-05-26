@@ -32,7 +32,7 @@ MyComp::MyComp(void)
 
 void MyComp::initData()
 {
-   str = 0;
+   str = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -46,8 +46,8 @@ void MyComp::copyData(const MyComp& org, const bool cc)
       initData();
    }
 
-   if (str != 0) { str->unref(); str = 0; }
-   if (org.str != 0) str = org.str->clone();
+   if (str != nullptr) { str->unref(); str = nullptr; }
+   if (org.str != nullptr) str = org.str->clone();
 
    std::cout << "MyComp::copyData() called\n";
 }
@@ -57,7 +57,7 @@ void MyComp::copyData(const MyComp& org, const bool cc)
 //------------------------------------------------------------------------------
 void MyComp::deleteData()
 {
-   setStr( 0 );
+   setStr( nullptr );
    std::cout << "MyComp::deleteData() called\n";
 }
 
@@ -66,9 +66,9 @@ void MyComp::deleteData()
 //------------------------------------------------------------------------------
 bool MyComp::setStr(const Basic::String* const x)
 {
-   if (str != 0) str->unref();
+   if (str != nullptr) str->unref();
    str = x;
-   if (str != 0) str->ref();
+   if (str != nullptr) str->ref();
    return true;
 }
 
@@ -88,7 +88,7 @@ Basic::Object* MyComp::getSlotByIndex(const int si)
 bool MyComp::setSlotStr(const Basic::String* const x)
 {
    bool ok = false;
-   if(x != 0) {
+   if(x != nullptr) {
       ok = setStr(x);
    }
    return ok;
@@ -100,7 +100,7 @@ bool MyComp::setSlotStr(const Basic::String* const x)
 void MyComp::reset()
 {
    // as an example, I'm going to dump string
-   setStr(0);
+   setStr(nullptr);
    std::cout << "I've been reset!\n";
 
    BaseClass::reset();
@@ -118,7 +118,7 @@ void MyComp::updateTC(const LCreal dt)
 void MyComp::updateData(const LCreal dt)
 {
    // print out string info if a string has been defined
-   if (str != 0)
+   if (str != nullptr)
       std::cout << "BG Str: " << str->getString() << "\n";
    else
       std::cout << "BG Str: Nothing to print\n";

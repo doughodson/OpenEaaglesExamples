@@ -42,8 +42,8 @@ DataRecordTest::DataRecordTest()
 
 void DataRecordTest::initData()
 {
-   inputHandler = 0;
-   outputHandler = 0;
+   inputHandler = nullptr;
+   outputHandler = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -55,17 +55,17 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
    if (cc) initData();
 
    {  // Clone input handler
-      Eaagles::Recorder::InputHandler* clone = 0;
-      if (org.inputHandler != 0) clone = org.inputHandler->clone();
+      Eaagles::Recorder::InputHandler* clone = nullptr;
+      if (org.inputHandler != nullptr) clone = org.inputHandler->clone();
       setSlotInputHandler(clone);
-      if (clone != 0) clone->unref();
+      if (clone != nullptr) clone->unref();
    }
 
    {  // Clone output handler
-      Eaagles::Recorder::OutputHandler* clone = 0;
-      if (org.outputHandler != 0) clone = org.outputHandler->clone();
+      Eaagles::Recorder::OutputHandler* clone = nullptr;
+      if (org.outputHandler != nullptr) clone = org.outputHandler->clone();
       setSlotOutputHandler(clone);
-      if (clone != 0) clone->unref();
+      if (clone != nullptr) clone->unref();
    }
 }
 
@@ -74,8 +74,8 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
 //------------------------------------------------------------------------------
 void DataRecordTest::deleteData()
 {
-   setSlotInputHandler(0);
-   setSlotOutputHandler(0);
+   setSlotInputHandler(nullptr);
+   setSlotOutputHandler(nullptr);
 }
 
 //------------------------------------------------------------------------------
@@ -83,12 +83,12 @@ void DataRecordTest::deleteData()
 //------------------------------------------------------------------------------
 void DataRecordTest::runTest()
 {
-   if (inputHandler == 0) {
+   if (inputHandler == nullptr) {
       std::cerr << "runTest() -- missing input handler!" << std::endl;
       return;
    }
 
-   if (outputHandler == 0) {
+   if (outputHandler == nullptr) {
       std::cerr << "runTest() -- missing output handler!" << std::endl;
       return;
    }
@@ -96,10 +96,10 @@ void DataRecordTest::runTest()
    bool finished = false;
    while (!finished) {
       const Eaagles::Recorder::DataRecordHandle* p = inputHandler->readRecord();
-      if (p != 0) {
+      if (p != nullptr) {
          outputHandler->processRecord(p);
       }
-      finished = (p == 0) || (p->getRecord()->id() == REID_END_OF_DATA);
+      finished = (p == nullptr) || (p->getRecord()->id() == REID_END_OF_DATA);
    }
 }
 
@@ -109,14 +109,14 @@ void DataRecordTest::runTest()
 bool DataRecordTest::setSlotInputHandler(Eaagles::Recorder::InputHandler* const msg)
 {
    inputHandler = msg;
-   if (inputHandler != 0) inputHandler->container(this);
+   if (inputHandler != nullptr) inputHandler->container(this);
    return true;
 }
 
 bool DataRecordTest::setSlotOutputHandler(Eaagles::Recorder::OutputHandler* const msg)
 {
    outputHandler = msg;
-   if (outputHandler != 0) outputHandler->container(this);
+   if (outputHandler != nullptr) outputHandler->container(this);
    return true;
 }
 

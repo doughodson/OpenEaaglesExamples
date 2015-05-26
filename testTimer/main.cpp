@@ -69,7 +69,7 @@ TimerThread* createTheThread(Tester* const tester)
 
    bool ok = thread->create();
    if (!ok) {
-      thread = 0;
+      thread = nullptr;
       std::cerr << "createTheThread(): ERROR, failed to create the thread!" << std::endl;
    }
 

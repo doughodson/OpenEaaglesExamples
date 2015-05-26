@@ -46,7 +46,7 @@ Worm::Worm()
    index  = 0;
    sangle = 0.0;
    setSpeed(10.0);
-   iangle = 0;
+   iangle = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -57,11 +57,11 @@ void Worm::copyData(const Worm& org, const bool cc)
    BaseClass::copyData(org);
 
    if (cc) {
-      iangle = 0;
+      iangle = nullptr;
    }
 
-   if (iangle != 0) { iangle->unref(); iangle = 0; }
-   if (org.iangle != 0) iangle = org.iangle->clone();
+   if (iangle != nullptr) { iangle->unref(); iangle = nullptr; }
+   if (org.iangle != nullptr) iangle = org.iangle->clone();
   
    left = org.left;
    right = org.right;
@@ -93,7 +93,7 @@ void Worm::reset()
    xPos = 0;
    yPos =0;
    nTrails = 0;
-   if (iangle != 0) {
+   if (iangle != nullptr) {
       Eaagles::Basic::Radians radians;
       setStartAngle(static_cast<Eaagles::LCreal>(radians.convert(*iangle)));
    }
@@ -201,7 +201,7 @@ Eaagles::Basic::Object* Worm::getSlotByIndex(const int si)
 bool Worm::realSpeed(const Eaagles::Basic::Number* const rsobj)
 {
    bool ok = false;
-   if (rsobj != 0) {
+   if (rsobj != nullptr) {
       setSpeed(rsobj->getReal());
       ok = true;
    }
@@ -214,7 +214,7 @@ bool Worm::realSpeed(const Eaagles::Basic::Number* const rsobj)
 bool Worm::setAngle(const Eaagles::Basic::Angle* const saobj)
 {
    bool ok = false;
-   if (saobj != 0) {
+   if (saobj != nullptr) {
       Eaagles::Basic::Radians radians;
       setStartAngle(static_cast<Eaagles::LCreal>(radians.convert(*saobj)));
       iangle = saobj;
@@ -230,7 +230,7 @@ bool Worm::setAngle(const Eaagles::Basic::Angle* const saobj)
 bool Worm::setAngle(const Eaagles::Basic::Number* const saobj)
 {
    bool ok = false;
-   if (saobj != 0) {
+   if (saobj != nullptr) {
       setStartAngle(saobj->getReal());
       ok = true;
    }

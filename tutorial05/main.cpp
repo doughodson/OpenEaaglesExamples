@@ -77,15 +77,15 @@ int main(int argc, char* argv[])
 
    // print out some color information
    const Basic::PairStream* colorTable = myObj->getColorTable();
-   if (colorTable != 0) {
+   if (colorTable != nullptr) {
 //    Pair* p = colorTable->findByName("green");
       const Basic::Identifier* id = myObj->getTextColor();
-      if (id != 0) {
+      if (id != nullptr) {
          const Basic::Pair* p = colorTable->findByName(id->getString());
-         if (p != 0) {
+         if (p != nullptr) {
             std::cout << "Text color: " << id->getString();
             const Basic::Color* color = dynamic_cast<const Basic::Color*>(p->object());
-            if (color != 0) {
+            if (color != nullptr) {
                std::cout << " Red: "   << color->red();
                std::cout << " Green: " << color->green();
                std::cout << " Blue: "  << color->blue();
@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
 
    // print out vector information
    const Basic::List* vector = myObj->getVector();
-   if (vector != 0) {
+   if (vector != nullptr) {
       int numValues = vector->entries();
       int* values = new int[numValues];
       int n = vector->getNumberList(values,numValues);

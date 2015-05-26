@@ -26,12 +26,12 @@ EMPTY_DELETEDATA(PrintMyData)
 //------------------------------------------------------------------------------
 void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* const handle)
 {
-   if (handle == 0) return;  // cannot continue
+   if (handle == nullptr) return;  // cannot continue
    const Eaagles::Recorder::Pb::DataRecord* dataRecord = handle->getRecord();
-   if (dataRecord == 0) return;  // cannot continue
+   if (dataRecord == nullptr) return;  // cannot continue
 
    // Get the time msg
-   const Eaagles::Recorder::Pb::Time* timeMsg = 0;
+   const Eaagles::Recorder::Pb::Time* timeMsg = nullptr;
    if (dataRecord->has_time()) {
       timeMsg = &dataRecord->time();
    }
@@ -46,7 +46,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
             std::stringstream sout;
 
             sout << "MARKER " << "    ";
-            if (timeMsg != 0) {
+            if (timeMsg != nullptr) {
                if (timeMsg->has_exec_time()) {
                   sout << timeMsg->exec_time() << ";  ";
                }
@@ -70,7 +70,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
             std::stringstream sout;
 
             sout << "MY_DATA " << "   ";
-            if (timeMsg != 0) {
+            if (timeMsg != nullptr) {
                if (timeMsg->has_exec_time()) {
                   sout << timeMsg->exec_time() << ";  ";
                }

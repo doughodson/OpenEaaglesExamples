@@ -48,7 +48,7 @@ TestOne::TestOne()
     index  = 0;
     sangle = 0.0;
     setSpeed(10.0);
-    iangle = 0;
+    iangle = nullptr;
 }
 
 //------------------------------------------------------------------------------
@@ -60,9 +60,9 @@ void TestOne::copyData(const TestOne& org, const bool)
 
     BaseClass::copyData(org);
 
-    if (iangle != 0) iangle->unref();
-    if (org.iangle != 0) iangle = org.iangle->clone();
-    else iangle = 0;
+    if (iangle != nullptr) iangle->unref();
+    if (org.iangle != nullptr) iangle = org.iangle->clone();
+    else iangle = nullptr;
 
     left = org.left;
     right = org.right;
@@ -94,7 +94,7 @@ void TestOne::reset()
     xPos = 0;
     yPos =0;
     nTrails = 0;
-    if (iangle != 0) {
+    if (iangle != nullptr) {
         Basic::Radians radians;
         setStartAngle(static_cast<LCreal>(radians.convert(*iangle)));
     }
@@ -215,7 +215,7 @@ std::ostream& TestOne::serialize(std::ostream& sout, const int i, const bool slo
     indent(sout,i+j);
     sout << "speed: " << speed << std::endl;
 
-    if (iangle != 0) {
+    if (iangle != nullptr) {
         indent(sout,i+j);
         sout << "startAngle: " << *iangle << std::endl;
     }
@@ -236,7 +236,7 @@ std::ostream& TestOne::serialize(std::ostream& sout, const int i, const bool slo
 //------------------------------------------------------------------------------
 bool TestOne::realSpeed(const Basic::Number* const rsobj)
 {
-    if (rsobj != 0) setSpeed(rsobj->getReal());
+    if (rsobj != nullptr) setSpeed(rsobj->getReal());
     return true;
 }
 
@@ -245,7 +245,7 @@ bool TestOne::realSpeed(const Basic::Number* const rsobj)
 //------------------------------------------------------------------------------ 
 bool TestOne::setAngle(Basic::Angle* saobj)
 {
-    if (saobj != 0) {
+    if (saobj != nullptr) {
         Basic::Radians radians;
         setStartAngle(static_cast<LCreal>(radians.convert(*saobj)));
         iangle = saobj;

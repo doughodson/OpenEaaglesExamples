@@ -150,7 +150,7 @@ void Display::reset()
 void Display::updateTC(const LCreal dt)
 {
    // I/O Handler
-   if (ioHandler != 0) {
+   if (ioHandler != nullptr) {
       ioHandler->inputDevices(dt);
       //ioHandler->updateTC(dt);
       ioHandler->outputDevices(dt);
@@ -165,7 +165,7 @@ void Display::updateTC(const LCreal dt)
 void Display::updateData(const LCreal dt)
 {
    // I/O Handler
-   if (ioHandler != 0) {
+   if (ioHandler != nullptr) {
       //ioHandler->updateData(dt);
    }
 

@@ -72,7 +72,7 @@ int Exp::getNum(void) const
 
 bool Exp::setSlotMean(const Basic::Number* const mean)
 {
-  if (mean != 0)
+  if (mean != nullptr)
     setMean(mean->getDouble());
   return true;
 }

@@ -54,7 +54,7 @@ void TdElevPtr::draw()
 //------------------------------------------------------------------------------
 bool TdElevPtr::onUpdateValue(const Basic::Number* const ouvobj)
 {
-    if (ouvobj != 0) elev = ouvobj->getReal();
+    if (ouvobj != nullptr) elev = ouvobj->getReal();
     return true;
 }
 

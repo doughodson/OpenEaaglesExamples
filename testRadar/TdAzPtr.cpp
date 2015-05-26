@@ -54,7 +54,7 @@ bool TdAzPtr::setAzimuth(const LCreal v)
 bool TdAzPtr::onUpdateValue(const Basic::Number* const msg)
 {
     bool ok = false;
-    if (msg != 0) {
+    if (msg != nullptr) {
       ok = setAzimuth(msg->getReal());
     }
     return ok;

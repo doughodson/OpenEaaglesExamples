@@ -106,7 +106,7 @@ void TestStateMachine01::anyStateFunc(const LCreal)
          else {
             std::cout << "Returned from call; ";
             const Basic::Boolean* arg = dynamic_cast<const Basic::Boolean*>( getArgument() );
-            if (arg != 0) {
+            if (arg != nullptr) {
                std::cout << "arg(" << arg->getBoolean() << "); ";
             }
             std::cout << "next()";
@@ -129,7 +129,7 @@ void TestStateMachine01::anyStateFunc(const LCreal)
 
       case 21 : {
          const Basic::Number* arg = dynamic_cast<const Basic::Number*>( getArgument() );
-         if (arg != 0) {
+         if (arg != nullptr) {
             std::cout << "arg(" << arg->getReal() << "); ";
          }
 

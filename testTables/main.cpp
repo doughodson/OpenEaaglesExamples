@@ -70,7 +70,7 @@ testIt(const Basic::Table1* const tbl, const bool tflg, const bool sflg, const b
 {
    unsigned int cnt = 0;
 
-   Basic::FStorage* s = 0;
+   Basic::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    LCreal maxX = tbl->getMaxX();
@@ -80,7 +80,7 @@ testIt(const Basic::Table1* const tbl, const bool tflg, const bool sflg, const b
    if (!tflg) {
       std::cout << std::endl;
       std::cout << "Test 1D LFI";
-      if (s != 0) std::cout << "; With Storage";
+      if (s != nullptr) std::cout << "; With Storage";
       std::cout << std::endl;
       std::cout << "x, value" << std::endl;
    }
@@ -97,7 +97,7 @@ testIt(const Basic::Table1* const tbl, const bool tflg, const bool sflg, const b
       x += dx;
    }
 
-   if (sflg && s != 0) { s->unref(); s = 0; }
+   if (sflg && s != nullptr) { s->unref(); s = nullptr; }
    return cnt;
 }
 
@@ -109,7 +109,7 @@ testIt(const Basic::Table2* const tbl, const bool tflg, const bool sflg, const b
 {
    unsigned int cnt = 0;
 
-   Basic::FStorage* s = 0;
+   Basic::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    LCreal maxY = tbl->getMaxY();
@@ -123,7 +123,7 @@ testIt(const Basic::Table2* const tbl, const bool tflg, const bool sflg, const b
    if (!tflg) {
       std::cout << std::endl;
       std::cout << "Test 2D LFI";
-      if (s != 0) std::cout << "; With Storage";
+      if (s != nullptr) std::cout << "; With Storage";
       std::cout << std::endl;
       std::cout << "x, y, value" << std::endl;
    }
@@ -147,7 +147,7 @@ testIt(const Basic::Table2* const tbl, const bool tflg, const bool sflg, const b
       y += dy;
    }
 
-   if (sflg && s != 0) { s->unref(); s = 0; }
+   if (sflg && s != nullptr) { s->unref(); s = nullptr; }
    return cnt;
 }
 
@@ -159,7 +159,7 @@ testIt(const Basic::Table3* const tbl, const bool tflg, const bool sflg, const b
 {
    unsigned int cnt = 0;
 
-   Basic::FStorage* s = 0;
+   Basic::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    // Setup Z
@@ -180,7 +180,7 @@ testIt(const Basic::Table3* const tbl, const bool tflg, const bool sflg, const b
    if (!tflg) {
       std::cout << std::endl;
       std::cout << "Test 3D LFI";
-      if (s != 0) std::cout << "; With Storage";
+      if (s != nullptr) std::cout << "; With Storage";
       std::cout << std::endl;
       std::cout << "x, y, z, value" << std::endl;
    }
@@ -211,7 +211,7 @@ testIt(const Basic::Table3* const tbl, const bool tflg, const bool sflg, const b
       z += dz;
    }
 
-   if (sflg && s != 0) { s->unref(); s = 0; }
+   if (sflg && s != nullptr) { s->unref(); s = nullptr; }
    return cnt;
 }
 
@@ -224,7 +224,7 @@ testIt(const Basic::Table4* const tbl, const bool tflg, const bool sflg, const b
 {
    unsigned int cnt = 0;
 
-   Basic::FStorage* s = 0;
+   Basic::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    // Setup W
@@ -247,7 +247,7 @@ testIt(const Basic::Table4* const tbl, const bool tflg, const bool sflg, const b
    if (!tflg) {
       std::cout << std::endl;
       std::cout << "Test 4D LFI";
-      if (s != 0) std::cout << "; With Storage";
+      if (s != nullptr) std::cout << "; With Storage";
       std::cout << std::endl;
       std::cout << "x, y, z, w, value" << std::endl;
    }
@@ -296,7 +296,7 @@ testIt(const Basic::Table4* const tbl, const bool tflg, const bool sflg, const b
       w += dw;
    }
 
-   if (sflg && s != 0) { s->unref(); s = 0; }
+   if (sflg && s != nullptr) { s->unref(); s = nullptr; }
    return cnt;
 }
 
@@ -354,16 +354,16 @@ int main(int argc, char* argv[])
    unsigned int n = 1;
    if (tflg) n = TIMING_LOOPS;
    for (unsigned int i = 0; i < n; i++) {
-      if (t1 != 0 && (aflg || t2 == 0) ) {
+      if (t1 != nullptr && (aflg || t2 == nullptr) ) {
          cnt += testIt(t1, tflg, sflg, rflg);
       }
-      if (t2 != 0 && (aflg || t3 == 0) ) {
+      if (t2 != nullptr && (aflg || t3 == nullptr) ) {
          cnt += testIt(t2, tflg, sflg, rflg);
       }
-      if (t3 != 0 && (aflg || t4 == 0) ) {
+      if (t3 != nullptr && (aflg || t4 == nullptr) ) {
          cnt += testIt(t3, tflg, sflg, rflg);
       }
-      if (t4 != 0) {
+      if (t4 != nullptr) {
          cnt += testIt(t4, tflg, sflg, rflg);
       }
    }

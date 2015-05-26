@@ -15,7 +15,7 @@ EMPTY_SERIALIZER(TestDisplay)
 TestDisplay::TestDisplay()
 {
    STANDARD_CONSTRUCTOR()
-   selected = 0;
+   selected = nullptr;
 }
 
 EMPTY_COPYDATA(TestDisplay)
@@ -42,9 +42,9 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
 {
    setMouse(x,y);
    if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
-      if (selected != 0) selected->setFlashRate(0.0);
+      if (selected != nullptr) selected->setFlashRate(0.0);
       selected = pick(0);
-      if (selected != 0) selected->setFlashRate(2.0f);
+      if (selected != nullptr) selected->setFlashRate(2.0f);
    }
 }
 
