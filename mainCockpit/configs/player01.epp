@@ -20,7 +20,7 @@ p01:
 
       dynamicsModel: ( JSBSimModel
           rootDir: JSBSIM_PATH
-          model: "f16"
+          model: "F4N"
       )
      
       pilot: ( Autopilot
