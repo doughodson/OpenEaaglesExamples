@@ -21,6 +21,7 @@ p01:
       dynamicsModel: ( JSBSimModel
           rootDir: JSBSIM_PATH
           model: "F4N"
+          debugLevel: 0    // set to 1 to print output
       )
      
       pilot: ( Autopilot
