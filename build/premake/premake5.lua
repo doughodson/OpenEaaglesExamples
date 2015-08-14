@@ -5,6 +5,7 @@
 --     vs2010     (Visual Studio 2010)
 --     vs2012     (Visual Studio 2012)
 --     vs2013     (Visual Studio 2013)
+--     vs2015     (Visual Studio 2015)
 --     codeblocks (Code::Blocks)
 --     codelite   (CodeLite)
 --
@@ -23,7 +24,7 @@ OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
 --
 -- set include and library paths
 --
-if (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
+if (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") or (_ACTION == "vs2015") then
    OEIncPath         = OE_ROOT.."/include"
    OELibPath         = OE_ROOT.."/lib/".._ACTION
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
@@ -65,6 +66,9 @@ if (_ACTION == "vs2012") then
 end
 if (_ACTION == "vs2013") then
   HLALibPath = HLA_ROOT.."/lib/vc12"
+end
+if (_ACTION == "vs2015") then
+  HLALibPath = HLA_ROOT.."/lib/vc14"
 end
 print ("HLA Paths:")
 print ("  Include   : "..HLALibPath)
@@ -109,7 +113,7 @@ solution "examples"
    -- common release configuration flags and symbols
    configuration { "Release" }
       flags { "Optimize" }
-      if (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
+      if (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") or (_ACTION == "vs2015") then
          -- enable compiler intrinsics and favour speed over size
          buildoptions { "/Oi", "/Ot" }
          defines { "WIN32", "NDEBUG" }
@@ -118,7 +122,7 @@ solution "examples"
    -- common debug configuration flags and symbols
    configuration { "Debug" }
       flags { "Symbols" }
-      if (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") then
+      if (_ACTION == "vs2010") or (_ACTION == "vs2012") or (_ACTION == "vs2013") or (_ACTION == "vs2015") then
          -- enable compiler intrinsics
          buildoptions { "/Oi" }
          defines { "WIN32", "_DEBUG" }
