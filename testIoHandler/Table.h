@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: Table
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Table_H__
-#define __oe_Test_Table_H__
+#ifndef __oe_test_Table_H__
+#define __oe_test_Table_H__
 
 #include "openeaagles/basicGL/Field.h"
 
 namespace oe {
    namespace Basic { class Number; class PairStream; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Table
@@ -53,7 +53,7 @@ private:
    const Basic::PairStream* columns;  // columns items
 };
 
-} // End of Test namespace
+} // End of test namespace
 } // End of oe namespace
 
 #endif

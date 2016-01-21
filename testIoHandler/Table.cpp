@@ -16,7 +16,7 @@
 #endif
 
 namespace oe {
-namespace Test {
+namespace test {
 
 static const unsigned int DEFAULT_ROW     = 1;
 static const unsigned int DEFAULT_SPACING = 1;
@@ -418,5 +418,5 @@ void TableRow::position()
    }
 }
 
-} // End of Test namespace
+} // End of test namespace
 } // End of oe namespace

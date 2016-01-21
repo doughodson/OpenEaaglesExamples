@@ -8,7 +8,7 @@
 #include "openeaagles/recorder/DataRecordHandle.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //==============================================================================
 // Class PrintMyData

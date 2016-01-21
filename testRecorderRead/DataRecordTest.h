@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_DataRecordTest_H__
-#define __oe_Test_DataRecordTest_H__
+#ifndef __oe_test_DataRecordTest_H__
+#define __oe_test_DataRecordTest_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -10,7 +10,7 @@ namespace oe {
 
 namespace Recorder { class InputHandler; class OutputHandler; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest

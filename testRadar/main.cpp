@@ -17,7 +17,7 @@
 //#define PARSE_TIMING_TEST
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // background frame rate
 const int bgRate = 10;
@@ -143,11 +143,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end Test namespace
+} // end test namespace
 } // end oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return oe::Test::main(argc, argv);
+   return oe::test::main(argc, argv);
 }

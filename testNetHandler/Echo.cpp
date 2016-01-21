@@ -10,7 +10,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //==============================================================================
 // Echo

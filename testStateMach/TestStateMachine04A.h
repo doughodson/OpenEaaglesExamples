@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04A
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_TestStateMachine04A_H__
-#define __oe_Test_TestStateMachine04A_H__
+#ifndef __oe_test_TestStateMachine04A_H__
+#define __oe_test_TestStateMachine04A_H__
 
 #include "openeaagles/basic/StateMachine.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04A -- (sub) State Machine test #4a
@@ -38,7 +38,7 @@ private:
    void stateFunc04(const LCreal dt);
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

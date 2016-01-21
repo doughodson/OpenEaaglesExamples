@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: Endpoint
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Endpoint_H__
-#define __oe_Test_Endpoint_H__
+#ifndef __oe_test_Endpoint_H__
+#define __oe_test_Endpoint_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -10,7 +10,7 @@ namespace oe {
 
 namespace Basic { class NetHandler; class Number; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Endpoint

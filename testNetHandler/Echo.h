@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: Echo
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Echo_H__
-#define __oe_Test_Echo_H__
+#ifndef __oe_test_Echo_H__
+#define __oe_test_Echo_H__
 
 #include "Endpoint.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Echo

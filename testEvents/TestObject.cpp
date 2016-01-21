@@ -10,7 +10,7 @@
 #endif
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestObject, "TestObject")
 EMPTY_SERIALIZER(TestObject)
@@ -49,5 +49,5 @@ void TestObject::copyData(const TestObject& org, const bool)
 //------------------------------------------------------------------------------
 EMPTY_DELETEDATA(TestObject)
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

@@ -3,14 +3,14 @@
 //
 // Description: Class factory
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Factory_H__
-#define __oe_Test_Factory_H__
+#ifndef __oe_test_Factory_H__
+#define __oe_test_Factory_H__
 
 namespace oe {
 
 namespace Basic { class Object; }
 
-namespace Test {
+namespace test {
 
 class Factory
 {
@@ -21,7 +21,7 @@ protected:
    Factory();   // prevent object creation
 };
 
-}  // end namespace Test
+}  // end namespace test
 }  // end namespace oe
 
 #endif

@@ -16,7 +16,7 @@
 #endif
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //==============================================================================
 // Sender

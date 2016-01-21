@@ -6,7 +6,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
 EMPTY_SERIALIZER(TdElevPtr)
@@ -73,5 +73,5 @@ void TdElevPtr::draw()
    }
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

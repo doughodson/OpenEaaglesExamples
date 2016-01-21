@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: ServerTcpMultiple
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_ServerTcpMultiple_H__
-#define __oe_Test_ServerTcpMultiple_H__
+#ifndef __oe_test_ServerTcpMultiple_H__
+#define __oe_test_ServerTcpMultiple_H__
 
 #include "Endpoint.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class:  ServerTcpMultiple

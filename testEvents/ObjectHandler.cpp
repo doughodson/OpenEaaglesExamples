@@ -5,7 +5,7 @@
 #include "TestObject.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(ObjectHandler, "ObjectHandler")
 EMPTY_SERIALIZER(ObjectHandler)
@@ -73,5 +73,5 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
     return true;
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

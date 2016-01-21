@@ -5,8 +5,8 @@
 // ObjectHandler will extract the data and send it to the output.  This tests
 // the send command passing objects.
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_TestObject_H__
-#define __oe_Test_TestObject_H__
+#ifndef __oe_test_TestObject_H__
+#define __oe_test_TestObject_H__
 
 #include "openeaagles/basic/Object.h"
 
@@ -17,7 +17,7 @@
 #endif
 
 namespace oe {
-namespace Test {
+namespace test {
 
 class TestObject : public Basic::Object
 {
@@ -51,7 +51,7 @@ private:
     char charVal[10];
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

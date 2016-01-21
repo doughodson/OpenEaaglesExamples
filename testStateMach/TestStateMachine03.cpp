@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Boolean.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_SUBCLASS(TestStateMachine03,"TestStateMachine03")
 EMPTY_SLOTTABLE(TestStateMachine03)
@@ -237,5 +237,5 @@ void TestStateMachine03::stateFunc99(const LCreal)
    }
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

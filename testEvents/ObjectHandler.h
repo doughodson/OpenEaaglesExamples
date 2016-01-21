@@ -4,13 +4,13 @@
 // command from it's parent as an object, and will then fill it's own
 // private data from that object.
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_ObjectHandler_H__
-#define __oe_Test_ObjectHandler_H__
+#ifndef __oe_test_ObjectHandler_H__
+#define __oe_test_ObjectHandler_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 class TestObject;
 
@@ -34,7 +34,7 @@ private:
     SendData charSD;
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

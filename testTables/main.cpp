@@ -24,7 +24,7 @@
 #include <cstring>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 static const unsigned int TIMING_LOOPS = 10000;
 
@@ -392,5 +392,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return oe::Test::main(argc, argv);
+   return oe::test::main(argc, argv);
 }

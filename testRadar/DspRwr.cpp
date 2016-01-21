@@ -7,7 +7,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_SUBCLASS(DspRwr,"DspRwr")
 EMPTY_SLOTTABLE(DspRwr)
@@ -81,5 +81,5 @@ void DspRwr::drawFunc()
    glColor4dv(ocolor);
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

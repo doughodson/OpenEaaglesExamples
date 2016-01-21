@@ -8,7 +8,7 @@
 #include "openeaagles/basic/Number.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //==============================================================================
 // ServerTcpMultiple

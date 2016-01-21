@@ -11,7 +11,7 @@
 #include <cstdio>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_SUBCLASS(Tester,"Tester")
 EMPTY_SERIALIZER(Tester)
@@ -197,5 +197,5 @@ Basic::Object* Tester::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // namespace Test
+} // namespace test
 } // namespace oe

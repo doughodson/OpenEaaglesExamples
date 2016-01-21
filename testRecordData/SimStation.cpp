@@ -18,7 +18,7 @@
 #include "openeaagles/basic/osg/Vec4"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_SUBCLASS(SimStation,"SimStation")
 EMPTY_SERIALIZER(SimStation)
@@ -208,5 +208,5 @@ Basic::Object* SimStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

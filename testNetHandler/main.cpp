@@ -17,7 +17,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 const float UPDATE_RATE = 10.0; // main loop update rate
 
@@ -127,5 +127,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   oe::Test::main(argc, argv);
+   oe::test::main(argc, argv);
 }

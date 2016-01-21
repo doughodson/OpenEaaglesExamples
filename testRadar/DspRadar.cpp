@@ -12,7 +12,7 @@
 #include "openeaagles/basic/Hsv.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_SUBCLASS(DspRadar,"DspRadar")
 EMPTY_SLOTTABLE(DspRadar)
@@ -228,5 +228,5 @@ void DspRadar::drawFunc()
    glColor4dv(ocolor);
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

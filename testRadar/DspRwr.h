@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: DspRwr
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_DspRwr_H__
-#define __oe_Test_DspRwr_H__
+#ifndef __oe_test_DspRwr_H__
+#define __oe_test_DspRwr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
    namespace Simulation { class Rwr; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: DspRwr
@@ -37,7 +37,7 @@ private:
     Simulation::Rwr* rwr;     // The test RWR sensor
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

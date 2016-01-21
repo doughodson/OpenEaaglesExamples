@@ -24,7 +24,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
@@ -531,5 +531,5 @@ Simulation::Station* TestDisplay::getStation()
     return myStation;
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

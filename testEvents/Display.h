@@ -3,13 +3,13 @@
 // Description: This class will send down data to it's components in different
 // ways, showing how the SendData class works and testing our send commands.
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Display_H__
-#define __oe_Test_Display_H__
+#ifndef __oe_test_Display_H__
+#define __oe_test_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 class TestObject;
 
@@ -64,7 +64,7 @@ private:
     int counter;    // to slowly increment our numbers
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

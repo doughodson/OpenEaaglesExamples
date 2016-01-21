@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_DataRecordTest_H__
-#define __oe_Test_DataRecordTest_H__
+#ifndef __oe_test_DataRecordTest_H__
+#define __oe_test_DataRecordTest_H__
 
 #include "openeaagles/basic/Component.h"
 #include "openeaagles/recorder/TabPrinter.h"
@@ -19,7 +19,7 @@ namespace oe {
 
 namespace Recorder { class DataRecorder; class TabPrinter; class FileWriter; class PrintSelected; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest

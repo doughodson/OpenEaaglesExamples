@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_TdElevPtr_H__
-#define __oe_Test_TdElevPtr_H__
+#ifndef __oe_test_TdElevPtr_H__
+#define __oe_test_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -23,7 +23,7 @@
 //------------------------------------------------------------------------------
 namespace oe {
    namespace Basic { class Number; }
-namespace Test {
+namespace test {
 
 class TdElevPtr : public BasicGL::Graphic
 {
@@ -45,7 +45,7 @@ private:
    LCreal elev;  // (degs)
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

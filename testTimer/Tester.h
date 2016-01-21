@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: Tester
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Tester_H__
-#define __oe_Test_Tester_H__
+#ifndef __oe_test_Tester_H__
+#define __oe_test_Tester_H__
 
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
    namespace Basic { class PairStream; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Tester
@@ -44,7 +44,7 @@ private:
    Basic::PairStream* timers;    // List of timers
 };
 
-} // namespace Test
+} // namespace test
 } // namespace oe
 
 #endif

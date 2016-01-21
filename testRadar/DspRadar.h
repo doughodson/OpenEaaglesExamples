@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: DspRadar
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_DspRadar_H__
-#define __oe_Test_DspRadar_H__
+#ifndef __oe_test_DspRadar_H__
+#define __oe_test_DspRadar_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -10,7 +10,7 @@ namespace oe {
    namespace Basic      { class PairStream; }
    namespace Simulation { class Radar; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: DspRadar
@@ -48,7 +48,7 @@ private:
     LCreal      trkRelGndTrk[MAX_TRKS];     // Track's relative ground track (to nearest 45 deg)
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

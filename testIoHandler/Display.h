@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: Display
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Display_H__
-#define __oe_Test_Display_H__
+#ifndef __oe_test_Display_H__
+#define __oe_test_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
    namespace Basic { class IoHandler; class Number; class String; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class Display
@@ -87,7 +87,7 @@ private:
    SendData table_aiSD[TBL_SIZE];
 };
 
-} // End of Test namespace
+} // End of test namespace
 } // End of oe namespace
 
 #endif

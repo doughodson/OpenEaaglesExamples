@@ -16,7 +16,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // our class factory
 static Basic::Object* factory(const char* name)
@@ -100,6 +100,6 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   oe::Test::main(argc, argv);
+   oe::test::main(argc, argv);
 }
 

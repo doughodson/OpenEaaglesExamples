@@ -8,7 +8,7 @@
 #include <cstring>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // DataRecordTest builder
 static DataRecordTest* builder(const char* const filename)
@@ -72,6 +72,6 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-    oe::Test::main(argc, argv);
+    oe::test::main(argc, argv);
 }
 

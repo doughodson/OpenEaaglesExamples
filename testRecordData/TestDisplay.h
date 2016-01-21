@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_TestDisplay_H__
-#define __oe_Test_TestDisplay_H__
+#ifndef __oe_test_TestDisplay_H__
+#define __oe_test_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -11,7 +11,7 @@ namespace oe {
    namespace BasicGL { class SymbolLoader; }
    namespace xPanel { class DspRadar; class DspRwr; }
 
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -145,7 +145,7 @@ private:
     LCreal baroRate;
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif

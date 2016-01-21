@@ -25,7 +25,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 static const double MAIN_TIMER_VALUE = 10.0; // Sec
 static const double TIMERS_PRINT_RATE = 5;   // Hz
@@ -213,12 +213,12 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace Test
+} // namespace test
 } // namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   oe::Test::main(argc, argv);
+   oe::test::main(argc, argv);
 }
 

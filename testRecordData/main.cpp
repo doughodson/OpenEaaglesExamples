@@ -13,7 +13,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // default background frame rate
 static const int BG_RATE = 10;
@@ -120,5 +120,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return oe::Test::main(argc, argv);
+   return oe::test::main(argc, argv);
 }

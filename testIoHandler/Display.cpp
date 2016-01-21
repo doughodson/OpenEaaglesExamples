@@ -18,7 +18,7 @@
 #endif
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_SUBCLASS(Display,"TestIoDisplay")
 
@@ -393,5 +393,5 @@ std::ostream& Display::serialize(std::ostream& sout, const int i, const bool slo
    return sout;
 }
 
-} // End of Test namespace
+} // End of test namespace
 } // End of oe namespace

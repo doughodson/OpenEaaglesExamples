@@ -14,7 +14,7 @@
 #include <cstring>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // -----------------------------------------------------------------------------
 // Global Variables (and Constants)
@@ -4496,7 +4496,7 @@ void test27_convertUtm()
    }
 }
 
-} // end namespace Test
+} // end namespace test
 } // end namespace oe
 
 //==============================================================================
@@ -4516,12 +4516,12 @@ int main(int argc, char* argv[])
 
    if (runAll) {
       // Run all tests
-      oe::Test::testNumber = 99;
-      oe::Test::test99_printAllExamples();
+      oe::test::testNumber = 99;
+      oe::test::test99_printAllExamples();
    }
    else if (imode) {
       // Interactive mode
-      oe::Test::testNavFns();
+      oe::test::testNavFns();
    }
    else {
       std::cout                                             << std::endl;

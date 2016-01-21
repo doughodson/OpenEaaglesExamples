@@ -4,7 +4,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 int main(int, char**)
 {
@@ -54,11 +54,11 @@ int main(int, char**)
    return EXIT_SUCCESS;
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 
 int main(int argc, char* argv[], char**)
 {
-   return oe::Test::main(argc,argv);
+   return oe::test::main(argc,argv);
 }

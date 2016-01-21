@@ -12,7 +12,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //==============================================================================
 // TestIoHandler

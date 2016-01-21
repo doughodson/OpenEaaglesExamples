@@ -18,7 +18,7 @@
 #include <cstring>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 Factory::Factory()
 {}
@@ -62,5 +62,5 @@ Basic::Object* Factory::createObj(const char* name)
     return obj;
 }
 
-} // End of Test namespace
+} // End of test namespace
 } // End of oe namespace

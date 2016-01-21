@@ -10,7 +10,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // state machine builder
 static Basic::StateMachine* builder(const char* const filename)
@@ -87,11 +87,11 @@ int main(int argc, char* argv[])
    return EXIT_SUCCESS;
 }
 
-} // end TestStateMach namespace
+} // end test namespace
 } // end oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return oe::Test::main(argc,argv);
+   return oe::test::main(argc,argv);
 }

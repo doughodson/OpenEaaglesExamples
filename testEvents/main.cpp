@@ -19,7 +19,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Test {
+namespace test {
 
 // frame rate
 const int frameRate = 20;
@@ -117,11 +117,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return oe::Test::main(argc,argv);
+   return oe::test::main(argc,argv);
 }

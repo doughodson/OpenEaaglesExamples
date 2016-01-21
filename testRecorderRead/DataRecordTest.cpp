@@ -10,7 +10,7 @@
 #include "xRecorder/protobuf/DataRecord.pb.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //==============================================================================
 // DataRecordTest

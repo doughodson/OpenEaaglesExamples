@@ -18,7 +18,7 @@
 #endif
 
 namespace oe {
-namespace Test {
+namespace test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "SendDataDisplay")
 EMPTY_SERIALIZER(Display)
@@ -246,5 +246,5 @@ void Display::updateData(const LCreal dt)
 }
 
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace

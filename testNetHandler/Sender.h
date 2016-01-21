@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: Sender
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_Sender_H__
-#define __oe_Test_Sender_H__
+#ifndef __oe_test_Sender_H__
+#define __oe_test_Sender_H__
 
 #include "Endpoint.h"
 
 namespace oe {
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Sender

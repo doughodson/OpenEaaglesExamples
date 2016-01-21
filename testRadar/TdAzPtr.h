@@ -1,14 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
 //------------------------------------------------------------------------------
-#ifndef __oe_Test_TdAzPtr_H__
-#define __oe_Test_TdAzPtr_H__
+#ifndef __oe_test_TdAzPtr_H__
+#define __oe_test_TdAzPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
    namespace Basic { class Number; }
-namespace Test {
+namespace test {
 
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
@@ -46,7 +46,7 @@ private:
    LCreal azimuth;  // (degs)
 };
 
-} // End Test namespace
+} // End test namespace
 } // End oe namespace
 
 #endif
