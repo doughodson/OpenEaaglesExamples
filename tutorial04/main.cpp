@@ -12,7 +12,7 @@
 #include "Uniform.h"
 #include "Exp.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 static class Random* random = nullptr;
@@ -87,10 +87,10 @@ int main(int argc, char* argv[])
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-  Eaagles::Tutorial::main(argc, argv);
+  oe::Tutorial::main(argc, argv);
 }

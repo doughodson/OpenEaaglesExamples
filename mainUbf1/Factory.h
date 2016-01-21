@@ -1,8 +1,8 @@
 
-#ifndef __Eaagles_Example_Factory_H__
-#define __Eaagles_Example_Factory_H__
+#ifndef __oe_Example_Factory_H__
+#define __oe_Example_Factory_H__
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Object; }
 
 namespace Example {
@@ -22,6 +22,6 @@ protected:
 };
 
 }  // End namespace Example
-}  // End namespace Eaagles
+}  // End namespace oe
 
 #endif

@@ -1,6 +1,6 @@
 #include "TestAdi.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi, "TestAdi")
@@ -91,5 +91,5 @@ void TestAdi::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 

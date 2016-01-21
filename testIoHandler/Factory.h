@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
 // Class: Factory
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Factory_H__
-#define __Eaagles_Test_Factory_H__
+#ifndef __oe_Test_Factory_H__
+#define __oe_Test_Factory_H__
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Object; }
 
@@ -20,7 +20,7 @@ protected:
 };
 
 }  // end namespace Test
-}  // end namespace Eaagles
+}  // end namespace oe
 
 #endif
 

@@ -7,7 +7,7 @@
 #include "xRecorder/dataRecorderTokens.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //==============================================================================
@@ -24,14 +24,14 @@ EMPTY_DELETEDATA(PrintMyData)
 //------------------------------------------------------------------------------
 // Print the data
 //------------------------------------------------------------------------------
-void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* const handle)
+void PrintMyData::processRecordImp(const oe::Recorder::DataRecordHandle* const handle)
 {
    if (handle == nullptr) return;  // cannot continue
-   const Eaagles::Recorder::Pb::DataRecord* dataRecord = handle->getRecord();
+   const oe::Recorder::Pb::DataRecord* dataRecord = handle->getRecord();
    if (dataRecord == nullptr) return;  // cannot continue
 
    // Get the time msg
-   const Eaagles::Recorder::Pb::Time* timeMsg = nullptr;
+   const oe::Recorder::Pb::Time* timeMsg = nullptr;
    if (dataRecord->has_time()) {
       timeMsg = &dataRecord->time();
    }
@@ -52,12 +52,12 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
                }
             }
 
-            const Eaagles::Recorder::Pb::MarkerMsg* msg = &dataRecord->marker_msg();
+            const oe::Recorder::Pb::MarkerMsg* msg = &dataRecord->marker_msg();
 
             if (msg->has_id()) sout << "id= " << msg->id() << ";  ";
             if (msg->has_source_id()) sout << "source_id= " << msg->source_id() << ";  ";
 
-            if (msg->HasExtension( Eaagles::xRecorder::Pb::foo )) sout << "foo= " << msg->GetExtension( Eaagles::xRecorder::Pb::foo ) << ";  ";
+            if (msg->HasExtension( oe::xRecorder::Pb::foo )) sout << "foo= " << msg->GetExtension( oe::xRecorder::Pb::foo ) << ";  ";
 
             printToOutput( sout.str().c_str() );
          }
@@ -66,7 +66,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
 
       // MyData message event
       case REID_MY_DATA_EVENT : {
-         if (dataRecord->HasExtension( Eaagles::xRecorder::Pb::my_data_msg )) {
+         if (dataRecord->HasExtension( oe::xRecorder::Pb::my_data_msg )) {
             std::stringstream sout;
 
             sout << "MY_DATA " << "   ";
@@ -76,7 +76,7 @@ void PrintMyData::processRecordImp(const Eaagles::Recorder::DataRecordHandle* co
                }
             }
 
-            const Eaagles::xRecorder::Pb::MyDataMsg* msg = &dataRecord->GetExtension( Eaagles::xRecorder::Pb::my_data_msg );
+            const oe::xRecorder::Pb::MyDataMsg* msg = &dataRecord->GetExtension( oe::xRecorder::Pb::my_data_msg );
 
             if (msg->has_fee()) sout << "fee= " << msg->fee() << ";  ";
             if (msg->has_fi()) sout << "fi= " << msg->fi() << ";  ";

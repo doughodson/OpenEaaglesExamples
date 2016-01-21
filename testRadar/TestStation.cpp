@@ -14,7 +14,7 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
@@ -205,4 +205,4 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

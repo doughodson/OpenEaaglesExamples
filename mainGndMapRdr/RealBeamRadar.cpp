@@ -20,7 +20,7 @@
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/units/Distances.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 const int IMG_WIDTH = 1024;
@@ -476,6 +476,6 @@ Basic::Object* RealBeamRadar::getSlotByIndex(const int si)
 
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 

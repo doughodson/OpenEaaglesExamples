@@ -9,7 +9,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(SituationalDisplay,"SituationalDisplay")
@@ -256,5 +256,5 @@ void SituationalDisplay::updateData(const LCreal dt)
 }
 
 }; // end of demo namespace
-}; // end of Eaagles Namespace
+}; // end of oe Namespace
 

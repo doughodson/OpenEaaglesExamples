@@ -3,12 +3,12 @@
 //
 // Description: Control and Send values 'v1' and 'v2' to components
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_TestTwo_H__
-#define __Eaagles_Example_TestTwo_H__
+#ifndef __oe_Example_TestTwo_H__
+#define __oe_Example_TestTwo_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class TestTwo : public BasicGL::Graphic
@@ -51,6 +51,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

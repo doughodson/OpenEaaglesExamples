@@ -12,7 +12,7 @@
 
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // default background frame rate
@@ -64,11 +64,11 @@ static void updateDataCB(int msecs)
    glutTimerFunc(msecs, updateDataCB, msecs);
 
    // current time
-   double time = Eaagles::getComputerTime();
+   double time = oe::getComputerTime();
 
    // compute delta time
    static double time0 = time;   // N-1 Time
-   LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
+   LCreal dt = static_cast<oe::LCreal>(time - time0);
    time0 = time;
 
    station->updateData(dt);
@@ -120,5 +120,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc, argv);
+   return oe::Example::main(argc, argv);
 }

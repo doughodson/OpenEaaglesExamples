@@ -7,7 +7,7 @@ namespace Tutorial {
 
 int main(int argc, char* argv[])
 {
-   Eaagles::Basic::String* str = new Eaagles::Basic::String("Hello world\n");
+   oe::Basic::String* str = new oe::Basic::String("Hello world\n");
 
    std::cout << str->getString();
 

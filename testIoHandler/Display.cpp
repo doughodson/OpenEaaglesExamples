@@ -17,7 +17,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_SUBCLASS(Display,"TestIoDisplay")
@@ -394,4 +394,4 @@ std::ostream& Display::serialize(std::ostream& sout, const int i, const bool slo
 }
 
 } // End of Test namespace
-} // End of Eaagles namespace
+} // End of oe namespace

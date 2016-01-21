@@ -3,14 +3,14 @@
 //
 // Description: Defines our main window
 //-----------------------------------------------------
-#ifndef __Eaagles_Example_MainWindow_H__
-#define __Eaagles_Example_MainWindow_H__
+#ifndef __oe_Example_MainWindow_H__
+#define __oe_Example_MainWindow_H__
 
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Menu_Bar.H>
 #include <FL/Fl_Roller.H>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class GLWindow;
@@ -48,6 +48,6 @@ private:
 };
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

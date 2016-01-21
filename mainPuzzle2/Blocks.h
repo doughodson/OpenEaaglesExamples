@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class:  Block1, Block2, ... Block15, Block
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_Blocks_H__
-#define __Eaagles_Example_Blocks_H__
+#ifndef __oe_Example_Blocks_H__
+#define __oe_Example_Blocks_H__
 
 #include "openeaagles/basic/Object.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class List; class Integer; }
 
 namespace Example {
@@ -262,6 +262,6 @@ public:
 };
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace
 
 #endif

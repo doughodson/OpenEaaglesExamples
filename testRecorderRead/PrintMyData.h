@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: PrintMyData
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_PrintMyData_H__
-#define __Eaagles_Test_PrintMyData_H__
+#ifndef __oe_Test_PrintMyData_H__
+#define __oe_Test_PrintMyData_H__
 
 #include "openeaagles/recorder/PrintHandler.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //------------------------------------------------------------------------------

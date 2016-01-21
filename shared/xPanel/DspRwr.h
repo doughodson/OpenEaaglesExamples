@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: DspRwr
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_XPanel_DspRwr_H__
-#define __Eaagles_XPanel_DspRwr_H__
+#ifndef __oe_XPanel_DspRwr_H__
+#define __oe_XPanel_DspRwr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation { class Rwr; }
 
 namespace xPanel {
@@ -38,7 +38,7 @@ private:
 };
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

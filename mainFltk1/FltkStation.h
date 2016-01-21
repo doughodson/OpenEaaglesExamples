@@ -2,17 +2,17 @@
 // Class: FltkStation
 //
 // Description: Station to start our fltk drawing 
-// NOTE: If you don't want to use Eaagles simulation class, you create your
+// NOTE: If you don't want to use the OpenEaagles simulation class, you create your
 // own basic derived component to do this same functionality.  I am just
 // using a Station so we can test interfacing and make sure our threads all
 // still run correctly and work.
 // ----------------------------------------------------------------------------
-#ifndef __Eaagles_Example_FoxStation_H__
-#define __Eaagles_Example_FoxStation_H__
+#ifndef __oe_Example_FoxStation_H__
+#define __oe_Example_FoxStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class MainWindow;
@@ -45,6 +45,6 @@ private:
 };
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

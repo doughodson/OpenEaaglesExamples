@@ -1,7 +1,7 @@
 //
 #include "FltkDisplay.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FltkDisplay, "FltkDisplay")
@@ -58,4 +58,4 @@ void FltkDisplay::setZRotation(const double z)
 }
 
 }  // end Example 
-}  // end Eaagles
+}  // end oe

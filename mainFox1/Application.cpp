@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // display refresh rate (Hz)
@@ -96,4 +96,4 @@ FoxStation* Application::getStation()
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace

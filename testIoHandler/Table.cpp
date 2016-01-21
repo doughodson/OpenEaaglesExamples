@@ -15,7 +15,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 static const unsigned int DEFAULT_ROW     = 1;
@@ -419,4 +419,4 @@ void TableRow::position()
 }
 
 } // End of Test namespace
-} // End of Eaagles namespace
+} // End of oe namespace

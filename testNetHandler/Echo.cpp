@@ -9,7 +9,7 @@
 
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //==============================================================================
@@ -52,7 +52,7 @@ void Echo::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void Echo::updateData(const Eaagles::LCreal dt)
+void Echo::updateData(const oe::LCreal dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);
@@ -66,7 +66,7 @@ void Echo::updateData(const Eaagles::LCreal dt)
             buffer[n] = 0;
             std::cout << "RECV: " << buffer << std::endl;
             // And send it right back to the client
-            Eaagles::lcSleep(1000);
+            oe::lcSleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {
                std::cout << "SENT: " << buffer << std::endl << std::endl;

@@ -12,7 +12,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // default background frame rate
@@ -120,5 +120,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Test::main(argc, argv);
+   return oe::Test::main(argc, argv);
 }

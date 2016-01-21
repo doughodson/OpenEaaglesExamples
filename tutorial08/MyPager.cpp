@@ -6,7 +6,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MyPager,"MyPager")
@@ -42,4 +42,4 @@ bool MyPager::onEntry()
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe

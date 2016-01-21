@@ -11,12 +11,12 @@
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_Hsi_H__
-#define __Eaagles_demo_Hsi_H__
+#ifndef __oe_demo_Hsi_H__
+#define __oe_demo_Hsi_H__
 
 #include "openeaagles/basicGL/Rotators.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 class Hsi : public BasicGL::Rotators
@@ -70,7 +70,7 @@ private:
 };
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 
 #endif
 

@@ -11,7 +11,7 @@
 #include "openeaagles/basic/Identifier.h"
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(MyObj,"MyObj")
@@ -246,4 +246,4 @@ bool MyObj::isValid() const
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe

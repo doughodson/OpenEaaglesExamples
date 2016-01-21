@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Puzzle board
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_Board_H__
-#define __Eaagles_Example_Board_H__
+#ifndef __oe_Example_Board_H__
+#define __oe_Example_Board_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class PairStream; }
    namespace BasicGL { class Graphic; }
 
@@ -65,6 +65,6 @@ private:
 };
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace
 
 #endif

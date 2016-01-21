@@ -11,7 +11,7 @@
 #include "openeaagles/basic/distributions/Lognormal.h"
 #include "openeaagles/basic/distributions/Exponential.h"
 
-namespace Eaagles {
+namespace oe {
 
 // this test is to match original Mersenne Twister output
 void testValidation()
@@ -100,14 +100,14 @@ void testExponential()
   return;
 }
 
-} // end namespace Eaagles
+} // end namespace oe
 
 int main(int argc, char* argv[])
 {
-  Eaagles::testValidation();
-  //Eaagles::testLognormal();
-  //Eaagles::testPareto();
-  //Eaagles::testExponential();
+  oe::testValidation();
+  //oe::testLognormal();
+  //oe::testPareto();
+  //oe::testExponential();
   return 0;
 }
 

@@ -4,12 +4,12 @@
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_MapPage_H__
-#define __Eaagles_Example_MapPage_H__
+#ifndef __oe_Example_MapPage_H__
+#define __oe_Example_MapPage_H__
 
 #include "openeaagles/basicGL/MapPage.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Simulation {
    class Player;
 }

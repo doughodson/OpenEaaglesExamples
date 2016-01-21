@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: DataRecorder
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xRecorder_DataRecorder_H__
-#define __Eaagles_xRecorder_DataRecorder_H__
+#ifndef __oe_xRecorder_DataRecorder_H__
+#define __oe_xRecorder_DataRecorder_H__
 
 #include "openeaagles/recorder/DataRecorder.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xRecorder {
 
 //------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ private:
 };
 
 } // End xDataRecorder namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

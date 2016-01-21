@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_TdElevPtr_H__
-#define __Eaagles_Test_TdElevPtr_H__
+#ifndef __oe_Test_TdElevPtr_H__
+#define __oe_Test_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -21,7 +21,7 @@
 // Events:
 //    UPDATE_VALUE  <Number>  ! elevation angle (degs)
 //------------------------------------------------------------------------------
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Number; }
 namespace Test {
 
@@ -46,6 +46,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

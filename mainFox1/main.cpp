@@ -16,7 +16,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 static FoxStation* foxStation = nullptr;
@@ -120,11 +120,11 @@ int main(int argc, char* argv[])
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 
 //
 int main(int argc, char* argv[])
 {
-  Eaagles::Example::main(argc, argv);
+  oe::Example::main(argc, argv);
 }

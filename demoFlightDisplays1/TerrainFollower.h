@@ -11,12 +11,12 @@
 //      UPDATE_VALUE4 -> viewable width on screen (inches
 //      The list of points is sent in as an LCreal array
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_TerrainFollower_H__
-#define __Eaagles_demo_TerrainFollower_H__
+#ifndef __oe_demo_TerrainFollower_H__
+#define __oe_demo_TerrainFollower_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 class TerrainFollower : public BasicGL::Graphic
@@ -76,7 +76,7 @@ private:
 };
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 
 #endif
 

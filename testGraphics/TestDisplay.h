@@ -1,10 +1,10 @@
 
-#ifndef __Eaagles_Example_TestDisplay_H__
-#define __Eaagles_Example_TestDisplay_H__
+#ifndef __oe_Example_TestDisplay_H__
+#define __oe_Example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace BasicGL { class Graphic; }
 
@@ -31,7 +31,7 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

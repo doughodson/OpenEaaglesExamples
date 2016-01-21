@@ -1,6 +1,6 @@
 #include "TestRpmDial.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRpmDial, "TestRpmDial")
@@ -55,4 +55,4 @@ void TestRpmDial::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace

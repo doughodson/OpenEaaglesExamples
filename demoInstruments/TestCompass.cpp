@@ -11,7 +11,7 @@
 #endif
 
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCompass,"TestCompass")
@@ -260,5 +260,5 @@ bool TestCompass::onToggleCenteredTestCompass()
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 

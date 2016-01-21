@@ -8,13 +8,13 @@
 //   'f' or 'F'   -- Toggle simulation freeze
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_InstrumentPanel_H__
-#define __Eaagles_Example_InstrumentPanel_H__
+#ifndef __oe_Example_InstrumentPanel_H__
+#define __oe_Example_InstrumentPanel_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include "openeaagles/simulation/Player.h"
 
-namespace Eaagles {
+namespace oe {
 
    namespace Simulation {
       class Player;
@@ -100,6 +100,6 @@ private:
 };
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

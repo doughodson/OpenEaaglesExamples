@@ -27,7 +27,7 @@
 #include "openeaagles/recorder/protobuf/DataRecord.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace Eaagles {
+namespace oe {
 namespace xRecorder {
 namespace Pb {
 
@@ -114,7 +114,7 @@ class MyDataMsg : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 fo() const;
   inline void set_fo(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(class_scope:oe.xRecorder.Pb.MyDataMsg)
  private:
   inline void set_has_fee();
   inline void clear_has_fee();
@@ -140,11 +140,11 @@ class MyDataMsg : public ::google::protobuf::Message {
 // ===================================================================
 
 static const int kMyDataMsgFieldNumber = 1000;
-extern ::google::protobuf::internal::ExtensionIdentifier< ::Eaagles::Recorder::Pb::DataRecord,
-    ::google::protobuf::internal::MessageTypeTraits< ::Eaagles::xRecorder::Pb::MyDataMsg >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::Recorder::Pb::DataRecord,
+    ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::Pb::MyDataMsg >, 11, false >
   my_data_msg;
 static const int kFooFieldNumber = 100;
-extern ::google::protobuf::internal::ExtensionIdentifier< ::Eaagles::Recorder::Pb::MarkerMsg,
+extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::Recorder::Pb::MarkerMsg,
     ::google::protobuf::internal::PrimitiveTypeTraits< ::google::protobuf::uint32 >, 13, false >
   foo;
 
@@ -167,13 +167,13 @@ inline void MyDataMsg::clear_fee() {
   clear_has_fee();
 }
 inline ::google::protobuf::uint32 MyDataMsg::fee() const {
-  // @@protoc_insertion_point(field_get:Eaagles.xRecorder.Pb.MyDataMsg.fee)
+  // @@protoc_insertion_point(field_get:oe.xRecorder.Pb.MyDataMsg.fee)
   return fee_;
 }
 inline void MyDataMsg::set_fee(::google::protobuf::uint32 value) {
   set_has_fee();
   fee_ = value;
-  // @@protoc_insertion_point(field_set:Eaagles.xRecorder.Pb.MyDataMsg.fee)
+  // @@protoc_insertion_point(field_set:oe.xRecorder.Pb.MyDataMsg.fee)
 }
 
 // required uint32 fi = 2;
@@ -191,13 +191,13 @@ inline void MyDataMsg::clear_fi() {
   clear_has_fi();
 }
 inline ::google::protobuf::uint32 MyDataMsg::fi() const {
-  // @@protoc_insertion_point(field_get:Eaagles.xRecorder.Pb.MyDataMsg.fi)
+  // @@protoc_insertion_point(field_get:oe.xRecorder.Pb.MyDataMsg.fi)
   return fi_;
 }
 inline void MyDataMsg::set_fi(::google::protobuf::uint32 value) {
   set_has_fi();
   fi_ = value;
-  // @@protoc_insertion_point(field_set:Eaagles.xRecorder.Pb.MyDataMsg.fi)
+  // @@protoc_insertion_point(field_set:oe.xRecorder.Pb.MyDataMsg.fi)
 }
 
 // required uint32 fo = 3;
@@ -215,13 +215,13 @@ inline void MyDataMsg::clear_fo() {
   clear_has_fo();
 }
 inline ::google::protobuf::uint32 MyDataMsg::fo() const {
-  // @@protoc_insertion_point(field_get:Eaagles.xRecorder.Pb.MyDataMsg.fo)
+  // @@protoc_insertion_point(field_get:oe.xRecorder.Pb.MyDataMsg.fo)
   return fo_;
 }
 inline void MyDataMsg::set_fo(::google::protobuf::uint32 value) {
   set_has_fo();
   fo_ = value;
-  // @@protoc_insertion_point(field_set:Eaagles.xRecorder.Pb.MyDataMsg.fo)
+  // @@protoc_insertion_point(field_set:oe.xRecorder.Pb.MyDataMsg.fo)
 }
 
 
@@ -229,7 +229,7 @@ inline void MyDataMsg::set_fo(::google::protobuf::uint32 value) {
 
 }  // namespace Pb
 }  // namespace xRecorder
-}  // namespace Eaagles
+}  // namespace oe
 
 #ifndef SWIG
 namespace google {

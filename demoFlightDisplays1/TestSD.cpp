@@ -12,7 +12,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 static const LCreal refLat =   41.1f;
@@ -290,5 +290,5 @@ bool TestSD::onToggleRange()
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 

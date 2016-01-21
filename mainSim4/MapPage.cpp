@@ -9,7 +9,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(MapPage,"MapTestMapPage")
@@ -313,5 +313,5 @@ void MapPage::updateData(const LCreal dt)
 }
 
 }  // end of Example namespace
-}  // end of Eaagles namespace
+}  // end of oe namespace
 

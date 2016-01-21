@@ -15,7 +15,6 @@
     // this is our display  slot
     #include "mapdisplay.epp"
 
-
     // here is our simulation scenario
     #include "scenario.epp"
 

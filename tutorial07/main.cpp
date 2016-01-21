@@ -16,7 +16,7 @@
 
 #include "Worm.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 // frame rate
@@ -112,11 +112,11 @@ int main(int argc, char* argv[])
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   Eaagles::Tutorial::main(argc, argv);
+   oe::Tutorial::main(argc, argv);
 }
 

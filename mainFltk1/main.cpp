@@ -23,16 +23,16 @@
 static void update(void* pData)
 {
    if (pData != nullptr) {
-      Eaagles::Example::FltkStation* stn = reinterpret_cast<Eaagles::Example::FltkStation*>(pData);
+      oe::Example::FltkStation* stn = reinterpret_cast<oe::Example::FltkStation*>(pData);
       if (stn != nullptr) {
          double dt = 1 / 20.0;
-         stn->updateData(static_cast<Eaagles::LCreal>(dt));
+         stn->updateData(static_cast<oe::LCreal>(dt));
          Fl::repeat_timeout(dt, update, pData);
       }
    }
 }
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 static FltkStation* fltkStation = nullptr;
@@ -117,5 +117,5 @@ int main(int, char* [])
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc,argv);
+   return oe::Example::main(argc,argv);
 }

@@ -6,12 +6,12 @@
 //  ( def-form Worm
 //  )
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_Worm_H__
-#define __Eaagles_Example_Worm_H__
+#ifndef __oe_Example_Worm_H__
+#define __oe_Example_Worm_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Angle; }
 
@@ -71,7 +71,7 @@ private:
 };
 
 } // namespace Example
-} // namespace Eaagles
+} // namespace oe
 
 #endif
 

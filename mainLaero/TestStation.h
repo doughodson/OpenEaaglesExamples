@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: TestStation
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_TestStation_H__
-#define __Eaagles_Example_TestStation_H__
+#ifndef __oe_Example_TestStation_H__
+#define __oe_Example_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Basic { class Number; }
 namespace Glut { class GlutDisplay; }
 

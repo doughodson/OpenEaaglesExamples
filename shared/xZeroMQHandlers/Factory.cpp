@@ -10,7 +10,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace xZeroMQHandlers {
 
 Factory::Factory()
@@ -31,5 +31,5 @@ Basic::Object* Factory::createObj(const char* name)
 }
 
 } // End xZeroMQHandlers namespace
-} // End Eaagles namespace
+} // End oe namespace
 

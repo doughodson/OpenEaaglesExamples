@@ -15,7 +15,7 @@
 #include "openeaagles/basic/Boolean.h"
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(InstrumentPanel,"InstrumentPanel")
@@ -220,4 +220,4 @@ bool InstrumentPanel::onStepOwnshipKey()
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace

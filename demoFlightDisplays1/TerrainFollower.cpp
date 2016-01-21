@@ -9,7 +9,7 @@
 #include "openeaagles/basic/Number.h"
 #include <GL/glu.h>
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TerrainFollower, "TerrainFollower")
@@ -293,25 +293,24 @@ void TerrainFollower::drawFunc()
         glTranslatef( static_cast<GLfloat>(temp), static_cast<GLfloat>(moveY + start), 0);
         glLineWidth(4);
         glBegin(GL_LINES);
-            glVertex2f(0, 0);
-            glVertex2f(0.4, 0);
+            glVertex2f(0.0f, 0.0f);
+            glVertex2f(0.4f, 0.0f);
         glEnd();
         glLineWidth(2);
         glBegin(GL_LINE_STRIP);
-            glVertex2f(0, 0);
-            glVertex2f(0, 0.1);
-            glVertex2f(0.1, 0);
+            glVertex2f(0.0f, 0.0f);
+            glVertex2f(0.0f, 0.1f);
+            glVertex2f(0.1f, 0.0f);
         glEnd();
     glPopMatrix();
 
-
     temp = 0;
-    glColor3f(0.596, 0.4, 0.208);
+    glColor3f(0.596f, 0.4f, 0.208f);
     glLineWidth(2);
 
     // make a series of polygons that will allow the terrain to be displayed
     glPushMatrix();
-        glTranslatef(1.6, static_cast<GLfloat>(start), 0);
+        glTranslatef(1.6f, static_cast<GLfloat>(start), 0.0f);
         for (int i = 0; i < numElevPts; i++) {
             glBegin(GL_POLYGON);
                 moveY = (elevPts[i] - minAlt) * aScale;
@@ -452,5 +451,5 @@ void TerrainFollower::updateData(const LCreal dt)
 }
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 

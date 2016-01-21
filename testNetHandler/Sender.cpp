@@ -15,7 +15,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //==============================================================================
@@ -63,7 +63,7 @@ void Sender::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void Sender::updateData(const Eaagles::LCreal dt)
+void Sender::updateData(const oe::LCreal dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);
@@ -87,7 +87,7 @@ void Sender::updateData(const Eaagles::LCreal dt)
             char buffer[MAX_SIZE];
             sprintf(buffer, "Message(%d)", ++msgCounter);
             unsigned int n = static_cast<unsigned int>(std::strlen(buffer));
-            Eaagles::lcSleep(1000);
+            oe::lcSleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {
                 std::cout << "SENT: " << buffer << std::endl;

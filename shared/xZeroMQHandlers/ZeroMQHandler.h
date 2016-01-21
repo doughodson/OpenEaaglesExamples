@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: ZeroMQHandler
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xZeroMQ_ZeroMQHandler_H__
-#define __Eaagles_xZeroMQ_ZeroMQHandler_H__
+#ifndef __oe_xZeroMQ_ZeroMQHandler_H__
+#define __oe_xZeroMQ_ZeroMQHandler_H__
 
 #include "openeaagles/basic/NetHandler.h"
 
 #include <map>
 #include <string>
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Boolean; class Integer; class String; };
 
 namespace xZeroMQHandlers {
@@ -108,7 +108,7 @@ private:
    static i2s_t sti2s;
 
 protected:
-   ZeroMQContext* context;       // Parent context (Eaagles not ZeroMQ)
+   ZeroMQContext* context;       // Parent context (oe not ZeroMQ)
    int            socketType;    // Socket type
    std::string    endpoint;      // Endpoint for binding
    int            linger;        // Socket linger period (ms)
@@ -127,7 +127,7 @@ protected:
 };
 
 }  // End xZeroMQHandlers namespace
-}  // End Eaagles namespace
+}  // End oe namespace
 
 #endif
 

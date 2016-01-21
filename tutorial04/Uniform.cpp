@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Number.h"
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Uniform,"Uniform")
@@ -94,4 +94,4 @@ bool Uniform::setSlotMax(const Basic::Number* const x)
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe

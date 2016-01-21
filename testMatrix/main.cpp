@@ -9,7 +9,7 @@
 #include <iostream>
 #include <iomanip>
 
-namespace Eaagles {
+namespace oe {
 namespace Basic {
 
 const unsigned int ROWS = 4;
@@ -533,12 +533,12 @@ void test_getInverse()
 
 
 } // end namespace Basic 
-} // end namespace Eaagles
+} // end namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   Eaagles::Basic::testMatrixFns();
+   oe::Basic::testMatrixFns();
 
    return 0;
 }

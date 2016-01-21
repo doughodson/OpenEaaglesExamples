@@ -6,7 +6,7 @@
 
 #include "fx3d.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 const int MAIN_WIN_HEIGHT = 1000;
@@ -151,4 +151,4 @@ void MainWindow::setupGUI()
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace

@@ -25,7 +25,7 @@
 
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
    namespace BasicGL {
       class OcclusionArc;
    }

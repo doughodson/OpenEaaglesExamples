@@ -6,7 +6,7 @@
 
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay, "TestDisplay")
@@ -57,5 +57,5 @@ bool TestDisplay::onFrameBufferKey()
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 

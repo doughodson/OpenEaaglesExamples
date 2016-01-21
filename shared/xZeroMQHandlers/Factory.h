@@ -3,10 +3,10 @@
 //
 // Description: Class factory
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xZeroMQHandlers_Factory_H__
-#define __Eaagles_xZeroMQHandlers_Factory_H__
+#ifndef __oe_xZeroMQHandlers_Factory_H__
+#define __oe_xZeroMQHandlers_Factory_H__
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Object; }
 
@@ -22,6 +22,6 @@ protected:
 };
 
 }  // end namespace xZeroMQHandlers
-}  // end namespace Eaagles
+}  // end namespace oe
 
 #endif

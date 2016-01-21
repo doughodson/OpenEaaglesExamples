@@ -11,7 +11,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace xBehaviors {
 
 Factory::Factory()
@@ -69,5 +69,5 @@ Basic::Object* Factory::createObj(const char* name)
 }
 
 }  // end namespace xBehaviors
-}  // end namespace Eaagles
+}  // end namespace oe
 

@@ -5,7 +5,7 @@
 #include <GL/glut.h>
 #include <cmath>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRotator,"TestRotator")
@@ -135,4 +135,4 @@ void TestRotator::updateData(const LCreal dt)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

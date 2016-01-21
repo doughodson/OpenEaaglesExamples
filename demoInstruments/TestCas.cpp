@@ -1,6 +1,6 @@
 #include "TestCas.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCas, "TestCas")
@@ -58,4 +58,4 @@ void TestCas::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace

@@ -23,7 +23,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 static const unsigned int TIMING_LOOPS = 10000;
@@ -372,7 +372,7 @@ int main(int argc, char* argv[])
    // Timing data
    // ---
    if (tflg) {
-      double endTime = Eaagles::getComputerTime();
+      double endTime = oe::getComputerTime();
       double deltaTime = endTime - startTime;
       double perFrameTime = deltaTime/static_cast<double>(TIMING_LOOPS);
       std::cout << "Total Time = " << deltaTime << " for " << TIMING_LOOPS << " frames." << std::endl;
@@ -392,5 +392,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Test::main(argc, argv);
+   return oe::Test::main(argc, argv);
 }

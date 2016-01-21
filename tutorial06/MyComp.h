@@ -3,12 +3,12 @@
 // Description: example class
 //------------------------------------------------------------------------------
 
-#ifndef __Eaagles_Tutorial_MyComp_H__
-#define __Eaagles_Tutorial_MyComp_H__
+#ifndef __oe_Tutorial_MyComp_H__
+#define __oe_Tutorial_MyComp_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class String; }
 
@@ -42,7 +42,7 @@ private:
 };
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 #endif
 

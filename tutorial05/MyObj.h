@@ -3,12 +3,12 @@
 // Description: example class
 //------------------------------------------------------------------------------
 
-#ifndef __Eaagles_Tutorial_MyObj_H__
-#define __Eaagles_Tutorial_MyObj_H__
+#ifndef __oe_Tutorial_MyObj_H__
+#define __oe_Tutorial_MyObj_H__
 
 #include "openeaagles/basic/Object.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class PairStream; class List; class String;
                   class Number; class Identifier; }
@@ -60,6 +60,6 @@ private:
 };
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 #endif

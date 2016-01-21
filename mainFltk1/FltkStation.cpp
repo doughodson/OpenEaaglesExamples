@@ -9,7 +9,7 @@
 
 #include "MainWindow.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(FltkStation,"FltkStation")
@@ -145,4 +145,4 @@ Basic::Object* FltkStation::getSlotByIndex(const int si)
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace

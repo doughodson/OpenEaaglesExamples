@@ -6,7 +6,7 @@
 #include "openeaagles/simulation/Rwr.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_SUBCLASS(DspRwr,"DspRwr")
@@ -82,4 +82,4 @@ void DspRwr::drawFunc()
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

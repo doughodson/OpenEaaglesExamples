@@ -10,7 +10,7 @@
 
 #include <cstdio>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_SUBCLASS(Tester,"Tester")
@@ -23,7 +23,7 @@ END_SLOTTABLE(Tester)
 
 // slot map
 BEGIN_SLOT_MAP(Tester)
-   ON_SLOT(1, setSlotTimers, Eaagles::Basic::PairStream)
+   ON_SLOT(1, setSlotTimers, oe::Basic::PairStream)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -198,4 +198,4 @@ Basic::Object* Tester::getSlotByIndex(const int si)
 }
 
 } // namespace Test
-} // namespace Eaagles
+} // namespace oe

@@ -13,7 +13,7 @@
 
 #include "Display.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(Display,"TerrainDisplay")
@@ -701,5 +701,5 @@ Basic::Object* Display::getSlotByIndex(const int si)
 }
 
 }; // end Example namespace
-}; // end Eaagles namespace
+}; // end oe namespace
 

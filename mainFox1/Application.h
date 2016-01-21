@@ -3,14 +3,14 @@
 //
 // Description: Application class which processes GUI events
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_Application_H__
-#define __Eaagles_Example_Application_H__
+#ifndef __oe_Example_Application_H__
+#define __oe_Example_Application_H__
 
 #include "fx.h"
 
 #include "FoxStation.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Example {
 
@@ -53,6 +53,6 @@ private:
 };
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

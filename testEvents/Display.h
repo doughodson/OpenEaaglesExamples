@@ -3,12 +3,12 @@
 // Description: This class will send down data to it's components in different
 // ways, showing how the SendData class works and testing our send commands.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Display_H__
-#define __Eaagles_Test_Display_H__
+#ifndef __oe_Test_Display_H__
+#define __oe_Test_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 class TestObject;
@@ -65,6 +65,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

@@ -4,7 +4,7 @@
 #include "Random.h"
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Random,"Random")
@@ -56,5 +56,5 @@ void Random::setSeed(const unsigned int seed)
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 

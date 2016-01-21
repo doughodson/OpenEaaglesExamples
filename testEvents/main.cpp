@@ -18,7 +18,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // frame rate
@@ -118,10 +118,10 @@ int main(int argc, char* argv[])
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Test::main(argc,argv);
+   return oe::Test::main(argc,argv);
 }

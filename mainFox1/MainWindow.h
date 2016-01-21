@@ -1,16 +1,16 @@
 //------------------------------------------------------------------
 // Class: MainWindow
 //
-// Description: Eaagles version of a Fox MainWindow, understands
+// Description: OpenEaagles version of a Fox MainWindow, understands
 // mainFox::Application and mainFox::Display
 //
 //------------------------------------------------------------------
-#ifndef __Eaagles_Example_MainWindow_H__
-#define __Eaagles_Example_MainWindow_H__
+#ifndef __oe_Example_MainWindow_H__
+#define __oe_Example_MainWindow_H__
 
 #include "fx.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class Application;
@@ -65,6 +65,6 @@ private:
 };
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

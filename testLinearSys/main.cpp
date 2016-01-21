@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 int main(int, char**)
@@ -55,10 +55,10 @@ int main(int, char**)
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 
 int main(int argc, char* argv[], char**)
 {
-   return Eaagles::Test::main(argc,argv);
+   return oe::Test::main(argc,argv);
 }

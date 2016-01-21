@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: ZeroMQContext
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xZeroMQ_ZeroMQContext_H__
-#define __Eaagles_xZeroMQ_ZeroMQContext_H__
+#ifndef __oe_xZeroMQ_ZeroMQContext_H__
+#define __oe_xZeroMQ_ZeroMQContext_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Boolean; class Integer; }
 
 namespace xZeroMQHandlers {
@@ -66,7 +66,7 @@ private:
 };
 
 }  // End xZeroMQHandlers namespace
-}  // End Eaagles namespace
+}  // End oe namespace
 
 #endif
 

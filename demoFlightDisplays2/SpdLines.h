@@ -5,12 +5,12 @@
 // Inputs:
 //      UPDATE_VALUE  -> altitude flag on or off
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_SpdLines_H__
-#define __Eaagles_demo_SpdLines_H__
+#ifndef __oe_demo_SpdLines_H__
+#define __oe_demo_SpdLines_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 class SpdLines : public BasicGL::Graphic
@@ -40,7 +40,7 @@ private:
 };
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 
 #endif
 

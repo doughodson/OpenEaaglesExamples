@@ -7,7 +7,7 @@
 
 #include <FL/fl_ask.H>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // ----------------------------------------------------------------------------
@@ -200,5 +200,5 @@ void MainWindow::setZRotation(const double x)
 
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 

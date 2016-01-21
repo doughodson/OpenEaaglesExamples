@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: PriorityArbiter
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xBehaviors_PriorityArbiter_H__
-#define __Eaagles_xBehaviors_PriorityArbiter_H__
+#ifndef __oe_xBehaviors_PriorityArbiter_H__
+#define __oe_xBehaviors_PriorityArbiter_H__
 
 #include "openeaagles/basic/ubf/Arbiter.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class List; class Action; }
 

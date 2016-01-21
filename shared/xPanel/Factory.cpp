@@ -14,7 +14,7 @@
 #include "SpdLines.h"
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 Factory::Factory()
@@ -52,4 +52,4 @@ Basic::Object* Factory::createObj(const char* name)
 }
 
 }  // end namespace xPanel
-}  // end namespace Eaagles
+}  // end namespace oe

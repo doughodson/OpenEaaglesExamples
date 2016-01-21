@@ -18,7 +18,7 @@
 
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // background rate
@@ -117,13 +117,13 @@ int main(int argc, char* argv[])
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc,argv);
+   return oe::Example::main(argc,argv);
 }
 

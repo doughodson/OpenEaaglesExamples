@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Table
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Table_H__
-#define __Eaagles_Test_Table_H__
+#ifndef __oe_Test_Table_H__
+#define __oe_Test_Table_H__
 
 #include "openeaagles/basicGL/Field.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Number; class PairStream; }
 
 namespace Test {
@@ -54,7 +54,7 @@ private:
 };
 
 } // End of Test namespace
-} // End of Eaagles namespace
+} // End of oe namespace
 
 #endif
 

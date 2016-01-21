@@ -2,7 +2,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/instruments/dials/GMeterDial.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGMeterDial, "TestGMeterDial")
@@ -59,9 +59,9 @@ void TestGMeterDial::updateData(const LCreal dt)
         currGs = 0;
         /*
         {
-            Basic::Pair* p = findByType(typeid(Eaagles::GMeterDial));
+            Basic::Pair* p = findByType(typeid(oe::GMeterDial));
             if (p != 0) {
-                    Eaagles::GMeterDial* myDial = (Eaagles::GMeterDial*)(p->object());
+                    oe::GMeterDial* myDial = (oe::GMeterDial*)(p->object());
                     if (myDial != 0) myDial->resetMe();
             }
         }
@@ -78,5 +78,5 @@ void TestGMeterDial::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 

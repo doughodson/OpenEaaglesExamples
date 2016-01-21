@@ -4,7 +4,7 @@
 #include "openeaagles/basicGL/Rotators.h"
 #include "openeaagles/basic/PairStream.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdPage,"MfdPage")
@@ -68,4 +68,4 @@ void MfdPage::updateData(const LCreal dt)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

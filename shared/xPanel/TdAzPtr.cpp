@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
@@ -74,5 +74,5 @@ void TdAzPtr::draw()
 }
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 

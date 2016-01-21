@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_TestDisplay_H__
-#define __Eaagles_Test_TestDisplay_H__
+#ifndef __oe_Test_TestDisplay_H__
+#define __oe_Test_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
 
@@ -83,6 +83,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

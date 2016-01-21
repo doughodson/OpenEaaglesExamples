@@ -2,7 +2,7 @@
 #include "openeaagles/basic/Number.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_SUBCLASS(CrsPntr, "CrsPntr")
@@ -284,5 +284,5 @@ Basic::Object* CrsPntr::getSlotByIndex(const int si)
 }
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 

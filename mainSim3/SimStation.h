@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_SimStation_H__
-#define __Eaagles_Example_SimStation_H__
+#ifndef __oe_Example_SimStation_H__
+#define __oe_Example_SimStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Table1; }
    namespace Glut { class GlutDisplay; }
    namespace Simulation { class AirVehicle; }
@@ -55,6 +55,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

@@ -15,7 +15,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // background frame rate
@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    testStation->updateData(dt);
    testStation->updateTC(dt);
-   testStation->event(Eaagles::Basic::Component::RESET_EVENT);
+   testStation->event(oe::Basic::Component::RESET_EVENT);
 
    glutTimerFunc(millis, updateDataCB, 1);
 
@@ -124,11 +124,11 @@ int main(int argc, char* argv[])
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc, argv);
+   return oe::Example::main(argc, argv);
 }
 

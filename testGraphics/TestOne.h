@@ -6,12 +6,12 @@
 //  ( def-form TestOne
 //  )
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_TestOne_H__
-#define __Eaagles_Example_TestOne_H__
+#ifndef __oe_Example_TestOne_H__
+#define __oe_Example_TestOne_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic {
       class Angle;
    }
@@ -70,6 +70,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

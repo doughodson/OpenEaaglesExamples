@@ -3,13 +3,13 @@
 //
 // Description: Tests the pfd.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_XPanel_Pfd_H__
-#define __Eaagles_XPanel_Pfd_H__
+#ifndef __oe_XPanel_Pfd_H__
+#define __oe_XPanel_Pfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 class Pfd : public BasicGL::Page
@@ -168,7 +168,7 @@ private:
 };
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

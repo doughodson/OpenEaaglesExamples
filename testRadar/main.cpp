@@ -16,7 +16,7 @@
 
 //#define PARSE_TIMING_TEST
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // background frame rate
@@ -144,10 +144,10 @@ int main(int argc, char* argv[])
 }
 
 } // end Test namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Test::main(argc, argv);
+   return oe::Test::main(argc, argv);
 }

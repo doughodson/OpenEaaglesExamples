@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
 }
 
 } // end demo namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 //
 int main(int argc, char* argv[])

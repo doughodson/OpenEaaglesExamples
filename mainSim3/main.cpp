@@ -18,7 +18,7 @@
 
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // default background frame rate
@@ -72,7 +72,7 @@ static void updateDataCB(int msecs)
 
    // Compute delta time
    static double time0 = time;   // N-1 Time
-   const LCreal dt = static_cast<Eaagles::LCreal>(time - time0);
+   const LCreal dt = static_cast<oe::LCreal>(time - time0);
    time0 = time;
 
    simStation->updateData(dt);
@@ -114,10 +114,10 @@ int main(int argc, char* argv[])
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc, argv);
+   return oe::Example::main(argc, argv);
 }

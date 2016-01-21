@@ -14,12 +14,12 @@ void drawCallBack(void* pData)
 {
     if (pData != nullptr) {
         // we know GLWindow called this.
-        Eaagles::Example::GLWindow* gl = reinterpret_cast<Eaagles::Example::GLWindow*>(pData);
+        oe::Example::GLWindow* gl = reinterpret_cast<oe::Example::GLWindow*>(pData);
         if (gl != 0) gl->redraw();
     }
 }
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // ----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ GLWindow::~GLWindow()
 
 // ----------------------------------------------------------------------------
 // draw() - called after a redraw() command, this is where we will draw
-// our Eaagles graphics.
+// our oe graphics.
 // ----------------------------------------------------------------------------
 void GLWindow::draw()
 {
@@ -98,7 +98,7 @@ int GLWindow::handle(int x)
 }
 
 // ----------------------------------------------------------------------------
-// setDisplay() - set our Eaagles display
+// setDisplay() - set our display
 // ----------------------------------------------------------------------------
 void GLWindow::setDisplay(FltkDisplay* x)
 {

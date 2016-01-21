@@ -9,7 +9,7 @@
 #include "fx.h"
 #include "fx3d.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay,"FoxDisplay")
@@ -330,5 +330,5 @@ void FoxDisplay::printSelectBuffer(const GLuint sbuff[], const int size)
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 

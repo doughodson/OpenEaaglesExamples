@@ -4,12 +4,12 @@
 // Description:
 //      Derived Display that will make our map page move.
 // -------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_Display_H__
-#define __Eaagles_Example_Display_H__
+#ifndef __oe_Example_Display_H__
+#define __oe_Example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class Display : public Glut::GlutDisplay
@@ -34,7 +34,7 @@ private:
 };
 
 }  // end of Example namespace
-}  // end of Eaagles namespace
+}  // end of oe namespace
 
 #endif
 

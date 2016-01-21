@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: DspRwr
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_DspRwr_H__
-#define __Eaagles_Test_DspRwr_H__
+#ifndef __oe_Test_DspRwr_H__
+#define __oe_Test_DspRwr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation { class Rwr; }
 
 namespace Test {
@@ -38,6 +38,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

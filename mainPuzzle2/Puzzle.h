@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Puzzle
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_Puzzle_H__
-#define __Eaagles_Example_Puzzle_H__
+#ifndef __oe_Example_Puzzle_H__
+#define __oe_Example_Puzzle_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic {
       class List;
    }
@@ -78,6 +78,6 @@ private:
 };
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace
 
 #endif

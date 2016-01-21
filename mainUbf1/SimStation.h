@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_SimStation_H__
-#define __Eaagles_Example_SimStation_H__
+#ifndef __oe_Example_SimStation_H__
+#define __oe_Example_SimStation_H__
 
 //#include "agent/AgentStation.h"
 #include "openeaagles/simulation/Station.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Table1; class PairStream; }
 namespace Glut { class GlutDisplay; }
@@ -53,6 +53,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

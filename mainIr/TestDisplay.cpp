@@ -12,7 +12,7 @@
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/units/Distances.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
@@ -350,4 +350,4 @@ Simulation::Station* TestDisplay::getStation()
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

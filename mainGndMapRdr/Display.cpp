@@ -19,7 +19,7 @@
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/units/Distances.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(Display,"RbrDisplay")
@@ -228,5 +228,5 @@ Basic::Object* Display::getSlotByIndex(const int si)
 }
 
 }; // end Example namespace
-}; // end Eaagles namespace
+}; // end oe namespace
 

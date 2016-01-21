@@ -11,7 +11,7 @@
 #include "openeaagles/basic/Boolean.h"
 #include "openeaagles/basic/IoData.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 //==============================================================================
@@ -324,4 +324,4 @@ void SimIoHandler::clear()
 }
 
 } // End Example
-} // end Eaagles namespace
+} // end oe namespace

@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: DspRadar
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_XPanel_DspRadar_H__
-#define __Eaagles_XPanel_DspRadar_H__
+#ifndef __oe_XPanel_DspRadar_H__
+#define __oe_XPanel_DspRadar_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic      { class PairStream; }
    namespace Simulation { class Radar; }
 
@@ -49,7 +49,7 @@ private:
 };
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

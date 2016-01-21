@@ -24,7 +24,7 @@
 #include "openeaagles/basicGL/SymbolLoader.h"
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
@@ -715,5 +715,5 @@ void TestDisplay::updatePfd(const LCreal)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 

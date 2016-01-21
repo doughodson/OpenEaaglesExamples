@@ -6,7 +6,7 @@
 #include "openeaagles/basic/String.h"
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(MyComp,"MyComp")
@@ -128,5 +128,5 @@ void MyComp::updateData(const LCreal dt)
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 

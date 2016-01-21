@@ -3,7 +3,7 @@
 //
 // Notes:
 //    1) Numbering of both analog and bit channels start at one(1).
-//    2) This file defines channels for both the C++ code and the Eaagles
+//    2) This file defines channels for both the C++ code and the OpenEaagles
 //       input files, so use only C pre-processor directives only.
 //------------------------------------------------------------------------------
 #ifndef __F16_HOTAS_IO_DEF_H__

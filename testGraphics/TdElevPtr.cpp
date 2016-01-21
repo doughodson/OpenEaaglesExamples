@@ -2,7 +2,7 @@
 #include "TdElevPtr.h"
 #include "openeaagles/basic/Number.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
@@ -59,4 +59,4 @@ bool TdElevPtr::onUpdateValue(const Basic::Number* const ouvobj)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

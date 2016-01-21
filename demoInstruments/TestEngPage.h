@@ -3,18 +3,18 @@
 //
 // Description: Tests the engine page
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_TestEngPage_H__
-#define __Eaagles_demo_TestEngPage_H__
+#ifndef __oe_demo_TestEngPage_H__
+#define __oe_demo_TestEngPage_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/instruments/eng/EngPage.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
-class TestEngPage : public Eaagles::BasicGL::Page
+class TestEngPage : public oe::BasicGL::Page
 {
-   DECLARE_SUBCLASS(TestEngPage, Eaagles::BasicGL::Page )
+   DECLARE_SUBCLASS(TestEngPage, oe::BasicGL::Page )
 
 public:
     TestEngPage();
@@ -40,7 +40,7 @@ private:
 };
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 
 #endif
 

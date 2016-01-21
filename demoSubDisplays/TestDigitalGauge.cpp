@@ -1,6 +1,6 @@
 #include "TestDigitalGauge.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDigitalGauge, "TestDigitalGauge")
@@ -62,4 +62,4 @@ void TestDigitalGauge::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace

@@ -3,12 +3,12 @@
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef __Eaagles_Tutorial_Uniform_H__
-#define __Eaagles_Tutorial_Uniform_H__
+#ifndef __oe_Tutorial_Uniform_H__
+#define __oe_Tutorial_Uniform_H__
 
 #include "Random.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic   { class Number; }
 
@@ -37,6 +37,6 @@ private:
 };
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 #endif

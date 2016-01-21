@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(Board,"PuzzleBoard")
@@ -379,4 +379,4 @@ std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slots
 }
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace

@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: ServerTcpMultiple
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_ServerTcpMultiple_H__
-#define __Eaagles_Test_ServerTcpMultiple_H__
+#ifndef __oe_Test_ServerTcpMultiple_H__
+#define __oe_Test_ServerTcpMultiple_H__
 
 #include "Endpoint.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //------------------------------------------------------------------------------

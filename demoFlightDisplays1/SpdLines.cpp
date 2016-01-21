@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Number.h"
 #include <GL/glu.h>
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
@@ -111,10 +111,10 @@ void SpdLines::drawFunc()
                 // make the polygon last
                 glPushMatrix();
                     glBegin(GL_POLYGON);
-                        glVertex2f(0, 15);
-                        glVertex2f(0, -15);
-                        glVertex2f(0.6, -15);
-                        glVertex2f(0.6, 15);
+                        glVertex2f(0.0f,  15.0f);
+                        glVertex2f(0.0f, -15.0f);
+                        glVertex2f(0.6f, -15.0f);
+                        glVertex2f(0.6f,  15.0f);
                     glEnd();
                 glPopMatrix();
             }
@@ -199,5 +199,5 @@ Basic::Object* SpdLines::getSlotByIndex(const int si)
 }
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 

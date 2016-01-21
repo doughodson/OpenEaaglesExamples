@@ -2,7 +2,7 @@
 #include "TestOne.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(TestOne,"TestOne")
@@ -264,4 +264,4 @@ bool TestOne::setAngle(const Basic::Number* const saobj)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

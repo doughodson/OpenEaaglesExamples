@@ -2,12 +2,12 @@
 // Class: PlaneAction
 //------------------------------------------------------------------------------
 
-#ifndef __Eaagles_xBehaviors_PlaneAction_H__
-#define __Eaagles_xBehaviors_PlaneAction_H__
+#ifndef __oe_xBehaviors_PlaneAction_H__
+#define __oe_xBehaviors_PlaneAction_H__
 
 #include "openeaagles/basic/ubf/Action.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Simulation { class Player; }
 

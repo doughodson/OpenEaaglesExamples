@@ -4,7 +4,7 @@
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/Boolean.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_SUBCLASS(TestStateMachine04A,"TestStateMachine04A")
@@ -66,4 +66,4 @@ void TestStateMachine04A::stateFunc04(const LCreal)
 
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

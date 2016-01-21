@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_XPanel_TdElevPtr_H__
-#define __Eaagles_XPanel_TdElevPtr_H__
+#ifndef __oe_XPanel_TdElevPtr_H__
+#define __oe_XPanel_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class Number; }
 namespace xPanel {
 
@@ -46,7 +46,7 @@ private:
 };
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

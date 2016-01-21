@@ -15,7 +15,7 @@
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basic/osg/Vec4"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
@@ -97,5 +97,5 @@ Basic::Object* TestStation::getSlotByIndex(const int si)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 

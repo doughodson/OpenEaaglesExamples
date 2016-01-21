@@ -9,7 +9,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestObject, "TestObject")
@@ -50,4 +50,4 @@ void TestObject::copyData(const TestObject& org, const bool)
 EMPTY_DELETEDATA(TestObject)
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

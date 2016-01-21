@@ -2,7 +2,7 @@
 #include "TdAzPtr.h"
 #include "openeaagles/basic/Number.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
@@ -70,4 +70,4 @@ void TdAzPtr::draw()
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

@@ -4,7 +4,7 @@
 #include "SpdLines.h"
 #include "openeaagles/basic/Number.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
@@ -171,5 +171,5 @@ Basic::Object* SpdLines::getSlotByIndex(const int si)
 }
 
 }; // end of xPanel namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 

@@ -3,10 +3,10 @@
 //
 // Description: Class factory
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xPanel_Factory_H__
-#define __Eaagles_xPanel_Factory_H__
+#ifndef __oe_xPanel_Factory_H__
+#define __oe_xPanel_Factory_H__
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Object; }
 
@@ -22,6 +22,6 @@ protected:
 };
 
 }  // end namespace xPanel
-}  // end namespace Eaagles
+}  // end namespace oe
 
 #endif

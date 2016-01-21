@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Echo
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Echo_H__
-#define __Eaagles_Test_Echo_H__
+#ifndef __oe_Test_Echo_H__
+#define __oe_Test_Echo_H__
 
 #include "Endpoint.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //------------------------------------------------------------------------------

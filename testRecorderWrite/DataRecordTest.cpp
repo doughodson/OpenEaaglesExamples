@@ -42,7 +42,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 
@@ -99,7 +99,7 @@ DataRecordTest::DataRecordTest()
       selection[i].compareValD = 0;
       selection[i].compareValS = "";
       selection[i].compareValI = 0;
-      selection[i].condition = Eaagles::Recorder::PrintSelected::EQ;
+      selection[i].condition = oe::Recorder::PrintSelected::EQ;
       selection[i].timeOnly = false;
    }
 
@@ -443,7 +443,7 @@ void DataRecordTest::readSerialFromFile()
 
          if (readHandle != nullptr) {
             // Check for last message
-            const Eaagles::Recorder::Pb::DataRecord* testDr = readHandle->getRecord();
+            const oe::Recorder::Pb::DataRecord* testDr = readHandle->getRecord();
             unsigned int recId = testDr->id();
             std::cout << "Data record ID: " << recId << std::endl;
             if (recId == REID_END_OF_DATA) {
@@ -526,7 +526,7 @@ bool DataRecordTest::testEvents()
 //         std::cin  >> outSelect;
 //         if (outSelect > 0) sendToFile = true;
 
-        const Eaagles::Recorder::DataRecordHandle* handle = nullptr;
+        const oe::Recorder::DataRecordHandle* handle = nullptr;
 
          switch (testNumber) {
             case  1: { handle = testFileIdMsg(1); break; }
@@ -593,11 +593,11 @@ void DataRecordTest::eventTestMenu()
 // ------------------------------------------------------------------------------------------------
 // testFileIdMsg: Sets some File ID msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
+oe::Recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_FILE_ID);
@@ -628,15 +628,15 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 // ------------------------------------------------------------------------------------------------
 // testNewPlayerEventMsg: Sets some New Player msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
 
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_NEW_PLAYER);
@@ -677,13 +677,13 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerRemovedEventMsg: Sets some Player Removed msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_REMOVED);
@@ -715,13 +715,13 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerDataMsg: Sets some Player Data msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_DATA);
@@ -753,15 +753,15 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerDamagedEventMsg: Sets some Player Damaged msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
-   const google::protobuf::Message* recMsg = new Eaagles::Recorder::Pb::DataRecord();
+   const google::protobuf::Message* recMsg = new oe::Recorder::Pb::DataRecord();
    const google::protobuf::Descriptor* descriptor = recMsg->GetDescriptor();
    const google::protobuf::FieldDescriptor* id_field = descriptor->FindFieldByName("id");
 
@@ -799,14 +799,14 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerCollisionEventMsg: Sets some Player Collision msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
-   Eaagles::Recorder::Pb::PlayerId* other = msg->mutable_other_player_id();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::PlayerId* other = msg->mutable_other_player_id();
 
    // required
    recordMsg->set_id(REID_PLAYER_COLLISION);
@@ -843,13 +843,13 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg
 // ------------------------------------------------------------------------------------------------
 // testPlayerCrashEventMsg: Sets some Player Crash msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_CRASH);
@@ -881,13 +881,13 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerKilledEventMsg: Sets some Player Killed msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigned int type)
+oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigned int type)
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
-   Eaagles::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   Eaagles::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_KILLED);
@@ -919,11 +919,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(un
 // ------------------------------------------------------------------------------------------------
 // testWeaponReleaseEventMsg: Sets some Weapon Released msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsigned int side)
+oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsigned int side)
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_RELEASED);
@@ -962,11 +962,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(u
 // ------------------------------------------------------------------------------------------------
 // testWeaponHungEventMsg: Sets some Weapon Hung msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_HUNG);
@@ -1007,11 +1007,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testWeaponDetonationEventMsg: Sets some Weapon Detonation msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_DETONATION);
@@ -1020,7 +1020,7 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMs
    recordMsg->mutable_time()->set_utc_time(getUtcTime());
 
 
-   msg->set_det_type(Eaagles::Recorder::Pb::WeaponDetonationEventMsg_DetonationType_DETONATE_GROUND_IMPACT);
+   msg->set_det_type(oe::Recorder::Pb::WeaponDetonationEventMsg_DetonationType_DETONATE_GROUND_IMPACT);
 
    // required PlayerId    wpn_id       = 1;
    msg->mutable_wpn_id()->set_id(531);
@@ -1063,11 +1063,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMs
 // ------------------------------------------------------------------------------------------------
 // testGunFiredEventMsg: Sets some Gun Fired msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_GUN_FIRED);
@@ -1091,11 +1091,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testNewTrackEventMsg: Sets some New Track msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_NEW_TRACK);
@@ -1167,7 +1167,7 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
    msg->mutable_emission_data()->set_bandwidth(3000);
    msg->mutable_emission_data()->set_prf(4000);
    msg->mutable_emission_data()->set_power(5000);
-   msg->mutable_emission_data()->set_polarization(Eaagles::Recorder::Pb::EmissionData_Polarization_NONE);
+   msg->mutable_emission_data()->set_polarization(oe::Recorder::Pb::EmissionData_Polarization_NONE);
 
    // enum Polarization {
    //   NONE        = 0;
@@ -1188,11 +1188,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testTrackRemovedEventMsg: Sets some Track Removed msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_TRACK_REMOVED);
@@ -1216,11 +1216,11 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testTrackDataMsg: Sets some Track Data msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
-   Eaagles::Recorder::Pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_TRACK_DATA);
@@ -1293,7 +1293,7 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
    msg->mutable_emission_data()->set_bandwidth(3000);
    msg->mutable_emission_data()->set_prf(4000);
    msg->mutable_emission_data()->set_power(5000);
-   msg->mutable_emission_data()->set_polarization(Eaagles::Recorder::Pb::EmissionData_Polarization_NONE);
+   msg->mutable_emission_data()->set_polarization(oe::Recorder::Pb::EmissionData_Polarization_NONE);
 
    size_t messageSize = recordMsg->ByteSize();
    std::cout << "Message size: " << messageSize << std::endl;
@@ -1304,12 +1304,12 @@ Eaagles::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 // ------------------------------------------------------------------------------------------------
 // testLastMsg: Sets some Last msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-Eaagles::Recorder::DataRecordHandle* DataRecordTest::testLastMsg()
+oe::Recorder::DataRecordHandle* DataRecordTest::testLastMsg()
 {
-   Eaagles::Recorder::Pb::DataRecord* recordMsg = new Eaagles::Recorder::Pb::DataRecord();
+   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
    recordMsg->set_id(REID_END_OF_DATA);
 
-   Eaagles::Recorder::DataRecordHandle* handle = new Eaagles::Recorder::DataRecordHandle(recordMsg);
+   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
 
    // Still need "required" data:
    recordMsg->mutable_time()->set_exec_time(getExecTime());
@@ -1394,16 +1394,16 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
                   unsigned int cond;
                   std::cin >>  cond;
                   if (cond == 1) {
-                     setCompareCondition(Eaagles::Recorder::PrintSelected::LT);
+                     setCompareCondition(oe::Recorder::PrintSelected::LT);
                   }
                   else if (cond == 2) {
-                     setCompareCondition(Eaagles::Recorder::PrintSelected::GT);
+                     setCompareCondition(oe::Recorder::PrintSelected::GT);
                   }
                   else {
-                     setCompareCondition(Eaagles::Recorder::PrintSelected::EQ);
+                     setCompareCondition(oe::Recorder::PrintSelected::EQ);
                   }
                }
-               else setCompareCondition(Eaagles::Recorder::PrintSelected::EQ); // not needed in this case
+               else setCompareCondition(oe::Recorder::PrintSelected::EQ); // not needed in this case
             }
             else if (select == "Q" || select == "q") {
                fieldSelected = true;  // force exit
@@ -1490,7 +1490,7 @@ bool DataRecordTest::setCompareToValue(const double dblVal )
 //------------------------------------------------------------------------------
 // setCompareCondition(): Set comparison condition
 //---------------------------------------------------------------------------
-bool DataRecordTest::setCompareCondition(const Eaagles::Recorder::PrintSelected::Condition cc )
+bool DataRecordTest::setCompareCondition(const oe::Recorder::PrintSelected::Condition cc )
 {
    selection[selectionNum].condition = cc;
    return true;

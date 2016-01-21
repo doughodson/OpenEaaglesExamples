@@ -19,7 +19,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // frame rate
@@ -40,7 +40,7 @@ static void timerFunc(int)
 }
 
 // our class factory
-static Eaagles::Basic::Object* factory(const char* name)
+static oe::Basic::Object* factory(const char* name)
 {
    Basic::Object* obj = nullptr;
    if (obj == nullptr) obj = Glut::Factory::createObj(name);
@@ -112,10 +112,10 @@ int main(int argc, char* argv[])
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc,argv);
+   return oe::Example::main(argc,argv);
 }

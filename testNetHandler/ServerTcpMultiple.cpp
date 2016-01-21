@@ -7,7 +7,7 @@
 #include "openeaagles/basic/NetHandler.h"
 #include "openeaagles/basic/Number.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //==============================================================================
@@ -52,7 +52,7 @@ void ServerTcpMultiple::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void ServerTcpMultiple::updateData(const Eaagles::LCreal dt)
+void ServerTcpMultiple::updateData(const oe::LCreal dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);

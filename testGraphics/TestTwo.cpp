@@ -2,7 +2,7 @@
 #include "TestTwo.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(TestTwo,"TestTwo")
@@ -278,4 +278,4 @@ bool TestTwo::setV2Min(const Basic::Number* const sv2miobj)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

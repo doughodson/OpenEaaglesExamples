@@ -10,7 +10,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
@@ -357,5 +357,5 @@ void Pfd::updateData(const LCreal dt)
 }
 
 }; // end of xPanel namespace
-}; // end of Eaagles Namespace
+}; // end of oe Namespace
 

@@ -13,7 +13,7 @@
 #include <cstdlib>
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // -----------------------------------------------------------------------------
@@ -4497,7 +4497,7 @@ void test27_convertUtm()
 }
 
 } // end namespace Test
-} // end namespace Eaagles
+} // end namespace oe
 
 //==============================================================================
 int main(int argc, char* argv[])
@@ -4516,12 +4516,12 @@ int main(int argc, char* argv[])
 
    if (runAll) {
       // Run all tests
-      Eaagles::Test::testNumber = 99;
-      Eaagles::Test::test99_printAllExamples();
+      oe::Test::testNumber = 99;
+      oe::Test::test99_printAllExamples();
    }
    else if (imode) {
       // Interactive mode
-      Eaagles::Test::testNavFns();
+      oe::Test::testNavFns();
    }
    else {
       std::cout                                             << std::endl;

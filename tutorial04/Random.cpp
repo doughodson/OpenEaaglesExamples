@@ -6,7 +6,7 @@
 #include "openeaagles/basic/Number.h"
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(Random,"Random")
@@ -74,5 +74,5 @@ bool Random::setSlotSeed(const Basic::Number* const seed)
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 

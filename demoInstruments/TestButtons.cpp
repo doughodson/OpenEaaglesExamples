@@ -2,7 +2,7 @@
 #include "openeaagles/instruments/buttons/Knob.h"
 #include "openeaagles/basic/Pair.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestButtons,"TestButtons")
@@ -128,4 +128,4 @@ void TestButtons::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace

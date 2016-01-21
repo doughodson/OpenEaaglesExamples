@@ -11,7 +11,7 @@
 
 #include <zmq.h>
 
-namespace Eaagles {
+namespace oe {
 namespace xZeroMQHandlers {
 
 //==============================================================================
@@ -633,5 +633,5 @@ std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bo
 }
 
 }  // End xZeroMQHandlers namespace
-}  // End Eaagles namespace
+}  // End oe namespace
 

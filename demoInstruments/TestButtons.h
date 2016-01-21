@@ -3,12 +3,12 @@
 //
 // Description: Simply tests our buttons and prints out which one we hit
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_TestButtons_H__
-#define __Eaagles_demo_TestButtons_H__
+#ifndef __oe_demo_TestButtons_H__
+#define __oe_demo_TestButtons_H__
 
 #include "openeaagles/basicGL/Page.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 class TestButtons : public BasicGL::Page
@@ -42,7 +42,7 @@ private:
 };
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 
 #endif
 

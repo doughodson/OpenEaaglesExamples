@@ -10,7 +10,7 @@
 
 #include <iostream>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 //==============================================================================
@@ -266,4 +266,4 @@ void TestComputer::updateShootList(const bool step)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Endpoint
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Endpoint_H__
-#define __Eaagles_Test_Endpoint_H__
+#ifndef __oe_Test_Endpoint_H__
+#define __oe_Test_Endpoint_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class NetHandler; class Number; }
 

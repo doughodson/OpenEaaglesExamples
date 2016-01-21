@@ -14,7 +14,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 Factory::Factory()
@@ -41,4 +41,4 @@ Basic::Object* Factory::createObj(const char* name)
 }
 
 }  // end namespace Test
-}  // end namespace Eaagles
+}  // end namespace oe

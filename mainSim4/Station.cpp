@@ -3,7 +3,7 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(Station,"MapTestStation")
@@ -113,5 +113,5 @@ Basic::Object* Station::getSlotByIndex(const int si)
 }
 
 }  // end of Example namespace
-}  // end of Eaagles namespace
+}  // end of oe namespace
 

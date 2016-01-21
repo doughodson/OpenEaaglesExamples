@@ -1,10 +1,10 @@
 
-#ifndef __Eaagles_Example_TestDisplay_H__
-#define __Eaagles_Example_TestDisplay_H__
+#ifndef __oe_Example_TestDisplay_H__
+#define __oe_Example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
    namespace xPanel { class DspRadar; class DspRwr; }
@@ -137,6 +137,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

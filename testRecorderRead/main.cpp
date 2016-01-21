@@ -7,7 +7,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // DataRecordTest builder
@@ -72,6 +72,6 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-    Eaagles::Test::main(argc, argv);
+    oe::Test::main(argc, argv);
 }
 

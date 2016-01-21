@@ -3,12 +3,12 @@
 //
 // Description: Display that will rotate our graphics.
 //-----------------------------------------------------
-#ifndef __Eaagles_Example_FltkDisplay_H__
-#define __Eaagles_Example_FltkDisplay_H__
+#ifndef __oe_Example_FltkDisplay_H__
+#define __oe_Example_FltkDisplay_H__
 
 #include "openeaagles/basicGL/Display.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class FltkDisplay : public BasicGL::Display
@@ -44,6 +44,6 @@ private:
 };
 
 }  // end Example
-}  // end Eaagles
+}  // end oe
 
 #endif

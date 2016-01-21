@@ -4,7 +4,7 @@
 #include "openeaagles/basic/osg/Matrix"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(SimPlayer, "SimPlayer")
@@ -77,4 +77,4 @@ std::ostream& SimPlayer::serialize(std::ostream& sout, const int i, const bool s
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

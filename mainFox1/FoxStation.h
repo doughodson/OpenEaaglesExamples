@@ -3,12 +3,12 @@
 //
 // Description: Station class that a FoxDisplay can be attached
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_FoxStation_H__
-#define __Eaagles_Example_FoxStation_H__
+#ifndef __oe_Example_FoxStation_H__
+#define __oe_Example_FoxStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class FoxDisplay;
@@ -36,6 +36,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

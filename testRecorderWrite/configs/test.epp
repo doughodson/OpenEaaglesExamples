@@ -23,8 +23,8 @@
 
       // for selection:
       messageToken: REID_WEAPON_DETONATION
-   //   fieldName:   "Eaagles.Recorder.Pb.PlayerId.id"
-      fieldName:   "Eaagles.Recorder.Pb.WeaponDetonationEventMsg.det_type"
+   //   fieldName:   "oe.Recorder.Pb.PlayerId.id"
+      fieldName:   "oe.Recorder.Pb.WeaponDetonationEventMsg.det_type"
     //  compareToVal: "player123"
       compareToValI: 3
       condition: "EQ"
@@ -33,7 +33,7 @@
    printSelected2: ( PrintSelected
       // for selection:
       messageToken: REID_WEAPON_DETONATION
-      fieldName:   "Eaagles.Recorder.Pb.WeaponDetonationEventMsg.det_type"
+      fieldName:   "oe.Recorder.Pb.WeaponDetonationEventMsg.det_type"
       compareToValI: 3
       condition: "EQ"
    )

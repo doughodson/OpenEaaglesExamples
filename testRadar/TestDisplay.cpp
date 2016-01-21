@@ -23,7 +23,7 @@
 #include "openeaagles/basicGL/SymbolLoader.h"
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay,"TestDisplay")
@@ -532,4 +532,4 @@ Simulation::Station* TestDisplay::getStation()
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

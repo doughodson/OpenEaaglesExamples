@@ -7,7 +7,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
@@ -354,4 +354,4 @@ void Pfd::updateData(const LCreal dt)
 }
 
 }; // end of demo namespace
-}; // end of Eaagles Namespace
+}; // end of oe Namespace

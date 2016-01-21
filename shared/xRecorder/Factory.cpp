@@ -9,7 +9,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace xRecorder {
 
 Factory::Factory()
@@ -27,4 +27,4 @@ Basic::Object* Factory::createObj(const char* name)
 }
 
 }  // end namespace xRecorder
-}  // end namespace Eaagles
+}  // end namespace oe

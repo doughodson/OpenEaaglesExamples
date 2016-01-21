@@ -12,12 +12,12 @@
 //          PlaneBehaviorBase -> PlaneBarrelRoll
 //          PlaneBehaviorBase -> PlaneLoop
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xBehaviors_PlaneBehaviors_H__
-#define __Eaagles_xBehaviors_PlaneBehaviors_H__
+#ifndef __oe_xBehaviors_PlaneBehaviors_H__
+#define __oe_xBehaviors_PlaneBehaviors_H__
 
 #include "openeaagles/basic/ubf/Behavior.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Distance; class State; }
 

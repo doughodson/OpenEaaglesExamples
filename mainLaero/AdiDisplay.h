@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: AdiDisplay
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_AdiDisplay_H__
-#define __Eaagles_Example_AdiDisplay_H__
+#ifndef __oe_Example_AdiDisplay_H__
+#define __oe_Example_AdiDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation {
       class Station;
       class Aircraft;

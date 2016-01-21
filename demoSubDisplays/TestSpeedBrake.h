@@ -5,12 +5,12 @@
 // This page will supply test data to the speed brake (generic)
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_TestSpeedBrake_H__
-#define __Eaagles_demo_TestSpeedBrake_H__
+#ifndef __oe_demo_TestSpeedBrake_H__
+#define __oe_demo_TestSpeedBrake_H__
 
 #include "openeaagles/basicGL/Page.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 class TestSpeedBrake : public BasicGL::Page
@@ -30,7 +30,7 @@ private:
 };
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 
 #endif
 

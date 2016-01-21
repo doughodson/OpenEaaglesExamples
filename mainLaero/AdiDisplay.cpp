@@ -12,7 +12,7 @@
 #include "openeaagles/basic/units/Distances.h"
 #include "openeaagles/basic/units/Times.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay,"AdiDisplay")
@@ -78,7 +78,7 @@ void AdiDisplay::updateData(const LCreal dt)
    // Update base classes stuff
    BaseClass::updateData(dt);
 
-   Eaagles::osg::Vec3d av;
+   oe::osg::Vec3d av;
 
    // get access pointer to ownship
    Simulation::Aircraft* pA = getOwnship();

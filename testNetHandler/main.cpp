@@ -16,7 +16,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 const float UPDATE_RATE = 10.0; // main loop update rate
@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
    // system time of day
    double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time
    double simTime = 0.0;                            // Simulator time reference
-   double startTime = Eaagles::getComputerTime();   // Time of day (sec) run started
+   double startTime = oe::getComputerTime();   // Time of day (sec) run started
 
    // main loop
    std::cout << "Starting main loop ..." << std::endl;
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
       endpoint->updateData( static_cast<LCreal>(dt) );
 
       simTime += dt;                       // time of next frame
-      double timeNow = Eaagles::getComputerTime();  // time now
+      double timeNow = oe::getComputerTime();  // time now
 
       double elapsedTime = timeNow - startTime;
       double nextFrameStart = simTime - elapsedTime;
@@ -127,5 +127,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   Eaagles::Test::main(argc, argv);
+   oe::Test::main(argc, argv);
 }

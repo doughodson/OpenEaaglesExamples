@@ -26,7 +26,7 @@
 
 #include <cstring>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 Factory::Factory()
@@ -51,7 +51,7 @@ Basic::Object* Factory::createObj(const char* name)
     if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
     // framework libraries
-    if (obj == nullptr) obj = Eaagles::Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
     if (obj == nullptr) obj = Instruments::Factory::createObj(name);
     if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
     if (obj == nullptr) obj = Instruments::Factory::createObj(name);
@@ -67,5 +67,5 @@ Basic::Object* Factory::createObj(const char* name)
 }
 
 }  // end namespace Example
-}  // end namespace Eaagles
+}  // end namespace oe
 

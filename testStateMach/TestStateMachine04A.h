@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04A
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_TestStateMachine04A_H__
-#define __Eaagles_Test_TestStateMachine04A_H__
+#ifndef __oe_Test_TestStateMachine04A_H__
+#define __oe_Test_TestStateMachine04A_H__
 
 #include "openeaagles/basic/StateMachine.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //------------------------------------------------------------------------------
@@ -39,6 +39,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

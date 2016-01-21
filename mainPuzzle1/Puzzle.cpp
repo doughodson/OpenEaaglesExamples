@@ -4,7 +4,7 @@
 
 #include "openeaagles/basic/List.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(Puzzle,"Puzzle")
@@ -363,4 +363,4 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
 }
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace

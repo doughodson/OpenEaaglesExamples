@@ -8,7 +8,7 @@
 #include "openeaagles/basic/nethandlers/TcpHandler.h"
 #include "openeaagles/basic/Number.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //==============================================================================
@@ -28,11 +28,11 @@ END_SLOTTABLE(Endpoint)
 
 // Map slot table to handles 
 BEGIN_SLOT_MAP(Endpoint)
-    ON_SLOT(1, setSlotNetwork,   Eaagles::Basic::NetHandler)
-    ON_SLOT(2, setSlotNetInput,  Eaagles::Basic::NetHandler)
-    ON_SLOT(3, setSlotNetwork,   Eaagles::Basic::NetHandler)
-    ON_SLOT(4, setSlotNoWait,    Eaagles::Basic::Number)
-    ON_SLOT(5, setSlotLoops,     Eaagles::Basic::Number)
+    ON_SLOT(1, setSlotNetwork,   oe::Basic::NetHandler)
+    ON_SLOT(2, setSlotNetInput,  oe::Basic::NetHandler)
+    ON_SLOT(3, setSlotNetwork,   oe::Basic::NetHandler)
+    ON_SLOT(4, setSlotNoWait,    oe::Basic::Number)
+    ON_SLOT(5, setSlotLoops,     oe::Basic::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -190,21 +190,21 @@ void Endpoint::closeConnections()
 //------------------------------------------------------------------------------
 
 // Network Handler
-bool Endpoint::setSlotNetwork(Eaagles::Basic::NetHandler* const msg)
+bool Endpoint::setSlotNetwork(oe::Basic::NetHandler* const msg)
 {
     netHandler = msg;
     return true;
 }
 
 // Input Handler
-bool Endpoint::setSlotNetInput(Eaagles::Basic::NetHandler* const msg)
+bool Endpoint::setSlotNetInput(oe::Basic::NetHandler* const msg)
 {
     netInput = msg;
     return true;
 }
 
 // No wait (unblocked) I/O flag
-bool Endpoint::setSlotNoWait(Eaagles::Basic::Number* const msg)
+bool Endpoint::setSlotNoWait(oe::Basic::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {
@@ -215,7 +215,7 @@ bool Endpoint::setSlotNoWait(Eaagles::Basic::Number* const msg)
 }
 
 // Number of message loops
-bool Endpoint::setSlotLoops(Eaagles::Basic::Number* const msg)
+bool Endpoint::setSlotLoops(oe::Basic::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {

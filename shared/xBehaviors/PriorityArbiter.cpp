@@ -7,7 +7,7 @@
 
 #include "PlaneAction.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xBehaviors {
 
 IMPLEMENT_SUBCLASS(PriorityArbiter, "PriorityArbiter")

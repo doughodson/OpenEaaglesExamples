@@ -5,7 +5,7 @@
 #include "Worm.h"
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Worm, "Worm")
@@ -17,9 +17,9 @@ BEGIN_SLOTTABLE(Worm)
 END_SLOTTABLE(Worm)
 // slot map
 BEGIN_SLOT_MAP(Worm)
-   ON_SLOT(1, realSpeed, Eaagles::Basic::Number)
-   ON_SLOT(2, setAngle, Eaagles::Basic::Angle)
-   ON_SLOT(2, setAngle, Eaagles::Basic::Number)
+   ON_SLOT(1, realSpeed, oe::Basic::Number)
+   ON_SLOT(2, setAngle, oe::Basic::Angle)
+   ON_SLOT(2, setAngle, oe::Basic::Number)
 END_SLOT_MAP()
 // events
 BEGIN_EVENT_HANDLER(Worm)
@@ -94,15 +94,15 @@ void Worm::reset()
    yPos =0;
    nTrails = 0;
    if (iangle != nullptr) {
-      Eaagles::Basic::Radians radians;
-      setStartAngle(static_cast<Eaagles::LCreal>(radians.convert(*iangle)));
+      oe::Basic::Radians radians;
+      setStartAngle(static_cast<oe::LCreal>(radians.convert(*iangle)));
    }
 }
 
 //------------------------------------------------------------------------------
 // setStartAngle() -- set starting angle
 //------------------------------------------------------------------------------
-void Worm::setStartAngle(const Eaagles::LCreal radians)
+void Worm::setStartAngle(const oe::LCreal radians)
 {
    sangle = radians;
    dx = lcCos(sangle) * speed;
@@ -112,7 +112,7 @@ void Worm::setStartAngle(const Eaagles::LCreal radians)
 //------------------------------------------------------------------------------
 // setSpeed() -- set speed
 //------------------------------------------------------------------------------
-void Worm::setSpeed(const Eaagles::LCreal xx)
+void Worm::setSpeed(const oe::LCreal xx)
 {
    speed = xx;
    dx = lcCos(sangle) * speed;
@@ -122,7 +122,7 @@ void Worm::setSpeed(const Eaagles::LCreal xx)
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void Worm::updateTC(const Eaagles::LCreal dt)
+void Worm::updateTC(const oe::LCreal dt)
 {
    // Update base classes stuff
    BaseClass::updateTC(dt);
@@ -155,7 +155,7 @@ void Worm::updateTC(const Eaagles::LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void Worm::updateData(const Eaagles::LCreal dt)
+void Worm::updateData(const oe::LCreal dt)
 {
    // Update base classes stuff
    BaseClass::updateData(dt);
@@ -189,7 +189,7 @@ void Worm::drawFunc()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Eaagles::Basic::Object* Worm::getSlotByIndex(const int si)
+oe::Basic::Object* Worm::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
@@ -198,7 +198,7 @@ Eaagles::Basic::Object* Worm::getSlotByIndex(const int si)
 //------------------------------------------------------------------------------
 // realSpeed() -- sets the starting real speed
 //------------------------------------------------------------------------------
-bool Worm::realSpeed(const Eaagles::Basic::Number* const rsobj)
+bool Worm::realSpeed(const oe::Basic::Number* const rsobj)
 {
    bool ok = false;
    if (rsobj != nullptr) {
@@ -211,12 +211,12 @@ bool Worm::realSpeed(const Eaagles::Basic::Number* const rsobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an Angle parameter
 //------------------------------------------------------------------------------ 
-bool Worm::setAngle(const Eaagles::Basic::Angle* const saobj)
+bool Worm::setAngle(const oe::Basic::Angle* const saobj)
 {
    bool ok = false;
    if (saobj != nullptr) {
-      Eaagles::Basic::Radians radians;
-      setStartAngle(static_cast<Eaagles::LCreal>(radians.convert(*saobj)));
+      oe::Basic::Radians radians;
+      setStartAngle(static_cast<oe::LCreal>(radians.convert(*saobj)));
       iangle = saobj;
       iangle->ref();
       ok = true;
@@ -227,7 +227,7 @@ bool Worm::setAngle(const Eaagles::Basic::Angle* const saobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an Number parameter
 //------------------------------------------------------------------------------ 
-bool Worm::setAngle(const Eaagles::Basic::Number* const saobj)
+bool Worm::setAngle(const oe::Basic::Number* const saobj)
 {
    bool ok = false;
    if (saobj != nullptr) {
@@ -238,5 +238,5 @@ bool Worm::setAngle(const Eaagles::Basic::Number* const saobj)
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 

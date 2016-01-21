@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: SpdLines
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_XPanel_SpdLines_H__
-#define __Eaagles_XPanel_SpdLines_H__
+#ifndef __oe_XPanel_SpdLines_H__
+#define __oe_XPanel_SpdLines_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 //------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ private:
 };
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

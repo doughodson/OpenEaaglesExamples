@@ -4,12 +4,12 @@
 // Description:
 //      Derived MapDisplay that will simply make our map page move.
 // -------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_MapDisplay_H__
-#define __Eaagles_Example_MapDisplay_H__
+#ifndef __oe_Example_MapDisplay_H__
+#define __oe_Example_MapDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation {
       class Station;
       class Aircraft;

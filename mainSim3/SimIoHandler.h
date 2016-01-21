@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: SimIoHandler
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_SimIoHandler_H__
-#define __Eaagles_Example_SimIoHandler_H__
+#ifndef __oe_Example_SimIoHandler_H__
+#define __oe_Example_SimIoHandler_H__
 
 #include "openeaagles/basic/IoHandler.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Simulation { class AirVehicle; }
 
 namespace Example {
@@ -48,6 +48,6 @@ private:
 };
 
 } // end Example
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

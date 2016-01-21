@@ -4,7 +4,7 @@
 #include "ObjectHandler.h"
 #include "TestObject.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(ObjectHandler, "ObjectHandler")
@@ -74,4 +74,4 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

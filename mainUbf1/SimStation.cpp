@@ -18,7 +18,7 @@
 #include "openeaagles/basic/units/Times.h"
 #include "openeaagles/basic/osg/Vec4"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(SimStation,"SimStation")
@@ -143,4 +143,4 @@ Basic::Object* SimStation::getSlotByIndex(const int si)
 }
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace

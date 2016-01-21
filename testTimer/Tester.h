@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Tester
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Tester_H__
-#define __Eaagles_Test_Tester_H__
+#ifndef __oe_Test_Tester_H__
+#define __oe_Test_Tester_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class PairStream; }
 
 namespace Test {
@@ -45,7 +45,7 @@ private:
 };
 
 } // namespace Test
-} // namespace Eaagles
+} // namespace oe
 
 #endif
 

@@ -5,8 +5,8 @@
 // ObjectHandler will extract the data and send it to the output.  This tests
 // the send command passing objects.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_TestObject_H__
-#define __Eaagles_Test_TestObject_H__
+#ifndef __oe_Test_TestObject_H__
+#define __oe_Test_TestObject_H__
 
 #include "openeaagles/basic/Object.h"
 
@@ -16,7 +16,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 class TestObject : public Basic::Object
@@ -52,6 +52,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

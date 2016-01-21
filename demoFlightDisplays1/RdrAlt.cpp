@@ -3,7 +3,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basicGL/Display.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(RdrAlt, "RdrAlt")
@@ -132,5 +132,5 @@ void RdrAlt::updateData(const LCreal dt)
 }
 
 }; // end of demo namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 

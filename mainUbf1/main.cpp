@@ -13,7 +13,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 // default background frame rate
@@ -66,7 +66,7 @@ static void updateDataCB(int msecs)
    glutTimerFunc(msecs, updateDataCB, msecs);
 
    // current time
-   double time = Eaagles::getComputerTime();
+   double time = oe::getComputerTime();
 
    // compute delta time
    static double time0 = time;   // N-1 Time
@@ -130,5 +130,5 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return Eaagles::Example::main(argc, argv);
+   return oe::Example::main(argc, argv);
 }

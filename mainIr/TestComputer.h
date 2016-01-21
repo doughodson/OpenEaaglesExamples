@@ -9,12 +9,12 @@
 //       haveTgt()   true if computer/seeker currently tracking a target
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_TestComputer_H__
-#define __Eaagles_Example_TestComputer_H__
+#ifndef __oe_Example_TestComputer_H__
+#define __oe_Example_TestComputer_H__
 
 #include "openeaagles/simulation/OnboardComputer.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class TestComputer : public Simulation::OnboardComputer
@@ -43,7 +43,7 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

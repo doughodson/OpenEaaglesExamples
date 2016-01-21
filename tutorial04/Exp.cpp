@@ -6,7 +6,7 @@
 #include "openeaagles/basic/Number.h"
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 IMPLEMENT_SUBCLASS(Exp,"Exp")
@@ -86,4 +86,4 @@ Basic::Object* Exp::getSlotByIndex(const int si)
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe

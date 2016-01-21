@@ -4,12 +4,12 @@
 // command from it's parent as an object, and will then fill it's own
 // private data from that object.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_ObjectHandler_H__
-#define __Eaagles_Test_ObjectHandler_H__
+#ifndef __oe_Test_ObjectHandler_H__
+#define __oe_Test_ObjectHandler_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 class TestObject;
@@ -35,6 +35,6 @@ private:
 };
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

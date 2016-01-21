@@ -15,7 +15,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // our class factory
@@ -29,9 +29,9 @@ static Basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == nullptr) obj = Eaagles::Simulation::Factory::createObj(name);
-      if (obj == nullptr) obj = Eaagles::Basic::Factory::createObj(name);
-      if (obj == nullptr) obj = Eaagles::Recorder::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::Simulation::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::Basic::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::Recorder::Factory::createObj(name);
    }
 
    return obj;
@@ -100,6 +100,6 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   Eaagles::Test::main(argc, argv);
+   oe::Test::main(argc, argv);
 }
 

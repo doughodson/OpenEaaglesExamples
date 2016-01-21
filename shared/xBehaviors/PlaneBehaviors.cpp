@@ -19,7 +19,7 @@
 #include "openeaagles/basic/units/Distances.h"
 #include "openeaagles/basic/ubf/State.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xBehaviors {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(PlaneBehaviorBase, "PlaneBehaviorBase")
@@ -382,7 +382,7 @@ Basic::Ubf::Action* PlaneDive::genAction(const Basic::Ubf::State* const state, c
       double pitch;
       action = new PlaneAction();
 
-      if(pState->getPitch() > -Eaagles::PI/2) {
+      if(pState->getPitch() > -oe::PI/2) {
          pitch=-1;
       } else {
          pitch = 1;

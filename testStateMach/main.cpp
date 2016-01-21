@@ -9,7 +9,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 // state machine builder
@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
    //stateMachine->serialize(std::cout);
 
    // reset the system
-   stateMachine->event(Eaagles::Basic::Component::RESET_EVENT);
+   stateMachine->event(oe::Basic::Component::RESET_EVENT);
 
    // run the test
    theTest(stateMachine);
@@ -88,10 +88,10 @@ int main(int argc, char* argv[])
 }
 
 } // end TestStateMach namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Test::main(argc,argv);
+   return oe::Test::main(argc,argv);
 }

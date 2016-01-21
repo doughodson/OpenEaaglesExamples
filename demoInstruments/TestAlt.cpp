@@ -1,6 +1,6 @@
 #include "TestAlt.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAlt, "TestAlt")
@@ -55,5 +55,5 @@ void TestAlt::updateData(const LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 

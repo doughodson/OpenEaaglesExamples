@@ -4,7 +4,7 @@
 
 #include "openeaagles/basic/Timers.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_SUBCLASS(FoxStation, "FoxStation")
@@ -91,5 +91,5 @@ Basic::Object* FoxStation::getSlotByIndex(const int si)
 }
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 

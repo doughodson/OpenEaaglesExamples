@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
 // Class: FoxDisplay
 //
-// Description:  Handles the drawing of an Eaagles display within Fox
+// Description:  Handles the drawing of an OpenEaagles display within Fox
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_FoxDisplay_H__
-#define __Eaagles_Example_FoxDisplay_H__
+#ifndef __oe_Example_FoxDisplay_H__
+#define __oe_Example_FoxDisplay_H__
 
 #include "openeaagles/basicGL/Display.h"
 
@@ -16,7 +16,7 @@ namespace FX {
    class FXObject;
 };
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class FoxDisplay : public BasicGL::Display
@@ -74,6 +74,6 @@ private:
 };
 
 } // end Example namespace
-} // end Eaagles namespace
+} // end oe namespace
 
 #endif

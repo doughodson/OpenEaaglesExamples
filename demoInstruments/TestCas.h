@@ -4,12 +4,12 @@
 // Description: Example Analog Dial Page
 // This page will supply test data to a generic calibrated air speed
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_demo_TestCas_H__
-#define __Eaagles_demo_TestCas_H__
+#ifndef __oe_demo_TestCas_H__
+#define __oe_demo_TestCas_H__
 
 #include "openeaagles/basicGL/Page.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 class TestCas : public BasicGL::Page
@@ -30,7 +30,7 @@ private:
 };
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 
 #endif
 

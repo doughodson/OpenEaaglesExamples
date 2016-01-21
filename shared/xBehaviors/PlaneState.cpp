@@ -16,7 +16,7 @@
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Simulation.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xBehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneState, "PlaneState")

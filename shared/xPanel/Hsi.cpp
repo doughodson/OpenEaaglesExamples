@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "Hsi.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
@@ -166,5 +166,5 @@ void Hsi::updateData(const LCreal dt)
 }
 
 }; // end of xPanel namespace
-}; // end of Eaagles namespace
+}; // end of oe namespace
 

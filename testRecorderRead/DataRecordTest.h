@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_DataRecordTest_H__
-#define __Eaagles_Test_DataRecordTest_H__
+#ifndef __oe_Test_DataRecordTest_H__
+#define __oe_Test_DataRecordTest_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Recorder { class InputHandler; class OutputHandler; }
 

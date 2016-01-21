@@ -11,7 +11,7 @@
 
 #include "Random.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 static class Random* random = nullptr;
@@ -83,12 +83,12 @@ int main(int argc, char* argv[])
 }
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 //-----------------------------------------------------------------------------
 // main() -- Main routine
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   Eaagles::Tutorial::main(argc, argv);
+   oe::Tutorial::main(argc, argv);
 }

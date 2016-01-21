@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: State
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_State_H__
-#define __Eaagles_Example_State_H__
+#ifndef __oe_Example_State_H__
+#define __oe_Example_State_H__
 
 #include "openeaagles/basic/Component.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class PairStream; }
 
 namespace Example {
@@ -83,6 +83,6 @@ private:
 };
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace
 
 #endif

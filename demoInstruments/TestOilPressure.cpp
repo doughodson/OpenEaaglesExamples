@@ -1,6 +1,6 @@
 #include "TestOilPressure.h"
 
-namespace Eaagles {
+namespace oe {
 namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestOilPressure, "TestOilPressure")
@@ -34,7 +34,7 @@ void TestOilPressure::copyData(const TestOilPressure& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestOilPressure::updateData(const Eaagles::LCreal dt)
+void TestOilPressure::updateData(const oe::LCreal dt)
 {
     BaseClass::updateData(dt);
 
@@ -54,4 +54,4 @@ void TestOilPressure::updateData(const Eaagles::LCreal dt)
 }
 
 } // end of demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace

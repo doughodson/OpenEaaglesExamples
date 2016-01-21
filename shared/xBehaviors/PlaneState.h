@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: PlaneState
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_xBehaviors_PlaneState_H__
-#define __Eaagles_xBehaviors_PlaneState_H__
+#ifndef __oe_xBehaviors_PlaneState_H__
+#define __oe_xBehaviors_PlaneState_H__
 
 #include "openeaagles/basic/ubf/State.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Simulation { class Player; }
 

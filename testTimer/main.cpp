@@ -24,7 +24,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 static const double MAIN_TIMER_VALUE = 10.0; // Sec
@@ -214,11 +214,11 @@ int main(int argc, char* argv[])
 }
 
 } // namespace Test
-} // namespace Eaagles
+} // namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   Eaagles::Test::main(argc, argv);
+   oe::Test::main(argc, argv);
 }
 

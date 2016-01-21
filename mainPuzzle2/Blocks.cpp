@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Integer.h"
 #include "openeaagles/basic/List.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 //==============================================================================
@@ -672,4 +672,4 @@ unsigned int Block15::getSizeY() const      { return 1; }
 
 
 }  // End of Example namespace
-}  // End of Eaagles namespace
+}  // End of oe namespace

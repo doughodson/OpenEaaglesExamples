@@ -2,12 +2,12 @@
 // Class: MyPager
 // Description: Example pager
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Tutorial_MyPager_H__
-#define __Eaagles_Tutorial_MyPager_H__
+#ifndef __oe_Tutorial_MyPager_H__
+#define __oe_Tutorial_MyPager_H__
 
 #include "openeaagles/basicGL/Page.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Tutorial {
 
 class MyPager : public BasicGL::Page
@@ -22,6 +22,6 @@ public:
 };
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 #endif

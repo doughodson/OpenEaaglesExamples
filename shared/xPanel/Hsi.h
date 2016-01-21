@@ -11,12 +11,12 @@
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_XPanel_Hsi_H__
-#define __Eaagles_XPanel_Hsi_H__
+#ifndef __oe_XPanel_Hsi_H__
+#define __oe_XPanel_Hsi_H__
 
 #include "openeaagles/basicGL/Rotators.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xPanel {
 
 class Hsi : public BasicGL::Rotators
@@ -70,7 +70,7 @@ private:
 };
 
 } // End xPanel namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif
 

@@ -19,7 +19,7 @@
 #include <GL/glut.h>
 #include <iomanip>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")

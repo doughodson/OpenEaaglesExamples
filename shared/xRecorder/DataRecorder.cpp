@@ -7,7 +7,7 @@
 
 #include "openeaagles/simulation/Player.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xRecorder {
 
 IMPLEMENT_SUBCLASS(DataRecorder,"XDataRecorder")
@@ -61,9 +61,9 @@ bool DataRecorder::recordMyData(const Basic::Object* objs[4], const double value
 
    // new Marker message
    Pb::MyDataMsg* myDataMsg = msg->MutableExtension( Pb::my_data_msg );
-   myDataMsg->set_fee( static_cast<unsigned int>(Eaagles::nintd(values[0])) );
-   myDataMsg->set_fi( static_cast<unsigned int>(Eaagles::nintd(values[1])) );
-   myDataMsg->set_fo( static_cast<unsigned int>(Eaagles::nintd(values[2])) );
+   myDataMsg->set_fee( static_cast<unsigned int>(oe::nintd(values[0])) );
+   myDataMsg->set_fi( static_cast<unsigned int>(oe::nintd(values[1])) );
+   myDataMsg->set_fo( static_cast<unsigned int>(oe::nintd(values[2])) );
 
    // Send the message for processing
    sendDataRecord(msg);
@@ -89,11 +89,11 @@ bool DataRecorder::recordMarker(const Basic::Object* objs[4], const double value
 
    // Marker message
    Recorder::Pb::MarkerMsg* markerMsg = msg->mutable_marker_msg();
-   markerMsg->set_id( static_cast<unsigned int>(Eaagles::nintd(values[0])) );
-   markerMsg->set_source_id( static_cast<unsigned int>(Eaagles::nintd(values[1])) );
+   markerMsg->set_id( static_cast<unsigned int>(oe::nintd(values[0])) );
+   markerMsg->set_source_id( static_cast<unsigned int>(oe::nintd(values[1])) );
 
    // Extended value: foo
-   markerMsg->SetExtension( Pb::foo, static_cast<unsigned int>(Eaagles::nintd(values[2])) ) ;
+   markerMsg->SetExtension( Pb::foo, static_cast<unsigned int>(oe::nintd(values[2])) ) ;
 
    // Send the message for processing
    sendDataRecord(msg);
@@ -102,5 +102,5 @@ bool DataRecorder::recordMarker(const Basic::Object* objs[4], const double value
 }
 
 } // End xDataRecorder namespace
-} // End Eaagles namespace
+} // End oe namespace
 

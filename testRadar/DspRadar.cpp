@@ -11,7 +11,7 @@
 #include "openeaagles/basic/units/Distances.h"
 #include "openeaagles/basic/Hsv.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_SUBCLASS(DspRadar,"DspRadar")
@@ -229,4 +229,4 @@ void DspRadar::drawFunc()
 }
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

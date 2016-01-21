@@ -6,12 +6,12 @@
 //  ( def-form Worm
 //  )
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Tutorial_Worm_H__
-#define __Eaagles_Tutorial_Worm_H__
+#ifndef __oe_Tutorial_Worm_H__
+#define __oe_Tutorial_Worm_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 
 namespace Basic { class Angle; }
 
@@ -25,7 +25,7 @@ public:
 
    Worm();
 
-   void getPosition(LCreal& xx, Eaagles::LCreal& yy) const      { xx = xPos; yy = yPos; }
+   void getPosition(LCreal& xx, oe::LCreal& yy) const      { xx = xPos; yy = yPos; }
    void setPosition(const LCreal xx, const LCreal yy)           { xPos = xx; yPos = yy; }
 
    virtual bool realSpeed(const Basic::Number* const rsobj);
@@ -72,6 +72,6 @@ private:
 };
 
 } // namespace Tutorial
-} // namespace Eaagles
+} // namespace oe
 
 #endif

@@ -3,12 +3,12 @@
 //
 // Description: Test Display Azimuth Pointer
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Example_TdAzPtr_H__
-#define __Eaagles_Example_TdAzPtr_H__
+#ifndef __oe_Example_TdAzPtr_H__
+#define __oe_Example_TdAzPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 class TdAzPtr : public BasicGL::Graphic
@@ -26,6 +26,6 @@ private:
 };
 
 } // End Example namespace
-} // End Eaagles namespace
+} // End oe namespace
 
 #endif

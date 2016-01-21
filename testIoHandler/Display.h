@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------
 // Class: Display
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Test_Display_H__
-#define __Eaagles_Test_Display_H__
+#ifndef __oe_Test_Display_H__
+#define __oe_Test_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace Eaagles {
+namespace oe {
    namespace Basic { class IoHandler; class Number; class String; }
 
 namespace Test {
@@ -88,6 +88,6 @@ private:
 };
 
 } // End of Test namespace
-} // End of Eaagles namespace
+} // End of oe namespace
 
 #endif

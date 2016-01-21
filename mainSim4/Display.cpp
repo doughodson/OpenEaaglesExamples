@@ -2,7 +2,7 @@
 #include "MapPage.h"
 #include <GL/glut.h>
 
-namespace Eaagles {
+namespace oe {
 namespace Example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display,"MapTestDisplay")
@@ -130,5 +130,5 @@ void Display::updateData(const LCreal dt)
 }
 
 }  // end of Example namespace
-}  // end of Eaagles namespace
+}  // end of oe namespace
 

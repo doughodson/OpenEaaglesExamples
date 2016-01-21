@@ -17,7 +17,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "SendDataDisplay")
@@ -247,4 +247,4 @@ void Display::updateData(const LCreal dt)
 
 
 } // End Test namespace
-} // End Eaagles namespace
+} // End oe namespace

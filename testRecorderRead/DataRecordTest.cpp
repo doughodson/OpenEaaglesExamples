@@ -9,7 +9,7 @@
 
 #include "xRecorder/protobuf/DataRecord.pb.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Test {
 
 //==============================================================================
@@ -26,8 +26,8 @@ END_SLOTTABLE(DataRecordTest)
 
 // Map slot table to handles 
 BEGIN_SLOT_MAP(DataRecordTest)
-   ON_SLOT(1, setSlotInputHandler,   Eaagles::Recorder::InputHandler)
-   ON_SLOT(2, setSlotOutputHandler,   Eaagles::Recorder::OutputHandler)
+   ON_SLOT(1, setSlotInputHandler,   oe::Recorder::InputHandler)
+   ON_SLOT(2, setSlotOutputHandler,   oe::Recorder::OutputHandler)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -55,14 +55,14 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
    if (cc) initData();
 
    {  // Clone input handler
-      Eaagles::Recorder::InputHandler* clone = nullptr;
+      oe::Recorder::InputHandler* clone = nullptr;
       if (org.inputHandler != nullptr) clone = org.inputHandler->clone();
       setSlotInputHandler(clone);
       if (clone != nullptr) clone->unref();
    }
 
    {  // Clone output handler
-      Eaagles::Recorder::OutputHandler* clone = nullptr;
+      oe::Recorder::OutputHandler* clone = nullptr;
       if (org.outputHandler != nullptr) clone = org.outputHandler->clone();
       setSlotOutputHandler(clone);
       if (clone != nullptr) clone->unref();
@@ -95,7 +95,7 @@ void DataRecordTest::runTest()
 
    bool finished = false;
    while (!finished) {
-      const Eaagles::Recorder::DataRecordHandle* p = inputHandler->readRecord();
+      const oe::Recorder::DataRecordHandle* p = inputHandler->readRecord();
       if (p != nullptr) {
          outputHandler->processRecord(p);
       }
@@ -106,14 +106,14 @@ void DataRecordTest::runTest()
 //------------------------------------------------------------------------------
 // Slot functions
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotInputHandler(Eaagles::Recorder::InputHandler* const msg)
+bool DataRecordTest::setSlotInputHandler(oe::Recorder::InputHandler* const msg)
 {
    inputHandler = msg;
    if (inputHandler != nullptr) inputHandler->container(this);
    return true;
 }
 
-bool DataRecordTest::setSlotOutputHandler(Eaagles::Recorder::OutputHandler* const msg)
+bool DataRecordTest::setSlotOutputHandler(oe::Recorder::OutputHandler* const msg)
 {
    outputHandler = msg;
    if (outputHandler != nullptr) outputHandler->container(this);

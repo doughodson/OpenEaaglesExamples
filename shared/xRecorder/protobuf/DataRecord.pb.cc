@@ -16,7 +16,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace Eaagles {
+namespace oe {
 namespace xRecorder {
 namespace Pb {
 
@@ -81,25 +81,25 @@ void protobuf_AddDesc_xRecorder_2fprotobuf_2fDataRecord_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::Eaagles::Recorder::Pb::protobuf_AddDesc_openeaagles_2frecorder_2fprotobuf_2fDataRecord_2eproto();
+  ::oe::Recorder::Pb::protobuf_AddDesc_openeaagles_2frecorder_2fprotobuf_2fDataRecord_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n#xRecorder/protobuf/DataRecord.proto\022\024E"
     "aagles.xRecorder.Pb\032.openeaagles/recorde"
     "r/protobuf/DataRecord.proto\"0\n\tMyDataMsg"
     "\022\013\n\003fee\030\001 \002(\r\022\n\n\002fi\030\002 \002(\r\022\n\n\002fo\030\003 \002(\r:V\n"
-    "\013my_data_msg\022\037.Eaagles.Recorder.Pb.DataR"
-    "ecord\030\350\007 \001(\0132\037.Eaagles.xRecorder.Pb.MyDa"
-    "taMsg:+\n\003foo\022\036.Eaagles.Recorder.Pb.Marke"
+    "\013my_data_msg\022\037.oe.Recorder.Pb.DataR"
+    "ecord\030\350\007 \001(\0132\037.oe.xRecorder.Pb.MyDa"
+    "taMsg:+\n\003foo\022\036.oe.Recorder.Pb.Marke"
     "rMsg\030d \001(\r", 290);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "xRecorder/protobuf/DataRecord.proto", &protobuf_RegisterTypes);
   MyDataMsg::default_instance_ = new MyDataMsg();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
-    &::Eaagles::Recorder::Pb::DataRecord::default_instance(),
+    &::oe::Recorder::Pb::DataRecord::default_instance(),
     1000, 11, false, false,
-    &::Eaagles::xRecorder::Pb::MyDataMsg::default_instance());
+    &::oe::xRecorder::Pb::MyDataMsg::default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterExtension(
-    &::Eaagles::Recorder::Pb::MarkerMsg::default_instance(),
+    &::oe::Recorder::Pb::MarkerMsg::default_instance(),
     100, 13, false, false);
   MyDataMsg::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_xRecorder_2fprotobuf_2fDataRecord_2eproto);
@@ -123,7 +123,7 @@ const int MyDataMsg::kFoFieldNumber;
 MyDataMsg::MyDataMsg()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(constructor:oe.xRecorder.Pb.MyDataMsg)
 }
 
 void MyDataMsg::InitAsDefaultInstance() {
@@ -133,7 +133,7 @@ MyDataMsg::MyDataMsg(const MyDataMsg& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(copy_constructor:oe.xRecorder.Pb.MyDataMsg)
 }
 
 void MyDataMsg::SharedCtor() {
@@ -145,7 +145,7 @@ void MyDataMsg::SharedCtor() {
 }
 
 MyDataMsg::~MyDataMsg() {
-  // @@protoc_insertion_point(destructor:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(destructor:oe.xRecorder.Pb.MyDataMsg)
   SharedDtor();
 }
 
@@ -199,7 +199,7 @@ bool MyDataMsg::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(parse_start:oe.xRecorder.Pb.MyDataMsg)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -263,17 +263,17 @@ bool MyDataMsg::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(parse_success:oe.xRecorder.Pb.MyDataMsg)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(parse_failure:oe.xRecorder.Pb.MyDataMsg)
   return false;
 #undef DO_
 }
 
 void MyDataMsg::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(serialize_start:oe.xRecorder.Pb.MyDataMsg)
   // required uint32 fee = 1;
   if (has_fee()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->fee(), output);
@@ -293,12 +293,12 @@ void MyDataMsg::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(serialize_end:oe.xRecorder.Pb.MyDataMsg)
 }
 
 ::google::protobuf::uint8* MyDataMsg::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(serialize_to_array_start:oe.xRecorder.Pb.MyDataMsg)
   // required uint32 fee = 1;
   if (has_fee()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->fee(), target);
@@ -318,7 +318,7 @@ void MyDataMsg::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Eaagles.xRecorder.Pb.MyDataMsg)
+  // @@protoc_insertion_point(serialize_to_array_end:oe.xRecorder.Pb.MyDataMsg)
   return target;
 }
 
@@ -424,10 +424,10 @@ void MyDataMsg::Swap(MyDataMsg* other) {
   return metadata;
 }
 
-::google::protobuf::internal::ExtensionIdentifier< ::Eaagles::Recorder::Pb::DataRecord,
-    ::google::protobuf::internal::MessageTypeTraits< ::Eaagles::xRecorder::Pb::MyDataMsg >, 11, false >
-  my_data_msg(kMyDataMsgFieldNumber, ::Eaagles::xRecorder::Pb::MyDataMsg::default_instance());
-::google::protobuf::internal::ExtensionIdentifier< ::Eaagles::Recorder::Pb::MarkerMsg,
+::google::protobuf::internal::ExtensionIdentifier< ::oe::Recorder::Pb::DataRecord,
+    ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::Pb::MyDataMsg >, 11, false >
+  my_data_msg(kMyDataMsgFieldNumber, ::oe::xRecorder::Pb::MyDataMsg::default_instance());
+::google::protobuf::internal::ExtensionIdentifier< ::oe::Recorder::Pb::MarkerMsg,
     ::google::protobuf::internal::PrimitiveTypeTraits< ::google::protobuf::uint32 >, 13, false >
   foo(kFooFieldNumber, 0u);
 
@@ -435,6 +435,6 @@ void MyDataMsg::Swap(MyDataMsg* other) {
 
 }  // namespace Pb
 }  // namespace xRecorder
-}  // namespace Eaagles
+}  // namespace oe
 
 // @@protoc_insertion_point(global_scope)
