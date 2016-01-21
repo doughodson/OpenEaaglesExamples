@@ -3,13 +3,13 @@
 //
 // Description: Test Display Azimuth Pointer
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TdAzPtr_H__
-#define __oe_Example_TdAzPtr_H__
+#ifndef __oe_example_TdAzPtr_H__
+#define __oe_example_TdAzPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class TdAzPtr : public BasicGL::Graphic
 {
@@ -25,7 +25,7 @@ private:
     LCreal azimuth;
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

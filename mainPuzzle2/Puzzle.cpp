@@ -8,7 +8,7 @@
 
 namespace oe {
 
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(Puzzle,"Puzzle")
 
@@ -374,5 +374,5 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    return sout;
 }
 
-}  // End of Example namespace
+}  // End of example namespace
 }  // End of oe namespace

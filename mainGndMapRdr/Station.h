@@ -3,15 +3,15 @@
 //
 // Description: Test station for the Ground mapping radar demo
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestStation_H__
-#define __oe_Example_TestStation_H__
+#ifndef __oe_example_TestStation_H__
+#define __oe_example_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
 namespace BasicGL { class GlutDisplay; }
 
-namespace Example {
+namespace example {
 class Display;
 
 class TestStation : public Simulation::Station
@@ -31,7 +31,7 @@ private:
     bool displayInit;
 };
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 #endif

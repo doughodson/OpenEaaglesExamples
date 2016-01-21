@@ -21,7 +21,7 @@
 #include "openeaagles/basic/units/Distances.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 const int IMG_WIDTH = 1024;
 const int IMG_HEIGHT = 1024;
@@ -475,7 +475,7 @@ Basic::Object* RealBeamRadar::getSlotByIndex(const int si)
 }
 
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 

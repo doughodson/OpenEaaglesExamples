@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestStation
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestStation_H__
-#define __oe_Example_TestStation_H__
+#ifndef __oe_example_TestStation_H__
+#define __oe_example_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -10,7 +10,7 @@ namespace oe {
 namespace Basic { class Number; }
 namespace Glut { class GlutDisplay; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // Class: TestStation

@@ -3,13 +3,13 @@
 //
 // Description: Test Display Elevation Pointer
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TdElevPtr_H__
-#define __oe_Example_TdElevPtr_H__
+#ifndef __oe_example_TdElevPtr_H__
+#define __oe_example_TdElevPtr_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class TdElevPtr : public BasicGL::Graphic
 {
@@ -28,7 +28,7 @@ private:
     LCreal  elev;
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

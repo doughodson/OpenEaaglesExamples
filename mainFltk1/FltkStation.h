@@ -7,13 +7,13 @@
 // using a Station so we can test interfacing and make sure our threads all
 // still run correctly and work.
 // ----------------------------------------------------------------------------
-#ifndef __oe_Example_FoxStation_H__
-#define __oe_Example_FoxStation_H__
+#ifndef __oe_example_FoxStation_H__
+#define __oe_example_FoxStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class MainWindow;
 class FltkDisplay;
@@ -44,7 +44,7 @@ private:
    MainWindow* mainWin;        // main Fltk window
 };
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 #endif

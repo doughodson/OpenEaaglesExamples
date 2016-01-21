@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: SimStation
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_SimStation_H__
-#define __oe_Example_SimStation_H__
+#ifndef __oe_example_SimStation_H__
+#define __oe_example_SimStation_H__
 
 //#include "agent/AgentStation.h"
 #include "openeaagles/simulation/Station.h"
@@ -13,7 +13,7 @@ namespace Basic { class Table1; class PairStream; }
 namespace Glut { class GlutDisplay; }
 namespace Simulation { class AirVehicle; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -52,7 +52,7 @@ private:
 
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

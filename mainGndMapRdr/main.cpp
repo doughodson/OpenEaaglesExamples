@@ -19,7 +19,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // background rate
 const int bgRate = 20;
@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 //-----------------------------------------------------------------------------
@@ -124,6 +124,6 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   return oe::Example::main(argc,argv);
+   return oe::example::main(argc,argv);
 }
 

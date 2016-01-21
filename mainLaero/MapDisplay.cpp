@@ -20,7 +20,7 @@
 #include <iomanip>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")
 EMPTY_SERIALIZER(MapDisplay)

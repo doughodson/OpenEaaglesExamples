@@ -3,15 +3,15 @@
 //
 // Description: Real-Beam Radar Model
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_RealBeamRadar_H__
-#define __oe_Example_RealBeamRadar_H__
+#ifndef __oe_example_RealBeamRadar_H__
+#define __oe_example_RealBeamRadar_H__
 
 #include "openeaagles/simulation/Radar.h"
 
 namespace oe {
    namespace Basic { class Angle; class Distance; class Number; class Terrain; }
 
-namespace Example {
+namespace example {
 
 class RealBeamRadar : public Simulation::Radar
 {
@@ -82,7 +82,7 @@ private:
                                      //   --   icol : [ 0 ... (imgWidth-1) ]
 };
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 #endif

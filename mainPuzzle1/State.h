@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class:  State
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_State_H__
-#define __oe_Example_State_H__
+#ifndef __oe_example_State_H__
+#define __oe_example_State_H__
 
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
    namespace Basic { class PairStream; }
 
-namespace Example {
+namespace example {
 
 class Block;
 class Puzzle;
@@ -70,7 +70,7 @@ private:
    int      generation;                // Generation index
 };
 
-}  // End of Example namespace
+}  // End of example namespace
 }  // End of oe namespace
 
 #endif

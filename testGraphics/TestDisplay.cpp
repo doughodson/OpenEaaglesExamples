@@ -7,7 +7,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
@@ -56,6 +56,6 @@ bool TestDisplay::onFrameBufferKey()
    return true;
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 

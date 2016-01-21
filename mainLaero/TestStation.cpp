@@ -16,7 +16,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
 

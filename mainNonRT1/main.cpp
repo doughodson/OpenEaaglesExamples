@@ -13,7 +13,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // frame rate (50 Hz)
 const unsigned int frameRate = 50;
@@ -99,11 +99,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace Example
+} // namespace example
 } // namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-  oe::Example::main(argc, argv);
+  oe::example::main(argc, argv);
 }

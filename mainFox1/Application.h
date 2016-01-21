@@ -3,8 +3,8 @@
 //
 // Description: Application class which processes GUI events
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_Application_H__
-#define __oe_Example_Application_H__
+#ifndef __oe_example_Application_H__
+#define __oe_example_Application_H__
 
 #include "fx.h"
 
@@ -12,7 +12,7 @@
 
 namespace oe {
 
-namespace Example {
+namespace example {
 
 class Station;
 
@@ -52,7 +52,7 @@ private:
   FoxStation* station;
 };
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 #endif

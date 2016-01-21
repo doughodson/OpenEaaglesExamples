@@ -23,7 +23,7 @@
 static void update(void* pData)
 {
    if (pData != nullptr) {
-      oe::Example::FltkStation* stn = reinterpret_cast<oe::Example::FltkStation*>(pData);
+      oe::example::FltkStation* stn = reinterpret_cast<oe::example::FltkStation*>(pData);
       if (stn != nullptr) {
          double dt = 1 / 20.0;
          stn->updateData(static_cast<oe::LCreal>(dt));
@@ -33,7 +33,7 @@ static void update(void* pData)
 }
 
 namespace oe {
-namespace Example {
+namespace example {
 
 static FltkStation* fltkStation = nullptr;
 
@@ -117,5 +117,5 @@ int main(int, char* [])
 //
 int main(int argc, char* argv[])
 {
-   return oe::Example::main(argc,argv);
+   return oe::example::main(argc,argv);
 }

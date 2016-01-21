@@ -14,7 +14,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // frame rate
 static const int frameRate = 20;
@@ -99,11 +99,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-}  // End of Example namespace
+}  // End of example namespace
 }  // End of oe namespace
 
 
 int main(int argc, char* argv[])
 {
-   return oe::Example::main(argc, argv);
+   return oe::example::main(argc, argv);
 }

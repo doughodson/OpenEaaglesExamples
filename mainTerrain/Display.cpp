@@ -14,7 +14,7 @@
 #include "Display.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(Display,"TerrainDisplay")
 EMPTY_SERIALIZER(Display)
@@ -700,6 +700,6 @@ Basic::Object* Display::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end Example namespace
+}; // end example namespace
 }; // end oe namespace
 

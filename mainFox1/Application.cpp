@@ -8,7 +8,7 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // display refresh rate (Hz)
 static const FXuint DRAW_FRAME_RATE = 50;
@@ -95,5 +95,5 @@ FoxStation* Application::getStation()
    return station;
 }
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace

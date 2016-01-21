@@ -6,8 +6,8 @@
 //  ( def-form TestOne
 //  )
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestOne_H__
-#define __oe_Example_TestOne_H__
+#ifndef __oe_example_TestOne_H__
+#define __oe_example_TestOne_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
@@ -16,7 +16,7 @@ namespace oe {
       class Angle;
    }
 
-namespace Example {
+namespace example {
 
 class TestOne : public BasicGL::Graphic
 {
@@ -69,7 +69,7 @@ private:
     Basic::Angle* iangle;         // Input angle
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

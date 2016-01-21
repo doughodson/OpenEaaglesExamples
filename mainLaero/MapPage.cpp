@@ -30,7 +30,7 @@ namespace oe {
       class OcclusionArc;
    }
 
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(MapPage,"TestMapPage")
 EMPTY_SLOTTABLE(MapPage)

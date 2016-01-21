@@ -5,13 +5,13 @@
 //              drawing will be done
 //-----------------------------------------------------
 
-#ifndef __oe_Example_GLWindow_H__
-#define __oe_Example_GLWindow_H__
+#ifndef __oe_example_GLWindow_H__
+#define __oe_example_GLWindow_H__
 
 #include <FL/Fl_Gl_Window.H>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class FltkDisplay;
 

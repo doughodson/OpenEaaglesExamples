@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: SimIoHandler
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_SimIoHandler_H__
-#define __oe_Example_SimIoHandler_H__
+#ifndef __oe_example_SimIoHandler_H__
+#define __oe_example_SimIoHandler_H__
 
 #include "openeaagles/basic/IoHandler.h"
 
 namespace oe {
    namespace Simulation { class AirVehicle; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // Class:  SimIoHandler
@@ -47,7 +47,7 @@ private:
    bool decStptSw1;
 };
 
-} // end Example
+} // end example
 } // end oe namespace
 
 #endif

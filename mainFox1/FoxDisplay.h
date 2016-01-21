@@ -3,8 +3,8 @@
 //
 // Description:  Handles the drawing of an OpenEaagles display within Fox
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_FoxDisplay_H__
-#define __oe_Example_FoxDisplay_H__
+#ifndef __oe_example_FoxDisplay_H__
+#define __oe_example_FoxDisplay_H__
 
 #include "openeaagles/basicGL/Display.h"
 
@@ -17,7 +17,7 @@ namespace FX {
 };
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class FoxDisplay : public BasicGL::Display
 {
@@ -73,7 +73,7 @@ private:
    LCreal transRate;
 };
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 #endif

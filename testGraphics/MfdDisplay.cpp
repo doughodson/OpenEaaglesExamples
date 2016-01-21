@@ -2,7 +2,7 @@
 #include "MfdDisplay.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdDisplay,"MfdDisplay")
 EMPTY_SERIALIZER(MfdDisplay)
@@ -18,5 +18,5 @@ MfdDisplay::MfdDisplay()
    STANDARD_CONSTRUCTOR()
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

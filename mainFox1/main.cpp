@@ -17,7 +17,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 static FoxStation* foxStation = nullptr;
 
@@ -119,12 +119,12 @@ int main(int argc, char* argv[])
    delete mainWindow;
 }
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 
 //
 int main(int argc, char* argv[])
 {
-  oe::Example::main(argc, argv);
+  oe::example::main(argc, argv);
 }

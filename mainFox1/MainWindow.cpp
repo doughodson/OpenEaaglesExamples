@@ -7,7 +7,7 @@
 #include "fx3d.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 const int MAIN_WIN_HEIGHT = 1000;
 const int MAIN_WIN_WIDTH  = 1000;
@@ -150,5 +150,5 @@ void MainWindow::setupGUI()
    }
 }
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace

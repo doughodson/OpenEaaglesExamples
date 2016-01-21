@@ -20,15 +20,15 @@
 //    textureTest    <Boolean>   Texture test enabled
 //
 // ----------------------------------------------------------------------------
-#ifndef __oe_Example_Display_H__
-#define __oe_Example_Display_H__
+#ifndef __oe_example_Display_H__
+#define __oe_example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
    namespace Basic { class Angle; class Distance; class Number; class Terrain; }
 
-namespace Example {
+namespace example {
 
 class MainWindow;
 
@@ -107,7 +107,7 @@ private:
                                        //   --   icol : [ 0 ... (imgWidth-1) ]
 };
 
-}; // end Example namespace
+}; // end example namespace
 }; // end oe namespace
 
 #endif

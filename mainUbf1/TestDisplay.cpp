@@ -23,7 +23,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -702,5 +702,5 @@ void TestDisplay::updatePfd(const LCreal)
     }
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

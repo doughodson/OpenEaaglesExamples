@@ -5,8 +5,8 @@
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-#ifndef __oe_Example_MapPage_H__
-#define __oe_Example_MapPage_H__
+#ifndef __oe_example_MapPage_H__
+#define __oe_example_MapPage_H__
 
 #include "openeaagles/basicGL/MapPage.h"
 
@@ -17,7 +17,7 @@ namespace Simulation {
 namespace BasicGL {
     class SymbolLoader;
 }
-namespace Example {
+namespace example {
 
 class Station;
 
@@ -56,7 +56,7 @@ private:
     float lonReadoutYPos[MAX_READOUTS];
 };
 
-}  // end of Example namespace
+}  // end of example namespace
 }  // end of oe namespace
 
 #endif

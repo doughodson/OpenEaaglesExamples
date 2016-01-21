@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: TestStation
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestStation_H__
-#define __oe_Example_TestStation_H__
+#ifndef __oe_example_TestStation_H__
+#define __oe_example_TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
    namespace Glut  { class GlutDisplay; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // Class: TestStation
@@ -43,7 +43,7 @@ private:
    bool glutDisplayInit;
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

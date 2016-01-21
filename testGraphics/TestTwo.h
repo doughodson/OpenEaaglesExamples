@@ -3,13 +3,13 @@
 //
 // Description: Control and Send values 'v1' and 'v2' to components
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestTwo_H__
-#define __oe_Example_TestTwo_H__
+#ifndef __oe_example_TestTwo_H__
+#define __oe_example_TestTwo_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class TestTwo : public BasicGL::Graphic
 {
@@ -50,7 +50,7 @@ private:
     SendData v2TitleSD;
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

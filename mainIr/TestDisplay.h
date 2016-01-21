@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: TestDisplay
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestDisplay_H__
-#define __oe_Example_TestDisplay_H__
+#ifndef __oe_example_TestDisplay_H__
+#define __oe_example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -10,7 +10,7 @@ namespace oe {
    namespace Simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -65,7 +65,7 @@ private:
     int trkIdx[MAX_TRACKS];    // Index of track symbols
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

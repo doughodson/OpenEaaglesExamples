@@ -13,7 +13,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // default background frame rate
 static const int BG_RATE = 10;
@@ -120,5 +120,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return oe::Example::main(argc, argv);
+   return oe::example::main(argc, argv);
 }

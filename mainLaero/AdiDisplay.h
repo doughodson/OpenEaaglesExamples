@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: AdiDisplay
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_AdiDisplay_H__
-#define __oe_Example_AdiDisplay_H__
+#ifndef __oe_example_AdiDisplay_H__
+#define __oe_example_AdiDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -12,7 +12,7 @@ namespace oe {
       class Aircraft;
    }
 
-namespace Example {
+namespace example {
 
 class AdiDisplay : public Glut::GlutDisplay
 {

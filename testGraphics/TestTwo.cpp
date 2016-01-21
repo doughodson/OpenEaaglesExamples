@@ -3,7 +3,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(TestTwo,"TestTwo")
 
@@ -277,5 +277,5 @@ bool TestTwo::setV2Min(const Basic::Number* const sv2miobj)
     return true;
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

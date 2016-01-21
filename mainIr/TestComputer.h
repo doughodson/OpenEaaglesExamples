@@ -9,13 +9,13 @@
 //       haveTgt()   true if computer/seeker currently tracking a target
 //
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_TestComputer_H__
-#define __oe_Example_TestComputer_H__
+#ifndef __oe_example_TestComputer_H__
+#define __oe_example_TestComputer_H__
 
 #include "openeaagles/simulation/OnboardComputer.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class TestComputer : public Simulation::OnboardComputer
 {
@@ -42,7 +42,7 @@ private:
    bool haveTarget;   // flag indicating if we have a target track
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

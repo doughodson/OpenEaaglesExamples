@@ -13,7 +13,7 @@
 #include "openeaagles/basic/units/Times.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay,"AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)

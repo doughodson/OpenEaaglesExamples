@@ -3,7 +3,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display,"MapTestDisplay")
 EMPTY_SERIALIZER(Display)
@@ -129,6 +129,6 @@ void Display::updateData(const LCreal dt)
     send("range", UPDATE_VALUE, range, rangeSD);
 }
 
-}  // end of Example namespace
+}  // end of example namespace
 }  // end of oe namespace
 

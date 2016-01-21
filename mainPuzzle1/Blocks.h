@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class:  Block1x1, Block1x2, Block2x1, Block2x2, Block
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_Block_H__
-#define __oe_Example_Block_H__
+#ifndef __oe_example_Block_H__
+#define __oe_example_Block_H__
 
 #include "openeaagles/basic/Object.h"
 
 namespace oe {
    namespace Basic { class List; class Integer; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // Class:  Block
@@ -136,7 +136,7 @@ public:
    unsigned int getSizeY() const override;
 };
 
-}  // End of Example namespace
+}  // End of example namespace
 }  // End of oe namespace
 
 #endif

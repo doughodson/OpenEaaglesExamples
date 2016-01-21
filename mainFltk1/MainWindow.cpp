@@ -8,7 +8,7 @@
 #include <FL/fl_ask.H>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // ----------------------------------------------------------------------------
 // windowCallback() - called when MainWindow wants to exit
@@ -199,6 +199,6 @@ void MainWindow::setZRotation(const double x)
 }
 
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 

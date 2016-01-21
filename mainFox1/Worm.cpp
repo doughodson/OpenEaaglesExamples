@@ -6,7 +6,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(Worm,"Worm")
 
@@ -239,5 +239,5 @@ bool Worm::setAngle(const Basic::Number* const saobj)
   return ok;
 }
 
-} // namespace Example
+} // namespace example
 } // namespace oe

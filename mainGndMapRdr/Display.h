@@ -8,8 +8,8 @@
 // Slots:
 //    textureTest <Boolean>   Texture test enabled
 // ----------------------------------------------------------------------------
-#ifndef __oe_Example_Display_H__
-#define __oe_Example_Display_H__
+#ifndef __oe_example_Display_H__
+#define __oe_example_Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -18,7 +18,7 @@ namespace oe {
 namespace Basic { class Number; }
 namespace Simulation { class Player; class Simulation; class Station; }
 
-namespace Example {
+namespace example {
 
 class Display : public Glut::GlutDisplay
 {
@@ -44,7 +44,7 @@ private:
    GLuint texture;          // Texture
 };
 
-}; // end Example namespace
+}; // end example namespace
 }; // end oe namespace
 
 #endif

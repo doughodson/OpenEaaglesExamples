@@ -12,7 +12,7 @@
 #include "openeaagles/basic/IoData.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 //==============================================================================
 // SimIoHandler
@@ -323,5 +323,5 @@ void SimIoHandler::clear()
 {
 }
 
-} // End Example
+} // End example
 } // end oe namespace

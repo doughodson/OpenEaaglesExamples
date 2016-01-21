@@ -8,7 +8,7 @@
 #include "openeaagles/basic/List.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 //==============================================================================
 // Class: Block
@@ -671,5 +671,5 @@ unsigned int Block15::getSizeX() const      { return 1; }
 unsigned int Block15::getSizeY() const      { return 1; }
 
 
-}  // End of Example namespace
+}  // End of example namespace
 }  // End of oe namespace

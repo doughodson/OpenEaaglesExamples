@@ -13,7 +13,7 @@
 #include "openeaagles/basic/units/Distances.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -349,5 +349,5 @@ Simulation::Station* TestDisplay::getStation()
    return myStation;
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

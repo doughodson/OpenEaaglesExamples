@@ -8,8 +8,8 @@
 //   'f' or 'F'   -- Toggle simulation freeze
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_InstrumentPanel_H__
-#define __oe_Example_InstrumentPanel_H__
+#ifndef __oe_example_InstrumentPanel_H__
+#define __oe_example_InstrumentPanel_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include "openeaagles/simulation/Player.h"
@@ -22,7 +22,7 @@ namespace oe {
       class Station;
    }
 
-namespace Example {
+namespace example {
 
    class DedDisplay;
    class MfdDisplay;
@@ -99,7 +99,7 @@ private:
    SendData gloadSD;
 };
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace
 
 #endif

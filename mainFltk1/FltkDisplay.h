@@ -3,13 +3,13 @@
 //
 // Description: Display that will rotate our graphics.
 //-----------------------------------------------------
-#ifndef __oe_Example_FltkDisplay_H__
-#define __oe_Example_FltkDisplay_H__
+#ifndef __oe_example_FltkDisplay_H__
+#define __oe_example_FltkDisplay_H__
 
 #include "openeaagles/basicGL/Display.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class FltkDisplay : public BasicGL::Display
 {
@@ -43,7 +43,7 @@ private:
    SendData zRotationSD;
 };
 
-}  // end Example
+}  // end example
 }  // end oe
 
 #endif

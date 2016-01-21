@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Puzzle board
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_Board_H__
-#define __oe_Example_Board_H__
+#ifndef __oe_example_Board_H__
+#define __oe_example_Board_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -10,7 +10,7 @@ namespace oe {
    namespace Basic { class PairStream; }
    namespace BasicGL { class Graphic; }
 
-namespace Example {
+namespace example {
 
 class Puzzle;
 class State;
@@ -64,7 +64,7 @@ private:
    unsigned int       nblocks;               // number of blocks
 };
 
-}  // End of Example namespace
+}  // End of example namespace
 }  // End of oe namespace
 
 #endif

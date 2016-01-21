@@ -3,7 +3,7 @@
 #include "openeaagles/basic/Number.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
 EMPTY_SERIALIZER(TdElevPtr)
@@ -58,5 +58,5 @@ bool TdElevPtr::onUpdateValue(const Basic::Number* const ouvobj)
     return true;
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

@@ -3,13 +3,13 @@
 //
 // Description: Example MFD page
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_MfdPage_H__
-#define __oe_Example_MfdPage_H__
+#ifndef __oe_example_MfdPage_H__
+#define __oe_example_MfdPage_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 class MfdPage : public BasicGL::Page {
    DECLARE_SUBCLASS(MfdPage,BasicGL::Page)
@@ -28,7 +28,7 @@ private:
     SendData rSD;
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

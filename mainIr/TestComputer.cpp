@@ -11,7 +11,7 @@
 #include <iostream>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 //==============================================================================
 // Class: TestComputer
@@ -265,5 +265,5 @@ void TestComputer::updateShootList(const bool step)
    else setNextToShoot(nullptr);
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

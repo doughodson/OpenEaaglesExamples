@@ -19,7 +19,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // default background frame rate
 static const int BG_RATE = 10;
@@ -113,11 +113,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return oe::Example::main(argc, argv);
+   return oe::example::main(argc, argv);
 }

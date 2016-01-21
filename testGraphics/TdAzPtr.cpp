@@ -3,7 +3,7 @@
 #include "openeaagles/basic/Number.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
 EMPTY_SERIALIZER(TdAzPtr)
@@ -69,5 +69,5 @@ void TdAzPtr::draw()
    }
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

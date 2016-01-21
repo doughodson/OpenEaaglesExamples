@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class:  Puzzle
 //------------------------------------------------------------------------------
-#ifndef __oe_Example_Puzzle_H__
-#define __oe_Example_Puzzle_H__
+#ifndef __oe_example_Puzzle_H__
+#define __oe_example_Puzzle_H__
 
 #include "openeaagles/basic/Component.h"
 
@@ -11,7 +11,7 @@ namespace oe {
       class List;
    }
 
-namespace Example {
+namespace example {
 
 class State;
 

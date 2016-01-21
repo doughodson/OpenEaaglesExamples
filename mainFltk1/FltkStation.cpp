@@ -10,7 +10,7 @@
 #include "MainWindow.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(FltkStation,"FltkStation")
 EMPTY_SERIALIZER(FltkStation)
@@ -144,5 +144,5 @@ Basic::Object* FltkStation::getSlotByIndex(const int si)
    return BaseClass::getSlotByIndex(si);
 }
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace

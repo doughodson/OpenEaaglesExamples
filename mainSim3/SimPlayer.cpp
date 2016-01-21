@@ -5,7 +5,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(SimPlayer, "SimPlayer")
 EMPTY_DELETEDATA(SimPlayer)
@@ -76,5 +76,5 @@ std::ostream& SimPlayer::serialize(std::ostream& sout, const int i, const bool s
     return sout;
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace

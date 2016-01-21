@@ -1,6 +1,6 @@
 
-#ifndef __oe_Example_TestDisplay_H__
-#define __oe_Example_TestDisplay_H__
+#ifndef __oe_example_TestDisplay_H__
+#define __oe_example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -8,7 +8,7 @@ namespace oe {
 
 namespace BasicGL { class Graphic; }
 
-namespace Example {
+namespace example {
 
 //------------------------------------------------------------------------------
 // TestDisplay
@@ -30,7 +30,7 @@ private:
    BasicGL::Graphic* selected;
 };
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
 
 #endif

@@ -14,13 +14,13 @@ void drawCallBack(void* pData)
 {
     if (pData != nullptr) {
         // we know GLWindow called this.
-        oe::Example::GLWindow* gl = reinterpret_cast<oe::Example::GLWindow*>(pData);
+        oe::example::GLWindow* gl = reinterpret_cast<oe::example::GLWindow*>(pData);
         if (gl != 0) gl->redraw();
     }
 }
 
 namespace oe {
-namespace Example {
+namespace example {
 
 // ----------------------------------------------------------------------------
 // constructor(s) -

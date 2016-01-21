@@ -16,7 +16,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_SUBCLASS(InstrumentPanel,"InstrumentPanel")
 EMPTY_SERIALIZER(InstrumentPanel)
@@ -219,5 +219,5 @@ bool InstrumentPanel::onStepOwnshipKey()
    return true;
 }
 
-} // end Example namespace
+} // end example namespace
 } // end oe namespace

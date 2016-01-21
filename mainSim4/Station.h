@@ -6,8 +6,8 @@
 //      it.  This also runs the simulation, and acts as the interface between the
 //      graphics and simulation.
 // -------------------------------------------------------------------------------
-#ifndef __oe_Example_Station_H__
-#define __oe_Example_Station_H__
+#ifndef __oe_example_Station_H__
+#define __oe_example_Station_H__
 
 #include "openeaagles/simulation/Station.h"
 
@@ -15,7 +15,7 @@ namespace oe {
 
 namespace Glut { class GlutDisplay; }
 
-namespace Example {
+namespace example {
 
 class Station : public Simulation::Station
 {
@@ -35,7 +35,7 @@ private:
     bool displayInit;               // is our display created?
 };
 
-}  // end of Example namespace
+}  // end of example namespace
 }  // end of oe namespace
 
 #endif

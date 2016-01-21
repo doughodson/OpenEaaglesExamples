@@ -6,7 +6,7 @@
 #include <cmath>
 
 namespace oe {
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRotator,"TestRotator")
 EMPTY_SERIALIZER(TestRotator)
@@ -134,5 +134,5 @@ void TestRotator::updateData(const LCreal dt)
     
 }
 
-} // End Example namespace
+} // End example namespace
 } // End oe namespace
