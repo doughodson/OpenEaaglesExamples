@@ -1,15 +1,16 @@
+
 #include "TestMechanical.h"
 
 #include "openeaagles/basic/units/Angles.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Demo {
 
 // static slew rates
 const LCreal TestMechanical::T1 = 120;
 const LCreal TestMechanical::T2 = 0.40f;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestMechanical,"TestMechanical")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestMechanical, "TestMechanical")
 EMPTY_SERIALIZER(TestMechanical)
 
 //------------------------------------------------------------------------------
@@ -381,4 +382,5 @@ void TestMechanical::updateData(const LCreal dt)
 }
 
 } // end of Demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
+

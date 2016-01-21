@@ -22,7 +22,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Eaagles {
+namespace oe {
 namespace Demo {
 
 // frame rate
@@ -58,10 +58,10 @@ static Basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == nullptr) obj = Eaagles::Instruments::Factory::createObj(name);
-      if (obj == nullptr) obj = Eaagles::BasicGL::Factory::createObj(name);
-      if (obj == nullptr) obj = Eaagles::Glut::Factory::createObj(name);
-      if (obj == nullptr) obj = Eaagles::Basic::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::Instruments::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::BasicGL::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::Glut::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::Basic::Factory::createObj(name);
    }
    return obj;
 }
@@ -128,5 +128,6 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Demo::main(argc, argv);
+   return oe::Demo::main(argc, argv);
 }
+

@@ -1,8 +1,8 @@
 // Definition of NAV modes and types
-#ifndef __Eaagles_Demo_Navdefs_H__
-#define __Eaagles_Demo_Navdefs_H__
+#ifndef __oe_Demo_Navdefs_H__
+#define __oe_Demo_Navdefs_H__
 
-namespace Eaagles {
+namespace oe {
 namespace Demo {
 
     // nav types 
@@ -36,6 +36,6 @@ namespace Demo {
     const int ND_WIND = 5;   // wind dir/speed, drift angle
 
 }; // end Demo namespace 
-}; // end Eaagles namespace
+}; // end oe namespace
 
 #endif

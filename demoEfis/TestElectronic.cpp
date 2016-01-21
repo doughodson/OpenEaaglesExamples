@@ -6,7 +6,7 @@
 
 #include <cmath>
 
-namespace Eaagles {
+namespace oe {
 namespace Demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestElectronic,"TestElectronic")
@@ -317,6 +317,8 @@ void TestElectronic::updateTestValues(const LCreal dt)
     }
     if (driftAngle < -90) {
         driftAngle = -90;
+
+
         daRate = -daRate;
     }
 
@@ -700,4 +702,5 @@ void TestElectronic::updateData(const LCreal dt)
 }
 
 } // end of Demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
+

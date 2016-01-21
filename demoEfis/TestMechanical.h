@@ -3,12 +3,12 @@
 //
 // Description: Simulates a rockwell collins type EFIS Mechanical ADI graphic
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestMechanical_H__
-#define __Eaagles_Demo_TestMechanical_H__
+#ifndef __oe_Demo_TestMechanical_H__
+#define __oe_Demo_TestMechanical_H__
 
 #include "openeaagles/basicGL/Page.h"
 
-namespace Eaagles {
+namespace oe {
 namespace Demo {
 
 class TestMechanical : public BasicGL::Page
@@ -92,6 +92,8 @@ private:
 };
 
 } // end of Demo namespace
-} // end of Eaagles namespace
+} // end of oe namespace
 
 #endif
+
+
