@@ -1,7 +1,7 @@
 #include "TestDigitalGauge.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDigitalGauge, "TestDigitalGauge")
 EMPTY_SERIALIZER(TestDigitalGauge)
@@ -61,5 +61,5 @@ void TestDigitalGauge::updateData(const LCreal dt)
     send("analogaoa", UPDATE_INSTRUMENTS, aoa, aoaASD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

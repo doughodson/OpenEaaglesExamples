@@ -4,7 +4,7 @@
 #include <cmath>
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi2, "TestAdi2")
 EMPTY_SERIALIZER(TestAdi2)
@@ -188,5 +188,5 @@ void TestAdi2::updateData(const LCreal dt)
     send("ghosthorizon", UPDATE_VALUE, roll, ghostRollSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

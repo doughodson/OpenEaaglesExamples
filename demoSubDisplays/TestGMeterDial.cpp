@@ -3,7 +3,7 @@
 #include "openeaagles/instruments/dials/GMeterDial.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGMeterDial, "TestGMeterDial")
 EMPTY_SERIALIZER(TestGMeterDial)
@@ -77,6 +77,6 @@ void TestGMeterDial::updateData(const LCreal dt)
     BaseClass::updateData(dt);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 

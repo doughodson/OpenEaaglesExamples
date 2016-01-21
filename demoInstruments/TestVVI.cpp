@@ -1,7 +1,7 @@
 #include "TestVVI.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestVVI,"TestVVI")
 EMPTY_SERIALIZER(TestVVI)
@@ -59,5 +59,5 @@ void TestVVI::updateData(const LCreal dt)
     send("vviro", UPDATE_VALUE, gaugePosition, gaugePositionROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

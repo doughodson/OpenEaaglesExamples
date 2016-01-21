@@ -1,7 +1,7 @@
 #include "TestEngineDial.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngineDial, "TestEngineDial")
 EMPTY_SERIALIZER(TestEngineDial)
@@ -55,5 +55,5 @@ void TestEngineDial::updateData(const LCreal dt)
     send("enginereadout", UPDATE_VALUE, engineRotation, engineReadoutSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

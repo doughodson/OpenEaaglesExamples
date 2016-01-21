@@ -4,7 +4,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace Demo {
+namespace demo {
 
 // static slew rates
 const LCreal TestMechanical::T1 = 120;
@@ -381,6 +381,6 @@ void TestMechanical::updateData(const LCreal dt)
     send("sdevfail", SET_VISIBILITY, sdFail, sdFailSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of oe namespace
 

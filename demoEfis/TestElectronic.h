@@ -3,13 +3,13 @@
 //
 // Description: Rockwell-Collins Efis test page to stimulate arc mode.
 //------------------------------------------------------------------------------
-#ifndef __oe_Demo_TestElectronic_H__
-#define __oe_Demo_TestElectronic_H__
+#ifndef __oe_demo_TestElectronic_H__
+#define __oe_demo_TestElectronic_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace oe {
-namespace Demo {
+namespace demo {
 
 class TestElectronic : public BasicGL::Page
 {
@@ -125,7 +125,7 @@ private:
     SendData toFromSD;          // to from translation
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of oe namespace
 
 #endif

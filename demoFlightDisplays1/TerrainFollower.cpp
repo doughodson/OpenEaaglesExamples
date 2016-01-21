@@ -10,7 +10,7 @@
 #include <GL/glu.h>
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TerrainFollower, "TerrainFollower")
 EMPTY_SERIALIZER(TerrainFollower)
@@ -451,6 +451,6 @@ void TerrainFollower::updateData(const LCreal dt)
     send("fourthr", UPDATE_VALUE, range, fRSD);
 }
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 

@@ -12,7 +12,7 @@
 
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCompass,"TestCompass")
 EMPTY_SERIALIZER(TestCompass)
@@ -259,6 +259,6 @@ bool TestCompass::onToggleCenteredTestCompass()
     return true;
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 

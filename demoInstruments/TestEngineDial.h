@@ -4,13 +4,13 @@
 // Description: Example Analog Dial Page
 // This page will supply test data to the engine dial
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestEngineDial_H__
-#define __Eaagles_Demo_TestEngineDial_H__
+#ifndef __Eaagles_demo_TestEngineDial_H__
+#define __Eaagles_demo_TestEngineDial_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestEngineDial : public BasicGL::Page
 {
@@ -28,7 +28,7 @@ private:
     LCreal  engineRate;             // rate which are going (up or down)
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

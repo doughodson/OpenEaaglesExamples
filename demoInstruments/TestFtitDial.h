@@ -5,13 +5,13 @@
 // This page will supply test data to the fuel temperature internal dial
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestFtitDial_H__
-#define __Eaagles_Demo_TestFtitDial_H__
+#ifndef __Eaagles_demo_TestFtitDial_H__
+#define __Eaagles_demo_TestFtitDial_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestFtitDial : public BasicGL::Page
 {
@@ -29,7 +29,7 @@ private:
     SendData ftitRotationROSD;  // for our readout
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

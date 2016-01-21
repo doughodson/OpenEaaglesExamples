@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Demo of sub-displays
+// demo of sub-displays
 //------------------------------------------------------------------------------
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
@@ -40,7 +40,7 @@
 #include <cstdlib>
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 // frame rate
 const int frameRate = 20;
@@ -205,11 +205,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end Demo namespace
+} // end demo namespace
 } // end Eaagles namespace
 
 //
 int main(int argc, char* argv[])
 {
-   return Eaagles::Demo::main(argc, argv);
+   return Eaagles::demo::main(argc, argv);
 }

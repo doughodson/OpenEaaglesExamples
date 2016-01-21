@@ -3,14 +3,14 @@
 //
 // Description: Tests the pfd.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_Pfd_H__
-#define __Eaagles_Demo_Pfd_H__
+#ifndef __Eaagles_demo_Pfd_H__
+#define __Eaagles_demo_Pfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class Pfd : public BasicGL::Page
 {
@@ -168,7 +168,7 @@ private:
 
 };
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 
 #endif

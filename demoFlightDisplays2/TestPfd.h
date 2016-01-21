@@ -3,13 +3,13 @@
 //
 // Description: Tests another pfd page
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestPfd_H__
-#define __Eaagles_Demo_TestPfd_H__
+#ifndef __Eaagles_demo_TestPfd_H__
+#define __Eaagles_demo_TestPfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestPfd : public BasicGL::Page
 {
@@ -74,7 +74,7 @@ private:
     LCreal baroRate;
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

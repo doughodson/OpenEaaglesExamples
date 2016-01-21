@@ -1,7 +1,7 @@
 #include "TestNozzle.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestNozzle,"TestNozzle")
 EMPTY_SERIALIZER(TestNozzle)
@@ -53,5 +53,5 @@ void TestNozzle::updateData(const LCreal dt)
     send("nozRO", UPDATE_VALUE, nozPos, nozPosROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

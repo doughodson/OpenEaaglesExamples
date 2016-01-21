@@ -1,7 +1,7 @@
 #include "TestLandingGear.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestLandingGear, "TestLandingGear")
 EMPTY_SERIALIZER(TestLandingGear)
@@ -68,5 +68,5 @@ void TestLandingGear::updateData(const LCreal dt)
     send("gearRO", UPDATE_VALUE, gearPosition, gearPositionROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

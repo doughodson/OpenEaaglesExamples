@@ -7,7 +7,7 @@
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/StoresMgr.h"
 
-namespace Eaagles {
+namespace oe {
 namespace xBehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneAction, "PlaneAction")
@@ -130,7 +130,7 @@ bool PlaneAction::execute(Basic::Component* actor)
             sms->setWeaponDeliveryMode(Simulation::StoresMgr::A2A);
             std::cout << "Set A/A Weapon Mode!" << std::endl;
 
-            airVehicle->event(Eaagles::Basic::Component::WPN_REL_EVENT);
+            airVehicle->event(Basic::Component::WPN_REL_EVENT);
             //WPN_REL_EVENT         = 1405,  // Passes requested switch state as Boolean
                                           // or no argument for one-shot event
             std::cout << "Launched A/A Weapon !" << std::endl;

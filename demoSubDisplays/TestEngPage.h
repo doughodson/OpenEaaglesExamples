@@ -3,14 +3,14 @@
 //
 // Description: Tests the engine page
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestEngPage_H__
-#define __Eaagles_Demo_TestEngPage_H__
+#ifndef __Eaagles_demo_TestEngPage_H__
+#define __Eaagles_demo_TestEngPage_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/instruments/eng/EngPage.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestEngPage : public Eaagles::BasicGL::Page
 {
@@ -39,7 +39,7 @@ private:
     LCreal ffRate[Instruments::EngPage::NUM_ENG];
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

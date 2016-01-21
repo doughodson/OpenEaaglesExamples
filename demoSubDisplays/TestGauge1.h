@@ -5,13 +5,13 @@
 // This page will supply test data to a generic analog gauge
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestGauge1_H__
-#define __Eaagles_Demo_TestGauge1_H__
+#ifndef __Eaagles_demo_TestGauge1_H__
+#define __Eaagles_demo_TestGauge1_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestGauge1 : public BasicGL::Page
 {
@@ -33,7 +33,7 @@ private:
     SendData tapePosROSD;
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

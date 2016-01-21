@@ -3,13 +3,13 @@
 //
 // Description: Another example of using an analog dial.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestNozzle_H__
-#define __Eaagles_Demo_TestNozzle_H__
+#ifndef __Eaagles_demo_TestNozzle_H__
+#define __Eaagles_demo_TestNozzle_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestNozzle : public BasicGL::Page
 {
@@ -27,7 +27,7 @@ private:
     LCreal  nozRate;
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

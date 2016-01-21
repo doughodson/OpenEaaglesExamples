@@ -8,7 +8,7 @@
 #endif
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
@@ -353,5 +353,5 @@ void Pfd::updateData(const LCreal dt)
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles Namespace

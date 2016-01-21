@@ -1,7 +1,7 @@
 #include "TestAlt.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAlt, "TestAlt")
 EMPTY_SERIALIZER(TestAlt)
@@ -54,6 +54,6 @@ void TestAlt::updateData(const LCreal dt)
     send("altRO", UPDATE_VALUE, alt, altROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 

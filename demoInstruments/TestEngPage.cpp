@@ -2,7 +2,7 @@
 #include "openeaagles/basic/Pair.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngPage,"TestEngPage")
 EMPTY_SERIALIZER(TestEngPage)
@@ -137,5 +137,5 @@ void TestEngPage::updateData(const LCreal dt)
     }
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

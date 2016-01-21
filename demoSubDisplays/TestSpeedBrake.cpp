@@ -1,7 +1,7 @@
 #include "TestSpeedBrake.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSpeedBrake, "TestSpeedBrake")
 EMPTY_SERIALIZER(TestSpeedBrake)
@@ -57,5 +57,5 @@ void TestSpeedBrake::updateData(const LCreal dt)
     send("sbrakeRO", UPDATE_VALUE, sbrakePosition, sbrakePositionROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

@@ -1,7 +1,7 @@
 #include "TestOilPressure.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestOilPressure, "TestOilPressure")
 EMPTY_SERIALIZER(TestOilPressure)
@@ -53,5 +53,5 @@ void TestOilPressure::updateData(const Eaagles::LCreal dt)
     send("oilRO", UPDATE_VALUE, oilPressure, oilPressureROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

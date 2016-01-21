@@ -1,7 +1,7 @@
 #include "TestHsi.h"
 
 namespace Eaagles {
-namespace Demo  {
+namespace demo  {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestHsi, "TestHsi")
 EMPTY_SERIALIZER(TestHsi)
@@ -60,6 +60,6 @@ void TestHsi::updateData(const LCreal dt)
     send("dmeRO", UPDATE_VALUE, dme, dmeROSD);
 }
 
-} // end of Demo  namespace
+} // end of demo  namespace
 } // end of Eaagles namespace
 

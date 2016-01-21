@@ -3,7 +3,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_SUBCLASS(CrsPntr, "CrsPntr")
 EMPTY_SERIALIZER(CrsPntr)
@@ -283,6 +283,6 @@ Basic::Object* CrsPntr::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 

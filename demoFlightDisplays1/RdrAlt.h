@@ -8,13 +8,13 @@
 //      UPDATE_VALUE  -> actual radar alt
 //      UPDATE_VALUE2 -> minimum radar alt
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_RdrAlt_H__
-#define __Eaagles_Demo_RdrAlt_H__
+#ifndef __Eaagles_demo_RdrAlt_H__
+#define __Eaagles_demo_RdrAlt_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class RdrAlt : public BasicGL::Graphic
 {
@@ -46,7 +46,7 @@ private:
     SendData rAltMinSD;
 };
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 
 #endif

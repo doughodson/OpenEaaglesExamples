@@ -5,13 +5,13 @@
 // Inputs:
 //      UPDATE_VALUE  -> altitude flag on or off
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_SpdLines_H__
-#define __Eaagles_Demo_SpdLines_H__
+#ifndef __Eaagles_demo_SpdLines_H__
+#define __Eaagles_demo_SpdLines_H__
 
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class SpdLines : public BasicGL::Graphic
 {
@@ -39,7 +39,7 @@ private:
     bool isAlt;     // are we drawing the altitude lines instead?
 };
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 
 #endif

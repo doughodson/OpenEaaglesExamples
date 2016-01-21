@@ -13,7 +13,7 @@
 #endif
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 static const LCreal refLat =   41.1f;
 static const LCreal refLon =  111.9f;
@@ -289,6 +289,6 @@ bool TestSD::onToggleRange()
     return true;
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 

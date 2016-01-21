@@ -1,9 +1,9 @@
 // Definition of NAV modes and types
-#ifndef __oe_Demo_Navdefs_H__
-#define __oe_Demo_Navdefs_H__
+#ifndef __oe_demo_Navdefs_H__
+#define __oe_demo_Navdefs_H__
 
 namespace oe {
-namespace Demo {
+namespace demo {
 
     // nav types 
     const int VORTAC  = 0;  // variable omni-range tacan
@@ -35,7 +35,7 @@ namespace Demo {
     const int ND_ET   = 4;   // elapsed time
     const int ND_WIND = 5;   // wind dir/speed, drift angle
 
-}; // end Demo namespace 
+}; // end demo namespace 
 }; // end oe namespace
 
 #endif

@@ -5,13 +5,13 @@
 // This page will show an analog F16-like aoa gauge beside a digital aoa gauge
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestDigitalGauge_H__
-#define __Eaagles_Demo_TestDigitalGauge_H__
+#ifndef __Eaagles_demo_TestDigitalGauge_H__
+#define __Eaagles_demo_TestDigitalGauge_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestDigitalGauge : public BasicGL::Page
 {

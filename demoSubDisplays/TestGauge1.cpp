@@ -1,7 +1,7 @@
 #include "TestGauge1.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGauge1, "TestGauge1")
 EMPTY_SERIALIZER(TestGauge1)
@@ -79,5 +79,5 @@ void TestGauge1::updateData(const LCreal dt)
     send("tapero", UPDATE_VALUE, tapePos, tapePosROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

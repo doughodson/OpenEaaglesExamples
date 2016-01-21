@@ -7,7 +7,7 @@
 #include <cmath>
 
 namespace oe {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestElectronic,"TestElectronic")
 EMPTY_SERIALIZER(TestElectronic)
@@ -701,6 +701,6 @@ void TestElectronic::updateData(const LCreal dt)
     }
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of oe namespace
 

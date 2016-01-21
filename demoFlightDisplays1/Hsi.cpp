@@ -1,7 +1,7 @@
 #include "Hsi.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
 EMPTY_SERIALIZER(Hsi)
@@ -161,6 +161,6 @@ void Hsi::updateData(const LCreal dt)
     send("selhdgro", UPDATE_VALUE, selHdg, selHdgROSD);
 }
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 

@@ -5,13 +5,13 @@
 // This page will supply test data to a generic analog tape gauge
 //
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestVVI_H__
-#define __Eaagles_Demo_TestVVI_H__
+#ifndef __Eaagles_demo_TestVVI_H__
+#define __Eaagles_demo_TestVVI_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestVVI : public BasicGL::Page
 {
@@ -29,7 +29,7 @@ private:
     LCreal  gaugeRate;          // rate which are going (up or down)
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

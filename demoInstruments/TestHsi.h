@@ -3,13 +3,13 @@
 //
 // Description: Tests our core HSI graphic
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestHsi_H__
-#define __Eaagles_Demo_TestHsi_H__
+#ifndef __Eaagles_demo_TestHsi_H__
+#define __Eaagles_demo_TestHsi_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestHsi : public BasicGL::Page
 {
@@ -29,7 +29,7 @@ private:
     LCreal dme;
 };
 
-} // end of Demo  namespace
+} // end of demo  namespace
 } // end of Eaagles namespace
 
 #endif

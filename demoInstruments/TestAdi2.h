@@ -3,13 +3,13 @@
 //
 // Description: Tests an MFD version of the ADI
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestAdi2_H__
-#define __Eaagles_Demo_TestAdi2_H__
+#ifndef __Eaagles_demo_TestAdi2_H__
+#define __Eaagles_demo_TestAdi2_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestAdi2 : public BasicGL::Page
 {
@@ -49,7 +49,7 @@ private:
     SendData ghostRollSD;   // ghost horizon roll
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

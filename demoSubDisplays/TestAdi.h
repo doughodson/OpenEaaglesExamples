@@ -3,13 +3,13 @@
 //
 // Description: Tests our core ADI graphic
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestAdi_H__
-#define __Eaagles_Demo_TestAdi_H__
+#ifndef __Eaagles_demo_TestAdi_H__
+#define __Eaagles_demo_TestAdi_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestAdi : public BasicGL::Page
 {
@@ -32,7 +32,7 @@ private:
     LCreal slipRate;
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

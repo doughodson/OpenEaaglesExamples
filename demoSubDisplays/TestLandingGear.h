@@ -3,13 +3,13 @@
 //
 // Description: Tests our generic landing gear and lights
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestLandingGear_H__
-#define __Eaagles_Demo_TestLandingGear_H__
+#ifndef __Eaagles_demo_TestLandingGear_H__
+#define __Eaagles_demo_TestLandingGear_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestLandingGear : public BasicGL::Page
 {
@@ -31,7 +31,7 @@ private:
     LCreal  gearRate;          // rate which are going (up or down)
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

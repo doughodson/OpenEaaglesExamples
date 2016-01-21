@@ -1,7 +1,7 @@
 #include "TestCas.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCas, "TestCas")
 EMPTY_SERIALIZER(TestCas)
@@ -57,5 +57,5 @@ void TestCas::updateData(const LCreal dt)
     send("tasRO", UPDATE_VALUE, tas, tasROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

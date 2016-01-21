@@ -3,13 +3,13 @@
 //
 // Description: Simply tests our buttons and prints out which one we hit
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestButtons_H__
-#define __Eaagles_Demo_TestButtons_H__
+#ifndef __Eaagles_demo_TestButtons_H__
+#define __Eaagles_demo_TestButtons_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestButtons : public BasicGL::Page
 {
@@ -41,7 +41,7 @@ private:
     SendData latchedSD;
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

@@ -4,14 +4,14 @@
 // Description: Sends data down to the Pfd
 // Inputs: Use public member functions instead of send commands here
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_Pfd_H__
-#define __Eaagles_Demo_Pfd_H__
+#ifndef __Eaagles_demo_Pfd_H__
+#define __Eaagles_demo_Pfd_H__
 
 #include "openeaagles/basicGL/Page.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class Pfd : public BasicGL::Page
 {
@@ -257,7 +257,7 @@ private:
     SendData pitchGhostSD;
 };
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles namespace
 
 #endif

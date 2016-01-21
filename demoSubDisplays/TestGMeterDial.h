@@ -4,13 +4,13 @@
 // Description: This page will test the G meter, which is a dial showing
 // the min and max Gs as well as the current Gs being pulled.
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestGMeterDial_H__
-#define __Eaagles_Demo_TestGMeterDial_H__
+#ifndef __Eaagles_demo_TestGMeterDial_H__
+#define __Eaagles_demo_TestGMeterDial_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestGMeterDial : public BasicGL::Page
 {
@@ -30,7 +30,7 @@ private:
     LCreal timerRate;
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

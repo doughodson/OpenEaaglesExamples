@@ -7,13 +7,13 @@
 //      UPDATE_VALUE3  -> cdi dots
 //      UPDATE_VALUE4 -> to from
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_CrsPntr_H__
-#define __Eaagles_Demo_CrsPntr_H__
+#ifndef __Eaagles_demo_CrsPntr_H__
+#define __Eaagles_demo_CrsPntr_H__
 
 #include "openeaagles/basicGL/Rotators.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class CrsPntr : public BasicGL::Rotators
 {

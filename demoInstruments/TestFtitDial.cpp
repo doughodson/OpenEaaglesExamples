@@ -1,7 +1,7 @@
 #include "TestFtitDial.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestFtitDial, "TestFtitDial")
 EMPTY_SERIALIZER(TestFtitDial)
@@ -52,6 +52,6 @@ void TestFtitDial::updateData(const LCreal dt)
     send("ftitRO", UPDATE_VALUE, ftitRotation, ftitRotationROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 

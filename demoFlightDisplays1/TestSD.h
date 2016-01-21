@@ -3,13 +3,13 @@
 //
 // Description: Sends test data down to the situational display
 //------------------------------------------------------------------------------
-#ifndef __Eaagles_Demo_TestSD_H__
-#define __Eaagles_Demo_TestSD_H__
+#ifndef __Eaagles_demo_TestSD_H__
+#define __Eaagles_demo_TestSD_H__
 
 #include "openeaagles/basicGL/Page.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 class TestSD : public BasicGL::Page
 {
@@ -63,7 +63,7 @@ private:
     bool navAidsLoaded;                 // navaids have been loaded
 };
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 
 #endif

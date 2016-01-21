@@ -1,7 +1,7 @@
 #include "TestAdi.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi, "TestAdi")
 EMPTY_SERIALIZER(TestAdi)
@@ -90,6 +90,6 @@ void TestAdi::updateData(const LCreal dt)
     send("adi", UPDATE_VALUE, roll, rollSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
 

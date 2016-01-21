@@ -10,7 +10,7 @@
 #endif
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(SituationalDisplay,"SituationalDisplay")
 EMPTY_SERIALIZER(SituationalDisplay)
@@ -255,6 +255,6 @@ void SituationalDisplay::updateData(const LCreal dt)
 
 }
 
-}; // end of Demo namespace
+}; // end of demo namespace
 }; // end of Eaagles Namespace
 

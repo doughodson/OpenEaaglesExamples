@@ -1,7 +1,7 @@
 #include "TestRpmDial.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRpmDial, "TestRpmDial")
 EMPTY_SERIALIZER(TestRpmDial)
@@ -54,5 +54,5 @@ void TestRpmDial::updateData(const LCreal dt)
     send("rpmRO", UPDATE_VALUE, rpm, rpmROSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace

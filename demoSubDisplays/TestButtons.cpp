@@ -3,7 +3,7 @@
 #include "openeaagles/basic/Pair.h"
 
 namespace Eaagles {
-namespace Demo {
+namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestButtons,"TestButtons")
 EMPTY_SERIALIZER(TestButtons)
@@ -127,5 +127,5 @@ void TestButtons::updateData(const LCreal dt)
     send("value", UPDATE_VALUE, value, valueSD);
 }
 
-} // end of Demo namespace
+} // end of demo namespace
 } // end of Eaagles namespace
