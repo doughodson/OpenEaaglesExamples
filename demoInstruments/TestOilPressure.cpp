@@ -34,7 +34,7 @@ void TestOilPressure::copyData(const TestOilPressure& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestOilPressure::updateData(const oe::LCreal dt)
+void TestOilPressure::updateData(const LCreal dt)
 {
     BaseClass::updateData(dt);
 

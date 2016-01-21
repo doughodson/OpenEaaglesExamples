@@ -25,8 +25,8 @@ public:
 
    Worm();
 
-   void getPosition(LCreal& xx, oe::LCreal& yy) const      { xx = xPos; yy = yPos; }
-   void setPosition(const LCreal xx, const LCreal yy)           { xPos = xx; yPos = yy; }
+   void getPosition(LCreal& xx, LCreal& yy) const         { xx = xPos; yy = yPos; }
+   void setPosition(const LCreal xx, const LCreal yy)     { xPos = xx; yPos = yy; }
 
    virtual bool realSpeed(const Basic::Number* const rsobj);
    virtual bool setAngle(const Basic::Angle* const saobj);
