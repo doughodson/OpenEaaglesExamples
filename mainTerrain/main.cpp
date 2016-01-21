@@ -12,10 +12,8 @@
 #include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/basicGLFF.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/gui/glut/glutFF.h"
 #include <GL/glut.h>
 
 #include <cstdlib>
