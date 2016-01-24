@@ -54,11 +54,7 @@ basic::Object* Factory::createObj(const char* name)
     if (obj == nullptr) obj = Sensor::Factory::createObj(name);
     if (obj == nullptr) obj = Instruments::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-<<<<<<< HEAD
     if (obj == nullptr) obj = dynamics::Factory::createObj(name);
-=======
-    if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
->>>>>>> 76e51914a3c7bcf37aa3ced2096544759ec5fe90
     if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
     if (obj == nullptr) obj = Glut::Factory::createObj(name);
     if (obj == nullptr) obj = basic::Factory::createObj(name);
