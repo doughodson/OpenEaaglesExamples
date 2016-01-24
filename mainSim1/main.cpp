@@ -40,7 +40,7 @@ static basic::Object* factory(const char* name)
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
    if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
    if (obj == nullptr) obj = Sensor::Factory::createObj(name);
-   if (obj == nullptr) obj = Network::Dis::Factory::createObj(name);
+   if (obj == nullptr) obj = Network::dis::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
 
    return obj;
