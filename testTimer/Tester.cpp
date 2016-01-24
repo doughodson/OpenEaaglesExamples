@@ -23,7 +23,7 @@ END_SLOTTABLE(Tester)
 
 // slot map
 BEGIN_SLOT_MAP(Tester)
-   ON_SLOT(1, setSlotTimers, oe::Basic::PairStream)
+   ON_SLOT(1, setSlotTimers, oe::basic::PairStream)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -63,10 +63,10 @@ bool Tester::areAllActiveTimerAlarmsOn() const
 
    if (timers != nullptr) {
 
-      const Basic::List::Item* item = timers->getFirstItem();
+      const basic::List::Item* item = timers->getFirstItem();
       while (item != nullptr && on) {
-         const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
-         const Basic::Timer* timer = static_cast<const Basic::Timer*>(pair->object());
+         const basic::Pair* pair = static_cast<const basic::Pair*>(item->getValue());
+         const basic::Timer* timer = static_cast<const basic::Timer*>(pair->object());
          on = timer->alarm() || timer->isNotRunning();
          item = item->getNext();
       }
@@ -84,15 +84,15 @@ void Tester::printTimers() const
 {
    if (timers != nullptr) {
 
-      const Basic::List::Item* item = timers->getFirstItem();
+      const basic::List::Item* item = timers->getFirstItem();
       while (item != nullptr) {
-         const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
-         const Basic::Timer* timer = static_cast<const Basic::Timer*>(pair->object());
+         const basic::Pair* pair = static_cast<const basic::Pair*>(item->getValue());
+         const basic::Timer* timer = static_cast<const basic::Timer*>(pair->object());
 
          printf("  timer(%s)", pair->slot()->getString());
          printf(" = %4.1f", timer->getCurrentTime());
 
-         if (timer->getType() == Basic::Timer::UP) printf(", up");
+         if (timer->getType() == basic::Timer::UP) printf(", up");
          else std::printf(", down");
 
          if (timer->isRunning()) printf(", active");
@@ -118,10 +118,10 @@ void Tester::restartAllTimers()
 {
    if (timers != nullptr) {
 
-      Basic::List::Item* item = timers->getFirstItem();
+      basic::List::Item* item = timers->getFirstItem();
       while (item != nullptr) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
-         Basic::Timer* timer = static_cast<Basic::Timer*>(pair->object());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         basic::Timer* timer = static_cast<basic::Timer*>(pair->object());
          timer->restart();
          item = item->getNext();
       }
@@ -138,10 +138,10 @@ void Tester::reset()
 
    if (timers != nullptr) {
 
-      Basic::List::Item* item = timers->getFirstItem();
+      basic::List::Item* item = timers->getFirstItem();
       while (item != nullptr) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
-         Basic::Timer* timer = static_cast<Basic::Timer*>(pair->object());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         basic::Timer* timer = static_cast<basic::Timer*>(pair->object());
          timer->reset();
          item = item->getNext();
       }
@@ -153,7 +153,7 @@ void Tester::reset()
 // slot functions
 //------------------------------------------------------------------------------
 
-bool Tester::setSlotTimers(const Basic::PairStream* const msg)
+bool Tester::setSlotTimers(const basic::PairStream* const msg)
 {
    // Clear the old timer list
    if (timers != nullptr) timers->unref();
@@ -162,16 +162,16 @@ bool Tester::setSlotTimers(const Basic::PairStream* const msg)
    // Copy the new timer list, and make sure we have only Timers
    if (msg != nullptr) {
 
-      Basic::PairStream* newList = new Basic::PairStream();
+      basic::PairStream* newList = new basic::PairStream();
 
       unsigned int n = 0;
-      const Basic::List::Item* item = msg->getFirstItem();
+      const basic::List::Item* item = msg->getFirstItem();
       while (item != nullptr) {
          n++;
-         const Basic::Pair* const pair = static_cast<const Basic::Pair*>(item->getValue());
-         const Basic::Timer* const timer = dynamic_cast<const Basic::Timer*>(pair->object());
+         const basic::Pair* const pair = static_cast<const basic::Pair*>(item->getValue());
+         const basic::Timer* const timer = dynamic_cast<const basic::Timer*>(pair->object());
          if (timer != nullptr) {
-            Basic::Pair* newPair = pair->clone();
+            basic::Pair* newPair = pair->clone();
             newList->put(newPair);
          }
          else {
@@ -192,7 +192,7 @@ bool Tester::setSlotTimers(const Basic::PairStream* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Rgb
 //------------------------------------------------------------------------------
-Basic::Object* Tester::getSlotByIndex(const int si)
+basic::Object* Tester::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

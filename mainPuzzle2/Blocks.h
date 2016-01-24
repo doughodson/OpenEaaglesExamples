@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Object.h"
 
 namespace oe {
-   namespace Basic { class List; class Integer; }
+   namespace basic { class List; class Integer; }
 
 namespace example {
 
@@ -15,16 +15,16 @@ class Puzzle;
 
 //------------------------------------------------------------------------------
 // Class:  Block
-// Base class:  Basic::Object-> Block
+// Base class:  basic::Object-> Block
 //
 // Description:  Abstract puzzle block
 //
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
 //------------------------------------------------------------------------------
-class Block : public Basic::Object
+class Block : public basic::Object
 {
-    DECLARE_SUBCLASS(Block, Basic::Object)
+    DECLARE_SUBCLASS(Block, basic::Object)
 
 public:
    Block();
@@ -54,8 +54,8 @@ public:
    virtual unsigned int computeHashValue(const unsigned int blockIndex, const unsigned int rehashCount) const;
 
    // Slot function(s)
-   virtual bool setSlotPosition(const Basic::List* const msg);
-   virtual bool setSlotRefId(const Basic::Integer* const msg);
+   virtual bool setSlotPosition(const basic::List* const msg);
+   virtual bool setSlotRefId(const basic::Integer* const msg);
 
 protected:
    virtual bool setInitPosition(const unsigned int x, const unsigned int y);

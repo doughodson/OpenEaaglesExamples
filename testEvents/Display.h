@@ -50,7 +50,7 @@ private:
     char myChar[10];
     SendData charSD;
 
-    Basic::Color* myColor;
+    basic::Color* myColor;
     SendData colorSD;
 
     static const int MAX_MATERIALS = 3;

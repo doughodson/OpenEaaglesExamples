@@ -32,15 +32,15 @@ static void timerFunc(int)
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   Basic::Timer::updateTimers(static_cast<float>(dt));
+   basic::Timer::updateTimers(static_cast<float>(dt));
    BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
    glutDisplay->tcFrame(static_cast<LCreal>(dt));
 }
 
 // our class factory
-static Basic::Object* factory(const char* const name)
+static basic::Object* factory(const char* const name)
 {
-  Basic::Object* obj = nullptr;
+  basic::Object* obj = nullptr;
 
   if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
     obj = new Worm;
@@ -49,7 +49,7 @@ static Basic::Object* factory(const char* const name)
   // Default to base classes
   if (obj == nullptr) obj = Glut::Factory::createObj(name);
   if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
-  if (obj == nullptr) obj = Basic::Factory::createObj(name);
+  if (obj == nullptr) obj = basic::Factory::createObj(name);
 
   return obj;
 }
@@ -59,7 +59,7 @@ static Glut::GlutDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   basic::Object* obj = basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -71,8 +71,8 @@ static Glut::GlutDisplay* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
-   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
+   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();

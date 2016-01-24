@@ -28,8 +28,8 @@ END_SLOTTABLE(Block)
 //  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Block)
-    ON_SLOT( 1, setSlotPosition, Basic::List)
-    ON_SLOT( 2, setSlotRefId, Basic::Integer)
+    ON_SLOT( 1, setSlotPosition, basic::List)
+    ON_SLOT( 2, setSlotRefId, basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -208,7 +208,7 @@ bool Block::setReferenceID(const unsigned int v)
 //------------------------------------------------------------------------------
 // Slot function(s)
 //------------------------------------------------------------------------------
-bool Block::setSlotPosition(const Basic::List* const msg)
+bool Block::setSlotPosition(const basic::List* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -221,7 +221,7 @@ bool Block::setSlotPosition(const Basic::List* const msg)
    return ok;
 }
 
-bool Block::setSlotRefId(const Basic::Integer* const msg)
+bool Block::setSlotRefId(const basic::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -237,7 +237,7 @@ bool Block::setSlotRefId(const Basic::Integer* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* Block::getSlotByIndex(const int si)
+basic::Object* Block::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

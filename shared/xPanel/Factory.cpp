@@ -20,9 +20,9 @@ namespace xPanel {
 Factory::Factory()
 {}
 
-Basic::Object* Factory::createObj(const char* name)
+basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = nullptr;
+    basic::Object* obj = nullptr;
 
     if ( std::strcmp(name, DspRadar::getFactoryName()) == 0 ) {
         obj = new DspRadar();

@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Basic::Timer test program
+// basic::Timer test program
 //
 // 1) Reads an EDL file that must contain our Tester component and timers to be tested.
-// 2) Creates a periodic thread to call Basic::Timer::updateTimers();
+// 2) Creates a periodic thread to call basic::Timer::updateTimers();
 // 3) Runs the timers for 'MAIN_TIMER_VALUE' seconds, while printing the timer
 //    values at a 'TIMERS_PRINT_RATE' rate
 // 4) Restarts all of the Tester's timers
@@ -36,9 +36,9 @@ static const double TIMERS_PRINT_RATE = 5;   // Hz
 static const double THREAD_RATE = 20.0;      // hz
 static const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
 
-class TimerThread : public Basic::ThreadPeriodicTask {
-   DECLARE_SUBCLASS(TimerThread,Basic::ThreadPeriodicTask)
-   public: TimerThread(Basic::Component* const parent, const LCreal priority, const LCreal rate);
+class TimerThread : public basic::ThreadPeriodicTask {
+   DECLARE_SUBCLASS(TimerThread,basic::ThreadPeriodicTask)
+   public: TimerThread(basic::Component* const parent, const LCreal priority, const LCreal rate);
    private: virtual unsigned long userFunc(const LCreal dt);
 };
 
@@ -48,7 +48,7 @@ EMPTY_COPYDATA(TimerThread)
 EMPTY_DELETEDATA(TimerThread)
 EMPTY_SERIALIZER(TimerThread)
 
-TimerThread::TimerThread(Basic::Component* const parent, const LCreal priority, const LCreal rate)
+TimerThread::TimerThread(basic::Component* const parent, const LCreal priority, const LCreal rate)
       : ThreadPeriodicTask(parent, priority, rate)
 {
    STANDARD_CONSTRUCTOR()
@@ -56,7 +56,7 @@ TimerThread::TimerThread(Basic::Component* const parent, const LCreal priority, 
 
 unsigned long TimerThread::userFunc(const LCreal dt)
 {
-   Basic::Timer::updateTimers(dt);
+   basic::Timer::updateTimers(dt);
    return 0;
 }
 
@@ -77,16 +77,16 @@ TimerThread* createTheThread(Tester* const tester)
 }
 
 // our class factory
-static Basic::Object* factory(const char* const name)
+static basic::Object* factory(const char* const name)
 {
-  Basic::Object* obj = nullptr;
+  basic::Object* obj = nullptr;
 
   if ( std::strcmp(name, Tester::getFactoryName()) == 0 ) {
     obj = new Tester;
   }
 
   // Default to base classes
-  if (obj == nullptr) obj = Basic::Factory::createObj(name);
+  if (obj == nullptr) obj = basic::Factory::createObj(name);
   return obj;
 }
 
@@ -95,7 +95,7 @@ static Tester* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   basic::Object* obj = basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -107,8 +107,8 @@ static Tester* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
-   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
+   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -130,13 +130,13 @@ static Tester* builder(const char* const filename)
 void run(Tester* const tester)
 {
    if (tester != nullptr) {
-      Basic::Timer::freeze(true);
+      basic::Timer::freeze(true);
 
       // Time between printing the timer data
       double dt = 1.0 / static_cast<double>(TIMERS_PRINT_RATE);
 
       // Our main test control timer
-      Basic::UpTimer* mainTimer = new Basic::UpTimer();
+      basic::UpTimer* mainTimer = new basic::UpTimer();
       mainTimer->setAlarmTime(MAIN_TIMER_VALUE);
       mainTimer->start();
 
@@ -145,7 +145,7 @@ void run(Tester* const tester)
       // ---
       std::cout << "#### First Test ####" << std::endl;
 
-      Basic::Timer::freeze(false);
+      basic::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
          lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
@@ -155,7 +155,7 @@ void run(Tester* const tester)
       // ---
       // Restart the timers
       // ---
-      Basic::Timer::freeze(true);
+      basic::Timer::freeze(true);
 
       std::cout << std::endl;
       std::cout << "#### Restarting Timers (all active) ####" << std::endl;
@@ -168,7 +168,7 @@ void run(Tester* const tester)
       std::cout << std::endl;
       std::cout << "#### Second Test ####" << std::endl;
 
-      Basic::Timer::freeze(false);
+      basic::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
          lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
@@ -200,7 +200,7 @@ int main(int argc, char* argv[])
       // run the test
       run(tester);
 
-      tester->event(Basic::Component::SHUTDOWN_EVENT);
+      tester->event(basic::Component::SHUTDOWN_EVENT);
       tester->unref();
       tester = nullptr;
 

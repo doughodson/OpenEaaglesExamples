@@ -16,7 +16,7 @@ BEGIN_SLOTTABLE(Exp)
 END_SLOTTABLE(Exp)
 // map attributes to slots
 BEGIN_SLOT_MAP(Exp)
-  ON_SLOT(1, setSlotMean, Basic::Number)
+  ON_SLOT(1, setSlotMean, basic::Number)
 END_SLOT_MAP()
 // nothing to serialize
 EMPTY_SERIALIZER(Exp)
@@ -70,7 +70,7 @@ int Exp::getNum(void) const
 // slot functions
 //------------------------------------------------------------------------------
 
-bool Exp::setSlotMean(const Basic::Number* const mean)
+bool Exp::setSlotMean(const basic::Number* const mean)
 {
   if (mean != nullptr)
     setMean(mean->getDouble());
@@ -80,7 +80,7 @@ bool Exp::setSlotMean(const Basic::Number* const mean)
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-Basic::Object* Exp::getSlotByIndex(const int si)
+basic::Object* Exp::getSlotByIndex(const int si)
 {
   return BaseClass::getSlotByIndex(si);
 }

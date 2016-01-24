@@ -110,7 +110,7 @@ const State* Puzzle::solve()
       //{
       //   unsigned int icount = 0;
       //   std::cout << "Open List ==============" << std::endl;
-      //   const Basic::List::Item* item = openStates->getFirstItem();
+      //   const basic::List::Item* item = openStates->getFirstItem();
       //   while (item != 0 && icount < 10) {
       //      const State* s = (const State*) item->getValue();
       //      //s->serialize(std::cout);
@@ -199,19 +199,19 @@ void Puzzle::putOpen(State* const s)
 {
    if (openStates == nullptr) {
       // create the list (as needed)
-      openStates = new Basic::List();
+      openStates = new basic::List();
    }
 
    if (s != nullptr) {
       // Create a new list item for this state and get the state's f() value
-      Basic::List::Item* newItem = new Basic::List::Item();
+      basic::List::Item* newItem = new basic::List::Item();
       newItem->value = s;
       s->ref();
       int f = s->f();
 
       // Find where in the list to insert this new state (based on their f() values)
-      Basic::List::Item* item = openStates->getFirstItem();
-      Basic::List::Item* refItem = nullptr;
+      basic::List::Item* item = openStates->getFirstItem();
+      basic::List::Item* refItem = nullptr;
       while (item != nullptr && refItem == nullptr) {
          const State* p = static_cast<const State*>( item->getValue() );
          if (f < p->f()) {
@@ -318,7 +318,7 @@ void Puzzle::clearHashTable()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* Puzzle::getSlotByIndex(const int si)
+basic::Object* Puzzle::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

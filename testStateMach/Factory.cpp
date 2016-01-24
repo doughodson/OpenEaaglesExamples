@@ -23,9 +23,9 @@ namespace test {
 Factory::Factory()
 {}
 
-Basic::Object* Factory::createObj(const char* name)
+basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = nullptr;
+    basic::Object* obj = nullptr;
 
     // Test #1
     if ( std::strcmp(name, TestStateMachine01::getFactoryName()) == 0 ) {
@@ -57,7 +57,7 @@ Basic::Object* Factory::createObj(const char* name)
     }
 
     // OpenEaagles packages
-    if (obj == nullptr) obj = Basic::Factory::createObj(name);
+    if (obj == nullptr) obj = basic::Factory::createObj(name);
 
     return obj;
 }

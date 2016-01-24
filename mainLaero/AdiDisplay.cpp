@@ -86,15 +86,15 @@ void AdiDisplay::updateData(const LCreal dt)
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
       phiRO = pA->getRollD();
-      //velRO = pA->getTotalVelocity() * Basic::Distance::M2NM / Basic::Time::S2H;
+      //velRO = pA->getTotalVelocity() * basic::Distance::M2NM / basic::Time::S2H;
       velRO = pA->getTotalVelocityKts();
       altRO = pA->getAltitudeFt();
 
       av = pA->getAngularVelocities();
 
-      pRO   = av[0] * Basic::Angle::R2DCC;
-      qRO   = av[1] * Basic::Angle::R2DCC;
-      rRO   = av[2] * Basic::Angle::R2DCC;
+      pRO   = av[0] * basic::Angle::R2DCC;
+      qRO   = av[1] * basic::Angle::R2DCC;
+      rRO   = av[2] * basic::Angle::R2DCC;
 
       pitchADI = pA->getPitchD();
       bankADI  = pA->getRollD();

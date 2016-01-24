@@ -10,52 +10,52 @@
 
 namespace oe {
 
-namespace Basic { class PairStream; class List; class String;
+namespace basic { class PairStream; class List; class String;
                   class Number; class Identifier; }
 
 namespace Tutorial {
 
-class MyObj : public Basic::Object
+class MyObj : public basic::Object
 {
-  DECLARE_SUBCLASS(MyObj, Basic::Object)
+  DECLARE_SUBCLASS(MyObj, basic::Object)
 
 public:
   MyObj();
 
   // data access functions
-  bool setColorTable(const Basic::PairStream* const);
-  const Basic::PairStream* getColorTable(void) const;
-  bool setTextColor(const Basic::Identifier* const);
-  const Basic::Identifier* getTextColor(void) const;
-  bool setBackColor(const Basic::Identifier* const);
-  const Basic::Identifier* getBackColor(void) const;
+  bool setColorTable(const basic::PairStream* const);
+  const basic::PairStream* getColorTable(void) const;
+  bool setTextColor(const basic::Identifier* const);
+  const basic::Identifier* getTextColor(void) const;
+  bool setBackColor(const basic::Identifier* const);
+  const basic::Identifier* getBackColor(void) const;
 
-  bool setVector(const Basic::List* const);
-  const Basic::List* getVector(void) const;
+  bool setVector(const basic::List* const);
+  const basic::List* getVector(void) const;
 
   bool setVisible(bool);
   bool getVisible() const;
 
-  bool setMessage(const Basic::String* const);
-  const Basic::String* getMessage(void) const;
+  bool setMessage(const basic::String* const);
+  const basic::String* getMessage(void) const;
 
   // slot table functions
-  bool setSlotColorTable(const Basic::PairStream* const);
-  bool setSlotTextColor(const Basic::Identifier* const x);
-  bool setSlotBackColor(const Basic::Identifier* const x);
+  bool setSlotColorTable(const basic::PairStream* const);
+  bool setSlotTextColor(const basic::Identifier* const x);
+  bool setSlotBackColor(const basic::Identifier* const x);
 
-  bool setSlotVector(const Basic::List* const);
-  bool setSlotVisible(const Basic::Number* const);
-  bool setSlotMessage(const Basic::String* const);
+  bool setSlotVector(const basic::List* const);
+  bool setSlotVisible(const basic::Number* const);
+  bool setSlotMessage(const basic::String* const);
 
    bool isValid() const override;
 
 private:
-  const Basic::PairStream* colorTable;
-  const Basic::Identifier* textColor;
-  const Basic::Identifier* backColor;
-  const Basic::List* vector;
-  const Basic::String* message;
+  const basic::PairStream* colorTable;
+  const basic::Identifier* textColor;
+  const basic::Identifier* backColor;
+  const basic::List* vector;
+  const basic::String* message;
   bool visible;
 };
 

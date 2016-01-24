@@ -19,9 +19,9 @@
 namespace oe {
 namespace test {
 
-class TestObject : public Basic::Object
+class TestObject : public basic::Object
 {
-   DECLARE_SUBCLASS(TestObject,Basic::Object)
+   DECLARE_SUBCLASS(TestObject,basic::Object)
 
 public:
    TestObject();

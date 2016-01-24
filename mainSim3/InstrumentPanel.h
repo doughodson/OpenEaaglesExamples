@@ -38,7 +38,7 @@ public:
    Simulation::Simulation* getSimulation();
    Simulation::Station* getStation();
 
-   bool event(const int event, Basic::Object* const obj = nullptr) override;
+   bool event(const int event, basic::Object* const obj = nullptr) override;
    void updateData(const LCreal dt = 0.0) override;
 
 protected:
@@ -48,7 +48,7 @@ protected:
    bool onStepOwnshipKey();
 
 private:
-   Basic::safe_ptr<Simulation::Station> myStation;
+   basic::safe_ptr<Simulation::Station> myStation;
 
    // ALT Stuff
    LCreal altitude;            // our current altitude

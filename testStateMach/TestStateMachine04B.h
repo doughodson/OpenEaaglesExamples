@@ -13,9 +13,9 @@ namespace test {
 // Class: TestStateMachine04B
 //
 //------------------------------------------------------------------------------
-class TestStateMachine04B : public Basic::StateMachine
+class TestStateMachine04B : public basic::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine04B, Basic::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine04B, basic::StateMachine)
 
 public:
    TestStateMachine04B();

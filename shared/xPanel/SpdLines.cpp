@@ -16,12 +16,12 @@ BEGIN_SLOTTABLE(SpdLines)
 END_SLOTTABLE(SpdLines)
 
 BEGIN_SLOT_MAP(SpdLines)
-    ON_SLOT(1, setSlotIsAlt, Basic::Number)
+    ON_SLOT(1, setSlotIsAlt, basic::Number)
 END_SLOT_MAP()
 
 // Event handler
 BEGIN_EVENT_HANDLER(SpdLines)
-    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, Basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, basic::Number)
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -144,7 +144,7 @@ void SpdLines::drawFunc()
 }
 
 // Event function
-bool SpdLines::onEventSetIsAltSpdLines(const Basic::Number* const x)
+bool SpdLines::onEventSetIsAltSpdLines(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setIsAlt(x->getBoolean());
@@ -155,7 +155,7 @@ bool SpdLines::onEventSetIsAltSpdLines(const Basic::Number* const x)
 //------------------------------------------------------------------------------
 // setSlotIsAlt() - sets our altitude flag
 //------------------------------------------------------------------------------
-bool SpdLines::setSlotIsAlt(const Basic::Number* const newAltFlag)
+bool SpdLines::setSlotIsAlt(const basic::Number* const newAltFlag)
 {
     bool ok = false;
     if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
@@ -165,7 +165,7 @@ bool SpdLines::setSlotIsAlt(const Basic::Number* const newAltFlag)
 //------------------------------------------------------------------------------
 // getSlotByIndex() 
 //------------------------------------------------------------------------------
-Basic::Object* SpdLines::getSlotByIndex(const int si)
+basic::Object* SpdLines::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

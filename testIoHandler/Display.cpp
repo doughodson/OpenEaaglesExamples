@@ -37,11 +37,11 @@ END_SLOTTABLE(Display)
 // Slot table                                                               SLS
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Display)
-    ON_SLOT(1, setSlotIoHandler, Basic::IoHandler)
-    ON_SLOT(2, setSlotItem,      Basic::Number)
-    ON_SLOT(3, setSlotDiChannel, Basic::Number)
-    ON_SLOT(4, setSlotAiChannel, Basic::Number)
-    ON_SLOT(5, setSlotLabel,     Basic::String)
+    ON_SLOT(1, setSlotIoHandler, basic::IoHandler)
+    ON_SLOT(2, setSlotItem,      basic::Number)
+    ON_SLOT(3, setSlotDiChannel, basic::Number)
+    ON_SLOT(4, setSlotAiChannel, basic::Number)
+    ON_SLOT(5, setSlotLabel,     basic::String)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ void Display::copyData(const Display& org, const bool cc)
    if (cc) initData();
 
    if (org.ioHandler != nullptr) {
-      Basic::IoHandler* copy = org.ioHandler->clone();
+      basic::IoHandler* copy = org.ioHandler->clone();
       setSlotIoHandler(copy);
       copy->unref();
    }
@@ -204,7 +204,7 @@ void Display::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 void Display::updateDisplay()
 {
-   Basic::IoData* ioData = nullptr;
+   basic::IoData* ioData = nullptr;
    if (ioHandler != nullptr) ioData = ioHandler->getInputData();
 
    // Item/channel mapping
@@ -260,7 +260,7 @@ void Display::updateDisplay()
 // Slot functions
 //------------------------------------------------------------------------------
 
-bool Display::setSlotIoHandler(Basic::IoHandler* const msg)
+bool Display::setSlotIoHandler(basic::IoHandler* const msg)
 {
    if (ioHandler != nullptr) {
       ioHandler->container(nullptr);
@@ -272,7 +272,7 @@ bool Display::setSlotIoHandler(Basic::IoHandler* const msg)
    return true;
 }
 
-bool Display::setSlotItem(const Basic::Number* const msg)
+bool Display::setSlotItem(const basic::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -290,7 +290,7 @@ bool Display::setSlotItem(const Basic::Number* const msg)
    return ok;
 }
 
-bool Display::setSlotAiChannel(const Basic::Number* const msg)
+bool Display::setSlotAiChannel(const basic::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr && item >= 1 && item <= TBL_SIZE) {
@@ -307,7 +307,7 @@ bool Display::setSlotAiChannel(const Basic::Number* const msg)
    return ok;
 }
 
-bool Display::setSlotDiChannel(const Basic::Number* const msg)
+bool Display::setSlotDiChannel(const basic::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr && item >= 1 && item <= TBL_SIZE) {
@@ -324,7 +324,7 @@ bool Display::setSlotDiChannel(const Basic::Number* const msg)
    return ok;
 }
 
-bool Display::setSlotLabel(const Basic::String* const msg)
+bool Display::setSlotLabel(const basic::String* const msg)
 {
    bool ok = false;
    if (item >= 1 && item <= TBL_SIZE) {
@@ -346,7 +346,7 @@ bool Display::setSlotLabel(const Basic::String* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* Display::getSlotByIndex(const int si)
+basic::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

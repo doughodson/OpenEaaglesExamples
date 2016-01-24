@@ -34,7 +34,7 @@ BEGIN_SLOTTABLE(RealBeamRadar)
 END_SLOTTABLE(RealBeamRadar)
 
 BEGIN_SLOT_MAP(RealBeamRadar)
-   ON_SLOT( 1, setSlotInterpolate,   Basic::Number)
+   ON_SLOT( 1, setSlotInterpolate,   basic::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ RealBeamRadar::RealBeamRadar()
 
    terrain = nullptr;
 
-   altitude = 15000.0 * Basic::Distance::FT2M;
+   altitude = 15000.0 * basic::Distance::FT2M;
    antAzAngle = 0.0;
    antElAngle = 0.0;
    ray0 = 0;
@@ -161,30 +161,30 @@ void RealBeamRadar::transmit(const LCreal dt)
 
       // Compute the earth's curvature effect
       LCreal curvature[IMG_HEIGHT];
-      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<LCreal>(Basic::Nav::ERAD60));
+      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<LCreal>(basic::Nav::ERAD60));
 
       LCreal hue = 120.0;      // see Hsv
       LCreal saturation = 0.0; // see Hsv
-      const Basic::Hsva* grayTable[19];
-      grayTable[0]  = new Basic::Hsva(  hue,  saturation,  0.0f,     1.0f );
-      grayTable[1]  = new Basic::Hsva(  hue,  saturation,  0.0872f,  1.0f );
-      grayTable[2]  = new Basic::Hsva(  hue,  saturation,  0.1736f,  1.0f );
-      grayTable[3]  = new Basic::Hsva(  hue,  saturation,  0.2588f,  1.0f );
-      grayTable[4]  = new Basic::Hsva(  hue,  saturation,  0.3420f,  1.0f );
-      grayTable[5]  = new Basic::Hsva(  hue,  saturation,  0.4226f,  1.0f );
-      grayTable[6]  = new Basic::Hsva(  hue,  saturation,  0.5000f,  1.0f );
-      grayTable[7]  = new Basic::Hsva(  hue,  saturation,  0.5736f,  1.0f );
-      grayTable[8]  = new Basic::Hsva(  hue,  saturation,  0.6428f,  1.0f );
-      grayTable[9]  = new Basic::Hsva(  hue,  saturation,  0.7071f,  1.0f );
-      grayTable[10] = new Basic::Hsva(  hue,  saturation,  0.7660f,  1.0f );
-      grayTable[11] = new Basic::Hsva(  hue,  saturation,  0.8192f,  1.0f );
-      grayTable[12] = new Basic::Hsva(  hue,  saturation,  0.8660f,  1.0f );
-      grayTable[13] = new Basic::Hsva(  hue,  saturation,  0.9063f,  1.0f );
-      grayTable[14] = new Basic::Hsva(  hue,  saturation,  0.9397f,  1.0f );
-      grayTable[15] = new Basic::Hsva(  hue,  saturation,  0.9659f,  1.0f );
-      grayTable[16] = new Basic::Hsva(  hue,  saturation,  0.9848f,  1.0f );
-      grayTable[17] = new Basic::Hsva(  hue,  saturation,  0.9962f,  1.0f );
-      grayTable[18] = new Basic::Hsva(  hue,  saturation,  1.0f,     1.0f );
+      const basic::Hsva* grayTable[19];
+      grayTable[0]  = new basic::Hsva(  hue,  saturation,  0.0f,     1.0f );
+      grayTable[1]  = new basic::Hsva(  hue,  saturation,  0.0872f,  1.0f );
+      grayTable[2]  = new basic::Hsva(  hue,  saturation,  0.1736f,  1.0f );
+      grayTable[3]  = new basic::Hsva(  hue,  saturation,  0.2588f,  1.0f );
+      grayTable[4]  = new basic::Hsva(  hue,  saturation,  0.3420f,  1.0f );
+      grayTable[5]  = new basic::Hsva(  hue,  saturation,  0.4226f,  1.0f );
+      grayTable[6]  = new basic::Hsva(  hue,  saturation,  0.5000f,  1.0f );
+      grayTable[7]  = new basic::Hsva(  hue,  saturation,  0.5736f,  1.0f );
+      grayTable[8]  = new basic::Hsva(  hue,  saturation,  0.6428f,  1.0f );
+      grayTable[9]  = new basic::Hsva(  hue,  saturation,  0.7071f,  1.0f );
+      grayTable[10] = new basic::Hsva(  hue,  saturation,  0.7660f,  1.0f );
+      grayTable[11] = new basic::Hsva(  hue,  saturation,  0.8192f,  1.0f );
+      grayTable[12] = new basic::Hsva(  hue,  saturation,  0.8660f,  1.0f );
+      grayTable[13] = new basic::Hsva(  hue,  saturation,  0.9063f,  1.0f );
+      grayTable[14] = new basic::Hsva(  hue,  saturation,  0.9397f,  1.0f );
+      grayTable[15] = new basic::Hsva(  hue,  saturation,  0.9659f,  1.0f );
+      grayTable[16] = new basic::Hsva(  hue,  saturation,  0.9848f,  1.0f );
+      grayTable[17] = new basic::Hsva(  hue,  saturation,  0.9962f,  1.0f );
+      grayTable[18] = new basic::Hsva(  hue,  saturation,  1.0f,     1.0f );
 
       // Get antenna look angles
       antAzAngle = static_cast<LCreal>(ant->getAzimuthD());
@@ -223,10 +223,10 @@ void RealBeamRadar::transmit(const LCreal dt)
          }
 
          // Generate Masks
-         Basic::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude, antElAngle, beamWidth);
+         basic::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude, antElAngle, beamWidth);
 
          // Compute AAC data
-         Basic::Terrain::aac(aacData, elevations, maskFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude);
+         basic::Terrain::aac(aacData, elevations, maskFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude);
 
          // Draw a line along the Y points (moving from south to north along the latitude lines)
          for (int irow = 0; irow < IMG_HEIGHT; irow++) {
@@ -236,7 +236,7 @@ void RealBeamRadar::transmit(const LCreal dt)
             // convert to a color (or gray) value
             osg::Vec3 color(0,0,0);
             if (validFlgs[irow] && !maskFlgs[irow]) {
-               Basic::Terrain::getElevationColor(sn, 0.0, 1.0, grayTable, 19, color);
+               basic::Terrain::getElevationColor(sn, 0.0, 1.0, grayTable, 19, color);
             }
 
             // store this color
@@ -264,7 +264,7 @@ bool RealBeamRadar::computeGroundRanges(LCreal* const groundRange, const unsigne
    if (groundRange != nullptr && n > 0 && maxRngNM > 0) {
 
       // Max range (m)
-      LCreal maxRng = maxRngNM * Basic::Distance::NM2M;
+      LCreal maxRng = maxRngNM * basic::Distance::NM2M;
 
       // Delta range between points (m)
       LCreal deltaRng = maxRng/static_cast<LCreal>(n);
@@ -330,8 +330,8 @@ bool RealBeamRadar::computeEarthCurvature(LCreal* const curvature, const unsigne
    bool ok = false;
    if (curvature != nullptr && n > 0 && maxRngNM > 0 && radiusNM > 0) {
 
-      LCreal radius = radiusNM * Basic::Distance::NM2M;
-      LCreal maxRng = maxRngNM * Basic::Distance::NM2M;
+      LCreal radius = radiusNM * basic::Distance::NM2M;
+      LCreal maxRng = maxRngNM * basic::Distance::NM2M;
       for (unsigned int idx = 0; idx < n; idx++) {
          LCreal curRng = maxRng * static_cast<LCreal>(idx)/static_cast<LCreal>(n);
          LCreal arc = curRng / radius;
@@ -350,7 +350,7 @@ bool RealBeamRadar::computeEarthCurvature(LCreal* const curvature, const unsigne
 // set functions
 //------------------------------------------------------------------------------
 
-bool RealBeamRadar::setTerrain(const Basic::Terrain* const msg)
+bool RealBeamRadar::setTerrain(const basic::Terrain* const msg)
 {
    if (msg != terrain) {
       if (terrain != nullptr) terrain->unref();
@@ -365,7 +365,7 @@ bool RealBeamRadar::setTerrain(const Basic::Terrain* const msg)
 //------------------------------------------------------------------------------
 
 // Set interpolate flag
-bool RealBeamRadar::setSlotInterpolate(const Basic::Number* const msg)
+bool RealBeamRadar::setSlotInterpolate(const basic::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -469,7 +469,7 @@ void RealBeamRadar::freeImageMemory()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* RealBeamRadar::getSlotByIndex(const int si)
+basic::Object* RealBeamRadar::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

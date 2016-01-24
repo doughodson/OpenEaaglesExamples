@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
-   namespace Basic {
+   namespace basic {
       class List;
    }
 
@@ -20,9 +20,9 @@ class State;
 //
 // Description:  Puzzle engine
 //------------------------------------------------------------------------------
-class Puzzle : public Basic::Component
+class Puzzle : public basic::Component
 {
-    DECLARE_SUBCLASS(Puzzle,Basic::Component)
+    DECLARE_SUBCLASS(Puzzle,basic::Component)
 
 public:
    static const unsigned int BOARD_X_SIZE = 4;
@@ -69,7 +69,7 @@ private:
    State*   goalState;           // Goal (ending) state
 
    // Open list
-   Basic::List*  openStates;   // List of 'open' states (still need to be expanded)
+   basic::List*  openStates;   // List of 'open' states (still need to be expanded)
                                  // (list is ordered by the state's f() values)
 
    // HashTable

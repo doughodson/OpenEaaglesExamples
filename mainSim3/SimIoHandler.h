@@ -17,9 +17,9 @@ namespace example {
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
 //------------------------------------------------------------------------------
-class SimIoHandler : public Basic::IoHandler
+class SimIoHandler : public basic::IoHandler
 {
-   DECLARE_SUBCLASS(SimIoHandler,Basic::IoHandler)
+   DECLARE_SUBCLASS(SimIoHandler,basic::IoHandler)
 
 public:
    SimIoHandler();

@@ -22,7 +22,7 @@ END_SLOTTABLE(SimPlayer)
 //  Map slot table to handlers
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(SimPlayer)
-    //ON_SLOT(1, setSlotMasterMode, Basic::String)
+    //ON_SLOT(1, setSlotMasterMode, basic::String)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ SimPlayer::SimPlayer()
 {
     STANDARD_CONSTRUCTOR()
 
-    static Basic::String generic("Sim");
+    static basic::String generic("Sim");
     setType(&generic);
 }
 
@@ -47,7 +47,7 @@ void SimPlayer::reset()
 //------------------------------------------------------------------------------
 // getSlotByIndex() for BasicGL::Graphic
 //------------------------------------------------------------------------------
-Basic::Object* SimPlayer::getSlotByIndex(const int si)
+basic::Object* SimPlayer::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

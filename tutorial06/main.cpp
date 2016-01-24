@@ -22,16 +22,16 @@ const int frameRate = 20;
 static class MyComp* myComp = nullptr;
 
 // our class factory
-static Basic::Object* factory(const char* const name)
+static basic::Object* factory(const char* const name)
 {
-  Basic::Object* obj = nullptr;
+  basic::Object* obj = nullptr;
 
   // look in application's classes
   if ( std::strcmp(name, MyComp::getFactoryName()) == 0 ) {
     obj = new MyComp;
   }
   // look in basic classes
-  if (obj == nullptr) obj = Basic::Factory::createObj(name);
+  if (obj == nullptr) obj = basic::Factory::createObj(name);
 
   return obj;
 }
@@ -41,7 +41,7 @@ static MyComp* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   basic::Object* obj = basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -53,8 +53,8 @@ static MyComp* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
-   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
+   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();

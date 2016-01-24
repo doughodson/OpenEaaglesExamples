@@ -18,7 +18,7 @@ class TestLandingGear : public BasicGL::Page
 public:
    TestLandingGear();
 
-   bool event(const int event, Basic::Object* const obj = nullptr) override;
+   bool event(const int event, basic::Object* const obj = nullptr) override;
    void updateData(const LCreal dt = 0.0) override;
 
 private:

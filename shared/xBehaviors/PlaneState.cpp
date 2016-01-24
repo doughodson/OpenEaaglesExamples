@@ -67,7 +67,7 @@ void PlaneState::reset()
    BaseClass::reset();
 }
 
-void PlaneState::updateState(const Basic::Component* const actor)
+void PlaneState::updateState(const basic::Component* const actor)
 {
    const Simulation::AirVehicle* airVehicle = dynamic_cast<const Simulation::AirVehicle*>(actor);
    setAlive(false);
@@ -101,11 +101,11 @@ void PlaneState::updateState(const Basic::Component* const actor)
          // loop through player list and attempt to find out if one of our missiles is active
          // if there is an active missile, then for the time being, we do not have a missile to fire
          const Simulation::Simulation* sim = airVehicle->getSimulation();
-         const Basic::PairStream* players = sim->getPlayers();
+         const basic::PairStream* players = sim->getPlayers();
          bool finished = false;
-         for (const Basic::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {
+         for (const basic::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {
             // Get the pointer to the target player
-            const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
+            const basic::Pair* pair = static_cast<const basic::Pair*>(item->getValue());
             const Simulation::Player* player = static_cast<const Simulation::Player*>(pair->object());
             if (player->isMajorType(Simulation::Player::WEAPON) && (player->isActive() || player->isMode(Simulation::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
                // our side has a weapon on-the-way/in-the-air;
@@ -129,16 +129,16 @@ void PlaneState::updateState(const Basic::Component* const actor)
       }
 #endif
 
-      //const Basic::String* playerName = airVehicle->getName();
+      //const basic::String* playerName = airVehicle->getName();
       // DH - DOES NOT COMPILE WITH CONST -- ????
       Simulation::AirVehicle* airVehicleX = const_cast<Simulation::AirVehicle*>(airVehicle);
-      const Basic::Pair* sensorPair = airVehicleX->getSensorByType(typeid(Simulation::Radar));
+      const basic::Pair* sensorPair = airVehicleX->getSensorByType(typeid(Simulation::Radar));
 
       if (sensorPair != nullptr) {
          const Simulation::Radar* radar = static_cast<const Simulation::Radar*>(sensorPair->object());
          if (radar != nullptr) {
             const Simulation::TrackManager* trackManager = radar->getTrackManager();
-            Basic::safe_ptr<Simulation::Track> trackList[50];
+            basic::safe_ptr<Simulation::Track> trackList[50];
             unsigned int nTracks = trackManager->getTrackList(trackList, 50);
 
             for (int trackIndex = nTracks -1; trackIndex >= 0; trackIndex--) {
@@ -174,7 +174,7 @@ void PlaneState::updateState(const Basic::Component* const actor)
       if (oc != nullptr) {
          const Simulation::TrackManager* rtm = oc->getTrackManagerByType(typeid(Simulation::RwrTrkMgr));
          if(rtm !=nullptr) {
-            Basic::safe_ptr<Simulation::Track> trackList[50];
+            basic::safe_ptr<Simulation::Track> trackList[50];
             unsigned int nTracks = rtm->getTrackList(trackList, 50);
             int newTracks = 0;
             for (unsigned int trackIndex = 0; trackIndex < nTracks; trackIndex++) {

@@ -16,7 +16,7 @@ BEGIN_SLOTTABLE(Random)
 END_SLOTTABLE(Random)
 // map attributes to slots
 BEGIN_SLOT_MAP(Random)
-    ON_SLOT(1, setSlotSeed, Basic::Number)
+    ON_SLOT(1, setSlotSeed, basic::Number)
 END_SLOT_MAP()
 
 EMPTY_DELETEDATA(Random)
@@ -57,12 +57,12 @@ int Random::getNum(void) const
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-Basic::Object* Random::getSlotByIndex(const int si)
+basic::Object* Random::getSlotByIndex(const int si)
 {
   return BaseClass::getSlotByIndex(si);
 }
 
-bool Random::setSlotSeed(const Basic::Number* const seed)
+bool Random::setSlotSeed(const basic::Number* const seed)
 {
   bool ok = false;
   if (seed != nullptr)

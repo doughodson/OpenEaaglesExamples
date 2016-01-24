@@ -10,7 +10,7 @@
 #include <string>
 
 namespace oe {
-   namespace Basic { class Boolean; class Integer; class String; };
+   namespace basic { class Boolean; class Integer; class String; };
 
 namespace xZeroMQHandlers {
    class ZeroMQContext;
@@ -26,7 +26,7 @@ namespace xZeroMQHandlers {
 // Description: Manages a ZeroMQ (0MQ) socket
 //
 // ZeroMQHandler defines the basic 0MQ socket interface.  It is derived from
-// the Basic::NetHandler.  It is noted that 0MQ sockets can only talk to other
+// the basic::NetHandler.  It is noted that 0MQ sockets can only talk to other
 // 0MQ sockets.  Ensure any communications strategy uses 0MQ at endpoints.
 //
 // The derivation from NetHandler is to allow this handler to be used in place
@@ -44,9 +44,9 @@ namespace xZeroMQHandlers {
 //    <options>   - The set options will each have a slot for them
 //
 //------------------------------------------------------------------------------
-class ZeroMQHandler : public Basic::NetHandler
+class ZeroMQHandler : public basic::NetHandler
 {
-   DECLARE_SUBCLASS(ZeroMQHandler, Basic::NetHandler)
+   DECLARE_SUBCLASS(ZeroMQHandler, basic::NetHandler)
 
 public:
    ZeroMQHandler();
@@ -57,7 +57,7 @@ public:
    bool sendData(const char* const packet, const int size) override;
    unsigned int recvData(char* const packet, const int maxSize) override;
 
-   // Casting for the dereference operator much like Basic::String.  This is
+   // Casting for the dereference operator much like basic::String.  This is
    // useful when using a 0MQ function directly like zmq_poll.
    operator void* ()               { return socket; }
    operator const void* () const   { return socket; }
@@ -67,18 +67,18 @@ public:
 
    // Slots
    virtual bool setSlotContext(ZeroMQContext* const msg);
-   virtual bool setSlotSocketType(const Basic::String* const msg);
-   virtual bool setSlotConnect(const Basic::String* const msg);
-   virtual bool setSlotAccept(const Basic::String* const msg);
-   virtual bool setSlotNoWait(const Basic::Boolean* const msg);
-   virtual bool setSlotLinger(const Basic::Integer* const msg);
-   virtual bool setSlotSubscribe(const Basic::String* const msg);
-   virtual bool setSlotBackLog(const Basic::Integer* const msg);
-   virtual bool setSlotIdentity(const Basic::String* const msg);
-   virtual bool setSlotSendBufSize(const Basic::Integer* const msg);
-   virtual bool setSlotRecvBufSize(const Basic::Integer* const msg);
-   virtual bool setSlotSendHWM(const Basic::Integer* const msg);
-   virtual bool setSlotRecvHWM(const Basic::Integer* const msg);
+   virtual bool setSlotSocketType(const basic::String* const msg);
+   virtual bool setSlotConnect(const basic::String* const msg);
+   virtual bool setSlotAccept(const basic::String* const msg);
+   virtual bool setSlotNoWait(const basic::Boolean* const msg);
+   virtual bool setSlotLinger(const basic::Integer* const msg);
+   virtual bool setSlotSubscribe(const basic::String* const msg);
+   virtual bool setSlotBackLog(const basic::Integer* const msg);
+   virtual bool setSlotIdentity(const basic::String* const msg);
+   virtual bool setSlotSendBufSize(const basic::Integer* const msg);
+   virtual bool setSlotRecvBufSize(const basic::Integer* const msg);
+   virtual bool setSlotSendHWM(const basic::Integer* const msg);
+   virtual bool setSlotRecvHWM(const basic::Integer* const msg);
 
 protected:
    bool setContext(ZeroMQContext* const context);

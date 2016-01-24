@@ -46,9 +46,9 @@ TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
     heading = 0.0;
-    headingRate = static_cast<LCreal>(0.2f * Basic::Angle::R2DCC);
+    headingRate = static_cast<LCreal>(0.2f * basic::Angle::R2DCC);
     bearing = 0.0;
-    bearingRate = static_cast<LCreal>(0.4f * Basic::Angle::R2DCC);
+    bearingRate = static_cast<LCreal>(0.4f * basic::Angle::R2DCC);
     range = 80.0;
     // navaid bearings
     nav1Brg = 0.0;
@@ -209,7 +209,7 @@ void TestSD::updateData(const LCreal dt)
     // to use send commands for every one, so it's easier just to get a pointer to the object and
     // set the variables using member functions.
     {
-    Basic::Pair* pair = findByType(typeid(SituationalDisplay));
+    basic::Pair* pair = findByType(typeid(SituationalDisplay));
         if (pair != nullptr) {
             SituationalDisplay* p = static_cast<SituationalDisplay*>(pair->object());
             if (p != nullptr) {
@@ -227,7 +227,7 @@ void TestSD::updateData(const LCreal dt)
 
     // Load test tracks (once)
     if (!tracksLoaded) {
-        Basic::Pair* pair = findByName("airTracks");
+        basic::Pair* pair = findByName("airTracks");
         if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
@@ -246,7 +246,7 @@ void TestSD::updateData(const LCreal dt)
 
     // Load test airports (once)
     if (!airportsLoaded) {
-        Basic::Pair* pair = findByName("airports");
+        basic::Pair* pair = findByName("airports");
         if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
@@ -264,7 +264,7 @@ void TestSD::updateData(const LCreal dt)
 
     // Load test navaids (once)
     if (!navAidsLoaded) {
-        Basic::Pair* pair = findByName("navaids");
+        basic::Pair* pair = findByName("navaids");
         if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());

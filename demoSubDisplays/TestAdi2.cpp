@@ -148,8 +148,8 @@ void TestAdi2::updateData(const LCreal dt)
 
 
     // we'll assume an aoa of 2.5degress
-    LCreal aoaRad = static_cast<LCreal>(5.0 * Basic::Angle::D2RCC);
-    LCreal rollRad = static_cast<LCreal>(roll * Basic::Angle::D2RCC);
+    LCreal aoaRad = static_cast<LCreal>(5.0 * basic::Angle::D2RCC);
+    LCreal rollRad = static_cast<LCreal>(roll * basic::Angle::D2RCC);
     LCreal tempAoaDiff = aoaRad * lcCos(rollRad);
 
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;

@@ -17,9 +17,9 @@ namespace example {
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
 //------------------------------------------------------------------------------
-class TestIoHandler : public Basic::IoHandler
+class TestIoHandler : public basic::IoHandler
 {
-   DECLARE_SUBCLASS(TestIoHandler,Basic::IoHandler)
+   DECLARE_SUBCLASS(TestIoHandler,basic::IoHandler)
 
 public:
    TestIoHandler();
@@ -27,7 +27,7 @@ public:
    void inputDevices(const LCreal dt) override;
 
 protected:
-   void clear() override; // called from Basic::IoHandler::reset()
+   void clear() override; // called from basic::IoHandler::reset()
 
 private:
    void initData();

@@ -27,7 +27,7 @@ public:
 private:
     bool setDisplay(Display* const d);
 
-    Basic::safe_ptr<Display> display;
+    basic::safe_ptr<Display> display;
     bool displayInit;
 };
 

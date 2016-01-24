@@ -16,7 +16,7 @@ BEGIN_SLOTTABLE(MyComp)
 END_SLOTTABLE(MyComp)
 // map attributes to slots
 BEGIN_SLOT_MAP(MyComp)
-  ON_SLOT(1, setSlotStr, Basic::String)
+  ON_SLOT(1, setSlotStr, basic::String)
 END_SLOT_MAP()
 EMPTY_SERIALIZER(MyComp)
 
@@ -64,7 +64,7 @@ void MyComp::deleteData()
 //------------------------------------------------------------------------------
 // data access functions
 //------------------------------------------------------------------------------
-bool MyComp::setStr(const Basic::String* const x)
+bool MyComp::setStr(const basic::String* const x)
 {
    if (str != nullptr) str->unref();
    str = x;
@@ -72,7 +72,7 @@ bool MyComp::setStr(const Basic::String* const x)
    return true;
 }
 
-const Basic::String* MyComp::getStr(void) const
+const basic::String* MyComp::getStr(void) const
 {
    return str;
 }
@@ -80,12 +80,12 @@ const Basic::String* MyComp::getStr(void) const
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-Basic::Object* MyComp::getSlotByIndex(const int si)
+basic::Object* MyComp::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-bool MyComp::setSlotStr(const Basic::String* const x)
+bool MyComp::setSlotStr(const basic::String* const x)
 {
    bool ok = false;
    if(x != nullptr) {

@@ -10,13 +10,13 @@
 
 namespace oe {
 
-namespace Basic { class Number; }
+namespace basic { class Number; }
 
 namespace Tutorial {
 
-class Random : public Basic::Object
+class Random : public basic::Object
 {
-   DECLARE_SUBCLASS(Random, Basic::Object)
+   DECLARE_SUBCLASS(Random, basic::Object)
 
 public:
    Random();
@@ -26,7 +26,7 @@ public:
    bool setSeed(const unsigned int);
 
    // slot table functions
-   bool setSlotSeed(const Basic::Number* const);
+   bool setSlotSeed(const basic::Number* const);
   
 };
 

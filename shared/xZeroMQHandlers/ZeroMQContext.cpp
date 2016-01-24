@@ -25,9 +25,9 @@ END_SLOTTABLE(ZeroMQContext)
 
 // Map slot table to handles
 BEGIN_SLOT_MAP(ZeroMQContext)
-   ON_SLOT(1, setSlotThreadCount, Basic::Integer)
-   ON_SLOT(2, setSlotMaxSockets,  Basic::Integer)
-   ON_SLOT(3, setSlotEnableIPV6,  Basic::Boolean)
+   ON_SLOT(1, setSlotThreadCount, basic::Integer)
+   ON_SLOT(2, setSlotMaxSockets,  basic::Integer)
+   ON_SLOT(3, setSlotEnableIPV6,  basic::Boolean)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -146,7 +146,7 @@ bool ZeroMQContext::setEnableIPV6(bool enable)
 //------------------------------------------------------------------------------
 
 // threadCount: Integer containing the I/O thread count
-bool ZeroMQContext::setSlotThreadCount(const Basic::Integer* const msg)
+bool ZeroMQContext::setSlotThreadCount(const basic::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) ok = setThreadCount(*msg);
@@ -154,7 +154,7 @@ bool ZeroMQContext::setSlotThreadCount(const Basic::Integer* const msg)
 }
 
 // maxSockets: Integer containing the max socket count
-bool ZeroMQContext::setSlotMaxSockets(const Basic::Integer* const msg)
+bool ZeroMQContext::setSlotMaxSockets(const basic::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) ok = setMaxSockets(*msg);
@@ -162,7 +162,7 @@ bool ZeroMQContext::setSlotMaxSockets(const Basic::Integer* const msg)
 }
 
 // enableIPV6: Boolean containing IPV6 valid
-bool ZeroMQContext::setSlotEnableIPV6(const Basic::Boolean* const msg)
+bool ZeroMQContext::setSlotEnableIPV6(const basic::Boolean* const msg)
 {
    bool ok = false;
    if (msg != nullptr) ok = setEnableIPV6(*msg);
@@ -172,7 +172,7 @@ bool ZeroMQContext::setSlotEnableIPV6(const Basic::Boolean* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* ZeroMQContext::getSlotByIndex(const int si)
+basic::Object* ZeroMQContext::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

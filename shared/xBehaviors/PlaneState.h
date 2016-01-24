@@ -19,16 +19,16 @@ namespace xBehaviors {
 //              state has only one missile (or is ok with firing all missiles at
 //              first target)
 //------------------------------------------------------------------------------
-class PlaneState : public Basic::Ubf::State
+class PlaneState : public basic::Ubf::State
 {
-   DECLARE_SUBCLASS(PlaneState, Basic::Ubf::State)
+   DECLARE_SUBCLASS(PlaneState, basic::Ubf::State)
 
 public:
    PlaneState();
 
    void reset() override;
 
-   void updateState(const Basic::Component* const actor) override;
+   void updateState(const basic::Component* const actor) override;
 
    // set/get
    virtual void setAlive(const bool x)                 { alive = x; return; }

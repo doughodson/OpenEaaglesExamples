@@ -139,7 +139,7 @@ bool FltkStation::setSlotDisplay2(FltkDisplay* const x)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* FltkStation::getSlotByIndex(const int si)
+basic::Object* FltkStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

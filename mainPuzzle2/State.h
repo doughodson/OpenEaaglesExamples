@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
-   namespace Basic { class PairStream; }
+   namespace basic { class PairStream; }
 
 namespace example {
 
@@ -19,9 +19,9 @@ class Puzzle;
 //
 // Description:  Puzzle state vector
 //------------------------------------------------------------------------------
-class State : public Basic::Component
+class State : public basic::Component
 {
-    DECLARE_SUBCLASS(State,Basic::Component)
+    DECLARE_SUBCLASS(State,basic::Component)
 
 public:
    static const unsigned int MAX_BLOCKS = 30;         // Max number of blocks in each state
@@ -56,7 +56,7 @@ public:
    friend bool operator!=(const State& s1, const State& s2);
 
    // Slot function(s)
-   virtual bool setSlotBlocks(const Basic::PairStream* const msg);
+   virtual bool setSlotBlocks(const basic::PairStream* const msg);
 
 protected:
    //  create a new state (based on this one) and replace the block

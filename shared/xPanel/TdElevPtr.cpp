@@ -13,7 +13,7 @@ EMPTY_SERIALIZER(TdElevPtr)
 EMPTY_DELETEDATA(TdElevPtr)
 
 BEGIN_EVENT_HANDLER(TdElevPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)   
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, basic::Number)   
 END_EVENT_HANDLER()
 
 
@@ -52,7 +52,7 @@ bool TdElevPtr::setElevation(const LCreal v)
 //------------------------------------------------------------------------------
 // Event handlers
 //------------------------------------------------------------------------------
-bool TdElevPtr::onUpdateValue(const Basic::Number* const msg)
+bool TdElevPtr::onUpdateValue(const basic::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {

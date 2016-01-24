@@ -28,11 +28,11 @@ END_SLOTTABLE(Endpoint)
 
 // Map slot table to handles 
 BEGIN_SLOT_MAP(Endpoint)
-    ON_SLOT(1, setSlotNetwork,   oe::Basic::NetHandler)
-    ON_SLOT(2, setSlotNetInput,  oe::Basic::NetHandler)
-    ON_SLOT(3, setSlotNetwork,   oe::Basic::NetHandler)
-    ON_SLOT(4, setSlotNoWait,    oe::Basic::Number)
-    ON_SLOT(5, setSlotLoops,     oe::Basic::Number)
+    ON_SLOT(1, setSlotNetwork,   oe::basic::NetHandler)
+    ON_SLOT(2, setSlotNetInput,  oe::basic::NetHandler)
+    ON_SLOT(3, setSlotNetwork,   oe::basic::NetHandler)
+    ON_SLOT(4, setSlotNoWait,    oe::basic::Number)
+    ON_SLOT(5, setSlotLoops,     oe::basic::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -190,21 +190,21 @@ void Endpoint::closeConnections()
 //------------------------------------------------------------------------------
 
 // Network Handler
-bool Endpoint::setSlotNetwork(oe::Basic::NetHandler* const msg)
+bool Endpoint::setSlotNetwork(oe::basic::NetHandler* const msg)
 {
     netHandler = msg;
     return true;
 }
 
 // Input Handler
-bool Endpoint::setSlotNetInput(oe::Basic::NetHandler* const msg)
+bool Endpoint::setSlotNetInput(oe::basic::NetHandler* const msg)
 {
     netInput = msg;
     return true;
 }
 
 // No wait (unblocked) I/O flag
-bool Endpoint::setSlotNoWait(oe::Basic::Number* const msg)
+bool Endpoint::setSlotNoWait(oe::basic::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {
@@ -215,7 +215,7 @@ bool Endpoint::setSlotNoWait(oe::Basic::Number* const msg)
 }
 
 // Number of message loops
-bool Endpoint::setSlotLoops(oe::Basic::Number* const msg)
+bool Endpoint::setSlotLoops(oe::basic::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {
@@ -231,7 +231,7 @@ bool Endpoint::setSlotLoops(oe::Basic::Number* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
-Basic::Object* Endpoint::getSlotByIndex(const int si)
+basic::Object* Endpoint::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

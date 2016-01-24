@@ -50,7 +50,7 @@ void DataRecorder::copyData(const DataRecorder& org, const bool cc)
 //    value[1] => fi
 //    value[2] => fo
 //------------------------------------------------------------------------------
-bool DataRecorder::recordMyData(const Basic::Object* objs[4], const double values[4])
+bool DataRecorder::recordMyData(const basic::Object* objs[4], const double values[4])
 {
    //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
    Recorder::Pb::DataRecord* msg = new Recorder::Pb::DataRecord();
@@ -78,7 +78,7 @@ bool DataRecorder::recordMyData(const Basic::Object* objs[4], const double value
 //    value[1] => marker source ID
 //    value[2] => foo
 //------------------------------------------------------------------------------
-bool DataRecorder::recordMarker(const Basic::Object* objs[4], const double values[4])
+bool DataRecorder::recordMarker(const basic::Object* objs[4], const double values[4])
 {
    //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
    Recorder::Pb::DataRecord* msg = new Recorder::Pb::DataRecord();

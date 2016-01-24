@@ -168,13 +168,13 @@ void TestStateMachine03::stateFunc13(const LCreal)
       case 1 : {
          if (getMode() != RTN_STATE) {
             std::cout << "call(CALL_02,arg=13)";
-            Basic::Number* arg = new Basic::Integer(13);
+            basic::Number* arg = new basic::Integer(13);
             call(CALL_02, arg);
             arg->unref();
          }
          else {
             std::cout << "Returned from call; ";
-            const Basic::Boolean* arg = dynamic_cast<const Basic::Boolean*>( getArgument() );
+            const basic::Boolean* arg = dynamic_cast<const basic::Boolean*>( getArgument() );
             if (arg != nullptr) {
                std::cout << "arg(" << arg->getBoolean() << "); ";
             }
@@ -207,7 +207,7 @@ void TestStateMachine03::stateFunc15(const LCreal)
 
 void TestStateMachine03::stateFunc21(const LCreal)
 {
-   const Basic::Number* arg = dynamic_cast<const Basic::Number*>( getArgument() );
+   const basic::Number* arg = dynamic_cast<const basic::Number*>( getArgument() );
    if (arg != nullptr) {
       std::cout << "arg(" << arg->getReal() << "); ";
    }
@@ -225,7 +225,7 @@ void TestStateMachine03::stateFunc22(const LCreal)
 void TestStateMachine03::stateFunc23(const LCreal)
 {
    std::cout << "rtn(arg=true)";
-   Basic::Boolean* arg = new Basic::Boolean(true);
+   basic::Boolean* arg = new basic::Boolean(true);
    rtn(arg);
    arg->unref();
 }

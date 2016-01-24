@@ -31,14 +31,14 @@ public:
 
     void drawFunc() override;
 
-    bool event(const int event, Basic::Object* const obj = nullptr) override;
+    bool event(const int event, basic::Object* const obj = nullptr) override;
 
 protected:
-    bool setSlotIsAlt(const Basic::Number* newIsAlt);
+    bool setSlotIsAlt(const basic::Number* newIsAlt);
 
 private:
     // event function
-    bool onEventSetIsAltSpdLines(const Basic::Number* const x);
+    bool onEventSetIsAltSpdLines(const basic::Number* const x);
 
     bool isAlt;     // are we drawing the altitude lines instead?
 };

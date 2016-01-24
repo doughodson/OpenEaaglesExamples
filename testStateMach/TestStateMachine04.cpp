@@ -102,7 +102,7 @@ void TestStateMachine04::stateFunc15(const LCreal)
 
 void TestStateMachine04::stateFunc21(const LCreal)
 {
-   const Basic::Number* arg = dynamic_cast<const Basic::Number*>( getArgument() );
+   const basic::Number* arg = dynamic_cast<const basic::Number*>( getArgument() );
    if (arg != nullptr) {
       std::cout << "arg(" << arg->getReal() << "); ";
    }
@@ -120,7 +120,7 @@ void TestStateMachine04::stateFunc22(const LCreal)
 void TestStateMachine04::stateFunc23(const LCreal)
 {
    std::cout << "rtn(arg=true)";
-   Basic::Boolean* arg = new Basic::Boolean(true);
+   basic::Boolean* arg = new basic::Boolean(true);
    rtn(arg);
    arg->unref();
 }

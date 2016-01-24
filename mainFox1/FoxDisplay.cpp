@@ -177,7 +177,7 @@ void FoxDisplay::drawIt()
          glCanvas->makeCurrent();
       }
       // if we are rotating, get our graphic and rotate it
-      Basic::Pair* p = (Basic::Pair*)findByType(typeid(BasicGL::Polygon));
+      basic::Pair* p = (basic::Pair*)findByType(typeid(BasicGL::Polygon));
       if (p != nullptr) {
          BasicGL::Polygon* g = dynamic_cast<BasicGL::Polygon*>(p->object());
          if (g != nullptr) {
@@ -304,7 +304,7 @@ BasicGL::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size,
    // Find the Graphic with this id
    if (id > 0) {
       //std::cout << "selected id = " << id << std::endl;
-      Basic::Pair* pair = findBySelectName(id);
+      basic::Pair* pair = findBySelectName(id);
       if (pair != nullptr) {
          sel = dynamic_cast<BasicGL::Graphic*>(pair->object());
          if (sel != nullptr) {

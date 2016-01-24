@@ -7,7 +7,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace Basic { class PairStream; }
+   namespace basic { class PairStream; }
    namespace BasicGL { class Graphic; }
 
 namespace example {
@@ -33,7 +33,7 @@ public:
 
 protected:
    virtual bool setSlotPuzzle(Puzzle* const s);                       // Sets the Puzzle controller
-   virtual bool setSlotTemplates(const Basic::PairStream* const s);   // Sets a list of the graphical templates for the blocks
+   virtual bool setSlotTemplates(const basic::PairStream* const s);   // Sets a list of the graphical templates for the blocks
    virtual unsigned int setupBlockGraphics();                         // Setup the list of BasicGL::Graphic objects for the initial blocks
    virtual void clearGraphics();                                      // Clears the list of BasicGL::Graphic objects for the blocks
    virtual void updateSolutionPath(const LCreal dt);                  // Updates the solution path graphics
@@ -41,7 +41,7 @@ protected:
    virtual void updateBlockDeltaPositions();                          // Updates the blocks' delta positions
 
 private:
-   const Basic::PairStream* templates;    // Graphical templates for the blocks
+   const basic::PairStream* templates;    // Graphical templates for the blocks
    Puzzle*        puzzle;                 // the puzzle
    LCreal         startupTimer;           // Movement timer
 

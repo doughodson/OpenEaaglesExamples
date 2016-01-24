@@ -15,7 +15,7 @@
 
 namespace oe {
 
-namespace Basic { class Number; }
+namespace basic { class Number; }
 namespace Simulation { class Player; class Simulation; class Station; }
 
 namespace example {
@@ -32,13 +32,13 @@ public:
    Simulation::Station* getStation();
 
    // Slot functions
-   virtual bool setSlotTextureTest(const Basic::Number* const msg);
+   virtual bool setSlotTextureTest(const basic::Number* const msg);
 
    virtual void configure() override;
    void drawFunc() override;
 
 private:
-   Basic::safe_ptr<Simulation::Station> myStation;
+   basic::safe_ptr<Simulation::Station> myStation;
 
    bool   testTexture;      // Texture image test
    GLuint texture;          // Texture

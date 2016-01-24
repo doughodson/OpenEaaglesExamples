@@ -158,7 +158,7 @@ void InstrumentPanel::updateData(const LCreal dt)
       }
    }
 
-   Basic::Pair* a = findSubpageByType(typeid(Instruments::Eadi3DPage));
+   basic::Pair* a = findSubpageByType(typeid(Instruments::Eadi3DPage));
    if (a != nullptr) {
       Instruments::Eadi3DPage* eadi = dynamic_cast<Instruments::Eadi3DPage*>(a->object());
       if (eadi != nullptr) {
@@ -166,7 +166,7 @@ void InstrumentPanel::updateData(const LCreal dt)
          eadi->setAirspeed(airSpeed);
          eadi->setHeading(heading);
          eadi->setAOA(aoa);
-         eadi->setVVI(-vvi.z() * Basic::Distance::M2FT * 60.0);
+         eadi->setVVI(-vvi.z() * basic::Distance::M2FT * 60.0);
          eadi->setPitch(pitch);
          eadi->setRoll(roll);
          eadi->setMach(mach);
@@ -203,7 +203,7 @@ bool InstrumentPanel::onResetKey()
 bool InstrumentPanel::onFreezeKey()
 {
    if ( getSimulation() != nullptr ) {
-      Basic::Boolean newFrz( !getSimulation()->isFrozen() );
+      basic::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
    return true;

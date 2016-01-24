@@ -22,9 +22,9 @@ namespace test {
 const float UPDATE_RATE = 10.0; // main loop update rate
 
 // our class factory
-static Basic::Object* factory(const char* name)
+static basic::Object* factory(const char* name)
 {
-   Basic::Object* obj = nullptr;
+   basic::Object* obj = nullptr;
 
    if ( std::strcmp(name, Sender::getFactoryName()) == 0 ) {
       obj = new Sender();
@@ -36,7 +36,7 @@ static Basic::Object* factory(const char* name)
    // example libraries
    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
    // framework libraries
-   if (obj == nullptr) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = basic::Factory::createObj(name);
 
    return obj;
 }
@@ -46,7 +46,7 @@ static Endpoint* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   basic::Object* obj = basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -58,8 +58,8 @@ static Endpoint* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
-   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
+   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
    // send a reset event
    std::cout << "Reset event: which will establish the networks." << std::endl;
-   endpoint->event(Basic::Component::RESET_EVENT);
+   endpoint->event(basic::Component::RESET_EVENT);
 
    // system time of day
    double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time

@@ -83,7 +83,7 @@ void TestIoHandler::inputDevices(const LCreal)
 //    ---
 //    get the Input data buffer
 //    ---
-   const Basic::IoData* const inData = getInputData();
+   const basic::IoData* const inData = getInputData();
 
 //    ---
 //    get the Station, Simulation and our ownship player
@@ -106,7 +106,7 @@ void TestIoHandler::inputDevices(const LCreal)
       // find the (optional) autopilot
       Simulation::Autopilot* ap = nullptr;
       {
-         Basic::Pair* p = av->getPilotByType( typeid( Simulation::Autopilot) );
+         basic::Pair* p = av->getPilotByType( typeid( Simulation::Autopilot) );
          if (p != nullptr) ap = static_cast<Simulation::Autopilot*>(p->object());
       }
 
@@ -123,7 +123,7 @@ void TestIoHandler::inputDevices(const LCreal)
             inData->getDiscreteInput(FREEZE_SW, &sw);
             bool frzSw = sw && enabled;
             if (frzSw && !frzSw1) {
-               Basic::Boolean newFrz( !sim->isFrozen() );
+               basic::Boolean newFrz( !sim->isFrozen() );
                sim->event(FREEZE_EVENT, &newFrz);
             }
             frzSw1 = frzSw;
@@ -193,7 +193,7 @@ void TestIoHandler::inputDevices(const LCreal)
          bool sw = false;
          inData->getDiscreteInput(PICKLE_SW, &sw);
          if (sw != wpnRelSw1) {
-            Basic::Boolean sw(sw);
+            basic::Boolean sw(sw);
             av->event(WPN_REL_EVENT, &sw);
          }
          wpnRelSw1 = sw;
@@ -203,7 +203,7 @@ void TestIoHandler::inputDevices(const LCreal)
          bool sw = false;
          inData->getDiscreteInput(TRIGGER_SW2, &sw);
          if (sw != trgSw1) {
-            Basic::Boolean sw(sw);
+            basic::Boolean sw(sw);
             av->event(TRIGGER_SW_EVENT, &sw);
          }
          trgSw1 = sw;
@@ -306,7 +306,7 @@ void TestIoHandler::inputDevices(const LCreal)
 
 // -----------------------------------------------------------------------------
 // Clear our data
-// (called from Basic::TestIoHandler::reset())
+// (called from basic::TestIoHandler::reset())
 // -----------------------------------------------------------------------------
 void TestIoHandler::clear()
 {

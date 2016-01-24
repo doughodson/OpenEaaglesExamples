@@ -17,9 +17,9 @@ BEGIN_SLOTTABLE(Worm)
 END_SLOTTABLE(Worm)
 // slot map
 BEGIN_SLOT_MAP(Worm)
-  ON_SLOT(1, realSpeed, Basic::Number)
-  ON_SLOT(2, setAngle, Basic::Angle)
-  ON_SLOT(2, setAngle, Basic::Number)
+  ON_SLOT(1, realSpeed, basic::Number)
+  ON_SLOT(2, setAngle, basic::Angle)
+  ON_SLOT(2, setAngle, basic::Number)
 END_SLOT_MAP()
 // events
 BEGIN_EVENT_HANDLER(Worm)
@@ -94,7 +94,7 @@ void Worm::reset()
   yPos =0;
   nTrails = 0;
   if (iangle != nullptr) {
-    Basic::Radians radians;
+    basic::Radians radians;
     setStartAngle(radians.convert(*iangle));
   }
 }
@@ -191,7 +191,7 @@ void Worm::drawFunc()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* Worm::getSlotByIndex(const int si)
+basic::Object* Worm::getSlotByIndex(const int si)
 {
   return BaseClass::getSlotByIndex(si);
 }
@@ -200,7 +200,7 @@ Basic::Object* Worm::getSlotByIndex(const int si)
 //------------------------------------------------------------------------------
 // realSpeed() -- sets the starting real speed
 //------------------------------------------------------------------------------
-bool Worm::realSpeed(const Basic::Number* const rsobj)
+bool Worm::realSpeed(const basic::Number* const rsobj)
 {
   bool ok = false;
   if (rsobj != nullptr) {
@@ -213,11 +213,11 @@ bool Worm::realSpeed(const Basic::Number* const rsobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an Angle parameter
 //------------------------------------------------------------------------------
-bool Worm::setAngle(const Basic::Angle* const saobj)
+bool Worm::setAngle(const basic::Angle* const saobj)
 {
   bool ok = false;
   if (saobj != nullptr) {
-    Basic::Radians radians;
+    basic::Radians radians;
     setStartAngle(radians.convert(*saobj));
     iangle = saobj;
     iangle->ref();
@@ -229,7 +229,7 @@ bool Worm::setAngle(const Basic::Angle* const saobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an Number parameter
 //------------------------------------------------------------------------------
-bool Worm::setAngle(const Basic::Number* const saobj)
+bool Worm::setAngle(const basic::Number* const saobj)
 {
   bool ok = false;
   if (saobj != nullptr) {

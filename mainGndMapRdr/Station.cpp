@@ -91,7 +91,7 @@ bool TestStation::setDisplay(Display* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Page
 //------------------------------------------------------------------------------
-Basic::Object* TestStation::getSlotByIndex(const int si)
+basic::Object* TestStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

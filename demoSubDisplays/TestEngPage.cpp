@@ -121,7 +121,7 @@ void TestEngPage::updateData(const LCreal dt)
 
     {
         // Set to the engine display
-        Basic::Pair* pair = findByType(typeid(oe::Instruments::EngPage));
+        basic::Pair* pair = findByType(typeid(oe::Instruments::EngPage));
         if (pair != nullptr) {
             oe::Instruments::EngPage* p = static_cast<oe::Instruments::EngPage*>(pair->object());
             if (p != nullptr) {

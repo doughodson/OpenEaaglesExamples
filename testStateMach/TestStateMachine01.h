@@ -19,9 +19,9 @@ namespace test {
 //    select each state's specific code.
 //
 //------------------------------------------------------------------------------
-class TestStateMachine01 : public Basic::StateMachine
+class TestStateMachine01 : public basic::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine01, Basic::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine01, basic::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

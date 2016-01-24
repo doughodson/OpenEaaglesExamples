@@ -33,13 +33,13 @@ EMPTY_DELETEDATA(TdAzPtr)
 //------------------------------------------------------------------------------
 // event() -- default event handler
 //------------------------------------------------------------------------------
-bool TdAzPtr::event(const int event, Basic::Object* const obj)
+bool TdAzPtr::event(const int event, basic::Object* const obj)
 {
     bool used = false;
 
     if (event == UPDATE_VALUE)
     {
-        const Basic::Number* num = dynamic_cast<const Basic::Number*>(obj);
+        const basic::Number* num = dynamic_cast<const basic::Number*>(obj);
         if (num != nullptr) {
             azimuth = num->getReal();
             used = true;

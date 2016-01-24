@@ -200,7 +200,7 @@ void MapPage::updateData(const LCreal dt)
 
     // get our pointers
     if (loader == nullptr) {
-        Basic::Pair* pair = findByType(typeid(BasicGL::SymbolLoader));
+        basic::Pair* pair = findByType(typeid(BasicGL::SymbolLoader));
         if (pair != nullptr) {
             loader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
             if (loader != nullptr) loader->ref();
@@ -224,15 +224,15 @@ void MapPage::updateData(const LCreal dt)
 
     // let's update our players
     if (loader != nullptr && stn != nullptr) {
-        Basic::PairStream* stream = stn->getPlayers();
+        basic::PairStream* stream = stn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
             Simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
-            Basic::List::Item* item = stream->getFirstItem();
+            basic::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
-                Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+                basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     Simulation::Player* ply = dynamic_cast<Simulation::Player*>(pair->object());
                     if (ply != nullptr) {

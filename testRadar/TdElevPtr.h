@@ -22,7 +22,7 @@
 //    UPDATE_VALUE  <Number>  ! elevation angle (degs)
 //------------------------------------------------------------------------------
 namespace oe {
-   namespace Basic { class Number; }
+   namespace basic { class Number; }
 namespace test {
 
 class TdElevPtr : public BasicGL::Graphic
@@ -37,10 +37,10 @@ public:
 
    void draw() override;
 
-   bool event(const int event, Basic::Object* const obj = nullptr) override;
+   bool event(const int event, basic::Object* const obj = nullptr) override;
 
 private:
-   bool onUpdateValue(const Basic::Number* const);
+   bool onUpdateValue(const basic::Number* const);
 
    LCreal elev;  // (degs)
 };

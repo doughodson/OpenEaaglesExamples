@@ -515,7 +515,7 @@ void TestElectronic::updateData(const LCreal dt)
             send("primarycoursepointer", UPDATE_VALUE6, heading - curCourse, crsPntrSD);
 
             // course pointer color
-            Basic::String* string = new Basic::String("white");
+            basic::String* string = new basic::String("white");
             if (navType == VORTAC) {
                 if ((vhfReceive && !(vhfDIC || vhfLGS)) || (vhfLocValid && vhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
@@ -539,7 +539,7 @@ void TestElectronic::updateData(const LCreal dt)
             send("secondarycoursepointer", UPDATE_VALUE2, curCourse - heading, secCrsPntrSD);
 
             // course pointer color
-            Basic::String* string = new Basic::String("white");
+            basic::String* string = new basic::String("white");
             if (secNavType == VORTAC) {
                 if ((secVhfReceive && !(secVhfDIC || secVhfLGS)) || (secVhfLocValid && secVhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
@@ -578,7 +578,7 @@ void TestElectronic::updateData(const LCreal dt)
         }
         // true air speed
         else if (readoutMode == ND_TAS) {
-            int curTAS = nintd(trueAirSpeed * Basic::LinearVelocity::FPS2KTSCC);
+            int curTAS = nintd(trueAirSpeed * basic::LinearVelocity::FPS2KTSCC);
             send("trueairspeed", UPDATE_VALUE, curTAS, trueAirSpeedSD);
         }
         // elapsed time

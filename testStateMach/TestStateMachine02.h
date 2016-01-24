@@ -16,9 +16,9 @@ namespace test {
 //    Same as Test #1 except that we're using separate state specific functions.
 //
 //------------------------------------------------------------------------------
-class TestStateMachine02 : public Basic::StateMachine
+class TestStateMachine02 : public basic::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine02, Basic::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine02, basic::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

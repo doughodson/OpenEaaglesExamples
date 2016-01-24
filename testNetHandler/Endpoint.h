@@ -8,7 +8,7 @@
 
 namespace oe {
 
-namespace Basic { class NetHandler; class Number; }
+namespace basic { class NetHandler; class Number; }
 
 namespace test {
 
@@ -26,9 +26,9 @@ namespace test {
 //                                  halting (default: infinite)
 //
 //------------------------------------------------------------------------------
-class Endpoint : public Basic::Component
+class Endpoint : public basic::Component
 {
-   DECLARE_SUBCLASS(Endpoint, Basic::Component)
+   DECLARE_SUBCLASS(Endpoint, basic::Component)
 
 public:
     static const unsigned int MAX_SIZE = 1024;  // Max buffer size
@@ -50,10 +50,10 @@ public:
     virtual unsigned int recvData(char* const msg, const unsigned int maxsize);
 
     // Slot functions
-    virtual bool setSlotNetwork(Basic::NetHandler* const msg);
-    virtual bool setSlotNetInput(Basic::NetHandler* const msg);
-    virtual bool setSlotNoWait(Basic::Number* const msg);
-    virtual bool setSlotLoops(Basic::Number* const msg);
+    virtual bool setSlotNetwork(basic::NetHandler* const msg);
+    virtual bool setSlotNetInput(basic::NetHandler* const msg);
+    virtual bool setSlotNoWait(basic::Number* const msg);
+    virtual bool setSlotLoops(basic::Number* const msg);
 
     void reset() override;
 
@@ -62,8 +62,8 @@ protected:
     unsigned int getLoops() const { return loops; }
 
 private:
-    Basic::safe_ptr<Basic::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
-    Basic::safe_ptr<Basic::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
+    basic::safe_ptr<basic::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
+    basic::safe_ptr<basic::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
     unsigned int loops;                            // Number of transfer loops (zero if no limit)
     bool   networkInitialized;                     // Network has been initialized
     bool   networkInitFailed;                      // Network initialization has failed

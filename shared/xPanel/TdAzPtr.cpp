@@ -13,7 +13,7 @@ EMPTY_SERIALIZER(TdAzPtr)
 EMPTY_DELETEDATA(TdAzPtr)
 
 BEGIN_EVENT_HANDLER(TdAzPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)   
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, basic::Number)   
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ bool TdAzPtr::setAzimuth(const LCreal v)
 //------------------------------------------------------------------------------
 // Event handlers
 //------------------------------------------------------------------------------
-bool TdAzPtr::onUpdateValue(const Basic::Number* const msg)
+bool TdAzPtr::onUpdateValue(const basic::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {

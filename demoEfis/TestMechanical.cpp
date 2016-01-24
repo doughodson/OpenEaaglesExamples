@@ -370,7 +370,7 @@ void TestMechanical::updateData(const LCreal dt)
 
     // Roll indicator
     // we have to roll negative in order to keep with the adi
-    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * Basic::Angle::D2RCC), rollIndSD);
+    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * basic::Angle::D2RCC), rollIndSD);
 
     // send our visibility data down (for failure flags)
     send("rtfail", SET_VISIBILITY, rtFail, rtFailSD);

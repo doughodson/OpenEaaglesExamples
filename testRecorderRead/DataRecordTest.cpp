@@ -124,7 +124,7 @@ bool DataRecordTest::setSlotOutputHandler(oe::Recorder::OutputHandler* const msg
 //------------------------------------------------------------------------------
 // getSlotByIndex() 
 //------------------------------------------------------------------------------
-Basic::Object* DataRecordTest::getSlotByIndex(const int si)
+basic::Object* DataRecordTest::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

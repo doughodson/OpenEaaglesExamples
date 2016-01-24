@@ -11,8 +11,8 @@ EMPTY_SERIALIZER(RdrAlt)
 
 // Event handler
 BEGIN_EVENT_HANDLER(RdrAlt)
-    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetRAltRdrAlt, Basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetRAltMinRdrAlt, Basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetRAltRdrAlt, basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetRAltMinRdrAlt, basic::Number)
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -61,13 +61,13 @@ bool RdrAlt::setRAlt(const LCreal newRA)
 }
 
 // Event functions
-bool RdrAlt::onEventSetRAltRdrAlt(const Basic::Number* const x)
+bool RdrAlt::onEventSetRAltRdrAlt(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setRAlt(x->getReal());
     return ok;
 }
-bool RdrAlt::onEventSetRAltMinRdrAlt(const Basic::Number* const x)
+bool RdrAlt::onEventSetRAltMinRdrAlt(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setRAltMin(x->getReal());
@@ -90,11 +90,11 @@ void RdrAlt::updateData(const LCreal dt)
     // we have to find each readout separately, get it's individual display, and
     // change the color
     // here is the minimum readout display
-    Basic::Pair* pair = findByName("rmin");
+    basic::Pair* pair = findByName("rmin");
     if (pair != nullptr) {
         BasicGL::NumericReadout* r = dynamic_cast<BasicGL::NumericReadout*>(pair->object());
         if (r != nullptr) {
-            Basic::Identifier* id = new Basic::Identifier("yellow");
+            basic::Identifier* id = new basic::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
             r->setColor(id);
             id->unref();
@@ -109,11 +109,11 @@ void RdrAlt::updateData(const LCreal dt)
         }
     }
     // actual radar readout
-    Basic::Pair* pair2 = findByName("ralt");
+    basic::Pair* pair2 = findByName("ralt");
     if (pair2 != nullptr) {
         BasicGL::NumericReadout* r1 = dynamic_cast<BasicGL::NumericReadout*>(pair2->object());
         if (r1 != nullptr) {
-            Basic::Identifier* id = new Basic::Identifier("yellow");
+            basic::Identifier* id = new basic::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
             r1->setColor(id);
             id->unref();

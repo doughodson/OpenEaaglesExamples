@@ -16,9 +16,9 @@ namespace test {
 //    functions: nextSubstate() and goToSubstate().
 //
 //------------------------------------------------------------------------------
-class TestStateMachine03 : public Basic::StateMachine
+class TestStateMachine03 : public basic::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine03, Basic::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine03, basic::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

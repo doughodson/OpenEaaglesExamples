@@ -27,12 +27,12 @@ MyPager::MyPager()
 //------------------------------------------------------------------------------
 bool MyPager::onEntry()
 {
-   Basic::PairStream* components = getComponents();
+   basic::PairStream* components = getComponents();
    if (components != nullptr) {
-      Basic::List::Item* item = components->getFirstItem();
+      basic::List::Item* item = components->getFirstItem();
       while (item != nullptr) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
-         Basic::Component* cp = static_cast<Basic::Component*>(pair->object());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         basic::Component* cp = static_cast<basic::Component*>(pair->object());
          if (cp != nullptr)
             cp->event(RESET_EVENT);
          item = item->getNext();

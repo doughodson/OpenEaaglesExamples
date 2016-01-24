@@ -54,7 +54,7 @@ public:
 
     void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    bool event(const int event, Basic::Object* const obj = nullptr) override;
+    bool event(const int event, basic::Object* const obj = nullptr) override;
     void updateData(const LCreal dt = 0.0) override;
 
 protected:
@@ -82,7 +82,7 @@ private:
     SendData        headingSD;
     SendData        rangeSD;
 
-    Basic::safe_ptr<Simulation::Station> myStation;
+    basic::safe_ptr<Simulation::Station> myStation;
 
     Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
     int                 trkIdx[MAX_TRACKS];    // Index of track symbols

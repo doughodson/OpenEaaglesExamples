@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
-   namespace Basic { class PairStream; }
+   namespace basic { class PairStream; }
 
 namespace test {
 
@@ -19,9 +19,9 @@ namespace test {
 // Slots:
 //    timers   <PairStream>   ! List of timers to be tested
 //------------------------------------------------------------------------------
-class Tester : public Basic::Component
+class Tester : public basic::Component
 {
-   DECLARE_SUBCLASS(Tester, Basic::Component)
+   DECLARE_SUBCLASS(Tester, basic::Component)
 
 public:
    Tester();
@@ -36,12 +36,12 @@ public:
    void reset() override;
 
 protected:
-   bool setSlotTimers(const Basic::PairStream* const msg);
+   bool setSlotTimers(const basic::PairStream* const msg);
 
 private:
    void initData();
 
-   Basic::PairStream* timers;    // List of timers
+   basic::PairStream* timers;    // List of timers
 };
 
 } // namespace test

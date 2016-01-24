@@ -26,7 +26,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace Basic { class Angle; class Distance; class Number; class Terrain; }
+   namespace basic { class Angle; class Distance; class Number; class Terrain; }
 
 namespace example {
 
@@ -42,7 +42,7 @@ public:
 public:
    Display();
 
-   const Basic::Terrain* getTerrain() const                 { return terrain; }
+   const basic::Terrain* getTerrain() const                 { return terrain; }
 
    bool isMinElevValid() const { return haveMinElev; }      // Ture if the min elevation is valid
    LCreal getMinElevation() const { return minElev; }       // Returns the min elevation (meters)
@@ -55,18 +55,18 @@ public:
    virtual bool clearMaxElevation();                        // Clears the max elevation (using datafile max elevation)
 
    // Slot functions
-   virtual bool setSlotTerrain(Basic::Terrain* const msg);
-   virtual bool setSlotMinElevation(const Basic::Distance* const msg);
-   virtual bool setSlotMaxElevation(const Basic::Distance* const msg);
-   virtual bool setSlotAltitude(const Basic::Distance* const msg);
-   virtual bool setSlotLookAngle(const Basic::Angle* const msg);
-   virtual bool setSlotBeamWidth(const Basic::Angle* const msg);
-   virtual bool setSlotColorScale(const Basic::Number* const msg);
-   virtual bool setSlotInterpolate(const Basic::Number* const msg);
-   virtual bool setSlotShadowsTest(const Basic::Number* const msg);
-   virtual bool setSlotAacTest(const Basic::Number* const msg);
-   virtual bool setSlotEarthCurvatureTest(const Basic::Number* const msg);
-   virtual bool setSlotTextureTest(const Basic::Number* const msg);
+   virtual bool setSlotTerrain(basic::Terrain* const msg);
+   virtual bool setSlotMinElevation(const basic::Distance* const msg);
+   virtual bool setSlotMaxElevation(const basic::Distance* const msg);
+   virtual bool setSlotAltitude(const basic::Distance* const msg);
+   virtual bool setSlotLookAngle(const basic::Angle* const msg);
+   virtual bool setSlotBeamWidth(const basic::Angle* const msg);
+   virtual bool setSlotColorScale(const basic::Number* const msg);
+   virtual bool setSlotInterpolate(const basic::Number* const msg);
+   virtual bool setSlotShadowsTest(const basic::Number* const msg);
+   virtual bool setSlotAacTest(const basic::Number* const msg);
+   virtual bool setSlotEarthCurvatureTest(const basic::Number* const msg);
+   virtual bool setSlotTextureTest(const basic::Number* const msg);
 
    void configure() override;
    void drawFunc() override;
@@ -79,7 +79,7 @@ private:
    bool copyImageMemory(const Display& org);
    void freeImageMemory();
 
-   Basic::Terrain* terrain;            // Terrain data
+   basic::Terrain* terrain;            // Terrain data
    LCreal            maxElev;          // Max elevation (meters)
    LCreal            minElev;          // Min elevation (meters)
    LCreal            altitude;         // Ref altitude (meters)

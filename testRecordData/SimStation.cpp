@@ -26,13 +26,13 @@ EMPTY_SERIALIZER(SimStation)
 // slot table for this class type
 BEGIN_SLOTTABLE(SimStation)
     "display",                  //  1) Main Display
-    "autoResetTimer",           //  2: Auto RESET timer value (Basic::Time); default: zero (no auto reset)
+    "autoResetTimer",           //  2: Auto RESET timer value (basic::Time); default: zero (no auto reset)
 END_SLOTTABLE(SimStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay,         Glut::GlutDisplay)
-    ON_SLOT( 2, setSlotAutoResetTime,       Basic::Time)
+    ON_SLOT( 2, setSlotAutoResetTime,       basic::Time)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ void SimStation::reset()
 {
     if (!displayInit && mainDisplay != nullptr) {
         mainDisplay->createWindow();
-        Basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
+        basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
         if (p != nullptr) mainDisplay->focus(static_cast<BasicGL::Graphic*>(p->object()));
         else mainDisplay->focus(nullptr);
         displayInit = true;
@@ -85,7 +85,7 @@ void SimStation::reset()
 
     // auto reset timer
     if (autoResetTimer0 != nullptr) {
-        autoResetTimer = Basic::Seconds::convertStatic(*autoResetTimer0);
+        autoResetTimer = basic::Seconds::convertStatic(*autoResetTimer0);
     }
     else {
         autoResetTimer = 0;
@@ -103,7 +103,7 @@ void SimStation::updateTC(const LCreal dt)
     // First update the simulation
     BaseClass::updateTC(dt);
 
-    Basic::Timer::updateTimers(dt);
+    basic::Timer::updateTimers(dt);
     BasicGL::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
@@ -125,7 +125,7 @@ void SimStation::updateData(const LCreal dt)
     if ( autoResetTimer > 0 && getSimulation()->isNotFrozen() ) {
        autoResetTimer -= dt;
        if (autoResetTimer <= 0) {
-         Basic::Boolean newFrz(true);
+         basic::Boolean newFrz(true);
          getSimulation()->event(FREEZE_EVENT, &newFrz);
          this->event(RESET_EVENT);
        }
@@ -139,7 +139,7 @@ void SimStation::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 void SimStation::stepOwnshipPlayer()
 {
-   Basic::PairStream* pl = getSimulation()->getPlayers();
+   basic::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
       Simulation::Player* f = nullptr;
@@ -147,9 +147,9 @@ void SimStation::stepOwnshipPlayer()
       bool found = false;
 
       // Find the next player
-      Basic::List::Item* item = pl->getFirstItem();
+      basic::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
          if (pair != nullptr) {
             Simulation::Player* ip = static_cast<Simulation::Player*>(pair->object());
             if ( ip->isMode(Simulation::Player::ACTIVE) &&
@@ -185,7 +185,7 @@ bool SimStation::setSlotMainDisplay(Glut::GlutDisplay* const d)
 }
 
 // setSlotAutoResetTime() -- Sets the startup RESET pulse timer
-bool SimStation::setSlotAutoResetTime(const Basic::Time* const num)
+bool SimStation::setSlotAutoResetTime(const basic::Time* const num)
 {
     if (autoResetTimer0 != nullptr) {
         autoResetTimer0->unref();
@@ -195,7 +195,7 @@ bool SimStation::setSlotAutoResetTime(const Basic::Time* const num)
     autoResetTimer0 = num;
     if (autoResetTimer0 != nullptr) {
         autoResetTimer0->ref();
-        autoResetTimer = Basic::Seconds::convertStatic(*autoResetTimer0);
+        autoResetTimer = basic::Seconds::convertStatic(*autoResetTimer0);
     }
     return true;
 }
@@ -203,7 +203,7 @@ bool SimStation::setSlotAutoResetTime(const Basic::Time* const num)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for BasicGL::Page
 //------------------------------------------------------------------------------
-Basic::Object* SimStation::getSlotByIndex(const int si)
+basic::Object* SimStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

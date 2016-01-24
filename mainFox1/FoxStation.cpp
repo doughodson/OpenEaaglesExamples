@@ -50,7 +50,7 @@ void FoxStation::updateTC(const LCreal dt)
    // First update the simulation
    BaseClass::updateTC(dt);
 
-   Basic::Timer::updateTimers(dt);
+   basic::Timer::updateTimers(dt);
    BasicGL::Graphic::flashTimer(dt);
 
    // Update any TC stuff in our main display
@@ -85,7 +85,7 @@ bool FoxStation::setSlotMainDisplay(FoxDisplay* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* FoxStation::getSlotByIndex(const int si)
+basic::Object* FoxStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

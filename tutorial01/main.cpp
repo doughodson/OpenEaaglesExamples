@@ -7,7 +7,7 @@ namespace Tutorial {
 
 int main(int argc, char* argv[])
 {
-   oe::Basic::String* str = new oe::Basic::String("Hello world\n");
+   oe::basic::String* str = new oe::basic::String("Hello world\n");
 
    std::cout << str->getString();
 

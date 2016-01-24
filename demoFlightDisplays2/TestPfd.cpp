@@ -279,7 +279,7 @@ void TestPfd::updateData(const LCreal dt)
     }
 
 
-    Basic::Pair* pair = findByType(typeid(Pfd));
+    basic::Pair* pair = findByType(typeid(Pfd));
     if (pair != nullptr) {
         Pfd* p = static_cast<Pfd*>(pair->object());
         if (p != nullptr) {

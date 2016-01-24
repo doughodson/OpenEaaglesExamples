@@ -17,10 +17,10 @@ EMPTY_SERIALIZER(TerrainFollower)
 
 // Event handler
 BEGIN_EVENT_HANDLER(TerrainFollower)
-    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetPlaneAltTerrainFollower, Basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetScanRangeTerrainFollower, Basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE3, onEventSetViewHeightTerrainFollower, Basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE4, onEventSetViewWidthTerrainFollower, Basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetPlaneAltTerrainFollower, basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetScanRangeTerrainFollower, basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE3, onEventSetViewHeightTerrainFollower, basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE4, onEventSetViewWidthTerrainFollower, basic::Number)
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -242,25 +242,25 @@ bool TerrainFollower::setElevPts(const int num, const LCreal newEPts[])
 }
 
 // Event functions
-bool TerrainFollower::onEventSetPlaneAltTerrainFollower(const Basic::Number* const x)
+bool TerrainFollower::onEventSetPlaneAltTerrainFollower(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setPlaneAlt(x->getReal());
     return ok;
 }
-bool TerrainFollower::onEventSetScanRangeTerrainFollower(const Basic::Number* const x)
+bool TerrainFollower::onEventSetScanRangeTerrainFollower(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setScanRange(x->getReal());
     return ok;
 }
-bool TerrainFollower::onEventSetViewHeightTerrainFollower(const Basic::Number* const x)
+bool TerrainFollower::onEventSetViewHeightTerrainFollower(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setViewHeight(x->getReal());
     return ok;
 }
-bool TerrainFollower::onEventSetViewWidthTerrainFollower(const Basic::Number* const x)
+bool TerrainFollower::onEventSetViewWidthTerrainFollower(const basic::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setViewWidth(x->getReal());

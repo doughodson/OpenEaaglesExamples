@@ -10,23 +10,23 @@
 
 namespace oe {
 
-namespace Basic { class String; }
+namespace basic { class String; }
 
 namespace Tutorial {
 
-class MyComp : public Basic::Component
+class MyComp : public basic::Component
 {
-   DECLARE_SUBCLASS(MyComp, Basic::Component)
+   DECLARE_SUBCLASS(MyComp, basic::Component)
 
 public:
    MyComp();
 
    // data access functions
-   bool setStr(const Basic::String* const);
-   const Basic::String* getStr(void) const;
+   bool setStr(const basic::String* const);
+   const basic::String* getStr(void) const;
 
    // slot table functions
-   bool setSlotStr(const Basic::String* const);
+   bool setSlotStr(const basic::String* const);
 
    void reset() override;
    void updateTC(const LCreal dt = 0.0) override;
@@ -38,7 +38,7 @@ protected:
 
 private:
 
-   const Basic::String* str;
+   const basic::String* str;
 };
 
 } // namespace Tutorial

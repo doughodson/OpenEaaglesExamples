@@ -35,12 +35,12 @@ END_EVENT_HANDLER()
 //------------------------------------------------------------------------------
 bool MfdPage::onEntry()
 {
-   Basic::PairStream* subcomponents = getComponents();
+   basic::PairStream* subcomponents = getComponents();
     if(subcomponents != nullptr) {
-        Basic::List::Item* item = subcomponents->getFirstItem();
+        basic::List::Item* item = subcomponents->getFirstItem();
         while (item != nullptr) {
-            Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
-            Basic::Component* cp = static_cast<Basic::Component*>(pair->object());
+            basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+            basic::Component* cp = static_cast<basic::Component*>(pair->object());
             if (cp != nullptr) cp->event(RESET_EVENT);
             item = item->getNext();
         }

@@ -30,7 +30,7 @@ BEGIN_SLOTTABLE(Display)
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
-   ON_SLOT( 1, setSlotTextureTest, Basic::Number)
+   ON_SLOT( 1, setSlotTextureTest, basic::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ Simulation::Station* Display::getStation()
 //------------------------------------------------------------------------------
 
 // Set texture test flag
-bool Display::setSlotTextureTest(const Basic::Number* const msg)
+bool Display::setSlotTextureTest(const basic::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -122,7 +122,7 @@ void Display::drawFunc()
 {
    Simulation::Player* own = getOwnship();
 
-   const Basic::Pair* pair = nullptr;
+   const basic::Pair* pair = nullptr;
    if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));
 
    const RealBeamRadar* rdr = nullptr;
@@ -222,7 +222,7 @@ void Display::configure()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* Display::getSlotByIndex(const int si)
+basic::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

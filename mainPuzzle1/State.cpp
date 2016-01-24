@@ -22,7 +22,7 @@ END_SLOTTABLE(State)
 //  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(State)
-    ON_SLOT( 1, setSlotBlocks, Basic::PairStream )
+    ON_SLOT( 1, setSlotBlocks, basic::PairStream )
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -368,7 +368,7 @@ void State::clearBlocks()
 //------------------------------------------------------------------------------
 
 // Blocks (list of Blocks)
-bool State::setSlotBlocks(const Basic::PairStream* const msg)
+bool State::setSlotBlocks(const basic::PairStream* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -381,9 +381,9 @@ bool State::setSlotBlocks(const Basic::PairStream* const msg)
       ok = true;
 
       // Find all blocks (and check their type to make sure)
-      const Basic::List::Item* item = msg->getFirstItem();
+      const basic::List::Item* item = msg->getFirstItem();
       while (item != nullptr && n < MAX_BLOCKS && ok) {
-         const Basic::Pair* pair = static_cast<const Basic::Pair*>(item->getValue());
+         const basic::Pair* pair = static_cast<const basic::Pair*>(item->getValue());
          const Block* p = dynamic_cast<const Block*>( pair->object() );
          if (p != nullptr) {
             newBlocks[n++] = p;  // Save the point
@@ -406,7 +406,7 @@ bool State::setSlotBlocks(const Basic::PairStream* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* State::getSlotByIndex(const int si)
+basic::Object* State::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

@@ -16,8 +16,8 @@ BEGIN_SLOTTABLE(Uniform)
 END_SLOTTABLE(Uniform)
 // map attributes to slots
 BEGIN_SLOT_MAP(Uniform)
-  ON_SLOT(1, setSlotMin, Basic::Number)
-  ON_SLOT(2, setSlotMax, Basic::Number)
+  ON_SLOT(1, setSlotMin, basic::Number)
+  ON_SLOT(2, setSlotMax, basic::Number)
 END_SLOT_MAP()
 // nothing to serialize
 EMPTY_SERIALIZER(Uniform)
@@ -74,19 +74,19 @@ int Uniform::getNum(void) const
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-Basic::Object* Uniform::getSlotByIndex(const int si)
+basic::Object* Uniform::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-bool Uniform::setSlotMin(const Basic::Number* const x)
+bool Uniform::setSlotMin(const basic::Number* const x)
 {
    if (x != nullptr)
       setMin(x->getInt());
    return true;
 }
 
-bool Uniform::setSlotMax(const Basic::Number* const x)
+bool Uniform::setSlotMax(const basic::Number* const x)
 {
    if (x != nullptr)
       setMax(x->getInt());

@@ -22,9 +22,9 @@ namespace test {
 Factory::Factory()
 {}
 
-Basic::Object* Factory::createObj(const char* name)
+basic::Object* Factory::createObj(const char* name)
 {
-    Basic::Object* obj = nullptr;
+    basic::Object* obj = nullptr;
 
    if ( std::strcmp(name, Display::getFactoryName()) == 0 ) {
       obj = new Display();
@@ -36,7 +36,7 @@ Basic::Object* Factory::createObj(const char* name)
    if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
    if (obj == nullptr) obj = Glut::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
-   if (obj == nullptr) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = basic::Factory::createObj(name);
 
     return obj;
 }

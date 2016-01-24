@@ -171,7 +171,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // Load test tracks (once) - load the default (0)
     if (!tracksLoaded) {
-        Basic::Pair* pair = findByName("airTracks");
+        basic::Pair* pair = findByName("airTracks");
         if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
@@ -190,7 +190,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // Load test airports (once)
     if (!airportsLoaded) {
-        Basic::Pair* pair = findByName("airports");
+        basic::Pair* pair = findByName("airports");
         if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
@@ -209,7 +209,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // Load test navaids (once)
     if (!navAidsLoaded) {
-        Basic::Pair* pair = findByName("navaids");
+        basic::Pair* pair = findByName("navaids");
         if (pair != nullptr) {
             pair->ref();
             BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
@@ -242,7 +242,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // here is the compass rose display readouts
     send("compassRO", UPDATE_VALUE, heading, headingROSD);
-//    send("bearingRO", UPDATE_VALUE, bearing * Basic::Angle::R2DCC, bearingROSD);
+//    send("bearingRO", UPDATE_VALUE, bearing * basic::Angle::R2DCC, bearingROSD);
     send("rangeRO", UPDATE_VALUE, range, rangeROSD);
 }
 

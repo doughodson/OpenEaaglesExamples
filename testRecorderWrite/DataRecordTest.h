@@ -33,7 +33,7 @@ public:
     DataRecordTest();
 
     // Slot functions
-    virtual bool setSlotFileName(Basic::String* const msg);
+    virtual bool setSlotFileName(basic::String* const msg);
     virtual bool setSlotTabPrinter(Recorder::TabPrinter* msg);
     virtual bool setSlotFileWriter(Recorder::FileWriter* msg);
     virtual bool setSlotFileReader(Recorder::FileReader* msg);
@@ -87,13 +87,13 @@ protected:
 
 private:
    const char* fileName;
-   Basic::safe_ptr<Recorder::PrintPlayer> myPrintPlayer;
-   Basic::safe_ptr<Recorder::PrintSelected> myPrintSelected;
-   Basic::safe_ptr<Recorder::PrintSelected> myPrintSelected2;
-   Basic::safe_ptr<Recorder::TabPrinter> myRecPrint;
-   Basic::safe_ptr<Recorder::FileWriter> myFileWrite;
-   Basic::safe_ptr<Recorder::FileReader> myFileRead;
-   Basic::safe_ptr<Simulation::DataRecorder> myDataRec;
+   basic::safe_ptr<Recorder::PrintPlayer> myPrintPlayer;
+   basic::safe_ptr<Recorder::PrintSelected> myPrintSelected;
+   basic::safe_ptr<Recorder::PrintSelected> myPrintSelected2;
+   basic::safe_ptr<Recorder::TabPrinter> myRecPrint;
+   basic::safe_ptr<Recorder::FileWriter> myFileWrite;
+   basic::safe_ptr<Recorder::FileReader> myFileRead;
+   basic::safe_ptr<Simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
    Recorder::PrintSelected::Condition condition;

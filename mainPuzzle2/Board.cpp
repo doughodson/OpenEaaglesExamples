@@ -27,7 +27,7 @@ END_SLOTTABLE(Board)
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Board)
     ON_SLOT( 1, setSlotPuzzle,    Puzzle )
-    ON_SLOT( 2, setSlotTemplates, Basic::PairStream )
+    ON_SLOT( 2, setSlotTemplates, basic::PairStream )
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ unsigned int Board::setupBlockGraphics()
             const Block* b = s->getBlock(i+1);
             if (b != nullptr) {
                unsigned int typeId = b->getTypeId();
-               const Basic::Pair* pair = templates->getPosition(typeId);
+               const basic::Pair* pair = templates->getPosition(typeId);
                if (pair != nullptr) {
                   const BasicGL::Graphic* g = dynamic_cast<const BasicGL::Graphic*>( pair->object() );
                   if (g != nullptr) {
@@ -325,7 +325,7 @@ bool Board::setSlotPuzzle(Puzzle* const p)
 //------------------------------------------------------------------------------
 // Sets a list of the graphical templates for the blocks
 //------------------------------------------------------------------------------
-bool Board::setSlotTemplates(const Basic::PairStream* const p)
+bool Board::setSlotTemplates(const basic::PairStream* const p)
 {
    if (templates != nullptr) templates->unref();
    templates = p;
@@ -336,7 +336,7 @@ bool Board::setSlotTemplates(const Basic::PairStream* const p)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* Board::getSlotByIndex(const int si)
+basic::Object* Board::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

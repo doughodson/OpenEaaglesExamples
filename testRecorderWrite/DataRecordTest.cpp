@@ -68,7 +68,7 @@ BEGIN_SLOT_MAP(DataRecordTest)
    ON_SLOT(1, setSlotTabPrinter,     Recorder::TabPrinter)
    ON_SLOT(2, setSlotFileWriter,     Recorder::FileWriter)
    ON_SLOT(3, setSlotFileReader,     Recorder::FileReader)
-   ON_SLOT(4, setSlotFileName,       Basic::String)
+   ON_SLOT(4, setSlotFileName,       basic::String)
    ON_SLOT(5, setSlotPrintPlayer,    Recorder::PrintPlayer)
    ON_SLOT(6, setSlotPrintSelected,  Recorder::PrintSelected)
    ON_SLOT(7, setSlotPrintSelected2, Recorder::PrintSelected)
@@ -232,7 +232,7 @@ bool DataRecordTest::setSlotFileReader(Recorder::FileReader* const p)
 //------------------------------------------------------------------------------
 //setSlotFileName() -- Get file name for test message output
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileName(Basic::String* const msg)
+bool DataRecordTest::setSlotFileName(basic::String* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -259,7 +259,7 @@ bool DataRecordTest::setSlotRecordData(Simulation::DataRecorder* const p)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
-Basic::Object* DataRecordTest::getSlotByIndex(const int si)
+basic::Object* DataRecordTest::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

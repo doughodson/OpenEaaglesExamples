@@ -20,16 +20,16 @@ namespace Tutorial {
 static class MyObj* myObj = nullptr;
 
 // our class factory
-static Basic::Object* factory(const char* const name)
+static basic::Object* factory(const char* const name)
 {
-   Basic::Object* obj = nullptr;
+   basic::Object* obj = nullptr;
 
    // look in application's classes
    if ( std::strcmp(name, MyObj::getFactoryName()) == 0 ) {
       obj = new MyObj;
    }
    // look in base classes
-   if (obj == nullptr) obj = Basic::Factory::createObj(name);
+   if (obj == nullptr) obj = basic::Factory::createObj(name);
    return obj;
 }
 
@@ -38,7 +38,7 @@ static MyObj* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   Basic::Object* obj = Basic::lcParser(filename, factory, &errors);
+   basic::Object* obj = basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -50,8 +50,8 @@ static MyObj* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a Basic::Pair, if so, point to object in Pair, not Pair itself
-   Basic::Pair* pair = dynamic_cast<Basic::Pair*>(obj);
+   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
+   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -76,15 +76,15 @@ int main(int argc, char* argv[])
    myObj = builder(configFilename);
 
    // print out some color information
-   const Basic::PairStream* colorTable = myObj->getColorTable();
+   const basic::PairStream* colorTable = myObj->getColorTable();
    if (colorTable != nullptr) {
 //    Pair* p = colorTable->findByName("green");
-      const Basic::Identifier* id = myObj->getTextColor();
+      const basic::Identifier* id = myObj->getTextColor();
       if (id != nullptr) {
-         const Basic::Pair* p = colorTable->findByName(id->getString());
+         const basic::Pair* p = colorTable->findByName(id->getString());
          if (p != nullptr) {
             std::cout << "Text color: " << id->getString();
-            const Basic::Color* color = dynamic_cast<const Basic::Color*>(p->object());
+            const basic::Color* color = dynamic_cast<const basic::Color*>(p->object());
             if (color != nullptr) {
                std::cout << " Red: "   << color->red();
                std::cout << " Green: " << color->green();
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
    }
 
    // print out vector information
-   const Basic::List* vector = myObj->getVector();
+   const basic::List* vector = myObj->getVector();
    if (vector != nullptr) {
       int numValues = vector->entries();
       int* values = new int[numValues];
@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
 
    // print out visible and message info
    std::cout << "Visible: " << myObj->getVisible() << "\n";
-   const Basic::String* message = myObj->getMessage();
+   const basic::String* message = myObj->getMessage();
    std::cout << "Message: " << message->getString() << "\n";
 
    myObj->unref();

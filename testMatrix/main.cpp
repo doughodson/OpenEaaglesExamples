@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Test Basic::Nav functions
+// Test basic::Nav functions
 //-----------------------------------------------------------------------------
 
 #include "openeaagles/basic/support.h"
@@ -10,7 +10,7 @@
 #include <iomanip>
 
 namespace oe {
-namespace Basic {
+namespace basic {
 
 const unsigned int ROWS = 4;
 const unsigned int COLS = 4;
@@ -532,13 +532,13 @@ void test_getInverse()
 }
 
 
-} // end namespace Basic 
+} // end namespace basic 
 } // end namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   oe::Basic::testMatrixFns();
+   oe::basic::testMatrixFns();
 
    return 0;
 }

@@ -32,12 +32,12 @@ public:
     LCreal getRdrMinAltFt() { return rAltMin; }
 
     void updateData(const LCreal dt = 0.0) override;
-    bool event(const int event, Basic::Object* const obj = nullptr) override;
+    bool event(const int event, basic::Object* const obj = nullptr) override;
 
 private:
     // event functions
-    bool onEventSetRAltRdrAlt(const Basic::Number* const x);
-    bool onEventSetRAltMinRdrAlt(const Basic::Number* const x);
+    bool onEventSetRAltRdrAlt(const basic::Number* const x);
+    bool onEventSetRAltMinRdrAlt(const basic::Number* const x);
 
     LCreal rAlt;        // ft -- our actual radar alt
     SendData rAltSD;

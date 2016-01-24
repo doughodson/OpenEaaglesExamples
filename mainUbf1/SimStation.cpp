@@ -57,7 +57,7 @@ void SimStation::reset()
 
     if (!displayInit && mainDisplay != nullptr) {
         mainDisplay->createWindow();
-        Basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
+        basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
         if (p != nullptr) mainDisplay->focus(static_cast<BasicGL::Graphic*>(p->object()));
         else mainDisplay->focus(nullptr);
         displayInit = true;
@@ -77,7 +77,7 @@ void SimStation::updateTC(const LCreal dt)
     // First update the simulation
     BaseClass::updateTC(dt);
 
-    Basic::Timer::updateTimers(dt);
+    basic::Timer::updateTimers(dt);
     BasicGL::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
@@ -89,7 +89,7 @@ void SimStation::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 void SimStation::stepOwnshipPlayer()
 {
-   Basic::PairStream* pl = getSimulation()->getPlayers();
+   basic::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
       Simulation::Player* f = nullptr;
@@ -97,9 +97,9 @@ void SimStation::stepOwnshipPlayer()
       bool found = false;
 
       // Find the next player
-      Basic::List::Item* item = pl->getFirstItem();
+      basic::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
          if (pair != nullptr) {
             Simulation::Player* ip = static_cast<Simulation::Player*>(pair->object());
             if ( ip->isMode(Simulation::Player::ACTIVE) &&
@@ -137,7 +137,7 @@ bool SimStation::setSlotMainDisplay(Glut::GlutDisplay* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for BasicGL::Page
 //------------------------------------------------------------------------------
-Basic::Object* SimStation::getSlotByIndex(const int si)
+basic::Object* SimStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

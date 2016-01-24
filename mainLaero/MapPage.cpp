@@ -208,16 +208,16 @@ void MapPage::drawHoldingPattern()
 //            double refLon = getReferenceLonDeg();
 
             const double omegaDps = 3.0;                                  //dps
-            const double omegaRps = omegaDps * Basic::Angle::D2RCC;       //rps
-            const double rocNM = (osVel / Basic::Time::H2S) / omegaRps;   //nm
+            const double omegaRps = omegaDps * basic::Angle::D2RCC;       //rps
+            const double rocNM = (osVel / basic::Time::H2S) / omegaRps;   //nm
             //double obTimeMin = 2.0;                                     //min
-            //double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
+            //double obTimeSec = obTimeMin * basic::Time::M2S;            //sec
 
-            //double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
+            //double obDistNM = (osVel / basic::Time::H2S) * obTimeSec;   //nm
 
             double obDistNM = 0;
             if (pRac->isLoiterTimeBased()) {
-               obDistNM = (osVel / Basic::Time::H2S) * pRac->getLoiterTime();   //nm
+               obDistNM = (osVel / basic::Time::H2S) * pRac->getLoiterTime();   //nm
             }
             else {
                obDistNM = pRac->getLoiterPatternLengthNM();
@@ -373,7 +373,7 @@ void MapPage::updateData(const LCreal dt)
 
     // get our pointers
     if (loader == nullptr) {
-        Basic::Pair* pair = findByName("playerLoader");
+        basic::Pair* pair = findByName("playerLoader");
         if (pair != nullptr) {
             loader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
             if (loader != nullptr) loader->ref();
@@ -398,7 +398,7 @@ void MapPage::updateData(const LCreal dt)
 
    // go through one time and add our symbols for the route
    if (!routeLoaded && pStn != nullptr) {
-      Basic::Pair* pair = findByName("routeLoader");
+      basic::Pair* pair = findByName("routeLoader");
       if (pair != nullptr) {
          BasicGL::SymbolLoader* routeLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
@@ -409,7 +409,7 @@ void MapPage::updateData(const LCreal dt)
                if (nav != nullptr) {
                   Simulation::Route* rte = nav->getPriRoute();
                   if (rte != nullptr) {
-                     Basic::safe_ptr<Simulation::Steerpoint> stpts[10];
+                     basic::safe_ptr<Simulation::Steerpoint> stpts[10];
                      unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
                      for (unsigned int i = 0; i < numStpts; i++) {
                         if (stpts[i] != nullptr) {
@@ -430,15 +430,15 @@ void MapPage::updateData(const LCreal dt)
 
     // let's update our players
     if (loader != nullptr && pStn != nullptr) {
-        Basic::PairStream* stream = pStn->getPlayers();
+        basic::PairStream* stream = pStn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
             Simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
-            Basic::List::Item* item = stream->getFirstItem();
+            basic::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
-                Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+                basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     Simulation::Player* pPlr = dynamic_cast<Simulation::Player*>(pair->object());
                     if (pPlr != nullptr) {

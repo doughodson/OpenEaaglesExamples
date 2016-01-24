@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
-   namespace Basic { class Boolean; class Integer; }
+   namespace basic { class Boolean; class Integer; }
 
 namespace xZeroMQHandlers {
 
@@ -29,9 +29,9 @@ namespace xZeroMQHandlers {
 //    enableIPV6  - Enable IPV6 sockets
 //
 //------------------------------------------------------------------------------
-class ZeroMQContext : public Basic::Component
+class ZeroMQContext : public basic::Component
 {
-   DECLARE_SUBCLASS(ZeroMQContext, Basic::Component)
+   DECLARE_SUBCLASS(ZeroMQContext, basic::Component)
 
 public:
    ZeroMQContext();
@@ -41,14 +41,14 @@ public:
    virtual bool isInitialized() const;
    virtual bool terminateContext();
 
-   // Casting for the dereference operator much like Basic::String
+   // Casting for the dereference operator much like basic::String
    operator void* ()                { return context; }
    operator const void* () const    { return context; }
 
    // Slots
-   virtual bool setSlotThreadCount(const Basic::Integer* const msg);
-   virtual bool setSlotMaxSockets(const Basic::Integer* const msg);
-   virtual bool setSlotEnableIPV6(const Basic::Boolean* const msg);
+   virtual bool setSlotThreadCount(const basic::Integer* const msg);
+   virtual bool setSlotMaxSockets(const basic::Integer* const msg);
+   virtual bool setSlotEnableIPV6(const basic::Boolean* const msg);
 
 protected:
    bool setThreadCount(const int count);

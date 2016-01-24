@@ -86,7 +86,7 @@ bool TestDisplay::onResetKey()
 bool TestDisplay::onFreezeKey()
 {
    if ( getSimulation() != nullptr ) {
-      Basic::Boolean newFrz( !getSimulation()->isFrozen() );
+      basic::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
    return true;
@@ -162,7 +162,7 @@ void TestDisplay::updateData(const LCreal dt)
 
 
        // Maintain Air Tracks
-       Basic::Pair* pair = findByName("airTracks");
+       basic::Pair* pair = findByName("airTracks");
        if (pair != nullptr) {
           BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
           if (myLoader != nullptr) {
@@ -205,16 +205,16 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
    {
       // get the player list
       Simulation::Simulation* sim = getSimulation();
-      Basic::PairStream* plist = sim->getPlayers();
+      basic::PairStream* plist = sim->getPlayers();
 
       // search for air vehicles or missiles within range
-      Basic::List::Item* item = plist->getFirstItem();
+      basic::List::Item* item = plist->getFirstItem();
       while (item != nullptr && nNewTracks < maxTracks) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
          Simulation::Player* p = static_cast<Simulation::Player*>(pair->object());
          osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
-         LCreal x = rpos[0] * Basic::Distance::M2NM;
-         LCreal y = rpos[1] * Basic::Distance::M2NM;
+         LCreal x = rpos[0] * basic::Distance::M2NM;
+         LCreal y = rpos[1] * basic::Distance::M2NM;
 
          Simulation::Weapon* weapon = dynamic_cast<Simulation::Weapon*>(p);
          if (weapon && (weapon->isMode(Simulation::Player::PRE_RELEASE) || weapon->isActive())) {
@@ -309,10 +309,10 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
       if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp = tracks[i]->getXPosition() - osX;
          double yp = tracks[i]->getYPosition() - osY;
-         loader->updateSymbolPositionXY( trkIdx[i], (xp * Basic::Distance::M2NM), (yp * Basic::Distance::M2NM) );
+         loader->updateSymbolPositionXY( trkIdx[i], (xp * basic::Distance::M2NM), (yp * basic::Distance::M2NM) );
          loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
          if (tracks[i]==target) {
-            //Basic::Identifier* temp = new Basic::Identifier("green");
+            //basic::Identifier* temp = new basic::Identifier("green");
             //loader->changeSymbolColor(trkIdx[i], 0, temp);
             loader->setSymbolFlashRate(trkIdx[i], nullptr, 2);
          }

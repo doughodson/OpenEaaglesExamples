@@ -11,9 +11,9 @@
 namespace oe {
 namespace Tutorial {
 
-class Random : public Basic::Object
+class Random : public basic::Object
 {
-   DECLARE_SUBCLASS(Random, Basic::Object)
+   DECLARE_SUBCLASS(Random, basic::Object)
 
 public:
    Random();

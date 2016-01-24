@@ -77,7 +77,7 @@ void TestStation::deleteData()
 void TestStation::updateTC(const LCreal dt)
 {
    // manage the timers
-   Basic::Timer::updateTimers(dt);
+   basic::Timer::updateTimers(dt);
    BasicGL::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) glutDisplay->updateTC(dt);
@@ -144,7 +144,7 @@ bool TestStation::setSlotMapDisplay(Glut::GlutDisplay* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* TestStation::getSlotByIndex(const int si)
+basic::Object* TestStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

@@ -15,9 +15,9 @@ namespace test {
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public Basic::Component
+class DataRecordTest : public basic::Component
 {
-   DECLARE_SUBCLASS(DataRecordTest, Basic::Component)
+   DECLARE_SUBCLASS(DataRecordTest, basic::Component)
 
 public:
     DataRecordTest();
@@ -33,8 +33,8 @@ protected:
 private:
    void initData();
 
-   Basic::safe_ptr<Recorder::InputHandler> inputHandler;
-   Basic::safe_ptr<Recorder::OutputHandler> outputHandler;
+   basic::safe_ptr<Recorder::InputHandler> inputHandler;
+   basic::safe_ptr<Recorder::OutputHandler> outputHandler;
 };
 
 }

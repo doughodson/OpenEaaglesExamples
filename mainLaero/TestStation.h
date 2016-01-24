@@ -7,7 +7,7 @@
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-namespace Basic { class Number; }
+namespace basic { class Number; }
 namespace Glut { class GlutDisplay; }
 
 namespace example {
@@ -38,8 +38,8 @@ private:
    bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
    bool setSlotMapDisplay(Glut::GlutDisplay* const msg);
 
-   Basic::safe_ptr<Glut::GlutDisplay> glutDisplay;
-   Basic::safe_ptr<Glut::GlutDisplay> mapDisplay;
+   basic::safe_ptr<Glut::GlutDisplay> glutDisplay;
+   basic::safe_ptr<Glut::GlutDisplay> mapDisplay;
    bool glutDisplayInit;
    bool mapDisplayInit;
 };

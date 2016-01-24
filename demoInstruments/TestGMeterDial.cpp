@@ -59,7 +59,7 @@ void TestGMeterDial::updateData(const LCreal dt)
         currGs = 0;
         /*
         {
-            Basic::Pair* p = findByType(typeid(oe::GMeterDial));
+            basic::Pair* p = findByType(typeid(oe::GMeterDial));
             if (p != 0) {
                     oe::GMeterDial* myDial = (oe::GMeterDial*)(p->object());
                     if (myDial != 0) myDial->resetMe();

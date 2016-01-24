@@ -78,7 +78,7 @@ void TestStation::updateData(const LCreal dt)
    // own displays.
 
    // manage the timers
-   Basic::Timer::updateTimers(dt);
+   basic::Timer::updateTimers(dt);
    BasicGL::Graphic::flashTimer(dt);
 
    BaseClass::updateData(dt);
@@ -106,7 +106,7 @@ void TestStation::reset()
 //------------------------------------------------------------------------------
 void TestStation::stepOwnshipPlayer()
 {
-   Basic::PairStream* pl = getSimulation()->getPlayers();
+   basic::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
       Simulation::Player* f = nullptr;
@@ -114,9 +114,9 @@ void TestStation::stepOwnshipPlayer()
       bool found = false;
 
       // Find the next player
-      Basic::List::Item* item = pl->getFirstItem();
+      basic::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         Basic::Pair* pair = static_cast<Basic::Pair*>(item->getValue());
+         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
          if (pair != nullptr) {
             Simulation::Player* ip = static_cast<Simulation::Player*>( pair->object() );
             if ( ip->isMode(Simulation::Player::ACTIVE) &&
@@ -150,7 +150,7 @@ bool TestStation::setSlotGlutDisplay(Glut::GlutDisplay* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* TestStation::getSlotByIndex(const int si)
+basic::Object* TestStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

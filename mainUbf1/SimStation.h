@@ -9,7 +9,7 @@
 
 namespace oe {
 
-namespace Basic { class Table1; class PairStream; }
+namespace basic { class Table1; class PairStream; }
 namespace Glut { class GlutDisplay; }
 namespace Simulation { class AirVehicle; }
 
@@ -47,7 +47,7 @@ public:
 private:
 
     // Main Display
-    Basic::safe_ptr<Glut::GlutDisplay> mainDisplay;
+    basic::safe_ptr<Glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
 };

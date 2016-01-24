@@ -32,7 +32,7 @@ EMPTY_DELETEDATA(TdElevPtr)
 // macro event handler - replaces event() function
 //------------------------------------------------------------------------------
 BEGIN_EVENT_HANDLER(TdElevPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, Basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, basic::Number)
 END_EVENT_HANDLER()
 
 
@@ -52,7 +52,7 @@ void TdElevPtr::draw()
 //------------------------------------------------------------------------------
 // onUpdateValue()-- event handler for an updated value
 //------------------------------------------------------------------------------
-bool TdElevPtr::onUpdateValue(const Basic::Number* const ouvobj)
+bool TdElevPtr::onUpdateValue(const basic::Number* const ouvobj)
 {
     if (ouvobj != nullptr) elev = ouvobj->getReal();
     return true;

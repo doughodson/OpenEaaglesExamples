@@ -12,7 +12,7 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-   namespace Basic {
+   namespace basic {
       class Angle;
    }
 
@@ -27,9 +27,9 @@ public:
 
     void getPosition(LCreal& xx, LCreal& yy) const      { xx = xPos; yy = yPos; }
     void setPosition(const LCreal xx, const LCreal yy)  { xPos = xx; yPos = yy; }
-    virtual bool realSpeed(const Basic::Number* const rsobj);
-    virtual bool setAngle(Basic::Angle* saobj);
-    virtual bool setAngle(const Basic::Number* const saobj);
+    virtual bool realSpeed(const basic::Number* const rsobj);
+    virtual bool setAngle(basic::Angle* saobj);
+    virtual bool setAngle(const basic::Number* const saobj);
 
     LCreal leftLimit() const                { return left; }
     void leftLimit(const LCreal ll)         { left = ll; }
@@ -50,7 +50,7 @@ public:
 
     void updateTC(const LCreal dt = 0.0) override;
     void updateData(const LCreal dt = 0.0) override;
-    bool event(const int event, Basic::Object* const obj = nullptr) override;
+    bool event(const int event, basic::Object* const obj = nullptr) override;
     void reset() override;
 
 private:
@@ -66,7 +66,7 @@ private:
     osg::Vec2 trail[maxHist];       // Display trail
     int    nTrails;                 // Trail size
     int    index;                   // Trail index
-    Basic::Angle* iangle;         // Input angle
+    basic::Angle* iangle;         // Input angle
 };
 
 } // End example namespace

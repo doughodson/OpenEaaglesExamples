@@ -17,8 +17,8 @@ namespace oe {
 void testValidation()
 {
   unsigned int init[4] = {0x123, 0x234, 0x345, 0x456}, length = 4;
-  Basic::Rng irand(init, length); // 32-bit int generator
-  Basic::Rng drand; // double in [0, 1) generator, already init
+  basic::Rng irand(init, length); // 32-bit int generator
+  basic::Rng drand; // double in [0, 1) generator, already init
 
   std::printf("1000 32-bit integer random numbers:\n");
   for (int i = 0; i < 1000; ++i) {
@@ -36,7 +36,7 @@ void testValidation()
 //
 void testUniform()
 {
-  Basic::Uniform rng;
+  basic::Uniform rng;
   rng.setMin(0.0);
   rng.setMax(10.0);
 
@@ -49,7 +49,7 @@ void testUniform()
 
 void testPareto()
 {
-  Basic::Pareto rng;
+  basic::Pareto rng;
   rng.setAlpha(5.0);
   rng.setBeta(8.0);
 
@@ -62,7 +62,7 @@ void testPareto()
 
 void testLognormal()
 {
-  Basic::Lognormal rng;
+  basic::Lognormal rng;
   rng.setSigma(1.0);
   rng.setMu(4.0);
   rng.setGamma(5.0);     // location
@@ -76,8 +76,8 @@ void testLognormal()
 
 void testExponential()
 {
-  Basic::Exponential rng;
-  Basic::Statistic stats;
+  basic::Exponential rng;
+  basic::Statistic stats;
 
   //rng.setMean(10);       // 1/lambda
   rng.setLambda(1);

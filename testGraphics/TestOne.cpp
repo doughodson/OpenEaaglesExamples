@@ -19,9 +19,9 @@ END_SLOTTABLE(TestOne)
 // slot mapping for this class type - replaces setSlotByIndex() using a macro
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(TestOne)
-    ON_SLOT(1, realSpeed, Basic::Number)
-    ON_SLOT(2, setAngle, Basic::Angle)
-    ON_SLOT(2, setAngle, Basic::Number)
+    ON_SLOT(1, realSpeed, basic::Number)
+    ON_SLOT(2, setAngle, basic::Angle)
+    ON_SLOT(2, setAngle, basic::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ void TestOne::reset()
     yPos =0;
     nTrails = 0;
     if (iangle != nullptr) {
-        Basic::Radians radians;
+        basic::Radians radians;
         setStartAngle(static_cast<LCreal>(radians.convert(*iangle)));
     }
 }
@@ -196,7 +196,7 @@ void TestOne::drawFunc()
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Rgb
 //------------------------------------------------------------------------------
-Basic::Object* TestOne::getSlotByIndex(const int si)
+basic::Object* TestOne::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
@@ -234,19 +234,19 @@ std::ostream& TestOne::serialize(std::ostream& sout, const int i, const bool slo
 //------------------------------------------------------------------------------
 // realSpeed() -- sets the starting real speed
 //------------------------------------------------------------------------------
-bool TestOne::realSpeed(const Basic::Number* const rsobj)
+bool TestOne::realSpeed(const basic::Number* const rsobj)
 {
     if (rsobj != nullptr) setSpeed(rsobj->getReal());
     return true;
 }
 
 //------------------------------------------------------------------------------
-// setAngle() -- sets the starting angle using an Basic::Angle parameter
+// setAngle() -- sets the starting angle using an basic::Angle parameter
 //------------------------------------------------------------------------------ 
-bool TestOne::setAngle(Basic::Angle* saobj)
+bool TestOne::setAngle(basic::Angle* saobj)
 {
     if (saobj != nullptr) {
-        Basic::Radians radians;
+        basic::Radians radians;
         setStartAngle(static_cast<LCreal>(radians.convert(*saobj)));
         iangle = saobj;
         iangle->ref();
@@ -255,9 +255,9 @@ bool TestOne::setAngle(Basic::Angle* saobj)
 }
 
 //------------------------------------------------------------------------------
-// setAngle() -- sets the starting angle using an Basic::Number parameter
+// setAngle() -- sets the starting angle using an basic::Number parameter
 //------------------------------------------------------------------------------ 
-bool TestOne::setAngle(const Basic::Number* const saobj)
+bool TestOne::setAngle(const basic::Number* const saobj)
 {
     setStartAngle(saobj->getReal());
     return true;

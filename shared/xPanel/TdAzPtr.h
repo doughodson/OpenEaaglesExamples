@@ -7,7 +7,7 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-   namespace Basic { class Number; }
+   namespace basic { class Number; }
 namespace xPanel {
 
 //------------------------------------------------------------------------------
@@ -37,10 +37,10 @@ public:
 
    void draw() override;
 
-   bool event(const int event, Basic::Object* const obj = nullptr) override;
+   bool event(const int event, basic::Object* const obj = nullptr) override;
 
 private:
-   bool onUpdateValue(const Basic::Number* const msg);
+   bool onUpdateValue(const basic::Number* const msg);
 
    LCreal azimuth;  // (degs)
 };

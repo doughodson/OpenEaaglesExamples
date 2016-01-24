@@ -478,7 +478,7 @@ void TestPfd::updateData(const LCreal dt)
     // is easier to get a pointer and use
     // member functions than to just send
     // it using the send function.
-    Basic::Pair* pair = findByType(typeid(Pfd));
+    basic::Pair* pair = findByType(typeid(Pfd));
     if (pair != nullptr) {
         Pfd* p = static_cast<Pfd*>(pair->object());
         if (p != nullptr) {

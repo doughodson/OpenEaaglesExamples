@@ -16,14 +16,14 @@ namespace xBehaviors {
 //------------------------------------------------------------------------------
 // Class: PlaneAction
 //------------------------------------------------------------------------------
-class PlaneAction : public Basic::Ubf::Action
+class PlaneAction : public basic::Ubf::Action
 {
-   DECLARE_SUBCLASS(PlaneAction, Basic::Ubf::Action)
+   DECLARE_SUBCLASS(PlaneAction, basic::Ubf::Action)
 
 public:
    PlaneAction();
 
-   bool execute(Basic::Component* actor) override;
+   bool execute(basic::Component* actor) override;
 
    // get/set methods
    void setPitch(const double);

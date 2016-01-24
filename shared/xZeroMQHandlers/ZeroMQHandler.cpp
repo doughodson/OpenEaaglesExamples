@@ -39,18 +39,18 @@ END_SLOTTABLE(ZeroMQHandler)
 // Map slot table to handles
 BEGIN_SLOT_MAP(ZeroMQHandler)
    ON_SLOT( 1, setSlotContext,     ZeroMQContext)
-   ON_SLOT( 2, setSlotSocketType,  Basic::String)
-   ON_SLOT( 3, setSlotConnect,     Basic::String)
-   ON_SLOT( 4, setSlotAccept,      Basic::String)
-   ON_SLOT( 5, setSlotNoWait,      Basic::Boolean)
-   ON_SLOT( 6, setSlotLinger,      Basic::Integer)
-   ON_SLOT( 7, setSlotSubscribe,   Basic::String)
-   ON_SLOT( 8, setSlotBackLog,     Basic::Integer)
-   ON_SLOT( 9, setSlotIdentity,    Basic::String)
-   ON_SLOT(10, setSlotSendBufSize, Basic::Integer)
-   ON_SLOT(11, setSlotRecvBufSize, Basic::Integer)
-   ON_SLOT(12, setSlotSendHWM,     Basic::Integer)
-   ON_SLOT(13, setSlotRecvHWM,     Basic::Integer)
+   ON_SLOT( 2, setSlotSocketType,  basic::String)
+   ON_SLOT( 3, setSlotConnect,     basic::String)
+   ON_SLOT( 4, setSlotAccept,      basic::String)
+   ON_SLOT( 5, setSlotNoWait,      basic::Boolean)
+   ON_SLOT( 6, setSlotLinger,      basic::Integer)
+   ON_SLOT( 7, setSlotSubscribe,   basic::String)
+   ON_SLOT( 8, setSlotBackLog,     basic::Integer)
+   ON_SLOT( 9, setSlotIdentity,    basic::String)
+   ON_SLOT(10, setSlotSendBufSize, basic::Integer)
+   ON_SLOT(11, setSlotRecvBufSize, basic::Integer)
+   ON_SLOT(12, setSlotSendHWM,     basic::Integer)
+   ON_SLOT(13, setSlotRecvHWM,     basic::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -410,7 +410,7 @@ bool ZeroMQHandler::setSlotContext(ZeroMQContext* const msg)
 }
 
 // socketType: String containing the socket type
-bool ZeroMQHandler::setSlotSocketType(const Basic::String* const msg)
+bool ZeroMQHandler::setSlotSocketType(const basic::String* const msg)
 {
    // Find the token in the map and get the enumeration for use in the
    // initialization of the socket
@@ -420,7 +420,7 @@ bool ZeroMQHandler::setSlotSocketType(const Basic::String* const msg)
 }
 
 // connect: String containing the endpoint (3, 4, & 5)
-bool ZeroMQHandler::setSlotConnect(const Basic::String* const msg)
+bool ZeroMQHandler::setSlotConnect(const basic::String* const msg)
 {
    // Save the endpoint definition for use in the initialization of
    // the socket
@@ -430,7 +430,7 @@ bool ZeroMQHandler::setSlotConnect(const Basic::String* const msg)
 }
 
 // accept: String containing the endpoint (3, 4, & 5)
-bool ZeroMQHandler::setSlotAccept(const Basic::String* const msg)
+bool ZeroMQHandler::setSlotAccept(const basic::String* const msg)
 {
    // Save the endpoint definition for use in the initialization of
    // the socket
@@ -440,7 +440,7 @@ bool ZeroMQHandler::setSlotAccept(const Basic::String* const msg)
 }
 
 // noWait: Boolean containing the endpoint (3, 4, & 5)
-bool ZeroMQHandler::setSlotNoWait(const Basic::Boolean* const msg)
+bool ZeroMQHandler::setSlotNoWait(const basic::Boolean* const msg)
 {
    // Save the nowait definition for use in the initialization of the
    // socket
@@ -450,7 +450,7 @@ bool ZeroMQHandler::setSlotNoWait(const Basic::Boolean* const msg)
 }
 
 // linger: Integer containing the linger period (ms)
-bool ZeroMQHandler::setSlotLinger(const Basic::Integer* const msg)
+bool ZeroMQHandler::setSlotLinger(const basic::Integer* const msg)
 {
    // Save the linger period for use in the initialization of the
    // socket
@@ -460,7 +460,7 @@ bool ZeroMQHandler::setSlotLinger(const Basic::Integer* const msg)
 }
 
 // subscribe: String containing the message filter
-bool ZeroMQHandler::setSlotSubscribe(const Basic::String* const msg)
+bool ZeroMQHandler::setSlotSubscribe(const basic::String* const msg)
 {
    // Save the subscribe filter for use in the initialization of the
    // socket.
@@ -470,7 +470,7 @@ bool ZeroMQHandler::setSlotSubscribe(const Basic::String* const msg)
 }
 
 // backLog: String containing the endpoint (3, 4, & 5)
-bool ZeroMQHandler::setSlotBackLog(const Basic::Integer* const msg)
+bool ZeroMQHandler::setSlotBackLog(const basic::Integer* const msg)
 {
    // Save the connection back log count for use in the initialization
    // of the socket
@@ -480,7 +480,7 @@ bool ZeroMQHandler::setSlotBackLog(const Basic::Integer* const msg)
 }
 
 // identity: String containing the identity
-bool ZeroMQHandler::setSlotIdentity(const Basic::String* const msg)
+bool ZeroMQHandler::setSlotIdentity(const basic::String* const msg)
 {
    // Save the socket identity for use in the initialization of the
    // socket
@@ -490,7 +490,7 @@ bool ZeroMQHandler::setSlotIdentity(const Basic::String* const msg)
 }
 
 // sendBufSizeKb: Integer containing the send buffer size in KB's
-bool ZeroMQHandler::setSlotSendBufSize(const Basic::Integer* const msg)
+bool ZeroMQHandler::setSlotSendBufSize(const basic::Integer* const msg)
 {
    // Save the send buffer size for use in the initialization of the
    // socket
@@ -500,7 +500,7 @@ bool ZeroMQHandler::setSlotSendBufSize(const Basic::Integer* const msg)
 }
 
 // recvBufSizeKb: Integer containing the receive buffer size in KB's
-bool ZeroMQHandler::setSlotRecvBufSize(const Basic::Integer* const msg)
+bool ZeroMQHandler::setSlotRecvBufSize(const basic::Integer* const msg)
 {
    // Save the receive buffer size for use in the initialization of the
    // socket
@@ -510,7 +510,7 @@ bool ZeroMQHandler::setSlotRecvBufSize(const Basic::Integer* const msg)
 }
 
 // sendHighWaterMark: Integer containing the send HWM count
-bool ZeroMQHandler::setSlotSendHWM(const Basic::Integer* const msg)
+bool ZeroMQHandler::setSlotSendHWM(const basic::Integer* const msg)
 {
    // Save the send high-water-mark for use in the initialization of the
    // socket
@@ -520,7 +520,7 @@ bool ZeroMQHandler::setSlotSendHWM(const Basic::Integer* const msg)
 }
 
 // recvHighWaterMark: Integer containing the receive HWM count
-bool ZeroMQHandler::setSlotRecvHWM(const Basic::Integer* const msg)
+bool ZeroMQHandler::setSlotRecvHWM(const basic::Integer* const msg)
 {
    // Save the receive high-water-mark for use in the initialization of
    // the socket
@@ -533,7 +533,7 @@ bool ZeroMQHandler::setSlotRecvHWM(const Basic::Integer* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-Basic::Object* ZeroMQHandler::getSlotByIndex(const int si)
+basic::Object* ZeroMQHandler::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

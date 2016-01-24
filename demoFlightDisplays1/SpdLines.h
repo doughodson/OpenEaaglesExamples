@@ -31,8 +31,8 @@ public:
 
 protected:
     // slot functions
-    bool setSlotIsAlt(const Basic::Number* newIsAlt);
-    bool setSlotDrawBack(const Basic::Number* newDB);
+    bool setSlotIsAlt(const basic::Number* newIsAlt);
+    bool setSlotDrawBack(const basic::Number* newDB);
 
 private:
     bool isAlt;     // are we drawing the altitude lines instead?
