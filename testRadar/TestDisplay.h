@@ -35,9 +35,9 @@ namespace test {
 //   'd' or 'D'   -- Decrease Range
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-class TestDisplay : public Glut::GlutDisplay
+class TestDisplay : public glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay, Glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay, glut::GlutDisplay)
 
 public:
     TestDisplay();

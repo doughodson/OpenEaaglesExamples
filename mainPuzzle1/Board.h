@@ -15,9 +15,9 @@ namespace example {
 class Puzzle;
 class State;
 
-class Board : public Glut::GlutDisplay
+class Board : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(Board, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(Board, glut::GlutDisplay)
 
 public:
    Board();

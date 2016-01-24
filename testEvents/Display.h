@@ -13,9 +13,9 @@ namespace test {
 
 class TestObject;
 
-class Display : public Glut::GlutDisplay
+class Display : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(Display, glut::GlutDisplay)
 
 public:
    Display();

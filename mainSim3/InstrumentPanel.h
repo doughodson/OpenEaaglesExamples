@@ -27,9 +27,9 @@ namespace example {
    class DedDisplay;
    class MfdDisplay;
 
-class InstrumentPanel : public Glut::GlutDisplay
+class InstrumentPanel : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(InstrumentPanel, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(InstrumentPanel, glut::GlutDisplay)
 
 public:
    InstrumentPanel();

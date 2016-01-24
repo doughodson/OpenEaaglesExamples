@@ -8,7 +8,7 @@
 
 namespace oe {
    namespace basic { class Table1; }
-   namespace Glut { class GlutDisplay; }
+   namespace glut { class GlutDisplay; }
    namespace Simulation { class AirVehicle; }
 
 namespace example {
@@ -23,7 +23,7 @@ namespace example {
 //
 // Factory name: SimStation
 // Slots:
-//      display                 <Glut::GlutDisplay>  ! Main graphics display
+//      display                 <glut::GlutDisplay>  ! Main graphics display
 //      autoResetTimer          <Time>               ! Auto RESET timer value (basic::Time); default: 0
 //------------------------------------------------------------------------------
 class SimStation : public Simulation::Station
@@ -37,7 +37,7 @@ public:
    void stepOwnshipPlayer();
 
    // Slot functions
-   virtual bool setSlotMainDisplay(Glut::GlutDisplay* const);
+   virtual bool setSlotMainDisplay(glut::GlutDisplay* const);
    virtual bool setSlotAutoResetTime(const basic::Time* const num);     // Sets the auto RESET timer
 
    void updateTC(const LCreal dt = 0.0) override;
@@ -46,7 +46,7 @@ public:
 
 private:
     // Main Display
-    basic::safe_ptr<Glut::GlutDisplay> mainDisplay;
+    basic::safe_ptr<glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
     // Auto reset timer

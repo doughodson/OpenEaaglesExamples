@@ -13,7 +13,7 @@
 
 namespace oe {
 
-namespace Glut { class GlutDisplay; }
+namespace glut { class GlutDisplay; }
 
 namespace example {
 
@@ -28,10 +28,10 @@ public:
 
 protected:
     // slot methods
-    bool setSlotDisplay(Glut::GlutDisplay*);
+    bool setSlotDisplay(glut::GlutDisplay*);
 
 private:
-    Glut::GlutDisplay* display;     // this is our main display that
+    glut::GlutDisplay* display;     // this is our main display that
     bool displayInit;               // is our display created?
 };
 

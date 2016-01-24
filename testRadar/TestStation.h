@@ -8,7 +8,7 @@
 
 namespace oe {
    namespace basic { class Number; }
-   namespace Glut { class GlutDisplay; }
+   namespace glut { class GlutDisplay; }
 
 namespace test {
 
@@ -38,9 +38,9 @@ public:
    void reset() override;
 
 private:
-   bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
+   bool setSlotGlutDisplay(glut::GlutDisplay* const msg);
 
-   basic::safe_ptr<Glut::GlutDisplay> glutDisplay;
+   basic::safe_ptr<glut::GlutDisplay> glutDisplay;
    bool glutDisplayInit;
 
    // Past (N-1) switches and values

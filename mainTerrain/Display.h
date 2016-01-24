@@ -32,9 +32,9 @@ namespace example {
 
 class MainWindow;
 
-class Display : public Glut::GlutDisplay
+class Display : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(Display, glut::GlutDisplay)
 
 public:
    enum { GRAY_SCALE, COLOR_SCALE, GREEN_SCALE };

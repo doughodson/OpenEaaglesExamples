@@ -14,9 +14,9 @@ namespace oe {
 
 namespace example {
 
-class AdiDisplay : public Glut::GlutDisplay
+class AdiDisplay : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(AdiDisplay, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(AdiDisplay, glut::GlutDisplay)
 
 public:
    AdiDisplay();

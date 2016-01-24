@@ -14,7 +14,7 @@ BEGIN_SLOTTABLE(Station)
 END_SLOTTABLE(Station)
 
 BEGIN_SLOT_MAP(Station)
-    ON_SLOT(1, setSlotDisplay, Glut::GlutDisplay)
+    ON_SLOT(1, setSlotDisplay, glut::GlutDisplay)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ void Station::reset()
 //------------------------------------------------------------------------------
 // setSlotDisplay() - sets our display
 //------------------------------------------------------------------------------
-bool Station::setSlotDisplay(Glut::GlutDisplay* dis)
+bool Station::setSlotDisplay(glut::GlutDisplay* dis)
 {
     bool ok = false;
     // clear out our old display first

@@ -17,9 +17,9 @@ namespace oe {
 
 namespace example {
 
-class MapDisplay : public Glut::GlutDisplay
+class MapDisplay : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(MapDisplay, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(MapDisplay, glut::GlutDisplay)
 
 public:
    MapDisplay();

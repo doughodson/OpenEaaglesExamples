@@ -10,7 +10,7 @@
 namespace oe {
 
 namespace basic { class Table1; class PairStream; }
-namespace Glut { class GlutDisplay; }
+namespace glut { class GlutDisplay; }
 namespace Simulation { class AirVehicle; }
 
 namespace example {
@@ -39,7 +39,7 @@ public:
    void stepOwnshipPlayer();
 
    // Slot functions
-   virtual bool setSlotMainDisplay(Glut::GlutDisplay* const d);
+   virtual bool setSlotMainDisplay(glut::GlutDisplay* const d);
 
    void updateTC(const LCreal dt = 0.0) override;
    void reset() override;
@@ -47,7 +47,7 @@ public:
 private:
 
     // Main Display
-    basic::safe_ptr<Glut::GlutDisplay> mainDisplay;
+    basic::safe_ptr<glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
 };

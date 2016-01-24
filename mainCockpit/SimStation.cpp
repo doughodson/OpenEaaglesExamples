@@ -32,7 +32,7 @@ END_SLOTTABLE(SimStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
-    ON_SLOT( 1, setSlotMainDisplay,         Glut::GlutDisplay)
+    ON_SLOT( 1, setSlotMainDisplay,         glut::GlutDisplay)
     ON_SLOT( 2, setSlotAutoResetTime,       basic::Time)
 END_SLOT_MAP()
 
@@ -175,7 +175,7 @@ void SimStation::stepOwnshipPlayer()
 //------------------------------------------------------------------------------
 
 // Main Display
-bool SimStation::setSlotMainDisplay(Glut::GlutDisplay* const d)
+bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 {
     if (mainDisplay != nullptr) mainDisplay->container(nullptr);
     mainDisplay = d;

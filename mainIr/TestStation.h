@@ -7,7 +7,7 @@
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-   namespace Glut  { class GlutDisplay; }
+   namespace glut  { class GlutDisplay; }
 
 namespace example {
 
@@ -37,9 +37,9 @@ public:
    void reset() override;
 
 private:
-   bool setSlotGlutDisplay(Glut::GlutDisplay* const msg);
+   bool setSlotGlutDisplay(glut::GlutDisplay* const msg);
 
-   basic::safe_ptr<Glut::GlutDisplay> glutDisplay;
+   basic::safe_ptr<glut::GlutDisplay> glutDisplay;
    bool glutDisplayInit;
 };
 

@@ -25,7 +25,7 @@ namespace example {
 // frame rate
 static const int frameRate = 20;
 
-static class Glut::GlutDisplay* glutDisplay = nullptr;
+static class glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff
 static void timerFunc(int)
@@ -43,7 +43,7 @@ static void timerFunc(int)
 static oe::basic::Object* factory(const char* name)
 {
    basic::Object* obj = nullptr;
-   if (obj == nullptr) obj = Glut::Factory::createObj(name);
+   if (obj == nullptr) obj = glut::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
 
@@ -51,7 +51,7 @@ static oe::basic::Object* factory(const char* name)
 }
 
 // display builder
-static Glut::GlutDisplay* builder(const char* const filename)
+static glut::GlutDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -76,7 +76,7 @@ static Glut::GlutDisplay* builder(const char* const filename)
    }
 
    // try to cast to proper object, and check
-   Glut::GlutDisplay* glutDisplay = dynamic_cast<Glut::GlutDisplay*>(obj);
+   glut::GlutDisplay* glutDisplay = dynamic_cast<glut::GlutDisplay*>(obj);
    if (glutDisplay == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

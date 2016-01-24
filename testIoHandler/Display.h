@@ -35,9 +35,9 @@ namespace test {
 //       item:  5   di: 11    // Item #4 is DI #11
 //   )
 //------------------------------------------------------------------------------
-class Display : public Glut::GlutDisplay
+class Display : public glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(Display, Glut::GlutDisplay)
+   DECLARE_SUBCLASS(Display, glut::GlutDisplay)
 
 public:
    static const unsigned int ROWS = 20;      /* see display.epp */

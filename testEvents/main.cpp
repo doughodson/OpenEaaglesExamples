@@ -52,7 +52,7 @@ static basic::Object* factory(const char* name)
    }
    else {
       if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
-      if (obj == nullptr) obj = Glut::Factory::createObj(name);
+      if (obj == nullptr) obj = glut::Factory::createObj(name);
       if (obj == nullptr) obj = basic::Factory::createObj(name);
    }
 

@@ -28,8 +28,8 @@ END_SLOTTABLE(TestStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
-    ON_SLOT(1, setSlotGlutDisplay, Glut::GlutDisplay)
-    ON_SLOT(2, setSlotMapDisplay, Glut::GlutDisplay)
+    ON_SLOT(1, setSlotGlutDisplay, glut::GlutDisplay)
+    ON_SLOT(2, setSlotMapDisplay, glut::GlutDisplay)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -126,14 +126,14 @@ void TestStation::reset()
 // Set slot functions
 //------------------------------------------------------------------------------
 
-bool TestStation::setSlotGlutDisplay(Glut::GlutDisplay* const d)
+bool TestStation::setSlotGlutDisplay(glut::GlutDisplay* const d)
 {
    glutDisplay = d;
    glutDisplay->container(this);
    return true;
 }
 
-bool TestStation::setSlotMapDisplay(Glut::GlutDisplay* const d)
+bool TestStation::setSlotMapDisplay(glut::GlutDisplay* const d)
 {
    mapDisplay = d;
    mapDisplay->container(this);
