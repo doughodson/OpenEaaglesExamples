@@ -56,10 +56,10 @@ basic::Object* Factory::createObj(const char* name)
    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
    if (obj == nullptr) obj = Otw::Factory::createObj(name);
-   if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
+   if (obj == nullptr) obj = dynamics::Factory::createObj(name);
    if (obj == nullptr) obj = Sensor::Factory::createObj(name);
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
-   if (obj == nullptr) obj = Network::dis::Factory::createObj(name);
+   if (obj == nullptr) obj = network::dis::Factory::createObj(name);
    if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
    if (obj == nullptr) obj = Instruments::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);

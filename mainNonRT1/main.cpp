@@ -26,7 +26,7 @@ static basic::Object* factory(const char* name)
    basic::Object* obj = nullptr;
 
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
-   if (obj == nullptr) obj = Dynamics::Factory::createObj(name);
+   if (obj == nullptr) obj = dynamics::Factory::createObj(name);
    if (obj == nullptr) obj = Sensor::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
 
