@@ -36,7 +36,7 @@ static basic::Object* factory(const char* name)
    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
    // framework libraries
-   if (obj == nullptr) obj = Otw::Factory::createObj(name);
+   if (obj == nullptr) obj = otw::Factory::createObj(name);
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
    if (obj == nullptr) obj = dynamics::Factory::createObj(name);
    if (obj == nullptr) obj = Sensor::Factory::createObj(name);

@@ -41,7 +41,7 @@ basic::Object* Factory::createObj(const char* name)
       obj = new TestComputer;
    }
 
-   if (obj == nullptr) obj = Otw::Factory::createObj(name);
+   if (obj == nullptr) obj = otw::Factory::createObj(name);
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
    if (obj == nullptr) obj = Sensor::Factory::createObj(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
