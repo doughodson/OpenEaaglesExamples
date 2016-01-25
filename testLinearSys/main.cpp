@@ -13,7 +13,7 @@ int main(int, char**)
    const unsigned int RATE = 100;
    const LCreal A = 10.0f;
 
-   LinearSystem::Sz1 filter;
+   linearSys::Sz1 filter;
 
    filter.setN1(0.0);
    filter.setN2(1.0);
