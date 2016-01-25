@@ -95,7 +95,7 @@ static basic::Object* factory(const char* name)
       obj = new TerrainFollower;
    }
 
-   if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+   if (obj == nullptr) obj = instruments::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
    if (obj == nullptr) obj = glut::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);

@@ -58,7 +58,7 @@ static basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == nullptr) obj = oe::Instruments::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::instruments::Factory::createObj(name);
       if (obj == nullptr) obj = oe::BasicGL::Factory::createObj(name);
       if (obj == nullptr) obj = oe::glut::Factory::createObj(name);
       if (obj == nullptr) obj = oe::basic::Factory::createObj(name);

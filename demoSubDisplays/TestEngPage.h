@@ -23,20 +23,20 @@ public:
 
 private:
     // engine 1 n1
-    LCreal n1[Instruments::EngPage::NUM_ENG];
-    LCreal n1Rate[Instruments::EngPage::NUM_ENG];
+    LCreal n1[instruments::EngPage::NUM_ENG];
+    LCreal n1Rate[instruments::EngPage::NUM_ENG];
 
     // engine 1 n2
-    LCreal n2[Instruments::EngPage::NUM_ENG];
-    LCreal n2Rate[Instruments::EngPage::NUM_ENG];
+    LCreal n2[instruments::EngPage::NUM_ENG];
+    LCreal n2Rate[instruments::EngPage::NUM_ENG];
 
     // engine 1 tit
-    LCreal tit[Instruments::EngPage::NUM_ENG];
-    LCreal titRate[Instruments::EngPage::NUM_ENG];
+    LCreal tit[instruments::EngPage::NUM_ENG];
+    LCreal titRate[instruments::EngPage::NUM_ENG];
 
     // engin1 1 fuel flow
-    LCreal ff[Instruments::EngPage::NUM_ENG];
-    LCreal ffRate[Instruments::EngPage::NUM_ENG];
+    LCreal ff[instruments::EngPage::NUM_ENG];
+    LCreal ffRate[instruments::EngPage::NUM_ENG];
 };
 
 } // end of demo namespace

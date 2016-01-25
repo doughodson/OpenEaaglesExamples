@@ -15,12 +15,12 @@ TestEngPage::TestEngPage()
 {
     STANDARD_CONSTRUCTOR()
 
-    const LCreal n1rates[oe::Instruments::EngPage::NUM_ENG]  = {  5, 10,  2, 15 };
-    const LCreal n2rates[oe::Instruments::EngPage::NUM_ENG]  = {  2,  6,  8, 14 };
-    const LCreal titrates[oe::Instruments::EngPage::NUM_ENG] = { 50, 30, 12, 23 };
-    const LCreal ffrates[oe::Instruments::EngPage::NUM_ENG]  = {  1000,  5000, 500, 2000 };
+    const LCreal n1rates[oe::instruments::EngPage::NUM_ENG]  = {  5, 10,  2, 15 };
+    const LCreal n2rates[oe::instruments::EngPage::NUM_ENG]  = {  2,  6,  8, 14 };
+    const LCreal titrates[oe::instruments::EngPage::NUM_ENG] = { 50, 30, 12, 23 };
+    const LCreal ffrates[oe::instruments::EngPage::NUM_ENG]  = {  1000,  5000, 500, 2000 };
 
-    for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+    for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         n1[i] = 0.0;
         n1Rate[i] = n1rates[i];
 
@@ -43,7 +43,7 @@ void TestEngPage::copyData(const TestEngPage& org, const bool)
     // Always copy base class stuff first
     BaseClass::copyData(org);
 
-    for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+    for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         n1[i] = org.n1[i];
         n1Rate[i] = org.n1Rate[i];
 
@@ -67,7 +67,7 @@ void TestEngPage::updateData(const LCreal dt)
     BaseClass::updateData(dt);
 
     // engine N1
-    for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+    for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         n1[i] += n1Rate[i] * dt;
         if (n1[i] > 115) {
             n1[i] = 115;
@@ -80,7 +80,7 @@ void TestEngPage::updateData(const LCreal dt)
     }
 
     // engine N2
-    for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+    for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         n2[i] += n2Rate[i] * dt;
         if (n2[i] > 115) {
             n2[i] = 115;
@@ -93,7 +93,7 @@ void TestEngPage::updateData(const LCreal dt)
     }
 
     // engine TIT
-    for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+    for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         tit[i] += titRate[i] * dt;
         if (tit[i] > 1005) {
             tit[i] = 1005;
@@ -107,7 +107,7 @@ void TestEngPage::updateData(const LCreal dt)
 
 
     // engine fuel flow (pph)
-    for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+    for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         ff[i] += ffRate[i] * dt;
         if (ff[i] > 16000) {
             ff[i] = 16000;
@@ -121,11 +121,11 @@ void TestEngPage::updateData(const LCreal dt)
 
     {
         // Set to the engine display
-        basic::Pair* pair = findByType(typeid(oe::Instruments::EngPage));
+        basic::Pair* pair = findByType(typeid(oe::instruments::EngPage));
         if (pair != nullptr) {
-            oe::Instruments::EngPage* p = static_cast<oe::Instruments::EngPage*>(pair->object());
+            oe::instruments::EngPage* p = static_cast<oe::instruments::EngPage*>(pair->object());
             if (p != nullptr) {
-                for (int i = 0; i < oe::Instruments::EngPage::NUM_ENG; i++) {
+                for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
                     int idx = (i + 1);
                     p->setEngN1(idx, n1[i]);
                     p->setEngN2(idx, n2[i]);

@@ -52,9 +52,9 @@ basic::Object* Factory::createObj(const char* name)
 
     // Openoe packages
     if (obj == nullptr) obj = Simulation::Factory::createObj(name);
-    if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+    if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
-    if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+    if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = dynamics::Factory::createObj(name);
     if (obj == nullptr) obj = Sensor::Factory::createObj(name);
     if (obj == nullptr) obj = Otw::Factory::createObj(name);

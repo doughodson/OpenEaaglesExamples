@@ -51,7 +51,7 @@ static basic::Object* factory(const char* name)
     }
     else {
         if (obj == nullptr) obj = Simulation::Factory::createObj(name);
-        if (obj == nullptr) obj = Instruments::Factory::createObj(name);
+        if (obj == nullptr) obj = instruments::Factory::createObj(name);
         if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
         if (obj == nullptr) obj = basic::Factory::createObj(name);
     }

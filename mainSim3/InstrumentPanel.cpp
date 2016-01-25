@@ -158,9 +158,9 @@ void InstrumentPanel::updateData(const LCreal dt)
       }
    }
 
-   basic::Pair* a = findSubpageByType(typeid(Instruments::Eadi3DPage));
+   basic::Pair* a = findSubpageByType(typeid(instruments::Eadi3DPage));
    if (a != nullptr) {
-      Instruments::Eadi3DPage* eadi = dynamic_cast<Instruments::Eadi3DPage*>(a->object());
+      instruments::Eadi3DPage* eadi = dynamic_cast<instruments::Eadi3DPage*>(a->object());
       if (eadi != nullptr) {
          eadi->setAltitude(altitude);
          eadi->setAirspeed(airSpeed);
