@@ -15,15 +15,15 @@ namespace test {
 //
 // Factory name: PrintMyData
 //------------------------------------------------------------------------------
-class PrintMyData : public Recorder::PrintHandler
+class PrintMyData : public recorder::PrintHandler
 {
-    DECLARE_SUBCLASS(PrintMyData, Recorder::PrintHandler)
+    DECLARE_SUBCLASS(PrintMyData, recorder::PrintHandler)
 
 public:
    PrintMyData();
 
 protected:
-   void processRecordImp(const Recorder::DataRecordHandle* const handle) override;
+   void processRecordImp(const recorder::DataRecordHandle* const handle) override;
 
 private:
    void initData();

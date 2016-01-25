@@ -24,9 +24,9 @@ namespace test {
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public Recorder::OutputHandler
+class DataRecordTest : public recorder::OutputHandler
 {
-    DECLARE_SUBCLASS(DataRecordTest, Recorder::OutputHandler)
+    DECLARE_SUBCLASS(DataRecordTest, recorder::OutputHandler)
 
 public:
 
@@ -34,13 +34,13 @@ public:
 
     // Slot functions
     virtual bool setSlotFileName(basic::String* const msg);
-    virtual bool setSlotTabPrinter(Recorder::TabPrinter* msg);
-    virtual bool setSlotFileWriter(Recorder::FileWriter* msg);
-    virtual bool setSlotFileReader(Recorder::FileReader* msg);
+    virtual bool setSlotTabPrinter(recorder::TabPrinter* msg);
+    virtual bool setSlotFileWriter(recorder::FileWriter* msg);
+    virtual bool setSlotFileReader(recorder::FileReader* msg);
     virtual bool setSlotRecordData(Simulation::DataRecorder* const msg);
-    virtual bool setSlotPrintPlayer(Recorder::PrintPlayer* msg);
-    virtual bool setSlotPrintSelected(Recorder::PrintSelected* msg);
-    virtual bool setSlotPrintSelected2(Recorder::PrintSelected* msg);
+    virtual bool setSlotPrintPlayer(recorder::PrintPlayer* msg);
+    virtual bool setSlotPrintSelected(recorder::PrintSelected* msg);
+    virtual bool setSlotPrintSelected2(recorder::PrintSelected* msg);
 
     // Select one of these in main.cpp
     bool testEvents();      // switch to test each possible event message
@@ -51,23 +51,23 @@ protected:
     void readSerialFromFile();
 
    // all messages:
-   Recorder::DataRecordHandle* testFileIdMsg(int run);
-   Recorder::DataRecordHandle* testNewPlayerEventMsg();
-   Recorder::DataRecordHandle* testPlayerRemovedEventMsg();
-   Recorder::DataRecordHandle* testPlayerDataMsg();
-   Recorder::DataRecordHandle* testPlayerDamagedEventMsg();
-   Recorder::DataRecordHandle* testPlayerCollisionEventMsg();
-   Recorder::DataRecordHandle* testPlayerCrashEventMsg();
-   Recorder::DataRecordHandle* testPlayerKilledEventMsg(unsigned int type);
-   Recorder::DataRecordHandle* testWeaponReleaseEventMsg(unsigned int side);
-   Recorder::DataRecordHandle* testWeaponHungEventMsg();
-   Recorder::DataRecordHandle* testWeaponDetonationEventMsg();
-   Recorder::DataRecordHandle* testGunFiredEventMsg();
-   Recorder::DataRecordHandle* testNewTrackEventMsg();
-   Recorder::DataRecordHandle* testTrackRemovedEventMsg();
-   Recorder::DataRecordHandle* testTrackDataMsg();
+   recorder::DataRecordHandle* testFileIdMsg(int run);
+   recorder::DataRecordHandle* testNewPlayerEventMsg();
+   recorder::DataRecordHandle* testPlayerRemovedEventMsg();
+   recorder::DataRecordHandle* testPlayerDataMsg();
+   recorder::DataRecordHandle* testPlayerDamagedEventMsg();
+   recorder::DataRecordHandle* testPlayerCollisionEventMsg();
+   recorder::DataRecordHandle* testPlayerCrashEventMsg();
+   recorder::DataRecordHandle* testPlayerKilledEventMsg(unsigned int type);
+   recorder::DataRecordHandle* testWeaponReleaseEventMsg(unsigned int side);
+   recorder::DataRecordHandle* testWeaponHungEventMsg();
+   recorder::DataRecordHandle* testWeaponDetonationEventMsg();
+   recorder::DataRecordHandle* testGunFiredEventMsg();
+   recorder::DataRecordHandle* testNewTrackEventMsg();
+   recorder::DataRecordHandle* testTrackRemovedEventMsg();
+   recorder::DataRecordHandle* testTrackDataMsg();
 
-   Recorder::DataRecordHandle* testLastMsg();
+   recorder::DataRecordHandle* testLastMsg();
 
    // Recursive function to look at each embedded message
    bool processMessage(const google::protobuf::Message* const msg);
@@ -78,7 +78,7 @@ protected:
    bool setCompareToValue(const std::string strVal);
    bool setCompareToValue(const int numVal );
    bool setCompareToValue(const double dblVal );
-   bool setCompareCondition(const Recorder::PrintSelected::Condition cc );
+   bool setCompareCondition(const recorder::PrintSelected::Condition cc);
    bool setTimeOnly(const bool flg );
 
    double getSimTime();
@@ -87,16 +87,16 @@ protected:
 
 private:
    const char* fileName;
-   basic::safe_ptr<Recorder::PrintPlayer> myPrintPlayer;
-   basic::safe_ptr<Recorder::PrintSelected> myPrintSelected;
-   basic::safe_ptr<Recorder::PrintSelected> myPrintSelected2;
-   basic::safe_ptr<Recorder::TabPrinter> myRecPrint;
-   basic::safe_ptr<Recorder::FileWriter> myFileWrite;
-   basic::safe_ptr<Recorder::FileReader> myFileRead;
+   basic::safe_ptr<recorder::PrintPlayer> myPrintPlayer;
+   basic::safe_ptr<recorder::PrintSelected> myPrintSelected;
+   basic::safe_ptr<recorder::PrintSelected> myPrintSelected2;
+   basic::safe_ptr<recorder::TabPrinter> myRecPrint;
+   basic::safe_ptr<recorder::FileWriter> myFileWrite;
+   basic::safe_ptr<recorder::FileReader> myFileRead;
    basic::safe_ptr<Simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
-   Recorder::PrintSelected::Condition condition;
+   recorder::PrintSelected::Condition condition;
    int compareI;
    std::string compareS;
    double compareD;
@@ -112,7 +112,7 @@ private:
       double compareValD;
       std::string compareValS;
       int compareValI;
-      Recorder::PrintSelected::Condition condition;
+      recorder::PrintSelected::Condition condition;
       bool timeOnly;
    };
    SelectionCriteria selection[20];

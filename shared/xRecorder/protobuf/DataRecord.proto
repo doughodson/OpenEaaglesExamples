@@ -24,7 +24,7 @@ package oe.xRecorder.Pb;
 // Extend the common data record
 // =============================================================================
 
-extend oe.Recorder.Pb.DataRecord {
+extend oe.recorder.Pb.DataRecord {
    optional MyDataMsg my_data_msg = 1000;
 }
 
@@ -34,7 +34,7 @@ extend oe.Recorder.Pb.DataRecord {
 // =============================================================================
 
 // Extend the Marker message
-extend oe.Recorder.Pb.MarkerMsg {
+extend oe.recorder.Pb.MarkerMsg {
    optional uint32 foo = 100;       // my own marker value
 }
 

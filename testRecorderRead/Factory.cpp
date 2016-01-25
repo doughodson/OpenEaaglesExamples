@@ -12,8 +12,6 @@
 #include "openeaagles/recorder/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 
-#include <cstring>
-
 namespace oe {
 namespace test {
 
@@ -34,7 +32,7 @@ basic::Object* Factory::createObj(const char* name)
     else {
         if (obj == nullptr) obj = Simulation::Factory::createObj(name);
         if (obj == nullptr) obj = basic::Factory::createObj(name);
-        if (obj == nullptr) obj = Recorder::Factory::createObj(name);
+        if (obj == nullptr) obj = recorder::Factory::createObj(name);
     }
 
     return obj;

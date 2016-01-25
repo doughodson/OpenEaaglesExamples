@@ -8,7 +8,7 @@
 
 namespace oe {
 
-namespace Recorder { class InputHandler; class OutputHandler; }
+namespace recorder { class InputHandler; class OutputHandler; }
 
 namespace test {
 
@@ -27,14 +27,14 @@ public:
 
 protected:
     // Slot functions
-    virtual bool setSlotInputHandler(Recorder::InputHandler* const msg);
-    virtual bool setSlotOutputHandler(Recorder::OutputHandler* const msg);
+    virtual bool setSlotInputHandler(recorder::InputHandler* const msg);
+    virtual bool setSlotOutputHandler(recorder::OutputHandler* const msg);
 
 private:
    void initData();
 
-   basic::safe_ptr<Recorder::InputHandler> inputHandler;
-   basic::safe_ptr<Recorder::OutputHandler> outputHandler;
+   basic::safe_ptr<recorder::InputHandler> inputHandler;
+   basic::safe_ptr<recorder::OutputHandler> outputHandler;
 };
 
 }

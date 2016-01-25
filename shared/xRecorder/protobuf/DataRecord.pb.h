@@ -140,11 +140,11 @@ class MyDataMsg : public ::google::protobuf::Message {
 // ===================================================================
 
 static const int kMyDataMsgFieldNumber = 1000;
-extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::Recorder::Pb::DataRecord,
+extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::Pb::DataRecord,
     ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::Pb::MyDataMsg >, 11, false >
   my_data_msg;
 static const int kFooFieldNumber = 100;
-extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::Recorder::Pb::MarkerMsg,
+extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::Pb::MarkerMsg,
     ::google::protobuf::internal::PrimitiveTypeTraits< ::google::protobuf::uint32 >, 13, false >
   foo;
 

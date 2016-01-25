@@ -25,9 +25,9 @@ namespace xRecorder {
 //    REID_MARKER             ! v[0] => id;  v[1] => source id;  v[2] => foo
 //
 //------------------------------------------------------------------------------
-class DataRecorder : public Recorder::DataRecorder
+class DataRecorder : public recorder::DataRecorder
 {
-   DECLARE_SUBCLASS(DataRecorder, Recorder::DataRecorder)
+   DECLARE_SUBCLASS(DataRecorder, recorder::DataRecorder)
 
 public:
    DataRecorder();

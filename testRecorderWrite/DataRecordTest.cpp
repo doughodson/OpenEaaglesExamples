@@ -65,13 +65,13 @@ END_SLOTTABLE(DataRecordTest)
 
 // Map slot table to handles
 BEGIN_SLOT_MAP(DataRecordTest)
-   ON_SLOT(1, setSlotTabPrinter,     Recorder::TabPrinter)
-   ON_SLOT(2, setSlotFileWriter,     Recorder::FileWriter)
-   ON_SLOT(3, setSlotFileReader,     Recorder::FileReader)
+   ON_SLOT(1, setSlotTabPrinter,     recorder::TabPrinter)
+   ON_SLOT(2, setSlotFileWriter,     recorder::FileWriter)
+   ON_SLOT(3, setSlotFileReader,     recorder::FileReader)
    ON_SLOT(4, setSlotFileName,       basic::String)
-   ON_SLOT(5, setSlotPrintPlayer,    Recorder::PrintPlayer)
-   ON_SLOT(6, setSlotPrintSelected,  Recorder::PrintSelected)
-   ON_SLOT(7, setSlotPrintSelected2, Recorder::PrintSelected)
+   ON_SLOT(5, setSlotPrintPlayer,    recorder::PrintPlayer)
+   ON_SLOT(6, setSlotPrintSelected,  recorder::PrintSelected)
+   ON_SLOT(7, setSlotPrintSelected2, recorder::PrintSelected)
 
 END_SLOT_MAP()
 
@@ -99,7 +99,7 @@ DataRecordTest::DataRecordTest()
       selection[i].compareValD = 0;
       selection[i].compareValS = "";
       selection[i].compareValI = 0;
-      selection[i].condition = oe::Recorder::PrintSelected::EQ;
+      selection[i].condition = oe::recorder::PrintSelected::EQ;
       selection[i].timeOnly = false;
    }
 
@@ -147,7 +147,7 @@ void DataRecordTest::deleteData()
 //------------------------------------------------------------------------------
 //setSlotTabPrinter() -- Set slot for pointer to the TabPrinter class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotTabPrinter(Recorder::TabPrinter* const p)
+bool DataRecordTest::setSlotTabPrinter(recorder::TabPrinter* const p)
 {
    bool ok = false;
    if (p != nullptr) {
@@ -161,7 +161,7 @@ bool DataRecordTest::setSlotTabPrinter(Recorder::TabPrinter* const p)
 //------------------------------------------------------------------------------
 //setSlotPrintPlayer() -- Set slot for pointer to the another print class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotPrintPlayer(Recorder::PrintPlayer* const p)
+bool DataRecordTest::setSlotPrintPlayer(recorder::PrintPlayer* const p)
 {
    bool ok = false;
    if (p != nullptr) {
@@ -175,7 +175,7 @@ bool DataRecordTest::setSlotPrintPlayer(Recorder::PrintPlayer* const p)
 //------------------------------------------------------------------------------
 //setSlotPrintSelected() -- Set slot for pointer to the printer using reflection
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotPrintSelected(Recorder::PrintSelected* const p)
+bool DataRecordTest::setSlotPrintSelected(recorder::PrintSelected* const p)
 {
    bool ok = false;
    if (p != nullptr) {
@@ -189,7 +189,7 @@ bool DataRecordTest::setSlotPrintSelected(Recorder::PrintSelected* const p)
 //------------------------------------------------------------------------------
 //setSlotPrintSelected2() -- Set slot for pointer to the printer using reflection (std out only)
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotPrintSelected2(Recorder::PrintSelected* const p)
+bool DataRecordTest::setSlotPrintSelected2(recorder::PrintSelected* const p)
 {
    bool ok = false;
    if (p != nullptr) {
@@ -203,7 +203,7 @@ bool DataRecordTest::setSlotPrintSelected2(Recorder::PrintSelected* const p)
 //------------------------------------------------------------------------------
 //setSlotFileWriter() -- Set slot for pointer to the file (serialized) write class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileWriter(Recorder::FileWriter* const p)
+bool DataRecordTest::setSlotFileWriter(recorder::FileWriter* const p)
 {
    bool ok = false;
    if (p != nullptr) {
@@ -218,7 +218,7 @@ bool DataRecordTest::setSlotFileWriter(Recorder::FileWriter* const p)
 //------------------------------------------------------------------------------
 //setSlotFileReader() -- Set slot for pointer to the file (serialized) read class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileReader(Recorder::FileReader* const p)
+bool DataRecordTest::setSlotFileReader(recorder::FileReader* const p)
 {
    bool ok = false;
    if (p != nullptr) {
@@ -375,7 +375,7 @@ void DataRecordTest::readSerialFromFile()
                std::string selTime = "N";
                std::cin >> selTime;
                if ((selTime == "Y") || (selTime == "y")) {
-                  const Recorder::Pb::DataRecord* dataRecord = new Recorder::Pb::DataRecord();
+                  const recorder::Pb::DataRecord* dataRecord = new recorder::Pb::DataRecord();
                   processMessage(&dataRecord->time());
                }
             }
@@ -400,7 +400,7 @@ void DataRecordTest::readSerialFromFile()
 
                   // Go through the message to select the field and criteria to match
                   const google::protobuf::Message* processMsg = nullptr;
-                  const Recorder::Pb::DataRecord* testDr = new Recorder::Pb::DataRecord();
+                  const recorder::Pb::DataRecord* testDr = new recorder::Pb::DataRecord();
                   switch (eventNum) {
                      case REID_FILE_ID:           processMsg = &testDr->file_id_msg();                 break;
                      case REID_NEW_PLAYER:        processMsg = &testDr->new_player_event_msg();        break;
@@ -439,11 +439,11 @@ void DataRecordTest::readSerialFromFile()
       while (!fileDone) {
          std::cout << std::endl << "Parsing from file msg: " << msgNum+1 << std::endl;
          msgNum++;
-         const Recorder::DataRecordHandle* readHandle = myFileRead->readRecord();
+         const recorder::DataRecordHandle* readHandle = myFileRead->readRecord();
 
          if (readHandle != nullptr) {
             // Check for last message
-            const oe::Recorder::Pb::DataRecord* testDr = readHandle->getRecord();
+            const oe::recorder::Pb::DataRecord* testDr = readHandle->getRecord();
             unsigned int recId = testDr->id();
             std::cout << "Data record ID: " << recId << std::endl;
             if (recId == REID_END_OF_DATA) {
@@ -526,7 +526,7 @@ bool DataRecordTest::testEvents()
 //         std::cin  >> outSelect;
 //         if (outSelect > 0) sendToFile = true;
 
-        const oe::Recorder::DataRecordHandle* handle = nullptr;
+        const oe::recorder::DataRecordHandle* handle = nullptr;
 
          switch (testNumber) {
             case  1: { handle = testFileIdMsg(1); break; }
@@ -593,11 +593,11 @@ void DataRecordTest::eventTestMenu()
 // ------------------------------------------------------------------------------------------------
 // testFileIdMsg: Sets some File ID msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
+oe::recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_FILE_ID);
@@ -628,15 +628,15 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 // ------------------------------------------------------------------------------------------------
 // testNewPlayerEventMsg: Sets some New Player msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
 
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_NEW_PLAYER);
@@ -677,13 +677,13 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerRemovedEventMsg: Sets some Player Removed msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_REMOVED);
@@ -715,13 +715,13 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerDataMsg: Sets some Player Data msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_DATA);
@@ -753,15 +753,15 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerDamagedEventMsg: Sets some Player Damaged msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
-   const google::protobuf::Message* recMsg = new oe::Recorder::Pb::DataRecord();
+   const google::protobuf::Message* recMsg = new oe::recorder::Pb::DataRecord();
    const google::protobuf::Descriptor* descriptor = recMsg->GetDescriptor();
    const google::protobuf::FieldDescriptor* id_field = descriptor->FindFieldByName("id");
 
@@ -799,14 +799,14 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerCollisionEventMsg: Sets some Player Collision msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
-   oe::Recorder::Pb::PlayerId* other = msg->mutable_other_player_id();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::PlayerId* other = msg->mutable_other_player_id();
 
    // required
    recordMsg->set_id(REID_PLAYER_COLLISION);
@@ -843,13 +843,13 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerCrashEventMsg: Sets some Player Crash msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_CRASH);
@@ -881,13 +881,13 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testPlayerKilledEventMsg: Sets some Player Killed msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigned int type)
+oe::recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigned int type)
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
-   oe::Recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::Recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_KILLED);
@@ -919,11 +919,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigne
 // ------------------------------------------------------------------------------------------------
 // testWeaponReleaseEventMsg: Sets some Weapon Released msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsigned int side)
+oe::recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsigned int side)
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_RELEASED);
@@ -962,11 +962,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsign
 // ------------------------------------------------------------------------------------------------
 // testWeaponHungEventMsg: Sets some Weapon Hung msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_HUNG);
@@ -1007,11 +1007,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testWeaponDetonationEventMsg: Sets some Weapon Detonation msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_DETONATION);
@@ -1020,7 +1020,7 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
    recordMsg->mutable_time()->set_utc_time(getUtcTime());
 
 
-   msg->set_det_type(oe::Recorder::Pb::WeaponDetonationEventMsg_DetonationType_DETONATE_GROUND_IMPACT);
+   msg->set_det_type(oe::recorder::Pb::WeaponDetonationEventMsg_DetonationType_DETONATE_GROUND_IMPACT);
 
    // required PlayerId    wpn_id       = 1;
    msg->mutable_wpn_id()->set_id(531);
@@ -1063,11 +1063,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testGunFiredEventMsg: Sets some Gun Fired msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_GUN_FIRED);
@@ -1091,11 +1091,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testNewTrackEventMsg: Sets some New Track msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_NEW_TRACK);
@@ -1167,7 +1167,7 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
    msg->mutable_emission_data()->set_bandwidth(3000);
    msg->mutable_emission_data()->set_prf(4000);
    msg->mutable_emission_data()->set_power(5000);
-   msg->mutable_emission_data()->set_polarization(oe::Recorder::Pb::EmissionData_Polarization_NONE);
+   msg->mutable_emission_data()->set_polarization(oe::recorder::Pb::EmissionData_Polarization_NONE);
 
    // enum Polarization {
    //   NONE        = 0;
@@ -1188,11 +1188,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testTrackRemovedEventMsg: Sets some Track Removed msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_TRACK_REMOVED);
@@ -1216,11 +1216,11 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 // testTrackDataMsg: Sets some Track Data msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
-   oe::Recorder::Pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::Pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_TRACK_DATA);
@@ -1293,7 +1293,7 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
    msg->mutable_emission_data()->set_bandwidth(3000);
    msg->mutable_emission_data()->set_prf(4000);
    msg->mutable_emission_data()->set_power(5000);
-   msg->mutable_emission_data()->set_polarization(oe::Recorder::Pb::EmissionData_Polarization_NONE);
+   msg->mutable_emission_data()->set_polarization(oe::recorder::Pb::EmissionData_Polarization_NONE);
 
    size_t messageSize = recordMsg->ByteSize();
    std::cout << "Message size: " << messageSize << std::endl;
@@ -1304,12 +1304,12 @@ oe::Recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 // ------------------------------------------------------------------------------------------------
 // testLastMsg: Sets some Last msg data and returns a handle
 // ------------------------------------------------------------------------------------------------
-oe::Recorder::DataRecordHandle* DataRecordTest::testLastMsg()
+oe::recorder::DataRecordHandle* DataRecordTest::testLastMsg()
 {
-   oe::Recorder::Pb::DataRecord* recordMsg = new oe::Recorder::Pb::DataRecord();
+   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
    recordMsg->set_id(REID_END_OF_DATA);
 
-   oe::Recorder::DataRecordHandle* handle = new oe::Recorder::DataRecordHandle(recordMsg);
+   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // Still need "required" data:
    recordMsg->mutable_time()->set_exec_time(getExecTime());
@@ -1394,16 +1394,16 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
                   unsigned int cond;
                   std::cin >>  cond;
                   if (cond == 1) {
-                     setCompareCondition(oe::Recorder::PrintSelected::LT);
+                     setCompareCondition(oe::recorder::PrintSelected::LT);
                   }
                   else if (cond == 2) {
-                     setCompareCondition(oe::Recorder::PrintSelected::GT);
+                     setCompareCondition(oe::recorder::PrintSelected::GT);
                   }
                   else {
-                     setCompareCondition(oe::Recorder::PrintSelected::EQ);
+                     setCompareCondition(oe::recorder::PrintSelected::EQ);
                   }
                }
-               else setCompareCondition(oe::Recorder::PrintSelected::EQ); // not needed in this case
+               else setCompareCondition(oe::recorder::PrintSelected::EQ); // not needed in this case
             }
             else if (select == "Q" || select == "q") {
                fieldSelected = true;  // force exit
@@ -1490,7 +1490,7 @@ bool DataRecordTest::setCompareToValue(const double dblVal )
 //------------------------------------------------------------------------------
 // setCompareCondition(): Set comparison condition
 //---------------------------------------------------------------------------
-bool DataRecordTest::setCompareCondition(const oe::Recorder::PrintSelected::Condition cc )
+bool DataRecordTest::setCompareCondition(const oe::recorder::PrintSelected::Condition cc )
 {
    selection[selectionNum].condition = cc;
    return true;

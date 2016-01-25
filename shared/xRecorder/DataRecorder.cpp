@@ -53,7 +53,7 @@ void DataRecorder::copyData(const DataRecorder& org, const bool cc)
 bool DataRecorder::recordMyData(const basic::Object* objs[4], const double values[4])
 {
    //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
-   Recorder::Pb::DataRecord* msg = new Recorder::Pb::DataRecord();
+   recorder::Pb::DataRecord* msg = new recorder::Pb::DataRecord();
    
    // DataRecord header
    timeStamp(msg);
@@ -81,14 +81,14 @@ bool DataRecorder::recordMyData(const basic::Object* objs[4], const double value
 bool DataRecorder::recordMarker(const basic::Object* objs[4], const double values[4])
 {
    //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
-   Recorder::Pb::DataRecord* msg = new Recorder::Pb::DataRecord();
+   recorder::Pb::DataRecord* msg = new recorder::Pb::DataRecord();
    
    // DataRecord header
    timeStamp(msg);
    msg->set_id( REID_MARKER );
 
    // Marker message
-   Recorder::Pb::MarkerMsg* markerMsg = msg->mutable_marker_msg();
+   recorder::Pb::MarkerMsg* markerMsg = msg->mutable_marker_msg();
    markerMsg->set_id( static_cast<unsigned int>(oe::nintd(values[0])) );
    markerMsg->set_source_id( static_cast<unsigned int>(oe::nintd(values[1])) );
 

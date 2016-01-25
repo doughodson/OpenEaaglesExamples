@@ -24,14 +24,14 @@ EMPTY_DELETEDATA(PrintMyData)
 //------------------------------------------------------------------------------
 // Print the data
 //------------------------------------------------------------------------------
-void PrintMyData::processRecordImp(const oe::Recorder::DataRecordHandle* const handle)
+void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const handle)
 {
    if (handle == nullptr) return;  // cannot continue
-   const oe::Recorder::Pb::DataRecord* dataRecord = handle->getRecord();
+   const oe::recorder::Pb::DataRecord* dataRecord = handle->getRecord();
    if (dataRecord == nullptr) return;  // cannot continue
 
    // Get the time msg
-   const oe::Recorder::Pb::Time* timeMsg = nullptr;
+   const oe::recorder::Pb::Time* timeMsg = nullptr;
    if (dataRecord->has_time()) {
       timeMsg = &dataRecord->time();
    }
@@ -52,7 +52,7 @@ void PrintMyData::processRecordImp(const oe::Recorder::DataRecordHandle* const h
                }
             }
 
-            const oe::Recorder::Pb::MarkerMsg* msg = &dataRecord->marker_msg();
+            const oe::recorder::Pb::MarkerMsg* msg = &dataRecord->marker_msg();
 
             if (msg->has_id()) sout << "id= " << msg->id() << ";  ";
             if (msg->has_source_id()) sout << "source_id= " << msg->source_id() << ";  ";
