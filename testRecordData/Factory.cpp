@@ -53,7 +53,7 @@ basic::Object* Factory::createObj(const char* name)
     // OpenEaagles packages
     if (obj == nullptr) obj = Simulation::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
-    if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
+    if (obj == nullptr) obj = ioDevice::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = dynamics::Factory::createObj(name);
     if (obj == nullptr) obj = Recorder::Factory::createObj(name);

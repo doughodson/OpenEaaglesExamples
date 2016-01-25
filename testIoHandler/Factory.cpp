@@ -33,7 +33,7 @@ basic::Object* Factory::createObj(const char* name)
       obj = new Table();
    }
 
-   if (obj == nullptr) obj = IoDevice::Factory::createObj(name);
+   if (obj == nullptr) obj = ioDevice::Factory::createObj(name);
    if (obj == nullptr) obj = glut::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
