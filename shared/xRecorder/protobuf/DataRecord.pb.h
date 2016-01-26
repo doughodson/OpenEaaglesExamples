@@ -29,10 +29,10 @@
 
 namespace oe {
 namespace xRecorder {
-namespace Pb {
+namespace pb {
 
 // Internal implementation detail -- do not call these.
-void  protobuf_AddDesc_xRecorder_2fprotobuf_2fDataRecord_2eproto();
+void protobuf_AddDesc_xRecorder_2fprotobuf_2fDataRecord_2eproto();
 void protobuf_AssignDesc_xRecorder_2fprotobuf_2fDataRecord_2eproto();
 void protobuf_ShutdownFile_xRecorder_2fprotobuf_2fDataRecord_2eproto();
 
@@ -140,11 +140,11 @@ class MyDataMsg : public ::google::protobuf::Message {
 // ===================================================================
 
 static const int kMyDataMsgFieldNumber = 1000;
-extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::Pb::DataRecord,
-    ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::Pb::MyDataMsg >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::pb::DataRecord,
+    ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::pb::MyDataMsg >, 11, false >
   my_data_msg;
 static const int kFooFieldNumber = 100;
-extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::Pb::MarkerMsg,
+extern ::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::pb::MarkerMsg,
     ::google::protobuf::internal::PrimitiveTypeTraits< ::google::protobuf::uint32 >, 13, false >
   foo;
 
@@ -227,7 +227,7 @@ inline void MyDataMsg::set_fo(::google::protobuf::uint32 value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Pb
+}  // namespace pb
 }  // namespace xRecorder
 }  // namespace oe
 

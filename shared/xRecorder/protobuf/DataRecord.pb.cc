@@ -18,7 +18,7 @@
 
 namespace oe {
 namespace xRecorder {
-namespace Pb {
+namespace pb {
 
 namespace {
 
@@ -81,7 +81,7 @@ void protobuf_AddDesc_xRecorder_2fprotobuf_2fDataRecord_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::oe::recorder::Pb::protobuf_AddDesc_openeaagles_2frecorder_2fprotobuf_2fDataRecord_2eproto();
+  ::oe::recorder::pb::protobuf_AddDesc_openeaagles_2frecorder_2fprotobuf_2fDataRecord_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n#xRecorder/protobuf/DataRecord.proto\022\024E"
     "aagles.xRecorder.Pb\032.openeaagles/recorde"
@@ -95,11 +95,11 @@ void protobuf_AddDesc_xRecorder_2fprotobuf_2fDataRecord_2eproto() {
     "xRecorder/protobuf/DataRecord.proto", &protobuf_RegisterTypes);
   MyDataMsg::default_instance_ = new MyDataMsg();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
-    &::oe::recorder::Pb::DataRecord::default_instance(),
+    &::oe::recorder::pb::DataRecord::default_instance(),
     1000, 11, false, false,
-    &::oe::xRecorder::Pb::MyDataMsg::default_instance());
+    &::oe::xRecorder::pb::MyDataMsg::default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterExtension(
-    &::oe::recorder::Pb::MarkerMsg::default_instance(),
+    &::oe::recorder::pb::MarkerMsg::default_instance(),
     100, 13, false, false);
   MyDataMsg::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_xRecorder_2fprotobuf_2fDataRecord_2eproto);
@@ -424,16 +424,16 @@ void MyDataMsg::Swap(MyDataMsg* other) {
   return metadata;
 }
 
-::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::Pb::DataRecord,
-    ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::Pb::MyDataMsg >, 11, false >
-  my_data_msg(kMyDataMsgFieldNumber, ::oe::xRecorder::Pb::MyDataMsg::default_instance());
-::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::Pb::MarkerMsg,
+::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::pb::DataRecord,
+    ::google::protobuf::internal::MessageTypeTraits< ::oe::xRecorder::pb::MyDataMsg >, 11, false >
+  my_data_msg(kMyDataMsgFieldNumber, ::oe::xRecorder::pb::MyDataMsg::default_instance());
+::google::protobuf::internal::ExtensionIdentifier< ::oe::recorder::pb::MarkerMsg,
     ::google::protobuf::internal::PrimitiveTypeTraits< ::google::protobuf::uint32 >, 13, false >
   foo(kFooFieldNumber, 0u);
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Pb
+}  // namespace pb
 }  // namespace xRecorder
 }  // namespace oe
 

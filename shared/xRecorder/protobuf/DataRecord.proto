@@ -18,13 +18,13 @@
 
 import "openeaagles/recorder/protobuf/DataRecord.proto";
 
-package oe.xRecorder.Pb;
+package oe.xRecorder.pb;
 
 // =============================================================================
 // Extend the common data record
 // =============================================================================
 
-extend oe.recorder.Pb.DataRecord {
+extend oe.recorder.pb.DataRecord {
    optional MyDataMsg my_data_msg = 1000;
 }
 
@@ -34,7 +34,7 @@ extend oe.recorder.Pb.DataRecord {
 // =============================================================================
 
 // Extend the Marker message
-extend oe.recorder.Pb.MarkerMsg {
+extend oe.recorder.pb.MarkerMsg {
    optional uint32 foo = 100;       // my own marker value
 }
 

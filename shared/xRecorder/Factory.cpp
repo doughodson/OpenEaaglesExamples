@@ -7,8 +7,6 @@
 
 #include "DataRecorder.h"
 
-#include <cstring>
-
 namespace oe {
 namespace xRecorder {
 

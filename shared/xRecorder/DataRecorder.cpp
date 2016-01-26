@@ -5,8 +5,6 @@
 #include "protobuf/DataRecord.pb.h"
 #include "dataRecorderTokens.h"
 
-#include "openeaagles/simulation/Player.h"
-
 namespace oe {
 namespace xRecorder {
 
@@ -53,14 +51,14 @@ void DataRecorder::copyData(const DataRecorder& org, const bool cc)
 bool DataRecorder::recordMyData(const basic::Object* objs[4], const double values[4])
 {
    //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
-   recorder::Pb::DataRecord* msg = new recorder::Pb::DataRecord();
+   recorder::pb::DataRecord* msg = new recorder::pb::DataRecord();
    
    // DataRecord header
    timeStamp(msg);
    msg->set_id( REID_MY_DATA_EVENT );
 
    // new Marker message
-   Pb::MyDataMsg* myDataMsg = msg->MutableExtension( Pb::my_data_msg );
+   pb::MyDataMsg* myDataMsg = msg->MutableExtension( pb::my_data_msg );
    myDataMsg->set_fee( static_cast<unsigned int>(oe::nintd(values[0])) );
    myDataMsg->set_fi( static_cast<unsigned int>(oe::nintd(values[1])) );
    myDataMsg->set_fo( static_cast<unsigned int>(oe::nintd(values[2])) );
@@ -81,19 +79,19 @@ bool DataRecorder::recordMyData(const basic::Object* objs[4], const double value
 bool DataRecorder::recordMarker(const basic::Object* objs[4], const double values[4])
 {
    //const Simulation::Player* player = dynamic_cast<const Simulation::Player*>( objs[0] );
-   recorder::Pb::DataRecord* msg = new recorder::Pb::DataRecord();
+   recorder::pb::DataRecord* msg = new recorder::pb::DataRecord();
    
    // DataRecord header
    timeStamp(msg);
    msg->set_id( REID_MARKER );
 
    // Marker message
-   recorder::Pb::MarkerMsg* markerMsg = msg->mutable_marker_msg();
+   recorder::pb::MarkerMsg* markerMsg = msg->mutable_marker_msg();
    markerMsg->set_id( static_cast<unsigned int>(oe::nintd(values[0])) );
    markerMsg->set_source_id( static_cast<unsigned int>(oe::nintd(values[1])) );
 
    // Extended value: foo
-   markerMsg->SetExtension( Pb::foo, static_cast<unsigned int>(oe::nintd(values[2])) ) ;
+   markerMsg->SetExtension( pb::foo, static_cast<unsigned int>(oe::nintd(values[2])) ) ;
 
    // Send the message for processing
    sendDataRecord(msg);

@@ -375,7 +375,7 @@ void DataRecordTest::readSerialFromFile()
                std::string selTime = "N";
                std::cin >> selTime;
                if ((selTime == "Y") || (selTime == "y")) {
-                  const recorder::Pb::DataRecord* dataRecord = new recorder::Pb::DataRecord();
+                  const recorder::pb::DataRecord* dataRecord = new recorder::pb::DataRecord();
                   processMessage(&dataRecord->time());
                }
             }
@@ -400,7 +400,7 @@ void DataRecordTest::readSerialFromFile()
 
                   // Go through the message to select the field and criteria to match
                   const google::protobuf::Message* processMsg = nullptr;
-                  const recorder::Pb::DataRecord* testDr = new recorder::Pb::DataRecord();
+                  const recorder::pb::DataRecord* testDr = new recorder::pb::DataRecord();
                   switch (eventNum) {
                      case REID_FILE_ID:           processMsg = &testDr->file_id_msg();                 break;
                      case REID_NEW_PLAYER:        processMsg = &testDr->new_player_event_msg();        break;
@@ -443,7 +443,7 @@ void DataRecordTest::readSerialFromFile()
 
          if (readHandle != nullptr) {
             // Check for last message
-            const oe::recorder::Pb::DataRecord* testDr = readHandle->getRecord();
+            const oe::recorder::pb::DataRecord* testDr = readHandle->getRecord();
             unsigned int recId = testDr->id();
             std::cout << "Data record ID: " << recId << std::endl;
             if (recId == REID_END_OF_DATA) {
@@ -595,8 +595,8 @@ void DataRecordTest::eventTestMenu()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -630,13 +630,13 @@ oe::recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
 
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_NEW_PLAYER);
@@ -679,11 +679,11 @@ oe::recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_REMOVED);
@@ -717,11 +717,11 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_DATA);
@@ -755,13 +755,13 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
-   const google::protobuf::Message* recMsg = new oe::recorder::Pb::DataRecord();
+   const google::protobuf::Message* recMsg = new oe::recorder::pb::DataRecord();
    const google::protobuf::Descriptor* descriptor = recMsg->GetDescriptor();
    const google::protobuf::FieldDescriptor* id_field = descriptor->FindFieldByName("id");
 
@@ -801,12 +801,12 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
-   oe::recorder::Pb::PlayerId* other = msg->mutable_other_player_id();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* other = msg->mutable_other_player_id();
 
    // required
    recordMsg->set_id(REID_PLAYER_COLLISION);
@@ -845,11 +845,11 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_CRASH);
@@ -883,11 +883,11 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigned int type)
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
-   oe::recorder::Pb::PlayerId* pIdMsg = msg->mutable_id();
-   oe::recorder::Pb::PlayerState* pStMsg = msg->mutable_state();
+   oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
+   oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
    // required
    recordMsg->set_id(REID_PLAYER_KILLED);
@@ -921,8 +921,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigne
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsigned int side)
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -964,8 +964,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsign
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -1009,8 +1009,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -1020,7 +1020,7 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
    recordMsg->mutable_time()->set_utc_time(getUtcTime());
 
 
-   msg->set_det_type(oe::recorder::Pb::WeaponDetonationEventMsg_DetonationType_DETONATE_GROUND_IMPACT);
+   msg->set_det_type(oe::recorder::pb::WeaponDetonationEventMsg_DetonationType_DETONATE_GROUND_IMPACT);
 
    // required PlayerId    wpn_id       = 1;
    msg->mutable_wpn_id()->set_id(531);
@@ -1065,8 +1065,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -1093,8 +1093,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -1167,7 +1167,7 @@ oe::recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
    msg->mutable_emission_data()->set_bandwidth(3000);
    msg->mutable_emission_data()->set_prf(4000);
    msg->mutable_emission_data()->set_power(5000);
-   msg->mutable_emission_data()->set_polarization(oe::recorder::Pb::EmissionData_Polarization_NONE);
+   msg->mutable_emission_data()->set_polarization(oe::recorder::pb::EmissionData_Polarization_NONE);
 
    // enum Polarization {
    //   NONE        = 0;
@@ -1190,8 +1190,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -1218,8 +1218,8 @@ oe::recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
-   oe::recorder::Pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   oe::recorder::pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
@@ -1293,7 +1293,7 @@ oe::recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
    msg->mutable_emission_data()->set_bandwidth(3000);
    msg->mutable_emission_data()->set_prf(4000);
    msg->mutable_emission_data()->set_power(5000);
-   msg->mutable_emission_data()->set_polarization(oe::recorder::Pb::EmissionData_Polarization_NONE);
+   msg->mutable_emission_data()->set_polarization(oe::recorder::pb::EmissionData_Polarization_NONE);
 
    size_t messageSize = recordMsg->ByteSize();
    std::cout << "Message size: " << messageSize << std::endl;
@@ -1306,7 +1306,7 @@ oe::recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testLastMsg()
 {
-   oe::recorder::Pb::DataRecord* recordMsg = new oe::recorder::Pb::DataRecord();
+   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
    recordMsg->set_id(REID_END_OF_DATA);
 
    oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
