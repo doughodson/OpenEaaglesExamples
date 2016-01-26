@@ -38,7 +38,7 @@ static basic::Object* factory(const char* name)
    // framework libraries
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
    if (obj == nullptr) obj = dynamics::Factory::createObj(name);
-   if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = sensor::Factory::createObj(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
    return obj;

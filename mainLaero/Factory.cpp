@@ -51,7 +51,7 @@ basic::Object* Factory::createObj(const char* name)
 
     // Framework libraries
     if (obj == nullptr) obj = Simulation::Factory::createObj(name);
-    if (obj == nullptr) obj = Sensor::Factory::createObj(name);
+    if (obj == nullptr) obj = sensor::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);
     if (obj == nullptr) obj = dynamics::Factory::createObj(name);
