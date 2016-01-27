@@ -23,7 +23,7 @@ project "mainCockpit"
    configuration "Release"
       links { "oeDynamics", "JSBSim", "libzmq" }
       links { "oeOtw", LibCigi }
-      links { "oeDis", "oeRecorder", "oeSensors", "oeIoDevice" }
+      links { "oeDis", "oeRecorder", "oeSensors", "oeiodevice" }
       links { "oeSimulation", "oeDafif", "oeTerrain" }
       links { "oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
@@ -32,7 +32,7 @@ project "mainCockpit"
    configuration "Debug"
       links { "oeDynamics_d", "JSBSim_d", "libzmq_d" }
       links { "oeOtw_d",  LibCigi_d }
-      links { "oeDis_d", "oeRecorder_d", "oeSensors_d", "oeIoDevice_d" }
+      links { "oeDis_d", "oeRecorder_d", "oeSensors_d", "oeiodevice_d" }
       links { "oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links { "oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -137,14 +137,14 @@ project "mainLaero"
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oeDynamics", "JSBSim", "libzmq" }
-      links {"oeDis", "oeSensors", "oeIoDevice"}
+      links {"oeDis", "oeSensors", "oeiodevice"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
       links {"oeDynamics_d", "JSBSim_d", "libzmq_d" }
-      links {"oeDis_d", "oeSensors_d", "oeIoDevice_d"}
+      links {"oeDis_d", "oeSensors_d", "oeiodevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -315,7 +315,7 @@ project "mainSim3"
    configuration "Release"
       links { "oeDynamics", "JSBSim", "libzmq" }
       links { "oeOtw", LibCigi}
-      links { "oeDis", "oeSensors", "oeIoDevice"}
+      links { "oeDis", "oeSensors", "oeiodevice"}
       links { "oeSimulation", "oeDafif", "oeTerrain"}
       links { "oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -323,7 +323,7 @@ project "mainSim3"
    configuration "Debug"
       links { "oeDynamics_d", "JSBSim_d", "libzmq_d" }
       links { "oeOtw_d", LibCigi_d }
-      links { "oeDis_d", "oeSensors_d", "oeIoDevice_d" }
+      links { "oeDis_d", "oeSensors_d", "oeiodevice_d" }
       links { "oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links { "oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -406,7 +406,7 @@ project "mainUbf1"
    configuration "Release"
       links { "oeDynamics", "JSBSim" }
       links { "oeOtw", LibCigi }
-      links { "oeDis", "oeSensors", "oeIoDevice" }
+      links { "oeDis", "oeSensors", "oeiodevice" }
       links { "oeSimulation", "oeDafif", "oeTerrain" }
       links { "oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
@@ -414,7 +414,7 @@ project "mainUbf1"
    configuration "Debug"
       links { "oeDynamics_d", "JSBSim_d" }
       links { "oeOtw_d", LibCigi_d }
-      links { "oeDis_d", "oeSensors_d", "oeIoDevice_d" }
+      links { "oeDis_d", "oeSensors_d", "oeiodevice_d" }
       links { "oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links { "oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }

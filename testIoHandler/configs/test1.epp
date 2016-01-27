@@ -2,7 +2,7 @@
 // =============================================================================
 // I/O Devices Test #1 -- 
 //   1) simple, one-to-one mapping of USB Joystick DIs and AIs IoData channels.
-//   2) using standard IoDevice::IoData, so its AI & DI channels are one(1) based.
+//   2) using standard iodevice::IoData, so its AI & DI channels are one(1) based.
 //   3) UsbJoystick channels are zero(0) based.
 // =============================================================================
 

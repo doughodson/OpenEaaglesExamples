@@ -9,7 +9,7 @@
 #include "Table.h"
 
 // class factories
-#include "openeaagles/ioDevice/Factory.h"
+#include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basicGL/Factory.h"
 #include "openeaagles/basic/Factory.h"
@@ -33,7 +33,7 @@ basic::Object* Factory::createObj(const char* name)
       obj = new Table();
    }
 
-   if (obj == nullptr) obj = ioDevice::Factory::createObj(name);
+   if (obj == nullptr) obj = iodevice::Factory::createObj(name);
    if (obj == nullptr) obj = glut::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);

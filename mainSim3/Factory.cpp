@@ -17,7 +17,7 @@
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/instruments/Factory.h"
-#include "openeaagles/ioDevice/Factory.h"
+#include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/otw/Factory.h"
 #include "openeaagles/sensors/Factory.h"
 #include "openeaagles/simulation/Factory.h"
@@ -60,7 +60,7 @@ basic::Object* Factory::createObj(const char* name)
    if (obj == nullptr) obj = sensor::Factory::createObj(name);
    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-   if (obj == nullptr) obj = ioDevice::Factory::createObj(name);
+   if (obj == nullptr) obj = iodevice::Factory::createObj(name);
    if (obj == nullptr) obj = instruments::Factory::createObj(name);
    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
    if (obj == nullptr) obj = glut::Factory::createObj(name);

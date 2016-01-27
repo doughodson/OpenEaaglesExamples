@@ -3,7 +3,7 @@
 // Simple USB Joystick device mapping
 //   1) simple, one-to-one mapping of DIs and AIs
 //   2) UsbJoystick channels are zero(0) based.
-//   3) using standard IoDevice::IoData, so its AI & DI channels are one(1) based.
+//   3) using standard iodevice::IoData, so its AI & DI channels are one(1) based.
 // =============================================================================
 
 ( UsbJoystick
