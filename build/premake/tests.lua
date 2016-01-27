@@ -86,10 +86,10 @@ project "testLinearSys"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeLinearSys", "oeBasic"}
+      links {"oelinearsystem", "oeBasic"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeLinearSys_d", "oeBasic_d"}
+      links {"oelinearsystem_d", "oeBasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testMatrix

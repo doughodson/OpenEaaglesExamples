@@ -1,5 +1,5 @@
 
-#include "openeaagles/linearSys/Sz1.h"
+#include "openeaagles/linearsystem/Sz1.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -13,7 +13,7 @@ int main(int, char**)
    const unsigned int RATE = 100;
    const LCreal A = 10.0f;
 
-   linearSys::Sz1 filter;
+   linearsystem::Sz1 filter;
 
    filter.setN1(0.0);
    filter.setN2(1.0);
