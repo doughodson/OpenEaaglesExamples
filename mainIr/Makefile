@@ -6,7 +6,7 @@ PGM = mainIr
 OBJS =	Factory.o TestComputer.o TestDisplay.o TestStation.o main.o
 
 LDFLAGS += -loeDis -loeSensors -loeDynamics -loeSimulation -loeInstruments -lJSBSim
-LDFLAGS += -loeIoDevice -loeOtw -loeDafif 
+LDFLAGS += -loeiodevice -loeOtw -loeDafif 
 LDFLAGS += -loeGlut -loeBasicGL -loeBasic -lftgl -lfreetype -lcigicl 
 LDFLAGS += -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu
