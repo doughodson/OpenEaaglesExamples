@@ -6,7 +6,7 @@
 // class factories
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/dynamics/Factory.h"
-#include "openeaagles/sensors/Factory.h"
+#include "openeaagles/sensor/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
 #include <cstring>

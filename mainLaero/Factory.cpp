@@ -14,7 +14,7 @@
 #include "../shared/xZeroMQHandlers/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/dynamics/Factory.h"
-#include "openeaagles/sensors/Factory.h"
+#include "openeaagles/sensor/Factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/basicGL/Factory.h"

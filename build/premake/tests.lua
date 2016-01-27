@@ -175,7 +175,7 @@ project "testRadar"
    configuration "Release"
       links {"oeDynamics", "JSBSim"}
       links {"oeOtw", LibCigi}
-      links {"oeDis", "oeSensors", "oeiodevice"}
+      links {"oeDis", "oesensor", "oeiodevice"}
       links {"oeSimulation", "oeDafif", "oeTerrain"}
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -183,7 +183,7 @@ project "testRadar"
    configuration "Debug"
       links {"oeDynamics_d", "JSBSim_d"}
       links {"oeOtw_d", LibCigi_d}
-      links {"oeDis_d", "oeSensors_d", "oeiodevice_d"}
+      links {"oeDis_d", "oesensor_d", "oeiodevice_d"}
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -207,7 +207,7 @@ project "testRecordData"
    configuration "Release"
       links {"oeDynamics", "JSBSim" }
       links {"oeOtw", LibCigi }
-      links {"oeDis", "oeRecorder", "oeSensors", "oeiodevice" }
+      links {"oeDis", "oeRecorder", "oesensor", "oeiodevice" }
       links {"oeSimulation", "oeDafif", "oeTerrain" }
       links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -216,7 +216,7 @@ project "testRecordData"
    configuration "Debug"
       links {"oeDynamics_d", "JSBSim_d" }
       links {"oeOtw_d",  LibCigi_d }
-      links {"oeDis_d", "oeRecorder_d", "oeSensors_d", "oeiodevice_d" }
+      links {"oeDis_d", "oeRecorder_d", "oesensor_d", "oeiodevice_d" }
       links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
       links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}

@@ -20,7 +20,7 @@
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/otw/Factory.h"
-#include "openeaagles/sensors/Factory.h"
+#include "openeaagles/sensor/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/dynamics/Factory.h"
 
