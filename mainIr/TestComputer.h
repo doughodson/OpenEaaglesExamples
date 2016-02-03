@@ -17,9 +17,9 @@
 namespace oe {
 namespace example {
 
-class TestComputer : public Simulation::OnboardComputer
+class TestComputer : public simulation::OnboardComputer
 {
-    DECLARE_SUBCLASS(TestComputer, Simulation::OnboardComputer)
+    DECLARE_SUBCLASS(TestComputer, simulation::OnboardComputer)
 
 public:
    TestComputer();

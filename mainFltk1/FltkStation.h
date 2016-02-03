@@ -18,9 +18,9 @@ namespace example {
 class MainWindow;
 class FltkDisplay;
 
-class FltkStation : public Simulation::Station
+class FltkStation : public simulation::Station
 {
-   DECLARE_SUBCLASS(FltkStation, Simulation::Station)
+   DECLARE_SUBCLASS(FltkStation, simulation::Station)
 
 public:
 

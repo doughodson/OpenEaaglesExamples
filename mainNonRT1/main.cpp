@@ -18,14 +18,14 @@ namespace example {
 // frame rate (50 Hz)
 const unsigned int frameRate = 50;
 
-static Simulation::Simulation* simulation = nullptr;
+static simulation::Simulation* simulation = nullptr;
 
 // our class factory
 static basic::Object* factory(const char* name)
 {
    basic::Object* obj = nullptr;
 
-   if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = simulation::Factory::createObj(name);
    if (obj == nullptr) obj = dynamics::Factory::createObj(name);
    if (obj == nullptr) obj = sensor::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
@@ -34,7 +34,7 @@ static basic::Object* factory(const char* name)
 }
 
 // simulation builder
-static Simulation::Simulation* builder(const char* const filename)
+static simulation::Simulation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -59,7 +59,7 @@ static Simulation::Simulation* builder(const char* const filename)
    }
 
    // try to cast to proper object, and check
-   Simulation::Simulation* simulation = dynamic_cast<Simulation::Simulation*>(obj);
+   simulation::Simulation* simulation = dynamic_cast<simulation::Simulation*>(obj);
    if (simulation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

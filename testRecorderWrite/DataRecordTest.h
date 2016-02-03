@@ -37,7 +37,7 @@ public:
     virtual bool setSlotTabPrinter(recorder::TabPrinter* msg);
     virtual bool setSlotFileWriter(recorder::FileWriter* msg);
     virtual bool setSlotFileReader(recorder::FileReader* msg);
-    virtual bool setSlotRecordData(Simulation::DataRecorder* const msg);
+    virtual bool setSlotRecordData(simulation::DataRecorder* const msg);
     virtual bool setSlotPrintPlayer(recorder::PrintPlayer* msg);
     virtual bool setSlotPrintSelected(recorder::PrintSelected* msg);
     virtual bool setSlotPrintSelected2(recorder::PrintSelected* msg);
@@ -93,7 +93,7 @@ private:
    basic::safe_ptr<recorder::TabPrinter> myRecPrint;
    basic::safe_ptr<recorder::FileWriter> myFileWrite;
    basic::safe_ptr<recorder::FileReader> myFileRead;
-   basic::safe_ptr<Simulation::DataRecorder> myDataRec;
+   basic::safe_ptr<simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
    recorder::PrintSelected::Condition condition;

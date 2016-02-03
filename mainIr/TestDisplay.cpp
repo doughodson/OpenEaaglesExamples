@@ -97,9 +97,9 @@ bool TestDisplay::onFreezeKey()
 bool TestDisplay::onWpnRelKey()
 {
    if (getOwnship() != nullptr) {
-      Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
+      simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
-         sms->setWeaponDeliveryMode(Simulation::StoresMgr::A2A);
+         sms->setWeaponDeliveryMode(simulation::StoresMgr::A2A);
          getOwnship()->event(WPN_REL_EVENT);
       }
    }
@@ -110,10 +110,10 @@ bool TestDisplay::onWpnRelKey()
 bool TestDisplay::onPreRelKey()
 {
     if (getOwnship() != nullptr) {
-       Simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
+       simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
-            sms->setWeaponDeliveryMode(Simulation::StoresMgr::A2A);
-            Simulation::Weapon* wpn = sms->getCurrentWeapon();
+            sms->setWeaponDeliveryMode(simulation::StoresMgr::A2A);
+            simulation::Weapon* wpn = sms->getCurrentWeapon();
             if (wpn != nullptr) {
                wpn->prerelease();
                std::cout << "Prelaunched wpn = " << wpn << std::endl;
@@ -187,9 +187,9 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
    int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
    LCreal rng2 = (rng * rng);          // Range squared (KM * KM)
 
-   Simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
+   simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
    int nNewTracks = 0;                         // Number of new tracks
-   Simulation::Player* target = nullptr;
+   simulation::Player* target = nullptr;
 
    // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
    int maxTracks = loader->getMaxSymbols();
@@ -204,20 +204,20 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
    // find all air vehicles within range
    {
       // get the player list
-      Simulation::Simulation* sim = getSimulation();
+      simulation::Simulation* sim = getSimulation();
       basic::PairStream* plist = sim->getPlayers();
 
       // search for air vehicles or missiles within range
       basic::List::Item* item = plist->getFirstItem();
       while (item != nullptr && nNewTracks < maxTracks) {
          basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
-         Simulation::Player* p = static_cast<Simulation::Player*>(pair->object());
+         simulation::Player* p = static_cast<simulation::Player*>(pair->object());
          osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
          LCreal x = rpos[0] * basic::Distance::M2NM;
          LCreal y = rpos[1] * basic::Distance::M2NM;
 
-         Simulation::Weapon* weapon = dynamic_cast<Simulation::Weapon*>(p);
-         if (weapon && (weapon->isMode(Simulation::Player::PRE_RELEASE) || weapon->isActive())) {
+         simulation::Weapon* weapon = dynamic_cast<simulation::Weapon*>(p);
+         if (weapon && (weapon->isMode(simulation::Player::PRE_RELEASE) || weapon->isActive())) {
             target = weapon->getTargetPlayer();
          }
 
@@ -225,7 +225,7 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
             p != getOwnship() &&
             p->isActive() &&
             ((x*x + y*y) < rng2) &&
-            (p->isClassType(typeid(Simulation::AirVehicle)) || p->isClassType(typeid(Simulation::Missile))) ) {
+            (p->isClassType(typeid(simulation::AirVehicle)) || p->isClassType(typeid(simulation::Missile))) ) {
                // Ok, it's an active air vehicle or missile that's within range, and it's not us.
 
                // Are we already in the track list?
@@ -274,12 +274,12 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
             // We have an empty slot, so add the symbol
 
             int type = 4;                                                            // unknown
-            if (newTracks[inew]->isClassType(typeid(Simulation::AirVehicle))) {
-               if (newTracks[inew]->isSide(Simulation::Player::BLUE)) type = 1;      // friend
-               else if (newTracks[inew]->isSide(Simulation::Player::RED)) type = 2;  // foe
+            if (newTracks[inew]->isClassType(typeid(simulation::AirVehicle))) {
+               if (newTracks[inew]->isSide(simulation::Player::BLUE)) type = 1;      // friend
+               else if (newTracks[inew]->isSide(simulation::Player::RED)) type = 2;  // foe
                else type = 3; // neutral/commercial
             }
-            else if (newTracks[inew]->isClassType(typeid(Simulation::Missile))) {
+            else if (newTracks[inew]->isClassType(typeid(simulation::Missile))) {
                type = 5;                                                             // missile
             }
 
@@ -324,26 +324,26 @@ void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const L
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-Simulation::Player* TestDisplay::getOwnship()
+simulation::Player* TestDisplay::getOwnship()
 {
-   Simulation::Player* p = nullptr;
-   Simulation::Station* sta = getStation();
+   simulation::Player* p = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) p = sta->getOwnship();
    return p;
 }
 
-Simulation::Simulation* TestDisplay::getSimulation()
+simulation::Simulation* TestDisplay::getSimulation()
 {
-   Simulation::Simulation* s = nullptr;
-   Simulation::Station* sta = getStation();
+   simulation::Simulation* s = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
-Simulation::Station* TestDisplay::getStation()
+simulation::Station* TestDisplay::getStation()
 {
    if (myStation == nullptr) {
-      Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
+      simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;

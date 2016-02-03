@@ -74,7 +74,7 @@ static basic::Object* factory(const char* name)
     // framework libraries
     if (obj == nullptr) obj = otw::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
-    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = simulation::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);
     if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
     if (obj == nullptr) obj = glut::Factory::createObj(name);

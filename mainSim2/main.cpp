@@ -25,7 +25,7 @@ namespace example {
 // background frame rate
 const int bgRate = 10;
 
-static Simulation::Station* station = nullptr;
+static simulation::Station* station = nullptr;
 
 // our class factory
 static basic::Object* factory(const char* name)
@@ -36,7 +36,7 @@ static basic::Object* factory(const char* name)
    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
    // framework libraries
-   if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = simulation::Factory::createObj(name);
    if (obj == nullptr) obj = dynamics::Factory::createObj(name);
    if (obj == nullptr) obj = sensor::Factory::createObj(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
@@ -45,7 +45,7 @@ static basic::Object* factory(const char* name)
 }
 
 // station builder
-static Simulation::Station* builder(const char* const filename)
+static simulation::Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -70,7 +70,7 @@ static Simulation::Station* builder(const char* const filename)
    }
 
    // try to cast to proper object, and check
-   Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
+   simulation::Station* station = dynamic_cast<simulation::Station*>(obj);
    if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

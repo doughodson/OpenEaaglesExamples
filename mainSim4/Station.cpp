@@ -77,7 +77,7 @@ void Station::reset()
         displayInit = true;
     }
 
-    // this calls our Baseclass (Simulation::Station -> reset)
+    // this calls our Baseclass (simulation::Station -> reset)
     BaseClass::reset();
 }
 

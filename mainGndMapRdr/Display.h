@@ -16,7 +16,7 @@
 namespace oe {
 
 namespace basic { class Number; }
-namespace Simulation { class Player; class Simulation; class Station; }
+namespace simulation { class Player; class Simulation; class Station; }
 
 namespace example {
 
@@ -27,9 +27,9 @@ class Display : public glut::GlutDisplay
 public:
    Display();
 
-   Simulation::Player* getOwnship();
-   Simulation::Simulation* getSimulation();
-   Simulation::Station* getStation();
+   simulation::Player* getOwnship();
+   simulation::Simulation* getSimulation();
+   simulation::Station* getStation();
 
    // Slot functions
    virtual bool setSlotTextureTest(const basic::Number* const msg);
@@ -38,7 +38,7 @@ public:
    void drawFunc() override;
 
 private:
-   basic::safe_ptr<Simulation::Station> myStation;
+   basic::safe_ptr<simulation::Station> myStation;
 
    bool   testTexture;      // Texture image test
    GLuint texture;          // Texture

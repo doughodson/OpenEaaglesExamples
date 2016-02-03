@@ -22,9 +22,9 @@ namespace example {
 // Slots:
 //   glutDisplay  <BasicGL::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
-class TestStation : public Simulation::Station
+class TestStation : public simulation::Station
 {
-   DECLARE_SUBCLASS(TestStation, Simulation::Station)
+   DECLARE_SUBCLASS(TestStation, simulation::Station)
 
 public:
    TestStation();

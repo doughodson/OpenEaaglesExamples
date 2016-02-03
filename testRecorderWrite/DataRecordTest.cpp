@@ -245,7 +245,7 @@ bool DataRecordTest::setSlotFileName(basic::String* const msg)
 //------------------------------------------------------------------------------
 //setSlotRecordData() -- Set slot for pointer to the RecorderComponent class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotRecordData(Simulation::DataRecorder* const p)
+bool DataRecordTest::setSlotRecordData(simulation::DataRecorder* const p)
 {
    bool ok = false;
    if (p != nullptr) {

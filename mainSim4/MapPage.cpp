@@ -213,7 +213,7 @@ void MapPage::updateData(const LCreal dt)
             if (stn != nullptr) {
                 stn->ref();
                 // set our reference lat / lon initially
-                Simulation::Simulation* sim = stn->getSimulation();
+                simulation::Simulation* sim = stn->getSimulation();
                 if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());
@@ -227,14 +227,14 @@ void MapPage::updateData(const LCreal dt)
         basic::PairStream* stream = stn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
-            Simulation::Player* newPlayers[MAX_PLAYERS];
+            simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             basic::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
                 basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
                 if (pair != nullptr) {
-                    Simulation::Player* ply = dynamic_cast<Simulation::Player*>(pair->object());
+                    simulation::Player* ply = dynamic_cast<simulation::Player*>(pair->object());
                     if (ply != nullptr) {
                         newPlayers[numNewPlayers] = ply;
                         newPlayers[numNewPlayers++]->ref();
@@ -280,7 +280,7 @@ void MapPage::updateData(const LCreal dt)
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type = 1;
-                            if (player[j]->isSide(Simulation::Player::RED)) type = 2;
+                            if (player[j]->isSide(simulation::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "player");
                             if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());

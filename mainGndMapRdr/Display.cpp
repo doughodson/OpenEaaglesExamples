@@ -74,26 +74,26 @@ void Display::deleteData()
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-Simulation::Player* Display::getOwnship()
+simulation::Player* Display::getOwnship()
 {
-    Simulation::Player* p = nullptr;
-    Simulation::Station* sta = getStation();
+    simulation::Player* p = nullptr;
+    simulation::Station* sta = getStation();
     if (sta != nullptr) p = sta->getOwnship();
     return p;
 }
 
-Simulation::Simulation* Display::getSimulation()
+simulation::Simulation* Display::getSimulation()
 {
-    Simulation::Simulation* s = nullptr;
-    Simulation::Station* sta = getStation();
+    simulation::Simulation* s = nullptr;
+    simulation::Station* sta = getStation();
     if (sta != nullptr) s = sta->getSimulation();
     return s;
 }
 
-Simulation::Station* Display::getStation()
+simulation::Station* Display::getStation()
 {
     if (myStation == nullptr) {
-        Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
+        simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
         if (s != nullptr) myStation = s;
     }
     return myStation;
@@ -120,7 +120,7 @@ bool Display::setSlotTextureTest(const basic::Number* const msg)
 //------------------------------------------------------------------------------
 void Display::drawFunc()
 {
-   Simulation::Player* own = getOwnship();
+   simulation::Player* own = getOwnship();
 
    const basic::Pair* pair = nullptr;
    if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));

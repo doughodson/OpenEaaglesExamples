@@ -16,7 +16,7 @@
 
 namespace oe {
 
-   namespace Simulation {
+   namespace simulation {
       class Player;
       class Simulation;
       class Station;
@@ -34,9 +34,9 @@ class InstrumentPanel : public glut::GlutDisplay
 public:
    InstrumentPanel();
 
-   Simulation::Player* getOwnship();
-   Simulation::Simulation* getSimulation();
-   Simulation::Station* getStation();
+   simulation::Player* getOwnship();
+   simulation::Simulation* getSimulation();
+   simulation::Station* getStation();
 
    bool event(const int event, basic::Object* const obj = nullptr) override;
    void updateData(const LCreal dt = 0.0) override;
@@ -48,7 +48,7 @@ protected:
    bool onStepOwnshipKey();
 
 private:
-   basic::safe_ptr<Simulation::Station> myStation;
+   basic::safe_ptr<simulation::Station> myStation;
 
    // ALT Stuff
    LCreal altitude;            // our current altitude

@@ -7,7 +7,7 @@
 #include "openeaagles/basic/IoHandler.h"
 
 namespace oe {
-   namespace Simulation { class AirVehicle; }
+   namespace simulation { class AirVehicle; }
 
 namespace example {
 

@@ -50,7 +50,7 @@ static basic::Object* factory(const char* name)
         obj = new FltkDisplay;
     }
     else {
-        if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+        if (obj == nullptr) obj = simulation::Factory::createObj(name);
         if (obj == nullptr) obj = instruments::Factory::createObj(name);
         if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
         if (obj == nullptr) obj = basic::Factory::createObj(name);

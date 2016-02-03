@@ -187,10 +187,10 @@ void MapDisplay::buttonEvent(const int b)
    MapPage* page = static_cast<MapPage*>(subpage());
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
-   Simulation::Player* pA = getOwnship();
-   Simulation::Autopilot* ap = nullptr;
+   simulation::Player* pA = getOwnship();
+   simulation::Autopilot* ap = nullptr;
    if (pA != nullptr) {
-      ap = static_cast<Simulation::Autopilot*>(pA->getPilot());
+      ap = static_cast<simulation::Autopilot*>(pA->getPilot());
    }
    if (page != nullptr && ap != nullptr) {
       if (b == DEC_RANGE) {
@@ -338,9 +338,9 @@ void MapDisplay::updateData(const LCreal dt)
    double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
    // default to autopilot mode off
    int apMode = 1;
-   Simulation::Aircraft* pA = static_cast<Simulation::Aircraft*>(getOwnship());
+   simulation::Aircraft* pA = static_cast<simulation::Aircraft*>(getOwnship());
    if (pA != nullptr) {
-      Simulation::Autopilot* ap = static_cast<Simulation::Autopilot*>(pA->getPilot());
+      simulation::Autopilot* ap = static_cast<simulation::Autopilot*>(pA->getPilot());
       if (ap != nullptr) {
          // button visibility is based on autopilot being in NO modes
          apButtonsVis = (ap->isNavModeOn() || ap->isLoiterModeOn() || ap->isFollowTheLeadModeOn());
@@ -376,21 +376,21 @@ void MapDisplay::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-Simulation::Station* MapDisplay::getStation()
+simulation::Station* MapDisplay::getStation()
 {
     if (myStation == nullptr) {
-        Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
+        simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
         if (s != nullptr) myStation = s;
     }
     return myStation;
 }
 
-Simulation::Aircraft* MapDisplay::getOwnship()
+simulation::Aircraft* MapDisplay::getOwnship()
 {
-   Simulation::Aircraft* p = nullptr;
-   Simulation::Station* sta = getStation();
+   simulation::Aircraft* p = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      p = dynamic_cast<Simulation::Aircraft*>(sta->getOwnship());
+      p = dynamic_cast<simulation::Aircraft*>(sta->getOwnship());
    }
    return p;
 }

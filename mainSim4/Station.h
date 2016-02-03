@@ -17,9 +17,9 @@ namespace glut { class GlutDisplay; }
 
 namespace example {
 
-class Station : public Simulation::Station
+class Station : public simulation::Station
 {
-    DECLARE_SUBCLASS(Station, Simulation::Station)
+    DECLARE_SUBCLASS(Station, simulation::Station)
 
 public:
     Station();

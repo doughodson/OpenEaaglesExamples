@@ -38,7 +38,7 @@ basic::Object* Factory::createObj(const char* name)
         obj = new TestStation();
     }
 
-    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = simulation::Factory::createObj(name);
     if (obj == nullptr) obj = terrain::Factory::createObj(name);
     if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
     if (obj == nullptr) obj = glut::Factory::createObj(name);

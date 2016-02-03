@@ -167,7 +167,7 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 //void MapPage::drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tas)
 //{
    //if (pStn != 0) {
-   //   Simulation::Player* pPlr  = pStn->getOwnship();
+   //   simulation::Player* pPlr  = pStn->getOwnship();
    //   if (pPlr != 0) {
    //      Vehicle::LaeroModel* pRac = (Vehicle::LaeroModel*) pPlr->getDynamicsModel();
    //      if (pRac != 0) {
@@ -187,9 +187,9 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 void MapPage::drawHoldingPattern()
 {
    if (pStn != nullptr) {
-      Simulation::Player* pPlr  = pStn->getOwnship();
+      simulation::Player* pPlr  = pStn->getOwnship();
       if (pPlr != nullptr) {
-         Simulation::Autopilot* pRac = static_cast<Simulation::Autopilot*>(pPlr->getPilot());
+         simulation::Autopilot* pRac = static_cast<simulation::Autopilot*>(pPlr->getPilot());
          if (pRac != nullptr) {
 
          //---------------------------------------------------------------------------
@@ -274,11 +274,11 @@ void MapPage::drawFunc()
       // get data pointers
       //-------------------------------------------------------
    if (pStn != nullptr) {
-      Simulation::Player* pPlr  = pStn->getOwnship();
+      simulation::Player* pPlr  = pStn->getOwnship();
       if (pPlr != nullptr) {
 
          // get the autopilot
-         Simulation::Autopilot* ap = static_cast<Simulation::Autopilot*>(pPlr->getPilot());
+         simulation::Autopilot* ap = static_cast<simulation::Autopilot*>(pPlr->getPilot());
          if (ap != nullptr && ap->isLoiterModeOn()) drawHoldingPattern();
 
          //---------------------------------------------------------------------------
@@ -387,7 +387,7 @@ void MapPage::updateData(const LCreal dt)
             if (pStn != nullptr) {
                 pStn->ref();
                 // set our reference lat / lon initially
-                Simulation::Simulation* sim = pStn->getSimulation();
+                simulation::Simulation* sim = pStn->getSimulation();
                 if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());
@@ -403,13 +403,13 @@ void MapPage::updateData(const LCreal dt)
          BasicGL::SymbolLoader* routeLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
             // get our player's route
-            Simulation::Player* ply = pStn->getOwnship();
+            simulation::Player* ply = pStn->getOwnship();
             if (ply != nullptr) {
-               Simulation::Navigation* nav = ply->getNavigation();
+               simulation::Navigation* nav = ply->getNavigation();
                if (nav != nullptr) {
-                  Simulation::Route* rte = nav->getPriRoute();
+                  simulation::Route* rte = nav->getPriRoute();
                   if (rte != nullptr) {
-                     basic::safe_ptr<Simulation::Steerpoint> stpts[10];
+                     basic::safe_ptr<simulation::Steerpoint> stpts[10];
                      unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
                      for (unsigned int i = 0; i < numStpts; i++) {
                         if (stpts[i] != nullptr) {
@@ -433,14 +433,14 @@ void MapPage::updateData(const LCreal dt)
         basic::PairStream* stream = pStn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
-            Simulation::Player* newPlayers[MAX_PLAYERS];
+            simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             basic::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
                 basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
                 if (pair != nullptr) {
-                    Simulation::Player* pPlr = dynamic_cast<Simulation::Player*>(pair->object());
+                    simulation::Player* pPlr = dynamic_cast<simulation::Player*>(pair->object());
                     if (pPlr != nullptr) {
                         newPlayers[numNewPlayers] = pPlr;
                         newPlayers[numNewPlayers++]->ref();
@@ -486,7 +486,7 @@ void MapPage::updateData(const LCreal dt)
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type = 1;
-                            if (player[j]->isSide(Simulation::Player::RED)) type = 2;
+                            if (player[j]->isSide(simulation::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "");              //<LDB - "player"
                             if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());

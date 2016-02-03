@@ -29,7 +29,7 @@ static basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == nullptr) obj = oe::Simulation::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::simulation::Factory::createObj(name);
       if (obj == nullptr) obj = oe::basic::Factory::createObj(name);
       if (obj == nullptr) obj = oe::recorder::Factory::createObj(name);
    }

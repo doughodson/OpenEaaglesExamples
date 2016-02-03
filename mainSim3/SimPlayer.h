@@ -11,9 +11,9 @@
 namespace oe {
 namespace example {
 
-class SimPlayer : public Simulation::Aircraft
+class SimPlayer : public simulation::Aircraft
 {
-    DECLARE_SUBCLASS(SimPlayer, Simulation::Aircraft)
+    DECLARE_SUBCLASS(SimPlayer, simulation::Aircraft)
 
 public:
     SimPlayer();

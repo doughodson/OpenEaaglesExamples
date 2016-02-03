@@ -51,7 +51,7 @@ basic::Object* Factory::createObj(const char* name)
         obj = new TdElevPtr();
     }
 
-    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = simulation::Factory::createObj(name);
     if (obj == nullptr) obj = sensor::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);

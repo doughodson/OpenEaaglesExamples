@@ -13,9 +13,9 @@ namespace example {
 
 class FoxDisplay;
 
-class FoxStation : public Simulation::Station
+class FoxStation : public simulation::Station
 {
-   DECLARE_SUBCLASS(FoxStation, Simulation::Station)
+   DECLARE_SUBCLASS(FoxStation, simulation::Station)
 
 public:
    FoxStation();

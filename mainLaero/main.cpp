@@ -20,10 +20,10 @@ namespace example {
 const int bgRate = 10;
 
 // top level Station object
-static Simulation::Station* station = nullptr;
+static simulation::Station* station = nullptr;
 
 // station builder
-static Simulation::Station* builder(const char* const filename)
+static simulation::Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -48,7 +48,7 @@ static Simulation::Station* builder(const char* const filename)
    }
 
    // try to cast to proper object, and check
-   Simulation::Station* station = dynamic_cast<Simulation::Station*>(obj);
+   simulation::Station* station = dynamic_cast<simulation::Station*>(obj);
    if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

@@ -7,7 +7,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace Simulation {
+   namespace simulation {
       class Station;
       class Aircraft;
    }
@@ -21,13 +21,13 @@ class AdiDisplay : public glut::GlutDisplay
 public:
    AdiDisplay();
 
-   Simulation::Aircraft* getOwnship();
-   Simulation::Station* getStation();
+   simulation::Aircraft* getOwnship();
+   simulation::Station* getStation();
 
    void updateData(const LCreal dt = 0.0) override;
 
 private:
-   basic::safe_ptr<Simulation::Station> myStation;
+   basic::safe_ptr<simulation::Station> myStation;
 
    //-----------------------------
    double psiRO;     // [deg]

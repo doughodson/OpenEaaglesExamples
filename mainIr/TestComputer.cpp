@@ -78,7 +78,7 @@ void TestComputer::updateTC(const LCreal dt0)
    // ---
    // Four phases per frame
    // ---
-   Simulation::Simulation* sim = getOwnship()->getSimulation();
+   simulation::Simulation* sim = getOwnship()->getSimulation();
    if (sim == nullptr) return;
 
    // ---
@@ -115,7 +115,7 @@ void TestComputer::process(const LCreal dt)
 {
    BaseClass::process(dt);
 
-   Simulation::IrSeeker* irSeeker = dynamic_cast<Simulation::IrSeeker*>(getOwnship()->getGimbal());
+   simulation::IrSeeker* irSeeker = dynamic_cast<simulation::IrSeeker*>(getOwnship()->getGimbal());
    if (irSeeker) {
       haveTarget = processIr();
    }
@@ -130,18 +130,18 @@ void TestComputer::process(const LCreal dt)
 bool TestComputer::processIr()
 {
    // set the seeker/gimbal free to track target if just launched
-   if (uncaged==false && getOwnship()->isMode(Simulation::Player::ACTIVE))
+   if (uncaged==false && getOwnship()->isMode(simulation::Player::ACTIVE))
       uncaged = true;
 
    // waiting on getnexttarget may mean missing one or two updates
    // because we have to wait for obc::updateShootList which is an updateData task
-   Simulation::Track* irTrk = getNextTarget();
+   simulation::Track* irTrk = getNextTarget();
    if (irTrk && uncaged) {
       // we have a target and our gimbal must be updated
       LCreal pt_az = irTrk->getPredictedAzimuth();
       LCreal pt_el = irTrk->getPredictedElevation();
 
-      Simulation::IrSeeker* irSeeker = dynamic_cast<Simulation::IrSeeker*>(getOwnship()->getGimbal());
+      simulation::IrSeeker* irSeeker = dynamic_cast<simulation::IrSeeker*>(getOwnship()->getGimbal());
 
       // reposition seeker/gimbal to follow IR target
       if (irSeeker) {
@@ -152,13 +152,13 @@ bool TestComputer::processIr()
       }
    }
 
-   Simulation::Weapon* ourWeapon = dynamic_cast<Simulation::Weapon*>(getOwnship());
+   simulation::Weapon* ourWeapon = dynamic_cast<simulation::Weapon*>(getOwnship());
 
    // update the weapon's tracking if the target changed (includes loss of target)
    // weapon::targetPlayer tells the dynamics model where the target is -
    // if the seeker has no track, then the targetPlayer must be cleared
 
-   Simulation::Player* irTarget = nullptr;
+   simulation::Player* irTarget = nullptr;
    if (irTrk)
       irTarget = irTrk->getTarget();
    // tell the missile what to track
@@ -182,16 +182,16 @@ void TestComputer::updateShootList(const bool step)
 
    // First, let's get the active track list
    const unsigned int MAX_TRKS = 20;
-   basic::safe_ptr<Simulation::Track> trackList[MAX_TRKS];
+   basic::safe_ptr<simulation::Track> trackList[MAX_TRKS];
 
    int n = 0;
-   Simulation::TrackManager* tm = getTrackManagerByType(typeid(Simulation::AngleOnlyTrackManager));
+   simulation::TrackManager* tm = getTrackManagerByType(typeid(simulation::AngleOnlyTrackManager));
    if (tm != nullptr) n = tm->getTrackList(trackList, MAX_TRKS);
 
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
-         Simulation::Track* trk = trackList[i];
-         Simulation::IrTrack* irTrk = dynamic_cast<Simulation::IrTrack*>(trk);
+         simulation::Track* trk = trackList[i];
+         simulation::IrTrack* irTrk = dynamic_cast<simulation::IrTrack*>(trk);
          std::cout << irTrk->getTarget()->getID() << " avg " << irTrk->getAvgSignal() << " max " << irTrk->getMaxSignal() << std::endl;
       }
    }
@@ -207,11 +207,11 @@ void TestComputer::updateShootList(const bool step)
             //if (trackList[i]->getGroundSpeed() >= 1.0f) {
                if (nNTS >= 0) {
                   // is this one closer?
-                  Simulation::Track* trk = trackList[i];
-                  Simulation::IrTrack* irTrk = dynamic_cast<Simulation::IrTrack*>(trk);
+                  simulation::Track* trk = trackList[i];
+                  simulation::IrTrack* irTrk = dynamic_cast<simulation::IrTrack*>(trk);
 
                   trk = trackList[nNTS];
-                  Simulation::IrTrack* irTrknNTS = dynamic_cast<Simulation::IrTrack*>(trk);
+                  simulation::IrTrack* irTrknNTS = dynamic_cast<simulation::IrTrack*>(trk);
 
                   if (irTrk->getAvgSignal() > irTrknNTS->getAvgSignal()) {
                      nNTS = i;

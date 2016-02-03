@@ -81,7 +81,7 @@ void AdiDisplay::updateData(const LCreal dt)
    oe::osg::Vec3d av;
 
    // get access pointer to ownship
-   Simulation::Aircraft* pA = getOwnship();
+   simulation::Aircraft* pA = getOwnship();
    if (pA != nullptr) {
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
@@ -120,10 +120,10 @@ void AdiDisplay::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-Simulation::Station* AdiDisplay::getStation()
+simulation::Station* AdiDisplay::getStation()
 {
    if (myStation == nullptr) {
-      Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
+      simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
       if (s != nullptr) {
          myStation = s;
       }
@@ -131,12 +131,12 @@ Simulation::Station* AdiDisplay::getStation()
    return myStation;
 }
 
-Simulation::Aircraft* AdiDisplay::getOwnship()
+simulation::Aircraft* AdiDisplay::getOwnship()
 {
-   Simulation::Aircraft* pA = nullptr;
-   Simulation::Station* sta = getStation();
+   simulation::Aircraft* pA = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      pA = dynamic_cast<Simulation::Aircraft*>(sta->getOwnship());
+      pA = dynamic_cast<simulation::Aircraft*>(sta->getOwnship());
 
       //const unsigned int ffrate = 5;    //LDB
       //sta->setFastForwardRate(ffrate);  //LDB

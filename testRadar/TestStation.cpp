@@ -129,8 +129,8 @@ void TestStation::stepOwnshipPlayer()
    basic::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
-      Simulation::Player* f = nullptr;
-      Simulation::Player* n = nullptr;
+      simulation::Player* f = nullptr;
+      simulation::Player* n = nullptr;
       bool found = false;
 
       // Find the next player
@@ -138,10 +138,10 @@ void TestStation::stepOwnshipPlayer()
       while (item != nullptr) {
          basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
          if (pair != nullptr) {
-            Simulation::Player* ip = static_cast<Simulation::Player*>(pair->object());
-            if ( ip->isMode(Simulation::Player::ACTIVE) &&
+            simulation::Player* ip = static_cast<simulation::Player*>(pair->object());
+            if ( ip->isMode(simulation::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
-               ip->isClassType(typeid(Simulation::AirVehicle))
+               ip->isClassType(typeid(simulation::AirVehicle))
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first
                   if (found) { n = ip; ; break; }

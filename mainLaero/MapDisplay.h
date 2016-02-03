@@ -10,7 +10,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace Simulation {
+   namespace simulation {
       class Station;
       class Aircraft;
    }
@@ -24,8 +24,8 @@ class MapDisplay : public glut::GlutDisplay
 public:
    MapDisplay();
 
-   Simulation::Aircraft* getOwnship();
-   Simulation::Station* getStation();
+   simulation::Aircraft* getOwnship();
+   simulation::Station* getStation();
 
    void mouseMotionEvent(const int x, const int y) override;
    void mouseEvent(const int button, const int state, const int x, const int y) override;
@@ -58,7 +58,7 @@ private:
       CHANGE_AP_MODE             // Change the autopilot mode (Nav/Loiter/FollowTheLead or None)
    };
 
-   basic::safe_ptr<Simulation::Station> myStation;
+   basic::safe_ptr<simulation::Station> myStation;
 
    int startX;         // startX of our last mouse position
    int startY;         // startY of our last mouse position

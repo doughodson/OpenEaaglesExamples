@@ -8,7 +8,7 @@
 
 namespace oe {
    namespace basic      { class PairStream; }
-   namespace Simulation { class Radar; }
+   namespace simulation { class Radar; }
 
 namespace xPanel {
 
@@ -25,16 +25,16 @@ class DspRadar : public BasicGL::Graphic
 public:
    DspRadar();
 
-   const Simulation::Radar* getRadar()         { return radar; }
-   const Simulation::Radar* getRadar() const   { return radar; }
-   bool setRadar(Simulation::Radar* const s)   { radar = s; return true; }
+   const simulation::Radar* getRadar()         { return radar; }
+   const simulation::Radar* getRadar() const   { return radar; }
+   bool setRadar(simulation::Radar* const s)   { radar = s; return true; }
 
    void drawFunc() override;
 
    void updateData(const LCreal dt = 0.0) override;
 
 private:
-    const Simulation::Radar* radar;     // The test RADAR sensor
+    const simulation::Radar* radar;     // The test RADAR sensor
     SendData    azSD;
     SendData    elSD;
 

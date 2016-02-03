@@ -7,7 +7,7 @@
 #include "openeaagles/basicGL/Graphic.h"
 
 namespace oe {
-   namespace Simulation { class Rwr; }
+   namespace simulation { class Rwr; }
 
 namespace test {
 
@@ -25,16 +25,16 @@ class DspRwr : public BasicGL::Graphic
 public:
     DspRwr();
 
-    Simulation::Rwr* getRwr()             { return rwr; }
-    const Simulation::Rwr* getRwr() const { return rwr; }
-    void setRwr(Simulation::Rwr* s)       { rwr = s; }
+    simulation::Rwr* getRwr()             { return rwr; }
+    const simulation::Rwr* getRwr() const { return rwr; }
+    void setRwr(simulation::Rwr* s)       { rwr = s; }
 
     void drawFunc() override;
 
     void updateData(const LCreal dt = 0.0) override;
 
 private:
-    Simulation::Rwr* rwr;     // The test RWR sensor
+    simulation::Rwr* rwr;     // The test RWR sensor
 };
 
 } // End test namespace

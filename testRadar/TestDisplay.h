@@ -7,7 +7,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace Simulation { class Missile; class Player; class Simulation; class Station; }
+   namespace simulation { class Missile; class Player; class Simulation; class Station; }
    namespace BasicGL { class SymbolLoader; }
 
 namespace test {
@@ -42,9 +42,9 @@ class TestDisplay : public glut::GlutDisplay
 public:
     TestDisplay();
 
-    Simulation::Player* getOwnship();
-    Simulation::Simulation* getSimulation();
-    Simulation::Station* getStation();
+    simulation::Player* getOwnship();
+    simulation::Simulation* getSimulation();
+    simulation::Station* getStation();
 
     virtual void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
 
@@ -75,10 +75,10 @@ private:
     SendData        headingSD;
     SendData        rangeSD;
 
-    basic::safe_ptr<Simulation::Station> myStation;
+    basic::safe_ptr<simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
-    Simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
+    simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
     int              trkIdx[MAX_TRACKS];    // Index of track symbols
 };
 

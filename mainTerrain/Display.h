@@ -6,7 +6,7 @@
 // Factory name: TerrainDisplay
 //
 // Slots:
-//    terrain        <Simulation::Terrain>  The terrain elevation database
+//    terrain        <simulation::Terrain>  The terrain elevation database
 //    minElevation   <Distance>  Minimum elevation (Distance) (default: use database max value)
 //    maxElevation   <Distance>  Maximum elevation (Distance) (default: use database max value)
 //    altitude       <Distance>  Reference altitude (Distance) (default: 15000 feet)

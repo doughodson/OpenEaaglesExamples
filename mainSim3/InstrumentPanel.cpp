@@ -62,26 +62,26 @@ void InstrumentPanel::deleteData()
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-Simulation::Player* InstrumentPanel::getOwnship()
+simulation::Player* InstrumentPanel::getOwnship()
 {
-   Simulation::Player* p = nullptr;
-   Simulation::Station* sta = getStation();
+   simulation::Player* p = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) p = sta->getOwnship();
    return p;
 }
 
-Simulation::Simulation* InstrumentPanel::getSimulation()
+simulation::Simulation* InstrumentPanel::getSimulation()
 {
-   Simulation::Simulation* s = nullptr;
-   Simulation::Station* sta = getStation();
+   simulation::Simulation* s = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
-Simulation::Station* InstrumentPanel::getStation()
+simulation::Station* InstrumentPanel::getStation()
 {
    if (myStation == nullptr) {
-      Simulation::Station* s = dynamic_cast<Simulation::Station*>( findContainerByType(typeid(Simulation::Station)) );
+      simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;
@@ -99,7 +99,7 @@ void InstrumentPanel::updateData(const LCreal dt)
    // try to get an Sim3 first.  If that doesn't work, then get a generic air vehicle
    // Get the data from our ownship, if we have a valid one.  Else everything goes to a default value
    // we need to dynamically cast to an AirVehicle* for this instrument panel
-   Simulation::AirVehicle* tempOwnship = dynamic_cast<Simulation::AirVehicle*>( getOwnship() );
+   simulation::AirVehicle* tempOwnship = dynamic_cast<simulation::AirVehicle*>( getOwnship() );
    if (tempOwnship != nullptr) {
       tempOwnship->ref();
 #if 0

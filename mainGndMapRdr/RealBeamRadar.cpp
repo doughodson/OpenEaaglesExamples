@@ -123,7 +123,7 @@ void RealBeamRadar::transmit(const LCreal dt)
    beamWidth = 7.0;
 
    //
-   const Simulation::Player* own = getOwnship();
+   const simulation::Player* own = getOwnship();
    if (own != nullptr) {
       // Get our ownship parameters
       altitude = static_cast<LCreal>(own->getAltitude());
@@ -133,7 +133,7 @@ void RealBeamRadar::transmit(const LCreal dt)
       // Locate the terrain elevation database
       if (terrain == nullptr) {
 
-         const Simulation::Simulation* sim = own->getSimulation();
+         const simulation::Simulation* sim = own->getSimulation();
          if (sim != nullptr) {
             setTerrain( sim->getTerrain() );
          }
@@ -141,7 +141,7 @@ void RealBeamRadar::transmit(const LCreal dt)
    }
 
    // Transmitting, scanning
-   const Simulation::Antenna* ant = getAntenna();
+   const simulation::Antenna* ant = getAntenna();
    if (isTransmitting() && ant != nullptr && image != nullptr && terrain != nullptr && terrain->isDataLoaded()) {
 
       // Compute max range (NM)

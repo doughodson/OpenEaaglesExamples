@@ -10,7 +10,7 @@ namespace oe {
 
 namespace basic { class Table1; }
 namespace glut  { class GlutDisplay; }
-namespace Simulation { class AirVehicle; }
+namespace simulation { class AirVehicle; }
 
 namespace example {
 
@@ -27,9 +27,9 @@ namespace example {
 //      display                 <BasicGL::GlutDisplay> ! Main graphics display
 //      autoResetTimer          <Time>               ! Auto RESET timer value (basic::Time); default: 0
 //------------------------------------------------------------------------------
-class SimStation : public Simulation::Station
+class SimStation : public simulation::Station
 {
-    DECLARE_SUBCLASS(SimStation, Simulation::Station)
+    DECLARE_SUBCLASS(SimStation, simulation::Station)
 
 public:
     SimStation();

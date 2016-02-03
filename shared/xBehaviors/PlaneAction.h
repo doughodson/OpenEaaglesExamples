@@ -9,7 +9,7 @@
 
 namespace oe {
 
-namespace Simulation { class Player; }
+namespace simulation { class Player; }
 
 namespace xBehaviors {
 

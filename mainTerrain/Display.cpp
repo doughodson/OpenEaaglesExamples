@@ -469,7 +469,7 @@ void Display::updateData(const LCreal dt)
 
                // Compute AAC data
                if (testAac) {
-                  //Simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
+                  //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
                   LCreal angle = static_cast<LCreal>(-10.0f * basic::Angle::D2RCC);
                   osg::Vec2 vec(lcCos(angle),lcSin(angle));
                   basic::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);

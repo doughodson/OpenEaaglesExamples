@@ -52,7 +52,7 @@ void DspRadar::copyData(const DspRadar& org, const bool)
 //------------------------------------------------------------------------------
 void DspRadar::updateData(const LCreal dt)
 {
-   const Simulation::Antenna* antenna = nullptr;
+   const simulation::Antenna* antenna = nullptr;
    nTracks = 0;
    ntsTrk = -1;
 
@@ -62,12 +62,12 @@ void DspRadar::updateData(const LCreal dt)
       antenna = radar->getAntenna();
 
       // Get our track manager
-      const Simulation::TrackManager* tm = radar->getTrackManager();
+      const simulation::TrackManager* tm = radar->getTrackManager();
 
       // ---
       // Get the track list and convert them to display coordinates
       if (tm != nullptr) {
-         basic::safe_ptr<Simulation::Track> trackList[MAX_TRKS];
+         basic::safe_ptr<simulation::Track> trackList[MAX_TRKS];
          unsigned int n = tm->getTrackList(trackList,MAX_TRKS);
          for (unsigned int i = 0; i < n; i++) {
             osg::Vec3 pos = trackList[i]->getPosition();

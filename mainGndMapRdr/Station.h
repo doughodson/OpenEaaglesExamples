@@ -14,9 +14,9 @@ namespace BasicGL { class GlutDisplay; }
 namespace example {
 class Display;
 
-class TestStation : public Simulation::Station
+class TestStation : public simulation::Station
 {
-    DECLARE_SUBCLASS(TestStation, Simulation::Station)
+    DECLARE_SUBCLASS(TestStation, simulation::Station)
 
 public:
     TestStation();

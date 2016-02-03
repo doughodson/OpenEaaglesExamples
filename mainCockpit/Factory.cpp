@@ -51,7 +51,7 @@ basic::Object* Factory::createObj(const char* name)
     if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
     // framework libraries
-    if (obj == nullptr) obj = Simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = simulation::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = iodevice::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);

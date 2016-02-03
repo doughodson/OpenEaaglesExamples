@@ -11,7 +11,7 @@ namespace oe {
 
 namespace basic { class Table1; class PairStream; }
 namespace glut { class GlutDisplay; }
-namespace Simulation { class AirVehicle; }
+namespace simulation { class AirVehicle; }
 
 namespace example {
 
@@ -28,9 +28,9 @@ namespace example {
 //      display       <BasicGL::GlutDisplay>  ! Main graphics display
 //
 //------------------------------------------------------------------------------
-class SimStation : public Simulation::Station
+class SimStation : public simulation::Station
 {
-   DECLARE_SUBCLASS(SimStation, Simulation::Station)
+   DECLARE_SUBCLASS(SimStation, simulation::Station)
 
 public:
     SimStation();

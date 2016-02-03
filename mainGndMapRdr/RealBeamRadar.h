@@ -13,9 +13,9 @@ namespace oe {
 
 namespace example {
 
-class RealBeamRadar : public Simulation::Radar
+class RealBeamRadar : public simulation::Radar
 {
-    DECLARE_SUBCLASS(RealBeamRadar,Simulation::Radar)
+    DECLARE_SUBCLASS(RealBeamRadar,simulation::Radar)
 
 public:
     RealBeamRadar();
