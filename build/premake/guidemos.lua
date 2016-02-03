@@ -16,15 +16,15 @@ project "mainFltk1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeSimulation", "oeDafif"}
-      links {"oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"oesimulation", "oedafif"}
+      links {"oeinstruments", "oeBasicGL", "oebasic"}
       links {"fltk_images", "fltk_gl", "fltk"}
 --    links {"fltk_jpeg", "fltk_png", "fltk_z"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
    configuration "Debug"
-      links {"oeSimulation_d", "oeDafif_d"}
-      links {"oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"oesimulation_d", "oedafif_d"}
+      links {"oeinstruments_d", "oeBasicGL_d", "oebasic_d"}
       links {"fltk_images_d", "fltk_gl_d", "fltk_d"}
 --      links {"fltk_jpeg_d", "fltk_png_d", "fltk_z_d"}
       links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
@@ -46,14 +46,14 @@ project "mainFox1"
    defines { "_CONSOLE" }
    defines {"FOX_1_6"}
    configuration "Release"
-      links {"oeSimulation", "oeDafif", "oeInstruments"}
-      links {"oeBasicGL", "oeBasic"}
+      links {"oesimulation", "oedafif", "oeinstruments"}
+      links {"oeBasicGL", "oebasic"}
       links {"FOX-1.6"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
    configuration "Debug"
-      links {"oeSimulation_d", "oeDafif_d", "oeInstruments_d"}
-      links {"oeBasicGL_d", "oeBasic_d"}
+      links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
+      links {"oeBasicGL_d", "oebasic_d"}
       links {"FOX-1.6_d"}
       links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}

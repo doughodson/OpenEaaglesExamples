@@ -17,11 +17,11 @@ project "testEvents"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeGlut", "oeBasicGL", "oeBasic"}
+      links {"oeglut", "oeBasicGL", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"oeglut_d", "oeBasicGL_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -40,11 +40,11 @@ project "testGraphics"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeGlut", "oeBasicGL", "oeBasic"}
+      links {"oeglut", "oeBasicGL", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"oeglut_d", "oeBasicGL_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -63,11 +63,11 @@ project "testIoHandler"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeiodevice", "oeGlut", "oeBasicGL", "oeBasic"}
+      links {"oeiodevice", "oeglut", "oeBasicGL", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeiodevice_d", "oeGlut_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"oeiodevice_d", "oeglut_d", "oeBasicGL_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -86,10 +86,10 @@ project "testLinearSys"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oelinearsystem", "oeBasic"}
+      links {"oelinearsystem", "oebasic"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oelinearsystem_d", "oeBasic_d"}
+      links {"oelinearsystem_d", "oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testMatrix
@@ -107,10 +107,10 @@ project "testMatrix"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oebasic"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testNavigation
@@ -128,10 +128,10 @@ project "testNavigation"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oebasic"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testNetHandler
@@ -152,10 +152,10 @@ project "testNetHandler"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic", "libzmq" }
+      links {"oebasic", "libzmq" }
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d", "libzmq_d" }
+      links {"oebasic_d", "libzmq_d" }
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testRadar
@@ -173,19 +173,19 @@ project "testRadar"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeDynamics", "JSBSim"}
-      links {"oeOtw", LibCigi}
-      links {"oeDis", "oesensor", "oeiodevice"}
-      links {"oeSimulation", "oeDafif", "oeTerrain"}
-      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic"}
+      links {"oedynamics", "JSBSim"}
+      links {"oeotw", LibCigi}
+      links {"oedis", "oesensor", "oeiodevice"}
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oeBasicGL", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeDynamics_d", "JSBSim_d"}
-      links {"oeOtw_d", LibCigi_d}
-      links {"oeDis_d", "oesensor_d", "oeiodevice_d"}
-      links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d"}
-      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d"}
+      links {"oedynamics_d", "JSBSim_d"}
+      links {"oeotw_d", LibCigi_d}
+      links {"oedis_d", "oesensor_d", "oeiodevice_d"}
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oeBasicGL_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -205,20 +205,20 @@ project "testRecordData"
    links       { "libxRecorder", "libxPanel" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeDynamics", "JSBSim" }
-      links {"oeOtw", LibCigi }
-      links {"oeDis", "oeRecorder", "oesensor", "oeiodevice" }
-      links {"oeSimulation", "oeDafif", "oeTerrain" }
-      links {"oeGlut", "oeInstruments", "oeBasicGL", "oeBasic" }
+      links {"oedynamics", "JSBSim" }
+      links {"oeotw", LibCigi }
+      links {"oedis", "oerecorder", "oesensor", "oeiodevice" }
+      links {"oesimulation", "oedafif", "oeterrain" }
+      links {"oeglut", "oeinstruments", "oeBasicGL", "oebasic" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"libprotobuf" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oeDynamics_d", "JSBSim_d" }
-      links {"oeOtw_d",  LibCigi_d }
-      links {"oeDis_d", "oeRecorder_d", "oesensor_d", "oeiodevice_d" }
-      links {"oeSimulation_d", "oeDafif_d", "oeTerrain_d" }
-      links {"oeGlut_d", "oeInstruments_d", "oeBasicGL_d", "oeBasic_d" }
+      links {"oedynamics_d", "JSBSim_d" }
+      links {"oeotw_d",  LibCigi_d }
+      links {"oedis_d", "oerecorder_d", "oesensor_d", "oeiodevice_d" }
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d" }
+      links {"oeglut_d", "oeinstruments_d", "oeBasicGL_d", "oebasic_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
@@ -239,10 +239,10 @@ project "testRecorderRead"
    links       { "libxRecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
+      links {"oerecorder", "oesimulation", "oedafif", "oebasic", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
+      links {"oerecorder_d", "oesimulation_d", "oedafif_d", "oebasic_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRecorderWrite
@@ -261,10 +261,10 @@ project "testRecorderWrite"
    links       { "libxRecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeRecorder", "oeSimulation", "oeDafif", "oeBasic", "libprotobuf"}
+      links {"oerecorder", "oesimulation", "oedafif", "oebasic", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeRecorder_d", "oeSimulation_d", "oeDafif_d", "oeBasic_d", "libprotobuf_d" }
+      links {"oerecorder_d", "oesimulation_d", "oedafif_d", "oebasic_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRng
@@ -282,10 +282,10 @@ project "testRng"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oebasic"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testStateMach
@@ -303,10 +303,10 @@ project "testStateMach"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oebasic"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testTables
@@ -324,10 +324,10 @@ project "testTables"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oebasic"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testTimer
@@ -344,9 +344,9 @@ project "testTimer"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oeBasic"}
+      links {"oebasic"}
       links {"Ws2_32", "Winmm", "comctl32"}
    configuration "Debug"
-      links {"oeBasic_d"}
+      links {"oebasic_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
