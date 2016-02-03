@@ -9,10 +9,10 @@ OBJS += Factory.o main.o
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
 LDFLAGS += -lxPanel
-LDFLAGS += -loeRecorder -loesensor -loeDynamics
-LDFLAGS += -loeSimulation -loeInstruments -loeDis
-LDFLAGS += -loeiodevice -loeOtw -loeDafif
-LDFLAGS += -loeGlut -loeBasicGL -loeBasic
+LDFLAGS += -loerecorder -loesensor -loedynamics
+LDFLAGS += -loesimulation -loeinstruments -loedis
+LDFLAGS += -loeiodevice -loeotw -loedafif
+LDFLAGS += -loeglut -loeBasicGL -loebasic
 LDFLAGS += -lprotobuf -lJSBSim
 LDFLAGS += -lftgl -lfreetype -lcigicl 
 LDFLAGS += -lglut -lGLU -lGL -lX11

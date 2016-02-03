@@ -6,7 +6,7 @@ PGM = testNetHandler
 OBJS = Sender.o main.o Endpoint.o Echo.o ServerTcpMultiple.o
 
 LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
-LDFLAGS += -loeBasic -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
+LDFLAGS += -loebasic -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 

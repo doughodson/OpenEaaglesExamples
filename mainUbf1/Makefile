@@ -9,9 +9,9 @@ OBJS += SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o Factory.o
 
 LDFLAGS += -lxBehaviors -lxPanel
-LDFLAGS += -loeBasicGL -loeGlut -loeInstruments -loeSimulation
-LDFLAGS += -loeDis -loesensor -loeDynamics -loeiodevice -loeOtw -loeDafif
-LDFLAGS += -lJSBSim -loeBasic
+LDFLAGS += -loeBasicGL -loeglut -loeinstruments -loesimulation
+LDFLAGS += -loedis -loesensor -loedynamics -loeiodevice -loeotw -loedafif
+LDFLAGS += -lJSBSim -loebasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 LDFLAGS += -lcigicl
 LDFLAGS += -lpthread -lrt

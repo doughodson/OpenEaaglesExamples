@@ -8,10 +8,10 @@ OBJS += TestIoHandler.o
 OBJS += Factory.o main.o
 
 LDFLAGS += -lxRecorder -lxPanel
-LDFLAGS += -loeRecorder -loesensor -loeDynamics
-LDFLAGS += -loeSimulation -loeInstruments -loeDis
-LDFLAGS += -loeiodevice -loeOtw -loeDafif
-LDFLAGS += -loeGlut -loeBasicGL -loeBasic
+LDFLAGS += -loerecorder -loesensor -loedynamics
+LDFLAGS += -loesimulation -loeinstruments -loedis
+LDFLAGS += -loeiodevice -loeotw -loedafif
+LDFLAGS += -loeglut -loeBasicGL -loebasic
 LDFLAGS += -lprotobuf -lJSBSim
 LDFLAGS += -lftgl -lfreetype -lcigicl 
 LDFLAGS += -lglut -lGLU -lGL -lX11

@@ -12,7 +12,7 @@ EPPFLAGS += -I$(DATA_DIR) \
 
 OBJS = main.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
 
-LDFLAGS += -loeSimulation -loeDafif -loeInstruments -loeBasicGL -loeBasic
+LDFLAGS += -loesimulation -loedafif -loeinstruments -loeBasicGL -loebasic
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL -lX11
 LDFLAGS += -lpthread -lrt

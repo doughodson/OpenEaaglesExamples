@@ -5,7 +5,7 @@ PGM = tutorial03
 
 OBJS = main.o Random.o
 
-LDFLAGS += -loeBasic -lpthread -lrt
+LDFLAGS += -loebasic -lpthread -lrt
 
 all: $(PGM)
 

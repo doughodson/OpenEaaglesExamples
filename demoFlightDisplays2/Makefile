@@ -9,7 +9,7 @@ OBJS =  \
 	SpdLines.o \
 	TestPfd.o
 
-LDFLAGS += -loeGlut -loeInstruments -loeBasicGL -loeBasic
+LDFLAGS += -loeglut -loeinstruments -loeBasicGL -loebasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
