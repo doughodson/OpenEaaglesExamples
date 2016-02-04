@@ -39,7 +39,7 @@ RCC_DIR = ./tmp/rcc
 win32:CONFIG(release, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                  \
-    -loesimulation -loesensor -loedafif              \
+    -loesimulation -loemodels -loedafif              \
     -loebasic                                        \
     # system
     -lwinmm                                          \
@@ -49,7 +49,7 @@ win32:CONFIG(release, debug|release): LIBS +=        \
 else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
-    -loesimulation_d -loesensor_d -loedafif_d           \
+    -loesimulation_d -loemodels_d -loedafif_d           \
     -loebasic_d                                         \
     # system
     -lwinmm                                             \
@@ -59,7 +59,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 else:unix:!macx:!symbian: LIBS +=                     \
     # openeaagles
     -L$${OE_ROOT}/lib/linux/                          \
-    -loesimulation -loesensor -loedafif               \
+    -loesimulation -loemodels -loedafif               \
     -loebasic                                         \
     # system
     -lX11 -lpthread -lrt

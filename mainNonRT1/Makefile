@@ -5,7 +5,7 @@ PGM = mainNonRT1
 
 OBJS = main.o
 
-LDFLAGS += -loesensor -loedynamics -loesimulation -lJSBSim 
+LDFLAGS += -loemodels -loesimulation -lJSBSim 
 LDFLAGS += -loeinstruments -loedafif
 LDFLAGS += -loebasic 
 LDFLAGS += -lrt -lX11
