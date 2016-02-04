@@ -9,7 +9,7 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-// class factories
+// factories
 #include "openeaagles/basic/Factory.h"
 #include "openeaagles/graphics/Factory.h"
 #include "openeaagles/instruments/Factory.h"

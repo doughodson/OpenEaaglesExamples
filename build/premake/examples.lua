@@ -21,18 +21,18 @@ project "mainCockpit"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links { "oedynamics", "JSBSim", "libzmq" }
+      links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oerecorder", "oesensor", "oeiodevice" }
+      links { "oedis", "oerecorder", "oeiodevice" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "libprotobuf" }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links { "oedynamics_d", "JSBSim_d", "libzmq_d" }
+      links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d",  LibCigi_d }
-      links { "oedis_d", "oerecorder_d", "oesensor_d", "oeiodevice_d" }
+      links { "oedis_d", "oerecorder_d", "oeiodevice_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -102,17 +102,17 @@ project "mainIr"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oedynamics", "JSBSim"}
+      links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
-      links {"oedis", "oesensor"}
+      links {"oedis" }
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oedynamics_d", "JSBSim_d"}
+      links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
-      links {"oedis_d", "oesensor_d"}
+      links {"oedis_d" }
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -136,15 +136,15 @@ project "mainLaero"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oedynamics", "JSBSim", "libzmq" }
-      links {"oedis", "oesensors", "oeiodevice"}
+      links {"oemodels", "JSBSim", "libzmq" }
+      links {"oedis", "oeiodevice"}
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oedynamics_d", "JSBSim_d", "libzmq_d" }
-      links {"oedis_d", "oesensor_d", "oeiodevice_d"}
+      links {"oemodels_d", "JSBSim_d", "libzmq_d" }
+      links {"oedis_d", "oeiodevice_d"}
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -165,17 +165,17 @@ project "mainNonRT1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    configuration "Release"
-      links {"oedynamics", "JSBSim"}
+      links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
-      links {"oedis", "oesensor"}
+      links {"oedis" }
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebasic"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links {"oedynamics_d", "JSBSim_d"}
+      links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
-      links {"oedis_d", "oesensor_d"}
+      links {"oedis_d" }
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -245,17 +245,17 @@ project "mainSim1"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links { "oedynamics", "JSBSim", "libzmq" }
+      links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oesensor" }
+      links { "oedis" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    configuration "Debug"
-      links { "oedynamics_d", "JSBSim_d", "libzmq_d" }
+      links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oesensor_d" }
+      links { "oedis_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -279,17 +279,17 @@ project "mainSim2"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links { "oedynamics", "JSBSim", "libzmq" }
+      links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oesensor" }
+      links { "oedis" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    configuration "Debug"
-      links { "oedynamics_d", "JSBSim_d", "libzmq_d" }
+      links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oesensor_d" }
+      links { "oedis_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -313,17 +313,17 @@ project "mainSim3"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links { "oedynamics", "JSBSim", "libzmq" }
+      links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi}
-      links { "oedis", "oesensor", "oeiodevice"}
+      links { "oedis", "oeiodevice"}
       links { "oesimulation", "oedafif", "oeterrain"}
       links { "oeglut", "oeinstruments", "oegraphics", "oebasic"}
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links { "Ws2_32", "Winmm", "comctl32", "gdi32"}
    configuration "Debug"
-      links { "oedynamics_d", "JSBSim_d", "libzmq_d" }
+      links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oesensor_d", "oeiodevice_d" }
+      links { "oedis_d", "oeiodevice_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -347,17 +347,17 @@ project "mainSim4"
    links { "libxZeroMQHandlers" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links { "oedynamics", "JSBSim", "libzmq" }
+      links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oesensor" }
+      links { "oedis" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    configuration "Debug"
-      links { "oedynamics_d", "JSBSim_d", "libzmq_d" }
+      links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oesensor_d" }
+      links { "oedis_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -404,17 +404,17 @@ project "mainUbf1"
    links { "libxBehaviors",  "libxPanel" }
    defines { "_CONSOLE" }
    configuration "Release"
-      links { "oedynamics", "JSBSim" }
+      links { "oemodels", "JSBSim" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oesensor", "oeiodevice" }
+      links { "oedis", "oeiodevice" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebasic" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    configuration "Debug"
-      links { "oedynamics_d", "JSBSim_d" }
+      links { "oemodels_d", "JSBSim_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oesensor_d", "oeiodevice_d" }
+      links { "oedis_d", "oeiodevice_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebasic_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }

@@ -8,7 +8,7 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/String.h"
 
-// class factories
+// factories
 #include "openeaagles/basic/Factory.h"
 
 #include "MyComp.h"

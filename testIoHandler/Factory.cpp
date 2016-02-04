@@ -8,7 +8,7 @@
 #include "Display.h"
 #include "Table.h"
 
-// class factories
+// factories
 #include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/graphics/Factory.h"

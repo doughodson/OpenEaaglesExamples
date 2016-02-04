@@ -3,10 +3,9 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
-// class factories
+// factories
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/dynamics/Factory.h"
-#include "openeaagles/sensor/Factory.h"
+#include "openeaagles/models/factory.h"
 #include "openeaagles/basic/Factory.h"
 
 #include <cstring>
@@ -26,8 +25,7 @@ static basic::Object* factory(const char* name)
    basic::Object* obj = nullptr;
 
    if (obj == nullptr) obj = simulation::Factory::createObj(name);
-   if (obj == nullptr) obj = dynamics::Factory::createObj(name);
-   if (obj == nullptr) obj = sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = models::factory(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
 
    return obj;

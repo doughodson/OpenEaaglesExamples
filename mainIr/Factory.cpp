@@ -9,13 +9,13 @@
 #include "TestStation.h"
 #include "TestComputer.h"
 
-// class factories
+// factories
 #include "openeaagles/basic/Factory.h"
 #include "openeaagles/graphics/Factory.h"
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/sensor/Factory.h"
+#include "openeaagles/models/factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/otw/Factory.h"
 
@@ -43,7 +43,7 @@ basic::Object* Factory::createObj(const char* name)
 
    if (obj == nullptr) obj = otw::Factory::createObj(name);
    if (obj == nullptr) obj = simulation::Factory::createObj(name);
-   if (obj == nullptr) obj = sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = models::factory(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
    if (obj == nullptr) obj = instruments::Factory::createObj(name);
    if (obj == nullptr) obj = graphics::Factory::createObj(name);

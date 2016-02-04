@@ -9,7 +9,7 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 
-// class factories
+// factories
 #include "openeaagles/graphics/Factory.h"
 #include "openeaagles/basic/Factory.h"
 

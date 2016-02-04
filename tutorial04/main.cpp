@@ -6,7 +6,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
 
-// class factories
+// factories
 #include "openeaagles/basic/Factory.h"
 
 #include "Uniform.h"

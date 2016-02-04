@@ -13,7 +13,7 @@
 #include "TdElevPtr.h"
 
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/sensor/Factory.h"
+#include "openeaagles/models/factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/graphics/Factory.h"
@@ -52,7 +52,7 @@ basic::Object* Factory::createObj(const char* name)
     }
 
     if (obj == nullptr) obj = simulation::Factory::createObj(name);
-    if (obj == nullptr) obj = sensor::Factory::createObj(name);
+    if (obj == nullptr) obj = models::factory(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);
     if (obj == nullptr) obj = graphics::Factory::createObj(name);

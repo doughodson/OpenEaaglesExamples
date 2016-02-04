@@ -15,7 +15,7 @@
 #include "openeaagles/graphics/SymbolLoader.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
-#include "openeaagles/dynamics/LaeroModel.h"
+#include "openeaagles/models/dynamics/LaeroModel.h"
 #include "openeaagles/graphics/Display.h"
 #include "openeaagles/graphics/Shapes.h"
 

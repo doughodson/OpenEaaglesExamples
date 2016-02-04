@@ -20,9 +20,8 @@
 #include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/otw/Factory.h"
 #include "openeaagles/recorder/Factory.h"
-#include "openeaagles/sensor/Factory.h"
+#include "openeaagles/models/factory.h"
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/dynamics/Factory.h"
 
 #include <cstring>
 
@@ -55,9 +54,8 @@ basic::Object* Factory::createObj(const char* name)
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = iodevice::Factory::createObj(name);
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
-    if (obj == nullptr) obj = dynamics::Factory::createObj(name);
     if (obj == nullptr) obj = recorder::Factory::createObj(name);
-    if (obj == nullptr) obj = sensor::Factory::createObj(name);
+    if (obj == nullptr) obj = models::factory(name);
     if (obj == nullptr) obj = otw::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);
     if (obj == nullptr) obj = graphics::Factory::createObj(name);

@@ -9,7 +9,7 @@
 #include "RealBeamRadar.h"
 #include "Station.h"
 
-// class factories
+// factories
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/terrain/Factory.h"
 #include "openeaagles/graphics/Factory.h"

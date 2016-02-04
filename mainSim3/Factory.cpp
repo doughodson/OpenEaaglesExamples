@@ -10,7 +10,7 @@
 #include "SimStation.h"
 #include "InstrumentPanel.h"
 
-// class factories
+// factories
 #include "../shared/xZeroMQHandlers/Factory.h"
 #include "openeaagles/basic/Factory.h"
 #include "openeaagles/graphics/Factory.h"
@@ -19,9 +19,8 @@
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/otw/Factory.h"
-#include "openeaagles/sensor/Factory.h"
+#include "openeaagles/models/factory.h"
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/dynamics/Factory.h"
 
 #include <cstring>
 
@@ -56,8 +55,7 @@ basic::Object* Factory::createObj(const char* name)
    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
 
    if (obj == nullptr) obj = otw::Factory::createObj(name);
-   if (obj == nullptr) obj = dynamics::Factory::createObj(name);
-   if (obj == nullptr) obj = sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = models::factory(name);
    if (obj == nullptr) obj = simulation::Factory::createObj(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
    if (obj == nullptr) obj = iodevice::Factory::createObj(name);

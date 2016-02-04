@@ -7,11 +7,10 @@
 #include "openeaagles/basic/osg/Vec3"
 #include "openeaagles/otw/OtwPC.h"
 
-// class factories
+// factories
 #include "../shared/xZeroMQHandlers/Factory.h"
 #include "openeaagles/simulation/Factory.h"
-#include "openeaagles/dynamics/Factory.h"
-#include "openeaagles/sensor/Factory.h"
+#include "openeaagles/models/factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/otw/Factory.h"
 #include "openeaagles/basic/Factory.h"
@@ -37,8 +36,7 @@ static basic::Object* factory(const char* name)
 
    // framework libraries
    if (obj == nullptr) obj = simulation::Factory::createObj(name);
-   if (obj == nullptr) obj = dynamics::Factory::createObj(name);
-   if (obj == nullptr) obj = sensor::Factory::createObj(name);
+   if (obj == nullptr) obj = models::factory(name);
    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
    return obj;
