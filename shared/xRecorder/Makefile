@@ -5,7 +5,7 @@ LIB = $(OE_EXAMPLES_LIB_DIR)/libxRecorder.a
 
 OBJS += \
 	$(LIB)(DataRecorder.o) \
-	$(LIB)(Factory.o)
+	$(LIB)(factory.o)
 
 SUBDIRS = protobuf
 

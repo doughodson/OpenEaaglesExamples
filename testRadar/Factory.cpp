@@ -51,13 +51,13 @@ basic::Object* Factory::createObj(const char* name)
         obj = new TdElevPtr();
     }
 
-    if (obj == nullptr) obj = simulation::Factory::createObj(name);
+    if (obj == nullptr) obj = simulation::factory(name);
     if (obj == nullptr) obj = models::factory(name);
-    if (obj == nullptr) obj = instruments::Factory::createObj(name);
-    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-    if (obj == nullptr) obj = graphics::Factory::createObj(name);
-    if (obj == nullptr) obj = glut::Factory::createObj(name);
-    if (obj == nullptr) obj = basic::Factory::createObj(name);
+    if (obj == nullptr) obj = instruments::factory(name);
+    if (obj == nullptr) obj = network::dis::factory(name);
+    if (obj == nullptr) obj = graphics::factory(name);
+    if (obj == nullptr) obj = glut::factory(name);
+    if (obj == nullptr) obj = basic::factory(name);
 
     return obj;
 }

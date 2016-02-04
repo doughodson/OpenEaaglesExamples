@@ -4,9 +4,9 @@
 #include "openeaagles/basic/Pair.h"
 
 // factories
-#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/simulation/factory.h"
 #include "openeaagles/models/factory.h"
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstring>
 #include <cstdlib>
@@ -24,9 +24,9 @@ static basic::Object* factory(const char* name)
 {
    basic::Object* obj = nullptr;
 
-   if (obj == nullptr) obj = simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = simulation::factory(name);
    if (obj == nullptr) obj = models::factory(name);
-   if (obj == nullptr) obj = basic::Factory::createObj(name);
+   if (obj == nullptr) obj = basic::factory(name);
 
    return obj;
 }

@@ -18,7 +18,7 @@
 #include "openeaagles/basic/Thread.h"
 
 // class factory
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstdio>
 #include <cstring>
@@ -86,7 +86,7 @@ static basic::Object* factory(const char* const name)
   }
 
   // Default to base classes
-  if (obj == nullptr) obj = basic::Factory::createObj(name);
+  if (obj == nullptr) obj = basic::factory(name);
   return obj;
 }
 

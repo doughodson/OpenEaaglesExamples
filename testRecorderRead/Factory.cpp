@@ -30,9 +30,9 @@ basic::Object* Factory::createObj(const char* name)
     }
 
     else {
-        if (obj == nullptr) obj = simulation::Factory::createObj(name);
-        if (obj == nullptr) obj = basic::Factory::createObj(name);
-        if (obj == nullptr) obj = recorder::Factory::createObj(name);
+        if (obj == nullptr) obj = simulation::factory(name);
+        if (obj == nullptr) obj = basic::factory(name);
+        if (obj == nullptr) obj = recorder::factory(name);
     }
 
     return obj;

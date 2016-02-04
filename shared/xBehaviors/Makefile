@@ -4,7 +4,7 @@ include ../../makedefs
 LIB = $(OE_EXAMPLES_LIB_DIR)/libxBehaviors.a
 
 OBJS += \
-	$(LIB)(Factory.o) \
+	$(LIB)(factory.o) \
 	$(LIB)(PlaneAction.o) \
 	$(LIB)(PlaneBehaviors.o) \
 	$(LIB)(PriorityArbiter.o) \

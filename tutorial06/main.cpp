@@ -4,12 +4,12 @@
 #include <cstdlib>
 
 #include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+//#include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/String.h"
+//#include "openeaagles/basic/String.h"
 
 // factories
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include "MyComp.h"
 
@@ -31,7 +31,7 @@ static basic::Object* factory(const char* const name)
     obj = new MyComp;
   }
   // look in basic classes
-  if (obj == nullptr) obj = basic::Factory::createObj(name);
+  if (obj == nullptr) obj = basic::factory(name);
 
   return obj;
 }

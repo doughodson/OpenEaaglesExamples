@@ -33,7 +33,7 @@ static basic::Table* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, basic::Factory::createObj, &errors);
+   basic::Object* obj = basic::lcParser(filename, basic::factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);

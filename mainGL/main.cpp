@@ -11,9 +11,9 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 // factories
-#include "openeaagles/basic/Factory.h"
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
+#include "openeaagles/basic/factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/gui/glut/factory.h"
 
 #include <GL/glut.h>
 
@@ -43,9 +43,9 @@ static void timerFunc(int)
 static oe::basic::Object* factory(const char* name)
 {
    basic::Object* obj = nullptr;
-   if (obj == nullptr) obj = glut::Factory::createObj(name);
-   if (obj == nullptr) obj = graphics::Factory::createObj(name);
-   if (obj == nullptr) obj = basic::Factory::createObj(name);
+   if (obj == nullptr) obj = glut::factory(name);
+   if (obj == nullptr) obj = graphics::factory(name);
+   if (obj == nullptr) obj = basic::factory(name);
 
    return obj;
 }

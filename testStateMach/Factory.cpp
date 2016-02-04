@@ -57,7 +57,7 @@ basic::Object* Factory::createObj(const char* name)
     }
 
     // OpenEaagles packages
-    if (obj == nullptr) obj = basic::Factory::createObj(name);
+    if (obj == nullptr) obj = basic::factory(name);
 
     return obj;
 }

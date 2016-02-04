@@ -8,12 +8,12 @@
 #include "openeaagles/otw/OtwPC.h"
 
 // factories
-#include "../shared/xZeroMQHandlers/Factory.h"
-#include "openeaagles/simulation/Factory.h"
+#include "../shared/xZeroMQHandlers/factory.h"
+#include "openeaagles/simulation/factory.h"
 #include "openeaagles/models/factory.h"
-#include "openeaagles/dis/Factory.h"
-#include "openeaagles/otw/Factory.h"
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/dis/factory.h"
+#include "openeaagles/otw/factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstring>
 #include <cstdlib>
@@ -32,14 +32,14 @@ static basic::Object* factory(const char* name)
    basic::Object* obj = nullptr;
 
    // example libraries
-   if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
+   if (obj == nullptr) obj = xZeroMQHandlers::factory(name);
 
    // framework libraries
-   if (obj == nullptr) obj = otw::Factory::createObj(name);
-   if (obj == nullptr) obj = simulation::Factory::createObj(name);
+   if (obj == nullptr) obj = otw::factory(name);
+   if (obj == nullptr) obj = simulation::factory(name);
    if (obj == nullptr) obj = models::factory(name);
-   if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-   if (obj == nullptr) obj = basic::Factory::createObj(name);
+   if (obj == nullptr) obj = network::dis::factory(name);
+   if (obj == nullptr) obj = basic::factory(name);
 
    return obj;
 }

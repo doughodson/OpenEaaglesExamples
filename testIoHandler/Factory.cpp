@@ -33,10 +33,10 @@ basic::Object* Factory::createObj(const char* name)
       obj = new Table();
    }
 
-   if (obj == nullptr) obj = iodevice::Factory::createObj(name);
-   if (obj == nullptr) obj = glut::Factory::createObj(name);
-   if (obj == nullptr) obj = graphics::Factory::createObj(name);
-   if (obj == nullptr) obj = basic::Factory::createObj(name);
+   if (obj == nullptr) obj = iodevice::factory(name);
+   if (obj == nullptr) obj = glut::factory(name);
+   if (obj == nullptr) obj = graphics::factory(name);
+   if (obj == nullptr) obj = basic::factory(name);
 
     return obj;
 }

@@ -7,14 +7,14 @@
 #include <GL/glut.h>
 
 // factories
-#include "../shared/xZeroMQHandlers/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
-#include "openeaagles/basic/Factory.h"
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/instruments/Factory.h"
-#include "openeaagles/simulation/Factory.h"
-#include "openeaagles/dis/Factory.h"
-#include "openeaagles/otw/Factory.h"
+#include "../shared/xZeroMQHandlers/factory.h"
+#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/basic/factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/instruments/factory.h"
+#include "openeaagles/simulation/factory.h"
+#include "openeaagles/dis/factory.h"
+#include "openeaagles/otw/factory.h"
 
 #include "MapPage.h"
 #include "Station.h"
@@ -69,16 +69,16 @@ static basic::Object* factory(const char* name)
     }
 
     // example libraries
-    if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
+    if (obj == nullptr) obj = xZeroMQHandlers::factory(name);
 
     // framework libraries
-    if (obj == nullptr) obj = otw::Factory::createObj(name);
-    if (obj == nullptr) obj = instruments::Factory::createObj(name);
-    if (obj == nullptr) obj = simulation::Factory::createObj(name);
-    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-    if (obj == nullptr) obj = graphics::Factory::createObj(name);
-    if (obj == nullptr) obj = glut::Factory::createObj(name);
-    if (obj == nullptr) obj = basic::Factory::createObj(name);
+    if (obj == nullptr) obj = otw::factory(name);
+    if (obj == nullptr) obj = instruments::factory(name);
+    if (obj == nullptr) obj = simulation::factory(name);
+    if (obj == nullptr) obj = network::dis::factory(name);
+    if (obj == nullptr) obj = graphics::factory(name);
+    if (obj == nullptr) obj = glut::factory(name);
+    if (obj == nullptr) obj = basic::factory(name);
 
     return obj;
 }

@@ -89,9 +89,9 @@ basic::Object* Factory::createObj(const char* name)
     }
 
     else {
-       if (obj == nullptr) obj = graphics::Factory::createObj(name);
-       if (obj == nullptr) obj = glut::Factory::createObj(name);
-       if (obj == nullptr) obj = basic::Factory::createObj(name);
+       if (obj == nullptr) obj = graphics::factory(name);
+       if (obj == nullptr) obj = glut::factory(name);
+       if (obj == nullptr) obj = basic::factory(name);
     }
 
     return obj;

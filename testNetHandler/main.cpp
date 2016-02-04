@@ -10,8 +10,8 @@
 #include "openeaagles/basic/Pair.h"
 
 // factories
-#include "openeaagles/basic/Factory.h"
-#include "../shared/xZeroMQHandlers/Factory.h"
+#include "openeaagles/basic/factory.h"
+#include "../shared/xZeroMQHandlers/factory.h"
 
 #include <cstring>
 #include <cstdlib>
@@ -34,9 +34,9 @@ static basic::Object* factory(const char* name)
    }
 
    // example libraries
-   if (obj == nullptr) obj = xZeroMQHandlers::Factory::createObj(name);
+   if (obj == nullptr) obj = xZeroMQHandlers::factory(name);
    // framework libraries
-   if (obj == nullptr) obj = basic::Factory::createObj(name);
+   if (obj == nullptr) obj = basic::factory(name);
 
    return obj;
 }

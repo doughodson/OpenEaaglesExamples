@@ -10,10 +10,10 @@
 #include <GL/glut.h>
 
 // factories
-#include "openeaagles/instruments/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/instruments/factory.h"
+#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/basic/factory.h"
 
 // Test pages
 #include "TestMechanical.h"
@@ -58,10 +58,10 @@ static basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == nullptr) obj = oe::instruments::Factory::createObj(name);
-      if (obj == nullptr) obj = oe::graphics::Factory::createObj(name);
-      if (obj == nullptr) obj = oe::glut::Factory::createObj(name);
-      if (obj == nullptr) obj = oe::basic::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::instruments::factory(name);
+      if (obj == nullptr) obj = oe::graphics::factory(name);
+      if (obj == nullptr) obj = oe::glut::factory(name);
+      if (obj == nullptr) obj = oe::basic::factory(name);
    }
    return obj;
 }

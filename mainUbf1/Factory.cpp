@@ -46,20 +46,20 @@ basic::Object* Factory::createObj(const char* name)
     }
 
     // Example library packages
-    if (obj == nullptr) obj = xBehaviors::Factory::createObj(name);
-    if (obj == nullptr) obj = xPanel::Factory::createObj(name);
+    if (obj == nullptr) obj = xBehaviors::factory(name);
+    if (obj == nullptr) obj = xPanel::factory(name);
 
     // Openoe packages
-    if (obj == nullptr) obj = simulation::Factory::createObj(name);
-    if (obj == nullptr) obj = instruments::Factory::createObj(name);
-    if (obj == nullptr) obj = iodevice::Factory::createObj(name);
-    if (obj == nullptr) obj = instruments::Factory::createObj(name);
+    if (obj == nullptr) obj = simulation::factory(name);
+    if (obj == nullptr) obj = instruments::factory(name);
+    if (obj == nullptr) obj = iodevice::factory(name);
+    if (obj == nullptr) obj = instruments::factory(name);
     if (obj == nullptr) obj = models::factory(name);
-    if (obj == nullptr) obj = otw::Factory::createObj(name);
-    if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-    if (obj == nullptr) obj = graphics::Factory::createObj(name);
-    if (obj == nullptr) obj = glut::Factory::createObj(name);
-    if (obj == nullptr) obj = basic::Factory::createObj(name);
+    if (obj == nullptr) obj = otw::factory(name);
+    if (obj == nullptr) obj = network::dis::factory(name);
+    if (obj == nullptr) obj = graphics::factory(name);
+    if (obj == nullptr) obj = glut::factory(name);
+    if (obj == nullptr) obj = basic::factory(name);
 
     return obj;
 }

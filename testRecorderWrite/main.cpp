@@ -8,9 +8,9 @@
 #include "openeaagles/basic/Pair.h"
 
 // factories
-#include "openeaagles/simulation/Factory.h"
-#include "openeaagles/basic/Factory.h"
-#include "openeaagles/recorder/Factory.h"
+#include "openeaagles/simulation/factory.h"
+#include "openeaagles/basic/factory.h"
+#include "openeaagles/recorder/factory.h"
 
 #include <cstring>
 #include <cstdlib>
@@ -29,9 +29,9 @@ static basic::Object* factory(const char* name)
    }
 
    else {
-      if (obj == nullptr) obj = oe::simulation::Factory::createObj(name);
-      if (obj == nullptr) obj = oe::basic::Factory::createObj(name);
-      if (obj == nullptr) obj = oe::recorder::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::simulation::factory(name);
+      if (obj == nullptr) obj = oe::basic::factory(name);
+      if (obj == nullptr) obj = oe::recorder::factory(name);
    }
 
    return obj;

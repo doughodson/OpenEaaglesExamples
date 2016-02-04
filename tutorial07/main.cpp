@@ -10,9 +10,9 @@
 #include <GL/glut.h>
 
 // factories
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/basic/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/basic/factory.h"
+#include "openeaagles/gui/glut/factory.h"
 
 #include "Worm.h"
 
@@ -47,9 +47,9 @@ static basic::Object* factory(const char* const name)
   }
 
   // Default to base classes
-  if (obj == nullptr) obj = glut::Factory::createObj(name);
-  if (obj == nullptr) obj = graphics::Factory::createObj(name);
-  if (obj == nullptr) obj = basic::Factory::createObj(name);
+  if (obj == nullptr) obj = glut::factory(name);
+  if (obj == nullptr) obj = graphics::factory(name);
+  if (obj == nullptr) obj = basic::factory(name);
 
   return obj;
 }

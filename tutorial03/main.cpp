@@ -7,7 +7,7 @@
 #include "openeaagles/basic/Parser.h"
 
 // factories
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include "Random.h"
 
@@ -27,7 +27,7 @@ static basic::Object* factory(const char* const name)
    }
 
    // look in base classes
-   if (obj == nullptr) obj = basic::Factory::createObj(name);
+   if (obj == nullptr) obj = basic::factory(name);
    return obj;
 }
 
