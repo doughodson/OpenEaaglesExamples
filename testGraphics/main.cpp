@@ -8,8 +8,8 @@
 #include "openeaagles/basic/Nav.h"
 #include "openeaagles/basic/units/Angles.h"
 
-#include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/Image.h"
+#include "openeaagles/graphics/Graphic.h"
+#include "openeaagles/graphics/Image.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -17,7 +17,7 @@
 
 // class factories
 #include "openeaagles/basic/Factory.h"
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 
 #include <GL/glut.h>

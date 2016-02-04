@@ -1,8 +1,8 @@
 
 #include "TestDisplay.h"
 
-#include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/Image.h"
+#include "openeaagles/graphics/Graphic.h"
+#include "openeaagles/graphics/Image.h"
 
 #include <GL/glut.h>
 

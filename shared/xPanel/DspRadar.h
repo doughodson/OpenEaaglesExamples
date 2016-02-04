@@ -4,7 +4,7 @@
 #ifndef __oe_XPanel_DspRadar_H__
 #define __oe_XPanel_DspRadar_H__
 
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
    namespace basic      { class PairStream; }

@@ -14,7 +14,7 @@
 #ifndef __oe_demo_Hsi_H__
 #define __oe_demo_Hsi_H__
 
-#include "openeaagles/basicGL/Rotators.h"
+#include "openeaagles/graphics/Rotators.h"
 
 namespace oe {
 namespace demo {

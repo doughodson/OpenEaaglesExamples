@@ -4,7 +4,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"
 #include "openeaagles/basic/Parser.h"
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
@@ -12,7 +12,7 @@
 // class factories
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/instruments/Factory.h"
 
 // test files

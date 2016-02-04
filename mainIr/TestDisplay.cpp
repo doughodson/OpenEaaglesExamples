@@ -6,7 +6,7 @@
 #include "openeaagles/simulation/Aam.h"
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/StoresMgr.h"
-#include "openeaagles/basicGL/SymbolLoader.h"
+#include "openeaagles/graphics/SymbolLoader.h"
 #include "openeaagles/basic/Boolean.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"

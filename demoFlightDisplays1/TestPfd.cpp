@@ -3,7 +3,7 @@
 #include "TestPfd.h"
 #include "openeaagles/basic/Pair.h"
 #include "Pfd.h"
-#include "openeaagles/basicGL/Display.h"
+#include "openeaagles/graphics/Display.h"
 
 namespace oe {
 namespace demo {

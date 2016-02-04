@@ -6,7 +6,7 @@
 #ifndef __oe_demo_TestEngPage_H__
 #define __oe_demo_TestEngPage_H__
 
-#include "openeaagles/basicGL/Page.h"
+#include "openeaagles/graphics/Page.h"
 #include "openeaagles/instruments/eng/EngPage.h"
 
 namespace oe {

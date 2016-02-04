@@ -4,7 +4,7 @@
 #ifndef __oe_XPanel_TdElevPtr_H__
 #define __oe_XPanel_TdElevPtr_H__
 
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
    namespace basic { class Number; }

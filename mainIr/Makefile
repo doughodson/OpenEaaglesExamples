@@ -7,7 +7,7 @@ OBJS =	Factory.o TestComputer.o TestDisplay.o TestStation.o main.o
 
 LDFLAGS += -loedis -loesensor -loedynamics -loesimulation -loeinstruments -lJSBSim
 LDFLAGS += -loeiodevice -loeotw -loedafif 
-LDFLAGS += -loeglut -loeBasicGL -loebasic -lftgl -lfreetype -lcigicl 
+LDFLAGS += -loeglut -loegraphics -loebasic -lftgl -lfreetype -lcigicl 
 LDFLAGS += -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread -lrt

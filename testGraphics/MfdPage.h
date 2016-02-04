@@ -6,7 +6,7 @@
 #ifndef __oe_example_MfdPage_H__
 #define __oe_example_MfdPage_H__
 
-#include "openeaagles/basicGL/Page.h"
+#include "openeaagles/graphics/Page.h"
 
 namespace oe {
 namespace example {

@@ -11,7 +11,7 @@
 // class factories
 #include "openeaagles/iodevice/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
 #include <cstring>

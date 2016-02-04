@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 
 #include "openeaagles/simulation/Station.h"
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Timers.h"

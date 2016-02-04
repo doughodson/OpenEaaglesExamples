@@ -5,7 +5,7 @@
 
 // class factories
 #include "openeaagles/basic/Factory.h"
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/instruments/Factory.h"
 #include "openeaagles/simulation/Factory.h"
 

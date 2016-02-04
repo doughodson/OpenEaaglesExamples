@@ -6,7 +6,7 @@
 #ifndef __oe_XPanel_Pfd_H__
 #define __oe_XPanel_Pfd_H__
 
-#include "openeaagles/basicGL/Page.h"
+#include "openeaagles/graphics/Page.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {

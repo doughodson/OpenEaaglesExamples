@@ -12,7 +12,7 @@
 // class factories
 #include "openeaagles/simulation/Factory.h"
 #include "openeaagles/terrain/Factory.h"
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 

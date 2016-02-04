@@ -8,7 +8,7 @@
 #ifndef __oe_demo_TestVVI_H__
 #define __oe_demo_TestVVI_H__
 
-#include "openeaagles/basicGL/Page.h"
+#include "openeaagles/graphics/Page.h"
 
 namespace oe {
 namespace demo {

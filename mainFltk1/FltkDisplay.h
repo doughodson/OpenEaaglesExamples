@@ -6,7 +6,7 @@
 #ifndef __oe_example_FltkDisplay_H__
 #define __oe_example_FltkDisplay_H__
 
-#include "openeaagles/basicGL/Display.h"
+#include "openeaagles/graphics/Display.h"
 
 namespace oe {
 namespace example {

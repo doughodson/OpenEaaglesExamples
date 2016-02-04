@@ -10,7 +10,7 @@
 #include "openeaagles/basic/Pair.h"
 
 // class factories
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/basic/Factory.h"
 
 #include <cstring>

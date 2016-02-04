@@ -1,7 +1,7 @@
 
 #include "MfdPage.h"
 #include "openeaagles/basic/Pair.h"
-#include "openeaagles/basicGL/Rotators.h"
+#include "openeaagles/graphics/Rotators.h"
 #include "openeaagles/basic/PairStream.h"
 
 namespace oe {

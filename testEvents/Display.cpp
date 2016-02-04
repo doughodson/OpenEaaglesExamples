@@ -5,7 +5,7 @@
 #include "TestObject.h"
 
 #include "openeaagles/basic/Color.h"
-#include "openeaagles/basicGL/Material.h"
+#include "openeaagles/graphics/Material.h"
 #include "openeaagles/basic/Rng.h"
 #include "openeaagles/basic/Number.h"
 

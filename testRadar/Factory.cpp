@@ -16,7 +16,7 @@
 #include "openeaagles/sensor/Factory.h"
 #include "openeaagles/dis/Factory.h"
 #include "openeaagles/instruments/Factory.h"
-#include "openeaagles/basicGL/Factory.h"
+#include "openeaagles/graphics/Factory.h"
 #include "openeaagles/gui/glut/Factory.h"
 #include "openeaagles/basic/Factory.h"
 

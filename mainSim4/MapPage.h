@@ -8,7 +8,7 @@
 #ifndef __oe_example_MapPage_H__
 #define __oe_example_MapPage_H__
 
-#include "openeaagles/basicGL/MapPage.h"
+#include "openeaagles/graphics/MapPage.h"
 
 namespace oe {
 namespace simulation {

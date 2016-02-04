@@ -1,8 +1,8 @@
 #include "TestCompass.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basicGL/MapPage.h"
-#include "openeaagles/basicGL/SymbolLoader.h"
+#include "openeaagles/graphics/MapPage.h"
+#include "openeaagles/graphics/SymbolLoader.h"
 #include "openeaagles/basic/Rgb.h"
 
 // disable all deprecation warnings for now, until we fix

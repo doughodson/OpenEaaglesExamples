@@ -11,7 +11,7 @@
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/functors/Tables.h"
 #include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>

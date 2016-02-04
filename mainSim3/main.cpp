@@ -10,8 +10,8 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/Parser.h"
 #include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basicGL/Graphic.h"
-#include "openeaagles/basicGL/Texture.h"
+#include "openeaagles/graphics/Graphic.h"
+#include "openeaagles/graphics/Texture.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>

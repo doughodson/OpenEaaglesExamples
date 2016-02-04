@@ -4,7 +4,7 @@
 #ifndef __oe_test_Table_H__
 #define __oe_test_Table_H__
 
-#include "openeaagles/basicGL/Field.h"
+#include "openeaagles/graphics/Field.h"
 
 namespace oe {
    namespace basic { class Number; class PairStream; }

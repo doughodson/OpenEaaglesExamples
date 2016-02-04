@@ -4,8 +4,8 @@
 #include "Display.h"
 #include "openeaagles/simulation/Player.h"
 #include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/basicGL/SymbolLoader.h"
-#include "openeaagles/basicGL/Display.h"
+#include "openeaagles/graphics/SymbolLoader.h"
+#include "openeaagles/graphics/Display.h"
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 

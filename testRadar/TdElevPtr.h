@@ -4,7 +4,7 @@
 #ifndef __oe_test_TdElevPtr_H__
 #define __oe_test_TdElevPtr_H__
 
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 
 //------------------------------------------------------------------------------
 // Class: TdElevPtr

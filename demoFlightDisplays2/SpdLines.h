@@ -8,7 +8,7 @@
 #ifndef __oe_demo_SpdLines_H__
 #define __oe_demo_SpdLines_H__
 
-#include "openeaagles/basicGL/Graphic.h"
+#include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
 namespace demo {

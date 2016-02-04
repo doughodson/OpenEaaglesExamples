@@ -5,7 +5,7 @@ PGM = mainGndMapRdr
 OBJS = Display.o Factory.o main.o RealBeamRadar.o Station.o
 
 LDFLAGS += -loesimulation -loesensor -loeterrain
-LDFLAGS += -loeglut -loeBasicGL
+LDFLAGS += -loeglut -loegraphics
 LDFLAGS += -loedafif -loebasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu

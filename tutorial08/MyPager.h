@@ -5,7 +5,7 @@
 #ifndef __oe_Tutorial_MyPager_H__
 #define __oe_Tutorial_MyPager_H__
 
-#include "openeaagles/basicGL/Page.h"
+#include "openeaagles/graphics/Page.h"
 
 namespace oe {
 namespace Tutorial {

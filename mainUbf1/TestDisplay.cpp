@@ -19,7 +19,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/PairStream.h"
 #include "openeaagles/basic/units/Distances.h"
-#include "openeaagles/basicGL/SymbolLoader.h"
+#include "openeaagles/graphics/SymbolLoader.h"
 #include <GL/glut.h>
 
 namespace oe {

@@ -1,7 +1,7 @@
 #include "RdrAlt.h"
-#include "openeaagles/basicGL/Readouts.h"
+#include "openeaagles/graphics/Readouts.h"
 #include "openeaagles/basic/Pair.h"
-#include "openeaagles/basicGL/Display.h"
+#include "openeaagles/graphics/Display.h"
 
 namespace oe {
 namespace demo {

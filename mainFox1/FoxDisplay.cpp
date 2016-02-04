@@ -2,7 +2,7 @@
 #include "FoxDisplay.h"
 
 #include "openeaagles/basic/Pair.h"
-#include "openeaagles/basicGL/Polygon.h"
+#include "openeaagles/graphics/Polygon.h"
 
 #include <GL/glu.h>
 

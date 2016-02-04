@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Pair.h"
 #include "openeaagles/basic/units/Angles.h"
 #include "SituationalDisplay.h"
-#include "openeaagles/basicGL/SymbolLoader.h"
+#include "openeaagles/graphics/SymbolLoader.h"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
