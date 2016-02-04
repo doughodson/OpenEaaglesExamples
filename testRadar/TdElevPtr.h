@@ -25,9 +25,9 @@ namespace oe {
    namespace basic { class Number; }
 namespace test {
 
-class TdElevPtr : public BasicGL::Graphic
+class TdElevPtr : public graphics::Graphic
 {
-   DECLARE_SUBCLASS(TdElevPtr,BasicGL::Graphic)
+   DECLARE_SUBCLASS(TdElevPtr,graphics::Graphic)
 
 public:
    TdElevPtr();

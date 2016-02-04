@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class TestLandingGear : public BasicGL::Page
+class TestLandingGear : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestLandingGear, BasicGL::Page)
+   DECLARE_SUBCLASS(TestLandingGear, graphics::Page)
 
 public:
    TestLandingGear();

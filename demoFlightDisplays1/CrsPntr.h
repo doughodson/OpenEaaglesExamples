@@ -15,9 +15,9 @@
 namespace oe {
 namespace demo {
 
-class CrsPntr : public BasicGL::Rotators
+class CrsPntr : public graphics::Rotators
 {
-    DECLARE_SUBCLASS(CrsPntr,BasicGL::Rotators)
+    DECLARE_SUBCLASS(CrsPntr,graphics::Rotators)
 
 public:
     CrsPntr();

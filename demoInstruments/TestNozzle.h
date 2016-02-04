@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class TestNozzle : public BasicGL::Page
+class TestNozzle : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestNozzle, BasicGL::Page)
+   DECLARE_SUBCLASS(TestNozzle, graphics::Page)
 
 public:
     TestNozzle();

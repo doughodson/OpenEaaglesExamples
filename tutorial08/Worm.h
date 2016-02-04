@@ -17,9 +17,9 @@ namespace basic { class Angle; }
 
 namespace Tutorial {
 
-class Worm : public BasicGL::Graphic
+class Worm : public graphics::Graphic
 {
-   DECLARE_SUBCLASS(Worm, BasicGL::Graphic)
+   DECLARE_SUBCLASS(Worm, graphics::Graphic)
 
 public:
 

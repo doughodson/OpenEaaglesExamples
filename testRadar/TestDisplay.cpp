@@ -321,7 +321,7 @@ void TestDisplay::updateData(const LCreal dt)
       // Maintain Air Tracks
       basic::Pair* pair = findByName("airTracks");
       if (pair != nullptr) {
-         BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+         graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (myLoader != nullptr) {
             myLoader->setRange(range);
             myLoader->setHeadingDeg(getOwnship()->getHeadingD());
@@ -346,9 +346,9 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
     if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
       basic::Pair* pair = findByName("airTracks");
       if (pair != nullptr) {
-         BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+         graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (myLoader != nullptr) {
-            BasicGL::Graphic* selected = pick(0);
+            graphics::Graphic* selected = pick(0);
             if (selected != nullptr) {
                int idx = myLoader->getSymbolIndex(selected);
                if (idx > 0) {
@@ -369,7 +369,7 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
 //------------------------------------------------------------------------------
 // maintainAirTrackSymbols() -- maintain the air track symbology
 //------------------------------------------------------------------------------
-void TestDisplay::maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng)
+void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng)
 {
     int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
     LCreal rng2 = (rng * rng);          // Range squared (KM * KM)

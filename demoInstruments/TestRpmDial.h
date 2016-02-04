@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class TestRpmDial : public BasicGL::Page
+class TestRpmDial : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestRpmDial, BasicGL::Page)
+   DECLARE_SUBCLASS(TestRpmDial, graphics::Page)
 
 public:
     TestRpmDial();

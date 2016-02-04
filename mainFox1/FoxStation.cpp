@@ -51,7 +51,7 @@ void FoxStation::updateTC(const LCreal dt)
    BaseClass::updateTC(dt);
 
    basic::Timer::updateTimers(dt);
-   BasicGL::Graphic::flashTimer(dt);
+   graphics::Graphic::flashTimer(dt);
 
    // Update any TC stuff in our main display
    if (display != nullptr) display->updateTC(dt);

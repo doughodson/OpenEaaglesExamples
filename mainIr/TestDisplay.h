@@ -8,7 +8,7 @@
 
 namespace oe {
    namespace simulation { class Missile; class Player; class Simulation; class Station; }
-   namespace BasicGL { class SymbolLoader; }
+   namespace graphics { class SymbolLoader; }
 
 namespace example {
 
@@ -37,7 +37,7 @@ public:
     simulation::Simulation* getSimulation();
     simulation::Station* getStation();
 
-    virtual void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
+    virtual void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng);
 
     bool event(const int event, basic::Object* const obj = nullptr) override;
     void updateData(const LCreal dt = 0.0) override;

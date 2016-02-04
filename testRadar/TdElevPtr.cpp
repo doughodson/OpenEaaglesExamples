@@ -68,7 +68,7 @@ void TdElevPtr::draw()
    if (isVisible())  {
        lcSaveMatrix();
        lcTranslate( 0.0, elev/30.0f );
-       BasicGL::Graphic::draw();
+       graphics::Graphic::draw();
        lcRestoreMatrix();
    }
 }

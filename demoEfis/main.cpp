@@ -40,7 +40,7 @@ static void timerFunc(int)
    glutTimerFunc(millis, timerFunc, 1);
 
    basic::Timer::updateTimers(dt);
-   BasicGL::Graphic::flashTimer(dt);
+   graphics::Graphic::flashTimer(dt);
    glutDisplay->updateTC(dt);
 }
 
@@ -59,7 +59,7 @@ static basic::Object* factory(const char* name)
 
    else {
       if (obj == nullptr) obj = oe::instruments::Factory::createObj(name);
-      if (obj == nullptr) obj = oe::BasicGL::Factory::createObj(name);
+      if (obj == nullptr) obj = oe::graphics::Factory::createObj(name);
       if (obj == nullptr) obj = oe::glut::Factory::createObj(name);
       if (obj == nullptr) obj = oe::basic::Factory::createObj(name);
    }

@@ -230,7 +230,7 @@ void TestSD::updateData(const LCreal dt)
         basic::Pair* pair = findByName("airTracks");
         if (pair != nullptr) {
             pair->ref();
-            BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+            graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_TRACKS; i++) {
                     int idx = myLoader->addSymbol(myTracks[i].type, myTracks[i].id);
@@ -249,7 +249,7 @@ void TestSD::updateData(const LCreal dt)
         basic::Pair* pair = findByName("airports");
         if (pair != nullptr) {
             pair->ref();
-            BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+            graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_AIRPORTS; i++) {
                     int idx = myLoader->addSymbol(myAP[i].type, myAP[i].id);
@@ -267,7 +267,7 @@ void TestSD::updateData(const LCreal dt)
         basic::Pair* pair = findByName("navaids");
         if (pair != nullptr) {
             pair->ref();
-            BasicGL::SymbolLoader* myLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+            graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_NAV_AIDS; i++) {
                     int idx = myLoader->addSymbol(myNA[i].type, myNA[i].id);

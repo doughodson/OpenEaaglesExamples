@@ -16,9 +16,9 @@ namespace xPanel {
 // Inputs:
 //      UPDATE_VALUE  -> altitude flag on or off
 //------------------------------------------------------------------------------
-class SpdLines : public BasicGL::Graphic
+class SpdLines : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(SpdLines,BasicGL::Graphic)
+    DECLARE_SUBCLASS(SpdLines,graphics::Graphic)
 
 public:
     SpdLines();

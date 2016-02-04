@@ -68,7 +68,7 @@ void TdAzPtr::draw()
    if (isVisible())  {
        lcSaveMatrix();
        lcTranslate( azimuth/30.0f, 0.0 );
-       BasicGL::Graphic::draw();
+       graphics::Graphic::draw();
        lcRestoreMatrix();
    }
 }

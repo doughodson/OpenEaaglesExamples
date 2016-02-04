@@ -18,9 +18,9 @@ namespace xPanel {
 //              the angle of arrival.
 // Factory name: DspRwr
 //------------------------------------------------------------------------------
-class DspRwr : public BasicGL::Graphic
+class DspRwr : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(DspRwr,BasicGL::Graphic)
+    DECLARE_SUBCLASS(DspRwr,graphics::Graphic)
 
 public:
     DspRwr();

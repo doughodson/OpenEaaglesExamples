@@ -13,7 +13,7 @@ namespace oe {
 namespace simulation {
    class Player;
 }
-namespace BasicGL {
+namespace graphics {
    class SymbolLoader;
 }
 
@@ -21,9 +21,9 @@ namespace example {
 
 class TestStation;
 
-class MapPage : public BasicGL::MapPage
+class MapPage : public graphics::MapPage
 {
-   DECLARE_SUBCLASS(MapPage, BasicGL::MapPage)
+   DECLARE_SUBCLASS(MapPage, graphics::MapPage)
 
 public:
    MapPage();
@@ -44,7 +44,7 @@ private:
    simulation::Player* player[MAX_PLAYERS];    // player pointer
    int playerIdx[MAX_PLAYERS];                 // index of our symbol for the given player
    // player symbol loader
-   BasicGL::SymbolLoader* loader;              // holds our loader for quick reference
+   graphics::SymbolLoader* loader;              // holds our loader for quick reference
    TestStation* pStn;                           // holds our station (to get the player list quickly)
 
    // is our route loaded?

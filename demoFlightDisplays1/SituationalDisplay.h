@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class SituationalDisplay : public BasicGL::Page
+class SituationalDisplay : public graphics::Page
 {
-   DECLARE_SUBCLASS(SituationalDisplay,BasicGL::Page)
+   DECLARE_SUBCLASS(SituationalDisplay,graphics::Page)
 
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
 

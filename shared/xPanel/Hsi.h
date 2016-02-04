@@ -19,9 +19,9 @@
 namespace oe {
 namespace xPanel {
 
-class Hsi : public BasicGL::Rotators
+class Hsi : public graphics::Rotators
 {
-    DECLARE_SUBCLASS(Hsi,BasicGL::Rotators)
+    DECLARE_SUBCLASS(Hsi,graphics::Rotators)
 
 public:
     Hsi();

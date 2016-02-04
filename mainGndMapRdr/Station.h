@@ -9,7 +9,7 @@
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-namespace BasicGL { class GlutDisplay; }
+namespace graphics { class GlutDisplay; }
 
 namespace example {
 class Display;

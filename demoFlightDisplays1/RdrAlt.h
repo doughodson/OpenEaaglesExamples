@@ -16,9 +16,9 @@
 namespace oe {
 namespace demo {
 
-class RdrAlt : public BasicGL::Graphic
+class RdrAlt : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(RdrAlt,BasicGL::Graphic)
+    DECLARE_SUBCLASS(RdrAlt,graphics::Graphic)
 
 public:
     RdrAlt();

@@ -54,7 +54,7 @@ private:
     SendData colorSD;
 
     static const int MAX_MATERIALS = 3;
-    BasicGL::Material* materials[MAX_MATERIALS];
+    graphics::Material* materials[MAX_MATERIALS];
     SendData materialSD[MAX_MATERIALS];
     osg::Vec3 diffColorRate[MAX_MATERIALS];
 

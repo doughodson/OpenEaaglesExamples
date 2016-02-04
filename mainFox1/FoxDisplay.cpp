@@ -177,9 +177,9 @@ void FoxDisplay::drawIt()
          glCanvas->makeCurrent();
       }
       // if we are rotating, get our graphic and rotate it
-      basic::Pair* p = (basic::Pair*)findByType(typeid(BasicGL::Polygon));
+      basic::Pair* p = (basic::Pair*)findByType(typeid(graphics::Polygon));
       if (p != nullptr) {
-         BasicGL::Polygon* g = dynamic_cast<BasicGL::Polygon*>(p->object());
+         graphics::Polygon* g = dynamic_cast<graphics::Polygon*>(p->object());
          if (g != nullptr) {
             g->lcSaveMatrix();
             g->lcTranslate(trans, 0);
@@ -201,7 +201,7 @@ void FoxDisplay::swapBuffers()
    }
 }
 
-BasicGL::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int item)
+graphics::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int item)
 {
    GLint viewport[4];
 
@@ -261,9 +261,9 @@ void FoxDisplay::clearSelectBuffer(GLuint sbuff[], const int size)
 // 4) Returns zero(0) when there are no entries in the select buffer or if the
 //    Graphic for the select ID is not found.
 //-----------------------------------------------------------------------------
-BasicGL::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size, const int item)
+graphics::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size, const int item)
 {
-   BasicGL::Graphic* sel = nullptr;
+   graphics::Graphic* sel = nullptr;
    GLuint id = 0;
 
    GLuint dmin = 0;
@@ -306,7 +306,7 @@ BasicGL::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size,
       //std::cout << "selected id = " << id << std::endl;
       basic::Pair* pair = findBySelectName(id);
       if (pair != nullptr) {
-         sel = dynamic_cast<BasicGL::Graphic*>(pair->object());
+         sel = dynamic_cast<graphics::Graphic*>(pair->object());
          if (sel != nullptr) {
             return sel;
          }

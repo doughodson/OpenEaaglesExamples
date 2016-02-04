@@ -21,9 +21,9 @@ namespace test {
 //    spacing  <Number>     ! Spacing between rows (default: 1)
 //    columns  <PairStream> ! Column descriptions: list of items in each row
 //------------------------------------------------------------------------------
-class Table : public BasicGL::Field
+class Table : public graphics::Field
 {
-   DECLARE_SUBCLASS(Table,BasicGL::Field)
+   DECLARE_SUBCLASS(Table,graphics::Field)
 
 public:
    Table();

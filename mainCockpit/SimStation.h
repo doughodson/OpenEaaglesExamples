@@ -24,7 +24,7 @@ namespace example {
 //
 // Factory name: SimStation
 // Slots:
-//      display                 <BasicGL::GlutDisplay> ! Main graphics display
+//      display                 <graphics::GlutDisplay> ! Main graphics display
 //      autoResetTimer          <Time>               ! Auto RESET timer value (basic::Time); default: 0
 //------------------------------------------------------------------------------
 class SimStation : public simulation::Station

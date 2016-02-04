@@ -35,7 +35,7 @@ static void timerFunc(int)
    glutTimerFunc(millis, timerFunc, 1);
 
    basic::Timer::updateTimers(static_cast<LCreal>(dt));
-   BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+   graphics::Graphic::flashTimer(static_cast<LCreal>(dt));
    display->tcFrame(static_cast<LCreal>(dt));
 }
 

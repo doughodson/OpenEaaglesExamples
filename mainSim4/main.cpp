@@ -49,7 +49,7 @@ static void timerFunc(int)
     time0 = time;
 
     basic::Timer::updateTimers(dt);
-    BasicGL::Graphic::flashTimer(dt);
+    graphics::Graphic::flashTimer(dt);
     station->updateData(dt);
 }
 
@@ -76,7 +76,7 @@ static basic::Object* factory(const char* name)
     if (obj == nullptr) obj = instruments::Factory::createObj(name);
     if (obj == nullptr) obj = simulation::Factory::createObj(name);
     if (obj == nullptr) obj = network::dis::Factory::createObj(name);
-    if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+    if (obj == nullptr) obj = graphics::Factory::createObj(name);
     if (obj == nullptr) obj = glut::Factory::createObj(name);
     if (obj == nullptr) obj = basic::Factory::createObj(name);
 

@@ -18,9 +18,9 @@ namespace xPanel {
 //              with color coded doppler shift, and overlaid with tracks.
 // Factory name: DspRadar
 //------------------------------------------------------------------------------
-class DspRadar : public BasicGL::Graphic
+class DspRadar : public graphics::Graphic
 {
-   DECLARE_SUBCLASS(DspRadar,BasicGL::Graphic)
+   DECLARE_SUBCLASS(DspRadar,graphics::Graphic)
 
 public:
    DspRadar();

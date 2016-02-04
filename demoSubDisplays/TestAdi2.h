@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class TestAdi2 : public BasicGL::Page
+class TestAdi2 : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestAdi2, BasicGL::Page)
+   DECLARE_SUBCLASS(TestAdi2, graphics::Page)
 
 public:
     TestAdi2();

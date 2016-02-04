@@ -92,7 +92,7 @@ void RdrAlt::updateData(const LCreal dt)
     // here is the minimum readout display
     basic::Pair* pair = findByName("rmin");
     if (pair != nullptr) {
-        BasicGL::NumericReadout* r = dynamic_cast<BasicGL::NumericReadout*>(pair->object());
+        graphics::NumericReadout* r = dynamic_cast<graphics::NumericReadout*>(pair->object());
         if (r != nullptr) {
             basic::Identifier* id = new basic::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
@@ -111,7 +111,7 @@ void RdrAlt::updateData(const LCreal dt)
     // actual radar readout
     basic::Pair* pair2 = findByName("ralt");
     if (pair2 != nullptr) {
-        BasicGL::NumericReadout* r1 = dynamic_cast<BasicGL::NumericReadout*>(pair2->object());
+        graphics::NumericReadout* r1 = dynamic_cast<graphics::NumericReadout*>(pair2->object());
         if (r1 != nullptr) {
             basic::Identifier* id = new basic::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");

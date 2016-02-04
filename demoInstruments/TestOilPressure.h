@@ -12,9 +12,9 @@
 namespace oe {
 namespace demo {
 
-class TestOilPressure : public BasicGL::Page
+class TestOilPressure : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestOilPressure, BasicGL::Page)
+   DECLARE_SUBCLASS(TestOilPressure, graphics::Page)
 
 public:
     TestOilPressure();

@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class TestAlt : public BasicGL::Page
+class TestAlt : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestAlt, BasicGL::Page)
+   DECLARE_SUBCLASS(TestAlt, graphics::Page)
 
 public:
     TestAlt();

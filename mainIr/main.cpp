@@ -79,7 +79,7 @@ static void updateDataCB(int)
    time0 = time;
 
    basic::Timer::updateTimers(dt);
-   BasicGL::Graphic::flashTimer(dt);
+   graphics::Graphic::flashTimer(dt);
    testStation->updateData(dt);
 }
 

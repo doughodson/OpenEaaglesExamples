@@ -26,7 +26,7 @@
 #include <GL/glut.h>
 
 namespace oe {
-   namespace BasicGL {
+   namespace graphics {
       class OcclusionArc;
    }
 
@@ -285,7 +285,7 @@ void MapPage::drawFunc()
          // get our viewport
          //---------------------------------------------------------------------------
          MapDisplay* pDsp = static_cast<MapDisplay*>(getDisplay());
-         //BasicGL::Display* pDsp = (BasicGL::Display*) getDisplay();
+         //graphics::Display* pDsp = (graphics::Display*) getDisplay();
 
          if (pDsp != nullptr) {
             //-----------------------------------------------------------------
@@ -375,13 +375,13 @@ void MapPage::updateData(const LCreal dt)
     if (loader == nullptr) {
         basic::Pair* pair = findByName("playerLoader");
         if (pair != nullptr) {
-            loader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+            loader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (loader != nullptr) loader->ref();
         }
     }
 
     if (pStn == nullptr) {
-        BasicGL::Display* pDsp = getDisplay();
+        graphics::Display* pDsp = getDisplay();
         if (pDsp != nullptr) {
             pStn = static_cast<TestStation*>(pDsp->findContainerByType(typeid(TestStation)));
             if (pStn != nullptr) {
@@ -400,7 +400,7 @@ void MapPage::updateData(const LCreal dt)
    if (!routeLoaded && pStn != nullptr) {
       basic::Pair* pair = findByName("routeLoader");
       if (pair != nullptr) {
-         BasicGL::SymbolLoader* routeLoader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+         graphics::SymbolLoader* routeLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
             // get our player's route
             simulation::Player* ply = pStn->getOwnship();

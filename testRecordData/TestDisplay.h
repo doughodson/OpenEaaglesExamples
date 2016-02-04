@@ -8,7 +8,7 @@
 
 namespace oe {
    namespace simulation { class Missile; class Player; class Simulation; class Station; }
-   namespace BasicGL { class SymbolLoader; }
+   namespace graphics { class SymbolLoader; }
    namespace xPanel { class DspRadar; class DspRwr; }
 
 namespace test {
@@ -50,7 +50,7 @@ public:
     simulation::Simulation* getSimulation();
     simulation::Station* getStation();
 
-    void maintainAirTrackSymbols(BasicGL::SymbolLoader* loader, const LCreal rng);
+    void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng);
 
     void mouseEvent(const int button, const int state, const int x, const int y) override;
 

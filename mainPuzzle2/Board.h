@@ -8,7 +8,7 @@
 
 namespace oe {
    namespace basic { class PairStream; }
-   namespace BasicGL { class Graphic; }
+   namespace graphics { class Graphic; }
 
 namespace example {
 
@@ -34,8 +34,8 @@ public:
 protected:
    virtual bool setSlotPuzzle(Puzzle* const s);                       // Sets the Puzzle controller
    virtual bool setSlotTemplates(const basic::PairStream* const s);   // Sets a list of the graphical templates for the blocks
-   virtual unsigned int setupBlockGraphics();                         // Setup the list of BasicGL::Graphic objects for the initial blocks
-   virtual void clearGraphics();                                      // Clears the list of BasicGL::Graphic objects for the blocks
+   virtual unsigned int setupBlockGraphics();                         // Setup the list of graphics::Graphic objects for the initial blocks
+   virtual void clearGraphics();                                      // Clears the list of graphics::Graphic objects for the blocks
    virtual void updateSolutionPath(const LCreal dt);                  // Updates the solution path graphics
    virtual void resetSolutionPath();                                  // Resets the solution path graphics
    virtual void updateBlockDeltaPositions();                          // Updates the blocks' delta positions
@@ -55,7 +55,7 @@ private:
    bool           movingFlg;                 // Block is moving
 
    static const unsigned int MAX_BLOCKS = 30;
-   BasicGL::Graphic*  blocks[MAX_BLOCKS];    // Graphics for each block
+   graphics::Graphic*  blocks[MAX_BLOCKS];    // Graphics for each block
    unsigned int       blockId[MAX_BLOCKS];   // Block reference IDs
    LCreal             xp[MAX_BLOCKS];        // Block X positions
    LCreal             yp[MAX_BLOCKS];        // Block Y positions

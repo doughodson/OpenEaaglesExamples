@@ -12,9 +12,9 @@
 namespace oe {
 namespace demo {
 
-class TestGMeterDial : public BasicGL::Page
+class TestGMeterDial : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestGMeterDial, BasicGL::Page)
+   DECLARE_SUBCLASS(TestGMeterDial, graphics::Page)
 
 public:
     TestGMeterDial();

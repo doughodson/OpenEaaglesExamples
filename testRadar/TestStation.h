@@ -21,7 +21,7 @@ namespace test {
 //
 // Factory name: TestStation
 // Slots:
-//   glutDisplay  <BasicGL::GlutDisplay>  ! All of our display components
+//   glutDisplay  <graphics::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
 class TestStation : public simulation::Station
 {

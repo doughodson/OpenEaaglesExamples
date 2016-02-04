@@ -12,9 +12,9 @@
 namespace oe {
 namespace demo {
 
-class TestCas : public BasicGL::Page
+class TestCas : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestCas, BasicGL::Page)
+   DECLARE_SUBCLASS(TestCas, graphics::Page)
 
 public:
     TestCas();

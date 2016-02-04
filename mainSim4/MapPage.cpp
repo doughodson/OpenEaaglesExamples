@@ -200,14 +200,14 @@ void MapPage::updateData(const LCreal dt)
 
     // get our pointers
     if (loader == nullptr) {
-        basic::Pair* pair = findByType(typeid(BasicGL::SymbolLoader));
+        basic::Pair* pair = findByType(typeid(graphics::SymbolLoader));
         if (pair != nullptr) {
-            loader = dynamic_cast<BasicGL::SymbolLoader*>(pair->object());
+            loader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (loader != nullptr) loader->ref();
         }
     }
     if (stn == nullptr) {
-        BasicGL::Display* dis = getDisplay();
+        graphics::Display* dis = getDisplay();
         if (dis != nullptr) {
             stn = static_cast<Station*>(dis->findContainerByType(typeid(Station)));
             if (stn != nullptr) {

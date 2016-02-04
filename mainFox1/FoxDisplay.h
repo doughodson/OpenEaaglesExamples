@@ -19,9 +19,9 @@ namespace FX {
 namespace oe {
 namespace example {
 
-class FoxDisplay : public BasicGL::Display
+class FoxDisplay : public graphics::Display
 {
-   DECLARE_SUBCLASS(FoxDisplay, BasicGL::Display)
+   DECLARE_SUBCLASS(FoxDisplay, graphics::Display)
 
 public:
 
@@ -46,7 +46,7 @@ public:
    Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1);
    void printSelectBuffer(const GLuint sbuff[], const int size);
    void clearSelectBuffer(GLuint sbuff[], const int size);
-   BasicGL::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
+   graphics::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
 
    FX::FXGLCanvas* getCanvas()                                                               { return glCanvas; };
    FX::FXComposite* getParentWindow()                                                        { return myComp;   };

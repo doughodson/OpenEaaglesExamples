@@ -35,7 +35,7 @@ Board::Board()
 {
    STANDARD_CONSTRUCTOR()
 
-   // Clear our list of BasicGL::Graphic templates for each block type
+   // Clear our list of graphics::Graphic templates for each block type
    templates = nullptr;
 
    // clear the puzzle
@@ -172,7 +172,7 @@ void Board::updateData(const LCreal dt)
 }
 
 //------------------------------------------------------------------------------
-// Setup the list of BasicGL::Graphic objects for the initial blocks
+// Setup the list of graphics::Graphic objects for the initial blocks
 // Returns the number of blocks
 //------------------------------------------------------------------------------
 unsigned int Board::setupBlockGraphics()
@@ -189,9 +189,9 @@ unsigned int Board::setupBlockGraphics()
                unsigned int typeId = b->getTypeId();
                const basic::Pair* pair = templates->getPosition(typeId);
                if (pair != nullptr) {
-                  const BasicGL::Graphic* g = dynamic_cast<const BasicGL::Graphic*>( pair->object() );
+                  const graphics::Graphic* g = dynamic_cast<const graphics::Graphic*>( pair->object() );
                   if (g != nullptr) {
-                     // Ok, we've found a BasicGL::Graphic to draw this block!
+                     // Ok, we've found a graphics::Graphic to draw this block!
                      blocks[nblocks] = g->clone();
                      blocks[nblocks]->container(this);
                      blockId[nblocks] = b->getReferenceID();
@@ -210,7 +210,7 @@ unsigned int Board::setupBlockGraphics()
    return nblocks;
 }
 
-// Clears the list of BasicGL::Graphic objects for the blocks
+// Clears the list of graphics::Graphic objects for the blocks
 void Board::clearGraphics()
 {
    while (nblocks > 0) {

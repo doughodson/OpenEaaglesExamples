@@ -14,16 +14,16 @@ namespace oe {
 namespace simulation {
     class Player;
 }
-namespace BasicGL {
+namespace graphics {
     class SymbolLoader;
 }
 namespace example {
 
 class Station;
 
-class MapPage : public BasicGL::MapPage
+class MapPage : public graphics::MapPage
 {
-    DECLARE_SUBCLASS(MapPage, BasicGL::MapPage)
+    DECLARE_SUBCLASS(MapPage, graphics::MapPage)
 
 public:
     MapPage();
@@ -38,7 +38,7 @@ private:
     static const int MAX_READOUTS = 20;
     simulation::Player* player[MAX_PLAYERS];    // player pointer
     int playerIdx[MAX_PLAYERS];                 // index of our symbol for the given player
-    BasicGL::SymbolLoader* loader;              // holds our loader for quick reference
+    graphics::SymbolLoader* loader;              // holds our loader for quick reference
     Station* stn;                   // holds our station (to get the player list quickly)
     // show where our lat/lons are
     SendData latsSD[MAX_READOUTS];

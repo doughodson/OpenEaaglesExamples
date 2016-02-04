@@ -13,9 +13,9 @@
 namespace oe {
 namespace demo {
 
-class TestDigitalGauge : public BasicGL::Page
+class TestDigitalGauge : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestDigitalGauge, BasicGL::Page)
+   DECLARE_SUBCLASS(TestDigitalGauge, graphics::Page)
 
 public:
    TestDigitalGauge();

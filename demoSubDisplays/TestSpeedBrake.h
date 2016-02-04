@@ -13,9 +13,9 @@
 namespace oe {
 namespace demo {
 
-class TestSpeedBrake : public BasicGL::Page
+class TestSpeedBrake : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestSpeedBrake, BasicGL::Page)
+   DECLARE_SUBCLASS(TestSpeedBrake, graphics::Page)
 
 public:
     TestSpeedBrake();

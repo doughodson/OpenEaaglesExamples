@@ -36,7 +36,7 @@ static basic::Object* factory(const char* name)
       obj = new Worm();
    }
 
-   if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+   if (obj == nullptr) obj = graphics::Factory::createObj(name);
    if (obj == nullptr) obj = basic::Factory::createObj(name);
 
    return obj;

@@ -45,7 +45,7 @@ void SimPlayer::reset()
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() for BasicGL::Graphic
+// getSlotByIndex() for graphics::Graphic
 //------------------------------------------------------------------------------
 basic::Object* SimPlayer::getSlotByIndex(const int si)
 {

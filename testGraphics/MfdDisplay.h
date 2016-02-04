@@ -14,9 +14,9 @@
 namespace oe {
 namespace example {
 
-class MfdDisplay : public BasicGL::Display
+class MfdDisplay : public graphics::Display
 {
-   DECLARE_SUBCLASS(MfdDisplay, BasicGL::Display)
+   DECLARE_SUBCLASS(MfdDisplay, graphics::Display)
 
 public:
    MfdDisplay();

@@ -19,9 +19,9 @@
 namespace oe {
 namespace demo {
 
-class TerrainFollower : public BasicGL::Graphic
+class TerrainFollower : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(TerrainFollower,BasicGL::Graphic)
+    DECLARE_SUBCLASS(TerrainFollower,graphics::Graphic)
 
 public:
     TerrainFollower();

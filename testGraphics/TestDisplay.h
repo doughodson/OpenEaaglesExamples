@@ -6,7 +6,7 @@
 
 namespace oe {
 
-namespace BasicGL { class Graphic; }
+namespace graphics { class Graphic; }
 
 namespace example {
 
@@ -27,7 +27,7 @@ public:
 
 private:
    // select/pick test
-   BasicGL::Graphic* selected;
+   graphics::Graphic* selected;
 };
 
 } // End example namespace

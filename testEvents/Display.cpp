@@ -63,7 +63,7 @@ Display::Display()
     for (int i = 0; i < seed; i++) rng->drawClosed();
 
     for (int i = 0; i < MAX_MATERIALS; i++) {
-        materials[i] = new BasicGL::Material();
+        materials[i] = new graphics::Material();
         materialSD[i].empty();
         diffColor[i].set(static_cast<LCreal>(rng->drawClosed()),
                          static_cast<LCreal>(rng->drawClosed()),

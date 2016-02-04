@@ -39,7 +39,7 @@ static void timerCB(int)
    time0 = time;
 
    basic::Timer::updateTimers(static_cast<LCreal>(dt));
-   BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+   graphics::Graphic::flashTimer(static_cast<LCreal>(dt));
    board->tcFrame(static_cast<LCreal>(dt));
 }
 

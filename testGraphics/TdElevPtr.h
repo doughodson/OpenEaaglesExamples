@@ -11,9 +11,9 @@
 namespace oe {
 namespace example {
 
-class TdElevPtr : public BasicGL::Graphic
+class TdElevPtr : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(TdElevPtr, BasicGL::Graphic)
+    DECLARE_SUBCLASS(TdElevPtr, graphics::Graphic)
 
 public:
     TdElevPtr();

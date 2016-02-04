@@ -72,8 +72,8 @@ void SimStation::reset()
 {
     if (!displayInit && mainDisplay != nullptr) {
         mainDisplay->createWindow();
-        basic::Pair* p = mainDisplay->findByType(typeid(BasicGL::Page));
-        if (p != nullptr) mainDisplay->focus(static_cast<BasicGL::Graphic*>(p->object()));
+        basic::Pair* p = mainDisplay->findByType(typeid(graphics::Page));
+        if (p != nullptr) mainDisplay->focus(static_cast<graphics::Graphic*>(p->object()));
         else mainDisplay->focus(nullptr);
         displayInit = true;
     }
@@ -101,7 +101,7 @@ void SimStation::updateTC(const LCreal dt)
     BaseClass::updateTC(dt);
 
     basic::Timer::updateTimers(dt);
-    BasicGL::Graphic::flashTimer(dt);
+    graphics::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
     if (mainDisplay != nullptr) mainDisplay->updateTC(dt);
@@ -113,7 +113,7 @@ void SimStation::updateTC(const LCreal dt)
 void SimStation::updateData(const LCreal dt)
 {
     // ### Don't call updateData for our 'mainDisplay', which is derived from
-    // BasicGL::GlutDisplay, because BasicGL::GlutDisplay handles calling updateData() for it's
+    // graphics::GlutDisplay, because graphics::GlutDisplay handles calling updateData() for it's
     // own displays.
 
     // ---
@@ -198,7 +198,7 @@ bool SimStation::setSlotAutoResetTime(const basic::Time* const num)
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() for BasicGL::Page
+// getSlotByIndex() for graphics::Page
 //------------------------------------------------------------------------------
 basic::Object* SimStation::getSlotByIndex(const int si)
 {

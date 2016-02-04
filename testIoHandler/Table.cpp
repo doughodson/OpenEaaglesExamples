@@ -25,16 +25,16 @@ static const unsigned int DEFAULT_SPACING = 1;
 // class TableRow -- One row of in the table (used by Table only)
 //          (The implementation is at the bottom of the file after the Table class)
 //==============================================================================
-class TableRow : public BasicGL::Field
+class TableRow : public graphics::Field
 {
-   DECLARE_SUBCLASS(TableRow,BasicGL::Field)
+   DECLARE_SUBCLASS(TableRow,graphics::Field)
 
 public:
    TableRow();
    
    void put(basic::Pair* const item);
    
-   // BasicGL::Field class interface
+   // graphics::Field class interface
    virtual int line() const;
    virtual int line(const int ll);
    virtual int column() const;
@@ -212,9 +212,9 @@ void Table::build()
          while (item != nullptr) {
             const basic::Pair* pair = static_cast<const basic::Pair*>(item->getValue());
             const basic::Object* obj = pair->object();
-            if (obj->isClassType(typeid(BasicGL::Graphic))) {
+            if (obj->isClassType(typeid(graphics::Graphic))) {
                basic::Pair* pp = pair->clone();
-               BasicGL::Graphic* gobj = static_cast<BasicGL::Graphic*>(pp->object());
+               graphics::Graphic* gobj = static_cast<graphics::Graphic*>(pp->object());
                gobj->container(row);
                row->put(pp);
                pp->unref();
@@ -283,7 +283,7 @@ bool Table::setSlotColumns(basic::PairStream* const msg)
       basic::List::Item* item = msg->getFirstItem();
       while (item != nullptr) {
           basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
-          BasicGL::Field* g = dynamic_cast<BasicGL::Field*>(pair->object());
+          graphics::Field* g = dynamic_cast<graphics::Field*>(pair->object());
           if (g != nullptr) {
               // We have a Field object, so add it to the new columns list
               newColumns->put(pair);
@@ -389,7 +389,7 @@ int TableRow::column(const int cc)
 void  TableRow::put(basic::Pair* pp)
 {
    basic::PairStream* subcomponents = getComponents();
-   BaseClass::processComponents(subcomponents, typeid(BasicGL::Field), pp);
+   BaseClass::processComponents(subcomponents, typeid(graphics::Field), pp);
    if (subcomponents != nullptr) subcomponents->unref();
 }
 
@@ -405,7 +405,7 @@ void TableRow::position()
       basic::List::Item* item = subcomponents->getFirstItem();
       while (item != nullptr) {
          basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
-         BasicGL::Field* ti = static_cast<BasicGL::Field*>(pair->object());
+         graphics::Field* ti = static_cast<graphics::Field*>(pair->object());
         
          ti->line(ln);
          ti->column(cp);

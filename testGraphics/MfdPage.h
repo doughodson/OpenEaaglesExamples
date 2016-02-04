@@ -11,8 +11,8 @@
 namespace oe {
 namespace example {
 
-class MfdPage : public BasicGL::Page {
-   DECLARE_SUBCLASS(MfdPage,BasicGL::Page)
+class MfdPage : public graphics::Page {
+   DECLARE_SUBCLASS(MfdPage,graphics::Page)
 
 public:
    MfdPage();

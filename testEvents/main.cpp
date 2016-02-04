@@ -35,7 +35,7 @@ static void timerFunc(int)
    glutTimerFunc(millis, timerFunc, 1);
 
    basic::Timer::updateTimers(static_cast<LCreal>(dt));
-   BasicGL::Graphic::flashTimer(static_cast<LCreal>(dt));
+   graphics::Graphic::flashTimer(static_cast<LCreal>(dt));
    display->tcFrame(static_cast<LCreal>(dt));
 }
 
@@ -51,7 +51,7 @@ static basic::Object* factory(const char* name)
       obj = new ObjectHandler();
    }
    else {
-      if (obj == nullptr) obj = BasicGL::Factory::createObj(name);
+      if (obj == nullptr) obj = graphics::Factory::createObj(name);
       if (obj == nullptr) obj = glut::Factory::createObj(name);
       if (obj == nullptr) obj = basic::Factory::createObj(name);
    }

@@ -30,7 +30,7 @@ static void timerFunc(int)
    glutTimerFunc(millis, timerFunc, 1);
 
    basic::Timer::updateTimers(dt);
-   BasicGL::Graphic::flashTimer(dt);
+   graphics::Graphic::flashTimer(dt);
    display->updateTC(dt);
 }
 

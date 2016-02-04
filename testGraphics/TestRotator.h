@@ -11,9 +11,9 @@
 namespace oe {
 namespace example {
 
-class TestRotator : public BasicGL::Graphic
+class TestRotator : public graphics::Graphic
 {
-   DECLARE_SUBCLASS(TestRotator, BasicGL::Graphic)
+   DECLARE_SUBCLASS(TestRotator, graphics::Graphic)
 
 public:
     TestRotator();

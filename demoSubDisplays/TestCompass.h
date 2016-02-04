@@ -11,9 +11,9 @@
 namespace oe {
 namespace demo {
 
-class TestCompass : public BasicGL::Page
+class TestCompass : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestCompass, BasicGL::Page)
+   DECLARE_SUBCLASS(TestCompass, graphics::Page)
 
 public:
     TestCompass();

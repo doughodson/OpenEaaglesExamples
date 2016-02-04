@@ -14,9 +14,9 @@ namespace test {
 
 class TestObject;
 
-class ObjectHandler : public BasicGL::Graphic
+class ObjectHandler : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(ObjectHandler,BasicGL::Graphic)
+    DECLARE_SUBCLASS(ObjectHandler,graphics::Graphic)
 
 public:
    ObjectHandler();

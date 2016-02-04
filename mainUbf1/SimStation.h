@@ -25,7 +25,7 @@ namespace example {
 //
 // Factory name: SimStation
 // Slots:
-//      display       <BasicGL::GlutDisplay>  ! Main graphics display
+//      display       <graphics::GlutDisplay>  ! Main graphics display
 //
 //------------------------------------------------------------------------------
 class SimStation : public simulation::Station

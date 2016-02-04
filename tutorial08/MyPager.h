@@ -10,9 +10,9 @@
 namespace oe {
 namespace Tutorial {
 
-class MyPager : public BasicGL::Page
+class MyPager : public graphics::Page
 {
-   DECLARE_SUBCLASS(MyPager, BasicGL::Page)
+   DECLARE_SUBCLASS(MyPager, graphics::Page)
 
 public:
 

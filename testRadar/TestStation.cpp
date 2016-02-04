@@ -82,7 +82,7 @@ void TestStation::updateTC(const LCreal dt)
 {
    // manage the timers
    basic::Timer::updateTimers(dt);
-   BasicGL::Graphic::flashTimer(dt);
+   graphics::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) {
       glutDisplay->updateTC(dt);
@@ -97,7 +97,7 @@ void TestStation::updateTC(const LCreal dt)
 void TestStation::updateData(const LCreal dt)
 {
    // ### Don't call updateData for our 'glutDisplay', which is derived from
-   // BasicGL::GlutDisplay, because BasicGL::GlutDisplay handles calling updateData() for it's
+   // graphics::GlutDisplay, because graphics::GlutDisplay handles calling updateData() for it's
    // own displays.
 
    BaseClass::updateData(dt);

@@ -13,9 +13,9 @@
 namespace oe {
 namespace demo {
 
-class TestVVI : public BasicGL::Page
+class TestVVI : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestVVI, BasicGL::Page)
+   DECLARE_SUBCLASS(TestVVI, graphics::Page)
 
 public:
    TestVVI();

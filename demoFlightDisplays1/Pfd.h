@@ -13,9 +13,9 @@
 namespace oe {
 namespace demo {
 
-class Pfd : public BasicGL::Page
+class Pfd : public graphics::Page
 {
-   DECLARE_SUBCLASS(Pfd,BasicGL::Page)
+   DECLARE_SUBCLASS(Pfd,graphics::Page)
 
 public:
     Pfd();

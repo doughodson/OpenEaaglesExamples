@@ -13,9 +13,9 @@
 namespace oe {
 namespace demo {
 
-class TestFtitDial : public BasicGL::Page
+class TestFtitDial : public graphics::Page
 {
-   DECLARE_SUBCLASS(TestFtitDial, BasicGL::Page)
+   DECLARE_SUBCLASS(TestFtitDial, graphics::Page)
 
 public:
     TestFtitDial();
