@@ -9,10 +9,10 @@
 #include "Table.h"
 
 // factories
-#include "openeaagles/iodevice/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/iodevice/factory.h"
+#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstring>
 

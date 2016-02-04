@@ -19,7 +19,7 @@
 #include "openeaagles/basic/Parser.h"
 
 // class factory
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstring>
 

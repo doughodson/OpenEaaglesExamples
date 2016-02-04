@@ -10,18 +10,18 @@
 #include "SimStation.h"
 
 // factories
-#include "xBehaviors/Factory.h"
-#include "xPanel/Factory.h"
+#include "xBehaviors/factory.h"
+#include "xPanel/factory.h"
 
-#include "openeaagles/basic/Factory.h"
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
-#include "openeaagles/dis/Factory.h"
-#include "openeaagles/instruments/Factory.h"
-#include "openeaagles/iodevice/Factory.h"
-#include "openeaagles/otw/Factory.h"
+#include "openeaagles/basic/factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/dis/factory.h"
+#include "openeaagles/instruments/factory.h"
+#include "openeaagles/iodevice/factory.h"
+#include "openeaagles/otw/factory.h"
 #include "openeaagles/models/factory.h"
-#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/simulation/factory.h"
 
 #include <cstring>
 

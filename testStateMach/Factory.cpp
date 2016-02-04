@@ -13,7 +13,7 @@
 #include "TestStateMachine04B.h"
 #include "TestStateMachine04C.h"
 
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstring>
 

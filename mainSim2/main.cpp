@@ -12,7 +12,7 @@
 #include "openeaagles/simulation/factory.h"
 #include "openeaagles/models/factory.h"
 #include "openeaagles/dis/factory.h"
-#include "openeaagles/otw/Factory.h"
+#include "openeaagles/otw/factory.h"
 #include "openeaagles/basic/factory.h"
 
 #include <cstring>

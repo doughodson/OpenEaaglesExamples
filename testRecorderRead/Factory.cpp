@@ -8,9 +8,9 @@
 #include "DataRecordTest.h"
 #include "PrintMyData.h"
 
-#include "openeaagles/basic/Factory.h"
-#include "openeaagles/recorder/Factory.h"
-#include "openeaagles/simulation/Factory.h"
+#include "openeaagles/basic/factory.h"
+#include "openeaagles/recorder/factory.h"
+#include "openeaagles/simulation/factory.h"
 
 namespace oe {
 namespace test {

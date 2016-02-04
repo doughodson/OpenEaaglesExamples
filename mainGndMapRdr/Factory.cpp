@@ -10,11 +10,11 @@
 #include "Station.h"
 
 // factories
-#include "openeaagles/simulation/Factory.h"
-#include "openeaagles/terrain/Factory.h"
-#include "openeaagles/graphics/Factory.h"
-#include "openeaagles/gui/glut/Factory.h"
-#include "openeaagles/basic/Factory.h"
+#include "openeaagles/simulation/factory.h"
+#include "openeaagles/terrain/factory.h"
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/basic/factory.h"
 
 #include <cstring>
 
