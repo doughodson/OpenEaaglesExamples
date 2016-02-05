@@ -17,7 +17,7 @@ EMPTY_COPYDATA(PriorityArbiter)
 EMPTY_SERIALIZER(PriorityArbiter)
 EMPTY_DELETEDATA(PriorityArbiter)
 
-basic::Ubf::Action* PriorityArbiter::genComplexAction(basic::List* const actionSet)
+basic::ubf::Action* PriorityArbiter::genComplexAction(basic::List* const actionSet)
 {
    PlaneAction* complexAction = new PlaneAction;
 
@@ -77,7 +77,7 @@ basic::Ubf::Action* PriorityArbiter::genComplexAction(basic::List* const actionS
    return complexAction;
 }
 
-void PriorityArbiter::trimChangeValidation(basic::Ubf::Action* const complexAction)
+void PriorityArbiter::trimChangeValidation(basic::ubf::Action* const complexAction)
 {
    PlaneAction* action = static_cast<PlaneAction*>(complexAction);
 

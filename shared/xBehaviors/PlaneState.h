@@ -19,9 +19,9 @@ namespace xBehaviors {
 //              state has only one missile (or is ok with firing all missiles at
 //              first target)
 //------------------------------------------------------------------------------
-class PlaneState : public basic::Ubf::State
+class PlaneState : public basic::ubf::State
 {
-   DECLARE_SUBCLASS(PlaneState, basic::Ubf::State)
+   DECLARE_SUBCLASS(PlaneState, basic::ubf::State)
 
 public:
    PlaneState();

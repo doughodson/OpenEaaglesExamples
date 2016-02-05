@@ -17,14 +17,14 @@ namespace xBehaviors {
 //
 // Description: Example fusion arbiter for a plane
 //------------------------------------------------------------------------------
-class PriorityArbiter : public basic::Ubf::Arbiter
+class PriorityArbiter : public basic::ubf::Arbiter
 {
-   DECLARE_SUBCLASS(PriorityArbiter, basic::Ubf::Arbiter)
+   DECLARE_SUBCLASS(PriorityArbiter, basic::ubf::Arbiter)
 
 public:
    PriorityArbiter();
 
-   basic::Ubf::Action* genComplexAction(basic::List* const actionSet) override;
+   basic::ubf::Action* genComplexAction(basic::List* const actionSet) override;
 
 private:
 
@@ -32,7 +32,7 @@ private:
    // and the change would go against the intended control stick action.  If so,
    // invalidate the trim change.
    // Returns nothing, but modifies what the action object points to
-   void trimChangeValidation(basic::Ubf::Action* const);
+   void trimChangeValidation(basic::ubf::Action* const);
 };
 
 }

@@ -115,7 +115,7 @@ PlaneFire::PlaneFire()
    maxDistance = 15500.0f;
 
 }
-basic::Ubf::Action* PlaneFire::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneFire::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -164,7 +164,7 @@ PlaneFlyStraight::PlaneFlyStraight()
    holdingAltitude = 4500;
 }
 
-basic::Ubf::Action* PlaneFlyStraight::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneFlyStraight::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -214,7 +214,7 @@ EMPTY_COPYDATA(PlaneFollowEnemy)
 EMPTY_SERIALIZER(PlaneFollowEnemy)
 EMPTY_DELETEDATA(PlaneFollowEnemy)
 
-basic::Ubf::Action* PlaneFollowEnemy::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneFollowEnemy::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -260,7 +260,7 @@ EMPTY_COPYDATA(PlaneTurn)
 EMPTY_SERIALIZER(PlaneTurn)
 EMPTY_DELETEDATA(PlaneTurn)
 
-basic::Ubf::Action* PlaneTurn::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneTurn::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -301,7 +301,7 @@ EMPTY_COPYDATA(PlaneSlowTurn)
 EMPTY_SERIALIZER(PlaneSlowTurn)
 EMPTY_DELETEDATA(PlaneSlowTurn)
 
-basic::Ubf::Action* PlaneSlowTurn::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneSlowTurn::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -343,7 +343,7 @@ EMPTY_COPYDATA(PlaneClimb)
 EMPTY_SERIALIZER(PlaneClimb)
 EMPTY_DELETEDATA(PlaneClimb)
 
-basic::Ubf::Action* PlaneClimb::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneClimb::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -373,7 +373,7 @@ EMPTY_COPYDATA(PlaneDive)
 EMPTY_SERIALIZER(PlaneDive)
 EMPTY_DELETEDATA(PlaneDive)
 
-basic::Ubf::Action* PlaneDive::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneDive::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -411,7 +411,7 @@ PlaneTrim::PlaneTrim()
    count = 0;
 }
 
-basic::Ubf::Action* PlaneTrim::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneTrim::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -443,7 +443,7 @@ EMPTY_COPYDATA(PlaneRoll)
 EMPTY_SERIALIZER(PlaneRoll)
 EMPTY_DELETEDATA(PlaneRoll)
 
-basic::Ubf::Action* PlaneRoll::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneRoll::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -470,7 +470,7 @@ EMPTY_COPYDATA(PlaneBarrelRoll)
 EMPTY_SERIALIZER(PlaneBarrelRoll)
 EMPTY_DELETEDATA(PlaneBarrelRoll)
 
-basic::Ubf::Action* PlaneBarrelRoll::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneBarrelRoll::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));
@@ -503,7 +503,7 @@ PlaneLoop::PlaneLoop()
    keepGoing = false;
 }
 
-basic::Ubf::Action* PlaneLoop::genAction(const basic::Ubf::State* const state, const LCreal dt)
+basic::ubf::Action* PlaneLoop::genAction(const basic::ubf::State* const state, const LCreal dt)
 {
    PlaneAction* action = nullptr;
    const PlaneState* pState = dynamic_cast<const PlaneState*>(state->getUbfStateByType(typeid(PlaneState)));

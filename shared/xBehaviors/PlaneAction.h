@@ -16,9 +16,9 @@ namespace xBehaviors {
 //------------------------------------------------------------------------------
 // Class: PlaneAction
 //------------------------------------------------------------------------------
-class PlaneAction : public basic::Ubf::Action
+class PlaneAction : public basic::ubf::Action
 {
-   DECLARE_SUBCLASS(PlaneAction, basic::Ubf::Action)
+   DECLARE_SUBCLASS(PlaneAction, basic::ubf::Action)
 
 public:
    PlaneAction();
