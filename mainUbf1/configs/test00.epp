@@ -38,5 +38,5 @@
       }
    )
 
-   #include "xPanel/xPanel.epp"
+   #include "xpanel/xpanel.epp"
 )

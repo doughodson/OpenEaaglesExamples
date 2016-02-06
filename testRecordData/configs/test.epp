@@ -24,6 +24,6 @@
    #include "networkSetup.epp"
    #include "otwSetup.epp"
    #include "scenario.epp"
-   #include "xPanel/xPanel.epp"
+   #include "xpanel/xpanel.epp"
 )
 
