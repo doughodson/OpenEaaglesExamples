@@ -1,3 +1,4 @@
+
 #include "MapView.h"
 #include "MainWindow.h"
 #include "MapItem.h"
@@ -14,7 +15,7 @@
 #include <iostream>
 #include <QResizeEvent>
 
-namespace Example {
+namespace example {
 
 MapView::MapView(QWidget* parent) : QGraphicsView(parent)
 {
@@ -83,7 +84,7 @@ void MapView::refreshView()
             // init the map
             if (map != nullptr && !map->isInit()) {
                // grab our simulation, if we have one
-               const Eaagles::Simulation::Simulation* sim = stn->getSimulation();
+               const oe::simulation::Simulation* sim = stn->getSimulation();
                if (sim != nullptr) {
                   map->initialize(sim->getRefLatitude(), sim->getRefLongitude(), 100);
                }
@@ -94,16 +95,16 @@ void MapView::refreshView()
    else {
       // update the map and players
       if (map != nullptr) map->updateBG();
-      const Eaagles::Simulation::Simulation* sim = stn->getSimulation();
+      const oe::simulation::Simulation* sim = stn->getSimulation();
       if (sim != nullptr) {
-         const Eaagles::Basic::PairStream* stream = sim->getPlayers();
+         const oe::basic::PairStream* stream = sim->getPlayers();
          if (stream != nullptr) {
             // go through the eaagles players and add new or update existing players
-            const Eaagles::Basic::List::Item* item = stream->getFirstItem();
+            const oe::basic::List::Item* item = stream->getFirstItem();
             while (item != nullptr) {
-               const Eaagles::Basic::Pair* pair = (const Eaagles::Basic::Pair*)item->getValue();
+               const oe::basic::Pair* pair = (const oe::basic::Pair*)item->getValue();
                if (pair != nullptr) {
-                  const Eaagles::Simulation::Player* ply = dynamic_cast<const Eaagles::Simulation::Player*>(pair->object());
+                  const oe::simulation::Player* ply = dynamic_cast<const oe::simulation::Player*>(pair->object());
                   if (ply != nullptr) {
                      // hold onto this player, just to be safe
                      ply->ref();
@@ -136,7 +137,7 @@ void MapView::refreshView()
             // our players against the sim, removing any old players
             for (int i = 0; i < players.size(); i++) {
                unsigned short id = players[i]->getPlayerId();
-               const Eaagles::Simulation::Player* ply = sim->findPlayer(id);
+               const oe::simulation::Player* ply = sim->findPlayer(id);
                if (ply == nullptr) {
                   // player is gone, remove
                   PlayerItem* p = players[i];

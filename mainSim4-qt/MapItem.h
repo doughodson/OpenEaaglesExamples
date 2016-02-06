@@ -1,10 +1,10 @@
-#ifndef __Eaagles_Example_MapItem_H__
-#define __Eaagles_Example_MapItem_H__
+#ifndef __oe_example_MapItem_H__
+#define __oe_example_MapItem_H__
 
 #include <QGraphicsItem>
 
 // Basic map that does map math for us.
-namespace Example {
+namespace example {
 
 class MapView;
 

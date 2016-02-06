@@ -1,10 +1,11 @@
-#ifndef __Eaagles_Example_MainWindow_H__
-#define __Eaagles_Example_MainWindow_H__
+
+#ifndef __oe_example_MainWindow_H__
+#define __oe_example_MainWindow_H__
 
 #include <QMainWindow>
 #include "ui_MainWindow.h"
 
-namespace Example {
+namespace example {
 
 class Station;
 

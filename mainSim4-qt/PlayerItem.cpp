@@ -1,3 +1,4 @@
+
 #include "PlayerItem.h"
 #include "MapItem.h"
 #include "openeaagles/simulation/Player.h"
@@ -5,7 +6,7 @@
 #include <QPainter>
 #include <sstream>
 
-namespace Example {
+namespace example {
 
 PlayerItem::PlayerItem(MapView* viewer, MapItem* map, QGraphicsItem* parent) : QGraphicsItem(parent)
 {
@@ -91,7 +92,7 @@ bool PlayerItem::setDefaultImageSize(QSize x)
    return true;
 }
 
-void PlayerItem::refreshPlayer(const Eaagles::Simulation::Player* const ownship)
+void PlayerItem::refreshPlayer(const oe::simulation::Player* const ownship)
 {
    if (ownship != nullptr) {
       plyId = ownship->getID();

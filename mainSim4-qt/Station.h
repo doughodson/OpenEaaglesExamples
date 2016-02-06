@@ -1,12 +1,13 @@
-#ifndef __Eaagles_Example_Station_H__
-#define __Eaagles_Example_Station_H__
+
+#ifndef __oe_example_Station_H__
+#define __oe_example_Station_H__
 
 #include "openeaagles/simulation/Station.h"
 #include <QObject>
 
 class QTimer;
 
-namespace Example {
+namespace example {
 
 class Station;
 
@@ -27,9 +28,9 @@ private:
    QTimer* bgTimer;  // timer
 };
 
-class Station : public Eaagles::Simulation::Station
+class Station : public oe::simulation::Station
 {
-   DECLARE_SUBCLASS(Station, Eaagles::Simulation::Station)
+   DECLARE_SUBCLASS(Station, oe::simulation::Station)
 public:
    Station();
 

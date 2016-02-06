@@ -1,9 +1,9 @@
-#ifndef __Eaagles_Example_MapView_H__
-#define __Eaagles_Example_MapView_H__
+#ifndef __oe_example_MapView_H__
+#define __oe_example_MapView_H__
 
 #include <QGraphicsView>
 
-namespace Example {
+namespace example {
 
 class Station;
 class MapItem;
@@ -23,7 +23,7 @@ public slots:
    virtual void refreshView();
 
 protected:
-   virtual void resizeEvent(QResizeEvent *event);
+   virtual void resizeEvent(QResizeEvent* event);
 
 private:
    void clearPlayers();
@@ -31,7 +31,6 @@ private:
    MapItem* map;     // our map
    QList<PlayerItem*> players;      // our "graphical" players
 };
-
 
 }
 

@@ -1,13 +1,13 @@
-#ifndef __Eaagles_Example_PlayerItem_H__
-#define __Eaagles_Example_PlayerItem_H__
+#ifndef __oe_example_PlayerItem_H__
+#define __oe_example_PlayerItem_H__
 
 #include <QGraphicsItem>
 
-namespace  Eaagles {
-namespace Simulation { class Player; }
+namespace  oe {
+namespace simulation { class Player; }
 }
 
-namespace Example {
+namespace example {
 
 class MapView;
 class MapItem;
@@ -19,7 +19,7 @@ public:
    ~PlayerItem();
 
    // update function
-   virtual void refreshPlayer(const Eaagles::Simulation::Player* const ownship);
+   virtual void refreshPlayer(const oe::simulation::Player* const ownship);
 
    // we can tell our PlayerItem to use a specific image file to draw
    virtual unsigned short getPlayerId() const;

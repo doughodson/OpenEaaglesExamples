@@ -6,7 +6,7 @@
 #include <QTimer>
 #include <sstream>
 
-namespace Example {
+namespace example {
 
 MainWindow::MainWindow(Station* station, QWidget* parent) :QMainWindow(parent)
 {
@@ -34,7 +34,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 {
    // tell our station to shutdown
    if (stn != nullptr && !stn->isShutdown()) {
-       stn->event(Eaagles::Basic::Component::SHUTDOWN_EVENT);
+       stn->event(oe::basic::Component::SHUTDOWN_EVENT);
    }
    QMainWindow::closeEvent(event);
 }
@@ -64,7 +64,7 @@ void MainWindow::play()
 {
    // get the simulation and play it!
    if (stn != nullptr) {
-      Eaagles::Simulation::Simulation* sim = stn->getSimulation();
+      oe::simulation::Simulation* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->getFastForwardRate() != 1) stn->setFastForwardRate(1);
          if (stn->isFrozen()) stn->freeze(false);
@@ -72,10 +72,11 @@ void MainWindow::play()
       }
    }
 }
+
 void MainWindow::pause()
 {
    if (stn != nullptr) {
-      Eaagles::Simulation::Simulation* sim = stn->getSimulation();
+      oe::simulation::Simulation* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->isNotFrozen()) stn->freeze(true);
          if (sim->isNotFrozen()) sim->freeze(true);
@@ -86,7 +87,7 @@ void MainWindow::pause()
 void MainWindow::ff()
 {
    if (stn != nullptr) {
-      Eaagles::Simulation::Simulation* sim = stn->getSimulation();
+      oe::simulation::Simulation* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->isFrozen()) stn->freeze(false);
          if (sim->isFrozen()) sim->freeze(false);
@@ -103,12 +104,12 @@ void MainWindow::reset()
 {
    // also freeze and set the FF rate to 1
    if (stn != nullptr) {
-      Eaagles::Simulation::Simulation* sim = stn->getSimulation();
+      oe::simulation::Simulation* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->getFastForwardRate() != 1) stn->setFastForwardRate(1);
          if (stn->isNotFrozen()) stn->freeze(true);
          if (sim->isNotFrozen()) sim->freeze(true);
-         stn->event(Eaagles::Basic::Component::RESET_EVENT);
+         stn->event(oe::basic::Component::RESET_EVENT);
       }
    }
 }

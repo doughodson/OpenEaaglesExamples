@@ -1,3 +1,4 @@
+
 #include "MapItem.h"
 #include "openeaagles/basic/units/Angles.h"
 
@@ -6,7 +7,7 @@
 #include <sstream>
 #include <cmath>
 
-namespace Example {
+namespace example {
 
 MapItem::MapItem(MapView* v, QGraphicsItem* parent) : QGraphicsItem(parent)
 {
@@ -53,7 +54,7 @@ void MapItem::setSize(const int w, const int h)
 void MapItem::updateBG()
 {
    // width / height ratios and pixels
-   double vpRatio = static_cast<double>(bRect.width()) / static_cast<double>(bRect.height());
+   const double vpRatio = static_cast<double>(bRect.width()) / static_cast<double>(bRect.height());
    pixNSRes = range / static_cast<double>(bRect.height());
    pixWERes = (range / static_cast<double>(bRect.width())) * vpRatio;
 
@@ -127,7 +128,7 @@ bool MapItem::setRefLat(const double lat)
    // nothing more than 70 degrees north or south will suffice
    if (lat <= 90 && lat >= -90) {
       refLat = lat;
-      cosineLatReference = std::cos(Eaagles::Basic::Angle::D2RCC * refLat);
+      cosineLatReference = std::cos(oe::basic::Angle::D2RCC * refLat);
       ok = true;
    }
    return ok;
@@ -188,8 +189,8 @@ void MapItem::drawGrid(QPainter* painter)
    }
 
    // get the nearest starting lat and lon lines to draw
-   int centerLat = Eaagles::nint(refLat);
-   int centerLon = Eaagles::nint(refLon);
+   int centerLat = oe::nint(refLat);
+   int centerLon = oe::nint(refLon);
 
    // calculate the number of latitude lines
    int numLinesLat = (range / 60.0) + 1;
@@ -283,7 +284,7 @@ void MapItem::drawGrid(QPainter* painter)
 // ---
 void MapItem::setHeading(const double x)
 {
-   double hdgRad = Eaagles::Basic::Angle::D2RCC * x;
+   double hdgRad = oe::basic::Angle::D2RCC * x;
    heading = x;
    headingSin = std::sin(hdgRad);
    headingCos = std::cos(hdgRad);
@@ -292,7 +293,7 @@ void MapItem::setHeading(const double x)
 // ---
 // pixelsToLL - converts pixels (x, y) to lat, lon coordinates
 // ---
-void MapItem::pixelsToLL(const double px, const double py, double &lon, double &lat) const
+void MapItem::pixelsToLL(const double px, const double py, double& lon, double& lat) const
 {
    // pixels to aircraft
    double acX = px * pixWERes;
@@ -317,7 +318,7 @@ void MapItem::pixelsToLL(const double px, const double py, double &lon, double &
 // ---
 // llToPixels() - converts lat/lon position to screen x, y
 // ---
-void MapItem::llToPixels(const double lat, const double lon, double &py, double &px) const
+void MapItem::llToPixels(const double lat, const double lon, double& py, double& px) const
 {
    // first go from lat lon to NE
    double north = 0, east = 0;

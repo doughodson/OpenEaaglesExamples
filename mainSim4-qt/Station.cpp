@@ -1,8 +1,9 @@
+
 #include "Station.h"
 #include "MainWindow.h"
 #include <QTimer>
 
-namespace Example {
+namespace example {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Station, "QtStation")
 EMPTY_SERIALIZER(Station)
