@@ -12,7 +12,7 @@
 #include "openeaagles/basic/Hsv.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 IMPLEMENT_SUBCLASS(DspRadar,"DspRadar")
 EMPTY_SLOTTABLE(DspRadar)

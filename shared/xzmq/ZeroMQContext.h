@@ -1,15 +1,15 @@
 //------------------------------------------------------------------------------
 // Class: ZeroMQContext
 //------------------------------------------------------------------------------
-#ifndef __oe_xZeroMQ_ZeroMQContext_H__
-#define __oe_xZeroMQ_ZeroMQContext_H__
+#ifndef __oe_xzmq_ZeroMQContext_H__
+#define __oe_xzmq_ZeroMQContext_H__
 
 #include "openeaagles/basic/Component.h"
 
 namespace oe {
    namespace basic { class Boolean; class Integer; }
 
-namespace xZeroMQHandlers {
+namespace xzmq {
 
 //------------------------------------------------------------------------------
 // Class: ZeroMQContext

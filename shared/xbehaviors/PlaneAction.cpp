@@ -8,7 +8,7 @@
 #include "openeaagles/simulation/StoresMgr.h"
 
 namespace oe {
-namespace xBehaviors {
+namespace xbehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneAction, "PlaneAction")
 EMPTY_SLOTTABLE(PlaneAction)

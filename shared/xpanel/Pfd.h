@@ -3,14 +3,14 @@
 //
 // Description: Tests the pfd.
 //------------------------------------------------------------------------------
-#ifndef __oe_XPanel_Pfd_H__
-#define __oe_XPanel_Pfd_H__
+#ifndef __oe_xpanel_Pfd_H__
+#define __oe_xpanel_Pfd_H__
 
 #include "openeaagles/graphics/Page.h"
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 class Pfd : public graphics::Page
 {

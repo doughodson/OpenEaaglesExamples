@@ -13,7 +13,7 @@
 #include <cstring>
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 basic::Object* factory(const char* name)
 {

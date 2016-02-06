@@ -10,7 +10,7 @@
 #include <cstring>
 
 namespace oe {
-namespace xBehaviors {
+namespace xbehaviors {
 
 basic::Object* factory(const char* name)
 {

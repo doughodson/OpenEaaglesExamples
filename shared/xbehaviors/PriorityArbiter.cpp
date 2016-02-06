@@ -8,7 +8,7 @@
 #include "PlaneAction.h"
 
 namespace oe {
-namespace xBehaviors {
+namespace xbehaviors {
 
 IMPLEMENT_SUBCLASS(PriorityArbiter, "PriorityArbiter")
 EMPTY_SLOTTABLE(PriorityArbiter)

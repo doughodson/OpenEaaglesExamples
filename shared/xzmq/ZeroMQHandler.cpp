@@ -12,7 +12,7 @@
 #include <zmq.h>
 
 namespace oe {
-namespace xZeroMQHandlers {
+namespace xzmq {
 
 //==============================================================================
 // Class: ZeroMQHandler

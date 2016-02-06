@@ -17,7 +17,7 @@
 #include "openeaagles/simulation/Simulation.h"
 
 namespace oe {
-namespace xBehaviors {
+namespace xbehaviors {
 
 IMPLEMENT_SUBCLASS(PlaneState, "PlaneState")
 EMPTY_SLOTTABLE(PlaneState)

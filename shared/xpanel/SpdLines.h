@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 // Class: SpdLines
 //------------------------------------------------------------------------------
-#ifndef __oe_XPanel_SpdLines_H__
-#define __oe_XPanel_SpdLines_H__
+#ifndef __oe_xpanel_SpdLines_H__
+#define __oe_xpanel_SpdLines_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 //------------------------------------------------------------------------------
 // Class: SpdLines

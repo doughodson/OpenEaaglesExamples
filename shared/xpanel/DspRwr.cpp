@@ -7,7 +7,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 IMPLEMENT_SUBCLASS(DspRwr,"DspRwr")
 EMPTY_SLOTTABLE(DspRwr)

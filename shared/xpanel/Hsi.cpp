@@ -4,7 +4,7 @@
 #include "Hsi.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
 EMPTY_SERIALIZER(Hsi)

@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: ZeroMQHandler
 //------------------------------------------------------------------------------
-#ifndef __oe_xZeroMQ_ZeroMQHandler_H__
-#define __oe_xZeroMQ_ZeroMQHandler_H__
+#ifndef __oe_xzmq_ZeroMQHandler_H__
+#define __oe_xzmq_ZeroMQHandler_H__
 
 #include "openeaagles/basic/NetHandler.h"
 
@@ -12,7 +12,7 @@
 namespace oe {
    namespace basic { class Boolean; class Integer; class String; };
 
-namespace xZeroMQHandlers {
+namespace xzmq {
    class ZeroMQContext;
 
    // Mapping types used to convert the enums and 0MQ constants to strings

@@ -6,7 +6,7 @@ namespace oe {
 
 namespace basic { class Object; }
 
-namespace xBehaviors {
+namespace xbehaviors {
 
 basic::Object* factory(const char* name);
 

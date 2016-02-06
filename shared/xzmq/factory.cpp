@@ -9,7 +9,7 @@
 #include <cstring>
 
 namespace oe {
-namespace xZeroMQHandlers {
+namespace xzmq {
 
 basic::Object* factory(const char* name)
 {

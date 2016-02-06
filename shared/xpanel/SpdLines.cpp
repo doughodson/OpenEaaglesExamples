@@ -5,7 +5,7 @@
 #include "openeaagles/basic/Number.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)

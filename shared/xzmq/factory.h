@@ -6,7 +6,7 @@ namespace oe {
 
 namespace basic { class Object; }
 
-namespace xZeroMQHandlers {
+namespace xzmq {
 
 basic::Object* factory(const char* name);
 

@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: PlaneState
 //------------------------------------------------------------------------------
-#ifndef __oe_xBehaviors_PlaneState_H__
-#define __oe_xBehaviors_PlaneState_H__
+#ifndef __oe_xbehaviors_PlaneState_H__
+#define __oe_xbehaviors_PlaneState_H__
 
 #include "openeaagles/basic/ubf/State.h"
 
@@ -10,7 +10,7 @@ namespace oe {
 
 namespace simulation { class Player; }
 
-namespace xBehaviors {
+namespace xbehaviors {
 
 //------------------------------------------------------------------------------
 // Class: PlaneState

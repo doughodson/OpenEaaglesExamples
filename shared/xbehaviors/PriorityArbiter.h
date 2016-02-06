@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: PriorityArbiter
 //------------------------------------------------------------------------------
-#ifndef __oe_xBehaviors_PriorityArbiter_H__
-#define __oe_xBehaviors_PriorityArbiter_H__
+#ifndef __oe_xbehaviors_PriorityArbiter_H__
+#define __oe_xbehaviors_PriorityArbiter_H__
 
 #include "openeaagles/basic/ubf/Arbiter.h"
 
@@ -10,7 +10,7 @@ namespace oe {
 
 namespace basic { class List; class Action; }
 
-namespace xBehaviors {
+namespace xbehaviors {
 
 //------------------------------------------------------------------------------
 // Class: PriorityArbiter

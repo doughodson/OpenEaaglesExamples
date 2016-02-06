@@ -12,8 +12,8 @@
 //          PlaneBehaviorBase -> PlaneBarrelRoll
 //          PlaneBehaviorBase -> PlaneLoop
 //------------------------------------------------------------------------------
-#ifndef __oe_xBehaviors_PlaneBehaviors_H__
-#define __oe_xBehaviors_PlaneBehaviors_H__
+#ifndef __oe_xbehaviors_PlaneBehaviors_H__
+#define __oe_xbehaviors_PlaneBehaviors_H__
 
 #include "openeaagles/basic/ubf/Behavior.h"
 
@@ -21,7 +21,7 @@ namespace oe {
 
 namespace basic { class Distance; class State; }
 
-namespace xBehaviors {
+namespace xbehaviors {
 
 //------------------------------------------------------------------------------
 // test code for a base class for PlaneBehaviors, implements some common slots

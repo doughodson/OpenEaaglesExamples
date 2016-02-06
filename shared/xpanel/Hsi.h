@@ -11,13 +11,13 @@
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
-#ifndef __oe_XPanel_Hsi_H__
-#define __oe_XPanel_Hsi_H__
+#ifndef __oe_xpanel_Hsi_H__
+#define __oe_xpanel_Hsi_H__
 
 #include "openeaagles/graphics/Rotators.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 class Hsi : public graphics::Rotators
 {

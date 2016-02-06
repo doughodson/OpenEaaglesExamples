@@ -1,14 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
 //------------------------------------------------------------------------------
-#ifndef __oe_XPanel_TdAzPtr_H__
-#define __oe_XPanel_TdAzPtr_H__
+#ifndef __oe_xpanel_TdAzPtr_H__
+#define __oe_xpanel_TdAzPtr_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
    namespace basic { class Number; }
-namespace xPanel {
+namespace xpanel {
 
 //------------------------------------------------------------------------------
 // Class: TdAzPtr

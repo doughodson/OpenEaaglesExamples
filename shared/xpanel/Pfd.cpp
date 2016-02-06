@@ -11,7 +11,7 @@
 #endif
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)

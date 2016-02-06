@@ -1,14 +1,14 @@
 //------------------------------------------------------------------------------
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
-#ifndef __oe_XPanel_TdElevPtr_H__
-#define __oe_XPanel_TdElevPtr_H__
+#ifndef __oe_xpanel_TdElevPtr_H__
+#define __oe_xpanel_TdElevPtr_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
    namespace basic { class Number; }
-namespace xPanel {
+namespace xpanel {
 
 //------------------------------------------------------------------------------
 // Class: TdElevPtr

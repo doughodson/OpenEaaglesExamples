@@ -20,7 +20,7 @@
 #include "openeaagles/basic/ubf/State.h"
 
 namespace oe {
-namespace xBehaviors {
+namespace xbehaviors {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(PlaneBehaviorBase, "PlaneBehaviorBase")
 EMPTY_COPYDATA(PlaneBehaviorBase)

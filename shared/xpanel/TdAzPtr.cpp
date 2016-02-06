@@ -6,7 +6,7 @@
 #include "openeaagles/basic/units/Angles.h"
 
 namespace oe {
-namespace xPanel {
+namespace xpanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
 EMPTY_SERIALIZER(TdAzPtr)

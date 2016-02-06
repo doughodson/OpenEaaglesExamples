@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
 // Class: DspRadar
 //------------------------------------------------------------------------------
-#ifndef __oe_XPanel_DspRadar_H__
-#define __oe_XPanel_DspRadar_H__
+#ifndef __oe_xpanel_DspRadar_H__
+#define __oe_xpanel_DspRadar_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
@@ -10,7 +10,7 @@ namespace oe {
    namespace basic      { class PairStream; }
    namespace simulation { class Radar; }
 
-namespace xPanel {
+namespace xpanel {
 
 //------------------------------------------------------------------------------
 // Class: DspRadar
