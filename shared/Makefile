@@ -2,15 +2,15 @@
 # -----------------------------------------------------------------
 # Library           : Description
 # -----------------------------------------------------------------
-# xBehaviors        : eXample UBF behaviors
-# xRecorder         : eXample data recorder extension
-# xPanel            : eXample instrument panel
-# xZeroMQHandlers   : eXample ZeroMQ-based network handlers
+# xbehaviors        : eXample UBF behaviors
+# xrecorder         : eXample data recorder extension
+# xpanel            : eXample instrument panel
+# xzmq              : eXample ZeroMQ-based network handlers
 #
-LIBRARIES  = xBehaviors
-LIBRARIES += xRecorder
-LIBRARIES += xPanel
-LIBRARIES += xZeroMQHandlers
+LIBRARIES  = xbehaviors
+LIBRARIES += xrecorder
+LIBRARIES += xpanel
+LIBRARIES += xzmq
 
 #
 # Rules

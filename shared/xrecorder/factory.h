@@ -6,7 +6,7 @@ namespace oe {
 
 namespace basic { class Object; }
 
-namespace xRecorder {
+namespace xrecorder {
 
 basic::Object* factory(const char* name);
 

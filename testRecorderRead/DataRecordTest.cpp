@@ -7,7 +7,7 @@
 #include "openeaagles/recorder/OutputHandler.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 
-#include "xRecorder/protobuf/DataRecord.pb.h"
+#include "xrecorder/protobuf/DataRecord.pb.h"
 
 namespace oe {
 namespace test {

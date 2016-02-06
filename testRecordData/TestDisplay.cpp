@@ -4,12 +4,12 @@
 #include "TestDisplay.h"
 #include "SimStation.h"
 
-#include "xPanel/DspRadar.h"
-#include "xPanel/DspRwr.h"
-#include "xPanel/Pfd.h"
+#include "xpanel/DspRadar.h"
+#include "xpanel/DspRwr.h"
+#include "xpanel/Pfd.h"
 
-#include "xRecorder/DataRecorder.h"
-#include "xRecorder/dataRecorderTokens.h"
+#include "xrecorder/DataRecorder.h"
+#include "xrecorder/dataRecorderTokens.h"
 
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Missile.h"

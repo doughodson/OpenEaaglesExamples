@@ -6,7 +6,7 @@
 #include "dataRecorderTokens.h"
 
 namespace oe {
-namespace xRecorder {
+namespace xrecorder {
 
 IMPLEMENT_SUBCLASS(DataRecorder,"XDataRecorder")
 EMPTY_SERIALIZER(DataRecorder)
@@ -99,6 +99,6 @@ bool DataRecorder::recordMarker(const basic::Object* objs[4], const double value
    return true;
 }
 
-} // End xDataRecorder namespace
-} // End oe namespace
+}
+}
 

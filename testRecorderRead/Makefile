@@ -4,7 +4,7 @@ PGM = testRecorderRead
 
 OBJS = main.o DataRecordTest.o factory.o PrintMyData.o
 
-LDFLAGS += -lxRecorder
+LDFLAGS += -lxrecorder
 LDFLAGS += -loerecorder -loesimulation
 LDFLAGS += -loedafif -loebasic
 LDFLAGS += -lprotobuf

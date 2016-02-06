@@ -8,8 +8,8 @@
 #include "SimStation.h"
 
 // factories
-#include "xBehaviors/factory.h"
-#include "xPanel/factory.h"
+#include "xbehaviors/factory.h"
+#include "xpanel/factory.h"
 
 #include "openeaagles/basic/factory.h"
 #include "openeaagles/graphics/factory.h"

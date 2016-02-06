@@ -4,7 +4,7 @@ PGM = mainSim1
 
 OBJS = main.o 
 
-LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
+LDFLAGS += -L../lib/linux -lxzmq -lzmq
 LDFLAGS += -loedis -loemodels -loesimulation
 LDFLAGS += -loeotw -loedafif -loebasic
 LDFLAGS += -lcigicl -lJSBSim 

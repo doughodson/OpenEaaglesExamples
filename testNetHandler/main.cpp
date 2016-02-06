@@ -11,7 +11,7 @@
 
 // factories
 #include "openeaagles/basic/factory.h"
-#include "../shared/xZeroMQHandlers/factory.h"
+#include "../shared/xzmq/factory.h"
 
 #include <cstring>
 #include <cstdlib>

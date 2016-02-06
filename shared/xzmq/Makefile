@@ -1,7 +1,7 @@
 #
 include ../../makedefs
 
-LIB = $(OE_EXAMPLES_LIB_DIR)/libxZeroMQHandlers.a
+LIB = $(OE_EXAMPLES_LIB_DIR)/libxzmq.a
 
 OBJS += \
 	$(LIB)(factory.o) \

@@ -9,7 +9,7 @@
 #include "MapPage.h"
 
 // factories
-#include "../shared/xZeroMQHandlers/factory.h"
+#include "../shared/xzmq/factory.h"
 #include "openeaagles/simulation/factory.h"
 #include "openeaagles/models/factory.h"
 #include "openeaagles/dis/factory.h"

@@ -3,8 +3,8 @@
 //------------------------------------------------------------------------------
 #include "PrintMyData.h"
 
-#include "xRecorder/protobuf/DataRecord.pb.h"
-#include "xRecorder/dataRecorderTokens.h"
+#include "xrecorder/protobuf/DataRecord.pb.h"
+#include "xrecorder/dataRecorderTokens.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 
 namespace oe {
@@ -57,7 +57,7 @@ void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const h
             if (msg->has_id()) sout << "id= " << msg->id() << ";  ";
             if (msg->has_source_id()) sout << "source_id= " << msg->source_id() << ";  ";
 
-            if (msg->HasExtension( oe::xRecorder::pb::foo )) sout << "foo= " << msg->GetExtension( oe::xRecorder::pb::foo ) << ";  ";
+            if (msg->HasExtension( oe::xrecorder::pb::foo )) sout << "foo= " << msg->GetExtension( oe::xrecorder::pb::foo ) << ";  ";
 
             printToOutput( sout.str().c_str() );
          }
@@ -66,7 +66,7 @@ void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const h
 
       // MyData message event
       case REID_MY_DATA_EVENT : {
-         if (dataRecord->HasExtension( oe::xRecorder::pb::my_data_msg )) {
+         if (dataRecord->HasExtension( oe::xrecorder::pb::my_data_msg )) {
             std::stringstream sout;
 
             sout << "MY_DATA " << "   ";
@@ -76,7 +76,7 @@ void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const h
                }
             }
 
-            const oe::xRecorder::pb::MyDataMsg* msg = &dataRecord->GetExtension( oe::xRecorder::pb::my_data_msg );
+            const oe::xrecorder::pb::MyDataMsg* msg = &dataRecord->GetExtension( oe::xrecorder::pb::my_data_msg );
 
             if (msg->has_fee()) sout << "fee= " << msg->fee() << ";  ";
             if (msg->has_fi()) sout << "fi= " << msg->fi() << ";  ";

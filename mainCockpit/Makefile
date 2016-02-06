@@ -7,8 +7,8 @@ OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
 OBJS += factory.o main.o
 
-LDFLAGS += -L../lib/linux -lxZeroMQHandlers -lzmq
-LDFLAGS += -lxPanel
+LDFLAGS += -L../lib/linux -lxzmq -lzmq
+LDFLAGS += -lxpanel
 LDFLAGS += -loerecorder -loemodels
 LDFLAGS += -loesimulation -loeinstruments -loedis
 LDFLAGS += -loeiodevice -loeotw -loedafif

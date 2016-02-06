@@ -18,7 +18,7 @@
 
 import "openeaagles/recorder/protobuf/DataRecord.proto";
 
-package oe.xRecorder.pb;
+package oe.xrecorder.pb;
 
 // =============================================================================
 // Extend the common data record

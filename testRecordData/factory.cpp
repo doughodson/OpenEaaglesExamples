@@ -7,8 +7,8 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-#include "xRecorder/factory.h"
-#include "xPanel/factory.h"
+#include "xrecorder/factory.h"
+#include "xpanel/factory.h"
 
 #include "openeaagles/basic/factory.h"
 #include "openeaagles/graphics/factory.h"
@@ -41,7 +41,7 @@ basic::Object* factory(const char* name)
     }
 
     // Example libraries
-    if (obj == nullptr) obj = xRecorder::factory(name);
+    if (obj == nullptr) obj = xrecorder::factory(name);
     if (obj == nullptr) obj = xPanel::factory(name);
 
     // OpenEaagles packages

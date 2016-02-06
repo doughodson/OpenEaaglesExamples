@@ -7,10 +7,10 @@
 #include "TestIoHandler.h"
 #include "SimStation.h"
 
-#include "xPanel/factory.h"
+#include "xpanel/factory.h"
 
 // factories
-#include "../shared/xZeroMQHandlers/factory.h"
+#include "../shared/xzmq/factory.h"
 #include "openeaagles/basic/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"

@@ -1,7 +1,7 @@
 #
 include ../../makedefs
 
-LIB = $(OE_EXAMPLES_LIB_DIR)/libxBehaviors.a
+LIB = $(OE_EXAMPLES_LIB_DIR)/libxbehaviors.a
 
 OBJS += \
 	$(LIB)(factory.o) \

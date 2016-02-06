@@ -6,7 +6,7 @@
 #include "DataRecorder.h"
 
 namespace oe {
-namespace xRecorder {
+namespace xrecorder {
 
 basic::Object* factory(const char* name)
 {
