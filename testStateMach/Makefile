@@ -11,7 +11,7 @@ OBJS = \
 	TestStateMachine04B.o \
 	TestStateMachine04C.o \
 	TestStateMachine04.o \
-	Factory.o \
+	factory.o \
 	main.o
 
 LDFLAGS += -loebasic -lpthread -lrt
