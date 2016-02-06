@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainIr
 
-OBJS =	Factory.o TestComputer.o TestDisplay.o TestStation.o main.o
+OBJS =	factory.o TestComputer.o TestDisplay.o TestStation.o main.o
 
 LDFLAGS += -loedis -loemodels -loesimulation -loeinstruments -lJSBSim
 LDFLAGS += -loeiodevice -loeotw -loedafif 

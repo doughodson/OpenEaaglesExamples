@@ -2,7 +2,7 @@
 include ../makedefs
 
 PGM = mainPuzzle1
-OBJS =  Blocks.o Board.o Factory.o main.o Puzzle.o State.o
+OBJS =  Blocks.o Board.o factory.o main.o Puzzle.o State.o
 
 LDFLAGS += -loeglut -loegraphics -loebasic
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread

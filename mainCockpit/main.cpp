@@ -1,5 +1,5 @@
 
-#include "Factory.h"
+#include "factory.h"
 
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/graphics/Graphic.h"
@@ -25,7 +25,7 @@ static simulation::Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, Factory::createObj, &errors);
+   basic::Object* obj = basic::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
