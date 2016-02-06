@@ -22,8 +22,6 @@
 
 #include <GL/glut.h>
 
-//#include "openeaagles/basic/osg/Matrixd"
-
 #include "MfdPage.h"
 #include "TestOne.h"
 #include "TestTwo.h"
