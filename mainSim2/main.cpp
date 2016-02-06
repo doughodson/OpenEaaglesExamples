@@ -32,7 +32,7 @@ static basic::Object* factory(const char* name)
    basic::Object* obj = nullptr;
 
    // example libraries
-   if (obj == nullptr) obj = xZeroMQHandlers::factory(name);
+   if (obj == nullptr) obj = xzmq::factory(name);
 
    // framework libraries
    if (obj == nullptr) obj = simulation::factory(name);

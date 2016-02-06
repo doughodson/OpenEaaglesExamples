@@ -7,7 +7,7 @@
 namespace oe {
    namespace simulation { class Missile; class Player; class Simulation; class Station; }
    namespace graphics { class SymbolLoader; }
-   namespace xPanel { class DspRadar; class DspRwr; }
+   namespace xpanel { class DspRadar; class DspRwr; }
 
 namespace example {
 
@@ -71,8 +71,8 @@ private:
 
     void updatePfd(const LCreal dt);
 
-    xPanel::DspRadar*   rdrDisplay;     // Test RADAR display
-    xPanel::DspRwr*     rwrDisplay;     // Test RWR display
+    xpanel::DspRadar*   rdrDisplay;     // Test RADAR display
+    xpanel::DspRwr*     rwrDisplay;     // Test RWR display
     LCreal          range;          // SD range
 
     SendData headingSD;

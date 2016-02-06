@@ -349,8 +349,8 @@ void TestDisplay::updateData(const LCreal dt)
    // Find and update the test RADAR display
    {
       rdrDisplay = nullptr;
-      basic::Pair* p = findByType(typeid(xPanel::DspRadar));
-      if (p != nullptr) rdrDisplay = dynamic_cast<xPanel::DspRadar*>( p->object() );
+      basic::Pair* p = findByType(typeid(xpanel::DspRadar));
+      if (p != nullptr) rdrDisplay = dynamic_cast<xpanel::DspRadar*>( p->object() );
    }
    if (rdrDisplay != nullptr && getOwnship() != nullptr) {
       // Default is TWS - no, simulation::Radar
@@ -373,8 +373,8 @@ void TestDisplay::updateData(const LCreal dt)
    // Find and update the test RWR display
    {
       rwrDisplay = nullptr;
-      basic::Pair* p = findByType(typeid(xPanel::DspRwr));
-      if (p != nullptr) rwrDisplay = dynamic_cast<xPanel::DspRwr*>( p->object() );
+      basic::Pair* p = findByType(typeid(xpanel::DspRwr));
+      if (p != nullptr) rwrDisplay = dynamic_cast<xpanel::DspRwr*>( p->object() );
    }
    if (rwrDisplay != nullptr && getOwnship() != nullptr) {
       simulation::Rwr* rwr = nullptr;
@@ -678,9 +678,9 @@ void TestDisplay::updatePfd(const LCreal)
     // barometric pressure (selected)
     baro = 29.92;    
         
-    basic::Pair* pair = findByType(typeid(xPanel::Pfd));
+    basic::Pair* pair = findByType(typeid(xpanel::Pfd));
     if (pair != nullptr) {
-        xPanel::Pfd* p = static_cast<xPanel::Pfd*>(pair->object());
+        xpanel::Pfd* p = static_cast<xpanel::Pfd*>(pair->object());
         if (p != nullptr) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);

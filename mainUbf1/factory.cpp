@@ -41,8 +41,8 @@ basic::Object* factory(const char* name)
     }
 
     // Example library packages
-    if (obj == nullptr) obj = xBehaviors::factory(name);
-    if (obj == nullptr) obj = xPanel::factory(name);
+    if (obj == nullptr) obj = xbehaviors::factory(name);
+    if (obj == nullptr) obj = xpanel::factory(name);
 
     // Openoe packages
     if (obj == nullptr) obj = simulation::factory(name);

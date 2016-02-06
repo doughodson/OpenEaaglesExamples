@@ -42,7 +42,7 @@ basic::Object* factory(const char* name)
 
     // Example libraries
     if (obj == nullptr) obj = xrecorder::factory(name);
-    if (obj == nullptr) obj = xPanel::factory(name);
+    if (obj == nullptr) obj = xpanel::factory(name);
 
     // OpenEaagles packages
     if (obj == nullptr) obj = simulation::factory(name);

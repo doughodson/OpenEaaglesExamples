@@ -47,7 +47,7 @@ basic::Object* factory(const char* name)
         obj = new InstrumentPanel();
     }
 
-   if (obj == nullptr) obj = xZeroMQHandlers::factory(name);
+   if (obj == nullptr) obj = xzmq::factory(name);
 
    if (obj == nullptr) obj = otw::factory(name);
    if (obj == nullptr) obj = models::factory(name);
