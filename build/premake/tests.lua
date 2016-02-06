@@ -149,7 +149,7 @@ project "testNetHandler"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oebasic", "libzmq" }
@@ -202,7 +202,7 @@ project "testRecordData"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxRecorder", "libxPanel" }
+   links       { "libxrecorder", "libxpanel" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oemodels", "JSBSim" }
@@ -236,7 +236,7 @@ project "testRecorderRead"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxRecorder" }
+   links       { "libxrecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oerecorder", "oesimulation", "oedafif", "oebasic", "libprotobuf"}
@@ -258,7 +258,7 @@ project "testRecorderWrite"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links       { "libxRecorder" }
+   links       { "libxrecorder" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oerecorder", "oesimulation", "oedafif", "oebasic", "libprotobuf"}

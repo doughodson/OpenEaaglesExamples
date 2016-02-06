@@ -3,19 +3,19 @@
 --------------------------------------------------------------------------------
 
     --  eXample UBF behaviors library
-    project "libxBehaviors"
+    project "libxbehaviors"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../shared/xBehaviors/*.cpp",
-         "../../shared/xBehaviors/*.h",
+         "../../shared/xbehaviors/*.cpp",
+         "../../shared/xbehaviors/*.h",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "xBehaviors"
+         targetname "xbehaviors"
       configuration "Debug"
-         targetname "xBehaviors_d"
+         targetname "xbehaviors_d"
 
 --[[
     --  eXample IEEE HLA interoperability library
@@ -37,53 +37,53 @@
 --]]
 
     --  eXample library that extends the data recorder
-    project "libxRecorder"
+    project "libxrecorder"
       kind "StaticLib"
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       targetdir (OEExamplesLibPath)
       files {
-         "../../shared/xRecorder/**.cpp",
-         "../../shared/xRecorder/**.cc",
-         "../../shared/xRecorder/**.h",
-         "../../shared/xRecorder/**.proto",
+         "../../shared/xrecorder/**.cpp",
+         "../../shared/xrecorder/**.cc",
+         "../../shared/xrecorder/**.h",
+         "../../shared/xrecorder/**.proto",
       }
       defines { "_LIB" }
       defines { "_SCL_SECURE_NO_WARNINGS" } -- suppress protocol buffer warning
       configuration "Release"
-         targetname "xRecorder"
+         targetname "xrecorder"
       configuration "Debug"
-         targetname "xRecorder_d"
+         targetname "xrecorder_d"
 
     --  eXample Panel library -- common instrument panel code for several examples
-    project "libxPanel"
+    project "libxpanel"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
-         "../../shared/xPanel/*.cpp",
-         "../../shared/xPanel/*.h",
-         "../../shared/xPanel/**.epp",
+         "../../shared/xpanel/*.cpp",
+         "../../shared/xpanel/*.h",
+         "../../shared/xpanel/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "xPanel"
+         targetname "xpanel"
       configuration "Debug"
-         targetname "xPanel_d"
+         targetname "xpanel_d"
 
     --  eXample ZeroMQ network handlers
-    project "libxZeroMQHandlers"
+    project "libxzmq"
       kind "StaticLib"
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       defines { "ZMQ_STATIC" }
       files {
-         "../../shared/xZeroMQHandlers/*.cpp",
-         "../../shared/xZeroMQHandlers/*.h",
-         "../../shared/xZeroMQHandlers/**.epp",
+         "../../shared/xzmq/*.cpp",
+         "../../shared/xzmq/*.h",
+         "../../shared/xzmq/**.epp",
       }
       defines { "_LIB" }
       configuration "Release"
-         targetname "xZeroMQHandlers"
+         targetname "xzmq"
       configuration "Debug"
-         targetname "xZeroMQHandlers_d"
+         targetname "xzmq_d"
 

@@ -18,7 +18,7 @@ project "mainCockpit"
    links       { "libxPanel" }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim", "libzmq" }
@@ -133,7 +133,7 @@ project "mainLaero"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links {"oemodels", "JSBSim", "libzmq" }
@@ -242,7 +242,7 @@ project "mainSim1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim", "libzmq" }
@@ -276,7 +276,7 @@ project "mainSim2"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim", "libzmq" }
@@ -310,7 +310,7 @@ project "mainSim3"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim", "libzmq" }
@@ -344,7 +344,7 @@ project "mainSim4"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
-   links { "libxZeroMQHandlers" }
+   links { "libxzmq" }
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim", "libzmq" }
@@ -401,7 +401,7 @@ project "mainUbf1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath, OEExamplesLibPath }
-   links { "libxBehaviors",  "libxPanel" }
+   links { "libxbehaviors",  "libxpanel" }
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim" }
