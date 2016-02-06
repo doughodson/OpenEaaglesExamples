@@ -4,7 +4,7 @@ include ../makedefs
 PGM = testRadar
 
 OBJS =	DspRadar.o DspRwr.o TdAzPtr.o TdElevPtr.o \
-	TestDisplay.o TestStation.o Factory.o main.o
+	TestDisplay.o TestStation.o factory.o main.o
 
 LDFLAGS += -loedis -loemodels -loesimulation -loeinstruments
 LDFLAGS += -loeiodevice -loedafif -loeglut -loegraphics -loebasic -lJSBSim

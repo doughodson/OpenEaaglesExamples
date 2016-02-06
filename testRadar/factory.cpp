@@ -1,7 +1,5 @@
-//------------------------------------------------------------------------------
-// Class: Factory
-//------------------------------------------------------------------------------
-#include "Factory.h"
+
+#include "factory.h"
 
 #include "openeaagles/basic/Object.h"
 
@@ -25,10 +23,7 @@
 namespace oe {
 namespace test {
 
-Factory::Factory()
-{}
-
-basic::Object* Factory::createObj(const char* name)
+basic::Object* factory(const char* name)
 {
     basic::Object* obj = nullptr;
 
@@ -62,5 +57,5 @@ basic::Object* Factory::createObj(const char* name)
     return obj;
 }
 
-}  // end namespace test
-}  // end namespace oe
+}
+}

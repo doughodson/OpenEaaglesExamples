@@ -2,7 +2,7 @@ include ../makedefs
 
 PGM = testRecorderRead
 
-OBJS = main.o DataRecordTest.o Factory.o PrintMyData.o
+OBJS = main.o DataRecordTest.o factory.o PrintMyData.o
 
 LDFLAGS += -lxRecorder
 LDFLAGS += -loerecorder -loesimulation

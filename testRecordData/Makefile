@@ -5,7 +5,7 @@ PGM = testRecordData
 
 OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
-OBJS += Factory.o main.o
+OBJS += factory.o main.o
 
 LDFLAGS += -lxRecorder -lxPanel
 LDFLAGS += -loerecorder -loemodels
