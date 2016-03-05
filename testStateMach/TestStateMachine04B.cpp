@@ -2,8 +2,8 @@
 #include "TestStateMachine04B.h"
 #include "TestStateMachine04.h"
 
-#include "openeaagles/basic/Integer.h"
-#include "openeaagles/basic/Boolean.h"
+#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/Boolean.h"
 
 namespace oe {
 namespace test {

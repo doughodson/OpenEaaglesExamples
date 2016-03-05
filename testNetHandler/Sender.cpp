@@ -4,8 +4,8 @@
 
 #include "Sender.h"
 
-#include "openeaagles/basic/NetHandler.h"
-#include "openeaagles/basic/Number.h"
+#include "openeaagles/base/NetHandler.h"
+#include "openeaagles/base/Number.h"
 
 #include <cstdio>
 #include <cstdlib>

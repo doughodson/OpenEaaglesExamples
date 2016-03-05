@@ -7,16 +7,16 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/basic/Identifier.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/NetHandler.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/functors/Tables.h"
-#include "openeaagles/basic/Timers.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Times.h"
-#include "openeaagles/basic/osg/Vec4"
+#include "openeaagles/base/Identifier.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/NetHandler.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/functors/Tables.h"
+#include "openeaagles/base/Timers.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Times.h"
+#include "openeaagles/base/osg/Vec4"
 
 namespace oe {
 namespace example {
@@ -57,7 +57,7 @@ void SimStation::reset()
 
     if (!displayInit && mainDisplay != nullptr) {
         mainDisplay->createWindow();
-        basic::Pair* p = mainDisplay->findByType(typeid(graphics::Page));
+        base::Pair* p = mainDisplay->findByType(typeid(graphics::Page));
         if (p != nullptr) mainDisplay->focus(static_cast<graphics::Graphic*>(p->object()));
         else mainDisplay->focus(nullptr);
         displayInit = true;
@@ -77,7 +77,7 @@ void SimStation::updateTC(const LCreal dt)
     // First update the simulation
     BaseClass::updateTC(dt);
 
-    basic::Timer::updateTimers(dt);
+    base::Timer::updateTimers(dt);
     graphics::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
@@ -89,7 +89,7 @@ void SimStation::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 void SimStation::stepOwnshipPlayer()
 {
-   basic::PairStream* pl = getSimulation()->getPlayers();
+   base::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
       simulation::Player* f = nullptr;
@@ -97,9 +97,9 @@ void SimStation::stepOwnshipPlayer()
       bool found = false;
 
       // Find the next player
-      basic::List::Item* item = pl->getFirstItem();
+      base::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
             simulation::Player* ip = static_cast<simulation::Player*>(pair->object());
             if ( ip->isMode(simulation::Player::ACTIVE) &&
@@ -137,7 +137,7 @@ bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for graphics::Page
 //------------------------------------------------------------------------------
-basic::Object* SimStation::getSlotByIndex(const int si)
+base::Object* SimStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

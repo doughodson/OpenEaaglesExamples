@@ -7,7 +7,7 @@
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
-   namespace basic      { class PairStream; }
+   namespace base      { class PairStream; }
    namespace simulation { class Radar; }
 
 namespace test {

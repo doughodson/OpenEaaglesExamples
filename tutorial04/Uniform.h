@@ -10,7 +10,7 @@
 
 namespace oe {
 
-namespace basic   { class Number; }
+namespace base   { class Number; }
 
 namespace Tutorial {
 
@@ -26,8 +26,8 @@ public:
    void setMin(const int);
 
    // slot table functions
-   bool setSlotMax(const basic::Number* const);
-   bool setSlotMin(const basic::Number* const);
+   bool setSlotMax(const base::Number* const);
+   bool setSlotMin(const base::Number* const);
 
    int getNum(void) const override;
 

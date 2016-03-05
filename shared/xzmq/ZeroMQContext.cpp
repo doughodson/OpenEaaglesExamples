@@ -3,8 +3,8 @@
 //------------------------------------------------------------------------------
 #include "ZeroMQContext.h"
 
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/Integer.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Integer.h"
 
 #include <zmq.h>
 
@@ -25,9 +25,9 @@ END_SLOTTABLE(ZeroMQContext)
 
 // Map slot table to handles
 BEGIN_SLOT_MAP(ZeroMQContext)
-   ON_SLOT(1, setSlotThreadCount, basic::Integer)
-   ON_SLOT(2, setSlotMaxSockets,  basic::Integer)
-   ON_SLOT(3, setSlotEnableIPV6,  basic::Boolean)
+   ON_SLOT(1, setSlotThreadCount, base::Integer)
+   ON_SLOT(2, setSlotMaxSockets,  base::Integer)
+   ON_SLOT(3, setSlotEnableIPV6,  base::Boolean)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -146,7 +146,7 @@ bool ZeroMQContext::setEnableIPV6(bool enable)
 //------------------------------------------------------------------------------
 
 // threadCount: Integer containing the I/O thread count
-bool ZeroMQContext::setSlotThreadCount(const basic::Integer* const msg)
+bool ZeroMQContext::setSlotThreadCount(const base::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) ok = setThreadCount(*msg);
@@ -154,7 +154,7 @@ bool ZeroMQContext::setSlotThreadCount(const basic::Integer* const msg)
 }
 
 // maxSockets: Integer containing the max socket count
-bool ZeroMQContext::setSlotMaxSockets(const basic::Integer* const msg)
+bool ZeroMQContext::setSlotMaxSockets(const base::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) ok = setMaxSockets(*msg);
@@ -162,7 +162,7 @@ bool ZeroMQContext::setSlotMaxSockets(const basic::Integer* const msg)
 }
 
 // enableIPV6: Boolean containing IPV6 valid
-bool ZeroMQContext::setSlotEnableIPV6(const basic::Boolean* const msg)
+bool ZeroMQContext::setSlotEnableIPV6(const base::Boolean* const msg)
 {
    bool ok = false;
    if (msg != nullptr) ok = setEnableIPV6(*msg);
@@ -172,7 +172,7 @@ bool ZeroMQContext::setSlotEnableIPV6(const basic::Boolean* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* ZeroMQContext::getSlotByIndex(const int si)
+base::Object* ZeroMQContext::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

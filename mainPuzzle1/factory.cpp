@@ -1,14 +1,14 @@
 
 #include "factory.h"
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 #include "Blocks.h"
 #include "Board.h"
 #include "Puzzle.h"
 #include "State.h"
 
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
 
@@ -17,9 +17,9 @@
 namespace oe {
 namespace example {
 
-basic::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
-    basic::Object* obj = nullptr;
+    base::Object* obj = nullptr;
 
     // Main board
     if ( std::strcmp(name, Board::getFactoryName()) == 0 ) {
@@ -53,7 +53,7 @@ basic::Object* factory(const char* name)
     else {
        if (obj == nullptr) obj = graphics::factory(name);
        if (obj == nullptr) obj = glut::factory(name);
-       if (obj == nullptr) obj = basic::factory(name);
+       if (obj == nullptr) obj = base::factory(name);
     }
 
     return obj;

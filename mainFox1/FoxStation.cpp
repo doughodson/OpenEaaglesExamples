@@ -2,7 +2,7 @@
 #include "FoxStation.h"
 #include "FoxDisplay.h"
 
-#include "openeaagles/basic/Timers.h"
+#include "openeaagles/base/Timers.h"
 
 namespace oe {
 namespace example {
@@ -50,7 +50,7 @@ void FoxStation::updateTC(const LCreal dt)
    // First update the simulation
    BaseClass::updateTC(dt);
 
-   basic::Timer::updateTimers(dt);
+   base::Timer::updateTimers(dt);
    graphics::Graphic::flashTimer(dt);
 
    // Update any TC stuff in our main display
@@ -85,7 +85,7 @@ bool FoxStation::setSlotMainDisplay(FoxDisplay* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* FoxStation::getSlotByIndex(const int si)
+base::Object* FoxStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

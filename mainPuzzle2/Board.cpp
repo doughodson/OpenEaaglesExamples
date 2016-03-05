@@ -6,8 +6,8 @@
 #include "State.h"
 #include "Blocks.h"
 
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
 
 namespace oe {
 namespace example {
@@ -27,7 +27,7 @@ END_SLOTTABLE(Board)
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Board)
     ON_SLOT( 1, setSlotPuzzle,    Puzzle )
-    ON_SLOT( 2, setSlotTemplates, basic::PairStream )
+    ON_SLOT( 2, setSlotTemplates, base::PairStream )
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ unsigned int Board::setupBlockGraphics()
             const Block* b = s->getBlock(i+1);
             if (b != nullptr) {
                unsigned int typeId = b->getTypeId();
-               const basic::Pair* pair = templates->getPosition(typeId);
+               const base::Pair* pair = templates->getPosition(typeId);
                if (pair != nullptr) {
                   const graphics::Graphic* g = dynamic_cast<const graphics::Graphic*>( pair->object() );
                   if (g != nullptr) {
@@ -325,7 +325,7 @@ bool Board::setSlotPuzzle(Puzzle* const p)
 //------------------------------------------------------------------------------
 // Sets a list of the graphical templates for the blocks
 //------------------------------------------------------------------------------
-bool Board::setSlotTemplates(const basic::PairStream* const p)
+bool Board::setSlotTemplates(const base::PairStream* const p)
 {
    if (templates != nullptr) templates->unref();
    templates = p;
@@ -336,7 +336,7 @@ bool Board::setSlotTemplates(const basic::PairStream* const p)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* Board::getSlotByIndex(const int si)
+base::Object* Board::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

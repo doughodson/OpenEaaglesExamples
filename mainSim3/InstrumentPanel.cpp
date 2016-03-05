@@ -8,11 +8,11 @@
 #include "openeaagles/instruments/eadi3D/Eadi3DPage.h"
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
-#include "openeaagles/basic/Boolean.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
+#include "openeaagles/base/Boolean.h"
 #include <GL/glut.h>
 
 namespace oe {
@@ -158,7 +158,7 @@ void InstrumentPanel::updateData(const LCreal dt)
       }
    }
 
-   basic::Pair* a = findSubpageByType(typeid(instruments::Eadi3DPage));
+   base::Pair* a = findSubpageByType(typeid(instruments::Eadi3DPage));
    if (a != nullptr) {
       instruments::Eadi3DPage* eadi = dynamic_cast<instruments::Eadi3DPage*>(a->object());
       if (eadi != nullptr) {
@@ -166,7 +166,7 @@ void InstrumentPanel::updateData(const LCreal dt)
          eadi->setAirspeed(airSpeed);
          eadi->setHeading(heading);
          eadi->setAOA(aoa);
-         eadi->setVVI(-vvi.z() * basic::Distance::M2FT * 60.0);
+         eadi->setVVI(-vvi.z() * base::Distance::M2FT * 60.0);
          eadi->setPitch(pitch);
          eadi->setRoll(roll);
          eadi->setMach(mach);
@@ -203,7 +203,7 @@ bool InstrumentPanel::onResetKey()
 bool InstrumentPanel::onFreezeKey()
 {
    if ( getSimulation() != nullptr ) {
-      basic::Boolean newFrz( !getSimulation()->isFrozen() );
+      base::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
    return true;

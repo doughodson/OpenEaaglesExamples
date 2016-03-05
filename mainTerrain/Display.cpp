@@ -1,15 +1,15 @@
 
-#include "openeaagles/basic/Color.h"
-#include "openeaagles/basic/Rgb.h"
-#include "openeaagles/basic/Hsva.h"
-#include "openeaagles/basic/Nav.h"
-#include "openeaagles/basic/Number.h"
-#include "openeaagles/basic/String.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/Terrain.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
+#include "openeaagles/base/Color.h"
+#include "openeaagles/base/Rgb.h"
+#include "openeaagles/base/Hsva.h"
+#include "openeaagles/base/Nav.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/base/String.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/Terrain.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
 
 #include "Display.h"
 
@@ -35,18 +35,18 @@ BEGIN_SLOTTABLE(Display)
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
-   ON_SLOT( 1, setSlotTerrain,       basic::Terrain)
-   ON_SLOT( 2, setSlotMinElevation,  basic::Distance)
-   ON_SLOT( 3, setSlotMaxElevation,  basic::Distance)
-   ON_SLOT( 4, setSlotAltitude,      basic::Distance)
-   ON_SLOT( 5, setSlotLookAngle,     basic::Angle)
-   ON_SLOT( 6, setSlotBeamWidth,     basic::Angle)
-   ON_SLOT( 7, setSlotColorScale,    basic::Number)
-   ON_SLOT( 8, setSlotInterpolate,   basic::Number)
-   ON_SLOT( 9, setSlotShadowsTest,   basic::Number)
-   ON_SLOT(10, setSlotAacTest,       basic::Number)
-   ON_SLOT(11, setSlotEarthCurvatureTest, basic::Number)
-   ON_SLOT(12, setSlotTextureTest, basic::Number)
+   ON_SLOT( 1, setSlotTerrain,       base::Terrain)
+   ON_SLOT( 2, setSlotMinElevation,  base::Distance)
+   ON_SLOT( 3, setSlotMaxElevation,  base::Distance)
+   ON_SLOT( 4, setSlotAltitude,      base::Distance)
+   ON_SLOT( 5, setSlotLookAngle,     base::Angle)
+   ON_SLOT( 6, setSlotBeamWidth,     base::Angle)
+   ON_SLOT( 7, setSlotColorScale,    base::Number)
+   ON_SLOT( 8, setSlotInterpolate,   base::Number)
+   ON_SLOT( 9, setSlotShadowsTest,   base::Number)
+   ON_SLOT(10, setSlotAacTest,       base::Number)
+   ON_SLOT(11, setSlotEarthCurvatureTest, base::Number)
+   ON_SLOT(12, setSlotTextureTest, base::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -58,9 +58,9 @@ Display::Display()
 
    terrain = nullptr;
 
-   maxElev = 15000.0f * basic::Distance::FT2M;
+   maxElev = 15000.0f * base::Distance::FT2M;
    minElev = 0;
-   altitude = 15000.0f * basic::Distance::FT2M;
+   altitude = 15000.0f * base::Distance::FT2M;
    lookAngle = 0;
    beamWidth = 180.0f;
    colorScale = 0;
@@ -167,7 +167,7 @@ bool Display::clearMaxElevation()
 //------------------------------------------------------------------------------
 // Slot functions
 //------------------------------------------------------------------------------
-bool Display::setSlotTerrain(basic::Terrain* const msg)
+bool Display::setSlotTerrain(base::Terrain* const msg)
 {
    if (terrain != nullptr) terrain->unref();
    terrain = msg;
@@ -176,60 +176,60 @@ bool Display::setSlotTerrain(basic::Terrain* const msg)
 }
 
 // Set min elevation
-bool Display::setSlotMinElevation(const basic::Distance* const msg)
+bool Display::setSlotMinElevation(const base::Distance* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      ok = setMinElevation( basic::Meters::convertStatic(*msg) );
+      ok = setMinElevation( base::Meters::convertStatic(*msg) );
    }
    return ok;
 }
 
 // Set max elevation
-bool Display::setSlotMaxElevation(const basic::Distance* const msg)
+bool Display::setSlotMaxElevation(const base::Distance* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      ok = setMaxElevation( basic::Meters::convertStatic(*msg) );
+      ok = setMaxElevation( base::Meters::convertStatic(*msg) );
    }
    return ok;
 }
 
 // Set max elevation
-bool Display::setSlotAltitude(const basic::Distance* const msg)
+bool Display::setSlotAltitude(const base::Distance* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      altitude = basic::Meters::convertStatic(*msg);
+      altitude = base::Meters::convertStatic(*msg);
       ok = true;
    }
    return ok;
 }
 
 // Set antenna look angle
-bool Display::setSlotLookAngle(const basic::Angle* const msg)
+bool Display::setSlotLookAngle(const base::Angle* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      lookAngle = static_cast<LCreal>(basic::Degrees::convertStatic(*msg));
+      lookAngle = static_cast<LCreal>(base::Degrees::convertStatic(*msg));
       ok = true;
    }
    return ok;
 }
 
 // Set beam width
-bool Display::setSlotBeamWidth(const basic::Angle* const msg)
+bool Display::setSlotBeamWidth(const base::Angle* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      beamWidth = static_cast<LCreal>(basic::Degrees::convertStatic(*msg));
+      beamWidth = static_cast<LCreal>(base::Degrees::convertStatic(*msg));
       ok = true;
    }
    return ok;
 }
 
 // Set color scale flag
-bool Display::setSlotColorScale(const basic::Number* const msg)
+bool Display::setSlotColorScale(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -243,7 +243,7 @@ bool Display::setSlotColorScale(const basic::Number* const msg)
 }
 
 // Set interpolate flag
-bool Display::setSlotInterpolate(const basic::Number* const msg)
+bool Display::setSlotInterpolate(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -254,7 +254,7 @@ bool Display::setSlotInterpolate(const basic::Number* const msg)
 }
 
 // Set shadow test flag
-bool Display::setSlotShadowsTest(const basic::Number* const msg)
+bool Display::setSlotShadowsTest(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -265,7 +265,7 @@ bool Display::setSlotShadowsTest(const basic::Number* const msg)
 }
 
 // Set AAC test flag
-bool Display::setSlotAacTest(const basic::Number* const msg)
+bool Display::setSlotAacTest(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -276,7 +276,7 @@ bool Display::setSlotAacTest(const basic::Number* const msg)
 }
 
 // Set earth curvature test flag
-bool Display::setSlotEarthCurvatureTest(const basic::Number* const msg)
+bool Display::setSlotEarthCurvatureTest(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -288,7 +288,7 @@ bool Display::setSlotEarthCurvatureTest(const basic::Number* const msg)
 
 
 // Set texture test flag
-bool Display::setSlotTextureTest(const basic::Number* const msg)
+bool Display::setSlotTextureTest(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -375,8 +375,8 @@ void Display::updateData(const LCreal dt)
          LCreal* curvature =nullptr;
          if (testEarthCurv) {
             curvature = new LCreal[NUM_ROWS];
-            LCreal radius = static_cast<LCreal>(basic::Nav::ERAD60 * basic::Distance::NM2M);
-            LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * basic::Distance::NM2M);
+            LCreal radius = static_cast<LCreal>(base::Nav::ERAD60 * base::Distance::NM2M);
+            LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * base::Distance::NM2M);
             for (int irow = 0; irow < NUM_ROWS; irow++) {
                LCreal curRng = maxRng * static_cast<LCreal>(irow)/static_cast<LCreal>(NUM_ROWS);
                LCreal arc = curRng / radius;
@@ -387,43 +387,43 @@ void Display::updateData(const LCreal dt)
             }
          }
 
-         const basic::Hsva* grayTable[2];
+         const base::Hsva* grayTable[2];
          //                   hue     sat    value  alpha
-         grayTable[0] = new basic::Hsva(  120.0f,  0.0f,  0.0f,  1.0f );  // black0
-         grayTable[1] = new basic::Hsva(  120.0f,  0.0f,  1.0f,  1.0f ); // white0
+         grayTable[0] = new base::Hsva(  120.0f,  0.0f,  0.0f,  1.0f );  // black0
+         grayTable[1] = new base::Hsva(  120.0f,  0.0f,  1.0f,  1.0f ); // white0
 
-         const basic::Hsva* colorTable[7];
+         const base::Hsva* colorTable[7];
          //                  hue     sat    value  alpha
-         colorTable[0] = new basic::Hsva( 240.0f,   1.0f,  1.0f,  1.0f ); // blue
-         colorTable[1] = new basic::Hsva( 180.0f,   1.0f,  1.0f,  1.0f ); // cyan
-         colorTable[2] = new basic::Hsva( 120.0f,   1.0f,  1.0f,  1.0f ); // green
-         colorTable[3] = new basic::Hsva(  60.0f,   1.0f,  1.0f,  1.0f ); // yellow
-         colorTable[4] = new basic::Hsva(   0.0f,   1.0f,  1.0f,  1.0f ); // red
-         colorTable[5] = new basic::Hsva(  300.0f,  1.0f,  1.0f,  1.0f ); // magenta
-         colorTable[6] = new basic::Hsva(  300.0f,  0.05f, 1.0f,  1.0f ); // white0
+         colorTable[0] = new base::Hsva( 240.0f,   1.0f,  1.0f,  1.0f ); // blue
+         colorTable[1] = new base::Hsva( 180.0f,   1.0f,  1.0f,  1.0f ); // cyan
+         colorTable[2] = new base::Hsva( 120.0f,   1.0f,  1.0f,  1.0f ); // green
+         colorTable[3] = new base::Hsva(  60.0f,   1.0f,  1.0f,  1.0f ); // yellow
+         colorTable[4] = new base::Hsva(   0.0f,   1.0f,  1.0f,  1.0f ); // red
+         colorTable[5] = new base::Hsva(  300.0f,  1.0f,  1.0f,  1.0f ); // magenta
+         colorTable[6] = new base::Hsva(  300.0f,  0.05f, 1.0f,  1.0f ); // white0
 
 
-         const basic::Hsva* greenTable[19];
+         const base::Hsva* greenTable[19];
          //                   hue     sat    value  alpha
-         greenTable[0]  = new basic::Hsva(  120.0f,  1.0f,  0.0f,     1.0f );
-         greenTable[1]  = new basic::Hsva(  120.0f,  1.0f,  0.0872f,  1.0f );  
-         greenTable[2]  = new basic::Hsva(  120.0f,  1.0f,  0.1736f,  1.0f ); 
-         greenTable[3]  = new basic::Hsva(  120.0f,  1.0f,  0.2588f,  1.0f ); 
-         greenTable[4]  = new basic::Hsva(  120.0f,  1.0f,  0.3420f,  1.0f );  
-         greenTable[5]  = new basic::Hsva(  120.0f,  1.0f,  0.4226f,  1.0f );  
-         greenTable[6]  = new basic::Hsva(  120.0f,  1.0f,  0.5000f,  1.0f ); 
-         greenTable[7]  = new basic::Hsva(  120.0f,  1.0f,  0.5736f,  1.0f );  
-         greenTable[8]  = new basic::Hsva(  120.0f,  1.0f,  0.6428f,  1.0f );  
-         greenTable[9]  = new basic::Hsva(  120.0f,  1.0f,  0.7071f,  1.0f );  
-         greenTable[10] = new basic::Hsva(  120.0f,  1.0f,  0.7660f,  1.0f );  
-         greenTable[11] = new basic::Hsva(  120.0f,  1.0f,  0.8192f,  1.0f );  
-         greenTable[12] = new basic::Hsva(  120.0f,  1.0f,  0.8660f,  1.0f ); 
-         greenTable[13] = new basic::Hsva(  120.0f,  1.0f,  0.9063f,  1.0f ); 
-         greenTable[14] = new basic::Hsva(  120.0f,  1.0f,  0.9397f,  1.0f );  
-         greenTable[15] = new basic::Hsva(  120.0f,  1.0f,  0.9659f,  1.0f );  
-         greenTable[16] = new basic::Hsva(  120.0f,  1.0f,  0.9848f,  1.0f );  
-         greenTable[17] = new basic::Hsva(  120.0f,  1.0f,  0.9962f,  1.0f );  
-         greenTable[18] = new basic::Hsva(  120.0f,  1.0f,  1.0f,     1.0f );  
+         greenTable[0]  = new base::Hsva(  120.0f,  1.0f,  0.0f,     1.0f );
+         greenTable[1]  = new base::Hsva(  120.0f,  1.0f,  0.0872f,  1.0f );  
+         greenTable[2]  = new base::Hsva(  120.0f,  1.0f,  0.1736f,  1.0f ); 
+         greenTable[3]  = new base::Hsva(  120.0f,  1.0f,  0.2588f,  1.0f ); 
+         greenTable[4]  = new base::Hsva(  120.0f,  1.0f,  0.3420f,  1.0f );  
+         greenTable[5]  = new base::Hsva(  120.0f,  1.0f,  0.4226f,  1.0f );  
+         greenTable[6]  = new base::Hsva(  120.0f,  1.0f,  0.5000f,  1.0f ); 
+         greenTable[7]  = new base::Hsva(  120.0f,  1.0f,  0.5736f,  1.0f );  
+         greenTable[8]  = new base::Hsva(  120.0f,  1.0f,  0.6428f,  1.0f );  
+         greenTable[9]  = new base::Hsva(  120.0f,  1.0f,  0.7071f,  1.0f );  
+         greenTable[10] = new base::Hsva(  120.0f,  1.0f,  0.7660f,  1.0f );  
+         greenTable[11] = new base::Hsva(  120.0f,  1.0f,  0.8192f,  1.0f );  
+         greenTable[12] = new base::Hsva(  120.0f,  1.0f,  0.8660f,  1.0f ); 
+         greenTable[13] = new base::Hsva(  120.0f,  1.0f,  0.9063f,  1.0f ); 
+         greenTable[14] = new base::Hsva(  120.0f,  1.0f,  0.9397f,  1.0f );  
+         greenTable[15] = new base::Hsva(  120.0f,  1.0f,  0.9659f,  1.0f );  
+         greenTable[16] = new base::Hsva(  120.0f,  1.0f,  0.9848f,  1.0f );  
+         greenTable[17] = new base::Hsva(  120.0f,  1.0f,  0.9962f,  1.0f );  
+         greenTable[18] = new base::Hsva(  120.0f,  1.0f,  1.0f,     1.0f );  
 
          std::cout << "start image generation" << std::endl;
          double start = getComputerTime();
@@ -446,7 +446,7 @@ void Display::updateData(const LCreal dt)
 
                // the Lat/long of the southern most point
                double latitude = cLat + (0 - NUM_ROWS/2) * spacingLat;
-               LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * basic::Distance::NM2M);
+               LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * base::Distance::NM2M);
 
                // Direction
                //LCreal direction = 30.0f * static_cast<LCreal>(icol - NUM_COLUMNS/2)/static_cast<LCreal>(NUM_COLUMNS/2);
@@ -464,15 +464,15 @@ void Display::updateData(const LCreal dt)
 
                // Generate Masks
                if (testShadows) {
-                  basic::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, NUM_ROWS, maxRng, altitude, lookAngle, beamWidth);
+                  base::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, NUM_ROWS, maxRng, altitude, lookAngle, beamWidth);
                }
 
                // Compute AAC data
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
-                  LCreal angle = static_cast<LCreal>(-10.0f * basic::Angle::D2RCC);
+                  LCreal angle = static_cast<LCreal>(-10.0f * base::Angle::D2RCC);
                   osg::Vec2 vec(lcCos(angle),lcSin(angle));
-                  basic::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
+                  base::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }
 
             }
@@ -500,11 +500,11 @@ void Display::updateData(const LCreal dt)
                // If valid and not masked, convert the elevation to a color (or gray) value
                if (valid && !(testShadows && maskFlgs[irow])) {
                   if (colorScale == GRAY_SCALE)
-                     basic::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
+                     base::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
                   else if (colorScale == COLOR_SCALE)
-                     basic::Terrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
+                     base::Terrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
                   else if (colorScale == GREEN_SCALE)
-                     basic::Terrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
+                     base::Terrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
                }
 
                // Apply AAC data
@@ -695,7 +695,7 @@ void Display::freeImageMemory()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* Display::getSlotByIndex(const int si)
+base::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

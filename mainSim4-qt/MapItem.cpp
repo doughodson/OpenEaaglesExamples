@@ -1,6 +1,6 @@
 
 #include "MapItem.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/units/Angles.h"
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
@@ -128,7 +128,7 @@ bool MapItem::setRefLat(const double lat)
    // nothing more than 70 degrees north or south will suffice
    if (lat <= 90 && lat >= -90) {
       refLat = lat;
-      cosineLatReference = std::cos(oe::basic::Angle::D2RCC * refLat);
+      cosineLatReference = std::cos(oe::base::Angle::D2RCC * refLat);
       ok = true;
    }
    return ok;
@@ -284,7 +284,7 @@ void MapItem::drawGrid(QPainter* painter)
 // ---
 void MapItem::setHeading(const double x)
 {
-   double hdgRad = oe::basic::Angle::D2RCC * x;
+   double hdgRad = oe::base::Angle::D2RCC * x;
    heading = x;
    headingSin = std::sin(hdgRad);
    headingCos = std::cos(hdgRad);

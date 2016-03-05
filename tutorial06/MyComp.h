@@ -6,27 +6,27 @@
 #ifndef __oe_Tutorial_MyComp_H__
 #define __oe_Tutorial_MyComp_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
 
-namespace basic { class String; }
+namespace base { class String; }
 
 namespace Tutorial {
 
-class MyComp : public basic::Component
+class MyComp : public base::Component
 {
-   DECLARE_SUBCLASS(MyComp, basic::Component)
+   DECLARE_SUBCLASS(MyComp, base::Component)
 
 public:
    MyComp();
 
    // data access functions
-   bool setStr(const basic::String* const);
-   const basic::String* getStr(void) const;
+   bool setStr(const base::String* const);
+   const base::String* getStr(void) const;
 
    // slot table functions
-   bool setSlotStr(const basic::String* const);
+   bool setSlotStr(const base::String* const);
 
    void reset() override;
    void updateTC(const LCreal dt = 0.0) override;
@@ -38,7 +38,7 @@ protected:
 
 private:
 
-   const basic::String* str;
+   const base::String* str;
 };
 
 } // namespace Tutorial

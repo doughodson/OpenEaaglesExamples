@@ -4,7 +4,7 @@
 #ifndef __oe_xbehaviors_PlaneState_H__
 #define __oe_xbehaviors_PlaneState_H__
 
-#include "openeaagles/basic/ubf/State.h"
+#include "openeaagles/base/ubf/State.h"
 
 namespace oe {
 
@@ -19,16 +19,16 @@ namespace xbehaviors {
 //              state has only one missile (or is ok with firing all missiles at
 //              first target)
 //------------------------------------------------------------------------------
-class PlaneState : public basic::ubf::State
+class PlaneState : public base::ubf::State
 {
-   DECLARE_SUBCLASS(PlaneState, basic::ubf::State)
+   DECLARE_SUBCLASS(PlaneState, base::ubf::State)
 
 public:
    PlaneState();
 
    void reset() override;
 
-   void updateState(const basic::Component* const actor) override;
+   void updateState(const base::Component* const actor) override;
 
    // set/get
    virtual void setAlive(const bool x)                 { alive = x; return; }

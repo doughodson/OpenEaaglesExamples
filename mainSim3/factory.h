@@ -4,11 +4,11 @@
 
 namespace oe {
 
-namespace basic { class Object; }
+namespace base { class Object; }
 
 namespace example {
 
-basic::Object* factory(const char* name);
+base::Object* factory(const char* name);
 
 }
 }

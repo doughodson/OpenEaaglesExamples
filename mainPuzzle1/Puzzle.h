@@ -4,10 +4,10 @@
 #ifndef __oe_example_Puzzle_H__
 #define __oe_example_Puzzle_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
-   namespace basic {
+   namespace base {
       class List;
    }
 
@@ -17,13 +17,13 @@ class State;
 
 //------------------------------------------------------------------------------
 // Class:  Puzzle
-// Base class:  basic::Object-> Puzzle
+// Base class:  base::Object-> Puzzle
 //
 // Description:  Puzzle engine
 //------------------------------------------------------------------------------
-class Puzzle : public basic::Component
+class Puzzle : public base::Component
 {
-    DECLARE_SUBCLASS(Puzzle,basic::Component)
+    DECLARE_SUBCLASS(Puzzle,base::Component)
 
 public:
    static const unsigned int MAX_STATES = 1000000;    // Max number of states
@@ -65,7 +65,7 @@ private:
    const State*   goalState;     // Goal (ending) state
 
    // Open list
-   basic::List*  openStates;   // List of 'open' states (still need to be expanded)
+   base::List*  openStates;   // List of 'open' states (still need to be expanded)
                                  // (list is ordered by the state's f() values)
 
    // HashTable

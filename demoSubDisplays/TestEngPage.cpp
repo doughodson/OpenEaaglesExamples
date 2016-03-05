@@ -1,5 +1,5 @@
 #include "TestEngPage.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 
 namespace oe {
 namespace demo {
@@ -121,7 +121,7 @@ void TestEngPage::updateData(const LCreal dt)
 
     {
         // Set to the engine display
-        basic::Pair* pair = findByType(typeid(oe::instruments::EngPage));
+        base::Pair* pair = findByType(typeid(oe::instruments::EngPage));
         if (pair != nullptr) {
             oe::instruments::EngPage* p = static_cast<oe::instruments::EngPage*>(pair->object());
             if (p != nullptr) {

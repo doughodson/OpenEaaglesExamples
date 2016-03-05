@@ -7,7 +7,7 @@ OBJS = main.o
 
 LDFLAGS += -loemodels -loesimulation -lJSBSim 
 LDFLAGS += -loeinstruments -loedafif
-LDFLAGS += -loebasic 
+LDFLAGS += -loebase 
 LDFLAGS += -lrt -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread

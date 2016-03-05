@@ -4,7 +4,7 @@
 #ifndef __oe_test_DataRecordTest_H__
 #define __oe_test_DataRecordTest_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
 
@@ -15,9 +15,9 @@ namespace test {
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public basic::Component
+class DataRecordTest : public base::Component
 {
-   DECLARE_SUBCLASS(DataRecordTest, basic::Component)
+   DECLARE_SUBCLASS(DataRecordTest, base::Component)
 
 public:
     DataRecordTest();
@@ -33,8 +33,8 @@ protected:
 private:
    void initData();
 
-   basic::safe_ptr<recorder::InputHandler> inputHandler;
-   basic::safe_ptr<recorder::OutputHandler> outputHandler;
+   base::safe_ptr<recorder::InputHandler> inputHandler;
+   base::safe_ptr<recorder::OutputHandler> outputHandler;
 };
 
 }

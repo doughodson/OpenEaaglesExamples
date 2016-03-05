@@ -5,7 +5,7 @@ PGM = testGraphics
 
 OBJS = MfdDisplay.o MfdPage.o TdAzPtr.o TdElevPtr.o TestOne.o TestRotator.o TestTwo.o TestDisplay.o main.o 
 
-LDFLAGS += -loeinstruments -loeglut -loegraphics -loebasic -lpthread
+LDFLAGS += -loeinstruments -loeglut -loegraphics -loebase -lpthread
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

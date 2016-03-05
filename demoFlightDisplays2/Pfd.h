@@ -7,7 +7,7 @@
 #define __oe_demo_Pfd_H__
 
 #include "openeaagles/graphics/Page.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace demo {
@@ -49,9 +49,9 @@ public:
 
     // get functions
     LCreal getPitchDeg()            { return pitch; }
-    LCreal getPitchRad()            { return static_cast<LCreal>(pitch * basic::Angle::D2RCC); }
+    LCreal getPitchRad()            { return static_cast<LCreal>(pitch * base::Angle::D2RCC); }
     LCreal getRollDeg()             { return roll; }
-    LCreal getRollRad()             { return static_cast<LCreal>(roll * basic::Angle::D2RCC); }
+    LCreal getRollRad()             { return static_cast<LCreal>(roll * base::Angle::D2RCC); }
     LCreal getTrueHdg()             { return trueHdg; }
     LCreal getCmdHdg()              { return cmdHdg; }
     LCreal getAirSpdKts()           { return airSpd; }
@@ -63,9 +63,9 @@ public:
     LCreal getVVI()                 { return vvi; }
     LCreal getSideSlip()            { return slip; }
     LCreal getFltDirBankDeg()       { return fDirBank; }
-    LCreal getFltDirBankRad()       { return static_cast<LCreal>(fDirBank * basic::Angle::R2DCC); }
+    LCreal getFltDirBankRad()       { return static_cast<LCreal>(fDirBank * base::Angle::R2DCC); }
     LCreal getFltDirPitchDeg()      { return fDirPitch; }
-    LCreal getFltDirPitchRad()      { return static_cast<LCreal>(fDirPitch * basic::Angle::R2DCC); }
+    LCreal getFltDirPitchRad()      { return static_cast<LCreal>(fDirPitch * base::Angle::R2DCC); }
     LCreal getBaroPressure()        { return baro; }
     double getRefLat()              { return refLat; }
     double getRefLon()              { return refLon; }

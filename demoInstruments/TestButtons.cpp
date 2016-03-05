@@ -1,6 +1,6 @@
 #include "TestButtons.h"
 #include "openeaagles/instruments/buttons/Knob.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 
 namespace oe {
 namespace demo {
@@ -75,7 +75,7 @@ bool TestButtons::knobMoved()
 {
     whichButton = KNOB;
     // get our knob real quick and find our value
-    basic::Pair* pair = static_cast<basic::Pair*>(findByName("knob"));
+    base::Pair* pair = static_cast<base::Pair*>(findByName("knob"));
     if (pair != nullptr) {
         instruments::Knob* k = dynamic_cast<instruments::Knob*>(pair->object());
         if (k != nullptr) {

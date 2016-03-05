@@ -1,8 +1,8 @@
 
 #include "TestStateMachine04A.h"
 
-#include "openeaagles/basic/Integer.h"
-#include "openeaagles/basic/Boolean.h"
+#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/Boolean.h"
 
 namespace oe {
 namespace test {

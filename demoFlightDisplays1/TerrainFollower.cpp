@@ -6,7 +6,7 @@
 //#define TEST_ALT
 
 #include "TerrainFollower.h"
-#include "openeaagles/basic/Number.h"
+#include "openeaagles/base/Number.h"
 #include <GL/glu.h>
 
 namespace oe {
@@ -17,10 +17,10 @@ EMPTY_SERIALIZER(TerrainFollower)
 
 // Event handler
 BEGIN_EVENT_HANDLER(TerrainFollower)
-    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetPlaneAltTerrainFollower, basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetScanRangeTerrainFollower, basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE3, onEventSetViewHeightTerrainFollower, basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE4, onEventSetViewWidthTerrainFollower, basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetPlaneAltTerrainFollower, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetScanRangeTerrainFollower, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE3, onEventSetViewHeightTerrainFollower, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE4, onEventSetViewWidthTerrainFollower, base::Number)
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -242,25 +242,25 @@ bool TerrainFollower::setElevPts(const int num, const LCreal newEPts[])
 }
 
 // Event functions
-bool TerrainFollower::onEventSetPlaneAltTerrainFollower(const basic::Number* const x)
+bool TerrainFollower::onEventSetPlaneAltTerrainFollower(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setPlaneAlt(x->getReal());
     return ok;
 }
-bool TerrainFollower::onEventSetScanRangeTerrainFollower(const basic::Number* const x)
+bool TerrainFollower::onEventSetScanRangeTerrainFollower(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setScanRange(x->getReal());
     return ok;
 }
-bool TerrainFollower::onEventSetViewHeightTerrainFollower(const basic::Number* const x)
+bool TerrainFollower::onEventSetViewHeightTerrainFollower(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setViewHeight(x->getReal());
     return ok;
 }
-bool TerrainFollower::onEventSetViewWidthTerrainFollower(const basic::Number* const x)
+bool TerrainFollower::onEventSetViewWidthTerrainFollower(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setViewWidth(x->getReal());

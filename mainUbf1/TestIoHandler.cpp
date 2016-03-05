@@ -8,8 +8,8 @@
 #include "openeaagles/simulation/Navigation.h"
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Route.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/IoData.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/IoData.h"
 
 namespace oe {
 namespace example {
@@ -83,7 +83,7 @@ void TestIoHandler::inputDevices(const LCreal)
 //    ---
 //    get the Input data buffer
 //    ---
-   const basic::IoData* const inData = getInputData();
+   const base::IoData* const inData = getInputData();
 
 //    ---
 //    get the Station, Simulation and our ownship player
@@ -106,7 +106,7 @@ void TestIoHandler::inputDevices(const LCreal)
       // find the (optional) autopilot
       simulation::Autopilot* ap = nullptr;
       {
-         basic::Pair* p = av->getPilotByType( typeid( simulation::Autopilot) );
+         base::Pair* p = av->getPilotByType( typeid( simulation::Autopilot) );
          if (p != nullptr) ap = static_cast<simulation::Autopilot*>(p->object());
       }
 
@@ -123,7 +123,7 @@ void TestIoHandler::inputDevices(const LCreal)
             inData->getDiscreteInput(FREEZE_SW, &sw);
             bool frzSw = sw && enabled;
             if (frzSw && !frzSw1) {
-               basic::Boolean newFrz( !sim->isFrozen() );
+               base::Boolean newFrz( !sim->isFrozen() );
                sim->event(FREEZE_EVENT, &newFrz);
             }
             frzSw1 = frzSw;
@@ -193,7 +193,7 @@ void TestIoHandler::inputDevices(const LCreal)
          bool sw = false;
          inData->getDiscreteInput(PICKLE_SW, &sw);
          if (sw != wpnRelSw1) {
-            basic::Boolean sw(sw);
+            base::Boolean sw(sw);
             av->event(WPN_REL_EVENT, &sw);
          }
          wpnRelSw1 = sw;
@@ -203,7 +203,7 @@ void TestIoHandler::inputDevices(const LCreal)
          bool sw = false;
          inData->getDiscreteInput(TRIGGER_SW2, &sw);
          if (sw != trgSw1) {
-            basic::Boolean sw(sw);
+            base::Boolean sw(sw);
             av->event(TRIGGER_SW_EVENT, &sw);
          }
          trgSw1 = sw;
@@ -306,7 +306,7 @@ void TestIoHandler::inputDevices(const LCreal)
 
 // -----------------------------------------------------------------------------
 // Clear our data
-// (called from basic::TestIoHandler::reset())
+// (called from base::TestIoHandler::reset())
 // -----------------------------------------------------------------------------
 void TestIoHandler::clear()
 {

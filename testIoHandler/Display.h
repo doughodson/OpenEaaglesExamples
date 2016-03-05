@@ -7,7 +7,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace basic { class IoHandler; class Number; class String; }
+   namespace base { class IoHandler; class Number; class String; }
 
 namespace test {
 
@@ -17,14 +17,14 @@ namespace test {
 //
 // Factory name: TestIoDisplay
 // Slots --
-//    ioHandler   <basic::IoHandler>     Single I/O data handler
-//    item        <basic::Integer>       Item number [ 1 ... TBL_SIZE ];
+//    ioHandler   <base::IoHandler>     Single I/O data handler
+//    item        <base::Integer>       Item number [ 1 ... TBL_SIZE ];
 //                                         -- clear current channel number and
 //                                         -- type for this item.  Next 'ai' or
 //                                         -- 'di' will define for this 'item'.
-//    di          <basic::Integer>       DI channel number for last 'item'
-//    ai          <basic::Integer>       AI channel number for last 'item'
-//    label       <basic::String>        (optional) Label
+//    di          <base::Integer>       DI channel number for last 'item'
+//    ai          <base::Integer>       AI channel number for last 'item'
+//    label       <base::String>        (optional) Label
 //
 // Example:
 //   ( TestIoDisplay
@@ -53,11 +53,11 @@ public:
    void updateTC(const LCreal dt = 0.0) override;
 
 protected:
-   virtual bool setSlotIoHandler(basic::IoHandler* const msg);
-   virtual bool setSlotItem(const basic::Number* const msg);
-   virtual bool setSlotAiChannel(const basic::Number* const msg);
-   virtual bool setSlotDiChannel(const basic::Number* const msg);
-   virtual bool setSlotLabel(const basic::String* const msg);
+   virtual bool setSlotIoHandler(base::IoHandler* const msg);
+   virtual bool setSlotItem(const base::Number* const msg);
+   virtual bool setSlotAiChannel(const base::Number* const msg);
+   virtual bool setSlotDiChannel(const base::Number* const msg);
+   virtual bool setSlotLabel(const base::String* const msg);
 
    bool onEscKey() override;
 
@@ -68,7 +68,7 @@ private:
    void initData();
    void updateDisplay();
 
-   basic::safe_ptr<basic::IoHandler> ioHandler;   // The I/O data handler
+   base::safe_ptr<base::IoHandler> ioHandler;   // The I/O data handler
 
    // Item/Channel mapping
    unsigned short item;

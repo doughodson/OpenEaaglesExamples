@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "PriorityArbiter.h"
 
-#include "openeaagles/basic/List.h"
+#include "openeaagles/base/List.h"
 
 #include "PlaneAction.h"
 
@@ -17,7 +17,7 @@ EMPTY_COPYDATA(PriorityArbiter)
 EMPTY_SERIALIZER(PriorityArbiter)
 EMPTY_DELETEDATA(PriorityArbiter)
 
-basic::ubf::Action* PriorityArbiter::genComplexAction(basic::List* const actionSet)
+base::ubf::Action* PriorityArbiter::genComplexAction(base::List* const actionSet)
 {
    PlaneAction* complexAction = new PlaneAction;
 
@@ -29,7 +29,7 @@ basic::ubf::Action* PriorityArbiter::genComplexAction(basic::List* const actionS
    unsigned int maxPitchTrimVote = 0;
 
    // process entire action set
-   const basic::List::Item* item = actionSet->getFirstItem();
+   const base::List::Item* item = actionSet->getFirstItem();
    while (item != nullptr) {
       const PlaneAction* action = dynamic_cast<const PlaneAction*>(item->getValue());
       if (action!=nullptr) {
@@ -77,7 +77,7 @@ basic::ubf::Action* PriorityArbiter::genComplexAction(basic::List* const actionS
    return complexAction;
 }
 
-void PriorityArbiter::trimChangeValidation(basic::ubf::Action* const complexAction)
+void PriorityArbiter::trimChangeValidation(base::ubf::Action* const complexAction)
 {
    PlaneAction* action = static_cast<PlaneAction*>(complexAction);
 

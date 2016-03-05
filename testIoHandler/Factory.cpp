@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "Factory.h"
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 #include "Display.h"
 #include "Table.h"
@@ -12,7 +12,7 @@
 #include "openeaagles/iodevice/factory.h"
 #include "openeaagles/gui/glut/factory.h"
 #include "openeaagles/graphics/factory.h"
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 
 #include <cstring>
 
@@ -22,9 +22,9 @@ namespace test {
 Factory::Factory()
 {}
 
-basic::Object* Factory::createObj(const char* name)
+base::Object* Factory::createObj(const char* name)
 {
-    basic::Object* obj = nullptr;
+    base::Object* obj = nullptr;
 
    if ( std::strcmp(name, Display::getFactoryName()) == 0 ) {
       obj = new Display();
@@ -36,7 +36,7 @@ basic::Object* Factory::createObj(const char* name)
    if (obj == nullptr) obj = iodevice::factory(name);
    if (obj == nullptr) obj = glut::factory(name);
    if (obj == nullptr) obj = graphics::factory(name);
-   if (obj == nullptr) obj = basic::factory(name);
+   if (obj == nullptr) obj = base::factory(name);
 
     return obj;
 }

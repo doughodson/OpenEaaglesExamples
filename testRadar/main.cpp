@@ -6,9 +6,9 @@
 #include "factory.h"
 
 #include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/Timers.h"
+#include "openeaagles/base/Parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Timers.h"
 #include <GL/glut.h>
 
 #include <cstring>
@@ -40,7 +40,7 @@ static TestStation* builder(const char* const filename)
 
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, factory, &errors);
+   base::Object* obj = base::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -62,8 +62,8 @@ static TestStation* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
-   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
    testStation = builder(configFilename);
 
    // reset the Simulation
-   testStation->event(basic::Component::RESET_EVENT);
+   testStation->event(base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    double dt = 1.0/static_cast<double>(bgRate);
@@ -131,7 +131,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    testStation->updateData(dt);
    testStation->updateTC(dt);
-   testStation->event(basic::Component::RESET_EVENT);
+   testStation->event(base::Component::RESET_EVENT);
 
    glutTimerFunc(millis, updateDataCB, 1);
 

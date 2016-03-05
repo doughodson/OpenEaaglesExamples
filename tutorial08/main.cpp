@@ -2,15 +2,15 @@
 #include <cstring>
 #include <cstdlib>
 
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/Timers.h"
-#include "openeaagles/basic/Parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Timers.h"
+#include "openeaagles/base/Parser.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
 // factories
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
 
@@ -33,15 +33,15 @@ static void timerFunc(int)
     unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
-    basic::Timer::updateTimers(dt);
+    base::Timer::updateTimers(dt);
     graphics::Graphic::flashTimer(dt);
     glutDisplay->tcFrame(dt);
 }
 
 // our class factory
-static basic::Object* factory(const char* const name)
+static base::Object* factory(const char* const name)
 {
-  basic::Object* obj = nullptr;
+  base::Object* obj = nullptr;
 
   if ( std::strcmp(name, MyPager::getFactoryName()) == 0 ) {
     obj = new MyPager;
@@ -52,7 +52,7 @@ static basic::Object* factory(const char* const name)
 
   if (obj == nullptr) obj = glut::factory(name);
   if (obj == nullptr) obj = graphics::factory(name);
-  if (obj == nullptr) obj = basic::factory(name);
+  if (obj == nullptr) obj = base::factory(name);
 
   return obj;
 }
@@ -62,7 +62,7 @@ static glut::GlutDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, factory, &errors);
+   base::Object* obj = base::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -74,8 +74,8 @@ static glut::GlutDisplay* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
-   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();

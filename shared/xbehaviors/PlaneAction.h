@@ -5,7 +5,7 @@
 #ifndef __oe_xbehaviors_PlaneAction_H__
 #define __oe_xbehaviors_PlaneAction_H__
 
-#include "openeaagles/basic/ubf/Action.h"
+#include "openeaagles/base/ubf/Action.h"
 
 namespace oe {
 
@@ -16,14 +16,14 @@ namespace xbehaviors {
 //------------------------------------------------------------------------------
 // Class: PlaneAction
 //------------------------------------------------------------------------------
-class PlaneAction : public basic::ubf::Action
+class PlaneAction : public base::ubf::Action
 {
-   DECLARE_SUBCLASS(PlaneAction, basic::ubf::Action)
+   DECLARE_SUBCLASS(PlaneAction, base::ubf::Action)
 
 public:
    PlaneAction();
 
-   bool execute(basic::Component* actor) override;
+   bool execute(base::Component* actor) override;
 
    // get/set methods
    void setPitch(const double);

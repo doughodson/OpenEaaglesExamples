@@ -4,7 +4,7 @@
 #ifndef __oe_example_SimIoHandler_H__
 #define __oe_example_SimIoHandler_H__
 
-#include "openeaagles/basic/IoHandler.h"
+#include "openeaagles/base/IoHandler.h"
 
 namespace oe {
    namespace simulation { class AirVehicle; }
@@ -17,9 +17,9 @@ namespace example {
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
 //------------------------------------------------------------------------------
-class SimIoHandler : public basic::IoHandler
+class SimIoHandler : public base::IoHandler
 {
-   DECLARE_SUBCLASS(SimIoHandler,basic::IoHandler)
+   DECLARE_SUBCLASS(SimIoHandler,base::IoHandler)
 
 public:
    SimIoHandler();

@@ -1,8 +1,8 @@
 
 #include "MfdPage.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 #include "openeaagles/graphics/Rotators.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/PairStream.h"
 
 namespace oe {
 namespace example {
@@ -35,12 +35,12 @@ END_EVENT_HANDLER()
 //------------------------------------------------------------------------------
 bool MfdPage::onEntry()
 {
-   basic::PairStream* subcomponents = getComponents();
+   base::PairStream* subcomponents = getComponents();
     if(subcomponents != nullptr) {
-        basic::List::Item* item = subcomponents->getFirstItem();
+        base::List::Item* item = subcomponents->getFirstItem();
         while (item != nullptr) {
-            basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
-            basic::Component* cp = static_cast<basic::Component*>(pair->object());
+            base::Pair* pair = static_cast<base::Pair*>(item->getValue());
+            base::Component* cp = static_cast<base::Component*>(pair->object());
             if (cp != nullptr) cp->event(RESET_EVENT);
             item = item->getNext();
         }

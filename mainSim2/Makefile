@@ -7,7 +7,7 @@ OBJS = main.o
 
 LDFLAGS += -L../lib/linux -lxzmq -lzmq
 LDFLAGS += -loedis -loemodels -loesimulation
-LDFLAGS += -loeotw -loedafif -loebasic
+LDFLAGS += -loeotw -loedafif -loebase
 LDFLAGS += -lcigicl -lJSBSim 
 LDFLAGS += -lrt -lpthread 
 

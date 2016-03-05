@@ -2,8 +2,8 @@
 // Class: Pfd
 //------------------------------------------------------------------------------
 #include "Pfd.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/units/Distances.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/units/Distances.h"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -146,7 +146,7 @@ bool Pfd::setPitchDeg(const LCreal newP)
 bool Pfd::setPitchRad(const LCreal newP)
 {
     // convert to degrees
-    pitch = static_cast<LCreal>(newP * basic::Angle::R2DCC);
+    pitch = static_cast<LCreal>(newP * base::Angle::R2DCC);
     return true;
 }
 
@@ -159,7 +159,7 @@ bool Pfd::setRollDeg(const LCreal newR)
 bool Pfd::setRollRad(const LCreal newR)
 {
     // convert to degrees
-    roll = static_cast<LCreal>(newR * basic::Angle::R2DCC);
+    roll = static_cast<LCreal>(newR * base::Angle::R2DCC);
     return true;
 }
 
@@ -232,7 +232,7 @@ bool Pfd::setFltDirBankDeg(const LCreal newFDB)
 
 bool Pfd::setFltDirBankRad(const LCreal newFDB)
 {
-    fDirBank = static_cast<LCreal>(newFDB * basic::Angle::R2DCC);
+    fDirBank = static_cast<LCreal>(newFDB * base::Angle::R2DCC);
     return true;
 }
 
@@ -244,7 +244,7 @@ bool Pfd::setFltDirPitchDeg(const LCreal newFDP)
 
 bool Pfd::setFltDirPitchRad(const LCreal newFDP)
 {
-    fDirPitch = static_cast<LCreal>(newFDP * basic::Angle::R2DCC);
+    fDirPitch = static_cast<LCreal>(newFDP * base::Angle::R2DCC);
     return true;
 }
 
@@ -350,8 +350,8 @@ void Pfd::updateData(const LCreal dt)
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout
-    int mAlt = static_cast<int>(basic::Distance::FeetToMeters(alt));
-    LCreal mAltBug = basic::Distance::FeetToMeters(cmdAlt);
+    int mAlt = static_cast<int>(base::Distance::FeetToMeters(alt));
+    LCreal mAltBug = base::Distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }

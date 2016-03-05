@@ -40,7 +40,7 @@ win32:CONFIG(release, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                  \
     -loesimulation -loemodels -loedafif              \
-    -loebasic                                        \
+    -loebase                                         \
     # system
     -lwinmm                                          \
     -lws2_32
@@ -50,7 +50,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
     -loesimulation_d -loemodels_d -loedafif_d           \
-    -loebasic_d                                         \
+    -loebase_d                                          \
     # system
     -lwinmm                                             \
     -lws2_32
@@ -60,7 +60,7 @@ else:unix:!macx:!symbian: LIBS +=                     \
     # openeaagles
     -L$${OE_ROOT}/lib/linux/                          \
     -loesimulation -loemodels -loedafif               \
-    -loebasic                                         \
+    -loebase                                          \
     # system
     -lX11 -lpthread -lrt
 

@@ -3,12 +3,12 @@
 //------------------------------------------------------------------------------
 
 #include "MyObj.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/List.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/String.h"
-#include "openeaagles/basic/Number.h"
-#include "openeaagles/basic/Identifier.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/List.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/String.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/base/Identifier.h"
 #include <cstdlib>
 
 namespace oe {
@@ -26,12 +26,12 @@ BEGIN_SLOTTABLE(MyObj)
 END_SLOTTABLE(MyObj)
 // map attributes to slots
 BEGIN_SLOT_MAP(MyObj)
-  ON_SLOT(1, setSlotColorTable, basic::PairStream)
-  ON_SLOT(2, setSlotTextColor, basic::Identifier)
-  ON_SLOT(3, setSlotBackColor, basic::Identifier)
-  ON_SLOT(4, setSlotVector, basic::List)
-  ON_SLOT(5, setSlotVisible, basic::Number)
-  ON_SLOT(6, setSlotMessage, basic::String)
+  ON_SLOT(1, setSlotColorTable, base::PairStream)
+  ON_SLOT(2, setSlotTextColor, base::Identifier)
+  ON_SLOT(3, setSlotBackColor, base::Identifier)
+  ON_SLOT(4, setSlotVector, base::List)
+  ON_SLOT(5, setSlotVisible, base::Number)
+  ON_SLOT(6, setSlotMessage, base::String)
 END_SLOT_MAP()
 // nothing to serialize
 EMPTY_SERIALIZER(MyObj)
@@ -97,7 +97,7 @@ void MyObj::deleteData()
 //------------------------------------------------------------------------------
 // data access functions
 //------------------------------------------------------------------------------
-bool MyObj::setColorTable(const basic::PairStream* const x)
+bool MyObj::setColorTable(const base::PairStream* const x)
 {
   if (colorTable != nullptr) colorTable->unref();
   colorTable = x;
@@ -105,12 +105,12 @@ bool MyObj::setColorTable(const basic::PairStream* const x)
   return true;
 }
 
-const basic::PairStream* MyObj::getColorTable(void) const
+const base::PairStream* MyObj::getColorTable(void) const
 {
   return colorTable;
 }
 
-bool MyObj::setTextColor(const basic::Identifier* const x)
+bool MyObj::setTextColor(const base::Identifier* const x)
 {
   if (textColor != nullptr) textColor->unref();
   textColor = x;
@@ -118,12 +118,12 @@ bool MyObj::setTextColor(const basic::Identifier* const x)
   return true;
 }
 
-const basic::Identifier* MyObj::getTextColor(void) const
+const base::Identifier* MyObj::getTextColor(void) const
 {
   return textColor;
 }
 
-bool MyObj::setBackColor(const basic::Identifier* const x)
+bool MyObj::setBackColor(const base::Identifier* const x)
 {
   if (backColor != nullptr) backColor->unref();
   backColor = x;
@@ -131,12 +131,12 @@ bool MyObj::setBackColor(const basic::Identifier* const x)
   return true;
 }
 
-const basic::Identifier* MyObj::getBackColor(void) const
+const base::Identifier* MyObj::getBackColor(void) const
 {
   return backColor;
 }
 
-bool MyObj::setVector(const basic::List* const x)
+bool MyObj::setVector(const base::List* const x)
 {
   if (vector != nullptr) vector->unref();
   vector = x;
@@ -144,7 +144,7 @@ bool MyObj::setVector(const basic::List* const x)
   return true;
 }
 
-const basic::List* MyObj::getVector(void) const
+const base::List* MyObj::getVector(void) const
 {
   return vector;
 }
@@ -160,7 +160,7 @@ bool MyObj::getVisible(void) const
   return visible;
 }
 
-bool MyObj::setMessage(const basic::String* const x)
+bool MyObj::setMessage(const base::String* const x)
 {
   if (message != nullptr) message->unref();
   message = x;
@@ -168,7 +168,7 @@ bool MyObj::setMessage(const basic::String* const x)
   return true;
 }
 
-const basic::String* MyObj::getMessage(void) const
+const base::String* MyObj::getMessage(void) const
 {
   return message;
 }
@@ -176,12 +176,12 @@ const basic::String* MyObj::getMessage(void) const
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-basic::Object* MyObj::getSlotByIndex(const int si)
+base::Object* MyObj::getSlotByIndex(const int si)
 {
   return BaseClass::getSlotByIndex(si);
 }
 
-bool MyObj::setSlotColorTable(const basic::PairStream* const x)
+bool MyObj::setSlotColorTable(const base::PairStream* const x)
 {
   bool ok = false;
   if(x != nullptr) {
@@ -190,7 +190,7 @@ bool MyObj::setSlotColorTable(const basic::PairStream* const x)
   return ok;
 }
 
-bool MyObj::setSlotTextColor(const basic::Identifier* const x)
+bool MyObj::setSlotTextColor(const base::Identifier* const x)
 {
   bool ok = false;
   if(x != nullptr) {
@@ -199,7 +199,7 @@ bool MyObj::setSlotTextColor(const basic::Identifier* const x)
   return ok;
 }
 
-bool MyObj::setSlotBackColor(const basic::Identifier* const x)
+bool MyObj::setSlotBackColor(const base::Identifier* const x)
 {
   bool ok = false;
   if(x != nullptr) {
@@ -208,7 +208,7 @@ bool MyObj::setSlotBackColor(const basic::Identifier* const x)
   return ok;
 }
 
-bool MyObj::setSlotVector(const basic::List* const x)
+bool MyObj::setSlotVector(const base::List* const x)
 {
   bool ok = false;
   if(x != nullptr) {
@@ -217,7 +217,7 @@ bool MyObj::setSlotVector(const basic::List* const x)
   return ok;
 }
 
-bool MyObj::setSlotVisible(const basic::Number* const x)
+bool MyObj::setSlotVisible(const base::Number* const x)
 {
   bool ok = false;
   if(x != nullptr) {
@@ -226,7 +226,7 @@ bool MyObj::setSlotVisible(const basic::Number* const x)
   return ok;
 }
 
-bool MyObj::setSlotMessage(const basic::String* const x)
+bool MyObj::setSlotMessage(const base::String* const x)
 {
   bool ok = false;
   if(x != nullptr) {

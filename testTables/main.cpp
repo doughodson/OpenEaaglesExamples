@@ -13,13 +13,13 @@
 //
 //-----------------------------------------------------------------------------
 
-#include "openeaagles/basic/functors/Tables.h"
+#include "openeaagles/base/functors/Tables.h"
 
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/Parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Parser.h"
 
 // class factory
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 
 #include <cstring>
 
@@ -29,11 +29,11 @@ namespace test {
 static const unsigned int TIMING_LOOPS = 10000;
 
 // table builder
-static basic::Table* builder(const char* const filename)
+static base::Table* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, basic::factory, &errors);
+   base::Object* obj = base::lcParser(filename, base::factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -45,8 +45,8 @@ static basic::Table* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
-   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -54,7 +54,7 @@ static basic::Table* builder(const char* const filename)
    }
 
    // try to cast to proper object, and check
-   basic::Table* table = dynamic_cast<basic::Table*>(obj);
+   base::Table* table = dynamic_cast<base::Table*>(obj);
    if (table == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -66,11 +66,11 @@ static basic::Table* builder(const char* const filename)
 // Test 1D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const basic::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   basic::FStorage* s = nullptr;
+   base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    LCreal maxX = tbl->getMaxX();
@@ -105,11 +105,11 @@ testIt(const basic::Table1* const tbl, const bool tflg, const bool sflg, const b
 // Test 2D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const basic::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   basic::FStorage* s = nullptr;
+   base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    LCreal maxY = tbl->getMaxY();
@@ -155,11 +155,11 @@ testIt(const basic::Table2* const tbl, const bool tflg, const bool sflg, const b
 // Test 3D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const basic::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   basic::FStorage* s = nullptr;
+   base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    // Setup Z
@@ -220,11 +220,11 @@ testIt(const basic::Table3* const tbl, const bool tflg, const bool sflg, const b
 // Test 4D LFI tables
 //-----------------------------------------------------------------------------
 static unsigned int
-testIt(const basic::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
+testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   basic::FStorage* s = nullptr;
+   base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    // Setup W
@@ -331,7 +331,7 @@ int main(int argc, char* argv[])
    }
 
    // build table
-   const basic::Table* table = builder(configFilename);
+   const base::Table* table = builder(configFilename);
 
    // ---
    // Serialize the table to the output stream
@@ -341,10 +341,10 @@ int main(int argc, char* argv[])
    // ---
    // Cast table pointers
    // ---
-   const basic::Table1* t1 = dynamic_cast<const basic::Table1*>(table);
-   const basic::Table2* t2 = dynamic_cast<const basic::Table2*>(table);
-   const basic::Table3* t3 = dynamic_cast<const basic::Table3*>(table);
-   const basic::Table4* t4 = dynamic_cast<const basic::Table4*>(table);
+   const base::Table1* t1 = dynamic_cast<const base::Table1*>(table);
+   const base::Table2* t2 = dynamic_cast<const base::Table2*>(table);
+   const base::Table3* t3 = dynamic_cast<const base::Table3*>(table);
+   const base::Table4* t4 = dynamic_cast<const base::Table4*>(table);
 
    // ---
    // Call the test function for this LFI table type

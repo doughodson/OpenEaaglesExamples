@@ -4,16 +4,16 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/basic/Identifier.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/NetHandler.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/functors/Tables.h"
-#include "openeaagles/basic/Timers.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Times.h"
-#include "openeaagles/basic/osg/Vec4"
+#include "openeaagles/base/Identifier.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/NetHandler.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/functors/Tables.h"
+#include "openeaagles/base/Timers.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Times.h"
+#include "openeaagles/base/osg/Vec4"
 
 namespace oe {
 namespace example {
@@ -24,13 +24,13 @@ EMPTY_SERIALIZER(SimStation)
 // slot table for this class type
 BEGIN_SLOTTABLE(SimStation)
     "display",                  //  1) Main Display
-    "autoResetTimer",           //  2: Auto RESET timer value (basic::Time); default: zero (no auto reset)
+    "autoResetTimer",           //  2: Auto RESET timer value (base::Time); default: zero (no auto reset)
 END_SLOTTABLE(SimStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay,         glut::GlutDisplay)
-    ON_SLOT( 2, setSlotAutoResetTime,       basic::Time)
+    ON_SLOT( 2, setSlotAutoResetTime,       base::Time)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -72,7 +72,7 @@ void SimStation::reset()
 {
     if (!displayInit && mainDisplay != nullptr) {
         mainDisplay->createWindow();
-        basic::Pair* p = mainDisplay->findByType(typeid(graphics::Page));
+        base::Pair* p = mainDisplay->findByType(typeid(graphics::Page));
         if (p != nullptr) mainDisplay->focus(static_cast<graphics::Graphic*>(p->object()));
         else mainDisplay->focus(nullptr);
         displayInit = true;
@@ -82,7 +82,7 @@ void SimStation::reset()
 
     // auto reset timer
     if (autoResetTimer0 != nullptr) {
-        autoResetTimer = basic::Seconds::convertStatic(*autoResetTimer0);
+        autoResetTimer = base::Seconds::convertStatic(*autoResetTimer0);
     }
     else {
         autoResetTimer = 0;
@@ -100,7 +100,7 @@ void SimStation::updateTC(const LCreal dt)
     // First update the simulation
     BaseClass::updateTC(dt);
 
-    basic::Timer::updateTimers(dt);
+    base::Timer::updateTimers(dt);
     graphics::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
@@ -122,7 +122,7 @@ void SimStation::updateData(const LCreal dt)
     if ( autoResetTimer > 0 && getSimulation()->isNotFrozen() ) {
        autoResetTimer -= dt;
        if (autoResetTimer <= 0) {
-         basic::Boolean newFrz(true);
+         base::Boolean newFrz(true);
          getSimulation()->event(FREEZE_EVENT, &newFrz);
          this->event(RESET_EVENT);
        }
@@ -136,7 +136,7 @@ void SimStation::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 void SimStation::stepOwnshipPlayer()
 {
-    basic::PairStream* pl = getSimulation()->getPlayers();
+    base::PairStream* pl = getSimulation()->getPlayers();
     if (pl != nullptr) {
 
        simulation::Player* f = nullptr;
@@ -144,9 +144,9 @@ void SimStation::stepOwnshipPlayer()
        bool found = false;
 
        // Find the next player
-       basic::List::Item* item = pl->getFirstItem();
+       base::List::Item* item = pl->getFirstItem();
        while (item != nullptr) {
-           basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+           base::Pair* pair = static_cast<base::Pair*>(item->getValue());
            if (pair != nullptr) {
                simulation::Player* ip = static_cast<simulation::Player*>(pair->object());
                if ( ip->isMode(simulation::Player::ACTIVE) &&
@@ -182,7 +182,7 @@ bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 }
 
 // setSlotAutoResetTime() -- Sets the startup RESET pulse timer
-bool SimStation::setSlotAutoResetTime(const basic::Time* const num)
+bool SimStation::setSlotAutoResetTime(const base::Time* const num)
 {
     if (autoResetTimer0 != nullptr) {
         autoResetTimer0->unref();
@@ -192,7 +192,7 @@ bool SimStation::setSlotAutoResetTime(const basic::Time* const num)
     autoResetTimer0 = num;
     if (autoResetTimer0 != nullptr) {
         autoResetTimer0->ref();
-        autoResetTimer = basic::Seconds::convertStatic(*autoResetTimer0);
+        autoResetTimer = base::Seconds::convertStatic(*autoResetTimer0);
     }
     return true;
 }
@@ -200,7 +200,7 @@ bool SimStation::setSlotAutoResetTime(const basic::Time* const num)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for graphics::Page
 //------------------------------------------------------------------------------
-basic::Object* SimStation::getSlotByIndex(const int si)
+base::Object* SimStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

@@ -1,9 +1,9 @@
 #include "TestCompass.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
 #include "openeaagles/graphics/MapPage.h"
 #include "openeaagles/graphics/SymbolLoader.h"
-#include "openeaagles/basic/Rgb.h"
+#include "openeaagles/base/Rgb.h"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -171,7 +171,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // Load test tracks (once) - load the default (0)
     if (!tracksLoaded) {
-        basic::Pair* pair = findByName("airTracks");
+        base::Pair* pair = findByName("airTracks");
         if (pair != nullptr) {
             pair->ref();
             graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
@@ -190,7 +190,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // Load test airports (once)
     if (!airportsLoaded) {
-        basic::Pair* pair = findByName("airports");
+        base::Pair* pair = findByName("airports");
         if (pair != nullptr) {
             pair->ref();
             graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
@@ -209,7 +209,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // Load test navaids (once)
     if (!navAidsLoaded) {
-        basic::Pair* pair = findByName("navaids");
+        base::Pair* pair = findByName("navaids");
         if (pair != nullptr) {
             pair->ref();
             graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
@@ -242,7 +242,7 @@ void TestCompass::updateData(const LCreal dt)
 
     // here is the compass rose display readouts
     send("compassRO", UPDATE_VALUE, heading, headingROSD);
-//    send("bearingRO", UPDATE_VALUE, bearing * basic::Angle::R2DCC, bearingROSD);
+//    send("bearingRO", UPDATE_VALUE, bearing * base::Angle::R2DCC, bearingROSD);
     send("rangeRO", UPDATE_VALUE, range, rangeROSD);
 }
 

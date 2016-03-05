@@ -24,10 +24,10 @@
 #include "openeaagles/simulation/Player.h"
 #include "openeaagles/simulation/DataRecorder.h"
 
-#include "openeaagles/basic/String.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/support.h"
+#include "openeaagles/base/String.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/support.h"
 
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/message.h"
@@ -68,7 +68,7 @@ BEGIN_SLOT_MAP(DataRecordTest)
    ON_SLOT(1, setSlotTabPrinter,     recorder::TabPrinter)
    ON_SLOT(2, setSlotFileWriter,     recorder::FileWriter)
    ON_SLOT(3, setSlotFileReader,     recorder::FileReader)
-   ON_SLOT(4, setSlotFileName,       basic::String)
+   ON_SLOT(4, setSlotFileName,       base::String)
    ON_SLOT(5, setSlotPrintPlayer,    recorder::PrintPlayer)
    ON_SLOT(6, setSlotPrintSelected,  recorder::PrintSelected)
    ON_SLOT(7, setSlotPrintSelected2, recorder::PrintSelected)
@@ -232,7 +232,7 @@ bool DataRecordTest::setSlotFileReader(recorder::FileReader* const p)
 //------------------------------------------------------------------------------
 //setSlotFileName() -- Get file name for test message output
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotFileName(basic::String* const msg)
+bool DataRecordTest::setSlotFileName(base::String* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -259,7 +259,7 @@ bool DataRecordTest::setSlotRecordData(simulation::DataRecorder* const p)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Component
 //------------------------------------------------------------------------------
-basic::Object* DataRecordTest::getSlotByIndex(const int si)
+base::Object* DataRecordTest::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

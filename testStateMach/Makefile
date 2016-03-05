@@ -14,7 +14,7 @@ OBJS = \
 	factory.o \
 	main.o
 
-LDFLAGS += -loebasic -lpthread -lrt
+LDFLAGS += -loebase -lpthread -lrt
 
 all: $(PGM)
 

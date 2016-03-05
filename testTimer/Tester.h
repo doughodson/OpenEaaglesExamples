@@ -4,10 +4,10 @@
 #ifndef __oe_test_Tester_H__
 #define __oe_test_Tester_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
-   namespace basic { class PairStream; }
+   namespace base { class PairStream; }
 
 namespace test {
 
@@ -19,9 +19,9 @@ namespace test {
 // Slots:
 //    timers   <PairStream>   ! List of timers to be tested
 //------------------------------------------------------------------------------
-class Tester : public basic::Component
+class Tester : public base::Component
 {
-   DECLARE_SUBCLASS(Tester, basic::Component)
+   DECLARE_SUBCLASS(Tester, base::Component)
 
 public:
    Tester();
@@ -36,12 +36,12 @@ public:
    void reset() override;
 
 protected:
-   bool setSlotTimers(const basic::PairStream* const msg);
+   bool setSlotTimers(const base::PairStream* const msg);
 
 private:
    void initData();
 
-   basic::PairStream* timers;    // List of timers
+   base::PairStream* timers;    // List of timers
 };
 
 } // namespace test

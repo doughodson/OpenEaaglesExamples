@@ -1,5 +1,5 @@
 #include "Pfd.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 #include "SituationalDisplay.h"
 #include <cstring>
 
@@ -299,7 +299,7 @@ bool Pfd::setPitchDeg(const LCreal newP)
 bool Pfd::setPitchRad(const LCreal newP)
 {
     // convert to degrees
-    pitch = static_cast<LCreal>(newP * basic::Angle::R2DCC);
+    pitch = static_cast<LCreal>(newP * base::Angle::R2DCC);
     return true;
 }
 
@@ -312,7 +312,7 @@ bool Pfd::setRollDeg(const LCreal newR)
 bool Pfd::setRollRad(const LCreal newR)
 {
     // convert to degrees
-    roll = static_cast<LCreal>(newR * basic::Angle::R2DCC);
+    roll = static_cast<LCreal>(newR * base::Angle::R2DCC);
     return true;
 }
 
@@ -420,7 +420,7 @@ bool Pfd::setFltDirBankDeg(const LCreal newFDB)
 
 bool Pfd::setFltDirBankRad(const LCreal newFDB)
 {
-    fDirBank = static_cast<LCreal>(newFDB * basic::Angle::R2DCC);
+    fDirBank = static_cast<LCreal>(newFDB * base::Angle::R2DCC);
     return true;
 }
 
@@ -432,7 +432,7 @@ bool Pfd::setFltDirPitchDeg(const LCreal newFDP)
 
 bool Pfd::setFltDirPitchRad(const LCreal newFDP)
 {
-    fDirPitch = static_cast<LCreal>(newFDP * basic::Angle::R2DCC);
+    fDirPitch = static_cast<LCreal>(newFDP * base::Angle::R2DCC);
     return true;
 }
 
@@ -705,7 +705,7 @@ void Pfd::updateData(const LCreal dt)
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // send our flight path marker it's data
     // positive pitch
-    fpmY = pitch - (aoa * lcCos(static_cast<float>(roll * basic::Angle::D2RCC)));
+    fpmY = pitch - (aoa * lcCos(static_cast<float>(roll * base::Angle::D2RCC)));
     // determine our flight path marker
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;
@@ -721,7 +721,7 @@ void Pfd::updateData(const LCreal dt)
 
     // If we have a SituationalDisplay as a component, (which we do in one instance) then we will send it the proper data
     {
-        basic::Pair* pair = findByType(typeid(SituationalDisplay));
+        base::Pair* pair = findByType(typeid(SituationalDisplay));
         if (pair != nullptr) {
             pair->ref();
                  // give the SituationalDisplay all the appropriate map page data

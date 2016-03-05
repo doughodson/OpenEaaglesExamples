@@ -6,7 +6,7 @@ OBJS = Display.o factory.o main.o RealBeamRadar.o Station.o
 
 LDFLAGS += -loesimulation -loemodels -loeterrain
 LDFLAGS += -loeglut -loegraphics
-LDFLAGS += -loedafif -loebasic
+LDFLAGS += -loedafif -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

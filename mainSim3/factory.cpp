@@ -1,7 +1,7 @@
 
 #include "factory.h"
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 #include "SimIoHandler.h"
 #include "SimPlayer.h"
@@ -10,7 +10,7 @@
 
 // factories
 #include "../shared/xzmq/factory.h"
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
 #include "openeaagles/dis/factory.h"
@@ -25,9 +25,9 @@
 namespace oe {
 namespace example {
 
-basic::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
-    basic::Object* obj = nullptr;
+    base::Object* obj = nullptr;
 
     // Sim3 Station & IoHandler
     if ( std::strcmp(name, SimStation::getFactoryName()) == 0 ) {
@@ -57,7 +57,7 @@ basic::Object* factory(const char* name)
    if (obj == nullptr) obj = instruments::factory(name);
    if (obj == nullptr) obj = graphics::factory(name);
    if (obj == nullptr) obj = glut::factory(name);
-   if (obj == nullptr) obj = basic::factory(name);
+   if (obj == nullptr) obj = base::factory(name);
 
     return obj;
 }

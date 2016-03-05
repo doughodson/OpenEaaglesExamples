@@ -1,8 +1,8 @@
 
 #include "TestStateMachine04.h"
 
-#include "openeaagles/basic/Integer.h"
-#include "openeaagles/basic/Boolean.h"
+#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/Boolean.h"
 
 namespace oe {
 namespace test {
@@ -102,7 +102,7 @@ void TestStateMachine04::stateFunc15(const LCreal)
 
 void TestStateMachine04::stateFunc21(const LCreal)
 {
-   const basic::Number* arg = dynamic_cast<const basic::Number*>( getArgument() );
+   const base::Number* arg = dynamic_cast<const base::Number*>( getArgument() );
    if (arg != nullptr) {
       std::cout << "arg(" << arg->getReal() << "); ";
    }
@@ -120,7 +120,7 @@ void TestStateMachine04::stateFunc22(const LCreal)
 void TestStateMachine04::stateFunc23(const LCreal)
 {
    std::cout << "rtn(arg=true)";
-   basic::Boolean* arg = new basic::Boolean(true);
+   base::Boolean* arg = new base::Boolean(true);
    rtn(arg);
    arg->unref();
 }

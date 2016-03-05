@@ -4,7 +4,7 @@
 #ifndef __oe_test_DataRecordTest_H__
 #define __oe_test_DataRecordTest_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 #include "openeaagles/recorder/TabPrinter.h"
 #include "openeaagles/recorder/PrintPlayer.h"
 #include "openeaagles/recorder/PrintSelected.h"
@@ -33,7 +33,7 @@ public:
     DataRecordTest();
 
     // Slot functions
-    virtual bool setSlotFileName(basic::String* const msg);
+    virtual bool setSlotFileName(base::String* const msg);
     virtual bool setSlotTabPrinter(recorder::TabPrinter* msg);
     virtual bool setSlotFileWriter(recorder::FileWriter* msg);
     virtual bool setSlotFileReader(recorder::FileReader* msg);
@@ -87,13 +87,13 @@ protected:
 
 private:
    const char* fileName;
-   basic::safe_ptr<recorder::PrintPlayer> myPrintPlayer;
-   basic::safe_ptr<recorder::PrintSelected> myPrintSelected;
-   basic::safe_ptr<recorder::PrintSelected> myPrintSelected2;
-   basic::safe_ptr<recorder::TabPrinter> myRecPrint;
-   basic::safe_ptr<recorder::FileWriter> myFileWrite;
-   basic::safe_ptr<recorder::FileReader> myFileRead;
-   basic::safe_ptr<simulation::DataRecorder> myDataRec;
+   base::safe_ptr<recorder::PrintPlayer> myPrintPlayer;
+   base::safe_ptr<recorder::PrintSelected> myPrintSelected;
+   base::safe_ptr<recorder::PrintSelected> myPrintSelected2;
+   base::safe_ptr<recorder::TabPrinter> myRecPrint;
+   base::safe_ptr<recorder::FileWriter> myFileWrite;
+   base::safe_ptr<recorder::FileReader> myFileRead;
+   base::safe_ptr<simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
    recorder::PrintSelected::Condition condition;

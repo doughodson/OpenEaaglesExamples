@@ -11,10 +11,10 @@
 #include "openeaagles/simulation/Autopilot.h"
 #include "openeaagles/simulation/Player.h"
 
-#include "openeaagles/basic/osg/Vec3"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
-#include "openeaagles/basic/units/Times.h"
+#include "openeaagles/base/osg/Vec3"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
+#include "openeaagles/base/units/Times.h"
 
 #include <GL/glut.h>
 #include <iomanip>

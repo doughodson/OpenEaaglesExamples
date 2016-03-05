@@ -18,7 +18,7 @@ class TdAzPtr : public graphics::Graphic
 public:
     TdAzPtr();
 
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
     void draw() override;
 
 private:

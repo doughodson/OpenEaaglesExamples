@@ -13,15 +13,15 @@
 #include "openeaagles/simulation/Steerpoint.h"
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/graphics/SymbolLoader.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
 #include "openeaagles/models/dynamics/LaeroModel.h"
 #include "openeaagles/graphics/Display.h"
 #include "openeaagles/graphics/Shapes.h"
 
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
-#include "openeaagles/basic/units/Times.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
+#include "openeaagles/base/units/Times.h"
 
 #include <GL/glut.h>
 
@@ -208,16 +208,16 @@ void MapPage::drawHoldingPattern()
 //            double refLon = getReferenceLonDeg();
 
             const double omegaDps = 3.0;                                  //dps
-            const double omegaRps = omegaDps * basic::Angle::D2RCC;       //rps
-            const double rocNM = (osVel / basic::Time::H2S) / omegaRps;   //nm
+            const double omegaRps = omegaDps * base::Angle::D2RCC;       //rps
+            const double rocNM = (osVel / base::Time::H2S) / omegaRps;   //nm
             //double obTimeMin = 2.0;                                     //min
-            //double obTimeSec = obTimeMin * basic::Time::M2S;            //sec
+            //double obTimeSec = obTimeMin * base::Time::M2S;            //sec
 
-            //double obDistNM = (osVel / basic::Time::H2S) * obTimeSec;   //nm
+            //double obDistNM = (osVel / base::Time::H2S) * obTimeSec;   //nm
 
             double obDistNM = 0;
             if (pRac->isLoiterTimeBased()) {
-               obDistNM = (osVel / basic::Time::H2S) * pRac->getLoiterTime();   //nm
+               obDistNM = (osVel / base::Time::H2S) * pRac->getLoiterTime();   //nm
             }
             else {
                obDistNM = pRac->getLoiterPatternLengthNM();
@@ -373,7 +373,7 @@ void MapPage::updateData(const LCreal dt)
 
     // get our pointers
     if (loader == nullptr) {
-        basic::Pair* pair = findByName("playerLoader");
+        base::Pair* pair = findByName("playerLoader");
         if (pair != nullptr) {
             loader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (loader != nullptr) loader->ref();
@@ -398,7 +398,7 @@ void MapPage::updateData(const LCreal dt)
 
    // go through one time and add our symbols for the route
    if (!routeLoaded && pStn != nullptr) {
-      basic::Pair* pair = findByName("routeLoader");
+      base::Pair* pair = findByName("routeLoader");
       if (pair != nullptr) {
          graphics::SymbolLoader* routeLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
@@ -409,7 +409,7 @@ void MapPage::updateData(const LCreal dt)
                if (nav != nullptr) {
                   simulation::Route* rte = nav->getPriRoute();
                   if (rte != nullptr) {
-                     basic::safe_ptr<simulation::Steerpoint> stpts[10];
+                     base::safe_ptr<simulation::Steerpoint> stpts[10];
                      unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
                      for (unsigned int i = 0; i < numStpts; i++) {
                         if (stpts[i] != nullptr) {
@@ -430,15 +430,15 @@ void MapPage::updateData(const LCreal dt)
 
     // let's update our players
     if (loader != nullptr && pStn != nullptr) {
-        basic::PairStream* stream = pStn->getPlayers();
+        base::PairStream* stream = pStn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
             simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
-            basic::List::Item* item = stream->getFirstItem();
+            base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
-                basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+                base::Pair* pair = static_cast<base::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     simulation::Player* pPlr = dynamic_cast<simulation::Player*>(pair->object());
                     if (pPlr != nullptr) {

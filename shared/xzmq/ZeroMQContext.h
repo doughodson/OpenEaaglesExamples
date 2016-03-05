@@ -4,10 +4,10 @@
 #ifndef __oe_xzmq_ZeroMQContext_H__
 #define __oe_xzmq_ZeroMQContext_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
-   namespace basic { class Boolean; class Integer; }
+   namespace base { class Boolean; class Integer; }
 
 namespace xzmq {
 
@@ -29,9 +29,9 @@ namespace xzmq {
 //    enableIPV6  - Enable IPV6 sockets
 //
 //------------------------------------------------------------------------------
-class ZeroMQContext : public basic::Component
+class ZeroMQContext : public base::Component
 {
-   DECLARE_SUBCLASS(ZeroMQContext, basic::Component)
+   DECLARE_SUBCLASS(ZeroMQContext, base::Component)
 
 public:
    ZeroMQContext();
@@ -41,14 +41,14 @@ public:
    virtual bool isInitialized() const;
    virtual bool terminateContext();
 
-   // Casting for the dereference operator much like basic::String
+   // Casting for the dereference operator much like base::String
    operator void* ()                { return context; }
    operator const void* () const    { return context; }
 
    // Slots
-   virtual bool setSlotThreadCount(const basic::Integer* const msg);
-   virtual bool setSlotMaxSockets(const basic::Integer* const msg);
-   virtual bool setSlotEnableIPV6(const basic::Boolean* const msg);
+   virtual bool setSlotThreadCount(const base::Integer* const msg);
+   virtual bool setSlotMaxSockets(const base::Integer* const msg);
+   virtual bool setSlotEnableIPV6(const base::Boolean* const msg);
 
 protected:
    bool setThreadCount(const int count);

@@ -1,16 +1,16 @@
 //-----------------------------------------------------------------------------
-// Test basic::Nav functions
+// Test base::Nav functions
 //-----------------------------------------------------------------------------
 
-#include "openeaagles/basic/support.h"
-#include "openeaagles/basic/Matrix.h"
-#include "openeaagles/basic/Vectors.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/support.h"
+#include "openeaagles/base/Matrix.h"
+#include "openeaagles/base/Vectors.h"
+#include "openeaagles/base/units/Angles.h"
 #include <iostream>
 #include <iomanip>
 
 namespace oe {
-namespace basic {
+namespace base {
 
 const unsigned int ROWS = 4;
 const unsigned int COLS = 4;
@@ -532,13 +532,13 @@ void test_getInverse()
 }
 
 
-} // end namespace basic 
+} // end namespace base 
 } // end namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   oe::basic::testMatrixFns();
+   oe::base::testMatrixFns();
 
    return 0;
 }

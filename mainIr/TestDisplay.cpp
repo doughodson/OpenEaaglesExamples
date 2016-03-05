@@ -7,10 +7,10 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/StoresMgr.h"
 #include "openeaagles/graphics/SymbolLoader.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/units/Distances.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/units/Distances.h"
 
 namespace oe {
 namespace example {
@@ -86,7 +86,7 @@ bool TestDisplay::onResetKey()
 bool TestDisplay::onFreezeKey()
 {
    if ( getSimulation() != nullptr ) {
-      basic::Boolean newFrz( !getSimulation()->isFrozen() );
+      base::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
    return true;
@@ -162,7 +162,7 @@ void TestDisplay::updateData(const LCreal dt)
 
 
        // Maintain Air Tracks
-       basic::Pair* pair = findByName("airTracks");
+       base::Pair* pair = findByName("airTracks");
        if (pair != nullptr) {
           graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
           if (myLoader != nullptr) {
@@ -205,16 +205,16 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
    {
       // get the player list
       simulation::Simulation* sim = getSimulation();
-      basic::PairStream* plist = sim->getPlayers();
+      base::PairStream* plist = sim->getPlayers();
 
       // search for air vehicles or missiles within range
-      basic::List::Item* item = plist->getFirstItem();
+      base::List::Item* item = plist->getFirstItem();
       while (item != nullptr && nNewTracks < maxTracks) {
-         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          simulation::Player* p = static_cast<simulation::Player*>(pair->object());
          osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
-         LCreal x = rpos[0] * basic::Distance::M2NM;
-         LCreal y = rpos[1] * basic::Distance::M2NM;
+         LCreal x = rpos[0] * base::Distance::M2NM;
+         LCreal y = rpos[1] * base::Distance::M2NM;
 
          simulation::Weapon* weapon = dynamic_cast<simulation::Weapon*>(p);
          if (weapon && (weapon->isMode(simulation::Player::PRE_RELEASE) || weapon->isActive())) {
@@ -309,10 +309,10 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
       if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp = tracks[i]->getXPosition() - osX;
          double yp = tracks[i]->getYPosition() - osY;
-         loader->updateSymbolPositionXY( trkIdx[i], (xp * basic::Distance::M2NM), (yp * basic::Distance::M2NM) );
+         loader->updateSymbolPositionXY( trkIdx[i], (xp * base::Distance::M2NM), (yp * base::Distance::M2NM) );
          loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
          if (tracks[i]==target) {
-            //basic::Identifier* temp = new basic::Identifier("green");
+            //base::Identifier* temp = new base::Identifier("green");
             //loader->changeSymbolColor(trkIdx[i], 0, temp);
             loader->setSymbolFlashRate(trkIdx[i], nullptr, 2);
          }

@@ -7,10 +7,10 @@
 #include "TestStation.h"
 
 #include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/basic/osg/Vec3"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
-#include "openeaagles/basic/units/Times.h"
+#include "openeaagles/base/osg/Vec3"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
+#include "openeaagles/base/units/Times.h"
 
 namespace oe {
 namespace example {
@@ -86,15 +86,15 @@ void AdiDisplay::updateData(const LCreal dt)
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
       phiRO = pA->getRollD();
-      //velRO = pA->getTotalVelocity() * basic::Distance::M2NM / basic::Time::S2H;
+      //velRO = pA->getTotalVelocity() * base::Distance::M2NM / base::Time::S2H;
       velRO = pA->getTotalVelocityKts();
       altRO = pA->getAltitudeFt();
 
       av = pA->getAngularVelocities();
 
-      pRO   = av[0] * basic::Angle::R2DCC;
-      qRO   = av[1] * basic::Angle::R2DCC;
-      rRO   = av[2] * basic::Angle::R2DCC;
+      pRO   = av[0] * base::Angle::R2DCC;
+      qRO   = av[1] * base::Angle::R2DCC;
+      rRO   = av[2] * base::Angle::R2DCC;
 
       pitchADI = pA->getPitchD();
       bankADI  = pA->getRollD();

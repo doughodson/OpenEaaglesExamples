@@ -7,9 +7,9 @@
 
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Player.h"
-#include "openeaagles/basic/List.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/List.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/Pair.h"
 
 #include <QTimer>
 #include <iostream>
@@ -97,12 +97,12 @@ void MapView::refreshView()
       if (map != nullptr) map->updateBG();
       const oe::simulation::Simulation* sim = stn->getSimulation();
       if (sim != nullptr) {
-         const oe::basic::PairStream* stream = sim->getPlayers();
+         const oe::base::PairStream* stream = sim->getPlayers();
          if (stream != nullptr) {
-            // go through the eaagles players and add new or update existing players
-            const oe::basic::List::Item* item = stream->getFirstItem();
+            // go through the players and add new or update existing players
+            const oe::base::List::Item* item = stream->getFirstItem();
             while (item != nullptr) {
-               const oe::basic::Pair* pair = (const oe::basic::Pair*)item->getValue();
+               const oe::base::Pair* pair = (const oe::base::Pair*)item->getValue();
                if (pair != nullptr) {
                   const oe::simulation::Player* ply = dynamic_cast<const oe::simulation::Player*>(pair->object());
                   if (ply != nullptr) {

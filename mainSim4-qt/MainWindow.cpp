@@ -34,7 +34,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 {
    // tell our station to shutdown
    if (stn != nullptr && !stn->isShutdown()) {
-       stn->event(oe::basic::Component::SHUTDOWN_EVENT);
+       stn->event(oe::base::Component::SHUTDOWN_EVENT);
    }
    QMainWindow::closeEvent(event);
 }
@@ -109,7 +109,7 @@ void MainWindow::reset()
          if (stn->getFastForwardRate() != 1) stn->setFastForwardRate(1);
          if (stn->isNotFrozen()) stn->freeze(true);
          if (sim->isNotFrozen()) sim->freeze(true);
-         stn->event(oe::basic::Component::RESET_EVENT);
+         stn->event(oe::base::Component::RESET_EVENT);
       }
    }
 }

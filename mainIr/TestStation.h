@@ -39,7 +39,7 @@ public:
 private:
    bool setSlotGlutDisplay(glut::GlutDisplay* const msg);
 
-   basic::safe_ptr<glut::GlutDisplay> glutDisplay;
+   base::safe_ptr<glut::GlutDisplay> glutDisplay;
    bool glutDisplayInit;
 };
 

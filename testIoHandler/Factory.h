@@ -6,14 +6,14 @@
 
 namespace oe {
 
-namespace basic { class Object; }
+namespace base { class Object; }
 
 namespace test {
 
 class Factory
 {
 public:
-   static basic::Object* createObj(const char* name);
+   static base::Object* createObj(const char* name);
 
 protected:
    Factory();   // prevent object creation

@@ -18,11 +18,11 @@ class TdElevPtr : public graphics::Graphic
 public:
     TdElevPtr();
 
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
     void draw() override;
 
     //event handler macro functions
-    virtual bool onUpdateValue(const basic::Number* const ouvobj);
+    virtual bool onUpdateValue(const base::Number* const ouvobj);
 
 private:
     LCreal  elev;

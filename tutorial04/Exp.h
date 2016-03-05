@@ -10,7 +10,7 @@
 
 namespace oe {
 
-namespace basic { class Number; }
+namespace base { class Number; }
 
 namespace Tutorial {
 
@@ -26,7 +26,7 @@ public:
    virtual void setMean(const double);
 
    // slot table functions
-   virtual bool setSlotMean(const basic::Number* const);
+   virtual bool setSlotMean(const base::Number* const);
 
    int getNum(void) const override;
 

@@ -1,13 +1,13 @@
 
 #include <iostream>
 
-#include "openeaagles/basic/String.h"
+#include "openeaagles/base/String.h"
 
 namespace Tutorial {
 
 int main(int argc, char* argv[])
 {
-   oe::basic::String* str = new oe::basic::String("Hello world\n");
+   oe::base::String* str = new oe::base::String("Hello world\n");
 
    std::cout << str->getString();
 

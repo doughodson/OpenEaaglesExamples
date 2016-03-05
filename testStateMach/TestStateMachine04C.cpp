@@ -2,8 +2,8 @@
 #include "TestStateMachine04C.h"
 #include "TestStateMachine04.h"
 
-#include "openeaagles/basic/Integer.h"
-#include "openeaagles/basic/Boolean.h"
+#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/Boolean.h"
 
 namespace oe {
 namespace test {
@@ -47,13 +47,13 @@ void TestStateMachine04C::stateFunc00(const LCreal)
       case 1 : {
          if (getMode() != RTN_STATE) {
             std::cout << "callState(CALL_02,arg=13)";
-            basic::Number* arg = new basic::Integer(13);
+            base::Number* arg = new base::Integer(13);
             callState(TestStateMachine04::CALL_02, arg);
             arg->unref();
          }
          else {
             std::cout << "Returned from call; ";
-            const basic::Boolean* arg = dynamic_cast<const basic::Boolean*>( getArgument() );
+            const base::Boolean* arg = dynamic_cast<const base::Boolean*>( getArgument() );
             if (arg != nullptr) {
                std::cout << "arg(" << arg->getBoolean() << "); ";
             }

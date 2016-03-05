@@ -7,7 +7,7 @@ CPPFLAGS += -I/usr/include/Fl
 
 OBJS = FltkDisplay.o MainWindow.o GLWindow.o FltkStation.o main.o
 
-LDFLAGS += -loesimulation -loeinstruments -loedafif  -loegraphics -loebasic 
+LDFLAGS += -loesimulation -loeinstruments -loedafif  -loegraphics -loebase 
 LDFLAGS += -lfltk_images -lfltk_gl -lfltk
 LDFLAGS += -lfreetype -lftgl -lGLU -lGL
 LDFLAGS += -lpthread -lX11 -lXft

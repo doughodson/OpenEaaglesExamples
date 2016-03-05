@@ -6,8 +6,8 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/graphics/SymbolLoader.h"
 #include "openeaagles/graphics/Display.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
 
 namespace oe {
 namespace example {
@@ -200,7 +200,7 @@ void MapPage::updateData(const LCreal dt)
 
     // get our pointers
     if (loader == nullptr) {
-        basic::Pair* pair = findByType(typeid(graphics::SymbolLoader));
+        base::Pair* pair = findByType(typeid(graphics::SymbolLoader));
         if (pair != nullptr) {
             loader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (loader != nullptr) loader->ref();
@@ -224,15 +224,15 @@ void MapPage::updateData(const LCreal dt)
 
     // let's update our players
     if (loader != nullptr && stn != nullptr) {
-        basic::PairStream* stream = stn->getPlayers();
+        base::PairStream* stream = stn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
             simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
-            basic::List::Item* item = stream->getFirstItem();
+            base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
-                basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+                base::Pair* pair = static_cast<base::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     simulation::Player* ply = dynamic_cast<simulation::Player*>(pair->object());
                     if (ply != nullptr) {

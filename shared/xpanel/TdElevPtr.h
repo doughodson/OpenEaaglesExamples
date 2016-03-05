@@ -7,7 +7,7 @@
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
-   namespace basic { class Number; }
+   namespace base { class Number; }
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -37,10 +37,10 @@ public:
 
    void draw() override;
 
-   bool event(const int event, basic::Object* const obj = nullptr) override;
+   bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
-   bool onUpdateValue(const basic::Number* const);
+   bool onUpdateValue(const base::Number* const);
 
    LCreal elev;  // (degs)
 };

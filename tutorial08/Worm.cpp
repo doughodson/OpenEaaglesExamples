@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include "Worm.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace Tutorial {
@@ -17,9 +17,9 @@ BEGIN_SLOTTABLE(Worm)
 END_SLOTTABLE(Worm)
 // slot map
 BEGIN_SLOT_MAP(Worm)
-   ON_SLOT(1, realSpeed, oe::basic::Number)
-   ON_SLOT(2, setAngle, oe::basic::Angle)
-   ON_SLOT(2, setAngle, oe::basic::Number)
+   ON_SLOT(1, realSpeed, oe::base::Number)
+   ON_SLOT(2, setAngle, oe::base::Angle)
+   ON_SLOT(2, setAngle, oe::base::Number)
 END_SLOT_MAP()
 // events
 BEGIN_EVENT_HANDLER(Worm)
@@ -94,7 +94,7 @@ void Worm::reset()
    yPos =0;
    nTrails = 0;
    if (iangle != nullptr) {
-      oe::basic::Radians radians;
+      oe::base::Radians radians;
       setStartAngle(static_cast<LCreal>(radians.convert(*iangle)));
    }
 }
@@ -189,7 +189,7 @@ void Worm::drawFunc()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-oe::basic::Object* Worm::getSlotByIndex(const int si)
+oe::base::Object* Worm::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
@@ -198,7 +198,7 @@ oe::basic::Object* Worm::getSlotByIndex(const int si)
 //------------------------------------------------------------------------------
 // realSpeed() -- sets the starting real speed
 //------------------------------------------------------------------------------
-bool Worm::realSpeed(const oe::basic::Number* const rsobj)
+bool Worm::realSpeed(const oe::base::Number* const rsobj)
 {
    bool ok = false;
    if (rsobj != nullptr) {
@@ -211,11 +211,11 @@ bool Worm::realSpeed(const oe::basic::Number* const rsobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an Angle parameter
 //------------------------------------------------------------------------------ 
-bool Worm::setAngle(const oe::basic::Angle* const saobj)
+bool Worm::setAngle(const oe::base::Angle* const saobj)
 {
    bool ok = false;
    if (saobj != nullptr) {
-      oe::basic::Radians radians;
+      oe::base::Radians radians;
       setStartAngle(static_cast<LCreal>(radians.convert(*saobj)));
       iangle = saobj;
       iangle->ref();
@@ -227,7 +227,7 @@ bool Worm::setAngle(const oe::basic::Angle* const saobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an Number parameter
 //------------------------------------------------------------------------------ 
-bool Worm::setAngle(const oe::basic::Number* const saobj)
+bool Worm::setAngle(const oe::base::Number* const saobj)
 {
    bool ok = false;
    if (saobj != nullptr) {

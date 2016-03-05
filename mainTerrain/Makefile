@@ -5,7 +5,7 @@ PGM = mainTerrain
 OBJS =  Display.o factory.o main.o
 
 LDFLAGS += -loesimulation -loeterrain
-LDFLAGS += -loeglut -loegraphics -loebasic
+LDFLAGS += -loeglut -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

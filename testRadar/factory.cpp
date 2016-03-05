@@ -1,7 +1,7 @@
 
 #include "factory.h"
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 #include "TestDisplay.h"
 #include "TestStation.h"
@@ -16,16 +16,16 @@
 #include "openeaagles/instruments/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 
 #include <cstring>
 
 namespace oe {
 namespace test {
 
-basic::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
-    basic::Object* obj = nullptr;
+    base::Object* obj = nullptr;
 
     if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
         obj = new TestStation();
@@ -52,7 +52,7 @@ basic::Object* factory(const char* name)
     if (obj == nullptr) obj = network::dis::factory(name);
     if (obj == nullptr) obj = graphics::factory(name);
     if (obj == nullptr) obj = glut::factory(name);
-    if (obj == nullptr) obj = basic::factory(name);
+    if (obj == nullptr) obj = base::factory(name);
 
     return obj;
 }

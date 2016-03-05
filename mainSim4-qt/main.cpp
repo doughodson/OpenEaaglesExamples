@@ -4,9 +4,9 @@
 #include "MainWindow.h"
 #include "Station.h"
 
-#include "openeaagles/basic/Parser.h"
-#include "openeaagles/basic/factory.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Parser.h"
+#include "openeaagles/base/factory.h"
+#include "openeaagles/base/Pair.h"
 #include "openeaagles/simulation/factory.h"
 
 #include <cstdlib>
@@ -18,9 +18,9 @@ namespace example {
 Station* station = nullptr;
 
 // our class factory
-static oe::basic::Object* factory(const char* name)
+static oe::base::Object* factory(const char* name)
 {
-    oe::basic::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     // This test ...
     if ( std::strcmp(name, Station::getFactoryName()) == 0 ) {
@@ -29,7 +29,7 @@ static oe::basic::Object* factory(const char* name)
 
     else {
         if (obj == nullptr) obj = oe::simulation::factory(name);
-        if (obj == nullptr) obj = oe::basic::factory(name);
+        if (obj == nullptr) obj = oe::base::factory(name);
     }
     return obj;
 }
@@ -39,7 +39,7 @@ static void builder(const char* const testFileName)
 {
     // Read the description file
     int errors = 0;
-    oe::basic::Object* q1 = oe::basic::lcParser(testFileName, factory, &errors);
+    oe::base::Object* q1 = oe::base::lcParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         std::exit(EXIT_FAILURE);
@@ -50,9 +50,9 @@ static void builder(const char* const testFileName)
     if (q1 != nullptr) {
 
         // When we were given a Pair, get the pointer to its object.
-        oe::basic::Pair* pp = dynamic_cast<oe::basic::Pair*>(q1);
+        oe::base::Pair* pp = dynamic_cast<oe::base::Pair*>(q1);
         if (pp != nullptr) {
-           std::cout << "Form: " << *pp->slot() << std::endl;
+           std::cout << "Factory: " << *pp->slot() << std::endl;
            q1 = pp->object();
         }
 
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
    builder(fileName);
 
    // prime the station
-   station->event(oe::basic::Component::RESET_EVENT);
+   station->event(oe::base::Component::RESET_EVENT);
 
    // create the time critical process
    station->createTimeCriticalProcess();

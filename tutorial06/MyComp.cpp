@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include "MyComp.h"
-#include "openeaagles/basic/String.h"
+#include "openeaagles/base/String.h"
 #include <cstdlib>
 
 namespace oe {
@@ -16,7 +16,7 @@ BEGIN_SLOTTABLE(MyComp)
 END_SLOTTABLE(MyComp)
 // map attributes to slots
 BEGIN_SLOT_MAP(MyComp)
-  ON_SLOT(1, setSlotStr, basic::String)
+  ON_SLOT(1, setSlotStr, base::String)
 END_SLOT_MAP()
 EMPTY_SERIALIZER(MyComp)
 
@@ -64,7 +64,7 @@ void MyComp::deleteData()
 //------------------------------------------------------------------------------
 // data access functions
 //------------------------------------------------------------------------------
-bool MyComp::setStr(const basic::String* const x)
+bool MyComp::setStr(const base::String* const x)
 {
    if (str != nullptr) str->unref();
    str = x;
@@ -72,7 +72,7 @@ bool MyComp::setStr(const basic::String* const x)
    return true;
 }
 
-const basic::String* MyComp::getStr(void) const
+const base::String* MyComp::getStr(void) const
 {
    return str;
 }
@@ -80,12 +80,12 @@ const basic::String* MyComp::getStr(void) const
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-basic::Object* MyComp::getSlotByIndex(const int si)
+base::Object* MyComp::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-bool MyComp::setSlotStr(const basic::String* const x)
+bool MyComp::setSlotStr(const base::String* const x)
 {
    bool ok = false;
    if(x != nullptr) {

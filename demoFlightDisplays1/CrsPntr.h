@@ -43,20 +43,20 @@ public:
     void drawFunc() override;
 
     void updateData(const LCreal dt = 0.0) override;
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
 
 protected:
     // slot functions
-    bool setSlotNumCdiDots(const basic::Number* const newCDI);
-    bool setSlotNumInches(const basic::Number* const newNI);
-    bool setSlotShowCdi(const basic::Number* const newSCDI);
-    bool setSlotShowCrsPntr(const basic::Number* const newSCP);
-    bool setSlotShowToFrom(const basic::Number* const newTF);
+    bool setSlotNumCdiDots(const base::Number* const newCDI);
+    bool setSlotNumInches(const base::Number* const newNI);
+    bool setSlotShowCdi(const base::Number* const newSCDI);
+    bool setSlotShowCrsPntr(const base::Number* const newSCP);
+    bool setSlotShowToFrom(const base::Number* const newTF);
 
 private:
     // event functions
-    bool onUpdateCdiDotsCrsPntr(const basic::Number* const x);
-    bool onUpdateToFromCrsPntr(const basic::Number* const x);
+    bool onUpdateCdiDotsCrsPntr(const base::Number* const x);
+    bool onUpdateToFromCrsPntr(const base::Number* const x);
 
     LCreal toFrom;          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
     LCreal cdiDots;         // course deviation dots

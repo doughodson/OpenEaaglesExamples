@@ -4,8 +4,8 @@
 #include "Blocks.h"
 #include "Puzzle.h"
 
-#include "openeaagles/basic/Integer.h"
-#include "openeaagles/basic/List.h"
+#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/List.h"
 
 namespace oe {
 namespace example {
@@ -28,8 +28,8 @@ END_SLOTTABLE(Block)
 //  Map slot table to handles
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Block)
-    ON_SLOT( 1, setSlotPosition, basic::List)
-    ON_SLOT( 2, setSlotRefId, basic::Integer)
+    ON_SLOT( 1, setSlotPosition, base::List)
+    ON_SLOT( 2, setSlotRefId, base::Integer)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -208,7 +208,7 @@ bool Block::setReferenceID(const unsigned int v)
 //------------------------------------------------------------------------------
 // Slot function(s)
 //------------------------------------------------------------------------------
-bool Block::setSlotPosition(const basic::List* const msg)
+bool Block::setSlotPosition(const base::List* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -221,7 +221,7 @@ bool Block::setSlotPosition(const basic::List* const msg)
    return ok;
 }
 
-bool Block::setSlotRefId(const basic::Integer* const msg)
+bool Block::setSlotRefId(const base::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -237,7 +237,7 @@ bool Block::setSlotRefId(const basic::Integer* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* Block::getSlotByIndex(const int si)
+base::Object* Block::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

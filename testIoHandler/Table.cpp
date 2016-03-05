@@ -3,9 +3,9 @@
 //------------------------------------------------------------------------------
 #include "Table.h"
 
-#include "openeaagles/basic/Number.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
 
 #include <cstdio>
 
@@ -32,7 +32,7 @@ class TableRow : public graphics::Field
 public:
    TableRow();
    
-   void put(basic::Pair* const item);
+   void put(base::Pair* const item);
    
    // graphics::Field class interface
    virtual int line() const;
@@ -58,9 +58,9 @@ END_SLOTTABLE(Table)
 
 // slot map
 BEGIN_SLOT_MAP(Table)
-   ON_SLOT( 1, setSlotRows, basic::Number)
-   ON_SLOT( 2, setSlotSpacing, basic::Number)
-   ON_SLOT( 3, setSlotColumns, basic::PairStream)
+   ON_SLOT( 1, setSlotRows, base::Number)
+   ON_SLOT( 2, setSlotSpacing, base::Number)
+   ON_SLOT( 3, setSlotColumns, base::PairStream)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ void Table::copyData(const Table& org, const bool cc)
    spacing = org.spacing;
 
    if (org.columns) {
-      basic::PairStream* p = org.columns->clone();
+      base::PairStream* p = org.columns->clone();
       setSlotColumns(p);
    }
    else {
@@ -135,7 +135,7 @@ int Table::column() const
    return BaseClass::column();
 }
 
-const basic::PairStream* Table::getColumns() const
+const base::PairStream* Table::getColumns() const
 {
    return columns;
 }
@@ -167,16 +167,16 @@ int Table::column(const int cc)
 //------------------------------------------------------------------------------
 void Table::position()
 {
-   basic::PairStream* subcomponents = getComponents();
+   base::PairStream* subcomponents = getComponents();
    if (subcomponents != nullptr) {
    
       int ln = line();
       int cp = column();
 
       // Position our subcomponents, which are all TableRow objects (see build())
-      basic::List::Item* item = subcomponents->getFirstItem();
+      base::List::Item* item = subcomponents->getFirstItem();
       while (item != nullptr) {
-         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          TableRow* row = static_cast<TableRow*>(pair->object());
 
          row->line(ln);
@@ -195,11 +195,11 @@ void Table::position()
 //------------------------------------------------------------------------------
 void Table::build()
 {
-   basic::PairStream* newList = nullptr;
+   base::PairStream* newList = nullptr;
 
    if (rows > 0 && columns != nullptr) {
 
-      newList = new basic::PairStream();
+      newList = new base::PairStream();
 
       // For each row: create a TableRow containing all the items in 'columns'
       for (unsigned int i = 1; i <= rows; i++) {
@@ -208,12 +208,12 @@ void Table::build()
          TableRow* row = new TableRow(); 
          row->container(this);
 
-         const basic::List::Item* item = columns->getFirstItem();
+         const base::List::Item* item = columns->getFirstItem();
          while (item != nullptr) {
-            const basic::Pair* pair = static_cast<const basic::Pair*>(item->getValue());
-            const basic::Object* obj = pair->object();
+            const base::Pair* pair = static_cast<const base::Pair*>(item->getValue());
+            const base::Object* obj = pair->object();
             if (obj->isClassType(typeid(graphics::Graphic))) {
-               basic::Pair* pp = pair->clone();
+               base::Pair* pp = pair->clone();
                graphics::Graphic* gobj = static_cast<graphics::Graphic*>(pp->object());
                gobj->container(row);
                row->put(pp);
@@ -227,7 +227,7 @@ void Table::build()
          {
             char cbuf[8];
             sprintf(cbuf,"%d",i);
-            basic::Pair* pp = new basic::Pair(cbuf,row);
+            base::Pair* pp = new base::Pair(cbuf,row);
             newList->put(pp);
             pp->unref();
          }
@@ -240,7 +240,7 @@ void Table::build()
    }
 
    // These are new our subcomponents ...
-   processComponents(newList,typeid(basic::Component));
+   processComponents(newList,typeid(base::Component));
    if (newList != nullptr) newList->unref();
 }
 
@@ -248,7 +248,7 @@ void Table::build()
 //------------------------------------------------------------------------------
 // Slot functions
 //------------------------------------------------------------------------------
-bool Table::setSlotRows(basic::Number* const msg)
+bool Table::setSlotRows(base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -261,7 +261,7 @@ bool Table::setSlotRows(basic::Number* const msg)
    return ok;
 }
 
-bool Table::setSlotSpacing(basic::Number* const msg)
+bool Table::setSlotSpacing(base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -274,15 +274,15 @@ bool Table::setSlotSpacing(basic::Number* const msg)
    return ok;
 }
 
-bool Table::setSlotColumns(basic::PairStream* const msg)
+bool Table::setSlotColumns(base::PairStream* const msg)
 {
    if (columns != nullptr) { columns->unref(); columns = nullptr; }
    if (msg != nullptr) {
       // Make a copy of the list and Make sure we have only Field objexts
-      basic::PairStream* newColumns = new basic::PairStream();
-      basic::List::Item* item = msg->getFirstItem();
+      base::PairStream* newColumns = new base::PairStream();
+      base::List::Item* item = msg->getFirstItem();
       while (item != nullptr) {
-          basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+          base::Pair* pair = static_cast<base::Pair*>(item->getValue());
           graphics::Field* g = dynamic_cast<graphics::Field*>(pair->object());
           if (g != nullptr) {
               // We have a Field object, so add it to the new columns list
@@ -299,7 +299,7 @@ bool Table::setSlotColumns(basic::PairStream* const msg)
 //------------------------------------------------------------------------------
 // getSlotByIndex() 
 //------------------------------------------------------------------------------
-basic::Object* Table::getSlotByIndex(const int si)
+base::Object* Table::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
@@ -386,9 +386,9 @@ int TableRow::column(const int cc)
    return BaseClass::column();
 }
 
-void  TableRow::put(basic::Pair* pp)
+void  TableRow::put(base::Pair* pp)
 {
-   basic::PairStream* subcomponents = getComponents();
+   base::PairStream* subcomponents = getComponents();
    BaseClass::processComponents(subcomponents, typeid(graphics::Field), pp);
    if (subcomponents != nullptr) subcomponents->unref();
 }
@@ -396,15 +396,15 @@ void  TableRow::put(basic::Pair* pp)
 void TableRow::position()
 {
    // position the fields in this table item
-   basic::PairStream* subcomponents = getComponents();
+   base::PairStream* subcomponents = getComponents();
    if (subcomponents != nullptr) {
    
       int ln = line();
       int cp = column();
       
-      basic::List::Item* item = subcomponents->getFirstItem();
+      base::List::Item* item = subcomponents->getFirstItem();
       while (item != nullptr) {
-         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          graphics::Field* ti = static_cast<graphics::Field*>(pair->object());
         
          ti->line(ln);

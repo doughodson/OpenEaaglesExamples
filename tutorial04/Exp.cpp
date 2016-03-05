@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include "Exp.h"
-#include "openeaagles/basic/Number.h"
+#include "openeaagles/base/Number.h"
 #include <cstdlib>
 
 namespace oe {
@@ -16,7 +16,7 @@ BEGIN_SLOTTABLE(Exp)
 END_SLOTTABLE(Exp)
 // map attributes to slots
 BEGIN_SLOT_MAP(Exp)
-  ON_SLOT(1, setSlotMean, basic::Number)
+  ON_SLOT(1, setSlotMean, base::Number)
 END_SLOT_MAP()
 // nothing to serialize
 EMPTY_SERIALIZER(Exp)
@@ -70,7 +70,7 @@ int Exp::getNum(void) const
 // slot functions
 //------------------------------------------------------------------------------
 
-bool Exp::setSlotMean(const basic::Number* const mean)
+bool Exp::setSlotMean(const base::Number* const mean)
 {
   if (mean != nullptr)
     setMean(mean->getDouble());
@@ -80,7 +80,7 @@ bool Exp::setSlotMean(const basic::Number* const mean)
 //------------------------------------------------------------------------------
 // slot table functions
 //------------------------------------------------------------------------------
-basic::Object* Exp::getSlotByIndex(const int si)
+base::Object* Exp::getSlotByIndex(const int si)
 {
   return BaseClass::getSlotByIndex(si);
 }

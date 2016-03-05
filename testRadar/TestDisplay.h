@@ -50,7 +50,7 @@ public:
 
     void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
     void updateData(const LCreal dt = 0.0) override;
 
 private:
@@ -75,7 +75,7 @@ private:
     SendData        headingSD;
     SendData        rangeSD;
 
-    basic::safe_ptr<simulation::Station> myStation;
+    base::safe_ptr<simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
     simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying

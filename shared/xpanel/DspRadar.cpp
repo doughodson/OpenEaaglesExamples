@@ -7,9 +7,9 @@
 #include "openeaagles/simulation/Radar.h"
 #include "openeaagles/simulation/Track.h"
 #include "openeaagles/simulation/TrackManager.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
-#include "openeaagles/basic/Hsv.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
+#include "openeaagles/base/Hsv.h"
 
 namespace oe {
 namespace xpanel {
@@ -67,7 +67,7 @@ void DspRadar::updateData(const LCreal dt)
       // ---
       // Get the track list and convert them to display coordinates
       if (tm != nullptr) {
-         basic::safe_ptr<simulation::Track> trackList[MAX_TRKS];
+         base::safe_ptr<simulation::Track> trackList[MAX_TRKS];
          unsigned int n = tm->getTrackList(trackList,MAX_TRKS);
          for (unsigned int i = 0; i < n; i++) {
             osg::Vec3 pos = trackList[i]->getPosition();
@@ -83,8 +83,8 @@ void DspRadar::updateData(const LCreal dt)
 
    // Update antenna azimuth and elevation pointers
    if (antenna != nullptr) {
-      send( "azPtr", UPDATE_VALUE, static_cast<float>(basic::Angle::R2DCC * antenna->getAzimuth()),   azSD);
-      send( "elPtr", UPDATE_VALUE, static_cast<float>(basic::Angle::R2DCC * antenna->getElevation()), elSD);
+      send( "azPtr", UPDATE_VALUE, static_cast<float>(base::Angle::R2DCC * antenna->getAzimuth()),   azSD);
+      send( "elPtr", UPDATE_VALUE, static_cast<float>(base::Angle::R2DCC * antenna->getElevation()), elSD);
    }
 
    // Update base classes stuff
@@ -143,7 +143,7 @@ void DspRadar::drawFunc()
             hsv[1] = 1.0f;
             hsv[2] = s0[j];
             hsv[3] = 1.0f;
-            basic::Hsv::hsv2rgb(rgb, hsv);
+            base::Hsv::hsv2rgb(rgb, hsv);
             lcColor3v(rgb.ptr());
             glVertex3d(x0, y, 0.0);
 
@@ -152,7 +152,7 @@ void DspRadar::drawFunc()
             hsv[1] = 1.0f;
             hsv[2] = s1[j];
             hsv[3] = 1.0f;
-            basic::Hsv::hsv2rgb(rgb, hsv);
+            base::Hsv::hsv2rgb(rgb, hsv);
             lcColor3v(rgb.ptr());
             glVertex3d(x1, y, 0.0);
          }
@@ -174,7 +174,7 @@ void DspRadar::drawFunc()
 
       // Vertices of the basic symbol
       //static LCreal maxRng = 40000.0;
-      LCreal maxRng = radar->getRange() * basic::Distance::NM2M;
+      LCreal maxRng = radar->getRange() * base::Distance::NM2M;
       static double ss = 0.05;
 
       // The color
@@ -182,14 +182,14 @@ void DspRadar::drawFunc()
       hsv[1] = 1.0f;
       hsv[2] = 1.0f;
       hsv[3] = 1.0f;
-      basic::Hsv::hsv2rgb(rgb, hsv);
+      base::Hsv::hsv2rgb(rgb, hsv);
 
       // The NTS color
       hsv[0] = 360.0f;
-      basic::Hsv::hsv2rgb(ntsRGB, hsv);
+      base::Hsv::hsv2rgb(ntsRGB, hsv);
 
       for (unsigned int i = 0; i < nTracks; i++) {
-         double xp = (basic::Angle::R2DCC * trkAz[i])/30.0;
+         double xp = (base::Angle::R2DCC * trkAz[i])/30.0;
          double yp = 2.0*trkRng[i]/maxRng;
          if (static_cast<int>(i) == ntsTrk) lcColor3v(ntsRGB.ptr());
          else lcColor3v(rgb.ptr());
@@ -197,7 +197,7 @@ void DspRadar::drawFunc()
          glTranslated(xp, yp, 0.0);
          glScaled(ss, ss, ss);
          if (trkVel[i] > 50.0) {
-            double gt = -(basic::Angle::R2DCC * trkRelGndTrk[i]);
+            double gt = -(base::Angle::R2DCC * trkRelGndTrk[i]);
             glRotated(gt, 0.0, 0.0, 1.0);
             glBegin(GL_LINE_LOOP);
                glVertex3d( -1.0, -1.0, 0.2 );

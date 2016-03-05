@@ -4,11 +4,11 @@
 #ifndef __oe_test_Endpoint_H__
 #define __oe_test_Endpoint_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
 
-namespace basic { class NetHandler; class Number; }
+namespace base { class NetHandler; class Number; }
 
 namespace test {
 
@@ -26,9 +26,9 @@ namespace test {
 //                                  halting (default: infinite)
 //
 //------------------------------------------------------------------------------
-class Endpoint : public basic::Component
+class Endpoint : public base::Component
 {
-   DECLARE_SUBCLASS(Endpoint, basic::Component)
+   DECLARE_SUBCLASS(Endpoint, base::Component)
 
 public:
     static const unsigned int MAX_SIZE = 1024;  // Max buffer size
@@ -50,10 +50,10 @@ public:
     virtual unsigned int recvData(char* const msg, const unsigned int maxsize);
 
     // Slot functions
-    virtual bool setSlotNetwork(basic::NetHandler* const msg);
-    virtual bool setSlotNetInput(basic::NetHandler* const msg);
-    virtual bool setSlotNoWait(basic::Number* const msg);
-    virtual bool setSlotLoops(basic::Number* const msg);
+    virtual bool setSlotNetwork(base::NetHandler* const msg);
+    virtual bool setSlotNetInput(base::NetHandler* const msg);
+    virtual bool setSlotNoWait(base::Number* const msg);
+    virtual bool setSlotLoops(base::Number* const msg);
 
     void reset() override;
 
@@ -62,8 +62,8 @@ protected:
     unsigned int getLoops() const { return loops; }
 
 private:
-    basic::safe_ptr<basic::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
-    basic::safe_ptr<basic::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
+    base::safe_ptr<base::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
+    base::safe_ptr<base::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
     unsigned int loops;                            // Number of transfer loops (zero if no limit)
     bool   networkInitialized;                     // Network has been initialized
     bool   networkInitFailed;                      // Network initialization has failed

@@ -1,7 +1,7 @@
 
 #include "factory.h"
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 #include "ZeroMQContext.h"
 #include "ZeroMQHandler.h"
@@ -11,9 +11,9 @@
 namespace oe {
 namespace xzmq {
 
-basic::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
-    basic::Object* obj = nullptr;
+    base::Object* obj = nullptr;
 
     if (std::strcmp (name, ZeroMQContext::getFactoryName ()) == 0) {
         obj = new ZeroMQContext;

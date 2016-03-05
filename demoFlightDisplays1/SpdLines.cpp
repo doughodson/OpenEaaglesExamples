@@ -2,7 +2,7 @@
 // Class: SpdLines
 //------------------------------------------------------------------------------
 #include "SpdLines.h"
-#include "openeaagles/basic/Number.h"
+#include "openeaagles/base/Number.h"
 #include <GL/glu.h>
 
 namespace oe {
@@ -20,8 +20,8 @@ END_SLOTTABLE(SpdLines)
 //  Map slot table to handles for Analog Dial
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(SpdLines)
-    ON_SLOT(1, setSlotIsAlt, basic::Number)
-    ON_SLOT(2, setSlotDrawBack, basic::Number)
+    ON_SLOT(1, setSlotIsAlt, base::Number)
+    ON_SLOT(2, setSlotDrawBack, base::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ void SpdLines::drawFunc()
 //------------------------------------------------------------------------------
 // setSlotIsAlt() - sets our altitude flag
 //------------------------------------------------------------------------------
-bool SpdLines::setSlotIsAlt(const basic::Number* const newAltFlag)
+bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 {
     bool ok = false;
     if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
@@ -183,7 +183,7 @@ bool SpdLines::setSlotIsAlt(const basic::Number* const newAltFlag)
 //------------------------------------------------------------------------------
 // setSlotDrawBack() - sets our draw background flag
 //------------------------------------------------------------------------------
-bool SpdLines::setSlotDrawBack(const basic::Number* const newDB)
+bool SpdLines::setSlotDrawBack(const base::Number* const newDB)
 {
     bool ok = false;
     if (newDB != nullptr) ok = setDrawBack(newDB->getBoolean());
@@ -193,7 +193,7 @@ bool SpdLines::setSlotDrawBack(const basic::Number* const newDB)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* SpdLines::getSlotByIndex(const int si)
+base::Object* SpdLines::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

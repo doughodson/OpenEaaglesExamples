@@ -21,7 +21,7 @@ class ObjectHandler : public graphics::Graphic
 public:
    ObjectHandler();
 
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
     bool onUpdateObject(const TestObject* const x);

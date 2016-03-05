@@ -4,7 +4,7 @@ include ../makedefs
 PGM = testRng
 OBJS =  main.o
 
-LDFLAGS += -loebasic
+LDFLAGS += -loebase
 
 all: $(PGM)
 

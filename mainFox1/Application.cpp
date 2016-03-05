@@ -3,8 +3,8 @@
 #include "FoxDisplay.h"
 #include "FoxStation.h"
 
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/Parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Parser.h"
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {

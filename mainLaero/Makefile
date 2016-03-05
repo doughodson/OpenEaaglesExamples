@@ -15,7 +15,7 @@ LDFLAGS += -L../lib/linux -lxzmq -lzmq
 LDFLAGS += -loesimulation -loemodels -loedafif
 LDFLAGS += -loedis
 LDFLAGS += -lJSBSim
-LDFLAGS += -loeglut -loeinstruments -loegraphics -loebasic
+LDFLAGS += -loeglut -loeinstruments -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 LDFLAGS += -lrt
 

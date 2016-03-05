@@ -4,11 +4,11 @@
 #ifndef __oe_xbehaviors_PriorityArbiter_H__
 #define __oe_xbehaviors_PriorityArbiter_H__
 
-#include "openeaagles/basic/ubf/Arbiter.h"
+#include "openeaagles/base/ubf/Arbiter.h"
 
 namespace oe {
 
-namespace basic { class List; class Action; }
+namespace base { class List; class Action; }
 
 namespace xbehaviors {
 
@@ -17,14 +17,14 @@ namespace xbehaviors {
 //
 // Description: Example fusion arbiter for a plane
 //------------------------------------------------------------------------------
-class PriorityArbiter : public basic::ubf::Arbiter
+class PriorityArbiter : public base::ubf::Arbiter
 {
-   DECLARE_SUBCLASS(PriorityArbiter, basic::ubf::Arbiter)
+   DECLARE_SUBCLASS(PriorityArbiter, base::ubf::Arbiter)
 
 public:
    PriorityArbiter();
 
-   basic::ubf::Action* genComplexAction(basic::List* const actionSet) override;
+   base::ubf::Action* genComplexAction(base::List* const actionSet) override;
 
 private:
 
@@ -32,7 +32,7 @@ private:
    // and the change would go against the intended control stick action.  If so,
    // invalidate the trim change.
    // Returns nothing, but modifies what the action object points to
-   void trimChangeValidation(basic::ubf::Action* const);
+   void trimChangeValidation(base::ubf::Action* const);
 };
 
 }

@@ -1,6 +1,6 @@
 
 #include "TestPfd.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 #include "Pfd.h"
 
 namespace oe {
@@ -279,7 +279,7 @@ void TestPfd::updateData(const LCreal dt)
     }
 
 
-    basic::Pair* pair = findByType(typeid(Pfd));
+    base::Pair* pair = findByType(typeid(Pfd));
     if (pair != nullptr) {
         Pfd* p = static_cast<Pfd*>(pair->object());
         if (p != nullptr) {

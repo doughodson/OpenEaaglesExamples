@@ -1,5 +1,5 @@
 #include "TestGMeterDial.h"
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 #include "openeaagles/instruments/dials/GMeterDial.h"
 
 namespace oe {
@@ -59,7 +59,7 @@ void TestGMeterDial::updateData(const LCreal dt)
         currGs = 0;
         /*
         {
-            basic::Pair* p = findByType(typeid(oe::GMeterDial));
+            base::Pair* p = findByType(typeid(oe::GMeterDial));
             if (p != 0) {
                     oe::GMeterDial* myDial = (oe::GMeterDial*)(p->object());
                     if (myDial != 0) myDial->resetMe();

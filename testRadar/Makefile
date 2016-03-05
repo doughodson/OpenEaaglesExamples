@@ -7,7 +7,7 @@ OBJS =	DspRadar.o DspRwr.o TdAzPtr.o TdElevPtr.o \
 	TestDisplay.o TestStation.o factory.o main.o
 
 LDFLAGS += -loedis -loemodels -loesimulation -loeinstruments
-LDFLAGS += -loeiodevice -loedafif -loeglut -loegraphics -loebasic -lJSBSim
+LDFLAGS += -loeiodevice -loedafif -loeglut -loegraphics -loebase -lJSBSim
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread -lrt

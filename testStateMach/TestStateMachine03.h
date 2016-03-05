@@ -4,7 +4,7 @@
 #ifndef __oe_test_TestStateMachine03_H__
 #define __oe_test_TestStateMachine03_H__
 
-#include "openeaagles/basic/StateMachine.h"
+#include "openeaagles/base/StateMachine.h"
 
 namespace oe {
 namespace test {
@@ -16,9 +16,9 @@ namespace test {
 //    functions: nextSubstate() and goToSubstate().
 //
 //------------------------------------------------------------------------------
-class TestStateMachine03 : public basic::StateMachine
+class TestStateMachine03 : public base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine03, basic::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine03, base::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

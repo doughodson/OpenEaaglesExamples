@@ -8,7 +8,7 @@
 #ifndef __oe_test_TestObject_H__
 #define __oe_test_TestObject_H__
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
@@ -19,9 +19,9 @@
 namespace oe {
 namespace test {
 
-class TestObject : public basic::Object
+class TestObject : public base::Object
 {
-   DECLARE_SUBCLASS(TestObject,basic::Object)
+   DECLARE_SUBCLASS(TestObject,base::Object)
 
 public:
    TestObject();

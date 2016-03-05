@@ -7,11 +7,11 @@
 #include "openeaagles/simulation/Antenna.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/Timers.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/Timers.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -77,7 +77,7 @@ void TestStation::deleteData()
 void TestStation::updateTC(const LCreal dt)
 {
    // manage the timers
-   basic::Timer::updateTimers(dt);
+   base::Timer::updateTimers(dt);
    graphics::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) glutDisplay->updateTC(dt);
@@ -144,7 +144,7 @@ bool TestStation::setSlotMapDisplay(glut::GlutDisplay* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* TestStation::getSlotByIndex(const int si)
+base::Object* TestStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

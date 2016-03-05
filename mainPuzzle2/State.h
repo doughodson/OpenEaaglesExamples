@@ -4,10 +4,10 @@
 #ifndef __oe_example_State_H__
 #define __oe_example_State_H__
 
-#include "openeaagles/basic/Component.h"
+#include "openeaagles/base/Component.h"
 
 namespace oe {
-   namespace basic { class PairStream; }
+   namespace base { class PairStream; }
 
 namespace example {
 
@@ -19,9 +19,9 @@ class Puzzle;
 //
 // Description:  Puzzle state vector
 //------------------------------------------------------------------------------
-class State : public basic::Component
+class State : public base::Component
 {
-    DECLARE_SUBCLASS(State,basic::Component)
+    DECLARE_SUBCLASS(State,base::Component)
 
 public:
    static const unsigned int MAX_BLOCKS = 30;         // Max number of blocks in each state
@@ -56,7 +56,7 @@ public:
    friend bool operator!=(const State& s1, const State& s2);
 
    // Slot function(s)
-   virtual bool setSlotBlocks(const basic::PairStream* const msg);
+   virtual bool setSlotBlocks(const base::PairStream* const msg);
 
 protected:
    //  create a new state (based on this one) and replace the block

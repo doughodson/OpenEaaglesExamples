@@ -5,7 +5,7 @@ PGM = tutorial08
 
 OBJS = main.o Worm.o MyPager.o
 
-LDFLAGS += -loeglut -loegraphics -loebasic
+LDFLAGS += -loeglut -loegraphics -loebase
 LDFLAGS += -lpthread -lftgl -lfreetype -lglut -lGLU -lGL -lrt
 
 all: $(PGM)

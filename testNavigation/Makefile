@@ -4,7 +4,7 @@ include ../makedefs
 PGM = testNavigation
 OBJS =  main.o
 
-LDFLAGS += -loebasic
+LDFLAGS += -loebase
 
 all: $(PGM)
 

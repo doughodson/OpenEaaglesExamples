@@ -1,9 +1,9 @@
 #define TEST_ND
 
 #include "TestSD.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/units/Angles.h"
 #include "SituationalDisplay.h"
 #include "openeaagles/graphics/SymbolLoader.h"
 
@@ -46,9 +46,9 @@ TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
     heading = 0.0;
-    headingRate = static_cast<LCreal>(0.2f * basic::Angle::R2DCC);
+    headingRate = static_cast<LCreal>(0.2f * base::Angle::R2DCC);
     bearing = 0.0;
-    bearingRate = static_cast<LCreal>(0.4f * basic::Angle::R2DCC);
+    bearingRate = static_cast<LCreal>(0.4f * base::Angle::R2DCC);
     range = 80.0;
     // navaid bearings
     nav1Brg = 0.0;
@@ -209,7 +209,7 @@ void TestSD::updateData(const LCreal dt)
     // to use send commands for every one, so it's easier just to get a pointer to the object and
     // set the variables using member functions.
     {
-    basic::Pair* pair = findByType(typeid(SituationalDisplay));
+    base::Pair* pair = findByType(typeid(SituationalDisplay));
         if (pair != nullptr) {
             SituationalDisplay* p = static_cast<SituationalDisplay*>(pair->object());
             if (p != nullptr) {
@@ -227,7 +227,7 @@ void TestSD::updateData(const LCreal dt)
 
     // Load test tracks (once)
     if (!tracksLoaded) {
-        basic::Pair* pair = findByName("airTracks");
+        base::Pair* pair = findByName("airTracks");
         if (pair != nullptr) {
             pair->ref();
             graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
@@ -246,7 +246,7 @@ void TestSD::updateData(const LCreal dt)
 
     // Load test airports (once)
     if (!airportsLoaded) {
-        basic::Pair* pair = findByName("airports");
+        base::Pair* pair = findByName("airports");
         if (pair != nullptr) {
             pair->ref();
             graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
@@ -264,7 +264,7 @@ void TestSD::updateData(const LCreal dt)
 
     // Load test navaids (once)
     if (!navAidsLoaded) {
-        basic::Pair* pair = findByName("navaids");
+        base::Pair* pair = findByName("navaids");
         if (pair != nullptr) {
             pair->ref();
             graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());

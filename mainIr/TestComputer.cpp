@@ -85,7 +85,7 @@ void TestComputer::updateTC(const LCreal dt0)
    // bypass System:: version, forward call to Component directly,
    // and use 'dt' because if we're frozen then so are our subcomponents.
    // ---
-   basic::Component::updateTC(dt);
+   base::Component::updateTC(dt);
 
    switch (sim->phase()) {
 
@@ -182,7 +182,7 @@ void TestComputer::updateShootList(const bool step)
 
    // First, let's get the active track list
    const unsigned int MAX_TRKS = 20;
-   basic::safe_ptr<simulation::Track> trackList[MAX_TRKS];
+   base::safe_ptr<simulation::Track> trackList[MAX_TRKS];
 
    int n = 0;
    simulation::TrackManager* tm = getTrackManagerByType(typeid(simulation::AngleOnlyTrackManager));

@@ -1,8 +1,8 @@
 
 #include "SimPlayer.h"
-#include "openeaagles/basic/List.h"
-#include "openeaagles/basic/osg/Matrix"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/List.h"
+#include "openeaagles/base/osg/Matrix"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace example {
@@ -22,7 +22,7 @@ END_SLOTTABLE(SimPlayer)
 //  Map slot table to handlers
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(SimPlayer)
-    //ON_SLOT(1, setSlotMasterMode, basic::String)
+    //ON_SLOT(1, setSlotMasterMode, base::String)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ SimPlayer::SimPlayer()
 {
     STANDARD_CONSTRUCTOR()
 
-    static basic::String generic("Sim");
+    static base::String generic("Sim");
     setType(&generic);
 }
 
@@ -47,7 +47,7 @@ void SimPlayer::reset()
 //------------------------------------------------------------------------------
 // getSlotByIndex() for graphics::Graphic
 //------------------------------------------------------------------------------
-basic::Object* SimPlayer::getSlotByIndex(const int si)
+base::Object* SimPlayer::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

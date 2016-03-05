@@ -1,6 +1,6 @@
 
 #include "TestTwo.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace example {
@@ -25,14 +25,14 @@ END_SLOTTABLE(TestTwo)
 // slot mapping for this class type - replaces setSlotByIndex()
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(TestTwo)
-    ON_SLOT(1, setV1, basic::Number)
-    ON_SLOT(2, setV1Rate, basic::Number)
-    ON_SLOT(3, setV1Max, basic::Number)
-    ON_SLOT(4, setV1Min, basic::Number)
-    ON_SLOT(5, setV2, basic::Number)
-    ON_SLOT(6, setV2Rate, basic::Number)
-    ON_SLOT(7, setV2Max, basic::Number)
-    ON_SLOT(8, setV2Min, basic::Number)
+    ON_SLOT(1, setV1, base::Number)
+    ON_SLOT(2, setV1Rate, base::Number)
+    ON_SLOT(3, setV1Max, base::Number)
+    ON_SLOT(4, setV1Min, base::Number)
+    ON_SLOT(5, setV2, base::Number)
+    ON_SLOT(6, setV2Rate, base::Number)
+    ON_SLOT(7, setV2Max, base::Number)
+    ON_SLOT(8, setV2Min, base::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ void TestTwo::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Rgb
 //------------------------------------------------------------------------------
-basic::Object* TestTwo::getSlotByIndex(const int si)
+base::Object* TestTwo::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
@@ -208,7 +208,7 @@ std::ostream& TestTwo::serialize(std::ostream& sout, const int i, const bool slo
 //------------------------------------------------------------------------------
 // setV1() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV1(const basic::Number* const sv1obj)
+bool TestTwo::setV1(const base::Number* const sv1obj)
 {
     if (sv1obj != nullptr) iv1 = sv1obj->getReal();
     return true;
@@ -217,7 +217,7 @@ bool TestTwo::setV1(const basic::Number* const sv1obj)
 //------------------------------------------------------------------------------
 // setV1Rate() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV1Rate(const basic::Number* const sv1robj)
+bool TestTwo::setV1Rate(const base::Number* const sv1robj)
 {
     if (sv1robj != nullptr) iv1Rate = sv1robj->getReal();
     return true;
@@ -226,7 +226,7 @@ bool TestTwo::setV1Rate(const basic::Number* const sv1robj)
 //------------------------------------------------------------------------------
 // setV1Max() --
 //------------------------------------------------------------------------------
-bool TestTwo::setV1Max(const basic::Number* const sv1mobj)
+bool TestTwo::setV1Max(const base::Number* const sv1mobj)
 {
     if (sv1mobj != nullptr) v1Max = sv1mobj->getReal();
     return true;
@@ -235,7 +235,7 @@ bool TestTwo::setV1Max(const basic::Number* const sv1mobj)
 //------------------------------------------------------------------------------
 // setV1Min() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV1Min(const basic::Number* const sv1miobj)
+bool TestTwo::setV1Min(const base::Number* const sv1miobj)
 {
     if (sv1miobj != nullptr) v1Min = sv1miobj->getReal();
     return true;
@@ -244,7 +244,7 @@ bool TestTwo::setV1Min(const basic::Number* const sv1miobj)
 //------------------------------------------------------------------------------
 // setV2() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV2(const basic::Number* const sv2obj)
+bool TestTwo::setV2(const base::Number* const sv2obj)
 {
     if (sv2obj != nullptr) iv2 = sv2obj->getReal();
     return true;
@@ -253,7 +253,7 @@ bool TestTwo::setV2(const basic::Number* const sv2obj)
 //------------------------------------------------------------------------------
 // setV2Rate() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV2Rate(const basic::Number* const sv2robj)
+bool TestTwo::setV2Rate(const base::Number* const sv2robj)
 {
     if (sv2robj != nullptr) iv2Rate = sv2robj->getReal();
     return true;
@@ -262,7 +262,7 @@ bool TestTwo::setV2Rate(const basic::Number* const sv2robj)
 //------------------------------------------------------------------------------
 // setV2Max() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV2Max(const basic::Number* const sv2mobj)
+bool TestTwo::setV2Max(const base::Number* const sv2mobj)
 {
     if (sv2mobj != nullptr) v2Max = sv2mobj->getReal();
     return true;
@@ -271,7 +271,7 @@ bool TestTwo::setV2Max(const basic::Number* const sv2mobj)
 //------------------------------------------------------------------------------
 // setV2Min() -- 
 //------------------------------------------------------------------------------
-bool TestTwo::setV2Min(const basic::Number* const sv2miobj)
+bool TestTwo::setV2Min(const base::Number* const sv2miobj)
 {
     if (sv2miobj != nullptr) v2Min = sv2miobj->getReal();
     return true;

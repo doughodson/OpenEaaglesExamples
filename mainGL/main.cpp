@@ -2,16 +2,16 @@
 // Simple example program that creates a GLUT window and draws an image
 // as defined by EDL file.
 //----------------------------------------------------------------
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/Timers.h"
-#include "openeaagles/basic/Parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Timers.h"
+#include "openeaagles/base/Parser.h"
 
 #include "openeaagles/graphics/Graphic.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 // factories
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
 
@@ -34,18 +34,18 @@ static void timerFunc(int)
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   basic::Timer::updateTimers(static_cast<LCreal>(dt));
+   base::Timer::updateTimers(static_cast<LCreal>(dt));
    graphics::Graphic::flashTimer(static_cast<LCreal>(dt));
    glutDisplay->tcFrame(static_cast<LCreal>(dt));
 }
 
 // our class factory
-static oe::basic::Object* factory(const char* name)
+static oe::base::Object* factory(const char* name)
 {
-   basic::Object* obj = nullptr;
+   base::Object* obj = nullptr;
    if (obj == nullptr) obj = glut::factory(name);
    if (obj == nullptr) obj = graphics::factory(name);
-   if (obj == nullptr) obj = basic::factory(name);
+   if (obj == nullptr) obj = base::factory(name);
 
    return obj;
 }
@@ -55,7 +55,7 @@ static glut::GlutDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, factory, &errors);
+   base::Object* obj = base::lcParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -67,8 +67,8 @@ static glut::GlutDisplay* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
-   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();

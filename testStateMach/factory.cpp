@@ -1,7 +1,7 @@
 
 #include "factory.h"
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 #include "TestStateMachine01.h"
 #include "TestStateMachine02.h"
@@ -11,16 +11,16 @@
 #include "TestStateMachine04B.h"
 #include "TestStateMachine04C.h"
 
-#include "openeaagles/basic/factory.h"
+#include "openeaagles/base/factory.h"
 
 #include <cstring>
 
 namespace oe {
 namespace test {
 
-basic::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
-    basic::Object* obj = nullptr;
+    base::Object* obj = nullptr;
 
     // Test #1
     if ( std::strcmp(name, TestStateMachine01::getFactoryName()) == 0 ) {
@@ -52,7 +52,7 @@ basic::Object* factory(const char* name)
     }
 
     // OpenEaagles packages
-    if (obj == nullptr) obj = basic::factory(name);
+    if (obj == nullptr) obj = base::factory(name);
 
     return obj;
 }

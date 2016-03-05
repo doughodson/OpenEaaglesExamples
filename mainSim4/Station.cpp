@@ -66,7 +66,7 @@ void Station::deleteData()
 
 //------------------------------------------------------------------------------
 // reset() - this is our reset event, which will be called from the mainline
-// by sending the basic::Component::RESET_EVENT token.  Here we will set up
+// by sending the base::Component::RESET_EVENT token.  Here we will set up
 // our display
 //------------------------------------------------------------------------------
 void Station::reset()
@@ -107,7 +107,7 @@ bool Station::setSlotDisplay(glut::GlutDisplay* dis)
 //------------------------------------------------------------------------------
 // getSlotByIndex() - needed to be declared when we don't have an empty slottable
 //------------------------------------------------------------------------------
-basic::Object* Station::getSlotByIndex(const int si)
+base::Object* Station::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

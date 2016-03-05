@@ -2,8 +2,8 @@
 // Class: TdAzPtr
 //------------------------------------------------------------------------------
 #include "TdAzPtr.h"
-#include "openeaagles/basic/Number.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace xpanel {
@@ -13,7 +13,7 @@ EMPTY_SERIALIZER(TdAzPtr)
 EMPTY_DELETEDATA(TdAzPtr)
 
 BEGIN_EVENT_HANDLER(TdAzPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, basic::Number)   
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)   
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ bool TdAzPtr::setAzimuth(const LCreal v)
 //------------------------------------------------------------------------------
 // Event handlers
 //------------------------------------------------------------------------------
-bool TdAzPtr::onUpdateValue(const basic::Number* const msg)
+bool TdAzPtr::onUpdateValue(const base::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {

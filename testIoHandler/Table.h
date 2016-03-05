@@ -7,7 +7,7 @@
 #include "openeaagles/graphics/Field.h"
 
 namespace oe {
-   namespace basic { class Number; class PairStream; }
+   namespace base { class Number; class PairStream; }
 
 namespace test {
 
@@ -28,13 +28,13 @@ class Table : public graphics::Field
 public:
    Table();
 
-   virtual const basic::PairStream* getColumns() const;
+   virtual const base::PairStream* getColumns() const;
    virtual unsigned int getNumberOfRows() const;
 
    // Slot functions
-   virtual bool setSlotRows(basic::Number* const);
-   virtual bool setSlotSpacing(basic::Number* const);
-   virtual bool setSlotColumns(basic::PairStream* const);
+   virtual bool setSlotRows(base::Number* const);
+   virtual bool setSlotSpacing(base::Number* const);
+   virtual bool setSlotColumns(base::PairStream* const);
 
    int line() const override;
    int line(const int ll) override;
@@ -50,7 +50,7 @@ private:
 
    unsigned int  rows;     // Number of rows in table
    unsigned int  spacing;  // Spacing between rows (default: 1)
-   const basic::PairStream* columns;  // columns items
+   const base::PairStream* columns;  // columns items
 };
 
 } // End of test namespace

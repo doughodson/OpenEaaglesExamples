@@ -1,8 +1,8 @@
 
 #include "TestStateMachine03.h"
 
-#include "openeaagles/basic/Integer.h"
-#include "openeaagles/basic/Boolean.h"
+#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/Boolean.h"
 
 namespace oe {
 namespace test {
@@ -168,13 +168,13 @@ void TestStateMachine03::stateFunc13(const LCreal)
       case 1 : {
          if (getMode() != RTN_STATE) {
             std::cout << "call(CALL_02,arg=13)";
-            basic::Number* arg = new basic::Integer(13);
+            base::Number* arg = new base::Integer(13);
             call(CALL_02, arg);
             arg->unref();
          }
          else {
             std::cout << "Returned from call; ";
-            const basic::Boolean* arg = dynamic_cast<const basic::Boolean*>( getArgument() );
+            const base::Boolean* arg = dynamic_cast<const base::Boolean*>( getArgument() );
             if (arg != nullptr) {
                std::cout << "arg(" << arg->getBoolean() << "); ";
             }
@@ -207,7 +207,7 @@ void TestStateMachine03::stateFunc15(const LCreal)
 
 void TestStateMachine03::stateFunc21(const LCreal)
 {
-   const basic::Number* arg = dynamic_cast<const basic::Number*>( getArgument() );
+   const base::Number* arg = dynamic_cast<const base::Number*>( getArgument() );
    if (arg != nullptr) {
       std::cout << "arg(" << arg->getReal() << "); ";
    }
@@ -225,7 +225,7 @@ void TestStateMachine03::stateFunc22(const LCreal)
 void TestStateMachine03::stateFunc23(const LCreal)
 {
    std::cout << "rtn(arg=true)";
-   basic::Boolean* arg = new basic::Boolean(true);
+   base::Boolean* arg = new base::Boolean(true);
    rtn(arg);
    arg->unref();
 }

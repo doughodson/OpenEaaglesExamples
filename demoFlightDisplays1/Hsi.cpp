@@ -7,12 +7,12 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
 EMPTY_SERIALIZER(Hsi)
 
 BEGIN_EVENT_HANDLER(Hsi)
-    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateSelHdgHsi, basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateSelCrsHsi, basic::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE9, onUpdateNav1BrgHsi, basic::Number)
-    ON_EVENT_OBJ(USER_EVENTS + 1, onUpdateNav2BrgHsi, basic::Number)
-    ON_EVENT_OBJ(USER_EVENTS + 2, onUpdateCdiDotsHsi, basic::Number)
-    ON_EVENT_OBJ(USER_EVENTS + 3, onUpdateToFromHsi, basic::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateSelHdgHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateSelCrsHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE9, onUpdateNav1BrgHsi, base::Number)
+    ON_EVENT_OBJ(USER_EVENTS + 1, onUpdateNav2BrgHsi, base::Number)
+    ON_EVENT_OBJ(USER_EVENTS + 2, onUpdateCdiDotsHsi, base::Number)
+    ON_EVENT_OBJ(USER_EVENTS + 3, onUpdateToFromHsi, base::Number)
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -102,37 +102,37 @@ bool Hsi::setToFrom(const LCreal newTF)
 }
 
 // Event functions
-bool Hsi::onUpdateSelHdgHsi(const basic::Number* const x)
+bool Hsi::onUpdateSelHdgHsi(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setSelectedHeading(x->getReal());
     return ok;
 }
-bool Hsi::onUpdateSelCrsHsi(const basic::Number* const x)
+bool Hsi::onUpdateSelCrsHsi(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setSelectedCourse(x->getReal());
     return ok;
 }
-bool Hsi::onUpdateNav1BrgHsi(const basic::Number* const x)
+bool Hsi::onUpdateNav1BrgHsi(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setNav1Brg(x->getReal());
     return ok;
 }
-bool Hsi::onUpdateNav2BrgHsi(const basic::Number* const x)
+bool Hsi::onUpdateNav2BrgHsi(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setNav2Brg(x->getReal());
     return ok;
 }
-bool Hsi::onUpdateCdiDotsHsi(const basic::Number* const x)
+bool Hsi::onUpdateCdiDotsHsi(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setCdiDots(x->getReal());
     return ok;
 }
-bool Hsi::onUpdateToFromHsi(const basic::Number* const x)
+bool Hsi::onUpdateToFromHsi(const base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setToFrom(x->getReal());

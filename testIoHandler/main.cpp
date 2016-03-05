@@ -4,9 +4,9 @@
 #include "Display.h"
 #include "Factory.h"
 
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/Timers.h"
-#include "openeaagles/basic/Parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Timers.h"
+#include "openeaagles/base/Parser.h"
 
 #include <GL/glut.h>
 
@@ -29,7 +29,7 @@ static void timerFunc(int)
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   basic::Timer::updateTimers(dt);
+   base::Timer::updateTimers(dt);
    graphics::Graphic::flashTimer(dt);
    display->updateTC(dt);
 }
@@ -39,7 +39,7 @@ static Display* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   basic::Object* obj = basic::lcParser(filename, Factory::createObj, &errors);
+   base::Object* obj = base::lcParser(filename, Factory::createObj, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -51,8 +51,8 @@ static Display* builder(const char* const filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a basic::Pair, if so, point to object in Pair, not Pair itself
-   basic::Pair* pair = dynamic_cast<basic::Pair*>(obj);
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();

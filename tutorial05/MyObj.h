@@ -6,56 +6,56 @@
 #ifndef __oe_Tutorial_MyObj_H__
 #define __oe_Tutorial_MyObj_H__
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 namespace oe {
 
-namespace basic { class PairStream; class List; class String;
+namespace base { class PairStream; class List; class String;
                   class Number; class Identifier; }
 
 namespace Tutorial {
 
-class MyObj : public basic::Object
+class MyObj : public base::Object
 {
-  DECLARE_SUBCLASS(MyObj, basic::Object)
+  DECLARE_SUBCLASS(MyObj, base::Object)
 
 public:
   MyObj();
 
   // data access functions
-  bool setColorTable(const basic::PairStream* const);
-  const basic::PairStream* getColorTable(void) const;
-  bool setTextColor(const basic::Identifier* const);
-  const basic::Identifier* getTextColor(void) const;
-  bool setBackColor(const basic::Identifier* const);
-  const basic::Identifier* getBackColor(void) const;
+  bool setColorTable(const base::PairStream* const);
+  const base::PairStream* getColorTable(void) const;
+  bool setTextColor(const base::Identifier* const);
+  const base::Identifier* getTextColor(void) const;
+  bool setBackColor(const base::Identifier* const);
+  const base::Identifier* getBackColor(void) const;
 
-  bool setVector(const basic::List* const);
-  const basic::List* getVector(void) const;
+  bool setVector(const base::List* const);
+  const base::List* getVector(void) const;
 
   bool setVisible(bool);
   bool getVisible() const;
 
-  bool setMessage(const basic::String* const);
-  const basic::String* getMessage(void) const;
+  bool setMessage(const base::String* const);
+  const base::String* getMessage(void) const;
 
   // slot table functions
-  bool setSlotColorTable(const basic::PairStream* const);
-  bool setSlotTextColor(const basic::Identifier* const x);
-  bool setSlotBackColor(const basic::Identifier* const x);
+  bool setSlotColorTable(const base::PairStream* const);
+  bool setSlotTextColor(const base::Identifier* const x);
+  bool setSlotBackColor(const base::Identifier* const x);
 
-  bool setSlotVector(const basic::List* const);
-  bool setSlotVisible(const basic::Number* const);
-  bool setSlotMessage(const basic::String* const);
+  bool setSlotVector(const base::List* const);
+  bool setSlotVisible(const base::Number* const);
+  bool setSlotMessage(const base::String* const);
 
    bool isValid() const override;
 
 private:
-  const basic::PairStream* colorTable;
-  const basic::Identifier* textColor;
-  const basic::Identifier* backColor;
-  const basic::List* vector;
-  const basic::String* message;
+  const base::PairStream* colorTable;
+  const base::Identifier* textColor;
+  const base::Identifier* backColor;
+  const base::List* vector;
+  const base::String* message;
   bool visible;
 };
 

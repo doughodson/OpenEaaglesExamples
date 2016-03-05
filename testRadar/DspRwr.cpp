@@ -4,7 +4,7 @@
 #include "DspRwr.h"
 
 #include "openeaagles/simulation/Rwr.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace test {
@@ -68,7 +68,7 @@ void DspRwr::drawFunc()
 
    unsigned int n = rwr->getNumberOfRays();
    for (unsigned int i = 0; i < n; i++) {
-      GLdouble azr = (basic::Angle::D2RCC *  rwr->getRayAzimuth(i) );
+      GLdouble azr = (base::Angle::D2RCC *  rwr->getRayAzimuth(i) );
       GLdouble pwr = rwr->getRay(i);
       GLdouble up = cos(azr) * pwr;
       GLdouble right = sin(azr) * pwr;

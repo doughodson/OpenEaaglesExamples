@@ -8,12 +8,12 @@
 #include "openeaagles/simulation/Player.h"
 #include "openeaagles/simulation/Simulation.h"
 
-#include "openeaagles/basic/Identifier.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/osg/Vec4"
+#include "openeaagles/base/Identifier.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/osg/Vec4"
 
 namespace oe {
 namespace example {
@@ -91,7 +91,7 @@ bool TestStation::setDisplay(Display* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex() for Page
 //------------------------------------------------------------------------------
-basic::Object* TestStation::getSlotByIndex(const int si)
+base::Object* TestStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

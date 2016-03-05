@@ -6,7 +6,7 @@ OBJS = main.o DataRecordTest.o factory.o PrintMyData.o
 
 LDFLAGS += -lxrecorder
 LDFLAGS += -loerecorder -loesimulation
-LDFLAGS += -loedafif -loebasic
+LDFLAGS += -loedafif -loebase
 LDFLAGS += -lprotobuf
 LDFLAGS += -lrt -lpthread 
 

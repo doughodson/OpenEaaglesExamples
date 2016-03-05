@@ -1,6 +1,6 @@
 
 #include "TdAzPtr.h"
-#include "openeaagles/basic/Number.h"
+#include "openeaagles/base/Number.h"
 
 namespace oe {
 namespace example {
@@ -33,13 +33,13 @@ EMPTY_DELETEDATA(TdAzPtr)
 //------------------------------------------------------------------------------
 // event() -- default event handler
 //------------------------------------------------------------------------------
-bool TdAzPtr::event(const int event, basic::Object* const obj)
+bool TdAzPtr::event(const int event, base::Object* const obj)
 {
     bool used = false;
 
     if (event == UPDATE_VALUE)
     {
-        const basic::Number* num = dynamic_cast<const basic::Number*>(obj);
+        const base::Number* num = dynamic_cast<const base::Number*>(obj);
         if (num != nullptr) {
             azimuth = num->getReal();
             used = true;

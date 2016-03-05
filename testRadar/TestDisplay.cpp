@@ -16,10 +16,10 @@
 #include "openeaagles/simulation/Weapon.h"
 #include "openeaagles/models/sensors/Gmti.h"
 #include "openeaagles/models/sensors/Tws.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/units/Distances.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/units/Distances.h"
 #include "openeaagles/graphics/SymbolLoader.h"
 #include <GL/glut.h>
 
@@ -109,7 +109,7 @@ bool TestDisplay::onResetKey()
 bool TestDisplay::onFreezeKey()
 {
     if ( getSimulation() != nullptr ) {
-        basic::Boolean newFrz( !getSimulation()->isFrozen() );
+        base::Boolean newFrz( !getSimulation()->isFrozen() );
         getSimulation()->event(FREEZE_EVENT, &newFrz);
     }
     return true;
@@ -192,14 +192,14 @@ bool TestDisplay::onIncRngKey()
     if (getOwnship() != nullptr) {
         simulation::Radar* rdr = nullptr;
         {
-           basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
+           base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
            if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
         }
         simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
             // But could be GMTI ...
             if (sms->isWeaponDeliveryMode(simulation::StoresMgr::A2G)) {
-                basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
+                base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
                 if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
             }
         }
@@ -219,14 +219,14 @@ bool TestDisplay::onDecRngKey()
     if (getOwnship() != nullptr) {
         simulation::Radar* rdr = nullptr;
         {
-           basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
+           base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
            if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
         }
         simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
             // But could be GMTI
             if (sms->isWeaponDeliveryMode(simulation::StoresMgr::A2G)) {
-                basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
+                base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
                 if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
             }
         }
@@ -259,21 +259,21 @@ void TestDisplay::updateData(const LCreal dt)
     // Find and update the test RADAR display
     {
         rdrDisplay = nullptr;
-        basic::Pair* p = findByType(typeid(DspRadar));
+        base::Pair* p = findByType(typeid(DspRadar));
         if (p != nullptr) rdrDisplay = dynamic_cast<DspRadar*>( p->object() );
     }
     if (rdrDisplay != nullptr && getOwnship() != nullptr) {
         // Default is TWS
         simulation::Radar* rdr = nullptr;
         {
-           basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
+           base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
            if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
         }
         simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
             // But could be GMTI ...
             if (sms->isWeaponDeliveryMode(simulation::StoresMgr::A2G)) {
-                basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
+                base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
                 if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
             }
         }
@@ -284,12 +284,12 @@ void TestDisplay::updateData(const LCreal dt)
     // Find and update the test RWR display
     {
         rwrDisplay = nullptr;
-        basic::Pair* p = findByType(typeid(DspRwr));
+        base::Pair* p = findByType(typeid(DspRwr));
         if (p != nullptr) rwrDisplay = dynamic_cast<DspRwr*>( p->object() );
     }
     if (rwrDisplay != nullptr && getOwnship() != nullptr) {
         simulation::Rwr* rwr = nullptr;
-        basic::Pair* pair = getOwnship()->getSensorByType(typeid(simulation::Rwr));
+        base::Pair* pair = getOwnship()->getSensorByType(typeid(simulation::Rwr));
         if (pair != nullptr) rwr = static_cast<simulation::Rwr*>(pair->object());
         rwrDisplay->setRwr(rwr);
     }
@@ -300,14 +300,14 @@ void TestDisplay::updateData(const LCreal dt)
       {
          simulation::Radar* rdr = nullptr;
          {
-            basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
+            base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
             if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
          }
          simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
          if (sms != nullptr) {
                // But could be GMTI ...
                if (sms->isWeaponDeliveryMode(simulation::StoresMgr::A2G)) {
-                  basic::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
+                  base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
                   if (pair != nullptr) rdr = static_cast<simulation::Radar*>(pair->object());
                }
          }
@@ -319,7 +319,7 @@ void TestDisplay::updateData(const LCreal dt)
 
 
       // Maintain Air Tracks
-      basic::Pair* pair = findByName("airTracks");
+      base::Pair* pair = findByName("airTracks");
       if (pair != nullptr) {
          graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (myLoader != nullptr) {
@@ -344,7 +344,7 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
     setMouse(x,y);
 
     if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
-      basic::Pair* pair = findByName("airTracks");
+      base::Pair* pair = findByName("airTracks");
       if (pair != nullptr) {
          graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (myLoader != nullptr) {
@@ -391,17 +391,17 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
     {
         // get the player list
         simulation::Simulation* sim = getSimulation();
-        basic::PairStream* plist = sim->getPlayers();
+        base::PairStream* plist = sim->getPlayers();
         
         // search for air vehicles or missiles within range
-        basic::List::Item* item = plist->getFirstItem();
+        base::List::Item* item = plist->getFirstItem();
         while (item != nullptr && nNewTracks < maxTracks) {
        
-            basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+            base::Pair* pair = static_cast<base::Pair*>(item->getValue());
             simulation::Player* p = static_cast<simulation::Player*>(pair->object());
             osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
-            LCreal x = rpos[0] * basic::Distance::M2NM;
-            LCreal y = rpos[1] * basic::Distance::M2NM;
+            LCreal x = rpos[0] * base::Distance::M2NM;
+            LCreal y = rpos[1] * base::Distance::M2NM;
             
             if (
                p != getOwnship() && 
@@ -495,7 +495,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
         if (tracks[i] != nullptr && trkIdx[i] != 0) {
             double xp = tracks[i]->getXPosition() - osX;
             double yp = tracks[i]->getYPosition() - osY;
-            loader->updateSymbolPositionXY( trkIdx[i], (xp * basic::Distance::M2NM), (yp * basic::Distance::M2NM) );
+            loader->updateSymbolPositionXY( trkIdx[i], (xp * base::Distance::M2NM), (yp * base::Distance::M2NM) );
             loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
         }
     }

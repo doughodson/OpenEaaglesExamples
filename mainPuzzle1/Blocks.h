@@ -4,25 +4,25 @@
 #ifndef __oe_example_Block_H__
 #define __oe_example_Block_H__
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 namespace oe {
-   namespace basic { class List; class Integer; }
+   namespace base { class List; class Integer; }
 
 namespace example {
 
 //------------------------------------------------------------------------------
 // Class:  Block
-// Base class:  basic::Object-> Block
+// Base class:  base::Object-> Block
 //
 // Description:  Abstract puzzle block
 //
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
 //------------------------------------------------------------------------------
-class Block : public basic::Object
+class Block : public base::Object
 {
-    DECLARE_SUBCLASS(Block,basic::Object)
+    DECLARE_SUBCLASS(Block,base::Object)
 
 public:
    static const unsigned int BOARD_X_SIZE = 4;
@@ -60,8 +60,8 @@ public:
    virtual unsigned int computeHashValue(const unsigned int blockIndex, const unsigned int rehashCount) const;
 
    // Slot function(s)
-   virtual bool setSlotPosition(const basic::List* const msg);
-   virtual bool setSlotRefId(const basic::Integer* const msg);
+   virtual bool setSlotPosition(const base::List* const msg);
+   virtual bool setSlotRefId(const base::Integer* const msg);
 
 protected:
    virtual bool setInitPosition(const unsigned int x, const unsigned int y);
@@ -74,7 +74,7 @@ private:
 
 //------------------------------------------------------------------------------
 // Class:  Block1x1
-// Base class:  basic::Object-> Block -> Block1x1
+// Base class:  base::Object-> Block -> Block1x1
 // Description:  Block size 1 by 1
 //------------------------------------------------------------------------------
 class Block1x1 : public Block
@@ -90,7 +90,7 @@ public:
 
 //------------------------------------------------------------------------------
 // Class:  Block1x2
-// Base class:  basic::Object-> Block -> Block1x2
+// Base class:  base::Object-> Block -> Block1x2
 // Description:  Block size 1 by 2
 //------------------------------------------------------------------------------
 class Block1x2 : public Block
@@ -106,7 +106,7 @@ public:
 
 //------------------------------------------------------------------------------
 // Class:  Block2x1
-// Base class:  basic::Object-> Block -> Block2x1
+// Base class:  base::Object-> Block -> Block2x1
 // Description:  Block size 2 by 1
 //------------------------------------------------------------------------------
 class Block2x1 : public Block
@@ -122,7 +122,7 @@ public:
 
 //------------------------------------------------------------------------------
 // Class:  Block2x2
-// Base class:  basic::Object-> Block -> Block2x2
+// Base class:  base::Object-> Block -> Block2x2
 // Description:  Block size 2 by 2
 //------------------------------------------------------------------------------
 class Block2x2 : public Block

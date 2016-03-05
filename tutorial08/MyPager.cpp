@@ -3,8 +3,8 @@
 //------------------------------------------------------------------------------
 #include "MyPager.h"
 
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
 
 namespace oe {
 namespace Tutorial {
@@ -27,12 +27,12 @@ MyPager::MyPager()
 //------------------------------------------------------------------------------
 bool MyPager::onEntry()
 {
-   basic::PairStream* components = getComponents();
+   base::PairStream* components = getComponents();
    if (components != nullptr) {
-      basic::List::Item* item = components->getFirstItem();
+      base::List::Item* item = components->getFirstItem();
       while (item != nullptr) {
-         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
-         basic::Component* cp = static_cast<basic::Component*>(pair->object());
+         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
+         base::Component* cp = static_cast<base::Component*>(pair->object());
          if (cp != nullptr)
             cp->event(RESET_EVENT);
          item = item->getNext();

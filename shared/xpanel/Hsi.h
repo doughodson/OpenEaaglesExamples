@@ -43,16 +43,16 @@ public:
     LCreal getToFrom()  { return toFrom; }
 
     void updateData(const LCreal dt = 0.0) override;
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
     // event functions
-    bool onUpdateSelHdgHsi(const basic::Number* const x);
-    bool onUpdateSelCrsHsi(const basic::Number* const x);
-    bool onUpdateNav1BrgHsi(const basic::Number* const x);
-    bool onUpdateNav2BrgHsi(const basic::Number* const x);
-    bool onUpdateCdiDotsHsi(const basic::Number* const x);
-    bool onUpdateToFromHsi(const basic::Number* const x);
+    bool onUpdateSelHdgHsi(const base::Number* const x);
+    bool onUpdateSelCrsHsi(const base::Number* const x);
+    bool onUpdateNav1BrgHsi(const base::Number* const x);
+    bool onUpdateNav2BrgHsi(const base::Number* const x);
+    bool onUpdateCdiDotsHsi(const base::Number* const x);
+    bool onUpdateToFromHsi(const base::Number* const x);
 
     LCreal selHdg;      // selected heading (degs)
     SendData selHdgSD;

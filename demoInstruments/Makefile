@@ -25,7 +25,7 @@ OBJS =  \
 	TestVVI.o \
 	main.o
 
-LDFLAGS += -loeinstruments -loeglut -loegraphics -loebasic
+LDFLAGS += -loeinstruments -loeglut -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

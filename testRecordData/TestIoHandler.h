@@ -4,7 +4,7 @@
 #ifndef __oe_test_TestIoHandler_H___
 #define __oe_test_TestIoHandler_H___
 
-#include "openeaagles/basic/IoHandler.h"
+#include "openeaagles/base/IoHandler.h"
 
 namespace oe {
    namespace simulation { class AirVehicle; }
@@ -17,8 +17,8 @@ namespace test {
 // Description:  Handles the flow of I/O data to and from the
 //               stick and throttle hardware.
 //------------------------------------------------------------------------------
-class TestIoHandler : public basic::IoHandler {
-   DECLARE_SUBCLASS(TestIoHandler,basic::IoHandler)
+class TestIoHandler : public base::IoHandler {
+   DECLARE_SUBCLASS(TestIoHandler,base::IoHandler)
 
 public:
    TestIoHandler();

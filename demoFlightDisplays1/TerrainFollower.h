@@ -27,7 +27,7 @@ public:
     TerrainFollower();
 
     void updateData(const LCreal dt = 0.0) override;
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
 
     void drawFunc() override;
 
@@ -43,10 +43,10 @@ public:
 
 private:
     // event functions
-    bool onEventSetPlaneAltTerrainFollower(const basic::Number* const x);
-    bool onEventSetScanRangeTerrainFollower(const basic::Number* const x);
-    bool onEventSetViewHeightTerrainFollower(const basic::Number* const x);
-    bool onEventSetViewWidthTerrainFollower(const basic::Number* const x);
+    bool onEventSetPlaneAltTerrainFollower(const base::Number* const x);
+    bool onEventSetScanRangeTerrainFollower(const base::Number* const x);
+    bool onEventSetViewHeightTerrainFollower(const base::Number* const x);
+    bool onEventSetViewWidthTerrainFollower(const base::Number* const x);
 
     enum { MAX_POINTS = 1000 }; // maximum number of terrain elevation points
     LCreal range;               // our scan range ahead of us

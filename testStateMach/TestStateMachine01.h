@@ -4,7 +4,7 @@
 #ifndef __oe_test_TestStateMachine01_H__
 #define __oe_test_TestStateMachine01_H__
 
-#include "openeaagles/basic/StateMachine.h"
+#include "openeaagles/base/StateMachine.h"
 
 namespace oe {
 namespace test {
@@ -19,9 +19,9 @@ namespace test {
 //    select each state's specific code.
 //
 //------------------------------------------------------------------------------
-class TestStateMachine01 : public basic::StateMachine
+class TestStateMachine01 : public base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine01, basic::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine01, base::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

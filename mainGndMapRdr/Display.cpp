@@ -8,16 +8,16 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Station.h"
 
-#include "openeaagles/basic/Color.h"
-#include "openeaagles/basic/Rgb.h"
-#include "openeaagles/basic/Hsva.h"
-#include "openeaagles/basic/Color.h"
-#include "openeaagles/basic/Number.h"
-#include "openeaagles/basic/String.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/units/Distances.h"
+#include "openeaagles/base/Color.h"
+#include "openeaagles/base/Rgb.h"
+#include "openeaagles/base/Hsva.h"
+#include "openeaagles/base/Color.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/base/String.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Distances.h"
 
 namespace oe {
 namespace example {
@@ -30,7 +30,7 @@ BEGIN_SLOTTABLE(Display)
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
-   ON_SLOT( 1, setSlotTextureTest, basic::Number)
+   ON_SLOT( 1, setSlotTextureTest, base::Number)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ simulation::Station* Display::getStation()
 //------------------------------------------------------------------------------
 
 // Set texture test flag
-bool Display::setSlotTextureTest(const basic::Number* const msg)
+bool Display::setSlotTextureTest(const base::Number* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -122,7 +122,7 @@ void Display::drawFunc()
 {
    simulation::Player* own = getOwnship();
 
-   const basic::Pair* pair = nullptr;
+   const base::Pair* pair = nullptr;
    if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));
 
    const RealBeamRadar* rdr = nullptr;
@@ -222,7 +222,7 @@ void Display::configure()
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* Display::getSlotByIndex(const int si)
+base::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }

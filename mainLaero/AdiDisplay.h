@@ -27,7 +27,7 @@ public:
    void updateData(const LCreal dt = 0.0) override;
 
 private:
-   basic::safe_ptr<simulation::Station> myStation;
+   base::safe_ptr<simulation::Station> myStation;
 
    //-----------------------------
    double psiRO;     // [deg]

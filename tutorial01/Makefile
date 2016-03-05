@@ -5,7 +5,7 @@ PGM = tutorial01
 
 OBJS = main.o
 
-LDFLAGS += -loebasic -lpthread
+LDFLAGS += -loebase -lpthread
 
 all: $(PGM)
 

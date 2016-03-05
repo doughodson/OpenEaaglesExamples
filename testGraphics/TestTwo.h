@@ -18,20 +18,20 @@ class TestTwo : public graphics::Graphic
 public:
     TestTwo();
 
-    bool event(const int event, basic::Object* const obj = nullptr) override;
+    bool event(const int event, base::Object* const obj = nullptr) override;
     void updateTC(const LCreal dt = 0.0) override;
     void updateData(const LCreal dt = 0.0) override;
     void reset() override;
 
     //macro functions for slot table mapping
-    virtual bool setV1(const basic::Number* const sv1obj);
-    virtual bool setV1Rate(const basic::Number* const sv1robj);
-    virtual bool setV1Max(const basic::Number* const sv1mobj);
-    virtual bool setV1Min(const basic::Number* const sv1miobj);
-    virtual bool setV2(const basic::Number* const sv2obj);
-    virtual bool setV2Rate(const basic::Number* const sv2robj);
-    virtual bool setV2Max(const basic::Number* const sv2mobj);
-    virtual bool setV2Min(const basic::Number* const sv2miobj);
+    virtual bool setV1(const base::Number* const sv1obj);
+    virtual bool setV1Rate(const base::Number* const sv1robj);
+    virtual bool setV1Max(const base::Number* const sv1mobj);
+    virtual bool setV1Min(const base::Number* const sv1miobj);
+    virtual bool setV2(const base::Number* const sv2obj);
+    virtual bool setV2Rate(const base::Number* const sv2robj);
+    virtual bool setV2Max(const base::Number* const sv2mobj);
+    virtual bool setV2Min(const base::Number* const sv2miobj);
 
 private:
 

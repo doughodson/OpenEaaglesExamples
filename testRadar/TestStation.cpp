@@ -6,11 +6,11 @@
 #include "openeaagles/simulation/Antenna.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/basic/Boolean.h"
-#include "openeaagles/basic/Pair.h"
-#include "openeaagles/basic/PairStream.h"
-#include "openeaagles/basic/units/Angles.h"
-#include "openeaagles/basic/Timers.h"
+#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/Timers.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -81,7 +81,7 @@ void TestStation::deleteData()
 void TestStation::updateTC(const LCreal dt)
 {
    // manage the timers
-   basic::Timer::updateTimers(dt);
+   base::Timer::updateTimers(dt);
    graphics::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) {
@@ -126,7 +126,7 @@ void TestStation::reset()
 //------------------------------------------------------------------------------
 void TestStation::stepOwnshipPlayer()
 {
-   basic::PairStream* pl = getSimulation()->getPlayers();
+   base::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
       simulation::Player* f = nullptr;
@@ -134,9 +134,9 @@ void TestStation::stepOwnshipPlayer()
       bool found = false;
 
       // Find the next player
-      basic::List::Item* item = pl->getFirstItem();
+      base::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         basic::Pair* pair = static_cast<basic::Pair*>(item->getValue());
+         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
             simulation::Player* ip = static_cast<simulation::Player*>(pair->object());
             if ( ip->isMode(simulation::Player::ACTIVE) &&
@@ -172,7 +172,7 @@ bool TestStation::setSlotGlutDisplay(glut::GlutDisplay* const d)
 //------------------------------------------------------------------------------
 // getSlotByIndex()
 //------------------------------------------------------------------------------
-basic::Object* TestStation::getSlotByIndex(const int si)
+base::Object* TestStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }

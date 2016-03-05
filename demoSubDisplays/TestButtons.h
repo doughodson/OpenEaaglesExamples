@@ -21,7 +21,7 @@ public:
    enum { REGULAR = 0, PUSH_MAINTAINED, PUSH_MOMENTARY, ROTARY, KNOB, SOLENOID };
 
    void updateData(const LCreal dt = 0.0) override;
-   bool event(const int event, basic::Object* const obj = nullptr) override;
+   bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
     bool regularButton();

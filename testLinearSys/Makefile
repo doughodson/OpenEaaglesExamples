@@ -4,7 +4,7 @@ include ../makedefs
 PGM = testLinearSys
 OBJS = main.o
 
-LDFLAGS += -loelinearsystem -loebasic 
+LDFLAGS += -loelinearsystem -loebase 
 
 all: $(PGM)
 

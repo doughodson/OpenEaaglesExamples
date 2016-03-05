@@ -2,8 +2,8 @@
 // Class: TdElevPtr
 //------------------------------------------------------------------------------
 #include "TdElevPtr.h"
-#include "openeaagles/basic/Number.h"
-#include "openeaagles/basic/units/Angles.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/base/units/Angles.h"
 
 namespace oe {
 namespace test {
@@ -13,7 +13,7 @@ EMPTY_SERIALIZER(TdElevPtr)
 EMPTY_DELETEDATA(TdElevPtr)
 
 BEGIN_EVENT_HANDLER(TdElevPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, basic::Number)   
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)   
 END_EVENT_HANDLER()
 
 //------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ bool TdElevPtr::setElevation(const LCreal v)
 //------------------------------------------------------------------------------
 // Event handlers
 //------------------------------------------------------------------------------
-bool TdElevPtr::onUpdateValue(const basic::Number* const msg)
+bool TdElevPtr::onUpdateValue(const base::Number* const msg)
 {
     bool ok = false;
     if (msg != nullptr) {

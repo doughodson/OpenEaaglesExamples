@@ -9,7 +9,7 @@
 #include "openeaagles/simulation/Radar.h"
 
 namespace oe {
-   namespace basic { class Angle; class Distance; class Number; class Terrain; }
+   namespace base { class Angle; class Distance; class Number; class Terrain; }
 
 namespace example {
 
@@ -20,8 +20,8 @@ class RealBeamRadar : public simulation::Radar
 public:
     RealBeamRadar();
 
-   const basic::Terrain* getTerrain() const                      { return terrain; }
-   virtual bool setTerrain(const basic::Terrain* const msg);
+   const base::Terrain* getTerrain() const                      { return terrain; }
+   virtual bool setTerrain(const base::Terrain* const msg);
 
    LCreal getAltitude() const                { return altitude; }    // Ref altitude (meters)
    LCreal getAntennaAzimuthAngle() const     { return antAzAngle; }  // Antenna look angle (degs)
@@ -39,7 +39,7 @@ public:
    int getPixelSize() const   { return PIXEL_SIZE; }        // Number of components (RGBA) in each image pixel
 
    // Slot functions
-   virtual bool setSlotInterpolate(const basic::Number* const msg);
+   virtual bool setSlotInterpolate(const base::Number* const msg);
 
    // Compute earth curvature effects
    static bool computeGroundRanges(LCreal* const groundRange, const unsigned int n, const LCreal maxRngNM);
@@ -55,7 +55,7 @@ private:
    bool copyImageMemory(const RealBeamRadar& org);
    void freeImageMemory();
 
-   const basic::Terrain* terrain;      // Terrain data
+   const base::Terrain* terrain;      // Terrain data
    LCreal            altitude;         // Ref altitude (meters)
    LCreal            antAzAngle;       // Antenna azimuth angle (degs)
    LCreal            antElAngle;       // Antenna elevation angle (degs)

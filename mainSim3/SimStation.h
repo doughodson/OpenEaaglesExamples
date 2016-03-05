@@ -7,7 +7,7 @@
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-   namespace basic { class Table1; }
+   namespace base { class Table1; }
    namespace glut { class GlutDisplay; }
    namespace simulation { class AirVehicle; }
 
@@ -24,7 +24,7 @@ namespace example {
 // Factory name: SimStation
 // Slots:
 //      display                 <glut::GlutDisplay>  ! Main graphics display
-//      autoResetTimer          <Time>               ! Auto RESET timer value (basic::Time); default: 0
+//      autoResetTimer          <Time>               ! Auto RESET timer value (base::Time); default: 0
 //------------------------------------------------------------------------------
 class SimStation : public simulation::Station
 {
@@ -38,7 +38,7 @@ public:
 
    // Slot functions
    virtual bool setSlotMainDisplay(glut::GlutDisplay* const);
-   virtual bool setSlotAutoResetTime(const basic::Time* const num);     // Sets the auto RESET timer
+   virtual bool setSlotAutoResetTime(const base::Time* const num);     // Sets the auto RESET timer
 
    void updateTC(const LCreal dt = 0.0) override;
    void updateData(const LCreal dt = 0.0) override;
@@ -46,12 +46,12 @@ public:
 
 private:
     // Main Display
-    basic::safe_ptr<glut::GlutDisplay> mainDisplay;
+    base::safe_ptr<glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
     // Auto reset timer
     LCreal      autoResetTimer;      // Auto RESET timer (sends a RESET_EVENT after timeout)
-    const basic::Time* autoResetTimer0;   // Init value of the Auto RESET timer
+    const base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
 } // End example namespace

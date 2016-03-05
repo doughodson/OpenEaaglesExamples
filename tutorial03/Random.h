@@ -6,17 +6,17 @@
 #ifndef __oe_Tutorial_Random_H__
 #define __oe_Tutorial_Random_H__
 
-#include "openeaagles/basic/Object.h"
+#include "openeaagles/base/Object.h"
 
 namespace oe {
 
-namespace basic { class Number; }
+namespace base { class Number; }
 
 namespace Tutorial {
 
-class Random : public basic::Object
+class Random : public base::Object
 {
-   DECLARE_SUBCLASS(Random, basic::Object)
+   DECLARE_SUBCLASS(Random, base::Object)
 
 public:
    Random();
@@ -25,7 +25,7 @@ public:
    bool setSeed(const unsigned int);
 
    // slot table functions
-   bool setSlotSeed(const basic::Number* const);
+   bool setSlotSeed(const base::Number* const);
 
 };
 

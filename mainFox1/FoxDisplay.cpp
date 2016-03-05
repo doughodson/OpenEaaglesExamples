@@ -1,7 +1,7 @@
 
 #include "FoxDisplay.h"
 
-#include "openeaagles/basic/Pair.h"
+#include "openeaagles/base/Pair.h"
 #include "openeaagles/graphics/Polygon.h"
 
 #include <GL/glu.h>
@@ -177,7 +177,7 @@ void FoxDisplay::drawIt()
          glCanvas->makeCurrent();
       }
       // if we are rotating, get our graphic and rotate it
-      basic::Pair* p = (basic::Pair*)findByType(typeid(graphics::Polygon));
+      base::Pair* p = (base::Pair*)findByType(typeid(graphics::Polygon));
       if (p != nullptr) {
          graphics::Polygon* g = dynamic_cast<graphics::Polygon*>(p->object());
          if (g != nullptr) {
@@ -304,7 +304,7 @@ graphics::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size
    // Find the Graphic with this id
    if (id > 0) {
       //std::cout << "selected id = " << id << std::endl;
-      basic::Pair* pair = findBySelectName(id);
+      base::Pair* pair = findBySelectName(id);
       if (pair != nullptr) {
          sel = dynamic_cast<graphics::Graphic*>(pair->object());
          if (sel != nullptr) {

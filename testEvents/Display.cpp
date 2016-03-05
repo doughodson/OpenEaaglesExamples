@@ -4,10 +4,10 @@
 #include "Display.h"
 #include "TestObject.h"
 
-#include "openeaagles/basic/Color.h"
+#include "openeaagles/base/Color.h"
 #include "openeaagles/graphics/Material.h"
-#include "openeaagles/basic/Rng.h"
-#include "openeaagles/basic/Number.h"
+#include "openeaagles/base/Rng.h"
+#include "openeaagles/base/Number.h"
 
 #include <cstring>
 
@@ -43,13 +43,13 @@ Display::Display()
     obj = new TestObject();
     lcStrcpy(myChar, sizeof(myChar), "ASCII");
     charSD.empty();
-    myColor = new basic::Color();
+    myColor = new base::Color();
     myColor->setRed(0.0);
     myColor->setBlue(0.0);
     myColor->setGreen(0.0);
 
     // setup a random number generator to start our colors
-    basic::Rng* rng = new basic::Rng();
+    base::Rng* rng = new base::Rng();
     osg::Vec4 diffColor[MAX_MATERIALS];
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator
@@ -236,9 +236,9 @@ void Display::updateData(const LCreal dt)
     send("objtest", UPDATE_VALUE, obj, objSD);
     send("colors", SET_COLOR, myColor, colorSD);
     // convert materials to objects real quick, so we can send them down
-    basic::Object* tempMat[MAX_MATERIALS];
+    base::Object* tempMat[MAX_MATERIALS];
     for (int i = 0; i < MAX_MATERIALS; i++) {
-        tempMat[i] = static_cast<basic::Object*>(materials[i]);
+        tempMat[i] = static_cast<base::Object*>(materials[i]);
     }
     send("matarray%d", SET_MATERIAL, tempMat, materialSD, MAX_MATERIALS);
     // send rotations to our objects as well

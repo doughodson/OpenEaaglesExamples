@@ -7,7 +7,7 @@
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
-   namespace basic { class Number; }
+   namespace base { class Number; }
 namespace test {
 
 //------------------------------------------------------------------------------
@@ -38,10 +38,10 @@ public:
 
    void draw() override;
 
-   bool event(const int event, basic::Object* const obj = nullptr) override;
+   bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
-   bool onUpdateValue(const basic::Number* const msg);
+   bool onUpdateValue(const base::Number* const msg);
 
    LCreal azimuth;  // (degs)
 };
