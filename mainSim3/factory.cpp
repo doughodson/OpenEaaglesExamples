@@ -13,7 +13,7 @@
 #include "openeaagles/base/factory.h"
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/dis/factory.h"
+#include "openeaagles/networks/dis/factory.h"
 #include "openeaagles/instruments/factory.h"
 #include "openeaagles/iodevice/factory.h"
 #include "openeaagles/otw/factory.h"
@@ -52,7 +52,7 @@ base::Object* factory(const char* name)
    if (obj == nullptr) obj = otw::factory(name);
    if (obj == nullptr) obj = models::factory(name);
    if (obj == nullptr) obj = simulation::factory(name);
-   if (obj == nullptr) obj = network::dis::factory(name);
+   if (obj == nullptr) obj = dis::factory(name);
    if (obj == nullptr) obj = iodevice::factory(name);
    if (obj == nullptr) obj = instruments::factory(name);
    if (obj == nullptr) obj = graphics::factory(name);

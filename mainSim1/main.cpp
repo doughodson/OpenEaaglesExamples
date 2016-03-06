@@ -11,7 +11,7 @@
 #include "../shared/xzmq/factory.h"
 #include "openeaagles/simulation/factory.h"
 #include "openeaagles/models/factory.h"
-#include "openeaagles/dis/factory.h"
+#include "openeaagles/networks/dis/factory.h"
 #include "openeaagles/otw/factory.h"
 #include "openeaagles/base/factory.h"
 
@@ -38,7 +38,7 @@ static base::Object* factory(const char* name)
    if (obj == nullptr) obj = otw::factory(name);
    if (obj == nullptr) obj = simulation::factory(name);
    if (obj == nullptr) obj = models::factory(name);
-   if (obj == nullptr) obj = network::dis::factory(name);
+   if (obj == nullptr) obj = dis::factory(name);
    if (obj == nullptr) obj = base::factory(name);
 
    return obj;
