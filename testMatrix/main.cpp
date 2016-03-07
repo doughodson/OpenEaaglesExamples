@@ -2,7 +2,6 @@
 // Test base::Nav functions
 //-----------------------------------------------------------------------------
 
-#include "openeaagles/base/support.h"
 #include "openeaagles/base/Matrix.h"
 #include "openeaagles/base/Vectors.h"
 #include "openeaagles/base/units/Angles.h"

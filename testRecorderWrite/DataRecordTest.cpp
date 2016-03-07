@@ -27,7 +27,6 @@
 #include "openeaagles/base/String.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/support.h"
 
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/message.h"
