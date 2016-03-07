@@ -100,23 +100,11 @@
             position: [ 5 10 ]
         )
 
-        // double
-        ( AsciiText 
-            position: [ 6 1 ]
-            text: "LCREAL:"
-        )
-        lcreal:
-        ( NumericReadout
-            format: "##.#####"
-            value: 999.12345
-            position: [ 6 10 ]
-        )
-        
         // String
         ascii:
         ( AsciiText
             text: "XXXXXX"
-            position: [ 7 1 ]
+            position: [ 6 1 ]
         )
         
         // Object
@@ -185,26 +173,12 @@
                     position: [ 15 10 ]
                 )
 
-                // double
-                ( AsciiText 
-                    color: cyan
-                    position: [ 16 1 ]
-                    text: "LCREAL:"
-                )
-                objreal:
-                ( NumericReadout
-                    format: "##.#####"
-                    color: cyan
-                    value: 999.12345
-                    position: [ 16 10 ]
-                )
-
                 // String
                 objascii:
                 ( AsciiText
                     color: cyan
                     text: "XXXXXX"
-                    position: [ 17 1 ]
+                    position: [ 16 1 ]
                 )
                 
             }

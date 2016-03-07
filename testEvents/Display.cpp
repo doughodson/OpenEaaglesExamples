@@ -38,8 +38,6 @@ Display::Display()
     floatSD.empty();
     myDouble = 0.0;
     doubleSD.empty();
-    myLCreal = 0.0;
-    lcrealSD.empty();
     obj = new TestObject();
     lcStrcpy(myChar, sizeof(myChar), "ASCII");
     charSD.empty();
@@ -101,8 +99,6 @@ void Display::copyData(const Display& org, const bool cc)
     floatSD.empty();
     myDouble = org.myDouble;
     doubleSD.empty();
-    myLCreal = org.myLCreal;
-    lcrealSD.empty();
     if (obj != nullptr) obj->unref();
     if (org.obj != nullptr) {
         obj = org.obj->clone();
@@ -170,9 +166,6 @@ void Display::updateData(const double dt)
         myDouble += 0.00002f;
         if (myDouble > 2) myDouble = 0;
 
-        myLCreal += 0.15f;
-        if (myLCreal > 15) myLCreal = 0;
-
         if (std::strcmp(myChar, "ASCII") == 0) lcStrcpy(myChar, sizeof(myChar), "TEXT");
         else lcStrcpy(myChar, sizeof(myChar), "ASCII");
 
@@ -231,7 +224,6 @@ void Display::updateData(const double dt)
     send("integer", UPDATE_VALUE, myInt, intSD);
     send("float", UPDATE_VALUE, myFloat, floatSD);
     send("double", UPDATE_VALUE, myDouble, doubleSD);
-    send("lcreal", UPDATE_VALUE, myLCreal, lcrealSD);
     send("ascii", UPDATE_VALUE, myChar, charSD);
     send("objtest", UPDATE_VALUE, obj, objSD);
     send("colors", SET_COLOR, myColor, colorSD);

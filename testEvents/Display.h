@@ -36,10 +36,6 @@ private:
     SendData floatSD;
 
     // double
-    double myLCreal;
-    SendData lcrealSD;
-
-    // double
     double myDouble;
     SendData doubleSD;
 
