@@ -18,18 +18,18 @@ class TestAdi : public graphics::Page
 public:
     TestAdi();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal pitch;           // our pitch (90 to -90)
+    double pitch;           // our pitch (90 to -90)
     SendData pitchSD;
-    LCreal  pitchRate;
-    LCreal roll;            // our roll (3.14 to -3.14)
+    double  pitchRate;
+    double roll;            // our roll (3.14 to -3.14)
     SendData rollSD;
-    LCreal rollRate;
-    LCreal slip;            // our side slip (20 to -20)
+    double rollRate;
+    double slip;            // our side slip (20 to -20)
     SendData slipSD;
-    LCreal slipRate;
+    double slipRate;
 };
 
 } // end of demo namespace

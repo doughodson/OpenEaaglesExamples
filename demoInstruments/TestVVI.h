@@ -20,13 +20,13 @@ class TestVVI : public graphics::Page
 public:
    TestVVI();
 
-   void updateData(const LCreal dt = 0) override;
+   void updateData(const double dt = 0) override;
 
 private:
-    LCreal gaugePosition;       // our gauge position (inches)
+    double gaugePosition;       // our gauge position (inches)
     SendData gaugePositionSD;
     SendData gaugePositionROSD;
-    LCreal  gaugeRate;          // rate which are going (up or down)
+    double  gaugeRate;          // rate which are going (up or down)
 };
 
 } // end of demo namespace

@@ -50,12 +50,12 @@ public:
     simulation::Simulation* getSimulation();
     simulation::Station* getStation();
 
-    void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng);
+    void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng);
 
     void mouseEvent(const int button, const int state, const int x, const int y) override;
 
     bool event(const int event, base::Object* const obj = nullptr) override;
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 protected:
    bool shutdownNotification() override;
@@ -74,7 +74,7 @@ private:
     bool onDecRngKey();
     bool onStepOwnshipKey();
 
-    void updatePfd(const LCreal dt);
+    void updatePfd(const double dt);
 
     // Extended data recorder test values
     unsigned int fooCnt;
@@ -82,7 +82,7 @@ private:
 
     xpanel::DspRadar*   rdrDisplay;     // Test RADAR display
     xpanel::DspRwr*     rwrDisplay;     // Test RWR display
-    LCreal              range;          // SD range
+    double              range;          // SD range
 
     SendData        headingSD;
     SendData        rangeSD;
@@ -93,56 +93,56 @@ private:
     int                 trkIdx[MAX_TRACKS];    // Index of track symbols
 
     // pitch and roll
-    LCreal pitch;           // degs
-    LCreal pitchRate;       // degs/sec
-    LCreal roll;            // degs
-    LCreal rollRate;        // degs/sec
+    double pitch;           // degs
+    double pitchRate;       // degs/sec
+    double roll;            // degs
+    double rollRate;        // degs/sec
 
     // heading and nav stuff
-    LCreal trueHdg;         // degs
-    LCreal tHdgRate;        // degs/sec
-    LCreal cmdHdg;          // commanded heading (heading bug) (degs)
-    LCreal cmdHdgRate;      // degs/sec
+    double trueHdg;         // degs
+    double tHdgRate;        // degs/sec
+    double cmdHdg;          // commanded heading (heading bug) (degs)
+    double cmdHdgRate;      // degs/sec
 
     // airspeed
-    LCreal airSpd;
-    LCreal airSpdRate;
+    double airSpd;
+    double airSpdRate;
 
     // altitude
-    LCreal alt;
-    LCreal altRate;
+    double alt;
+    double altRate;
 
     // side slip
-    LCreal slip;            // degs
-    LCreal slipRate;        // degs/sec
+    double slip;            // degs
+    double slipRate;        // degs/sec
 
     // glideslope (in dots)
-    LCreal gSlope;
-    LCreal gSlopeRate;
+    double gSlope;
+    double gSlopeRate;
 
     // Lateral dev
-    LCreal latDev;
-    LCreal ldRate;
+    double latDev;
+    double ldRate;
 
     // commanded speed
-    LCreal cmdSpd;
+    double cmdSpd;
 
     // commanded alt
-    LCreal cmdAlt;
+    double cmdAlt;
 
     // vvi
-    LCreal vvi;
-    LCreal vviRate;
+    double vvi;
+    double vviRate;
 
     // flight director stuff (in inches)
-    LCreal fDirBank;
-    LCreal fDirBankRate;
-    LCreal fDirPitch;
-    LCreal fDirPitchRate;
+    double fDirBank;
+    double fDirBankRate;
+    double fDirPitch;
+    double fDirPitchRate;
 
     // barometric pressure
-    LCreal baro;
-    LCreal baroRate;
+    double baro;
+    double baroRate;
 };
 
 } // End test namespace

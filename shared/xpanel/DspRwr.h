@@ -31,7 +31,7 @@ public:
 
     void drawFunc() override;
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     simulation::Rwr* rwr;     // The test RWR sensor

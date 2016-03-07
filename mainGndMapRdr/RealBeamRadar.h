@@ -23,10 +23,10 @@ public:
    const base::Terrain* getTerrain() const                      { return terrain; }
    virtual bool setTerrain(const base::Terrain* const msg);
 
-   LCreal getAltitude() const                { return altitude; }    // Ref altitude (meters)
-   LCreal getAntennaAzimuthAngle() const     { return antAzAngle; }  // Antenna look angle (degs)
-   LCreal getAntennaElevationAngle() const   { return antElAngle; }  // Antenna look angle (degs)
-   LCreal getBeamWidth() const override      { return beamWidth; }   // Antenna beam width (degs)
+   double getAltitude() const                { return altitude; }    // Ref altitude (meters)
+   double getAntennaAzimuthAngle() const     { return antAzAngle; }  // Antenna look angle (degs)
+   double getAntennaElevationAngle() const   { return antElAngle; }  // Antenna look angle (degs)
+   double getBeamWidth() const override      { return beamWidth; }   // Antenna beam width (degs)
 
    // The RADAR image pixels
    //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
@@ -42,13 +42,13 @@ public:
    virtual bool setSlotInterpolate(const base::Number* const msg);
 
    // Compute earth curvature effects
-   static bool computeGroundRanges(LCreal* const groundRange, const unsigned int n, const LCreal maxRngNM);
-   static bool computeSlantRanges2(LCreal* const slantRange2, const unsigned int n, const LCreal* const gndRng, const LCreal altitude);
-   static bool computeRangeLoss(LCreal* const rangeLoss, const unsigned int n, const LCreal* const slantRange2);
-   static bool computeEarthCurvature(LCreal* const curvature, const unsigned int n, const LCreal maxRngNM, const LCreal radiusNM);
+   static bool computeGroundRanges(double* const groundRange, const unsigned int n, const double maxRngNM);
+   static bool computeSlantRanges2(double* const slantRange2, const unsigned int n, const double* const gndRng, const double altitude);
+   static bool computeRangeLoss(double* const rangeLoss, const unsigned int n, const double* const slantRange2);
+   static bool computeEarthCurvature(double* const curvature, const unsigned int n, const double maxRngNM, const double radiusNM);
 
 protected:
-   void transmit(const LCreal dt) override;
+   void transmit(const double dt) override;
 
 private:
    bool initImageMemory(const int width, const int height);
@@ -56,20 +56,20 @@ private:
    void freeImageMemory();
 
    const base::Terrain* terrain;      // Terrain data
-   LCreal            altitude;         // Ref altitude (meters)
-   LCreal            antAzAngle;       // Antenna azimuth angle (degs)
-   LCreal            antElAngle;       // Antenna elevation angle (degs)
+   double            altitude;         // Ref altitude (meters)
+   double            antAzAngle;       // Antenna azimuth angle (degs)
+   double            antElAngle;       // Antenna elevation angle (degs)
    int               ray0;             // Last ray generated
-   LCreal            beamWidth;        // Antenna beam width (degs)
+   double            beamWidth;        // Antenna beam width (degs)
    bool              interpolate;      // Interpolate flag
    bool              fpass;            // First pass flag
 
-   LCreal*           elevations;       // Terrain elevations
+   double*           elevations;       // Terrain elevations
    bool*             validFlgs;        // Terrain elevation flag flags
-   LCreal*           aacData;          // Aspect angle cosines
+   double*           aacData;          // Aspect angle cosines
    bool*             maskFlgs;         // Mask flags
 
-//   LCreal            antAz;                  //
+//   double            antAz;                  //
    static const int MAX_IMAGE_WIDTH  = 2048; // maximum image width
    static const int MAX_IMAGE_HEIGHT = 2048; // maximum image height
    static const int PIXEL_SIZE = 3;          // pixel size in bytes { RGB }

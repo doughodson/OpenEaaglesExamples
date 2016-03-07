@@ -49,12 +49,12 @@ void RdrAlt::deleteData()
 //------------------------------------------------------------------------------
 // set functions
 //------------------------------------------------------------------------------
-bool RdrAlt::setRAltMin(const LCreal newRM)
+bool RdrAlt::setRAltMin(const double newRM)
 {
     rAltMin = newRM;
     return true;
 }
-bool RdrAlt::setRAlt(const LCreal newRA)
+bool RdrAlt::setRAlt(const double newRA)
 {
     rAlt = newRA;
     return true;
@@ -77,7 +77,7 @@ bool RdrAlt::onEventSetRAltMinRdrAlt(const base::Number* const x)
 //------------------------------------------------------------------------------
 // updateData()
 //------------------------------------------------------------------------------
-void RdrAlt::updateData(const LCreal dt)
+void RdrAlt::updateData(const double dt)
 {
     // update our base class first
     BaseClass::updateData(dt);

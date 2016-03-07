@@ -60,7 +60,7 @@ void TestStation::deleteData()
 //------------------------------------------------------------------------------
 // updateTC() -- Update time critical stuff here
 //------------------------------------------------------------------------------
-void TestStation::updateTC(const LCreal dt)
+void TestStation::updateTC(const double dt)
 {
    if (glutDisplay != nullptr) {
       glutDisplay->updateTC(dt);
@@ -71,7 +71,7 @@ void TestStation::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void TestStation::updateData(const LCreal dt)
+void TestStation::updateData(const double dt)
 {
    // ### Don't call updateData for our 'glutDisplay', which is derived from
    // graphics::GlutDisplay, because graphics::GlutDisplay handles calling updateData() for it's

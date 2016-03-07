@@ -34,7 +34,7 @@ void TestRpmDial::copyData(const TestRpmDial& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestRpmDial::updateData(const LCreal dt)
+void TestRpmDial::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

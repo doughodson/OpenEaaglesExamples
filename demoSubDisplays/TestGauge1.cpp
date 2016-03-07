@@ -46,7 +46,7 @@ EMPTY_DELETEDATA(TestGauge1)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestGauge1::updateData(const LCreal dt)
+void TestGauge1::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

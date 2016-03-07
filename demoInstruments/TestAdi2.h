@@ -18,30 +18,30 @@ class TestAdi2 : public graphics::Page
 public:
     TestAdi2();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal pitch;           // our pitch (90 to -90)
+    double pitch;           // our pitch (90 to -90)
     SendData pitchSD;
-    LCreal  pitchRate;
-    LCreal roll;            // our roll (180 to -180)
+    double  pitchRate;
+    double roll;            // our roll (180 to -180)
     SendData rollSD;
     SendData rollBASD;      // bank angle roll value
-    LCreal rollRate;
-    LCreal slip;            // our side slip (20 to -20)
+    double rollRate;
+    double slip;            // our side slip (20 to -20)
     SendData slipSD;
-    LCreal slipRate;
-    LCreal calAS;           // calibrated airspeed
-    LCreal calASRate;
+    double slipRate;
+    double calAS;           // calibrated airspeed
+    double calASRate;
     SendData calASSD;
-    LCreal alt;             // altitude
+    double alt;             // altitude
     SendData altSD;
-    LCreal altRate;
-    LCreal mag;             // magnetic heading
+    double altRate;
+    double mag;             // magnetic heading
     SendData magSD;
-    LCreal magRate;
-    LCreal cdmX;            // x (pitch) value of our climb dive marker (inches)
-    LCreal cdmY;            // y (slip) value of our climb dive marker (inches)
+    double magRate;
+    double cdmX;            // x (pitch) value of our climb dive marker (inches)
+    double cdmY;            // y (slip) value of our climb dive marker (inches)
     SendData cdmXSD;
     SendData cdmYSD;
     SendData cdmRollSD;

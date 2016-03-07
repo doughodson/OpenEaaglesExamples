@@ -34,7 +34,7 @@ void TestNozzle::copyData(const TestNozzle& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestNozzle::updateData(const LCreal dt)
+void TestNozzle::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

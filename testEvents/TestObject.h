@@ -31,7 +31,7 @@ public:
     void setInteger(const int x)        { intVal = x;    }
     void setFloat(const float x)        { floatVal = x;  }
     void setDouble(const double x)      { doubleVal = x; }
-    void setReal(const LCreal x)        { realVal = x;   }
+    void setReal(const double x)        { realVal = x;   }
     void setChar(const char* x)         { lcStrcpy(charVal, sizeof(charVal), x); }
 
     // get functions
@@ -39,7 +39,7 @@ public:
     int getInteger()                    { return intVal;    }
     float getFloat()                    { return floatVal;  }
     double getDouble()                  { return doubleVal; }
-    LCreal getReal()                    { return realVal;   }
+    double getReal()                    { return realVal;   }
     const char* getChar()               { return charVal;   }
 
 private:
@@ -47,7 +47,7 @@ private:
     int intVal;
     float floatVal;
     double doubleVal;
-    LCreal realVal;
+    double realVal;
     char charVal[10];
 };
 

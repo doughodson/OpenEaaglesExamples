@@ -72,7 +72,7 @@ static void updateDataCB(int msecs)
 
    // Compute delta time
    static double time0 = time;   // N-1 Time
-   const LCreal dt = static_cast<oe::LCreal>(time - time0);
+   const double dt = time - time0;
    time0 = time;
 
    simStation->updateData(dt);

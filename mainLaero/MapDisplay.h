@@ -32,7 +32,7 @@ public:
    void passiveMotionEvent(const int x, const int y) override;
    void buttonEvent(const int b) override;
 
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 private:
    // button hit enumerations

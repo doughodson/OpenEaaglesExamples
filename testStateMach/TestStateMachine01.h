@@ -30,17 +30,17 @@ public:
    TestStateMachine01();
 
 protected:
-   void preStateProc(const LCreal dt) override;
-   void postStateProc(const LCreal dt) override;
+   void preStateProc(const double dt) override;
+   void postStateProc(const double dt) override;
    unsigned short stateTable(
          const unsigned short cstate,
          const StateTableCode code,
-         const LCreal dt=0
+         const double dt=0
       ) override;
 
 private:
    // State specific functions
-   void anyStateFunc(const LCreal dt);
+   void anyStateFunc(const double dt);
 };
 
 } // End test namespace

@@ -39,7 +39,7 @@ EMPTY_DELETEDATA(TestVVI)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestVVI::updateData(const LCreal dt)
+void TestVVI::updateData(const double dt)
 {
     BaseClass::updateData(dt);
     

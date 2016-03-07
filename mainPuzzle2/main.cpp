@@ -39,9 +39,9 @@ static void timerCB(int)
    double dt = (time - time0);
    time0 = time;
 
-   base::Timer::updateTimers(static_cast<LCreal>(dt));
-   graphics::Graphic::flashTimer(static_cast<LCreal>(dt));
-   board->tcFrame(static_cast<LCreal>(dt));
+   base::Timer::updateTimers(static_cast<double>(dt));
+   graphics::Graphic::flashTimer(static_cast<double>(dt));
+   board->tcFrame(static_cast<double>(dt));
 }
 
 // board builder

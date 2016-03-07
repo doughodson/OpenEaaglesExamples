@@ -102,7 +102,7 @@ void Worm::reset()
 //------------------------------------------------------------------------------
 // setStartAngle() -- set starting angle
 //------------------------------------------------------------------------------
-void Worm::setStartAngle(const LCreal radians)
+void Worm::setStartAngle(const double radians)
 {
   sangle = radians;
   dx = lcCos(sangle) * speed;
@@ -112,7 +112,7 @@ void Worm::setStartAngle(const LCreal radians)
 //------------------------------------------------------------------------------
 // setSpeed() -- set speed
 //------------------------------------------------------------------------------
-void Worm::setSpeed(const LCreal xx)
+void Worm::setSpeed(const double xx)
 {
   speed = xx;
   dx = lcCos(sangle) * speed;
@@ -122,7 +122,7 @@ void Worm::setSpeed(const LCreal xx)
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void Worm::updateTC(const LCreal dt)
+void Worm::updateTC(const double dt)
 {
   // Update base classes stuff
   BaseClass::updateTC(dt);
@@ -156,7 +156,7 @@ void Worm::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void Worm::updateData(const LCreal dt)
+void Worm::updateData(const double dt)
 {
   // Update base classes stuff
   BaseClass::updateData(dt);

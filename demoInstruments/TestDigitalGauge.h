@@ -20,12 +20,12 @@ class TestDigitalGauge : public graphics::Page
 public:
    TestDigitalGauge();
 
-   void updateData(const LCreal dt = 0) override;
+   void updateData(const double dt = 0) override;
 
 private:
-    LCreal aoa;
+    double aoa;
     SendData aoaSD;
-    LCreal  aoaRate;        // rate which are going (up or down)
+    double  aoaRate;        // rate which are going (up or down)
     SendData aoaROSD;       // aoa readout
     SendData aoaASD;        // analog readout
 };

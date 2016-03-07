@@ -114,7 +114,7 @@ void FoxDisplay::toggleTranslation()
 //------------------------------------------------------------------------------
 // updateData()
 //------------------------------------------------------------------------------
-void FoxDisplay::updateData(const LCreal dt)
+void FoxDisplay::updateData(const double dt)
 {
    BaseClass::updateData(dt);
 

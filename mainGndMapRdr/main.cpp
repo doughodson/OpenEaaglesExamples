@@ -40,7 +40,7 @@ static void updateDataCB(int)
    static double time0 = time;
 
    // compute delta time
-   const LCreal dt = static_cast<LCreal>(time - time0);
+   const double dt = static_cast<double>(time - time0);
    time0 = time;
 
    base::Timer::updateTimers(dt);

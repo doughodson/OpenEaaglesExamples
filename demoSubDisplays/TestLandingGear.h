@@ -19,16 +19,16 @@ public:
    TestLandingGear();
 
    bool event(const int event, base::Object* const obj = nullptr) override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 private:
     // event functions
     bool onUpdateLandingGearTestLandingGear();
 
-    LCreal gearPosition;       // our landing gear position (0 is down, 1 is up)
+    double gearPosition;       // our landing gear position (0 is down, 1 is up)
     SendData gearPositionSD;
     SendData gearPositionROSD;
-    LCreal  gearRate;          // rate which are going (up or down)
+    double  gearRate;          // rate which are going (up or down)
 };
 
 } // end of demo namespace

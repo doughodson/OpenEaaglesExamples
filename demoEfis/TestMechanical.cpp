@@ -7,8 +7,8 @@ namespace oe {
 namespace demo {
 
 // static slew rates
-const LCreal TestMechanical::T1 = 120;
-const LCreal TestMechanical::T2 = 0.40f;
+const double TestMechanical::T1 = 120;
+const double TestMechanical::T2 = 0.40f;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestMechanical, "TestMechanical")
 EMPTY_SERIALIZER(TestMechanical)
@@ -172,7 +172,7 @@ EMPTY_DELETEDATA(TestMechanical)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestMechanical::updateData(const LCreal dt)
+void TestMechanical::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

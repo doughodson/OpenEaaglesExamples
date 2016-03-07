@@ -86,7 +86,7 @@ void TestRotator::drawFunc()
     
 }
 
-void TestRotator::updateData(const LCreal dt)
+void TestRotator::updateData(const double dt)
 {
     BaseClass::updateData(dt);
     

@@ -70,7 +70,7 @@ long Application::onTimeout(FXObject*, FXSelector, void*)
    // update station data (background thread)
    // and get the current status display data.
    // ---
-   station->updateData(static_cast<LCreal>(dt));
+   station->updateData(static_cast<double>(dt));
 
    // ---
    // draw the FOX displays

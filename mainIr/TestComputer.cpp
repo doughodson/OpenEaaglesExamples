@@ -55,7 +55,7 @@ void TestComputer::copyData(const TestComputer& org, const bool cc)
 // updateTC() -- override the System:: version so that we can get process call to our
 //               components (our TM) before we do our own processing
 //------------------------------------------------------------------------------
-void TestComputer::updateTC(const LCreal dt0)
+void TestComputer::updateTC(const double dt0)
 {
 #if 0
    // easy one-step way to test overriding the override
@@ -69,11 +69,11 @@ void TestComputer::updateTC(const LCreal dt0)
    // ---
 
    // real or frozen?
-   LCreal dt = dt0;
+   double dt = dt0;
    if (isFrozen()) dt = 0.0;
 
    // Delta time for methods that are running every fourth phase
-   LCreal dt4 = dt * 4.0;
+   double dt4 = dt * 4.0;
 
    // ---
    // Four phases per frame
@@ -111,7 +111,7 @@ void TestComputer::updateTC(const LCreal dt0)
 //------------------------------------------------------------------------------
 // process() -- Process phase
 //------------------------------------------------------------------------------
-void TestComputer::process(const LCreal dt)
+void TestComputer::process(const double dt)
 {
    BaseClass::process(dt);
 
@@ -138,8 +138,8 @@ bool TestComputer::processIr()
    simulation::Track* irTrk = getNextTarget();
    if (irTrk && uncaged) {
       // we have a target and our gimbal must be updated
-      LCreal pt_az = irTrk->getPredictedAzimuth();
-      LCreal pt_el = irTrk->getPredictedElevation();
+      double pt_az = irTrk->getPredictedAzimuth();
+      double pt_el = irTrk->getPredictedElevation();
 
       simulation::IrSeeker* irSeeker = dynamic_cast<simulation::IrSeeker*>(getOwnship()->getGimbal());
 

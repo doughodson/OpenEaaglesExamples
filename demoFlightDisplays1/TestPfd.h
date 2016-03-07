@@ -18,101 +18,101 @@ class TestPfd : public graphics::Page
 public:
     TestPfd();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     // pitch and roll
-    LCreal pitch;           // degs
-    LCreal pitchRate;       // degs/sec
-    LCreal roll;            // degs
-    LCreal rollRate;        // degs/sec
+    double pitch;           // degs
+    double pitchRate;       // degs/sec
+    double roll;            // degs
+    double rollRate;        // degs/sec
 
     // heading and nav stuff
-    LCreal trueHdg;         // degs
-    LCreal tHdgRate;        // degs/sec
+    double trueHdg;         // degs
+    double tHdgRate;        // degs/sec
 
-    LCreal cmdCrs;          // degs -- commanded course
-    LCreal cmdCrsRate;      // degs/sec
+    double cmdCrs;          // degs -- commanded course
+    double cmdCrsRate;      // degs/sec
 
-    LCreal cmdHdg;          // degs -- commanded heading (heading bug)
-    LCreal cmdHdgRate;      // degs/sec
+    double cmdHdg;          // degs -- commanded heading (heading bug)
+    double cmdHdgRate;      // degs/sec
 
     // cdi
-    LCreal cdiDots;         // dots
-    LCreal cdiRate;         // dots/sec
+    double cdiDots;         // dots
+    double cdiRate;         // dots/sec
 
     // to from
-    LCreal toFrom;
+    double toFrom;
 
     // airspeed
-    LCreal airSpd;
-    LCreal airSpdRate;
+    double airSpd;
+    double airSpdRate;
 
     // altitude
-    LCreal alt;
-    LCreal altRate;
+    double alt;
+    double altRate;
 
     // side slip
-    LCreal slip;            // degs
-    LCreal slipRate;        // degs/sec
+    double slip;            // degs
+    double slipRate;        // degs/sec
 
     // glideslope (in dots)
-    LCreal gSlope;
-    LCreal gSlopeRate;
+    double gSlope;
+    double gSlopeRate;
 
     // Lateral dev
-    LCreal latDev;
-    LCreal ldRate;
+    double latDev;
+    double ldRate;
 
     // commanded speed
-    LCreal cmdSpd;
+    double cmdSpd;
 
     // commanded alt
-    LCreal cmdAlt;
+    double cmdAlt;
 
     // master caution
     bool mstrCtn;
 
     // vvi
-    LCreal vvi;
-    LCreal vviRate;
-    LCreal maxVvi;      // max vvi value
-    LCreal minVvi;      // min vvi value
+    double vvi;
+    double vviRate;
+    double maxVvi;      // max vvi value
+    double minVvi;      // min vvi value
 
     // aoa
-    LCreal aoa;
-    LCreal aoaRate;
+    double aoa;
+    double aoaRate;
 
     // ground speed
-    LCreal gSpd;
-    LCreal gSpdRate;
+    double gSpd;
+    double gSpdRate;
 
     // flight director stuff (in inches)
-    LCreal fDirBank;
-    LCreal fDirBankRate;
-    LCreal fDirPitch;
-    LCreal fDirPitchRate;
+    double fDirBank;
+    double fDirBankRate;
+    double fDirPitch;
+    double fDirPitchRate;
 
     // barometric pressure
-    LCreal baro;
-    LCreal baroRate;
+    double baro;
+    double baroRate;
 
     // radar altitude
-    LCreal rAlt;
-    LCreal rAltRate;
-    LCreal rAltMin;
+    double rAlt;
+    double rAltRate;
+    double rAltMin;
 
     // navaid bearings
-    LCreal nav1Brg;          // degs
-    LCreal nav1BrgRate;      // degs/sec
-    LCreal nav2Brg;          // degs
-    LCreal nav2BrgRate;      // degs/sec
+    double nav1Brg;          // degs
+    double nav1BrgRate;      // degs/sec
+    double nav2Brg;          // degs
+    double nav2BrgRate;      // degs/sec
 
     // Flight path marker
-    LCreal fpmX;
-    LCreal fpmXRate;
-    LCreal fpmY;
-    LCreal fpmYRate;
+    double fpmX;
+    double fpmXRate;
+    double fpmY;
+    double fpmYRate;
 
     // Send datas
     SendData sixtyVisSD;    // sixty degree bank marker visibility

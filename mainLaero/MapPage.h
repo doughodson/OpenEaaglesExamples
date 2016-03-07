@@ -31,7 +31,7 @@ public:
    void drawFunc() override;
    //virtual void drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tgs);
 
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 private:
    void drawLine(const double x, const double y);

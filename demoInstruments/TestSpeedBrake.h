@@ -20,13 +20,13 @@ class TestSpeedBrake : public graphics::Page
 public:
     TestSpeedBrake();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal sbrakePosition;          // our speed brake position (1 - 100)
+    double sbrakePosition;          // our speed brake position (1 - 100)
     SendData sbrakePositionSD;
     SendData sbrakePositionROSD;
-    LCreal  sbrakeRate;             // rate which are going (up or down)
+    double  sbrakeRate;             // rate which are going (up or down)
 };
 
 } // end of demo namespace

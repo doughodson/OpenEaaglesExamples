@@ -56,7 +56,7 @@ Display::Display()
     double x = getComputerTime();
     x -= static_cast<int>(x);
     x *= 10;
-    int seed = nint(static_cast<LCreal>(x));
+    int seed = nint(static_cast<double>(x));
 
     // go through x amount of numbers before we get our next random number
     // this will allow for some pseudo-randomness.
@@ -65,9 +65,9 @@ Display::Display()
     for (int i = 0; i < MAX_MATERIALS; i++) {
         materials[i] = new graphics::Material();
         materialSD[i].empty();
-        diffColor[i].set(static_cast<LCreal>(rng->drawClosed()),
-                         static_cast<LCreal>(rng->drawClosed()),
-                         static_cast<LCreal>(rng->drawClosed()), 1);
+        diffColor[i].set(static_cast<double>(rng->drawClosed()),
+                         static_cast<double>(rng->drawClosed()),
+                         static_cast<double>(rng->drawClosed()), 1);
         //std::cout << "DIFF COLOR = " << diffColor[i].x() << ", " << diffColor[i].y() << ", " << diffColor[i].z() << std::endl;
         materials[i]->setDiffuseColor(diffColor[i]);
         // set up initial different colors
@@ -153,7 +153,7 @@ void Display::deleteData()
 //------------------------------------------------------------------------------
 // updateData(dt)
 //------------------------------------------------------------------------------
-void Display::updateData(const LCreal dt)
+void Display::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 
@@ -193,7 +193,7 @@ void Display::updateData(const LCreal dt)
 
         // our materials
         osg::Vec4 diff;
-        LCreal x = 0, y = 0, z = 0;
+        double x = 0, y = 0, z = 0;
         for (int i = 0; i < MAX_MATERIALS; i++) {
             if (materials[i] != nullptr) {
                 if (i == 0) {

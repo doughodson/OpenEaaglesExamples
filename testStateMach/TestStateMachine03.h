@@ -27,31 +27,31 @@ public:
    TestStateMachine03();
 
 protected:
-   void preStateProc(const LCreal dt) override;
-   void postStateProc(const LCreal dt) override;
+   void preStateProc(const double dt) override;
+   void postStateProc(const double dt) override;
    unsigned short stateTable(
          const unsigned short cstate,
          const StateTableCode code,
-         const LCreal dt=0
+         const double dt=0
       ) override;
 
 private:
    // State specific functions
-   void stateFunc00(const LCreal dt);
-   void stateFunc01(const LCreal dt);
-   void stateFunc02(const LCreal dt);
-   void stateFunc03(const LCreal dt);
-   void stateFunc04(const LCreal dt);
-   void stateFunc05(const LCreal dt);
-   void stateFunc11(const LCreal dt);
-   void stateFunc12(const LCreal dt);
-   void stateFunc13(const LCreal dt);
-   void stateFunc14(const LCreal dt);
-   void stateFunc15(const LCreal dt);
-   void stateFunc21(const LCreal dt);
-   void stateFunc22(const LCreal dt);
-   void stateFunc23(const LCreal dt);
-   void stateFunc99(const LCreal dt);
+   void stateFunc00(const double dt);
+   void stateFunc01(const double dt);
+   void stateFunc02(const double dt);
+   void stateFunc03(const double dt);
+   void stateFunc04(const double dt);
+   void stateFunc05(const double dt);
+   void stateFunc11(const double dt);
+   void stateFunc12(const double dt);
+   void stateFunc13(const double dt);
+   void stateFunc14(const double dt);
+   void stateFunc15(const double dt);
+   void stateFunc21(const double dt);
+   void stateFunc22(const double dt);
+   void stateFunc23(const double dt);
+   void stateFunc99(const double dt);
 };
 
 } // End test namespace

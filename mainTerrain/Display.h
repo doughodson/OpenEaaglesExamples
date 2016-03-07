@@ -45,13 +45,13 @@ public:
    const base::Terrain* getTerrain() const                 { return terrain; }
 
    bool isMinElevValid() const { return haveMinElev; }      // Ture if the min elevation is valid
-   LCreal getMinElevation() const { return minElev; }       // Returns the min elevation (meters)
-   virtual bool setMinElevation(const LCreal elev);         // Sets the min elevation (meters)
+   double getMinElevation() const { return minElev; }       // Returns the min elevation (meters)
+   virtual bool setMinElevation(const double elev);         // Sets the min elevation (meters)
    virtual bool clearMinElevation();                        // Clears the min elevation (using datafile min elevation)
 
    bool isMaxElevValid() const { return haveMaxElev; }      // Ture if the max elevation is valid
-   LCreal getMaxElevation() const { return maxElev; }       // Returns the max elevation (meters)
-   virtual bool setMaxElevation(const LCreal elev);         // Sets the max elevation (meters)
+   double getMaxElevation() const { return maxElev; }       // Returns the max elevation (meters)
+   virtual bool setMaxElevation(const double elev);         // Sets the max elevation (meters)
    virtual bool clearMaxElevation();                        // Clears the max elevation (using datafile max elevation)
 
    // Slot functions
@@ -72,7 +72,7 @@ public:
    void drawFunc() override;
 
    void reset() override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 private:
    bool initImageMemory(const GLsizei width, const GLsizei height);
@@ -80,11 +80,11 @@ private:
    void freeImageMemory();
 
    base::Terrain* terrain;            // Terrain data
-   LCreal            maxElev;          // Max elevation (meters)
-   LCreal            minElev;          // Min elevation (meters)
-   LCreal            altitude;         // Ref altitude (meters)
-   LCreal            lookAngle;        // Antenna look angle (degs)
-   LCreal            beamWidth;        // Antenna beam width (degs)
+   double            maxElev;          // Max elevation (meters)
+   double            minElev;          // Min elevation (meters)
+   double            altitude;         // Ref altitude (meters)
+   double            lookAngle;        // Antenna look angle (degs)
+   double            beamWidth;        // Antenna beam width (degs)
    unsigned int      colorScale;       // Color scale index; gray(0), color(1), green(2)
    bool              haveMaxElev;      // Have a maximum elevation flag
    bool              haveMinElev;      // Have a maximum elevation flag

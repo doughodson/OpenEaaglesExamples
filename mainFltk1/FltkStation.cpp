@@ -95,7 +95,7 @@ void FltkStation::reset()
 //------------------------------------------------------------------------------
 // updateData() --
 //------------------------------------------------------------------------------
-void FltkStation::updateData(LCreal dt)
+void FltkStation::updateData(double dt)
 {
    BaseClass::updateData(dt);
 

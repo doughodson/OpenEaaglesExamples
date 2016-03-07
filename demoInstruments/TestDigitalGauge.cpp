@@ -38,7 +38,7 @@ void TestDigitalGauge::copyData(const TestDigitalGauge& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestDigitalGauge::updateData(const LCreal dt)
+void TestDigitalGauge::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

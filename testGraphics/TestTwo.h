@@ -19,8 +19,8 @@ public:
     TestTwo();
 
     bool event(const int event, base::Object* const obj = nullptr) override;
-    void updateTC(const LCreal dt = 0.0) override;
-    void updateData(const LCreal dt = 0.0) override;
+    void updateTC(const double dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     void reset() override;
 
     //macro functions for slot table mapping
@@ -35,14 +35,14 @@ public:
 
 private:
 
-    LCreal v1, v1Rate;
-    LCreal v1Max, v1Min;
+    double v1, v1Rate;
+    double v1Max, v1Min;
 
-    LCreal v2, v2Rate;
-    LCreal v2Max, v2Min;
+    double v2, v2Rate;
+    double v2Max, v2Min;
 
-    LCreal iv1, iv1Rate;
-    LCreal iv2, iv2Rate;
+    double iv1, iv1Rate;
+    double iv2, iv2Rate;
 
     SendData v1SD;
     SendData v2SD;

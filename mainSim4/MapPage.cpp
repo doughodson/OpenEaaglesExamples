@@ -138,14 +138,14 @@ void MapPage::drawFunc()
     // get our viewport
     Display* dis = static_cast<Display*>(getDisplay());
     if (dis != nullptr) {
-        int start = nint(static_cast<LCreal>(southernLat) - 1);
+        int start = nint(static_cast<double>(southernLat) - 1);
         GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
         dis->getOrtho(l, r, b, t, n, f);
         double inchPerDegNS = t*2 / latRange;
         glPushMatrix();
             glBegin(GL_LINES);
                 int count = 0;
-                while (start < nint( static_cast<LCreal>(northernLat) ) + 1) {
+                while (start < nint( static_cast<double>(northernLat) ) + 1) {
                     GLfloat disFromRef = static_cast<GLfloat>(refLat - start);
                     disFromRef *= static_cast<GLfloat>(inchPerDegNS);
                     if (count < MAX_READOUTS) {
@@ -168,12 +168,12 @@ void MapPage::drawFunc()
         const double westernLon = refLon + lonRange;
 
         lonRange *= 2;
-        start = nint( static_cast<LCreal>(easternLon) - 1);
+        start = nint( static_cast<double>(easternLon) - 1);
         double inchPerDegEW = r*2 / lonRange;
         glPushMatrix();
             glBegin(GL_LINES);
                 count = 0;
-                while (start < nint( static_cast<LCreal>(westernLon) ) + 1) {
+                while (start < nint( static_cast<double>(westernLon) ) + 1) {
                     GLfloat disFromRef = static_cast<GLfloat>(refLon - start);
                     if (count < MAX_READOUTS) {
                         lons[count] = start;
@@ -194,7 +194,7 @@ void MapPage::drawFunc()
 //------------------------------------------------------------------------------
 // updateData() -- update background data
 //------------------------------------------------------------------------------
-void MapPage::updateData(const LCreal dt)
+void MapPage::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

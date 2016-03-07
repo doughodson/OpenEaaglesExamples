@@ -36,7 +36,7 @@ void TestCas::copyData(const TestCas& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestCas::updateData(const LCreal dt)
+void TestCas::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

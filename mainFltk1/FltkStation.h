@@ -27,7 +27,7 @@ public:
    FltkStation();
 
    void reset() override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 protected:
 

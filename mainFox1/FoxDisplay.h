@@ -40,7 +40,7 @@ public:
 
    virtual bool setCanvasSize(const float newW = 0, const float newH = 0);
 
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
    // mouse event to handle the pick event
    Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1);
@@ -66,11 +66,11 @@ private:
    FX::FXComposite* myComp;            // our parent
 
    bool rotate;                        // is our graphic rotating
-   LCreal rotAng;                      // rotate angle
-   LCreal rotRate;                     // rotate rate
+   double rotAng;                      // rotate angle
+   double rotRate;                     // rotate rate
    bool translate;                     // are we translating
-   LCreal trans;                       // transform amount (units)
-   LCreal transRate;
+   double trans;                       // transform amount (units)
+   double transRate;
 };
 
 } // end example namespace

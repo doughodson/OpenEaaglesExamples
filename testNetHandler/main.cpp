@@ -103,8 +103,8 @@ int main(int argc, char* argv[])
    std::cout << "Starting main loop ..." << std::endl;
    for(;;) {
 
-      endpoint->updateTC( static_cast<LCreal>(dt) );
-      endpoint->updateData( static_cast<LCreal>(dt) );
+      endpoint->updateTC( static_cast<double>(dt) );
+      endpoint->updateData( static_cast<double>(dt) );
 
       simTime += dt;                       // time of next frame
       double timeNow = oe::getComputerTime();  // time now

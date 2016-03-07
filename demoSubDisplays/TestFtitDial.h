@@ -20,12 +20,12 @@ class TestFtitDial : public graphics::Page
 public:
     TestFtitDial();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal ftitRotation;        // our ftit position (0 - 1000)
+    double ftitRotation;        // our ftit position (0 - 1000)
     SendData ftitRotationSD;
-    LCreal  ftitRate;           // rate which are going (up or down)
+    double  ftitRate;           // rate which are going (up or down)
     SendData ftitRotationROSD;  // for our readout
 };
 

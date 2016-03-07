@@ -24,7 +24,7 @@ END_STATE_TABLE()
 // Pre/Post functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine04C::preStateProc(const LCreal)
+void TestStateMachine04C::preStateProc(const double)
 {
    // Start line
    std::cout << "SM(#4C)(" << getState() << "," << getSubstate() << "): ";
@@ -34,7 +34,7 @@ void TestStateMachine04C::preStateProc(const LCreal)
 // State functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine04C::stateFunc00(const LCreal)
+void TestStateMachine04C::stateFunc00(const double)
 {
    switch (getSubstate()) {
 

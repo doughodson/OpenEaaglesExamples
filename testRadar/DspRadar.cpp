@@ -50,7 +50,7 @@ void DspRadar::copyData(const DspRadar& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void DspRadar::updateData(const LCreal dt)
+void DspRadar::updateData(const double dt)
 {
    const simulation::Antenna* antenna = nullptr;
    nTracks = 0;
@@ -115,7 +115,7 @@ void DspRadar::drawFunc()
    // Draw the B-Scan
    // ---
    {
-      static const LCreal GAIN = 3.0f;
+      static const double GAIN = 3.0f;
 
       osg::Vec4   rgb;
       osg::Vec4   hsv;
@@ -123,24 +123,24 @@ void DspRadar::drawFunc()
       unsigned int n = radar->getNumSweeps();
       unsigned int nv = radar->getPtrsPerSweep();
 
-      LCreal sx = static_cast<LCreal>(n-1)/2.0f;
-      LCreal sy = static_cast<LCreal>(nv-1);
+      double sx = static_cast<double>(n-1)/2.0f;
+      double sy = static_cast<double>(nv-1);
 
-      const LCreal* s0 = radar->getSweep(0);
-      const LCreal* c0 = radar->getClosure(0);
+      const double* s0 = radar->getSweep(0);
+      const double* c0 = radar->getClosure(0);
       unsigned int i0 = 0;
 
       for (unsigned int i = 1; i < n; i++) {
-         const LCreal* s1 = radar->getSweep(i);
-         const LCreal* c1 = radar->getClosure(i);
-         LCreal x0 = static_cast<LCreal>(i0)/sx - 1.0f;
-         LCreal x1 = static_cast<LCreal>(i)/sx - 1.0f;
+         const double* s1 = radar->getSweep(i);
+         const double* c1 = radar->getClosure(i);
+         double x0 = static_cast<double>(i0)/sx - 1.0f;
+         double x1 = static_cast<double>(i)/sx - 1.0f;
 
          glBegin(GL_QUAD_STRIP);
          for (unsigned int j = 0; j < nv; j++) {
-            LCreal y = 2.0f * static_cast<LCreal>(j)/sy;
+            double y = 2.0f * static_cast<double>(j)/sy;
 
-            LCreal vclos0 = alim(c0[j]/100.0f, 1.0f);
+            double vclos0 = alim(c0[j]/100.0f, 1.0f);
             hsv[0] = 120.0f - 120.0f * vclos0;
             hsv[1] = 1.0f;
             hsv[2] = s0[j]*GAIN;
@@ -149,7 +149,7 @@ void DspRadar::drawFunc()
             lcColor3v(rgb.ptr());
             glVertex3d(x0, y, 0.0);
 
-            LCreal vclos1 = alim(c1[j]/100.0f, 1.0f);
+            double vclos1 = alim(c1[j]/100.0f, 1.0f);
             hsv[0] = 120.0f - 120.0f * vclos1;
             hsv[1] = 1.0f;
             hsv[2] = s1[j]*GAIN;
@@ -175,8 +175,8 @@ void DspRadar::drawFunc()
       osg::Vec4   hsv;
 
       // Vertices of the basic symbol
-      //static LCreal maxRng = 40000.0;
-      LCreal maxRng = radar->getRange() * base::Distance::NM2M;
+      //static double maxRng = 40000.0;
+      double maxRng = radar->getRange() * base::Distance::NM2M;
       static double ss = 0.05;
 
       // The color

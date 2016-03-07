@@ -49,8 +49,8 @@ public:
    Display();
 
    void reset() override;
-   void updateData(const LCreal dt = 0.0) override;
-   void updateTC(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
+   void updateTC(const double dt = 0.0) override;
 
 protected:
    virtual bool setSlotIoHandler(base::IoHandler* const msg);
@@ -81,7 +81,7 @@ private:
    // Table data
    char* table_Label[TBL_SIZE];
    int   table_typeRo[TBL_SIZE];
-   LCreal table_ai[TBL_SIZE];
+   double table_ai[TBL_SIZE];
    SendData table_LabelSD[TBL_SIZE];
    SendData table_typeRoSD[TBL_SIZE];
    SendData table_aiSD[TBL_SIZE];

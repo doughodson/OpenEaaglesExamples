@@ -73,9 +73,9 @@ testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bo
    base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
-   LCreal maxX = tbl->getMaxX();
-   LCreal minX = tbl->getMinX();
-   LCreal dx = (maxX - minX) / static_cast<LCreal>(20);
+   double maxX = tbl->getMaxX();
+   double minX = tbl->getMinX();
+   double dx = (maxX - minX) / static_cast<double>(20);
 
    if (!tflg) {
       std::cout << std::endl;
@@ -85,12 +85,12 @@ testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bo
       std::cout << "x, value" << std::endl;
    }
 
-   LCreal x = minX - 2*dx;
+   double x = minX - 2*dx;
    while ( x <= (maxX + 2*dx) ) {
-      LCreal x1 = x;
-      if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand()) / static_cast<LCreal>(RAND_MAX));
+      double x1 = x;
+      if (rflg) x1 = (minX + (maxX - minX) * static_cast<double>(rand()) / static_cast<double>(RAND_MAX));
 
-      LCreal value = tbl->lfi(x1,s);
+      double value = tbl->lfi(x1,s);
       cnt++;
 
       if (!tflg) std::cout << x1 << ", " << value << std::endl;
@@ -112,13 +112,13 @@ testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bo
    base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
-   LCreal maxY = tbl->getMaxY();
-   LCreal minY = tbl->getMinY();
-   LCreal dy = (maxY - minY) / static_cast<LCreal>(10);
+   double maxY = tbl->getMaxY();
+   double minY = tbl->getMinY();
+   double dy = (maxY - minY) / static_cast<double>(10);
 
-   LCreal maxX = tbl->getMaxX();
-   LCreal minX = tbl->getMinX();
-   LCreal dx = (maxX - minX) / static_cast<LCreal>(20);
+   double maxX = tbl->getMaxX();
+   double minX = tbl->getMinX();
+   double dx = (maxX - minX) / static_cast<double>(20);
 
    if (!tflg) {
       std::cout << std::endl;
@@ -128,17 +128,17 @@ testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bo
       std::cout << "x, y, value" << std::endl;
    }
 
-   LCreal y = minY - 2*dy;
+   double y = minY - 2*dy;
    while ( y <= (maxY + 2*dy) ) {
-      LCreal y1 = y;
-      if (rflg) y1 = (minY + (maxY - minY) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+      double y1 = y;
+      if (rflg) y1 = (minY + (maxY - minY) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-      LCreal x = minX - 2*dx;
+      double x = minX - 2*dx;
       while ( x <= (maxX + 2*dx) ) {
-         LCreal x1 = x;
-         if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+         double x1 = x;
+         if (rflg) x1 = (minX + (maxX - minX) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-         LCreal value = tbl->lfi(x1,y1,s);
+         double value = tbl->lfi(x1,y1,s);
          cnt++;
 
          if (!tflg) std::cout << x1 << ", " << y1 << ", " << value << std::endl;
@@ -163,19 +163,19 @@ testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bo
    if (sflg) s = tbl->storageFactory();
 
    // Setup Z
-   LCreal maxZ = tbl->getMaxZ();
-   LCreal minZ = tbl->getMinZ();
-   LCreal dz = (maxZ - minZ) / static_cast<LCreal>(2*(tbl->getNumZPoints()-1));
+   double maxZ = tbl->getMaxZ();
+   double minZ = tbl->getMinZ();
+   double dz = (maxZ - minZ) / static_cast<double>(2*(tbl->getNumZPoints()-1));
 
    // Setup Y
-   LCreal maxY = tbl->getMaxY();
-   LCreal minY = tbl->getMinY();
-   LCreal dy = (maxY - minY) / static_cast<LCreal>(2*(tbl->getNumYPoints()-1));
+   double maxY = tbl->getMaxY();
+   double minY = tbl->getMinY();
+   double dy = (maxY - minY) / static_cast<double>(2*(tbl->getNumYPoints()-1));
 
    // Setup X
-   LCreal maxX = tbl->getMaxX();
-   LCreal minX = tbl->getMinX();
-   LCreal dx = (maxX - minX) / static_cast<LCreal>(2*(tbl->getNumXPoints()-1));
+   double maxX = tbl->getMaxX();
+   double minX = tbl->getMinX();
+   double dx = (maxX - minX) / static_cast<double>(2*(tbl->getNumXPoints()-1));
 
    if (!tflg) {
       std::cout << std::endl;
@@ -185,22 +185,22 @@ testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bo
       std::cout << "x, y, z, value" << std::endl;
    }
 
-   LCreal z = minZ - dz;
+   double z = minZ - dz;
    while ( z <= (maxZ + dz) ) {
-      LCreal z1 = z;
-      if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+      double z1 = z;
+      if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-      LCreal y = minY - dy;
+      double y = minY - dy;
       while ( y <= (maxY + dy) ) {
-         LCreal y1 = y;
-         if (rflg) y1 = (minY + (maxY - minY) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+         double y1 = y;
+         if (rflg) y1 = (minY + (maxY - minY) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-         LCreal x = minX - dx;
+         double x = minX - dx;
          while ( x <= (maxX + dx) ) {
-            LCreal x1 = x;
-            if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+            double x1 = x;
+            if (rflg) x1 = (minX + (maxX - minX) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-            LCreal value = tbl->lfi(x1,y1,z1,s);
+            double value = tbl->lfi(x1,y1,z1,s);
             cnt++;
 
             if (!tflg) std::cout << x1 << ", " << y1 << ", " << z1 << ", " << value << std::endl;
@@ -228,21 +228,21 @@ testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bo
    if (sflg) s = tbl->storageFactory();
 
    // Setup W
-   const LCreal minW = tbl->getMinW();
-   const LCreal maxW = tbl->getMaxW();
-   const LCreal dw = (maxW - minW) / static_cast<LCreal>(2 * (tbl->getNumWPoints() - 1));
+   const double minW = tbl->getMinW();
+   const double maxW = tbl->getMaxW();
+   const double dw = (maxW - minW) / static_cast<double>(2 * (tbl->getNumWPoints() - 1));
 
-   const LCreal minZ = tbl->getMinZ();
-   const LCreal maxZ = tbl->getMaxZ();
-   const LCreal dz = (maxZ - minZ) / static_cast<LCreal>(2 * (tbl->getNumZPoints() - 1));
+   const double minZ = tbl->getMinZ();
+   const double maxZ = tbl->getMaxZ();
+   const double dz = (maxZ - minZ) / static_cast<double>(2 * (tbl->getNumZPoints() - 1));
 
-   const LCreal minY = tbl->getMinY();
-   const LCreal maxY = tbl->getMaxY();
-   const LCreal dy = (maxY - minY) / static_cast<LCreal>(2 * (tbl->getNumYPoints() - 1));
+   const double minY = tbl->getMinY();
+   const double maxY = tbl->getMaxY();
+   const double dy = (maxY - minY) / static_cast<double>(2 * (tbl->getNumYPoints() - 1));
 
-   const LCreal minX = tbl->getMinX();
-   const LCreal maxX = tbl->getMaxX();
-   const LCreal dx = (maxX - minX) / static_cast<LCreal>(2 * (tbl->getNumXPoints() - 1));
+   const double minX = tbl->getMinX();
+   const double maxX = tbl->getMaxX();
+   const double dx = (maxX - minX) / static_cast<double>(2 * (tbl->getNumXPoints() - 1));
 
    if (!tflg) {
       std::cout << std::endl;
@@ -252,27 +252,27 @@ testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bo
       std::cout << "x, y, z, w, value" << std::endl;
    }
 
-   LCreal w = minW - dw;
+   double w = minW - dw;
    while (w <= (maxW + dw)) {
-      LCreal w1 = w;
-      if (rflg) w1 = (minW + (maxW - minW) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+      double w1 = w;
+      if (rflg) w1 = (minW + (maxW - minW) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-      LCreal z = minZ - dz;
+      double z = minZ - dz;
       while (z <= (maxZ + dz)) {
-         LCreal z1 = z;
-         if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+         double z1 = z;
+         if (rflg) z1 = (minZ + (maxZ - minZ) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-         LCreal y = minY - dy;
+         double y = minY - dy;
          while (y <= (maxY + dy)) {
-            LCreal y1 = y;
-            if (rflg) y1 = (minY + (maxY - minY) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+            double y1 = y;
+            if (rflg) y1 = (minY + (maxY - minY) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-            LCreal x = minX - dx;
+            double x = minX - dx;
             while (x <= (maxX + dx)) {
-               LCreal x1 = x;
-               if (rflg) x1 = (minX + (maxX - minX) * static_cast<LCreal>(rand())/static_cast<LCreal>(RAND_MAX));
+               double x1 = x;
+               if (rflg) x1 = (minX + (maxX - minX) * static_cast<double>(rand())/static_cast<double>(RAND_MAX));
 
-               LCreal value = tbl->lfi(x1, y1, z1, w1, s);
+               double value = tbl->lfi(x1, y1, z1, w1, s);
                cnt++;
 
                if (!tflg) {

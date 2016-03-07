@@ -18,13 +18,13 @@ class TestRpmDial : public graphics::Page
 public:
     TestRpmDial();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal rpm;
+    double rpm;
     SendData rpmSD;
     SendData rpmROSD;       // sends our readout data (to a numeric readout)
-    LCreal  rpmRate;
+    double  rpmRate;
 };
 
 } // end of demo namespace

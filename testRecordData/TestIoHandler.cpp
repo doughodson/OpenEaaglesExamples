@@ -84,7 +84,7 @@ void TestIoHandler::deleteData()
 //------------------------------------------------------------------------------
 // Handle input devices
 //------------------------------------------------------------------------------
-void TestIoHandler::inputDevices(const LCreal dt)
+void TestIoHandler::inputDevices(const double dt)
 {
    BaseClass::inputDevices(dt);
 
@@ -164,30 +164,30 @@ void TestIoHandler::inputDevices(const LCreal dt)
       // ------------------------------------------------------------
 
       {  // Process Roll Input
-         LCreal ai = 0;
+         double ai = 0;
          inData->getAnalogInput(ROLL_AI, &ai);
-         LCreal aiLim = alim(ai, 1.0f);
+         double aiLim = alim(ai, 1.0f);
          if (ap != nullptr) ap->setControlStickRollInput(aiLim);
          else av->setControlStickRollInput(aiLim);
       }
 
       {  // Process Pitch Input
-         LCreal ai = 0;
+         double ai = 0;
          inData->getAnalogInput(PITCH_AI, &ai);
-         LCreal aiLim = alim(ai, 1.0f);
+         double aiLim = alim(ai, 1.0f);
          if (ap != nullptr) ap->setControlStickPitchInput(aiLim);
          else av->setControlStickPitchInput(aiLim);
       }
 
       {  // Process Rudder Input
-         LCreal ai = 0;
+         double ai = 0;
          inData->getAnalogInput(RUDDER_AI, &ai);
-         LCreal aiLim = alim(ai, 1.0f);
+         double aiLim = alim(ai, 1.0f);
          av->setRudderPedalInput(aiLim);
       }
 
       {  // Process Throttle Input
-         LCreal value = 0;
+         double value = 0;
          inData->getAnalogInput(THROTTLE_AI, &value);
 
          if (value < 0.0f) value = 0.0f;
@@ -266,7 +266,7 @@ void TestIoHandler::inputDevices(const LCreal dt)
          inData->getDiscreteInput(SB_EXT_SW, &sbExtSw);
          inData->getDiscreteInput(SB_RET_SW, &sbRetSw);
 
-         LCreal sb = 0.0;
+         double sb = 0.0;
          if(sbExtSw) sb = -1.0f;
          if(sbRetSw) sb =  1.0f;
          av->setSpeedBrakesSwitch(sb);

@@ -53,7 +53,7 @@ bool TestLandingGear::onUpdateLandingGearTestLandingGear()
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestLandingGear::updateData(const LCreal dt)
+void TestLandingGear::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

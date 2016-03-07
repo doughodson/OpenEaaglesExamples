@@ -65,37 +65,37 @@ void Hsi::deleteData()
 //------------------------------------------------------------------------------
 // set functions
 //------------------------------------------------------------------------------
-bool Hsi::setSelectedHeading(const LCreal newSH)
+bool Hsi::setSelectedHeading(const double newSH)
 {
     selHdg = newSH;
     return true;
 }
 
-bool Hsi::setSelectedCourse(const LCreal newC)
+bool Hsi::setSelectedCourse(const double newC)
 {
     selCrs = newC;
     return true;
 }
 
-bool Hsi::setNav1Brg(const LCreal newB)
+bool Hsi::setNav1Brg(const double newB)
 {
     nav1Brg = newB;
     return true;
 }
 
-bool Hsi::setNav2Brg(const LCreal newB)
+bool Hsi::setNav2Brg(const double newB)
 {
     nav2Brg = newB;
     return true;
 }
 
-bool Hsi::setCdiDots(const LCreal newCDI)
+bool Hsi::setCdiDots(const double newCDI)
 {
     cdiDots = newCDI;
     return true;
 }
 
-bool Hsi::setToFrom(const LCreal newTF)
+bool Hsi::setToFrom(const double newTF)
 {
     toFrom = newTF;
     return true;
@@ -142,7 +142,7 @@ bool Hsi::onUpdateToFromHsi(const base::Number* const x)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void Hsi::updateData(const LCreal dt)
+void Hsi::updateData(const double dt)
 {
     // update our baseclass first
     BaseClass::updateData(dt);

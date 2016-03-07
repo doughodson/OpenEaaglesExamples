@@ -136,7 +136,7 @@ void Display::reset()
 //------------------------------------------------------------------------------
 // set functions
 //------------------------------------------------------------------------------
-bool Display::setMinElevation(const LCreal elev)
+bool Display::setMinElevation(const double elev)
 {
    minElev = elev;
    haveMinElev = true;
@@ -150,7 +150,7 @@ bool Display::clearMinElevation()
    return true;
 }
 
-bool Display::setMaxElevation(const LCreal elev)
+bool Display::setMaxElevation(const double elev)
 {
    maxElev = elev;
    haveMaxElev = true;
@@ -211,7 +211,7 @@ bool Display::setSlotLookAngle(const base::Angle* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      lookAngle = static_cast<LCreal>(base::Degrees::convertStatic(*msg));
+      lookAngle = static_cast<double>(base::Degrees::convertStatic(*msg));
       ok = true;
    }
    return ok;
@@ -222,7 +222,7 @@ bool Display::setSlotBeamWidth(const base::Angle* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
-      beamWidth = static_cast<LCreal>(base::Degrees::convertStatic(*msg));
+      beamWidth = static_cast<double>(base::Degrees::convertStatic(*msg));
       ok = true;
    }
    return ok;
@@ -302,7 +302,7 @@ bool Display::setSlotTextureTest(const base::Number* const msg)
 //------------------------------------------------------------------------------
 // updateData() -- update background data here
 //------------------------------------------------------------------------------
-void Display::updateData(const LCreal dt)
+void Display::updateData(const double dt)
 {
    // Get Viewport width and height
    GLsizei vpWidth = 0;
@@ -337,27 +337,27 @@ void Display::updateData(const LCreal dt)
          const int NUM_ROWS = imgHeight;
 
          // Allocating space for 'multi-point' tests 
-         LCreal* elevations = nullptr;
-         LCreal* aacData = nullptr;
+         double* elevations = nullptr;
+         double* aacData = nullptr;
          bool* validFlgs = nullptr;
          bool* maskFlgs = nullptr;
          if (testShadows || testAac || testEarthCurv) {
-            elevations = new LCreal[NUM_ROWS];
-            aacData = new LCreal[NUM_ROWS];
+            elevations = new double[NUM_ROWS];
+            aacData = new double[NUM_ROWS];
             validFlgs = new bool[NUM_ROWS];
             maskFlgs = new bool[NUM_ROWS];
          }
 
          // Max elevation (Z) value (meters)
-         LCreal maxz = terrain->getMaxElevation();
+         double maxz = terrain->getMaxElevation();
          if (isMaxElevValid()) maxz = getMaxElevation();
 
          // Min elevation (Z) value (meters)
-         LCreal minz = terrain->getMinElevation();
+         double minz = terrain->getMinElevation();
          if (isMinElevValid()) minz = getMinElevation();
 
          // Delta altitude (meters)
-//         LCreal deltaElev = maxz - minz + 1;
+//         double deltaElev = maxz - minz + 1;
 
          // Compute delta (range of) latitude and longitude
          double deltaLat = terrain->getLatitudeNE()  - terrain->getLatitudeSW();
@@ -372,16 +372,16 @@ void Display::updateData(const LCreal dt)
          double spacingLon = deltaLon / NUM_COLUMNS;
 
          // Generate the earth's curvature effect
-         LCreal* curvature =nullptr;
+         double* curvature =nullptr;
          if (testEarthCurv) {
-            curvature = new LCreal[NUM_ROWS];
-            LCreal radius = static_cast<LCreal>(base::Nav::ERAD60 * base::Distance::NM2M);
-            LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * base::Distance::NM2M);
+            curvature = new double[NUM_ROWS];
+            double radius = static_cast<double>(base::Nav::ERAD60 * base::Distance::NM2M);
+            double maxRng = static_cast<double>(deltaLat * 60.0f * base::Distance::NM2M);
             for (int irow = 0; irow < NUM_ROWS; irow++) {
-               LCreal curRng = maxRng * static_cast<LCreal>(irow)/static_cast<LCreal>(NUM_ROWS);
-               LCreal arc = curRng / radius;
-               LCreal cs = 1.0f;
-               LCreal c0 = lcCos(arc);
+               double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);
+               double arc = curRng / radius;
+               double cs = 1.0f;
+               double c0 = lcCos(arc);
                if (c0 != 0) cs = 1.0f/c0;
                curvature[irow] = radius * (cs  - 1.0f);
             }
@@ -446,11 +446,11 @@ void Display::updateData(const LCreal dt)
 
                // the Lat/long of the southern most point
                double latitude = cLat + (0 - NUM_ROWS/2) * spacingLat;
-               LCreal maxRng = static_cast<LCreal>(deltaLat * 60.0f * base::Distance::NM2M);
+               double maxRng = static_cast<double>(deltaLat * 60.0f * base::Distance::NM2M);
 
                // Direction
-               //LCreal direction = 30.0f * static_cast<LCreal>(icol - NUM_COLUMNS/2)/static_cast<LCreal>(NUM_COLUMNS/2);
-               LCreal direction = 0;
+               //double direction = 30.0f * static_cast<double>(icol - NUM_COLUMNS/2)/static_cast<double>(NUM_COLUMNS/2);
+               double direction = 0;
 
                // get a strip of elevations from south to north
                unsigned int num = terrain->getElevations(elevations, validFlgs, NUM_ROWS, latitude, longitude, direction, maxRng, interpolate);
@@ -470,7 +470,7 @@ void Display::updateData(const LCreal dt)
                // Compute AAC data
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
-                  LCreal angle = static_cast<LCreal>(-10.0f * base::Angle::D2RCC);
+                  double angle = static_cast<double>(-10.0f * base::Angle::D2RCC);
                   osg::Vec2 vec(lcCos(angle),lcSin(angle));
                   base::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }
@@ -481,7 +481,7 @@ void Display::updateData(const LCreal dt)
             for (int irow = 0; irow < NUM_ROWS; irow++) {
 
                osg::Vec3 color(0,0,0);
-               LCreal elev = 0;
+               double elev = 0;
                bool valid = false;
 
               if (testShadows || testAac || testEarthCurv) {

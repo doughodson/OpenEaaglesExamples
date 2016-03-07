@@ -237,7 +237,7 @@ EMPTY_DELETEDATA(TestElectronic)
 //------------------------------------------------------------------------------
 // updateTestValues() -- update our test data
 //------------------------------------------------------------------------------
-void TestElectronic::updateTestValues(const LCreal dt)
+void TestElectronic::updateTestValues(const double dt)
 {
     // heading and heading bug
     heading += headingRate * dt;
@@ -407,7 +407,7 @@ void TestElectronic::updateTestValues(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestElectronic::updateData(const LCreal dt)
+void TestElectronic::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 
@@ -416,7 +416,7 @@ void TestElectronic::updateData(const LCreal dt)
     // current heading / current heading bug
     {
         // max rate here is 120 degs / second
-        LCreal delta = alim(lcAepcDeg(heading - curHdg), 120 * dt);
+        double delta = alim(lcAepcDeg(heading - curHdg), 120 * dt);
         curHdg = lcAepcDeg(curHdg + delta);
 
         // now figure our heading bug
@@ -426,8 +426,8 @@ void TestElectronic::updateData(const LCreal dt)
         if (navMode == ARC_MODE) {
             // we either move it to the left or right, depending on how far
             // off our slew is.
-            LCreal diff = lcAepcDeg(curHdg - curBug);
-            LCreal moveX = -1.8f;
+            double diff = lcAepcDeg(curHdg - curBug);
+            double moveX = -1.8f;
             if (diff >= -36 && diff < 36) {
                 if (diff > 0) moveX = 1.53;
                 else moveX = -1.8;
@@ -449,7 +449,7 @@ void TestElectronic::updateData(const LCreal dt)
         // are we a distance type or DME type?
         bool distType = true;   // initial type is DME
         bool distVis = true;    // initial visibility is true
-        LCreal curDist = alim(dist, 999.9);    // current distance to DME
+        double curDist = alim(dist, 999.9);    // current distance to DME
 
         if (navSource == PRIMARY) {
             // valid DME makes our label visible
@@ -474,8 +474,8 @@ void TestElectronic::updateData(const LCreal dt)
         send("whichcourseptr", SELECT, navSource, whichCrsPtrSD);
 
         int curIntCourse = 0;
-        LCreal tempCDI = 0.0;
-        LCreal tempCourse = 0.0;
+        double tempCDI = 0.0;
+        double tempCourse = 0.0;
         // primary nav course
         if (navSource == PRIMARY) {
             curIntCourse = nint(course);
@@ -494,11 +494,11 @@ void TestElectronic::updateData(const LCreal dt)
         send("course", UPDATE_VALUE, curIntCourse, courseSD);
 
         // here is the course deviation
-        LCreal delta = alim (lcAepcDeg(tempCDI - curCdi), 4 * dt);
+        double delta = alim (lcAepcDeg(tempCDI - curCdi), 4 * dt);
         curCdi = alim (curCdi + delta, 2.0);
 
         // now find our inches to translate the cdi
-        LCreal cdiInch = curCdi * 0.43f;
+        double cdiInch = curCdi * 0.43f;
 
         // now figure our course slew
         delta = alim(lcAepcDeg(tempCourse - curCourse), 120 * dt);
@@ -564,7 +564,7 @@ void TestElectronic::updateData(const LCreal dt)
 
         // first readout, which is our time to go
         if (readoutMode == ND_TTG) {
-            LCreal curTTG = timeToGo / 60;
+            double curTTG = timeToGo / 60;
             send("ttg", UPDATE_VALUE, curTTG, ttgSD);
         }
         // ground speed, drift angle, drift angle side.
@@ -629,7 +629,7 @@ void TestElectronic::updateData(const LCreal dt)
 
     // glide slope
     {
-        LCreal gsDev = static_cast<LCreal>(alim (gsDots, 2.1f) * 0.35f);
+        double gsDev = static_cast<double>(alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
 
@@ -685,11 +685,11 @@ void TestElectronic::updateData(const LCreal dt)
 
     // TO / FROM arrow - HSI mode only
     {
-        LCreal toFrom = 0;
+        double toFrom = 0;
         if (navSource == PRIMARY) toFrom = 1 - lcAbs(lcAepcDeg(bearing - course)) / 90;
         else toFrom = 1 - lcAbs(lcAepcDeg(secBearing - secCourse)) / 90;
 
-        LCreal delta = alim(toFrom - curToFrom, dt);
+        double delta = alim(toFrom - curToFrom, dt);
         curToFrom = alim(curToFrom + delta, 0.65);
 
         // if we are positive, we are to, negative, from

@@ -23,26 +23,26 @@ public:
     CrsPntr();
 
     // set functions
-    virtual bool setCdiDots(const LCreal newCDD);   // Sets CDI deviation (dots)
-    virtual bool setToFrom(const LCreal newTF);     // Sets TO/FROM value [ to(1); from(0) ]
+    virtual bool setCdiDots(const double newCDD);   // Sets CDI deviation (dots)
+    virtual bool setToFrom(const double newTF);     // Sets TO/FROM value [ to(1); from(0) ]
     virtual bool setNumCdiDots(const int newNCD);   // Sets number of CDI dots
-    virtual bool setNumInches(const LCreal newNI);  // Sets number of inches for CDI
+    virtual bool setNumInches(const double newNI);  // Sets number of inches for CDI
     virtual bool setShowCdi(const bool newSCDI);    // Show CDI flag
     virtual bool setShowCrsPntr(const bool newSCP); // Show CRS
     virtual bool setShowToFrom(const bool newTF);   // Show To/from flag
 
     // get functions
-    LCreal getCdiDots()     { return cdiDots; }
-    LCreal getToFrom()      { return toFrom; }
+    double getCdiDots()     { return cdiDots; }
+    double getToFrom()      { return toFrom; }
     int getNumCdiDots()     { return numDots; }
-    LCreal getNumInches()   { return inches; }
+    double getNumInches()   { return inches; }
     bool isCdiOn()          { return showCdi; }
     bool isCrsPtrOn()       { return showCrsPtr; }
     bool isToFromOn()       { return showToFrom; }
 
     void drawFunc() override;
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     bool event(const int event, base::Object* const obj = nullptr) override;
 
 protected:
@@ -58,11 +58,11 @@ private:
     bool onUpdateCdiDotsCrsPntr(const base::Number* const x);
     bool onUpdateToFromCrsPntr(const base::Number* const x);
 
-    LCreal toFrom;          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
-    LCreal cdiDots;         // course deviation dots
+    double toFrom;          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
+    double cdiDots;         // course deviation dots
     int    numDots;         // how many dots are we using?
-    LCreal inchesPerDot;    // how far to translate per dot
-    LCreal inches;
+    double inchesPerDot;    // how far to translate per dot
+    double inches;
     bool showCdi;           // display the cdi?
     bool showCrsPtr;        // show the course pointer?
     bool showToFrom;        // show our to from arrow?

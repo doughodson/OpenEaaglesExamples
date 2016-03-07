@@ -18,7 +18,7 @@ class TestSD : public graphics::Page
 public:
     TestSD();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     bool event(const int event, base::Object* const obj = nullptr) override;
 
     static const int MAX_TRACKS = 8;
@@ -28,24 +28,24 @@ public:
 private:
     bool onToggleRange();
 
-    LCreal heading;             // our heading
-    LCreal headingRate;         // rate which are going (up or down)
-    LCreal bearing;             // goes to our bearing pointer
-    LCreal bearingRate;
-    LCreal range;               // our range
-    LCreal nav1Brg;             // navaid 1 bearing pointer
-    LCreal nav1BrgRate;
-    LCreal nav2Brg;             // waypoint bearing pointer
-    LCreal nav2BrgRate;
-    LCreal orbRange;            // our orbit range
-    LCreal hdgBug;              // selected heading bug
-    LCreal hdgBugRate;
+    double heading;             // our heading
+    double headingRate;         // rate which are going (up or down)
+    double bearing;             // goes to our bearing pointer
+    double bearingRate;
+    double range;               // our range
+    double nav1Brg;             // navaid 1 bearing pointer
+    double nav1BrgRate;
+    double nav2Brg;             // waypoint bearing pointer
+    double nav2BrgRate;
+    double orbRange;            // our orbit range
+    double hdgBug;              // selected heading bug
+    double hdgBugRate;
 
     // Structure for our symbol loader
     struct mySymbols {
         double     x;       // X position or latitude
         double     y;       // Y position or longitude
-        LCreal     hdg;     // heading (degs)
+        double     hdg;     // heading (degs)
         int       type;     // numeric type (for looking up in slottable)
         char     id[8];     // name of the airport (up to 8 characters)
     };

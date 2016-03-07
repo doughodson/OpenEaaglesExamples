@@ -32,8 +32,8 @@ class TdAzPtr : public graphics::Graphic
 public:
    TdAzPtr();
 
-   LCreal getAzimuth() const;       // degs
-   bool setAzimuth(const LCreal);   // degs
+   double getAzimuth() const;       // degs
+   bool setAzimuth(const double);   // degs
 
    void draw() override;
 
@@ -42,7 +42,7 @@ public:
 private:
    bool onUpdateValue(const base::Number* const msg);
 
-   LCreal azimuth;  // (degs)
+   double azimuth;  // (degs)
 };
 
 } // End xPanel namespace

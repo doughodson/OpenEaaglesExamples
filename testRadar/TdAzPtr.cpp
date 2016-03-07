@@ -37,12 +37,12 @@ void TdAzPtr::copyData(const TdAzPtr& org, const bool)
 //------------------------------------------------------------------------------
 // Get & Set functions
 //------------------------------------------------------------------------------
-LCreal TdAzPtr::getAzimuth() const
+double TdAzPtr::getAzimuth() const
 {
    return azimuth;
 }
 
-bool TdAzPtr::setAzimuth(const LCreal v)
+bool TdAzPtr::setAzimuth(const double v)
 {
    azimuth = lcAepcDeg(v);
    return true;

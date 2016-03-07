@@ -132,7 +132,7 @@ void TestPfd::copyData(const TestPfd& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void TestPfd::updateData(const LCreal dt)
+void TestPfd::updateData(const double dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
@@ -192,7 +192,7 @@ void TestPfd::updateData(const LCreal dt)
     }
 
     // test data
-    LCreal mach = airSpd / 600;
+    double mach = airSpd / 600;
 
     // commanded speed
     cmdSpd = 150;

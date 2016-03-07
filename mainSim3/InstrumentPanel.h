@@ -39,7 +39,7 @@ public:
    simulation::Station* getStation();
 
    bool event(const int event, base::Object* const obj = nullptr) override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 protected:
    // Key event handlers
@@ -51,51 +51,51 @@ private:
    base::safe_ptr<simulation::Station> myStation;
 
    // ALT Stuff
-   LCreal altitude;            // our current altitude
+   double altitude;            // our current altitude
    SendData altitudeSD;
 
    // VVI Stuff
    osg::Vec3 vvi;              // velocity vector
    SendData vviSD;
-   LCreal pastVvi;             // our past vvi value (to create a linear filter)
+   double pastVvi;             // our past vvi value (to create a linear filter)
 
    // AOA Stuff
-   LCreal aoa;                 // angle of attack
+   double aoa;                 // angle of attack
    SendData aoaSD;
    SendData aoaDigSD;          // angle of attack (digital)
 
    // HSI Stuff - sends this to our Sim3Hsi class
-   LCreal heading;             // our heading (in degrees)
+   double heading;             // our heading (in degrees)
    SendData headingSD;
-   LCreal bpAngle;             // our bearing pointer angle (degrees)
+   double bpAngle;             // our bearing pointer angle (degrees)
    SendData bpAngleSD;
-   LCreal dme;                 // dme (miles)
+   double dme;                 // dme (miles)
    SendData dmeSD;
 
 
    // CAS Stuff
-   LCreal airSpeed;            // our air speed (in knots)
+   double airSpeed;            // our air speed (in knots)
    SendData airSpeedSD;
 
    // G Stuff
-   LCreal gForce;              // g's we are pulling
+   double gForce;              // g's we are pulling
    SendData gForceSD;
    SendData gForce2SD;         // this is for the analog meter
 
    // ADI
-   LCreal pitch;               // pitch (degrees)
+   double pitch;               // pitch (degrees)
    SendData pitchSD;
-   LCreal roll;                // roll (degrees)
+   double roll;                // roll (degrees)
    SendData rollSD;
-   LCreal slip;                // slip (degrees)
+   double slip;                // slip (degrees)
    SendData slipSD;
 
    // Mach
-   LCreal mach;                // mach number
+   double mach;                // mach number
    SendData machSD;
 
    // G
-   LCreal gload;               // G
+   double gload;               // G
    SendData gloadSD;
 };
 

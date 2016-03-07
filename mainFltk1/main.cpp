@@ -25,8 +25,8 @@ static void update(void* pData)
    if (pData != nullptr) {
       oe::example::FltkStation* stn = reinterpret_cast<oe::example::FltkStation*>(pData);
       if (stn != nullptr) {
-         double dt = 1 / 20.0;
-         stn->updateData(static_cast<oe::LCreal>(dt));
+         const double dt = 1 / 20.0;
+         stn->updateData(dt);
          Fl::repeat_timeout(dt, update, pData);
       }
    }

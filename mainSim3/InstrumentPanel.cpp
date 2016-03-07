@@ -91,7 +91,7 @@ simulation::Station* InstrumentPanel::getStation()
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void InstrumentPanel::updateData(const LCreal dt)
+void InstrumentPanel::updateData(const double dt)
 {
    // update our base class first
    BaseClass::updateData(dt);
@@ -125,7 +125,7 @@ void InstrumentPanel::updateData(const LCreal dt)
          player->ref();
 
 #if 0
-         course = static_cast<LCreal>(player->getCourse());
+         course = static_cast<double>(player->getCourse());
          sBrakePos = player->getSpeedBrakePosition();
 #endif
          gForce = player->getGload();

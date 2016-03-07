@@ -19,17 +19,17 @@ public:
     TestRotator();
 
     void drawFunc() override;
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
-    LCreal t1Pos;
-    LCreal t1Rate;
-    LCreal t2Pos;
-    LCreal t2Rate;
-    LCreal t3Pos;
-    LCreal t3Rate;
-    LCreal rotate;
-    LCreal rotateRate;
+    double t1Pos;
+    double t1Rate;
+    double t2Pos;
+    double t2Rate;
+    double t3Pos;
+    double t3Rate;
+    double rotate;
+    double rotateRate;
     GLfloat light_position[4];
     int count;
 };

@@ -23,95 +23,95 @@ public:
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
 
     // set functions
-    virtual bool setPitchDeg(const LCreal newP);        // Sets pitch angle (degs)
-    virtual bool setPitchRad(const LCreal newP);        // Sets pitch angle (rads)
-    virtual bool setRollDeg(const LCreal newR);         // Sets roll angle (degs)
-    virtual bool setRollRad(const LCreal newR);         // Sets roll angle (rads)
-    virtual bool setTrueHeading(const LCreal newTH);    // Sets true heading angle (degs)
-    virtual bool setCmdCourse(const LCreal newCC);      // Sets Commanded course (degs)
-    virtual bool setCmdHdg(const LCreal newCH);         // Sets commanded heading (degs)
-    virtual bool setCdiDots(const LCreal newCD);        // Sets CDI deflection (dots)
-    virtual bool setToFrom(const LCreal newTF);         // Sets to/from [ +1(to) .. 0(from) ]
-    virtual bool setAirSpeedKts(const LCreal newAS);    // Sets airspeed (kts)
-    virtual bool setCmdAirSpdKts(const LCreal newCAS);  // Sets commanded airspeed (kts)
-    virtual bool setAltitudeFt(const LCreal newA);      // Sets pressure altitude (ft)
-    virtual bool setCmdAltFt(const LCreal newCA);       // Sets commanded altitude (ft)
-    virtual bool setGlideslope(const LCreal newGS);     // Sets glide slope deviation (dots)
-    virtual bool setLatDev(const LCreal newLD);         // Sets localizer deviation (dots)
+    virtual bool setPitchDeg(const double newP);        // Sets pitch angle (degs)
+    virtual bool setPitchRad(const double newP);        // Sets pitch angle (rads)
+    virtual bool setRollDeg(const double newR);         // Sets roll angle (degs)
+    virtual bool setRollRad(const double newR);         // Sets roll angle (rads)
+    virtual bool setTrueHeading(const double newTH);    // Sets true heading angle (degs)
+    virtual bool setCmdCourse(const double newCC);      // Sets Commanded course (degs)
+    virtual bool setCmdHdg(const double newCH);         // Sets commanded heading (degs)
+    virtual bool setCdiDots(const double newCD);        // Sets CDI deflection (dots)
+    virtual bool setToFrom(const double newTF);         // Sets to/from [ +1(to) .. 0(from) ]
+    virtual bool setAirSpeedKts(const double newAS);    // Sets airspeed (kts)
+    virtual bool setCmdAirSpdKts(const double newCAS);  // Sets commanded airspeed (kts)
+    virtual bool setAltitudeFt(const double newA);      // Sets pressure altitude (ft)
+    virtual bool setCmdAltFt(const double newCA);       // Sets commanded altitude (ft)
+    virtual bool setGlideslope(const double newGS);     // Sets glide slope deviation (dots)
+    virtual bool setLatDev(const double newLD);         // Sets localizer deviation (dots)
     virtual bool setMstrCtn(const bool newMC);          // Sets "master caution" flag
-    virtual bool setVVI(const LCreal newVVI);           // Sets vertical velocity (ft/min)
-    virtual bool setAOA(const LCreal newAOA);           // Sets angle of attack (degs)
-    virtual bool setSideSlip(const LCreal newSS);       // Sets side slip (degs)
-    virtual bool setGroundSpdKts(const LCreal newGS);   // Sets ground speed (kts)
-    virtual bool setFltDirBankDeg(const LCreal newFDB); // Sets flight directory commanded bank (deg)
-    virtual bool setFltDirPitchDeg(const LCreal newFDP);// Sets flight director commanded pitch (deg)
-    virtual bool setFltDirBankRad(const LCreal newFDB); // Sets flight directory commanded bank (rad)
-    virtual bool setFltDirPitchRad(const LCreal newFDP);// Sets flight director commanded pitch (rad)
-    virtual bool setBaroPress(const LCreal newBOP);     // Sets baro pressure (inches)
-    virtual bool setRdrAltFt(const LCreal newRA);       // Sets radar altitude (ft)
-    virtual bool setNav1Brg(const LCreal newB);         // Sets our first nav aid bearing (degs)
-    virtual bool setNav1DME(const LCreal newDME);       // Sets our first nav aid DME (NM)
+    virtual bool setVVI(const double newVVI);           // Sets vertical velocity (ft/min)
+    virtual bool setAOA(const double newAOA);           // Sets angle of attack (degs)
+    virtual bool setSideSlip(const double newSS);       // Sets side slip (degs)
+    virtual bool setGroundSpdKts(const double newGS);   // Sets ground speed (kts)
+    virtual bool setFltDirBankDeg(const double newFDB); // Sets flight directory commanded bank (deg)
+    virtual bool setFltDirPitchDeg(const double newFDP);// Sets flight director commanded pitch (deg)
+    virtual bool setFltDirBankRad(const double newFDB); // Sets flight directory commanded bank (rad)
+    virtual bool setFltDirPitchRad(const double newFDP);// Sets flight director commanded pitch (rad)
+    virtual bool setBaroPress(const double newBOP);     // Sets baro pressure (inches)
+    virtual bool setRdrAltFt(const double newRA);       // Sets radar altitude (ft)
+    virtual bool setNav1Brg(const double newB);         // Sets our first nav aid bearing (degs)
+    virtual bool setNav1DME(const double newDME);       // Sets our first nav aid DME (NM)
     virtual bool setNav1Id(const char* const newId);    // Sets our first nav aid identifier
-    virtual bool setNav2Brg(const LCreal newB);         // Sets our second nav aid bearing (degs)
-    virtual bool setNav2DME(const LCreal newDME);       // Sets our second nav aid DME (NM)
+    virtual bool setNav2Brg(const double newB);         // Sets our second nav aid bearing (degs)
+    virtual bool setNav2DME(const double newDME);       // Sets our second nav aid DME (NM)
     virtual bool setNav2Id(const char* const newId);    // Sets our second nav aid identifier
     virtual bool setRefLat(const double newRL);         // reference latitude
     virtual bool setRefLon(const double newRL);         // reference longitude
-    virtual bool setRange(const LCreal newR);           // range
-    virtual bool setFPMX(const LCreal newX);            // flight path marker x
-    virtual bool setFPMY(const LCreal newY);            // flight path marker y
-    virtual bool setGLoad(const LCreal newLoad);        // our g load
-    virtual bool setMach(const LCreal x);               // machine speed
+    virtual bool setRange(const double newR);           // range
+    virtual bool setFPMX(const double newX);            // flight path marker x
+    virtual bool setFPMY(const double newY);            // flight path marker y
+    virtual bool setGLoad(const double newLoad);        // our g load
+    virtual bool setMach(const double x);               // machine speed
 
     // get functions
-    LCreal getPitchDeg()            { return pitch; }
-    LCreal getPitchRad()            { return static_cast<LCreal>(pitch * base::Angle::D2RCC); }
-    LCreal getRollDeg()             { return roll; }
-    LCreal getRollRad()             { return static_cast<LCreal>(roll * base::Angle::D2RCC); }
-    LCreal getTrueHdg()             { return trueHdg; }
-    LCreal getCmdCourse()           { return cmdCrs; }
-    LCreal getCmdHdg()              { return cmdHdg; }
-    LCreal getCdiDots()             { return cdiDots; }
-    LCreal getToFrom()              { return toFrom; }
-    LCreal getAirSpdKts()           { return airSpd; }
-    LCreal getCmdAirSpdKts()        { return cmdSpd; }
-    LCreal getAltFeet()             { return alt; }
-    LCreal getCmdAltFeet()          { return cmdAlt; }
-    LCreal getGlideSlope()          { return gSlope; }
-    LCreal getLatDev()              { return latDev; }
+    double getPitchDeg()            { return pitch; }
+    double getPitchRad()            { return static_cast<double>(pitch * base::Angle::D2RCC); }
+    double getRollDeg()             { return roll; }
+    double getRollRad()             { return static_cast<double>(roll * base::Angle::D2RCC); }
+    double getTrueHdg()             { return trueHdg; }
+    double getCmdCourse()           { return cmdCrs; }
+    double getCmdHdg()              { return cmdHdg; }
+    double getCdiDots()             { return cdiDots; }
+    double getToFrom()              { return toFrom; }
+    double getAirSpdKts()           { return airSpd; }
+    double getCmdAirSpdKts()        { return cmdSpd; }
+    double getAltFeet()             { return alt; }
+    double getCmdAltFeet()          { return cmdAlt; }
+    double getGlideSlope()          { return gSlope; }
+    double getLatDev()              { return latDev; }
     bool getMasterCtn()             { return mstrCtn; }
-    LCreal getVVI()                 { return vvi; }
-    LCreal getAOA()                 { return aoa; }
-    LCreal getSideSlip()            { return slip; }
-    LCreal getGndSpdKts()           { return gSpd; }
-    LCreal getFltDirBankDeg()       { return fDirBank; }
-    LCreal getFltDirBankRad()       { return static_cast<LCreal>(fDirBank * base::Angle::R2DCC); }
-    LCreal getFltDirPitchDeg()      { return fDirPitch; }
-    LCreal getFltDirPitchRad()      { return static_cast<LCreal>(fDirPitch * base::Angle::R2DCC); }
-    LCreal getBaroPressure()        { return baro; }
-    LCreal getRdrAltFt()            { return rAlt; }
-    LCreal getNav1Brg()             { return nav1Brg; }
-    LCreal getNav1Dme()             { return nav1Dme; }
+    double getVVI()                 { return vvi; }
+    double getAOA()                 { return aoa; }
+    double getSideSlip()            { return slip; }
+    double getGndSpdKts()           { return gSpd; }
+    double getFltDirBankDeg()       { return fDirBank; }
+    double getFltDirBankRad()       { return static_cast<double>(fDirBank * base::Angle::R2DCC); }
+    double getFltDirPitchDeg()      { return fDirPitch; }
+    double getFltDirPitchRad()      { return static_cast<double>(fDirPitch * base::Angle::R2DCC); }
+    double getBaroPressure()        { return baro; }
+    double getRdrAltFt()            { return rAlt; }
+    double getNav1Brg()             { return nav1Brg; }
+    double getNav1Dme()             { return nav1Dme; }
     bool getNav1Id(const int index, char* newString);
-    LCreal getNav2Brg()             { return nav2Brg; }
-    LCreal getNav2Dme()             { return nav2Dme; }
+    double getNav2Brg()             { return nav2Brg; }
+    double getNav2Dme()             { return nav2Dme; }
     bool getNav2Id(const int index, char* newString);
     double getRefLat()              { return refLat; }
     double getRefLon()              { return refLon; }
-    LCreal getRange()               { return range; }
-    LCreal getFPMX()                { return fpmX; }
-    LCreal getFPMY()                { return fpmY; }
-    LCreal getGLoad()               { return gLoad; }
-    LCreal getMach()                { return mach; }
+    double getRange()               { return range; }
+    double getFPMX()                { return fpmX; }
+    double getFPMY()                { return fpmY; }
+    double getGLoad()               { return gLoad; }
+    double getMach()                { return mach; }
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     // pitch and roll
-    LCreal pitch;           // Pitch angle (degs)
+    double pitch;           // Pitch angle (degs)
     SendData pitchSD;
     SendData hdgPitchSD;    // heading pitch for the heading tape
-    LCreal roll;            // Roll angle (degs)
+    double roll;            // Roll angle (degs)
     SendData rollSD;
 
     // bank angle
@@ -119,23 +119,23 @@ private:
     SendData bascaleSD;
 
     // heading and nav stuff
-    LCreal trueHdg;         // True heading (degs)
+    double trueHdg;         // True heading (degs)
     SendData tHdgSD;
 
-    LCreal cmdCrs;          // commanded course (degs)
+    double cmdCrs;          // commanded course (degs)
     SendData cmdCrsROSD;
 
-    LCreal cmdHdg;          // commanded heading (heading bug)
+    double cmdHdg;          // commanded heading (heading bug)
     SendData cmdHdgROSD;
 
     // cdi
-    LCreal cdiDots;         // dots
+    double cdiDots;         // dots
 
     // to from
-    LCreal toFrom;          // to(1); from(0)
+    double toFrom;          // to(1); from(0)
 
     // airspeed
-    LCreal airSpd;          // Kts
+    double airSpd;          // Kts
     SendData airSpdSD;
     SendData airSpdTpSD;    // for the airspeed tape
     SendData onesSD;        // for the readout ones tape
@@ -144,7 +144,7 @@ private:
     SendData airSpdHundSD;  // our hundreds value
 
     // altitude
-    LCreal alt;
+    double alt;
     SendData alt1SD;
     SendData alt2SD;
     SendData alt3SD;
@@ -156,24 +156,24 @@ private:
     SendData altThouSD;     // for the thousands
 
     // side slip
-    LCreal slip;             // Side slip angle (degs)
+    double slip;             // Side slip angle (degs)
     SendData slipSD;
 
     // glideslope (in dots)
-    LCreal gSlope;
+    double gSlope;
     SendData gSlopeSD;
 
     // Lateral dev
-    LCreal latDev;
+    double latDev;
     SendData latDevSD;
 
     // commanded speed
-    LCreal cmdSpd;          // kts
+    double cmdSpd;          // kts
     SendData aBugSD;
     SendData diffSD;
 
     // commanded alt
-    LCreal cmdAlt;
+    double cmdAlt;
     SendData altBugSD;
     SendData altDiffSD;
 
@@ -182,10 +182,10 @@ private:
     SendData mstrCtnSD;
 
     // vvi
-    LCreal vvi;         // ft/min
+    double vvi;         // ft/min
     SendData vviSD;
-    LCreal maxVvi;      // max vvi value
-    LCreal minVvi;      // min vvi value
+    double maxVvi;      // max vvi value
+    double minVvi;      // min vvi value
     SendData maxVviSD;  // for the instrument color
     SendData minVviSD;
     SendData maxVviROSD;// for the readout itself
@@ -193,36 +193,36 @@ private:
     SendData vviROSD;
 
     // aoa
-    LCreal aoa;         // degs
+    double aoa;         // degs
     SendData aoaSD;
 
     // ground speed
-    LCreal gSpd;        // Kts
+    double gSpd;        // Kts
     SendData gSpdSD;
 
     // flight director stuff (in inches)
-    LCreal fDirBank;
+    double fDirBank;
     SendData fDirBankSD;
-    LCreal fDirPitch;
+    double fDirPitch;
     SendData fDirPitchSD;
 
     // barometric pressure
-    LCreal baro;
+    double baro;
     SendData baroSD;
 
     // radar altitude
-    LCreal rAlt;
-    LCreal rAltMin;
+    double rAlt;
+    double rAltMin;
 
     // navaid 1 and 2 data
-    LCreal nav1Brg;       // degs
-    LCreal nav1Dme;       // Nm
+    double nav1Brg;       // degs
+    double nav1Dme;       // Nm
     char   nav1Id[NCHAR_NAV1_ID+1];   // NAV 1 IDs
     SendData nav1DmeSD;
     SendData nav1IdSD;
 
-    LCreal nav2Brg;       // degs
-    LCreal nav2Dme;       // Nm
+    double nav2Brg;       // degs
+    double nav2Dme;       // Nm
     char   nav2Id[NCHAR_NAV2_ID+1];   // NAV 2 IDs
     SendData nav2DmeSD;
     SendData nav2IdSD;
@@ -242,17 +242,17 @@ private:
 
     double refLat;
     double refLon;
-    LCreal range;
+    double range;
 
     // Flight path marker x and y position
-    LCreal fpmX;
-    LCreal fpmY;
+    double fpmX;
+    double fpmY;
     SendData fpmXSD;
     SendData fpmYSD;
     // Gs
-    LCreal gLoad;
+    double gLoad;
     // Mach
-    LCreal mach;
+    double mach;
     // ghost horizon
     SendData pitchGhostSD;
 };

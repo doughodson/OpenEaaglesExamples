@@ -19,13 +19,13 @@ class TestOilPressure : public graphics::Page
 public:
     TestOilPressure();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal oilPressure;
+    double oilPressure;
     SendData oilPressureSD;
     SendData oilPressureROSD;       // sends our readout data (to a numeric readout)
-    LCreal  oilRate;
+    double  oilRate;
 };
 
 } // end of demo namespace

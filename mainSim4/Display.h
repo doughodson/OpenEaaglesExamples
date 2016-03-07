@@ -23,7 +23,7 @@ public:
     void mouseEvent(const int button, const int state, const int x, const int y) override;
     void passiveMotionEvent(const int x, const int y) override;
     void buttonEvent(const int b) override;
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     int startX;         // startX of our last mouse position

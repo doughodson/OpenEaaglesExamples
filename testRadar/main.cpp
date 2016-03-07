@@ -97,7 +97,7 @@ static void updateDataCB(int)
    static double time0 = time;
 
    // compute delta time
-   LCreal dt = static_cast<LCreal>(time - time0);
+   double dt = static_cast<double>(time - time0);
    time0 = time;
 
    testStation->updateData(dt);

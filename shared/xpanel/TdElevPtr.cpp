@@ -38,12 +38,12 @@ void TdElevPtr::copyData(const TdElevPtr& org, const bool)
 //------------------------------------------------------------------------------
 // Get & Set functions
 //------------------------------------------------------------------------------
-LCreal TdElevPtr::getElevation() const
+double TdElevPtr::getElevation() const
 {
    return elev;
 }
 
-bool TdElevPtr::setElevation(const LCreal v)
+bool TdElevPtr::setElevation(const double v)
 {
    elev = lcAepcDeg(v);
    return true;

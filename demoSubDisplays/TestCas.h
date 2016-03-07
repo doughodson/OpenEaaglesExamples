@@ -19,12 +19,12 @@ class TestCas : public graphics::Page
 public:
     TestCas();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal tas;                     // our cas dial rotation position (1 - 900)
+    double tas;                     // our cas dial rotation position (1 - 900)
     SendData tasSD;
-    LCreal  tasRate;                // rate which are going (up or down)
+    double  tasRate;                // rate which are going (up or down)
     SendData tasPointerRotationSD;  // cas pointer rotation (1 - 900)
     SendData tasROSD;
 };

@@ -37,13 +37,13 @@ END_STATE_TABLE()
 // Pre/Post functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine03::preStateProc(const LCreal)
+void TestStateMachine03::preStateProc(const double)
 {
    // Start line
    std::cout << "Test #3 State(" << getState() << "," << getSubstate() << "): ";
 }
 
-void TestStateMachine03::postStateProc(const LCreal)
+void TestStateMachine03::postStateProc(const double)
 {
    // End the line
    std::cout << std::endl;
@@ -52,13 +52,13 @@ void TestStateMachine03::postStateProc(const LCreal)
 //------------------------------------------------------------------------------
 // State functions
 //------------------------------------------------------------------------------
-void TestStateMachine03::stateFunc00(const LCreal)
+void TestStateMachine03::stateFunc00(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine03::stateFunc01(const LCreal)
+void TestStateMachine03::stateFunc01(const double)
 {
 
    switch (getSubstate()) {
@@ -95,18 +95,18 @@ void TestStateMachine03::stateFunc01(const LCreal)
    }
 }
 
-void TestStateMachine03::stateFunc02(const LCreal)
+void TestStateMachine03::stateFunc02(const double)
 {
    std::cout << "goTo(4)";
    goTo(4);
 }
 
-void TestStateMachine03::stateFunc03(const LCreal)
+void TestStateMachine03::stateFunc03(const double)
 {
    std::cout << "Should NOT be here!";
 }
 
-void TestStateMachine03::stateFunc04(const LCreal)
+void TestStateMachine03::stateFunc04(const double)
 {
    switch (getSubstate()) {
 
@@ -137,25 +137,25 @@ void TestStateMachine03::stateFunc04(const LCreal)
    }
 }
 
-void TestStateMachine03::stateFunc05(const LCreal)
+void TestStateMachine03::stateFunc05(const double)
 {
    std::cout << "goTo(99)";
    goTo(99);
 }
 
-void TestStateMachine03::stateFunc11(const LCreal)
+void TestStateMachine03::stateFunc11(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine03::stateFunc12(const LCreal)
+void TestStateMachine03::stateFunc12(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine03::stateFunc13(const LCreal)
+void TestStateMachine03::stateFunc13(const double)
 {
    switch (getSubstate()) {
 
@@ -193,19 +193,19 @@ void TestStateMachine03::stateFunc13(const LCreal)
    }
 }
 
-void TestStateMachine03::stateFunc14(const LCreal)
+void TestStateMachine03::stateFunc14(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine03::stateFunc15(const LCreal)
+void TestStateMachine03::stateFunc15(const double)
 {
    std::cout << "rtn()";
    rtn();
 }
 
-void TestStateMachine03::stateFunc21(const LCreal)
+void TestStateMachine03::stateFunc21(const double)
 {
    const base::Number* arg = dynamic_cast<const base::Number*>( getArgument() );
    if (arg != nullptr) {
@@ -216,13 +216,13 @@ void TestStateMachine03::stateFunc21(const LCreal)
    next();
 }
 
-void TestStateMachine03::stateFunc22(const LCreal)
+void TestStateMachine03::stateFunc22(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine03::stateFunc23(const LCreal)
+void TestStateMachine03::stateFunc23(const double)
 {
    std::cout << "rtn(arg=true)";
    base::Boolean* arg = new base::Boolean(true);
@@ -230,7 +230,7 @@ void TestStateMachine03::stateFunc23(const LCreal)
    arg->unref();
 }
 
-void TestStateMachine03::stateFunc99(const LCreal)
+void TestStateMachine03::stateFunc99(const double)
 {
    if (getMode() == NEW_STATE) {
       std::cout << "Finished;";

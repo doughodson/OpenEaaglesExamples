@@ -20,15 +20,15 @@ class TestGauge1 : public graphics::Page
 public:
     TestGauge1();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal gaugePosition;       // our gauge position (inches)
+    double gaugePosition;       // our gauge position (inches)
     SendData gaugePositionSD;
     SendData gaugePositionROSD;
-    LCreal  gaugeRate;          // rate which are going (up or down)
-    LCreal tapePos;             // tape position
-    LCreal tapeRate;
+    double  gaugeRate;          // rate which are going (up or down)
+    double tapePos;             // tape position
+    double tapeRate;
     SendData tapePosSD;
     SendData tapePosROSD;
 };

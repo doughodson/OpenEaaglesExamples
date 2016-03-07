@@ -227,7 +227,7 @@ void TestPfd::deleteData()
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void TestPfd::updateData(const LCreal dt)
+void TestPfd::updateData(const double dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
@@ -284,7 +284,7 @@ void TestPfd::updateData(const LCreal dt)
         cdiRate = -cdiRate;
     }
 
-    LCreal temp = (cmdCrs - trueHdg);
+    double temp = (cmdCrs - trueHdg);
     if (temp > 50) toFrom = 0;
     else  if (temp < -50) toFrom = 1;
     else toFrom = -1;

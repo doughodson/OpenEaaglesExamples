@@ -119,7 +119,7 @@ void Display::buttonEvent(const int b)
 // ----------------------------------------------------------------------------
 // updateData() - update background data
 // ----------------------------------------------------------------------------
-void Display::updateData(const LCreal dt)
+void Display::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

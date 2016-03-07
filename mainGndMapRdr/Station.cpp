@@ -58,7 +58,7 @@ EMPTY_DELETEDATA(TestStation)
 //------------------------------------------------------------------------------
 // updateTC() -- Update time critical stuff here
 //------------------------------------------------------------------------------
-void TestStation::updateTC(const LCreal dt)
+void TestStation::updateTC(const double dt)
 {
    BaseClass::updateTC(dt);
 

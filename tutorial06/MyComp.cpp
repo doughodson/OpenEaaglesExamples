@@ -106,7 +106,7 @@ void MyComp::reset()
    BaseClass::reset();
 }
 
-void MyComp::updateTC(const LCreal dt)
+void MyComp::updateTC(const double dt)
 {
    unsigned int millis = static_cast<unsigned int>(dt * 1000);
    std::cout << "Time has moved forward by " << millis << " milliseconds\n";
@@ -115,7 +115,7 @@ void MyComp::updateTC(const LCreal dt)
    BaseClass::updateTC(dt);
 }
 
-void MyComp::updateData(const LCreal dt)
+void MyComp::updateData(const double dt)
 {
    // print out string info if a string has been defined
    if (str != nullptr)

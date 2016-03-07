@@ -254,7 +254,7 @@ bool TestDisplay::onStepOwnshipKey()
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void TestDisplay::updateData(const LCreal dt)
+void TestDisplay::updateData(const double dt)
 {
     // Find and update the test RADAR display
     {
@@ -369,10 +369,10 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
 //------------------------------------------------------------------------------
 // maintainAirTrackSymbols() -- maintain the air track symbology
 //------------------------------------------------------------------------------
-void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng)
+void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng)
 {
     int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
-    LCreal rng2 = (rng * rng);          // Range squared (KM * KM)
+    double rng2 = (rng * rng);          // Range squared (KM * KM)
     
     simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
     int nNewTracks = 0;                         // Number of new tracks
@@ -400,8 +400,8 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
             base::Pair* pair = static_cast<base::Pair*>(item->getValue());
             simulation::Player* p = static_cast<simulation::Player*>(pair->object());
             osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
-            LCreal x = rpos[0] * base::Distance::M2NM;
-            LCreal y = rpos[1] * base::Distance::M2NM;
+            double x = rpos[0] * base::Distance::M2NM;
+            double y = rpos[1] * base::Distance::M2NM;
             
             if (
                p != getOwnship() && 

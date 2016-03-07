@@ -63,7 +63,7 @@ void Sender::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void Sender::updateData(const LCreal dt)
+void Sender::updateData(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);

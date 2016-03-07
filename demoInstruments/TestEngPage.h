@@ -19,24 +19,24 @@ class TestEngPage : public oe::graphics::Page
 public:
     TestEngPage();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     // engine 1 n1
-    LCreal n1[instruments::EngPage::NUM_ENG];
-    LCreal n1Rate[instruments::EngPage::NUM_ENG];
+    double n1[instruments::EngPage::NUM_ENG];
+    double n1Rate[instruments::EngPage::NUM_ENG];
 
     // engine 1 n2
-    LCreal n2[instruments::EngPage::NUM_ENG];
-    LCreal n2Rate[instruments::EngPage::NUM_ENG];
+    double n2[instruments::EngPage::NUM_ENG];
+    double n2Rate[instruments::EngPage::NUM_ENG];
 
     // engine 1 tit
-    LCreal tit[instruments::EngPage::NUM_ENG];
-    LCreal titRate[instruments::EngPage::NUM_ENG];
+    double tit[instruments::EngPage::NUM_ENG];
+    double titRate[instruments::EngPage::NUM_ENG];
 
     // engin1 1 fuel flow
-    LCreal ff[instruments::EngPage::NUM_ENG];
-    LCreal ffRate[instruments::EngPage::NUM_ENG];
+    double ff[instruments::EngPage::NUM_ENG];
+    double ffRate[instruments::EngPage::NUM_ENG];
 };
 
 } // end of demo namespace

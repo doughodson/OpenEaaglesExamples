@@ -24,14 +24,14 @@ public:
     RdrAlt();
 
     // set functions
-    virtual bool setRAlt(const LCreal newRA);       // Sets RADAR altitude (ft)
-    virtual bool setRAltMin(const LCreal newRM);    // Sets RADAR altitude minimum (ft)
+    virtual bool setRAlt(const double newRA);       // Sets RADAR altitude (ft)
+    virtual bool setRAltMin(const double newRM);    // Sets RADAR altitude minimum (ft)
 
     // get functions
-    LCreal getRadarAltFt()  { return rAlt; }
-    LCreal getRdrMinAltFt() { return rAltMin; }
+    double getRadarAltFt()  { return rAlt; }
+    double getRdrMinAltFt() { return rAltMin; }
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
@@ -39,10 +39,10 @@ private:
     bool onEventSetRAltRdrAlt(const base::Number* const x);
     bool onEventSetRAltMinRdrAlt(const base::Number* const x);
 
-    LCreal rAlt;        // ft -- our actual radar alt
+    double rAlt;        // ft -- our actual radar alt
     SendData rAltSD;
 
-    LCreal rAltMin;     // ft -- our minimum radar altitude setting
+    double rAltMin;     // ft -- our minimum radar altitude setting
     SendData rAltMinSD;
 };
 

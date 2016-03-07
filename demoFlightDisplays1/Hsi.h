@@ -27,22 +27,22 @@ public:
     Hsi();
 
     // set functions
-    virtual bool setSelectedHeading(const LCreal newSH);    // Sets selected heading (degs)
-    virtual bool setSelectedCourse(const LCreal newC);      // Selected course (degs)
-    virtual bool setNav1Brg(const LCreal newB);             // Sets Navaid 1 bearing (degs)
-    virtual bool setNav2Brg(const LCreal newB);             // Sets Navaid 2 bearing (degs)
-    virtual bool setCdiDots(const LCreal newCDI);           // Sets CDI deflection (dots)
-    virtual bool setToFrom(const LCreal newTF);             // Sets TO/FROM value [ to(1); from(0) ]
+    virtual bool setSelectedHeading(const double newSH);    // Sets selected heading (degs)
+    virtual bool setSelectedCourse(const double newC);      // Selected course (degs)
+    virtual bool setNav1Brg(const double newB);             // Sets Navaid 1 bearing (degs)
+    virtual bool setNav2Brg(const double newB);             // Sets Navaid 2 bearing (degs)
+    virtual bool setCdiDots(const double newCDI);           // Sets CDI deflection (dots)
+    virtual bool setToFrom(const double newTF);             // Sets TO/FROM value [ to(1); from(0) ]
 
     // get functions
-    LCreal getSelHdg()  { return selHdg; }
-    LCreal getSelCrs()  { return selCrs; }
-    LCreal getNav1Brg() { return nav1Brg; }
-    LCreal getNav2Brg() { return nav2Brg; }
-    LCreal getCdiDots() { return cdiDots; }
-    LCreal getToFrom()  { return toFrom; }
+    double getSelHdg()  { return selHdg; }
+    double getSelCrs()  { return selCrs; }
+    double getNav1Brg() { return nav1Brg; }
+    double getNav2Brg() { return nav2Brg; }
+    double getCdiDots() { return cdiDots; }
+    double getToFrom()  { return toFrom; }
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
@@ -54,16 +54,16 @@ private:
     bool onUpdateCdiDotsHsi(const base::Number* const x);
     bool onUpdateToFromHsi(const base::Number* const x);
 
-    LCreal selHdg;      // selected heading (degs)
+    double selHdg;      // selected heading (degs)
     SendData selHdgSD;
-    LCreal selCrs;      // selected course (degs)
+    double selCrs;      // selected course (degs)
     SendData selCrsSD;
-    LCreal cdiDots;     // course deviation (dots)
+    double cdiDots;     // course deviation (dots)
     SendData cdiDotsSD;
-    LCreal toFrom;      // our to from indicator ( 1 == to; 0 == from )
+    double toFrom;      // our to from indicator ( 1 == to; 0 == from )
     SendData toFromSD;
-    LCreal nav1Brg;     // our navaid 1 bearing (degs)
-    LCreal nav2Brg;     // our navaid 2 bearing (degs)
+    double nav1Brg;     // our navaid 1 bearing (degs)
+    double nav2Brg;     // our navaid 2 bearing (degs)
     SendData nav1BrgSD;
     SendData nav2BrgSD;
     SendData selHdgROSD;

@@ -111,7 +111,7 @@ bool TestButtons::solenoidDown()
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestButtons::updateData(const LCreal dt)
+void TestButtons::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

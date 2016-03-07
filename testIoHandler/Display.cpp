@@ -147,7 +147,7 @@ void Display::reset()
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void Display::updateTC(const LCreal dt)
+void Display::updateTC(const double dt)
 {
    // I/O Handler
    if (ioHandler != nullptr) {
@@ -162,7 +162,7 @@ void Display::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() --
 //------------------------------------------------------------------------------
-void Display::updateData(const LCreal dt)
+void Display::updateData(const double dt)
 {
    // I/O Handler
    if (ioHandler != nullptr) {
@@ -216,7 +216,7 @@ void Display::updateDisplay()
 
          // Set the data
          if (types[i] == AI) {
-            LCreal v = 0;
+            double v = 0;
             ok = ioData->getAnalogInput(channels[i], &v);
             if (ok) {
                table_ai[i] = v;

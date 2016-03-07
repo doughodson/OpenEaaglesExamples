@@ -40,8 +40,8 @@ public:
    virtual bool setSlotMainDisplay(glut::GlutDisplay* const);
    virtual bool setSlotAutoResetTime(const base::Time* const num);     // Sets the auto RESET timer
 
-   void updateTC(const LCreal dt = 0.0) override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateTC(const double dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
    void reset() override;
 
 private:
@@ -50,7 +50,7 @@ private:
     bool displayInit;
 
     // Auto reset timer
-    LCreal      autoResetTimer;      // Auto RESET timer (sends a RESET_EVENT after timeout)
+    double      autoResetTimer;      // Auto RESET timer (sends a RESET_EVENT after timeout)
     const base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 

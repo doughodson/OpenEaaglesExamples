@@ -35,7 +35,7 @@ void TestAlt::copyData(const TestAlt& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestAlt::updateData(const LCreal dt)
+void TestAlt::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

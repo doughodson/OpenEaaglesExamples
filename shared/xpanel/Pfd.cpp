@@ -137,124 +137,124 @@ void Pfd::deleteData()
 // Set functions --
 //------------------------------------------------------------------------------
 
-bool Pfd::setPitchDeg(const LCreal newP)
+bool Pfd::setPitchDeg(const double newP)
 {
     pitch = newP;
     return true;
 }
 
-bool Pfd::setPitchRad(const LCreal newP)
+bool Pfd::setPitchRad(const double newP)
 {
     // convert to degrees
-    pitch = static_cast<LCreal>(newP * base::Angle::R2DCC);
+    pitch = static_cast<double>(newP * base::Angle::R2DCC);
     return true;
 }
 
-bool Pfd::setRollDeg(const LCreal newR)
+bool Pfd::setRollDeg(const double newR)
 { 
     roll = newR;
     return true;
 }
 
-bool Pfd::setRollRad(const LCreal newR)
+bool Pfd::setRollRad(const double newR)
 {
     // convert to degrees
-    roll = static_cast<LCreal>(newR * base::Angle::R2DCC);
+    roll = static_cast<double>(newR * base::Angle::R2DCC);
     return true;
 }
 
-bool Pfd::setTrueHeading(const LCreal newTH)
+bool Pfd::setTrueHeading(const double newTH)
 {
     trueHdg = newTH;
     return true;
 }
 
 
-bool Pfd::setCmdHdg(const LCreal newCH)
+bool Pfd::setCmdHdg(const double newCH)
 {
     cmdHdg = newCH;
     return true;
 }
 
-bool Pfd::setAirSpeedKts(const LCreal newAS)
+bool Pfd::setAirSpeedKts(const double newAS)
 {
     airSpd = newAS;
     return true;
 }
 
-bool Pfd::setAltitudeFt(const LCreal newA)
+bool Pfd::setAltitudeFt(const double newA)
 {
     alt = newA;
     return true;
 }
 
-bool Pfd::setSideSlip(const LCreal newSS)
+bool Pfd::setSideSlip(const double newSS)
 {
     slip = newSS;
     return true;
 }
 
-bool Pfd::setGlideslope(const LCreal newGS)
+bool Pfd::setGlideslope(const double newGS)
 {
     gSlope = newGS;
     return true;
 }
 
-bool Pfd::setLatDev(const LCreal newLD)
+bool Pfd::setLatDev(const double newLD)
 {
     latDev = newLD;
     return true;
 }
 
-bool Pfd::setCmdAirSpdKts(const LCreal newCAS)
+bool Pfd::setCmdAirSpdKts(const double newCAS)
 {
     cmdSpd = newCAS;
     return true;
 }
 
-bool Pfd::setCmdAltFt(const LCreal newCA)
+bool Pfd::setCmdAltFt(const double newCA)
 {
     cmdAlt = newCA;
     return true;
 }
 
-bool Pfd::setVVI(const LCreal newVVI)
+bool Pfd::setVVI(const double newVVI)
 {
     vvi = newVVI;
     return true;
 }
 
-bool Pfd::setFltDirBankDeg(const LCreal newFDB)
+bool Pfd::setFltDirBankDeg(const double newFDB)
 {
     fDirBank = newFDB;
     return true;
 }
 
-bool Pfd::setFltDirBankRad(const LCreal newFDB)
+bool Pfd::setFltDirBankRad(const double newFDB)
 {
-    fDirBank = static_cast<LCreal>(newFDB * base::Angle::R2DCC);
+    fDirBank = static_cast<double>(newFDB * base::Angle::R2DCC);
     return true;
 }
 
-bool Pfd::setFltDirPitchDeg(const LCreal newFDP)
+bool Pfd::setFltDirPitchDeg(const double newFDP)
 {
     fDirPitch = newFDP;
     return true;
 }
 
-bool Pfd::setFltDirPitchRad(const LCreal newFDP)
+bool Pfd::setFltDirPitchRad(const double newFDP)
 {
-    fDirPitch = static_cast<LCreal>(newFDP * base::Angle::R2DCC);
+    fDirPitch = static_cast<double>(newFDP * base::Angle::R2DCC);
     return true;
 }
 
-bool Pfd::setBaroPress(const LCreal newBOP)
+bool Pfd::setBaroPress(const double newBOP)
 {
     baro = newBOP;
     return true;
 }
 
-bool Pfd::setMach(const LCreal x)
+bool Pfd::setMach(const double x)
 { 
     mach = x;
     return true;
@@ -270,12 +270,12 @@ bool Pfd::setRefLon(const double newRL)
     refLon = newRL;
     return true;
 }
-bool Pfd::setRange(const LCreal newR)
+bool Pfd::setRange(const double newR)
 {
     range = newR;
     return true;
 }
-bool Pfd::setGLoad(const LCreal newLoad)
+bool Pfd::setGLoad(const double newLoad)
 {
     gLoad = newLoad;
     return true;
@@ -284,22 +284,22 @@ bool Pfd::setGLoad(const LCreal newLoad)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void Pfd::updateData(const LCreal dt)
+void Pfd::updateData(const double dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
     
     // find the last digit for the readout tape
-    LCreal ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
+    double ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
     int rest = static_cast<int>(airSpd / 10.0f);
     
-    LCreal diff = airSpd - cmdSpd;
+    double diff = airSpd - cmdSpd;
     
-    LCreal altDiff = alt - cmdAlt;
+    double altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
-    LCreal altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
+    double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
     int altRest = static_cast<int>(alt/99.9999);
     
@@ -351,7 +351,7 @@ void Pfd::updateData(const LCreal dt)
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout
     int mAlt = static_cast<int>(base::Distance::FeetToMeters(alt));
-    LCreal mAltBug = base::Distance::FeetToMeters(cmdAlt);
+    double mAltBug = base::Distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }

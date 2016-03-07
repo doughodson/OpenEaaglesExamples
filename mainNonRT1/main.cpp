@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
    simulation->reset();
 
    // delta time (20ms)
-   const LCreal dt = static_cast<LCreal>(1.0)/static_cast<LCreal>(frameRate);
+   const double dt = static_cast<double>(1.0)/static_cast<double>(frameRate);
 
    // execute simulation as fast as possible
    for(; simulation->getExecTimeSec() < 50.0; ) {

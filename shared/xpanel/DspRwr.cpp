@@ -35,7 +35,7 @@ void DspRwr::copyData(const DspRwr& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void DspRwr::updateData(const LCreal dt)
+void DspRwr::updateData(const double dt)
 {
    // Update base classes stuff
    BaseClass::updateData(dt);

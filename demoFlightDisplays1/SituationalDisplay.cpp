@@ -135,32 +135,32 @@ bool SituationalDisplay::setReferenceLon(const double newL)
     refLon = newL;
     return true;
 }
-bool SituationalDisplay::setHeading(const LCreal newH)
+bool SituationalDisplay::setHeading(const double newH)
 {
     heading = newH;
     return true;
 }
-bool SituationalDisplay::setRange(const LCreal newR)
+bool SituationalDisplay::setRange(const double newR)
 {
     range = newR;
     return true;
 }
-bool SituationalDisplay::setOrbitRange(const LCreal newOR)
+bool SituationalDisplay::setOrbitRange(const double newOR)
 {
     orbRange = newOR;
     return true;
 }
-bool SituationalDisplay::setHeadingBug(const LCreal newHB)
+bool SituationalDisplay::setHeadingBug(const double newHB)
 {
     hdgBug = newHB;
     return true;
 }
-bool SituationalDisplay::setNav1Brg(const LCreal newB)
+bool SituationalDisplay::setNav1Brg(const double newB)
 {
     nav1Brg = newB;
     return true;
 }
-bool SituationalDisplay::setNav1Dme(const LCreal newDME)
+bool SituationalDisplay::setNav1Dme(const double newDME)
 {
     nav1Dme = newDME;
     return true;
@@ -175,12 +175,12 @@ bool SituationalDisplay::setNav1Id(const char* const newId)
     }
     return ok;
 }
-bool SituationalDisplay::setNav2Brg(const LCreal newB)
+bool SituationalDisplay::setNav2Brg(const double newB)
 {
     nav2Brg = newB;
     return true;
 }
-bool SituationalDisplay::setNav2Dme(const LCreal newDME)
+bool SituationalDisplay::setNav2Dme(const double newDME)
 {
     nav2Dme = newDME;
     return true;
@@ -219,7 +219,7 @@ bool SituationalDisplay::getNav2Id(const int index, char* newString)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void SituationalDisplay::updateData(const LCreal dt)
+void SituationalDisplay::updateData(const double dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
@@ -227,8 +227,8 @@ void SituationalDisplay::updateData(const LCreal dt)
     // update our map page
     send("mainmap", UPDATE_VALUE, range, rangeSD);
     send("mainmap", UPDATE_VALUE2, heading, headingSD);
-    send("mainmap", UPDATE_VALUE3, static_cast<LCreal>(refLat), refLatSD);
-    send("mainmap", UPDATE_VALUE4, static_cast<LCreal>(refLon), refLonSD);
+    send("mainmap", UPDATE_VALUE3, static_cast<double>(refLat), refLatSD);
+    send("mainmap", UPDATE_VALUE4, static_cast<double>(refLon), refLonSD);
     send("mainmap", UPDATE_VALUE5, true, centeredSD);
 
     // update our compass rose

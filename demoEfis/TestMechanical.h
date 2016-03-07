@@ -18,55 +18,55 @@ class TestMechanical : public graphics::Page
 public:
     TestMechanical();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
-    static const LCreal T1;     // heading slew rate (deg/sec)
-    static const LCreal T2;     // rate of slew rate (pointer_widths/sec)
+    static const double T1;     // heading slew rate (deg/sec)
+    static const double T2;     // rate of slew rate (pointer_widths/sec)
 
-    LCreal pitch;           // actual pitch
+    double pitch;           // actual pitch
     SendData pitchSD;
-    LCreal  pitchRate;
-    LCreal roll;            // actual roll
+    double  pitchRate;
+    double roll;            // actual roll
     SendData rollSD;
-    LCreal rollRate;
-    LCreal slip;
+    double rollRate;
+    double slip;
     SendData slipSD;
-    LCreal slipRate;
-    LCreal cmdPitch;        // commanded pitch
+    double slipRate;
+    double cmdPitch;        // commanded pitch
     SendData cmdPitchSD;
-    LCreal cmdRoll;         // commanded roll
+    double cmdRoll;         // commanded roll
     SendData cmdRollSD;
-    LCreal cmdPitchRate;
-    LCreal cmdRollRate;
+    double cmdPitchRate;
+    double cmdRollRate;
     bool inView;            // when our commanded pitch is in view
-    LCreal heading;         // heading of our ownship (for rate of turn)
-    LCreal headingRate;
+    double heading;         // heading of our ownship (for rate of turn)
+    double headingRate;
     bool rtFail;            // our rate of turn indicator failure flag
     // runway stuff
     bool rwFail;            // runway failure flag
-    LCreal locDots;         // localizer dots
-    LCreal locDotsRate;
+    double locDots;         // localizer dots
+    double locDotsRate;
     SendData locDotsSD;     // localizer dots
-    LCreal rAlt;            // radio altitude
-    LCreal rAltRate;
+    double rAlt;            // radio altitude
+    double rAltRate;
     SendData rAltSD;
     // glideslope stuff
     bool gsFail;
-    LCreal gsDots;          // glideslope dots
-    LCreal gsDotsRate;
+    double gsDots;          // glideslope dots
+    double gsDotsRate;
     SendData gsDotsSD;
     // speed deviation stuff
     bool sdFail;
-    LCreal speedDots;       // speed dots
-    LCreal speedDotsRate;
+    double speedDots;       // speed dots
+    double speedDotsRate;
     SendData speedDotsSD;
     // gaLight stuff
     int gaMode;
-    LCreal gaTimer;
+    double gaTimer;
     // mdaLight stuff
     int mdaMode;
-    LCreal mdaTimer;
+    double mdaTimer;
     // cmptr stuff
     bool cmptrFail;         // our computer fail flag (on = true)
     SendData cmptrFailSD;
@@ -74,7 +74,7 @@ private:
     SendData gaModeSD;
     // gryo stuff
     bool gryoFail;          // our gryo fail flag (on = true)
-    LCreal gryoFailTimer;
+    double gryoFailTimer;
     SendData gryoFailSD;
     SendData gsFailSD;
     SendData gsFailVisSD;
@@ -86,8 +86,8 @@ private:
     SendData rollIndSD;     // for our roll indicator (which is a rotator)
     SendData rwFailSD;
     SendData sdFailSD;
-    LCreal curRot;          // current rate of turn
-    LCreal rotRate;
+    double curRot;          // current rate of turn
+    double rotRate;
     SendData curRotSD;
 };
 

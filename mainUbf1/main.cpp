@@ -70,7 +70,7 @@ static void updateDataCB(int msecs)
 
    // compute delta time
    static double time0 = time;   // N-1 Time
-   LCreal dt = static_cast<LCreal>(time - time0);
+   double dt = static_cast<double>(time - time0);
    time0 = time;
 
    station->updateData(dt);

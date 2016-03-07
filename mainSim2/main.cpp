@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
    // send a reset event and frame sim once
    station->event(base::Component::RESET_EVENT);
-   station->tcFrame( static_cast<LCreal>(1.0/static_cast<double>(station->getTimeCriticalRate())) );
+   station->tcFrame( static_cast<double>(1.0/static_cast<double>(station->getTimeCriticalRate())) );
 
    // create time critical thread
    station->createTimeCriticalProcess();
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
    for(;;) {
 
       // update background thread
-      station->updateData( static_cast<LCreal>(dt) );
+      station->updateData( static_cast<double>(dt) );
 
       simTime += dt;                             // time of next frame
       const double timeNow = getComputerTime();  // time now

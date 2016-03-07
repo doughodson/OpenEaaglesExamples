@@ -38,8 +38,8 @@ static const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
 
 class TimerThread : public base::ThreadPeriodicTask {
    DECLARE_SUBCLASS(TimerThread,base::ThreadPeriodicTask)
-   public: TimerThread(base::Component* const parent, const LCreal priority, const LCreal rate);
-   private: virtual unsigned long userFunc(const LCreal dt);
+   public: TimerThread(base::Component* const parent, const double priority, const double rate);
+   private: virtual unsigned long userFunc(const double dt);
 };
 
 IMPLEMENT_SUBCLASS(TimerThread,"TimerThread")
@@ -48,13 +48,13 @@ EMPTY_COPYDATA(TimerThread)
 EMPTY_DELETEDATA(TimerThread)
 EMPTY_SERIALIZER(TimerThread)
 
-TimerThread::TimerThread(base::Component* const parent, const LCreal priority, const LCreal rate)
+TimerThread::TimerThread(base::Component* const parent, const double priority, const double rate)
       : ThreadPeriodicTask(parent, priority, rate)
 {
    STANDARD_CONSTRUCTOR()
 }
 
-unsigned long TimerThread::userFunc(const LCreal dt)
+unsigned long TimerThread::userFunc(const double dt)
 {
    base::Timer::updateTimers(dt);
    return 0;

@@ -15,8 +15,8 @@
 namespace oe {
 namespace demo {
 
-static const LCreal refLat =   41.1f;
-static const LCreal refLon =  111.9f;
+static const double refLat =   41.1f;
+static const double refLon =  111.9f;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSD,"TestSD")
 EMPTY_SERIALIZER(TestSD)
@@ -46,9 +46,9 @@ TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
     heading = 0.0;
-    headingRate = static_cast<LCreal>(0.2f * base::Angle::R2DCC);
+    headingRate = static_cast<double>(0.2f * base::Angle::R2DCC);
     bearing = 0.0;
-    bearingRate = static_cast<LCreal>(0.4f * base::Angle::R2DCC);
+    bearingRate = static_cast<double>(0.4f * base::Angle::R2DCC);
     range = 80.0;
     // navaid bearings
     nav1Brg = 0.0;
@@ -65,7 +65,7 @@ TestSD::TestSD()
     {
         double trkX = 0.0;
         double trkY = 0.0;
-        LCreal hdg = 0.0;
+        double hdg = 0.0;
         int myType = 1;
         for (int i = 0; i < MAX_TRACKS; i++) {
             myTracks[i].x = trkX;
@@ -163,7 +163,7 @@ void TestSD::deleteData()
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void TestSD::updateData(const LCreal dt)
+void TestSD::updateData(const double dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);

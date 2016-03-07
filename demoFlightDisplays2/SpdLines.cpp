@@ -63,7 +63,7 @@ void SpdLines::drawFunc()
     BEGIN_DLIST
 
         if (!isAlt) {
-            LCreal startPoint = 0;
+            double startPoint = 0;
             // now step through and draw all the lines (100 of them)
             // draw the big lines first
             glLineWidth(2);
@@ -104,7 +104,7 @@ void SpdLines::drawFunc()
             glPopMatrix();
         }
         else {
-            LCreal startPoint = 0;
+            double startPoint = 0;
             // now step through and draw all the lines (approx 280 of them, gets us to about 55,800 feet)
             // draw the big lines first
             glLineWidth(2);

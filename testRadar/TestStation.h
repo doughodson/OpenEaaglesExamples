@@ -33,8 +33,8 @@ public:
    // Step our "ownship" to the next local air vehicle
    void stepOwnshipPlayer();
 
-   void updateTC(const LCreal dt = 0.0) override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateTC(const double dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
    void reset() override;
 
 private:
@@ -49,7 +49,7 @@ private:
    bool tgtStepSw1;
    bool wpnRelSw1;
    bool incTagPlayerSw1;
-   LCreal bgAntenna;
+   double bgAntenna;
 };
 
 } // End test namespace

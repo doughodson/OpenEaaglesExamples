@@ -66,7 +66,7 @@ TestCompass::TestCompass()
     {
         double trkX = 0.0;
         double trkY = 0.0;
-        LCreal hdg = 0.0;
+        double hdg = 0.0;
         int myType = 1;
         for (int i = 0; i < MAX_TRACKS; i++) {
             myTracks[i].x = trkX;
@@ -160,7 +160,7 @@ void TestCompass::copyData(const TestCompass& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestCompass::updateData(const LCreal dt)
+void TestCompass::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

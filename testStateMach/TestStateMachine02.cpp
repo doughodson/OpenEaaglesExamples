@@ -37,13 +37,13 @@ END_STATE_TABLE()
 // Pre/Post functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine02::preStateProc(const LCreal)
+void TestStateMachine02::preStateProc(const double)
 {
    // Start line
    std::cout << "Test #2 State(" << getState() << "): ";
 }
 
-void TestStateMachine02::postStateProc(const LCreal)
+void TestStateMachine02::postStateProc(const double)
 {
    // End the line
    std::cout << std::endl;
@@ -52,30 +52,30 @@ void TestStateMachine02::postStateProc(const LCreal)
 //------------------------------------------------------------------------------
 // State functions
 //------------------------------------------------------------------------------
-void TestStateMachine02::stateFunc00(const LCreal)
+void TestStateMachine02::stateFunc00(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine02::stateFunc01(const LCreal)
+void TestStateMachine02::stateFunc01(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine02::stateFunc02(const LCreal)
+void TestStateMachine02::stateFunc02(const double)
 {
    std::cout << "goTo(4)";
    goTo(4);
 }
 
-void TestStateMachine02::stateFunc03(const LCreal)
+void TestStateMachine02::stateFunc03(const double)
 {
    std::cout << "Should NOT be here!";
 }
 
-void TestStateMachine02::stateFunc04(const LCreal)
+void TestStateMachine02::stateFunc04(const double)
 {
    if (getMode() != RTN_STATE) {
       std::cout << "call(CALL_01)";
@@ -87,25 +87,25 @@ void TestStateMachine02::stateFunc04(const LCreal)
    }
 }
 
-void TestStateMachine02::stateFunc05(const LCreal)
+void TestStateMachine02::stateFunc05(const double)
 {
    std::cout << "goTo(99)";
    goTo(99);
 }
 
-void TestStateMachine02::stateFunc11(const LCreal)
+void TestStateMachine02::stateFunc11(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine02::stateFunc12(const LCreal)
+void TestStateMachine02::stateFunc12(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine02::stateFunc13(const LCreal)
+void TestStateMachine02::stateFunc13(const double)
 {
    if (getMode() != RTN_STATE) {
       std::cout << "call(CALL_02,arg=13)";
@@ -124,19 +124,19 @@ void TestStateMachine02::stateFunc13(const LCreal)
    }
 }
 
-void TestStateMachine02::stateFunc14(const LCreal)
+void TestStateMachine02::stateFunc14(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine02::stateFunc15(const LCreal)
+void TestStateMachine02::stateFunc15(const double)
 {
    std::cout << "rtn()";
    rtn();
 }
 
-void TestStateMachine02::stateFunc21(const LCreal)
+void TestStateMachine02::stateFunc21(const double)
 {
    const base::Number* arg = dynamic_cast<const base::Number*>( getArgument() );
    if (arg != nullptr) {
@@ -147,13 +147,13 @@ void TestStateMachine02::stateFunc21(const LCreal)
    next();
 }
 
-void TestStateMachine02::stateFunc22(const LCreal)
+void TestStateMachine02::stateFunc22(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine02::stateFunc23(const LCreal)
+void TestStateMachine02::stateFunc23(const double)
 {
    std::cout << "rtn(arg=1)";
    base::Boolean* arg = new base::Boolean(1);
@@ -161,7 +161,7 @@ void TestStateMachine02::stateFunc23(const LCreal)
    arg->unref();
 }
 
-void TestStateMachine02::stateFunc99(const LCreal)
+void TestStateMachine02::stateFunc99(const double)
 {
    if (getMode() == NEW_STATE) {
       std::cout << "Finished;";

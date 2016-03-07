@@ -31,7 +31,7 @@ TerrainFollower::TerrainFollower()
     STANDARD_CONSTRUCTOR()
 
     numElevPts = 89;
-    //LCreal elev = 500;
+    //double elev = 500;
     // fill our elevation points with test data right now
     /*
     for (int i = 0; i < numElevPts; i++) {
@@ -196,8 +196,8 @@ void TerrainFollower::deleteData()
 //------------------------------------------------------------------------------
 void TerrainFollower::testElevPoints()
 {
-    //LCreal last = 0;
-    LCreal first = 0;
+    //double last = 0;
+    double first = 0;
     // get first and last values
     first = elevPts[0];
 
@@ -209,27 +209,27 @@ void TerrainFollower::testElevPoints()
 }
 
 // set functions
-bool TerrainFollower::setPlaneAlt(const LCreal newAlt)
+bool TerrainFollower::setPlaneAlt(const double newAlt)
 {
     planeAlt = newAlt;
     return true;
 }
-bool TerrainFollower::setScanRange(const LCreal newR)
+bool TerrainFollower::setScanRange(const double newR)
 {
     range = newR;
     return true;
 }
-bool TerrainFollower::setViewHeight(const LCreal newH)
+bool TerrainFollower::setViewHeight(const double newH)
 {
     height = newH;
     return true;
 }
-bool TerrainFollower::setViewWidth(const LCreal newW)
+bool TerrainFollower::setViewWidth(const double newW)
 {
     width = newW;
     return true;
 }
-bool TerrainFollower::setElevPts(const int num, const LCreal newEPts[])
+bool TerrainFollower::setElevPts(const int num, const double newEPts[])
 {
     bool ok = false;
     if (num <= MAX_POINTS) {
@@ -278,11 +278,11 @@ void TerrainFollower::drawFunc()
     glGetFloatv(GL_LINE_WIDTH, &lw);
 
     // initialize local variables
-    LCreal temp = 1.4;
-    LCreal moveY = 0;
-    LCreal moveYNext = 0;
-    //LCreal lastMoveY = 0;
-    LCreal start = 0.2;
+    double temp = 1.4;
+    double moveY = 0;
+    double moveYNext = 0;
+    //double lastMoveY = 0;
+    double start = 0.2;
 
 
     glColor3f(1, 1, 0);
@@ -332,8 +332,8 @@ void TerrainFollower::drawFunc()
     glColor3f(0, 1, 1);
     glPushMatrix();
         glTranslatef(1.6f, static_cast<GLfloat>(start), 0);
-        LCreal myAvg = 0;
-        LCreal mySum = 0;
+        double myAvg = 0;
+        double mySum = 0;
         // make a line strip that follows the terrain
         glBegin(GL_LINE_STRIP);
             // this draws every point
@@ -382,7 +382,7 @@ void TerrainFollower::drawFunc()
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical threads here
 //------------------------------------------------------------------------------
-void TerrainFollower::updateData(const LCreal dt)
+void TerrainFollower::updateData(const double dt)
 {
     // update our Baseclass first
     BaseClass::updateData(dt);
@@ -426,7 +426,7 @@ void TerrainFollower::updateData(const LCreal dt)
 
     // figure our altitude scale
     // get our range of altitude in feet
-    LCreal temp = maxAlt - minAlt;
+    double temp = maxAlt - minAlt;
     if (temp != 0 && temp > 0) {
         // divide by the number of inches to give us a inches/feet
         aScale = height / temp;
@@ -436,7 +436,7 @@ void TerrainFollower::updateData(const LCreal dt)
         rScale = width / numElevPts;
     }
 
-    LCreal tempR = 0.75f * range;
+    double tempR = 0.75f * range;
     send("thirdr", UPDATE_VALUE, tempR, tRSD);
     tempR = range/4;
     send("firstr", UPDATE_VALUE, tempR, firstRSD);

@@ -38,7 +38,7 @@ void TestHsi::copyData(const TestHsi& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestHsi::updateData(const LCreal dt)
+void TestHsi::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

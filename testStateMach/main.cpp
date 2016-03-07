@@ -49,10 +49,10 @@ static base::StateMachine* builder(const char* const filename)
 // main test loop
 static void theTest(base::StateMachine* stateMachine)
 {
-   LCreal dt = 0.05;  // Fake delta time
+   double dt = 0.05;  // Fake delta time
 
    while (stateMachine->getState() != 99) {
-      base::Timer::updateTimers(static_cast<LCreal>(dt));
+      base::Timer::updateTimers(static_cast<double>(dt));
       stateMachine->updateTC(dt);
       stateMachine->updateData(dt);
    }

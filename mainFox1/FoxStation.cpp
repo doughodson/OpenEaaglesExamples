@@ -45,7 +45,7 @@ void FoxStation::copyData(const FoxStation& org, const bool cc)
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void FoxStation::updateTC(const LCreal dt)
+void FoxStation::updateTC(const double dt)
 {
    // First update the simulation
    BaseClass::updateTC(dt);
@@ -60,7 +60,7 @@ void FoxStation::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void FoxStation::updateData(const LCreal dt)
+void FoxStation::updateData(const double dt)
 {
    // Update any stuff in our main display
    if (display != nullptr) display->updateData(dt);

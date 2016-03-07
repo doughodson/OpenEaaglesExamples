@@ -18,15 +18,15 @@ class TestHsi : public graphics::Page
 public:
     TestHsi();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal heading;             // our heading
+    double heading;             // our heading
     SendData headingSD;
-    LCreal  headingRate;        // rate which are going (up or down)
+    double  headingRate;        // rate which are going (up or down)
     SendData headingROSD;
     SendData dmeROSD;           // dme
-    LCreal dme;
+    double dme;
 };
 
 } // end of demo  namespace

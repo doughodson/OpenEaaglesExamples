@@ -23,7 +23,7 @@ class Sender : public Endpoint
 public:
     Sender();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     void reset() override;
 
 private:

@@ -48,7 +48,7 @@ void TestAdi::copyData(const TestAdi& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestAdi::updateData(const LCreal dt)
+void TestAdi::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

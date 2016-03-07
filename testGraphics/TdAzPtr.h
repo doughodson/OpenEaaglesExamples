@@ -22,7 +22,7 @@ public:
     void draw() override;
 
 private:
-    LCreal azimuth;
+    double azimuth;
 };
 
 } // End example namespace

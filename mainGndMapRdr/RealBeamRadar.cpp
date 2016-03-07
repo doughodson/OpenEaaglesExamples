@@ -60,9 +60,9 @@ RealBeamRadar::RealBeamRadar()
    imgHeight = 0;
 
    // working storage
-   elevations = new LCreal[IMG_WIDTH];
+   elevations = new double[IMG_WIDTH];
    validFlgs = new bool[IMG_WIDTH];
-   aacData = new LCreal[IMG_WIDTH];
+   aacData = new double[IMG_WIDTH];
    maskFlgs = new bool[IMG_WIDTH];
 
    // create the image memory
@@ -113,7 +113,7 @@ void RealBeamRadar::deleteData()
 //------------------------------------------------------------------------------
 // transmit() -- send radar emissions
 //------------------------------------------------------------------------------
-void RealBeamRadar::transmit(const LCreal dt)
+void RealBeamRadar::transmit(const double dt)
 {
    BaseClass::transmit(dt);
 
@@ -126,7 +126,7 @@ void RealBeamRadar::transmit(const LCreal dt)
    const simulation::Player* own = getOwnship();
    if (own != nullptr) {
       // Get our ownship parameters
-      altitude = static_cast<LCreal>(own->getAltitude());
+      altitude = static_cast<double>(own->getAltitude());
       latitude = own->getLatitude();
       longitude = own->getLongitude();
 
@@ -145,26 +145,26 @@ void RealBeamRadar::transmit(const LCreal dt)
    if (isTransmitting() && ant != nullptr && image != nullptr && terrain != nullptr && terrain->isDataLoaded()) {
 
       // Compute max range (NM)
-      LCreal maxRngNM = getRange();
+      double maxRngNM = getRange();
 
       // Compute ground range
-      LCreal groundRange[IMG_HEIGHT];
+      double groundRange[IMG_HEIGHT];
       computeGroundRanges(groundRange, IMG_HEIGHT, maxRngNM);
 
       // Compute slant range
-      LCreal slantRange2[IMG_HEIGHT];
+      double slantRange2[IMG_HEIGHT];
       computeSlantRanges2(slantRange2, IMG_HEIGHT, groundRange, altitude);
 
       // Compute the loss from range
-      LCreal rangeLoss[IMG_HEIGHT];
+      double rangeLoss[IMG_HEIGHT];
       computeRangeLoss(rangeLoss, IMG_HEIGHT, slantRange2);
 
       // Compute the earth's curvature effect
-      LCreal curvature[IMG_HEIGHT];
-      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<LCreal>(base::Nav::ERAD60));
+      double curvature[IMG_HEIGHT];
+      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<double>(base::Nav::ERAD60));
 
-      LCreal hue = 120.0;      // see Hsv
-      LCreal saturation = 0.0; // see Hsv
+      double hue = 120.0;      // see Hsv
+      double saturation = 0.0; // see Hsv
       const base::Hsva* grayTable[19];
       grayTable[0]  = new base::Hsva(  hue,  saturation,  0.0f,     1.0f );
       grayTable[1]  = new base::Hsva(  hue,  saturation,  0.0872f,  1.0f );
@@ -187,11 +187,11 @@ void RealBeamRadar::transmit(const LCreal dt)
       grayTable[18] = new base::Hsva(  hue,  saturation,  1.0f,     1.0f );
 
       // Get antenna look angles
-      antAzAngle = static_cast<LCreal>(ant->getAzimuthD());
-      antElAngle = static_cast<LCreal>(ant->getElevationD());
+      antAzAngle = static_cast<double>(ant->getAzimuthD());
+      antElAngle = static_cast<double>(ant->getElevationD());
 
       // Which ray are we on?
-      LCreal halfRay = static_cast<LCreal>(IMG_WIDTH/2.0f);
+      double halfRay = static_cast<double>(IMG_WIDTH/2.0f);
       int ray = static_cast<int>(((antAzAngle/45.0f) * halfRay) + halfRay);
       if (ray < 0) ray = 0;
       if (ray > (IMG_WIDTH-1)) ray = (IMG_WIDTH-1);
@@ -212,7 +212,7 @@ void RealBeamRadar::transmit(const LCreal dt)
 
          // Direction
          int xx = icol - (IMG_WIDTH/2);
-         LCreal direction = 45.0 * static_cast<LCreal>(xx) / static_cast<LCreal>(IMG_WIDTH/2);
+         double direction = 45.0 * static_cast<double>(xx) / static_cast<double>(IMG_WIDTH/2);
 
          // get a strip of elevations from south to north
          unsigned int num = terrain->getElevations(elevations, validFlgs, IMG_HEIGHT, latitude, longitude, direction, groundRange[IMG_HEIGHT-1], interpolate);
@@ -231,7 +231,7 @@ void RealBeamRadar::transmit(const LCreal dt)
          // Draw a line along the Y points (moving from south to north along the latitude lines)
          for (int irow = 0; irow < IMG_HEIGHT; irow++) {
 
-            LCreal sn = aacData[irow];
+            double sn = aacData[irow];
 
             // convert to a color (or gray) value
             osg::Vec3 color(0,0,0);
@@ -258,19 +258,19 @@ void RealBeamRadar::transmit(const LCreal dt)
 //------------------------------------------------------------------------------
 // Compute the ground ranges to each point
 //------------------------------------------------------------------------------
-bool RealBeamRadar::computeGroundRanges(LCreal* const groundRange, const unsigned int n, const LCreal maxRngNM)
+bool RealBeamRadar::computeGroundRanges(double* const groundRange, const unsigned int n, const double maxRngNM)
 {
    bool ok = false;
    if (groundRange != nullptr && n > 0 && maxRngNM > 0) {
 
       // Max range (m)
-      LCreal maxRng = maxRngNM * base::Distance::NM2M;
+      double maxRng = maxRngNM * base::Distance::NM2M;
 
       // Delta range between points (m)
-      LCreal deltaRng = maxRng/static_cast<LCreal>(n);
+      double deltaRng = maxRng/static_cast<double>(n);
 
       // Step of the ground ranges (m)
-      LCreal curRng = 0;
+      double curRng = 0;
       for (unsigned int idx = 0; idx < n; idx++) {
          groundRange[idx] = curRng;
          curRng += deltaRng;
@@ -284,13 +284,13 @@ bool RealBeamRadar::computeGroundRanges(LCreal* const groundRange, const unsigne
 //------------------------------------------------------------------------------
 // Compute the square of the slant ranges to each point
 //------------------------------------------------------------------------------
-bool RealBeamRadar::computeSlantRanges2(LCreal* const slantRange2, const unsigned int n, const LCreal* const gndRng, const LCreal altitude)
+bool RealBeamRadar::computeSlantRanges2(double* const slantRange2, const unsigned int n, const double* const gndRng, const double altitude)
 {
    bool ok = false;
    if (slantRange2 != nullptr && n > 0 && gndRng != nullptr) {
 
       // Altitude squared
-      LCreal alt2 = altitude * altitude;
+      double alt2 = altitude * altitude;
 
       // Slant range squared (m^2) is altitude squared plus ground range squared.
       for (unsigned int idx = 0; idx < n; idx++) {
@@ -305,7 +305,7 @@ bool RealBeamRadar::computeSlantRanges2(LCreal* const slantRange2, const unsigne
 //------------------------------------------------------------------------------
 // Compute the loss from range
 //------------------------------------------------------------------------------
-bool RealBeamRadar::computeRangeLoss(LCreal* const rangeLoss, const unsigned int n, const LCreal* const slantRange2)
+bool RealBeamRadar::computeRangeLoss(double* const rangeLoss, const unsigned int n, const double* const slantRange2)
 {
    bool ok = false;
    if (rangeLoss != nullptr && n > 0 && slantRange2 != nullptr) {
@@ -325,18 +325,18 @@ bool RealBeamRadar::computeRangeLoss(LCreal* const rangeLoss, const unsigned int
 //------------------------------------------------------------------------------
 // Effects of earth curvature
 //------------------------------------------------------------------------------
-bool RealBeamRadar::computeEarthCurvature(LCreal* const curvature, const unsigned int n, const LCreal maxRngNM, const LCreal radiusNM)
+bool RealBeamRadar::computeEarthCurvature(double* const curvature, const unsigned int n, const double maxRngNM, const double radiusNM)
 {
    bool ok = false;
    if (curvature != nullptr && n > 0 && maxRngNM > 0 && radiusNM > 0) {
 
-      LCreal radius = radiusNM * base::Distance::NM2M;
-      LCreal maxRng = maxRngNM * base::Distance::NM2M;
+      double radius = radiusNM * base::Distance::NM2M;
+      double maxRng = maxRngNM * base::Distance::NM2M;
       for (unsigned int idx = 0; idx < n; idx++) {
-         LCreal curRng = maxRng * static_cast<LCreal>(idx)/static_cast<LCreal>(n);
-         LCreal arc = curRng / radius;
-         LCreal cs = 1.0;
-         LCreal c0 = lcCos(arc);
+         double curRng = maxRng * static_cast<double>(idx)/static_cast<double>(n);
+         double arc = curRng / radius;
+         double cs = 1.0;
+         double c0 = lcCos(arc);
          if (c0 != 0) cs = 1.0 / c0;
          curvature[idx] = radius * (cs  - 1.0f);
       }
@@ -433,9 +433,9 @@ bool RealBeamRadar::initImageMemory(const int width, const int height)
          imgHeight = height;
 
          // allocate the working storage
-         elevations = new LCreal[height];
+         elevations = new double[height];
          validFlgs = new bool[height];
-         aacData = new LCreal[height];
+         aacData = new double[height];
          maskFlgs = new bool[height];
 
          ok = true;

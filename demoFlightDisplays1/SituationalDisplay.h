@@ -23,51 +23,51 @@ public:
     // set functions
     virtual bool setReferenceLat(const double newL);      // Sets latitude (degs)
     virtual bool setReferenceLon(const double newL);      // Sets longitude (degs)
-    virtual bool setHeading(const LCreal newH);         // Sets heading (degs)
-    virtual bool setRange(const LCreal newR);           // Sets Range (NM)
-    virtual bool setOrbitRange(const LCreal newOR);     // Orbit range
-    virtual bool setHeadingBug(const LCreal newHB);     // Sets heading bug (degs)
-    virtual bool setNav1Brg(const LCreal newB);         // Sets navaid 1 bearing (degs)
-    virtual bool setNav1Dme(const LCreal newDME);       // Sets navaid 1 DME (NM)
+    virtual bool setHeading(const double newH);         // Sets heading (degs)
+    virtual bool setRange(const double newR);           // Sets Range (NM)
+    virtual bool setOrbitRange(const double newOR);     // Orbit range
+    virtual bool setHeadingBug(const double newHB);     // Sets heading bug (degs)
+    virtual bool setNav1Brg(const double newB);         // Sets navaid 1 bearing (degs)
+    virtual bool setNav1Dme(const double newDME);       // Sets navaid 1 DME (NM)
     virtual bool setNav1Id(const char* const newId);    // Sets navaid 1 identifier
-    virtual bool setNav2Brg(const LCreal newB);         // Sets navaid 2 bearing (degs)
-    virtual bool setNav2Dme(const LCreal newDME);       // Sets navaid 2 DME (NM)
+    virtual bool setNav2Brg(const double newB);         // Sets navaid 2 bearing (degs)
+    virtual bool setNav2Dme(const double newDME);       // Sets navaid 2 DME (NM)
     virtual bool setNav2Id(const char* const newId);    // Sets navaid 2 identifier
 
     // get functions
     double getOwnshipLat()      { return refLat; }
     double getOwnshipLon()      { return refLon; }
-    LCreal getHeading()         { return heading; }
-    LCreal getRange()           { return range; }
-    LCreal getOrbitRange()      { return orbRange; }
-    LCreal getHdgBug()          { return hdgBug; }
-    LCreal getNav1Brg()         { return nav1Brg; }
-    LCreal getNav1Dme()         { return nav1Dme; }
+    double getHeading()         { return heading; }
+    double getRange()           { return range; }
+    double getOrbitRange()      { return orbRange; }
+    double getHdgBug()          { return hdgBug; }
+    double getNav1Brg()         { return nav1Brg; }
+    double getNav1Dme()         { return nav1Dme; }
     bool getNav1Id(const int index, char* newString);
-    LCreal getNav2Brg()         { return nav2Brg; }
-    LCreal getNav2Dme()         { return nav2Dme; }
+    double getNav2Brg()         { return nav2Brg; }
+    double getNav2Dme()         { return nav2Dme; }
     bool getNav2Id(const int index, char* newString);
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
     double refLat;              // latitude
     double refLon;              // longitude
 
-    LCreal heading;             // our heading (degs)
+    double heading;             // our heading (degs)
     SendData headingROSD;
-    LCreal range;               // our range (NM)
+    double range;               // our range (NM)
     SendData rangeROSD;
-    LCreal orbRange;            // our orbit range
+    double orbRange;            // our orbit range
 
     // Heading bug
-    LCreal hdgBug;              // selected heading bug (degs)
+    double hdgBug;              // selected heading bug (degs)
     SendData hdgBugSD;
     SendData hdgBugROSD;
 
     // navaid 1
-    LCreal nav1Brg;                   // degs
-    LCreal nav1Dme;                   // Nm
+    double nav1Brg;                   // degs
+    double nav1Dme;                   // Nm
     char   nav1Id[NCHAR_NAV1_ID+1];   // ID
     SendData nav1DmeSD;
     SendData nav1BrgROSD;
@@ -82,8 +82,8 @@ private:
     SendData centeredSD;
 
     // navaid 2
-    LCreal nav2Brg;                   // degs
-    LCreal nav2Dme;                   // Nm
+    double nav2Brg;                   // degs
+    double nav2Dme;                   // Nm
     char   nav2Id[NCHAR_NAV2_ID+1];   // TACAN ID
     SendData nav2DmeSD;
     SendData nav2BrgROSD;
@@ -91,7 +91,7 @@ private:
     SendData nav2IdSD;
 
     // Terrain follower
-    LCreal planeAlt;
+    double planeAlt;
     SendData planeAltSD;
     SendData headingCRSD;
 };

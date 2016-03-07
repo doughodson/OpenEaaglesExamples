@@ -34,7 +34,7 @@ void TestFtitDial::copyData(const TestFtitDial& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestFtitDial::updateData(const LCreal dt)
+void TestFtitDial::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

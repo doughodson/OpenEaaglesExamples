@@ -9,7 +9,7 @@
 //      UPDATE_VALUE2 -> scan range (nm)
 //      UPDATE_VALUE3 -> viewable height on screen (inches)
 //      UPDATE_VALUE4 -> viewable width on screen (inches
-//      The list of points is sent in as an LCreal array
+//      The list of points is sent in as an double array
 //------------------------------------------------------------------------------
 #ifndef __oe_demo_TerrainFollower_H__
 #define __oe_demo_TerrainFollower_H__
@@ -26,17 +26,17 @@ class TerrainFollower : public graphics::Graphic
 public:
     TerrainFollower();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     bool event(const int event, base::Object* const obj = nullptr) override;
 
     void drawFunc() override;
 
     // set functions
-    virtual bool setPlaneAlt(const LCreal newAlt);
-    virtual bool setScanRange(const LCreal newR);
-    virtual bool setViewHeight(const LCreal newH);
-    virtual bool setViewWidth(const LCreal newW);
-    virtual bool setElevPts(const int num, const LCreal newEPts[]);
+    virtual bool setPlaneAlt(const double newAlt);
+    virtual bool setScanRange(const double newR);
+    virtual bool setViewHeight(const double newH);
+    virtual bool setViewWidth(const double newW);
+    virtual bool setElevPts(const int num, const double newEPts[]);
 
     // Simply steps through the points we have
     void testElevPoints();
@@ -49,17 +49,17 @@ private:
     bool onEventSetViewWidthTerrainFollower(const base::Number* const x);
 
     enum { MAX_POINTS = 1000 }; // maximum number of terrain elevation points
-    LCreal range;               // our scan range ahead of us
-    LCreal maxAlt;              // where do we want our max altitude (1)?
-    LCreal minAlt;              // where do we want our min altitude (0)?
+    double range;               // our scan range ahead of us
+    double maxAlt;              // where do we want our max altitude (1)?
+    double minAlt;              // where do we want our min altitude (0)?
     int numElevPts;             // number of elevation points we are using
-    LCreal elevPts[MAX_POINTS]; // our elevation points
-    LCreal height;              // height of the viewable area we are using
-    LCreal width;               // width of the viewable area we are using
-    LCreal rScale;              // our range scale to use for drawing
-    LCreal aScale;              // our altitude scale to use for drawing
-    LCreal planeAlt;            // what is our aircraft elevation?
-    LCreal aboveTerr;           // how far above the terrain do we want to be?  (default is 500)
+    double elevPts[MAX_POINTS]; // our elevation points
+    double height;              // height of the viewable area we are using
+    double width;               // width of the viewable area we are using
+    double rScale;              // our range scale to use for drawing
+    double aScale;              // our altitude scale to use for drawing
+    double planeAlt;            // what is our aircraft elevation?
+    double aboveTerr;           // how far above the terrain do we want to be?  (default is 500)
 
     SendData maxAltSD;
     SendData midAltSD;
@@ -69,9 +69,9 @@ private:
     SendData fRSD;
 
     // test data
-    LCreal testPA;
-    LCreal timer;
-    LCreal timerRate;
+    double testPA;
+    double timer;
+    double timerRate;
 
 };
 

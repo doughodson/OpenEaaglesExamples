@@ -101,7 +101,7 @@ void TestTwo::reset()
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void TestTwo::updateTC(const LCreal dt)
+void TestTwo::updateTC(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateTC(dt);
@@ -133,7 +133,7 @@ void TestTwo::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void TestTwo::updateData(const LCreal dt)
+void TestTwo::updateData(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);

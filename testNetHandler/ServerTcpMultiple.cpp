@@ -52,7 +52,7 @@ void ServerTcpMultiple::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void ServerTcpMultiple::updateData(const LCreal dt)
+void ServerTcpMultiple::updateData(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);

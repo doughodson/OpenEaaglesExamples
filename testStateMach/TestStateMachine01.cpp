@@ -23,13 +23,13 @@ END_STATE_TABLE()
 // Pre/Post functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine01::preStateProc(const LCreal)
+void TestStateMachine01::preStateProc(const double)
 {
    // Start of trace line
    std::cout << "Test #1 State(" << getState() << "): ";
 }
 
-void TestStateMachine01::postStateProc(const LCreal)
+void TestStateMachine01::postStateProc(const double)
 {
    // End of line
    std::cout << std::endl;
@@ -39,7 +39,7 @@ void TestStateMachine01::postStateProc(const LCreal)
 // State functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine01::anyStateFunc(const LCreal)
+void TestStateMachine01::anyStateFunc(const double)
 {
    switch (getState()) {
 

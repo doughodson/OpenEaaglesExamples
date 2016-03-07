@@ -35,7 +35,7 @@ void TestSpeedBrake::copyData(const TestSpeedBrake& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestSpeedBrake::updateData(const LCreal dt)
+void TestSpeedBrake::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

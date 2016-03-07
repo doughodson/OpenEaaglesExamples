@@ -36,7 +36,7 @@ EMPTY_DELETEDATA(TestEngineDial)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestEngineDial::updateData(const LCreal dt)
+void TestEngineDial::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

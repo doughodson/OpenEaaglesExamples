@@ -27,7 +27,7 @@ END_STATE_TABLE()
 // Pre/Post functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine04A::preStateProc(const LCreal)
+void TestStateMachine04A::preStateProc(const double)
 {
    std::cout << "SM(#4A)(" << getState() << "," << getSubstate() << "): ";
 }
@@ -35,30 +35,30 @@ void TestStateMachine04A::preStateProc(const LCreal)
 //------------------------------------------------------------------------------
 // State functions
 //------------------------------------------------------------------------------
-void TestStateMachine04A::stateFunc00(const LCreal)
+void TestStateMachine04A::stateFunc00(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine04A::stateFunc01(const LCreal)
+void TestStateMachine04A::stateFunc01(const double)
 {
    std::cout << "goTo(3)";
    goTo(3);
 }
 
-void TestStateMachine04A::stateFunc02(const LCreal)
+void TestStateMachine04A::stateFunc02(const double)
 {
    std::cout << "Should NOT be here!";
 }
 
-void TestStateMachine04A::stateFunc03(const LCreal)
+void TestStateMachine04A::stateFunc03(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine04A::stateFunc04(const LCreal)
+void TestStateMachine04A::stateFunc04(const double)
 {
    std::cout << "nextState()";
    nextState();

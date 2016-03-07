@@ -100,7 +100,7 @@
             position: [ 5 10 ]
         )
 
-        // LCreal
+        // double
         ( AsciiText 
             position: [ 6 1 ]
             text: "LCREAL:"
@@ -185,7 +185,7 @@
                     position: [ 15 10 ]
                 )
 
-                // LCreal
+                // double
                 ( AsciiText 
                     color: cyan
                     position: [ 16 1 ]

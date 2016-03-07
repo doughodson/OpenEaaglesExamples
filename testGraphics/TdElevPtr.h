@@ -25,7 +25,7 @@ public:
     virtual bool onUpdateValue(const base::Number* const ouvobj);
 
 private:
-    LCreal  elev;
+    double  elev;
 };
 
 } // End example namespace

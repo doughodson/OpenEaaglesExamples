@@ -98,7 +98,7 @@ void SimStation::reset()
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void SimStation::updateTC(const LCreal dt)
+void SimStation::updateTC(const double dt)
 {
     // First update the simulation
     BaseClass::updateTC(dt);
@@ -113,7 +113,7 @@ void SimStation::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void SimStation::updateData(const LCreal dt)
+void SimStation::updateData(const double dt)
 {
     // ### Don't call updateData for our 'mainDisplay', which is derived from
     // graphics::GlutDisplay, because graphics::GlutDisplay handles calling updateData() for it's

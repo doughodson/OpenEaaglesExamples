@@ -26,7 +26,7 @@ END_STATE_TABLE()
 // Pre/Post functions
 //------------------------------------------------------------------------------
 
-void TestStateMachine04B::preStateProc(const LCreal)
+void TestStateMachine04B::preStateProc(const double)
 {
    // Start line
    std::cout << "SM(#4B)(" << getState() << "," << getSubstate() << "): ";
@@ -35,13 +35,13 @@ void TestStateMachine04B::preStateProc(const LCreal)
 //------------------------------------------------------------------------------
 // State functions
 //------------------------------------------------------------------------------
-void TestStateMachine04B::stateFunc00(const LCreal)
+void TestStateMachine04B::stateFunc00(const double)
 {
    std::cout << "next()";
    next();
 }
 
-void TestStateMachine04B::stateFunc01(const LCreal)
+void TestStateMachine04B::stateFunc01(const double)
 {
    if (getMode() != RTN_STATE) {
       std::cout << "callState(CALL_01)";
@@ -53,7 +53,7 @@ void TestStateMachine04B::stateFunc01(const LCreal)
    }
 }
 
-void TestStateMachine04B::stateFunc02(const LCreal)
+void TestStateMachine04B::stateFunc02(const double)
 {
    std::cout << "nextState()";
    nextState();

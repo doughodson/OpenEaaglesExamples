@@ -50,7 +50,7 @@ bool MfdPage::onEntry()
     return true;
 }
 
-void MfdPage::updateData(const LCreal dt)
+void MfdPage::updateData(const double dt)
 {
     BaseClass::updateData(dt);
     

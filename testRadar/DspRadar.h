@@ -31,7 +31,7 @@ public:
 
    void drawFunc() override;
 
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 private:
     const simulation::Radar* radar;     // The test RADAR sensor
@@ -42,10 +42,10 @@ private:
     enum { MAX_TRKS = 50 };
     unsigned int nTracks;                   // Number of tracks
     int ntsTrk;                             // Index of the 'next-to-shoot' track
-    LCreal      trkRng[MAX_TRKS];           // Track's range                    (meters)
-    LCreal      trkAz[MAX_TRKS];            // Track's relative azimuth
-    LCreal      trkVel[MAX_TRKS];           // Track's velocity                 (m/s)
-    LCreal      trkRelGndTrk[MAX_TRKS];     // Track's relative ground track (to nearest 45 deg)
+    double      trkRng[MAX_TRKS];           // Track's range                    (meters)
+    double      trkAz[MAX_TRKS];            // Track's relative azimuth
+    double      trkVel[MAX_TRKS];           // Track's velocity                 (m/s)
+    double      trkRelGndTrk[MAX_TRKS];     // Track's relative ground track (to nearest 45 deg)
 };
 
 } // End test namespace

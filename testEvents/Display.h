@@ -20,7 +20,7 @@ class Display : public glut::GlutDisplay
 public:
    Display();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     // boolean
@@ -35,8 +35,8 @@ private:
     float myFloat;
     SendData floatSD;
 
-    // LCreal
-    LCreal myLCreal;
+    // double
+    double myLCreal;
     SendData lcrealSD;
 
     // double
@@ -58,7 +58,7 @@ private:
     SendData materialSD[MAX_MATERIALS];
     osg::Vec3 diffColorRate[MAX_MATERIALS];
 
-    LCreal rotations[MAX_MATERIALS];
+    double rotations[MAX_MATERIALS];
     SendData rotationsSD[MAX_MATERIALS];
 
     int counter;    // to slowly increment our numbers

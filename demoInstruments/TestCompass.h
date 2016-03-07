@@ -18,7 +18,7 @@ class TestCompass : public graphics::Page
 public:
     TestCompass();
 
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
     bool event(const int event, base::Object* const obj = nullptr) override;
 
     static const int MAX_TRACKS = 8;
@@ -30,19 +30,19 @@ private:
     bool onToggleCenteredTestCompass();
     bool onToggleViews();
 
-    LCreal heading;             // our gauge position (inches)
+    double heading;             // our gauge position (inches)
     SendData headingSD;
     SendData headingCRSD;       // compass rose send data
     SendData headingBRGSD;      // our bearing's heading value
     SendData isCenteredCRSD;    // compass rose is centered flag
     SendData isCenteredBRGSD;   // bearing is centered flag
-    LCreal  headingRate;        // rate which are going (up or down)
-    LCreal bearing;             // goes to our bearing pointer
+    double  headingRate;        // rate which are going (up or down)
+    double bearing;             // goes to our bearing pointer
     SendData bearingBRGSD;
     SendData bearingROSD;
-    LCreal bearingRate;
+    double bearingRate;
     SendData headingROSD;       // our heading readout
-    LCreal range;               // our range
+    double range;               // our range
     SendData rangeSD;
     SendData rangeROSD;
 
@@ -51,7 +51,7 @@ private:
     struct mySymbols {
         double     x;       // X position or latitude
         double     y;       // Y position or longitude
-        LCreal     hdg;     // heading (degs)
+        double     hdg;     // heading (degs)
         int       type;     // numeric type (for looking up in slottable)
         char     id[8];     // name of the airport (up to 8 characters)
     };

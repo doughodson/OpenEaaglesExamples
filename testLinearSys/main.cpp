@@ -11,7 +11,7 @@ int main(int, char**)
    enum { PULSE, STEP, RAMP };
    const unsigned int inputType = STEP;
    const unsigned int RATE = 100;
-   const LCreal A = 10.0f;
+   const double A = 10.0f;
 
    linearsystem::Sz1 filter;
 
@@ -31,12 +31,12 @@ int main(int, char**)
       return EXIT_FAILURE;
    }
 
-   LCreal time = 0;
-   LCreal deltaTime = 1.0 / static_cast<LCreal>(RATE);
+   double time = 0;
+   double deltaTime = 1.0 / static_cast<double>(RATE);
 
    for (unsigned int i = 0; i < RATE; i++) {
       time += deltaTime;
-      LCreal input = 0.0;
+      double input = 0.0;
       if (inputType == PULSE && i < 1) {
          input = 1.0f;
       }
@@ -46,8 +46,8 @@ int main(int, char**)
       else if (inputType == RAMP) {
          input = time;
       }
-      LCreal out = filter.g(input);
-      LCreal ee = lcExp( -time * A );
+      double out = filter.g(input);
+      double ee = lcExp( -time * A );
       std::cout << time << ", " << input << ", " << (1.0 -ee) << ", " << out << std::endl;
    }
 

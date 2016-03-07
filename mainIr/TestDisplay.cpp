@@ -126,7 +126,7 @@ bool TestDisplay::onPreRelKey()
 // Increase range key
 bool TestDisplay::onIncRngKey()
 {
-   LCreal rng = range * 2.0;
+   double rng = range * 2.0;
    if (rng < 200) range =  rng;
    return true;
 }
@@ -134,7 +134,7 @@ bool TestDisplay::onIncRngKey()
 // Decrease range key
 bool TestDisplay::onDecRngKey()
 {
-   LCreal rng = range / 2.0;
+   double rng = range / 2.0;
    if (rng >= 2.0) range = rng;
    return true;
 }
@@ -152,7 +152,7 @@ bool TestDisplay::onStepOwnshipKey()
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void TestDisplay::updateData(const LCreal dt)
+void TestDisplay::updateData(const double dt)
 {
     // Send flight data to readouts
     if (getOwnship() != nullptr) {
@@ -182,10 +182,10 @@ void TestDisplay::updateData(const LCreal dt)
 //------------------------------------------------------------------------------
 // maintainAirTrackSymbols() -- maintain the air track symbology
 //------------------------------------------------------------------------------
-void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng)
+void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng)
 {
    int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
-   LCreal rng2 = (rng * rng);          // Range squared (KM * KM)
+   double rng2 = (rng * rng);          // Range squared (KM * KM)
 
    simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
    int nNewTracks = 0;                         // Number of new tracks
@@ -213,8 +213,8 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
          base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          simulation::Player* p = static_cast<simulation::Player*>(pair->object());
          osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
-         LCreal x = rpos[0] * base::Distance::M2NM;
-         LCreal y = rpos[1] * base::Distance::M2NM;
+         double x = rpos[0] * base::Distance::M2NM;
+         double y = rpos[1] * base::Distance::M2NM;
 
          simulation::Weapon* weapon = dynamic_cast<simulation::Weapon*>(p);
          if (weapon && (weapon->isMode(simulation::Player::PRE_RELEASE) || weapon->isActive())) {

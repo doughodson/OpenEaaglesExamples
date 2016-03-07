@@ -18,12 +18,12 @@ class TestAlt : public graphics::Page
 public:
     TestAlt();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal alt;             // our heading
+    double alt;             // our heading
     SendData altSD;
-    LCreal  altRate;        // rate which are going (up or down)
+    double  altRate;        // rate which are going (up or down)
     SendData altROSD;
 };
 

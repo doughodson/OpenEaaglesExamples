@@ -19,15 +19,15 @@ class TestGMeterDial : public graphics::Page
 public:
     TestGMeterDial();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal currGs;      // current G's
+    double currGs;      // current G's
     SendData currGsSD;
     SendData currGsROSD;
-    LCreal gRate;
-    LCreal timer;       // our timer for resetting the g meter
-    LCreal timerRate;
+    double gRate;
+    double timer;       // our timer for resetting the g meter
+    double timerRate;
 };
 
 } // end of demo namespace

@@ -37,10 +37,10 @@ public:
     simulation::Simulation* getSimulation();
     simulation::Station* getStation();
 
-    virtual void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const LCreal rng);
+    virtual void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng);
 
     bool event(const int event, base::Object* const obj = nullptr) override;
-    void updateData(const LCreal dt = 0.0) override;
+    void updateData(const double dt = 0.0) override;
 
 private:
     // Key event handlers
@@ -53,7 +53,7 @@ private:
     bool onDecRngKey();
     bool onStepOwnshipKey();
 
-    LCreal          range;          // SD range
+    double          range;          // SD range
 
     SendData        headingSD;
     SendData        rangeSD;

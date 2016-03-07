@@ -72,7 +72,7 @@ void SimStation::reset()
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void SimStation::updateTC(const LCreal dt)
+void SimStation::updateTC(const double dt)
 {
     // First update the simulation
     BaseClass::updateTC(dt);

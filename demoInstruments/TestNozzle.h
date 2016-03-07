@@ -18,13 +18,13 @@ class TestNozzle : public graphics::Page
 public:
     TestNozzle();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal nozPos;
+    double nozPos;
     SendData nozPosSD;
     SendData nozPosROSD;       // sends our readout data (to a numeric readout)
-    LCreal  nozRate;
+    double  nozRate;
 };
 
 } // end of demo namespace

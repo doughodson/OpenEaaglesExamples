@@ -321,7 +321,7 @@ void MapDisplay::buttonEvent(const int b)
 // ----------------------------------------------------------------------------
 // updateData() - update background data
 // ----------------------------------------------------------------------------
-void MapDisplay::updateData(const LCreal dt)
+void MapDisplay::updateData(const double dt)
 {
    BaseClass::updateData(dt);
 

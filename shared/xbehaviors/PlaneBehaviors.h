@@ -39,7 +39,7 @@ protected:
 
    unsigned int voteOnIncomingMissile;
    unsigned int voteOnCriticalAltitude;
-   LCreal criticalAltitude;
+   double criticalAltitude;
 };
 
 
@@ -53,11 +53,11 @@ class PlaneFire : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneFire, PlaneBehaviorBase)
 public:
    PlaneFire();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 protected:
    bool setSlotMaxDistance(const base::Distance* const msg);
 private:
-   LCreal maxDistance;
+   double maxDistance;
 };
 
 class PlaneFlyStraight : public PlaneBehaviorBase
@@ -65,7 +65,7 @@ class PlaneFlyStraight : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneFlyStraight, PlaneBehaviorBase)
 public:
    PlaneFlyStraight();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
    double holdingAltitude;
 };
@@ -75,7 +75,7 @@ class PlaneFollowEnemy : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneFollowEnemy, PlaneBehaviorBase)
 public:
    PlaneFollowEnemy();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 };
 
 class PlaneTurn : public PlaneBehaviorBase
@@ -83,7 +83,7 @@ class PlaneTurn : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneTurn, PlaneBehaviorBase)
 public:
    PlaneTurn();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
    //double prevAlt;
 };
@@ -93,7 +93,7 @@ class PlaneSlowTurn : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneSlowTurn, PlaneBehaviorBase)
 public:
    PlaneSlowTurn();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
    //double prevAlt;
 };
@@ -103,7 +103,7 @@ class PlaneClimb : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneClimb, PlaneBehaviorBase)
 public:
    PlaneClimb();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
 };
 
@@ -112,7 +112,7 @@ class PlaneDive : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneDive, PlaneBehaviorBase)
 public:
    PlaneDive();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
 };
 
@@ -121,7 +121,7 @@ class PlaneTrim : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneTrim, PlaneBehaviorBase)
 public:
    PlaneTrim();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
    double holdingAltitude;
    int count;
@@ -132,7 +132,7 @@ class PlaneRoll : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneRoll, PlaneBehaviorBase)
 public:
    PlaneRoll();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
 };
 
@@ -141,7 +141,7 @@ class PlaneBarrelRoll : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneBarrelRoll, PlaneBehaviorBase)
 public:
    PlaneBarrelRoll();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
 };
 
@@ -151,7 +151,7 @@ class PlaneLoop : public PlaneBehaviorBase
    DECLARE_SUBCLASS(PlaneLoop, PlaneBehaviorBase)
 public:
    PlaneLoop();
-   base::ubf::Action* genAction(const base::ubf::State* const state, const LCreal dt) override;
+   base::ubf::Action* genAction(const base::ubf::State* const state, const double dt) override;
 private:
    bool keepGoing;
 };

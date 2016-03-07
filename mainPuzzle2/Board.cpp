@@ -126,7 +126,7 @@ void Board::deleteData()
 //------------------------------------------------------------------------------
 // updateData() -- Update non-time critical (background) stuff here
 //------------------------------------------------------------------------------
-void Board::updateData(const LCreal dt)
+void Board::updateData(const double dt)
 {
    BaseClass::updateData(dt);
 
@@ -197,8 +197,8 @@ unsigned int Board::setupBlockGraphics()
                      blocks[nblocks] = g->clone();
                      blocks[nblocks]->container(this);
                      blockId[nblocks] = b->getReferenceID();
-                     xp[nblocks] = static_cast<LCreal>(b->getX());
-                     yp[nblocks] = static_cast<LCreal>(b->getY());
+                     xp[nblocks] = static_cast<double>(b->getX());
+                     yp[nblocks] = static_cast<double>(b->getY());
                      xd[nblocks] = 0;
                      yd[nblocks] = 0;
                      nblocks++;
@@ -232,7 +232,7 @@ void Board::clearGraphics()
 //------------------------------------------------------------------------------
 // Updates the solution path graphics
 //------------------------------------------------------------------------------
-void Board::updateSolutionPath(const LCreal dt)
+void Board::updateSolutionPath(const double dt)
 {
    if (movingFlg) {
       // Wait while we move between states

@@ -29,8 +29,8 @@ public:
    bool setSlotStr(const base::String* const);
 
    void reset() override;
-   void updateTC(const LCreal dt = 0.0) override;
-   void updateData(const LCreal dt = 0.0) override;
+   void updateTC(const double dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
 
 protected:
 

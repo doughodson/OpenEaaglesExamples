@@ -32,8 +32,8 @@ class TdElevPtr : public graphics::Graphic
 public:
    TdElevPtr();
 
-   LCreal getElevation() const;     // degs
-   bool setElevation(const LCreal); // degs
+   double getElevation() const;     // degs
+   bool setElevation(const double); // degs
 
    void draw() override;
 
@@ -42,7 +42,7 @@ public:
 private:
    bool onUpdateValue(const base::Number* const);
 
-   LCreal elev;  // (degs)
+   double elev;  // (degs)
 };
 
 } // End xPanel namespace

@@ -81,7 +81,7 @@ void TestAdi2::copyData(const TestAdi2& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestAdi2::updateData(const LCreal dt)
+void TestAdi2::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 
@@ -148,9 +148,9 @@ void TestAdi2::updateData(const LCreal dt)
 
 
     // we'll assume an aoa of 2.5degress
-    LCreal aoaRad = static_cast<LCreal>(5.0 * base::Angle::D2RCC);
-    LCreal rollRad = static_cast<LCreal>(roll * base::Angle::D2RCC);
-    LCreal tempAoaDiff = aoaRad * lcCos(rollRad);
+    double aoaRad = static_cast<double>(5.0 * base::Angle::D2RCC);
+    double rollRad = static_cast<double>(roll * base::Angle::D2RCC);
+    double tempAoaDiff = aoaRad * lcCos(rollRad);
 
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;
@@ -162,8 +162,8 @@ void TestAdi2::updateData(const LCreal dt)
     //std::cout << "FPM Y = " << fpmY << std::endl;
     // convert to screen coordinates
 
-    LCreal ratio = 20/(PI/2);
-    //LCreal myTest = (aoaRad * lcCos(rollRad)) * ratio;
+    double ratio = 20/(PI/2);
+    //double myTest = (aoaRad * lcCos(rollRad)) * ratio;
 
     cdmX *= ratio;
     cdmY *= ratio;

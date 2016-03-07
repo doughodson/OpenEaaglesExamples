@@ -73,7 +73,7 @@ void AdiDisplay::copyData(const AdiDisplay& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void AdiDisplay::updateData(const LCreal dt)
+void AdiDisplay::updateData(const double dt)
 {
    // Update base classes stuff
    BaseClass::updateData(dt);

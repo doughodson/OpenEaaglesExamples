@@ -27,7 +27,7 @@ public:
 
    void updateShootList(const bool step = false) override;      // Updates the shoot list
 
-   void updateTC(const LCreal dt = 0.0) override;
+   void updateTC(const double dt = 0.0) override;
 
    void reset() override;
 
@@ -35,7 +35,7 @@ protected:
    // process() subfunction, tells computer if we are tracking a target or not
    virtual bool processIr();
 
-   void process(const LCreal dt) override;
+   void process(const double dt) override;
 
 private:
    bool uncaged;      // flag that indicates whether gimbal is free to track target

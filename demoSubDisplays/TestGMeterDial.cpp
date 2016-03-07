@@ -39,7 +39,7 @@ void TestGMeterDial::copyData(const TestGMeterDial& org, const bool)
 //------------------------------------------------------------------------------
 // updateData() -- update non time-critical stuff here
 //------------------------------------------------------------------------------
-void TestGMeterDial::updateData(const LCreal dt)
+void TestGMeterDial::updateData(const double dt)
 {
     currGs += (gRate * dt);
     if (currGs > 11) {

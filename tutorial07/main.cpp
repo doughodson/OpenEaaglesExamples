@@ -33,8 +33,8 @@ static void timerFunc(int)
    glutTimerFunc(millis, timerFunc, 1);
 
    base::Timer::updateTimers(static_cast<float>(dt));
-   graphics::Graphic::flashTimer(static_cast<LCreal>(dt));
-   glutDisplay->tcFrame(static_cast<LCreal>(dt));
+   graphics::Graphic::flashTimer(static_cast<double>(dt));
+   glutDisplay->tcFrame(static_cast<double>(dt));
 }
 
 // our class factory

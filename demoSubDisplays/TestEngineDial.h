@@ -19,13 +19,13 @@ class TestEngineDial : public graphics::Page
 public:
     TestEngineDial();
 
-    void updateData(const LCreal dt = 0) override;
+    void updateData(const double dt = 0) override;
 
 private:
-    LCreal engineRotation;          // our engine rpm position (1 - 100)
+    double engineRotation;          // our engine rpm position (1 - 100)
     SendData engineRotationSD;
     SendData engineReadoutSD;       // sends our readout data (to a numeric readout)
-    LCreal  engineRate;             // rate which are going (up or down)
+    double  engineRate;             // rate which are going (up or down)
 };
 
 } // end of demo namespace

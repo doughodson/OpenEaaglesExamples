@@ -24,7 +24,7 @@ class SimIoHandler : public base::IoHandler
 public:
    SimIoHandler();
 
-   void inputDevices(const LCreal dt) override;
+   void inputDevices(const double dt) override;
 
 protected:
    void clear() override;

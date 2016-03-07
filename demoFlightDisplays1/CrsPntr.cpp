@@ -75,7 +75,7 @@ void CrsPntr::deleteData()
 //------------------------------------------------------------------------------
 // set functions
 //------------------------------------------------------------------------------
-bool CrsPntr::setCdiDots(const LCreal newCDD)
+bool CrsPntr::setCdiDots(const double newCDD)
 {
     cdiDots = newCDD;
     return true;
@@ -87,7 +87,7 @@ bool CrsPntr::setNumCdiDots(const int newNCD)
     return true;
 }
 
-bool CrsPntr::setNumInches(const LCreal newNI)
+bool CrsPntr::setNumInches(const double newNI)
 {
     inches = newNI;
     return true;
@@ -105,7 +105,7 @@ bool CrsPntr::setShowCrsPntr(const bool newSCP)
     return true;
 }
 
-bool CrsPntr::setToFrom(const LCreal newTF)
+bool CrsPntr::setToFrom(const double newTF)
 {
     toFrom = newTF;
     return true;
@@ -168,7 +168,7 @@ void CrsPntr::drawFunc()
 
     if (showCdi) {
         // figure how far to translate
-        LCreal scale = inchesPerDot * cdiDots;
+        double scale = inchesPerDot * cdiDots;
         // limit ourself to the size of the scale
         if (scale > 0.88) scale = 0.88f;
         if (scale < -0.88) scale = -0.88f;
@@ -217,7 +217,7 @@ void CrsPntr::drawFunc()
 //------------------------------------------------------------------------------
 // updateData() - update non time-critical threads here
 //------------------------------------------------------------------------------
-void CrsPntr::updateData(const LCreal dt)
+void CrsPntr::updateData(const double dt)
 {
     // update base class first
     BaseClass::updateData(dt);

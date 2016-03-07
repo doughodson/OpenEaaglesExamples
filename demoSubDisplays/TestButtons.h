@@ -20,7 +20,7 @@ public:
 
    enum { REGULAR = 0, PUSH_MAINTAINED, PUSH_MOMENTARY, ROTARY, KNOB, SOLENOID };
 
-   void updateData(const LCreal dt = 0.0) override;
+   void updateData(const double dt = 0.0) override;
    bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
@@ -34,7 +34,7 @@ private:
     bool solenoidDown();
 
     int whichButton;
-    LCreal value;
+    double value;
 
     SendData whichButtonSD;
     SendData valueSD;

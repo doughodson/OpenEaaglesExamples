@@ -52,7 +52,7 @@ void Echo::reset()
 //------------------------------------------------------------------------------
 // Send and receive test messages
 //------------------------------------------------------------------------------
-void Echo::updateData(const LCreal dt)
+void Echo::updateData(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);

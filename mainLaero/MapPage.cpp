@@ -313,8 +313,8 @@ void MapPage::drawFunc()
             glPushMatrix();
             glBegin(GL_LINES);
                int latIdx = 0;
-               int startLat = nint(static_cast<LCreal>(southernLat) - 1);
-               const int endLat   = nint(static_cast<LCreal>(northernLat) + 1);
+               int startLat = nint(static_cast<double>(southernLat) - 1);
+               const int endLat   = nint(static_cast<double>(northernLat) + 1);
                while (startLat < endLat) {
                   GLfloat refLatDist = static_cast<GLfloat>(refLat - startLat);
                   if (latIdx < MAX_READOUTS) {
@@ -338,8 +338,8 @@ void MapPage::drawFunc()
             glPushMatrix();
             glBegin(GL_LINES);
                int lonIdx = 0;
-               int startLon = nint(static_cast<LCreal>(westernLon) - 1);
-               const int endLon   = nint(static_cast<LCreal>(easternLon) + 1);
+               int startLon = nint(static_cast<double>(westernLon) - 1);
+               const int endLon   = nint(static_cast<double>(easternLon) + 1);
                while (startLon < endLon) {
                   GLfloat refLonDist = static_cast<GLfloat>(refLon - startLon);
                   if (lonIdx < MAX_READOUTS) {
@@ -367,7 +367,7 @@ void MapPage::drawFunc()
 //------------------------------------------------------------------------------
 // updateData() -- update background data
 //------------------------------------------------------------------------------
-void MapPage::updateData(const LCreal dt)
+void MapPage::updateData(const double dt)
 {
     BaseClass::updateData(dt);
 

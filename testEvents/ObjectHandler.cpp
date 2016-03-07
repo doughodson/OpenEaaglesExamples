@@ -64,7 +64,7 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
         send("objfloat", UPDATE_VALUE, floatVal, floatSD);
         double doubleVal = obj->getDouble();
         send("objdouble", UPDATE_VALUE, doubleVal, doubleSD);
-        LCreal realVal = obj->getReal();
+        double realVal = obj->getReal();
         send("objreal", UPDATE_VALUE, realVal, realSD);
         const char* myChar = obj->getChar();
         send("objascii", UPDATE_VALUE, myChar, charSD);

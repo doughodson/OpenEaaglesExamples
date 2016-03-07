@@ -96,14 +96,14 @@ void TestOne::reset()
     nTrails = 0;
     if (iangle != nullptr) {
         base::Radians radians;
-        setStartAngle(static_cast<LCreal>(radians.convert(*iangle)));
+        setStartAngle(static_cast<double>(radians.convert(*iangle)));
     }
 }
 
 //------------------------------------------------------------------------------
 // setStartAngle() -- set starting angle
 //------------------------------------------------------------------------------
-void TestOne::setStartAngle(const LCreal radians)
+void TestOne::setStartAngle(const double radians)
 {
     sangle = radians;
     dx = lcCos(sangle) * speed;
@@ -113,7 +113,7 @@ void TestOne::setStartAngle(const LCreal radians)
 //------------------------------------------------------------------------------
 // setSpeed() -- set speed
 //------------------------------------------------------------------------------
-void TestOne::setSpeed(const LCreal xx)
+void TestOne::setSpeed(const double xx)
 {
     speed = xx;
     dx = lcCos(sangle) * speed;
@@ -124,7 +124,7 @@ void TestOne::setSpeed(const LCreal xx)
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
 //------------------------------------------------------------------------------
-void TestOne::updateTC(const LCreal dt)
+void TestOne::updateTC(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateTC(dt);
@@ -159,7 +159,7 @@ void TestOne::updateTC(const LCreal dt)
 //------------------------------------------------------------------------------
 // updateData() -- update non-time critical stuff here
 //------------------------------------------------------------------------------
-void TestOne::updateData(const LCreal dt)
+void TestOne::updateData(const double dt)
 {
     // Update base classes stuff
     BaseClass::updateData(dt);
@@ -247,7 +247,7 @@ bool TestOne::setAngle(base::Angle* saobj)
 {
     if (saobj != nullptr) {
         base::Radians radians;
-        setStartAngle(static_cast<LCreal>(radians.convert(*saobj)));
+        setStartAngle(static_cast<double>(radians.convert(*saobj)));
         iangle = saobj;
         iangle->ref();
     }

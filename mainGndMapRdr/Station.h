@@ -21,7 +21,7 @@ class TestStation : public simulation::Station
 public:
     TestStation();
 
-    void updateTC(const LCreal dt = 0.0) override;
+    void updateTC(const double dt = 0.0) override;
     void reset() override;
 
 private:
