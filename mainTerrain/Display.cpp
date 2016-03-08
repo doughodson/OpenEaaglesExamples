@@ -428,7 +428,7 @@ void Display::updateData(const double dt)
          greenTable[18] = new base::Hsva(  120.0f,  1.0f,  1.0f,     1.0f );  
 
          std::cout << "start image generation" << std::endl;
-         double start = getComputerTime();
+         double start = base::getComputerTime();
 
          for (int icol = 0; icol < NUM_COLUMNS; icol++) {
 
@@ -526,7 +526,7 @@ void Display::updateData(const double dt)
             }
          }
 
-         double end = getComputerTime();
+         double end = base::getComputerTime();
          double dtime = (end - start);
          std::cout << "Image finished: time(s) = " << dtime << ", per line(us) = "
                    << (dtime/static_cast<double>(NUM_COLUMNS))*1000000.0 << std::endl;
@@ -564,7 +564,7 @@ void Display::drawFunc()
          glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
          glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-         double start = getComputerTime();
+         double start = base::getComputerTime();
 
          glTexImage2D(GL_TEXTURE_2D, 0, PIXEL_SIZE, imgWidth, imgHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 
@@ -584,7 +584,7 @@ void Display::drawFunc()
 
          glEnd();
 
-         double end = getComputerTime();
+         double end = base::getComputerTime();
          double dtime = (end - start);
          std::cout << "glTexImage2D() dtime = " << dtime << std::endl;
          glDisable(GL_TEXTURE_2D);
@@ -596,11 +596,11 @@ void Display::drawFunc()
 
          glRasterPos2f(0.0, 0.0);
 
-         double start = getComputerTime();
+         double start = base::getComputerTime();
 
          glDrawPixels(imgWidth, imgHeight, GL_RGB, GL_UNSIGNED_BYTE, image);
 
-         double end = getComputerTime();
+         double end = base::getComputerTime();
          double dtime = (end - start);
          std::cout << "glDrawPixels() dtime = " << dtime << std::endl;
       }

@@ -58,7 +58,7 @@ long Application::onTimeout(FXObject*, FXSelector, void*)
    // ---
    // compute delta time
    // ---
-   double time = getComputerTime(); // Current time
+   double time = base::getComputerTime(); // Current time
    static double time0 = time;      // N-1 time
    double dt = time - time0;
    if (dt < 0) {

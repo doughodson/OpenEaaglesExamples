@@ -169,7 +169,7 @@ void TestIoHandler::inputDevices(const double dt)
       {  // Process Roll Input
          double ai = 0;
          inData->getAnalogInput(ROLL_AI, &ai);
-         double aiLim = alim(ai, 1.0f);
+         double aiLim = base::alim(ai, 1.0f);
          if (ap != nullptr) ap->setControlStickRollInput(aiLim);
          else av->setControlStickRollInput(aiLim);
       }
@@ -177,7 +177,7 @@ void TestIoHandler::inputDevices(const double dt)
       {  // Process Pitch Input
          double ai = 0;
          inData->getAnalogInput(PITCH_AI, &ai);
-         double aiLim = alim(ai, 1.0f);
+         double aiLim = base::alim(ai, 1.0f);
          if (ap != nullptr) ap->setControlStickPitchInput(aiLim);
          else av->setControlStickPitchInput(aiLim);
       }
@@ -185,7 +185,7 @@ void TestIoHandler::inputDevices(const double dt)
       {  // Process Rudder Input
          double ai = 0;
          inData->getAnalogInput(RUDDER_AI, &ai);
-         double aiLim = alim(ai, 1.0f);
+         double aiLim = base::alim(ai, 1.0f);
          av->setRudderPedalInput(aiLim);
       }
 

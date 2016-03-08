@@ -516,7 +516,7 @@ bool Pfd::getNav1Id(const int index, char* newString)
 {
     bool ok = false;
     if (nav1Id[index] != 0) {
-        lcStrcpy(newString, sizeof(newString), &nav1Id[index]);
+        base::lcStrcpy(newString, sizeof(newString), &nav1Id[index]);
         ok = true;
     }
     return ok;
@@ -525,7 +525,7 @@ bool Pfd::getNav2Id(const int index, char* newString)
 {
     bool ok = false;
     if (nav2Id[index] != 0) {
-        lcStrcpy(newString, sizeof(newString), &nav2Id[index]);
+        base::lcStrcpy(newString, sizeof(newString), &nav2Id[index]);
         ok = true;
     }
     return ok;

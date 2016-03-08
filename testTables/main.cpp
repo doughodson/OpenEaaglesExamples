@@ -349,7 +349,7 @@ int main(int argc, char* argv[])
    // ---
    // Call the test function for this LFI table type
    // ---
-   double startTime = getComputerTime();
+   double startTime = base::getComputerTime();
    unsigned int cnt = 0;
    unsigned int n = 1;
    if (tflg) n = TIMING_LOOPS;
@@ -372,7 +372,7 @@ int main(int argc, char* argv[])
    // Timing data
    // ---
    if (tflg) {
-      double endTime = oe::getComputerTime();
+      double endTime = base::getComputerTime();
       double deltaTime = endTime - startTime;
       double perFrameTime = deltaTime/static_cast<double>(TIMING_LOOPS);
       std::cout << "Total Time = " << deltaTime << " for " << TIMING_LOOPS << " frames." << std::endl;

@@ -34,7 +34,7 @@ static void updateDataCB(int)
    glutTimerFunc(millis, updateDataCB, 1);
 
    // current time
-   const double time = getComputerTime();
+   const double time = base::getComputerTime();
 
    // N-1 Time
    static double time0 = time;
@@ -96,11 +96,11 @@ int main(int argc, char* argv[])
    // resetting the system will load the data files
 
    std::cout << "starting loading files --" << std::endl;
-   const double start = getComputerTime();
+   const double start = base::getComputerTime();
 
    testStation->reset();
 
-   const double end = getComputerTime();
+   const double end = base::getComputerTime();
    const double dtime = (end - start);
    std::cout << "finished loading files: time(s) = " << dtime << std::endl;
 

@@ -91,7 +91,7 @@ static void updateDataCB(int)
    glutTimerFunc(millis, updateDataCB, 1);
 
    // current time
-   double time = getComputerTime();
+   double time = base::getComputerTime();
 
    // N-1 Time
    static double time0 = time;

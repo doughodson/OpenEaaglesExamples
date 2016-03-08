@@ -66,7 +66,7 @@ void Echo::updateData(const double dt)
             buffer[n] = 0;
             std::cout << "RECV: " << buffer << std::endl;
             // And send it right back to the client
-            oe::lcSleep(1000);
+            base::lcSleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {
                std::cout << "SENT: " << buffer << std::endl << std::endl;

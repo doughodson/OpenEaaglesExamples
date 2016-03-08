@@ -162,7 +162,7 @@ void TestAdi2::updateData(const double dt)
     //std::cout << "FPM Y = " << fpmY << std::endl;
     // convert to screen coordinates
 
-    double ratio = 20/(PI/2);
+    double ratio = 20/(base::PI/2);
     //double myTest = (aoaRad * std::cos(rollRad)) * ratio;
 
     cdmX *= ratio;

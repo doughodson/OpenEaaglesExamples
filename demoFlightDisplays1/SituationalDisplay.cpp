@@ -201,7 +201,7 @@ bool SituationalDisplay::getNav1Id(const int index, char* newString)
 {
     bool ok = false;
     if (newString != nullptr && nav1Id[index] != 0) {
-        lcStrcpy(newString, sizeof(newString), &nav1Id[index]);
+        base::lcStrcpy(newString, sizeof(newString), &nav1Id[index]);
         ok = true;
     }
     return ok;
@@ -210,7 +210,7 @@ bool SituationalDisplay::getNav2Id(const int index, char* newString)
 {
     bool ok = false;
     if (newString != nullptr && nav2Id[index] != 0) {
-        lcStrcpy(newString, sizeof(newString), &nav2Id[index]);
+        base::lcStrcpy(newString, sizeof(newString), &nav2Id[index]);
         ok = true;
     }
     return ok;

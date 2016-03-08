@@ -86,11 +86,11 @@ int main(int argc, char* argv[])
 
    // resetting the system will load the data files
    std::cout << "starting loading files --" << std::endl;
-   double start = getComputerTime();
+   double start = base::getComputerTime();
 
    display->reset();
 
-   double end = getComputerTime();
+   double end = base::getComputerTime();
    double dtime = (end - start);
    std::cout << "finished loading files: time(s) = " << dtime << std::endl;
 

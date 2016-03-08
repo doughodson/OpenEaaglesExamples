@@ -73,7 +73,7 @@ TestCompass::TestCompass()
             myTracks[i].y = trkY;
             myTracks[i].hdg = hdg;
             myTracks[i].type = myType;
-            lcStrcpy(myTracks[i].id, sizeof(myTracks[i].id), "");
+            base::lcStrcpy(myTracks[i].id, sizeof(myTracks[i].id), "");
             trkX += 6.0;
             trkY -= 6.0;
             hdg += 45.0f;
@@ -95,9 +95,9 @@ TestCompass::TestCompass()
             myAP[i].hdg = 0;
             myAP[i].type = myType;
             if (i < 10) {
-                lcStrcpy(myAP[i].id, sizeof(myAP[i].id), apNames[i]);
+                base::lcStrcpy(myAP[i].id, sizeof(myAP[i].id), apNames[i]);
             }
-            else lcStrcpy(myAP[i].id, sizeof(myAP[i].id), "");
+            else base::lcStrcpy(myAP[i].id, sizeof(myAP[i].id), "");
             apLat += 0.1;
             //apLon += 0.1;
             if (myType < 4) myType++;
@@ -117,9 +117,9 @@ TestCompass::TestCompass()
             myNA[i].hdg = 0;
             myNA[i].type = myType;
             if (i < 10) {
-                lcStrcpy(myNA[i].id, sizeof(myNA[i].id), navNames[i]);
+                base::lcStrcpy(myNA[i].id, sizeof(myNA[i].id), navNames[i]);
             }
-            else lcStrcpy(myNA[i].id, sizeof(myNA[i].id), "");
+            else base::lcStrcpy(myNA[i].id, sizeof(myNA[i].id), "");
             //navLat += 0.1;
             navLon += 0.1;
             if (myType < 4) myType++;

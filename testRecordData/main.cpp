@@ -64,7 +64,7 @@ static void updateDataCB(int msecs)
    glutTimerFunc(msecs, updateDataCB, msecs);
 
    // Current time
-   double time = getComputerTime();
+   double time = base::getComputerTime();
 
    // Compute delta time
    static double time0 = time;   // N-1 Time

@@ -8,6 +8,7 @@
 #include "openeaagles/graphics/Material.h"
 #include "openeaagles/base/Rng.h"
 #include "openeaagles/base/Number.h"
+#include "openeaagles/base/util/string.h"
 
 #include <cstring>
 
@@ -39,7 +40,7 @@ Display::Display()
     myDouble = 0.0;
     doubleSD.empty();
     obj = new TestObject();
-    lcStrcpy(myChar, sizeof(myChar), "ASCII");
+    base::lcStrcpy(myChar, sizeof(myChar), "ASCII");
     charSD.empty();
     myColor = new base::Color();
     myColor->setRed(0.0);
@@ -51,10 +52,10 @@ Display::Display()
     osg::Vec4 diffColor[MAX_MATERIALS];
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator
-    double x = getComputerTime();
+    double x = base::getComputerTime();
     x -= static_cast<int>(x);
     x *= 10;
-    int seed = nint(static_cast<double>(x));
+    int seed = base::nint(static_cast<double>(x));
 
     // go through x amount of numbers before we get our next random number
     // this will allow for some pseudo-randomness.
@@ -120,7 +121,7 @@ void Display::copyData(const Display& org, const bool cc)
         rotationsSD[i].empty();
     }
 
-    lcStrcpy(myChar, sizeof(myChar), org.myChar);
+    base::lcStrcpy(myChar, sizeof(myChar), org.myChar);
 
     counter = org.counter;
 }
@@ -166,8 +167,8 @@ void Display::updateData(const double dt)
         myDouble += 0.00002f;
         if (myDouble > 2) myDouble = 0;
 
-        if (std::strcmp(myChar, "ASCII") == 0) lcStrcpy(myChar, sizeof(myChar), "TEXT");
-        else lcStrcpy(myChar, sizeof(myChar), "ASCII");
+        if (std::strcmp(myChar, "ASCII") == 0) base::lcStrcpy(myChar, sizeof(myChar), "TEXT");
+        else base::lcStrcpy(myChar, sizeof(myChar), "ASCII");
 
         obj->setBoolean(!obj->getBoolean());
         obj->setInteger(obj->getInteger() + 1);

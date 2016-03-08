@@ -99,14 +99,14 @@ int main(int argc, char* argv[])
    // create time critical thread
    station->createTimeCriticalProcess();
    // short pause to allow os to startup thread
-   lcSleep(2000);
+   base::lcSleep(2000);
 
    // calc delta time for background thread
    const double dt = 1.0/static_cast<double>(bgRate);
 
    // system Time of Day
    double simTime = 0.0;                         // Simulator time reference
-   const double startTime = getComputerTime();   // Time of day (sec) run started
+   const double startTime = base::getComputerTime();   // Time of day (sec) run started
 
    int k = 0;
    std::cout << "Starting background main loop ..." << std::endl;
@@ -116,14 +116,14 @@ int main(int argc, char* argv[])
       station->updateData( static_cast<double>(dt) );
 
       simTime += dt;                             // time of next frame
-      const double timeNow = getComputerTime();  // time now
+      const double timeNow = base::getComputerTime();  // time now
       const double elapsedTime = timeNow - startTime;
       const double nextFrameStart = simTime - elapsedTime;
       const int sleepTime = static_cast<int>(nextFrameStart*1000.0);
 
       // wait for the next frame
       if (sleepTime > 0)
-         lcSleep(sleepTime);
+         base::lcSleep(sleepTime);
 
       std::cout << ".";
       k += 1;

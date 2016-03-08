@@ -138,7 +138,7 @@ void DspRadar::drawFunc()
          for (unsigned int j = 0; j < nv; j++) {
             double y = 2.0f * static_cast<double>(j)/sy;
 
-            double vclos0 = alim(c0[j]/100.0f, 1.0f);
+            double vclos0 = base::alim(c0[j]/100.0f, 1.0f);
             hsv[0] = 120.0f - 120.0f * vclos0;
             hsv[1] = 1.0f;
             hsv[2] = s0[j];
@@ -147,7 +147,7 @@ void DspRadar::drawFunc()
             lcColor3v(rgb.ptr());
             glVertex3d(x0, y, 0.0);
 
-            double vclos1 = alim(c1[j]/100.0f, 1.0f);
+            double vclos1 = base::alim(c1[j]/100.0f, 1.0f);
             hsv[0] = 120.0f - 120.0f * vclos1;
             hsv[1] = 1.0f;
             hsv[2] = s1[j];

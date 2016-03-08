@@ -29,7 +29,7 @@ static void timerCB(int)
    glutTimerFunc(millis, timerCB, 1);
 
    // current time
-   const double time = getComputerTime();
+   const double time = base::getComputerTime();
 
    // N-1 Time
    static double time0 = time;

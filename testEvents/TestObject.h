@@ -9,6 +9,7 @@
 #define __oe_test_TestObject_H__
 
 #include "openeaagles/base/Object.h"
+#include "openeaagles/base/util/string.h"
 
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
@@ -32,7 +33,7 @@ public:
     void setFloat(const float x)        { floatVal = x;  }
     void setDouble(const double x)      { doubleVal = x; }
     void setReal(const double x)        { realVal = x;   }
-    void setChar(const char* x)         { lcStrcpy(charVal, sizeof(charVal), x); }
+    void setChar(const char* x)         { base::lcStrcpy(charVal, sizeof(charVal), x); }
 
     // get functions
     bool getBoolean()                   { return boolVal;   }

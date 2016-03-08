@@ -352,7 +352,7 @@ base::ubf::Action* PlaneClimb::genAction(const base::ubf::State* const state, co
       double pitch = -1;
       action = new PlaneAction();
 
-      if(pState->getPitch() < PI/2) {
+      if(pState->getPitch() < base::PI/2) {
          pitch=1;
       }
       action->setPitch(pitch);
@@ -382,7 +382,7 @@ base::ubf::Action* PlaneDive::genAction(const base::ubf::State* const state, con
       double pitch;
       action = new PlaneAction();
 
-      if(pState->getPitch() > -oe::PI/2) {
+      if(pState->getPitch() > -base::PI/2) {
          pitch=-1;
       } else {
          pitch = 1;

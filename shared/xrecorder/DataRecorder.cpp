@@ -59,9 +59,9 @@ bool DataRecorder::recordMyData(const base::Object* objs[4], const double values
 
    // new Marker message
    pb::MyDataMsg* myDataMsg = msg->MutableExtension( pb::my_data_msg );
-   myDataMsg->set_fee( static_cast<unsigned int>(oe::nintd(values[0])) );
-   myDataMsg->set_fi( static_cast<unsigned int>(oe::nintd(values[1])) );
-   myDataMsg->set_fo( static_cast<unsigned int>(oe::nintd(values[2])) );
+   myDataMsg->set_fee( static_cast<unsigned int>(base::nintd(values[0])) );
+   myDataMsg->set_fi( static_cast<unsigned int>(base::nintd(values[1])) );
+   myDataMsg->set_fo( static_cast<unsigned int>(base::nintd(values[2])) );
 
    // Send the message for processing
    sendDataRecord(msg);
@@ -87,11 +87,11 @@ bool DataRecorder::recordMarker(const base::Object* objs[4], const double values
 
    // Marker message
    recorder::pb::MarkerMsg* markerMsg = msg->mutable_marker_msg();
-   markerMsg->set_id( static_cast<unsigned int>(oe::nintd(values[0])) );
-   markerMsg->set_source_id( static_cast<unsigned int>(oe::nintd(values[1])) );
+   markerMsg->set_id( static_cast<unsigned int>(base::nintd(values[0])) );
+   markerMsg->set_source_id( static_cast<unsigned int>(base::nintd(values[1])) );
 
    // Extended value: foo
-   markerMsg->SetExtension( pb::foo, static_cast<unsigned int>(oe::nintd(values[2])) ) ;
+   markerMsg->SetExtension( pb::foo, static_cast<unsigned int>(base::nintd(values[2])) ) ;
 
    // Send the message for processing
    sendDataRecord(msg);

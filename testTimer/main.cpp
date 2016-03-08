@@ -147,7 +147,7 @@ void run(Tester* const tester)
 
       base::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
-         lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
+         base::lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }
@@ -170,7 +170,7 @@ void run(Tester* const tester)
 
       base::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
-         lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
+         base::lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }

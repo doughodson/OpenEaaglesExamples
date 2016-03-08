@@ -3,6 +3,8 @@
 //------------------------------------------------------------------------------
 #include "TestObject.h"
 
+#include "openeaagles/base/util/string.h"
+
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
 #if(_MSC_VER>=1400)   // VC8+
@@ -26,7 +28,7 @@ TestObject::TestObject()
     floatVal = 0.0f;
     doubleVal = 0.0;
     realVal = 0;
-    lcStrcpy(charVal, sizeof(charVal), "ASCII");
+    base::lcStrcpy(charVal, sizeof(charVal), "ASCII");
 }
 
 //------------------------------------------------------------------------------
@@ -41,7 +43,7 @@ void TestObject::copyData(const TestObject& org, const bool)
     floatVal = org.floatVal;
     doubleVal = org.doubleVal;
     realVal = org.realVal;
-    lcStrcpy(charVal, sizeof(charVal), org.charVal);
+    base::lcStrcpy(charVal, sizeof(charVal), org.charVal);
 }
 
 //------------------------------------------------------------------------------

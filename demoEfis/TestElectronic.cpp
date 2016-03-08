@@ -416,11 +416,11 @@ void TestElectronic::updateData(const double dt)
     // current heading / current heading bug
     {
         // max rate here is 120 degs / second
-        double delta = alim(base::Angle::aepcdDeg(heading - curHdg), 120 * dt);
+        double delta = base::alim(base::Angle::aepcdDeg(heading - curHdg), 120 * dt);
         curHdg = base::Angle::aepcdDeg(curHdg + delta);
 
         // now figure our heading bug
-        delta = alim(base::Angle::aepcdDeg(headingBug - curBug), 120 * dt);
+        delta = base::alim(base::Angle::aepcdDeg(headingBug - curBug), 120 * dt);
         curBug = base::Angle::aepcdDeg(curBug + delta);
 
         if (navMode == ARC_MODE) {
@@ -449,7 +449,7 @@ void TestElectronic::updateData(const double dt)
         // are we a distance type or DME type?
         bool distType = true;   // initial type is DME
         bool distVis = true;    // initial visibility is true
-        double curDist = alim(dist, 999.9);    // current distance to DME
+        double curDist = base::alim(dist, 999.9);    // current distance to DME
 
         if (navSource == PRIMARY) {
             // valid DME makes our label visible
@@ -478,13 +478,13 @@ void TestElectronic::updateData(const double dt)
         double tempCourse = 0.0;
         // primary nav course
         if (navSource == PRIMARY) {
-            curIntCourse = nint(course);
+            curIntCourse = base::nint(course);
             tempCDI = cdi;
             tempCourse = course;
         }
         // secondary nav course
         else {
-            curIntCourse = nint(secCourse);
+            curIntCourse = base::nint(secCourse);
             tempCDI = secCdi;
             tempCourse = secCourse;
         }
@@ -494,14 +494,14 @@ void TestElectronic::updateData(const double dt)
         send("course", UPDATE_VALUE, curIntCourse, courseSD);
 
         // here is the course deviation
-        double delta = alim (base::Angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
-        curCdi = alim (curCdi + delta, 2.0);
+        double delta = base::alim (base::Angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
+        curCdi = base::alim (curCdi + delta, 2.0);
 
         // now find our inches to translate the cdi
         double cdiInch = curCdi * 0.43f;
 
         // now figure our course slew
-        delta = alim(base::Angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
+        delta = base::alim(base::Angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
         curCourse = (base::Angle::aepcdDeg(curCourse + delta));
 
         // ok, do our color determination for the course pointer - primary first
@@ -578,7 +578,7 @@ void TestElectronic::updateData(const double dt)
         }
         // true air speed
         else if (readoutMode == ND_TAS) {
-            int curTAS = nintd(trueAirSpeed * base::LinearVelocity::FPS2KTSCC);
+            int curTAS = base::nintd(trueAirSpeed * base::LinearVelocity::FPS2KTSCC);
             send("trueairspeed", UPDATE_VALUE, curTAS, trueAirSpeedSD);
         }
         // elapsed time
@@ -629,7 +629,7 @@ void TestElectronic::updateData(const double dt)
 
     // glide slope
     {
-        double gsDev = static_cast<double>(alim (gsDots, 2.1f) * 0.35f);
+        double gsDev = static_cast<double>(base::alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
 
@@ -689,8 +689,8 @@ void TestElectronic::updateData(const double dt)
         if (navSource == PRIMARY) toFrom = 1 - std::fabs(base::Angle::aepcdDeg(bearing - course)) / 90;
         else toFrom = 1 - std::fabs(base::Angle::aepcdDeg(secBearing - secCourse)) / 90;
 
-        double delta = alim(toFrom - curToFrom, dt);
-        curToFrom = alim(curToFrom + delta, 0.65);
+        double delta = base::alim(toFrom - curToFrom, dt);
+        curToFrom = base::alim(curToFrom + delta, 0.65);
 
         // if we are positive, we are to, negative, from
         bool whichToFrom = (curToFrom > 0);

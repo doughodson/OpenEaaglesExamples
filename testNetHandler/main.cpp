@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
    // system time of day
    double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time
    double simTime = 0.0;                            // Simulator time reference
-   double startTime = oe::getComputerTime();   // Time of day (sec) run started
+   double startTime = base::getComputerTime();   // Time of day (sec) run started
 
    // main loop
    std::cout << "Starting main loop ..." << std::endl;
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
       endpoint->updateData( static_cast<double>(dt) );
 
       simTime += dt;                       // time of next frame
-      double timeNow = oe::getComputerTime();  // time now
+      double timeNow = base::getComputerTime();  // time now
 
       double elapsedTime = timeNow - startTime;
       double nextFrameStart = simTime - elapsedTime;
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 
       // wait for the next frame
       if (sleepTime > 0)
-         lcSleep(sleepTime);
+         base::lcSleep(sleepTime);
    }
 
    return EXIT_SUCCESS;
