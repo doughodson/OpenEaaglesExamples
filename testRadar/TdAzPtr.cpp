@@ -44,7 +44,7 @@ double TdAzPtr::getAzimuth() const
 
 bool TdAzPtr::setAzimuth(const double v)
 {
-   azimuth = lcAepcDeg(v);
+   azimuth = base::Angle::aepcdDeg(v);
    return true;
 }
 

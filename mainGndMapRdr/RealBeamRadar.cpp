@@ -20,6 +20,8 @@
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/units/Distances.h"
 
+#include <cmath>
+
 namespace oe {
 namespace example {
 
@@ -336,7 +338,7 @@ bool RealBeamRadar::computeEarthCurvature(double* const curvature, const unsigne
          double curRng = maxRng * static_cast<double>(idx)/static_cast<double>(n);
          double arc = curRng / radius;
          double cs = 1.0;
-         double c0 = lcCos(arc);
+         double c0 = std::cos(arc);
          if (c0 != 0) cs = 1.0 / c0;
          curvature[idx] = radius * (cs  - 1.0f);
       }

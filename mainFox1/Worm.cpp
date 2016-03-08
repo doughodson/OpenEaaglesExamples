@@ -5,6 +5,8 @@
 #include "Worm.h"
 #include "openeaagles/base/units/Angles.h"
 
+#include <cmath>
+
 namespace oe {
 namespace example {
 
@@ -105,8 +107,8 @@ void Worm::reset()
 void Worm::setStartAngle(const double radians)
 {
   sangle = radians;
-  dx = lcCos(sangle) * speed;
-  dy = lcSin(sangle) * speed;
+  dx = std::cos(sangle) * speed;
+  dy = std::sin(sangle) * speed;
 }
 
 //------------------------------------------------------------------------------
@@ -115,8 +117,8 @@ void Worm::setStartAngle(const double radians)
 void Worm::setSpeed(const double xx)
 {
   speed = xx;
-  dx = lcCos(sangle) * speed;
-  dy = lcSin(sangle) * speed;
+  dx = std::cos(sangle) * speed;
+  dy = std::sin(sangle) * speed;
 }
 
 //------------------------------------------------------------------------------

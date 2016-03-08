@@ -2,6 +2,7 @@
 #include "openeaagles/linearsystem/Sz1.h"
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 namespace oe {
 namespace test {
@@ -47,7 +48,7 @@ int main(int, char**)
          input = time;
       }
       double out = filter.g(input);
-      double ee = lcExp( -time * A );
+      double ee = std::exp( -time * A );
       std::cout << time << ", " << input << ", " << (1.0 -ee) << ", " << out << std::endl;
    }
 

@@ -13,6 +13,8 @@
 
 #include "Display.h"
 
+#include <cmath>
+
 namespace oe {
 namespace example {
 
@@ -381,7 +383,7 @@ void Display::updateData(const double dt)
                double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);
                double arc = curRng / radius;
                double cs = 1.0f;
-               double c0 = lcCos(arc);
+               double c0 = std::cos(arc);
                if (c0 != 0) cs = 1.0f/c0;
                curvature[irow] = radius * (cs  - 1.0f);
             }
@@ -471,7 +473,7 @@ void Display::updateData(const double dt)
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
                   double angle = static_cast<double>(-10.0f * base::Angle::D2RCC);
-                  osg::Vec2 vec(lcCos(angle),lcSin(angle));
+                  osg::Vec2 vec(std::cos(angle),std::sin(angle));
                   base::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }
 

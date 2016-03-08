@@ -416,17 +416,17 @@ void TestElectronic::updateData(const double dt)
     // current heading / current heading bug
     {
         // max rate here is 120 degs / second
-        double delta = alim(lcAepcDeg(heading - curHdg), 120 * dt);
-        curHdg = lcAepcDeg(curHdg + delta);
+        double delta = alim(base::Angle::aepcdDeg(heading - curHdg), 120 * dt);
+        curHdg = base::Angle::aepcdDeg(curHdg + delta);
 
         // now figure our heading bug
-        delta = alim(lcAepcDeg(headingBug - curBug), 120 * dt);
-        curBug = lcAepcDeg(curBug + delta);
+        delta = alim(base::Angle::aepcdDeg(headingBug - curBug), 120 * dt);
+        curBug = base::Angle::aepcdDeg(curBug + delta);
 
         if (navMode == ARC_MODE) {
             // we either move it to the left or right, depending on how far
             // off our slew is.
-            double diff = lcAepcDeg(curHdg - curBug);
+            double diff = base::Angle::aepcdDeg(curHdg - curBug);
             double moveX = -1.8f;
             if (diff >= -36 && diff < 36) {
                 if (diff > 0) moveX = 1.53;
@@ -494,15 +494,15 @@ void TestElectronic::updateData(const double dt)
         send("course", UPDATE_VALUE, curIntCourse, courseSD);
 
         // here is the course deviation
-        double delta = alim (lcAepcDeg(tempCDI - curCdi), 4 * dt);
+        double delta = alim (base::Angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
         curCdi = alim (curCdi + delta, 2.0);
 
         // now find our inches to translate the cdi
         double cdiInch = curCdi * 0.43f;
 
         // now figure our course slew
-        delta = alim(lcAepcDeg(tempCourse - curCourse), 120 * dt);
-        curCourse = (lcAepcDeg(curCourse + delta));
+        delta = alim(base::Angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
+        curCourse = (base::Angle::aepcdDeg(curCourse + delta));
 
         // ok, do our color determination for the course pointer - primary first
         if (navSource == PRIMARY) {
@@ -686,8 +686,8 @@ void TestElectronic::updateData(const double dt)
     // TO / FROM arrow - HSI mode only
     {
         double toFrom = 0;
-        if (navSource == PRIMARY) toFrom = 1 - lcAbs(lcAepcDeg(bearing - course)) / 90;
-        else toFrom = 1 - lcAbs(lcAepcDeg(secBearing - secCourse)) / 90;
+        if (navSource == PRIMARY) toFrom = 1 - std::fabs(base::Angle::aepcdDeg(bearing - course)) / 90;
+        else toFrom = 1 - std::fabs(base::Angle::aepcdDeg(secBearing - secCourse)) / 90;
 
         double delta = alim(toFrom - curToFrom, dt);
         curToFrom = alim(curToFrom + delta, 0.65);

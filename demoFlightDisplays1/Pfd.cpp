@@ -1,7 +1,9 @@
 #include "Pfd.h"
 #include "openeaagles/base/Pair.h"
 #include "SituationalDisplay.h"
+
 #include <cstring>
+#include <cmath>
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -705,7 +707,7 @@ void Pfd::updateData(const double dt)
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // send our flight path marker it's data
     // positive pitch
-    fpmY = pitch - (aoa * lcCos(static_cast<float>(roll * base::Angle::D2RCC)));
+    fpmY = pitch - (aoa * std::cos(static_cast<float>(roll * base::Angle::D2RCC)));
     // determine our flight path marker
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;

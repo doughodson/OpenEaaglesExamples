@@ -44,7 +44,7 @@ double TdElevPtr::getElevation() const
 
 bool TdElevPtr::setElevation(const double v)
 {
-   elev = lcAepcDeg(v);
+   elev = base::Angle::aepcdDeg(v);
    return true;
 }
 
