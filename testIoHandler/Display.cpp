@@ -7,7 +7,7 @@
 #include "openeaagles/base/IoHandler.h"
 #include "openeaagles/base/Number.h"
 #include "openeaagles/base/String.h"
-#include "openeaagles/base/util/string.h"
+#include "openeaagles/base/util/string_utils.h"
 
 #include <cstdio>
 #include <cstdlib>
