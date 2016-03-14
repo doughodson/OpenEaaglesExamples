@@ -10,6 +10,7 @@
 #include "openeaagles/simulation/Route.h"
 #include "openeaagles/base/Boolean.h"
 #include "openeaagles/base/IoData.h"
+#include "openeaagles/base/util/math_utils.h"
 
 namespace oe {
 namespace test {

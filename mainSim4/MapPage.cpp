@@ -8,6 +8,7 @@
 #include "openeaagles/graphics/Display.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/util/math_utils.h"
 
 namespace oe {
 namespace example {

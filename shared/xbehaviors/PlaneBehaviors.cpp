@@ -18,6 +18,7 @@
 
 #include "openeaagles/base/units/Distances.h"
 #include "openeaagles/base/ubf/State.h"
+#include "openeaagles/base/util/constants.h"
 
 namespace oe {
 namespace xbehaviors {

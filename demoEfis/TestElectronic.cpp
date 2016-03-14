@@ -3,6 +3,7 @@
 
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/units/LinearVelocity.h"
+#include "openeaagles/base/util/math_utils.h"
 
 #include <cmath>
 

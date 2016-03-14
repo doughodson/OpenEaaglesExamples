@@ -6,9 +6,10 @@
 #ifndef __oe_example_Application_H__
 #define __oe_example_Application_H__
 
+#include "FoxStation.h"
+
 #include "fx.h"
 
-#include "FoxStation.h"
 
 namespace oe {
 

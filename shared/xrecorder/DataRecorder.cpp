@@ -4,6 +4,7 @@
 #include "DataRecorder.h"
 #include "protobuf/DataRecord.pb.h"
 #include "dataRecorderTokens.h"
+#include "openeaagles/base/util/math_utils.h"
 
 namespace oe {
 namespace xrecorder {
