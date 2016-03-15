@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "TestObject.h"
 
-#include "openeaagles/base/util/string_utils.h"
+#include "openeaagles/base/util/str_utils.h"
 
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
