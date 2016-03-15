@@ -6,6 +6,7 @@
 
 #include "openeaagles/base/NetHandler.h"
 #include "openeaagles/base/Number.h"
+#include "openeaagles/base/util/system_utils.h"
 
 #include <cstdlib>
 

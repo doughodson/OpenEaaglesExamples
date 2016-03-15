@@ -12,6 +12,7 @@
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/graphics/Texture.h"
+#include "openeaagles/base/util/system_utils.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>

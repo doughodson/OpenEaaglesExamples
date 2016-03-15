@@ -6,6 +6,7 @@
 #include "openeaagles/base/Parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
+#include "openeaagles/base/util/system_utils.h"
 
 #include <cstdlib>
 #include <cstring>

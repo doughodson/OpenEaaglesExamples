@@ -16,6 +16,7 @@
 #include "openeaagles/base/Parser.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/Thread.h"
+#include "openeaagles/base/util/system_utils.h"
 
 // class factory
 #include "openeaagles/base/factory.h"

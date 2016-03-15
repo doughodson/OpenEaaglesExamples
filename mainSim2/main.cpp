@@ -6,6 +6,7 @@
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/osg/Vec3"
 #include "openeaagles/otw/OtwPC.h"
+#include "openeaagles/base/util/system_utils.h"
 
 // factories
 #include "../shared/xzmq/factory.h"

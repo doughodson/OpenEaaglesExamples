@@ -9,6 +9,7 @@
 #include "openeaagles/base/Parser.h"
 #include "openeaagles/base/functors/Tables.h"
 #include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/util/system_utils.h"
 
 #include "openeaagles/graphics/Graphic.h"
 
