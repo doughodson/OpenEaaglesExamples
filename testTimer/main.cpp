@@ -16,7 +16,7 @@
 #include "openeaagles/base/Parser.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/Thread.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 // class factory
 #include "openeaagles/base/factory.h"
@@ -148,7 +148,7 @@ void run(Tester* const tester)
 
       base::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
-         base::lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
+         base::msleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }
@@ -171,7 +171,7 @@ void run(Tester* const tester)
 
       base::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
-         base::lcSleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
+         base::msleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
          tester->printTimers();
       }

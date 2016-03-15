@@ -10,7 +10,7 @@
 #include "openeaagles/base/Terrain.h"
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/units/Distances.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 #include "Display.h"
 

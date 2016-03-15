@@ -8,7 +8,7 @@
 
 #include "openeaagles/base/Parser.h"
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 // factories
 #include "openeaagles/base/factory.h"
@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
 
       // wait for the next frame
       if (sleepTime > 0)
-         base::lcSleep(sleepTime);
+         base::msleep(sleepTime);
    }
 
    return EXIT_SUCCESS;

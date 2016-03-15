@@ -6,7 +6,7 @@
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/osg/Vec3"
 #include "openeaagles/otw/OtwPC.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 // factories
 #include "../shared/xzmq/factory.h"
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
    // create time critical thread
    station->createTimeCriticalProcess();
    // short pause to allow os to startup thread
-   base::lcSleep(2000);
+   base::msleep(2000);
 
    // calculate delta time for background thread
    const double dt = 1.0/static_cast<double>(bgRate);
@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
 
       // wait for the next frame
       if (sleepTime > 0)
-         base::lcSleep(sleepTime);
+         base::msleep(sleepTime);
 
 /*
     std::cout << ".";

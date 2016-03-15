@@ -6,7 +6,7 @@
 
 #include "openeaagles/base/NetHandler.h"
 #include "openeaagles/base/Number.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 #include <cstdlib>
 
@@ -67,7 +67,7 @@ void Echo::updateData(const double dt)
             buffer[n] = 0;
             std::cout << "RECV: " << buffer << std::endl;
             // And send it right back to the client
-            base::lcSleep(1000);
+            base::msleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {
                std::cout << "SENT: " << buffer << std::endl << std::endl;

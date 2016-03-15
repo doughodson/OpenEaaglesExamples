@@ -6,7 +6,7 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Parser.h"
 #include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 namespace oe {
 namespace example {

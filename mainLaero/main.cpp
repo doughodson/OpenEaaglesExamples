@@ -7,7 +7,7 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/simulation/Station.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 #include "factory.h"
 

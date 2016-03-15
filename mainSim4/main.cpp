@@ -5,7 +5,7 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 // factories
 #include "../shared/xzmq/factory.h"

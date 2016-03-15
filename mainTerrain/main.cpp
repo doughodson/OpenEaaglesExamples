@@ -5,7 +5,7 @@
 #include "factory.h"
 
 #include "openeaagles/terrain/ded/DedFile.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"

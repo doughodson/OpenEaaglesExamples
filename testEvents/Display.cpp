@@ -10,7 +10,7 @@
 #include "openeaagles/base/Number.h"
 #include "openeaagles/base/util/string_utils.h"
 #include "openeaagles/base/util/math_utils.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 #include <cstring>
 

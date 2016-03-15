@@ -6,7 +6,7 @@
 
 #include "openeaagles/base/NetHandler.h"
 #include "openeaagles/base/Number.h"
-#include "openeaagles/base/util/system_utils.h"
+#include "openeaagles/base/util/system.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -88,7 +88,7 @@ void Sender::updateData(const double dt)
             char buffer[MAX_SIZE];
             sprintf(buffer, "Message(%d)", ++msgCounter);
             unsigned int n = static_cast<unsigned int>(std::strlen(buffer));
-            base::lcSleep(1000);
+            base::msleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {
                 std::cout << "SENT: " << buffer << std::endl;
