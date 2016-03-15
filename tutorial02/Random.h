@@ -3,13 +3,13 @@
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef __oe_Tutorial_Random_H__
-#define __oe_Tutorial_Random_H__
+#ifndef __oe_tutorial_Random_H__
+#define __oe_tutorial_Random_H__
 
 #include "openeaagles/base/Object.h"
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 class Random : public base::Object
 {
@@ -22,8 +22,8 @@ public:
    void setSeed(const unsigned int);
 };
 
-} // namespace Tutorial
-} // namespace oe
+}
+}
 
 
 #endif

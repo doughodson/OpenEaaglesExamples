@@ -7,7 +7,7 @@
 #include "openeaagles/base/PairStream.h"
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MyPager,"MyPager")
 EMPTY_COPYDATA(MyPager)
@@ -41,5 +41,5 @@ bool MyPager::onEntry()
    return true;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe

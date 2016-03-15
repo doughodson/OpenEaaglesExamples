@@ -3,8 +3,8 @@
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef __oe_Tutorial_Random_H__
-#define __oe_Tutorial_Random_H__
+#ifndef __oe_tutorial_Random_H__
+#define __oe_tutorial_Random_H__
 
 #include "openeaagles/base/Object.h"
 
@@ -12,7 +12,7 @@ namespace oe {
 
 namespace base { class Number; }
 
-namespace Tutorial {
+namespace tutorial {
 
 class Random : public base::Object
 {
@@ -30,7 +30,7 @@ public:
   
 };
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 #endif

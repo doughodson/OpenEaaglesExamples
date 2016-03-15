@@ -4,7 +4,7 @@
 #include "Random.h"
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 int main(int argc, char* argv[])
 {
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 //-----------------------------------------------------------------------------
@@ -32,6 +32,6 @@ int main(int argc, char* argv[])
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-   oe::Tutorial::main(argc, argv);
+   oe::tutorial::main(argc, argv);
 }
 

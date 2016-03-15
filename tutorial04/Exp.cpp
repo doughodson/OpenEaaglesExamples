@@ -5,9 +5,10 @@
 #include "Exp.h"
 #include "openeaagles/base/Number.h"
 #include <cstdlib>
+#include <cmath>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_SUBCLASS(Exp,"Exp")
 // setup slot table
@@ -85,5 +86,5 @@ base::Object* Exp::getSlotByIndex(const int si)
   return BaseClass::getSlotByIndex(si);
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe

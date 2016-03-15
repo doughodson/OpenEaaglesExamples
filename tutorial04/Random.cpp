@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_ABSTRACT_SUBCLASS(Random,"Random")
 // setup slot table
@@ -73,6 +73,6 @@ bool Random::setSlotSeed(const base::Number* const seed)
    return ok;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 

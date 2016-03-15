@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_SUBCLASS(Random,"Random")
 EMPTY_SLOTTABLE(Random)
@@ -55,6 +55,6 @@ void Random::setSeed(const unsigned int seed)
    std::srand(seed);
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 

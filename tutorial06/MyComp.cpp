@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_SUBCLASS(MyComp,"MyComp")
 // setup slot table
@@ -127,6 +127,6 @@ void MyComp::updateData(const double dt)
    BaseClass::updateData(dt);
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 

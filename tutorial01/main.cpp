@@ -3,7 +3,7 @@
 
 #include "openeaagles/base/String.h"
 
-namespace Tutorial {
+namespace tutorial {
 
 int main(int argc, char* argv[])
 {
@@ -25,5 +25,5 @@ int main(int argc, char* argv[])
 //
 int main(int argc, char* argv[])
 {
-   Tutorial::main(argc, argv);
+   tutorial::main(argc, argv);
 }

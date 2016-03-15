@@ -2,13 +2,13 @@
 // Class: MyPager
 // Description: Example pager
 //------------------------------------------------------------------------------
-#ifndef __oe_Tutorial_MyPager_H__
-#define __oe_Tutorial_MyPager_H__
+#ifndef __oe_tutorial_MyPager_H__
+#define __oe_tutorial_MyPager_H__
 
 #include "openeaagles/graphics/Page.h"
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 class MyPager : public graphics::Page
 {
@@ -21,7 +21,7 @@ public:
    bool onEntry() override;
 };
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 #endif

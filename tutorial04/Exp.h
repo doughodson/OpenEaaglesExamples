@@ -3,8 +3,8 @@
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef __oe_Tutorial_Exp_H__
-#define __oe_Tutorial_Exp_H__
+#ifndef __oe_tutorial_Exp_H__
+#define __oe_tutorial_Exp_H__
 
 #include "Random.h"
 
@@ -12,7 +12,7 @@ namespace oe {
 
 namespace base { class Number; }
 
-namespace Tutorial {
+namespace tutorial {
 
 class Exp : public Random
 {
@@ -36,8 +36,8 @@ private:
 
 };
 
-} // namespace Tutorial
-} // namespace oe
+}
+}
 
 #endif
 

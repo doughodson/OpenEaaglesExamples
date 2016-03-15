@@ -8,7 +8,7 @@
 #include <cmath>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_SUBCLASS(Worm, "Worm")
 
@@ -239,6 +239,6 @@ bool Worm::setAngle(const oe::base::Number* const saobj)
    return ok;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 

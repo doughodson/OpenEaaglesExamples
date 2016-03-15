@@ -15,7 +15,7 @@
 #include "MyObj.h"
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 static class MyObj* myObj = nullptr;
 
@@ -121,11 +121,11 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 //
 int main(int argc, char* argv[])
 {
-   oe::Tutorial::main(argc, argv);
+   oe::tutorial::main(argc, argv);
 }

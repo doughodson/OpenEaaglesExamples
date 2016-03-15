@@ -6,8 +6,8 @@
 //  ( def-form Worm
 //  )
 //------------------------------------------------------------------------------
-#ifndef __oe_Tutorial_Worm_H__
-#define __oe_Tutorial_Worm_H__
+#ifndef __oe_tutorial_Worm_H__
+#define __oe_tutorial_Worm_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
@@ -15,7 +15,7 @@ namespace oe {
 
 namespace base { class Angle; }
 
-namespace Tutorial {
+namespace tutorial {
 
 class Worm : public graphics::Graphic
 {
@@ -70,7 +70,7 @@ private:
 
 };
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 #endif

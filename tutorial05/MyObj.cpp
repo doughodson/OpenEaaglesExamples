@@ -12,7 +12,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_SUBCLASS(MyObj,"MyObj")
 // setup slot table
@@ -245,5 +245,5 @@ bool MyObj::isValid() const
    return true;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe

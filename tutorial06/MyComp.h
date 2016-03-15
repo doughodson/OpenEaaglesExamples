@@ -3,8 +3,8 @@
 // Description: example class
 //------------------------------------------------------------------------------
 
-#ifndef __oe_Tutorial_MyComp_H__
-#define __oe_Tutorial_MyComp_H__
+#ifndef __oe_tutorial_MyComp_H__
+#define __oe_tutorial_MyComp_H__
 
 #include "openeaagles/base/Component.h"
 
@@ -12,7 +12,7 @@ namespace oe {
 
 namespace base { class String; }
 
-namespace Tutorial {
+namespace tutorial {
 
 class MyComp : public base::Component
 {
@@ -41,7 +41,7 @@ private:
    const base::String* str;
 };
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 #endif

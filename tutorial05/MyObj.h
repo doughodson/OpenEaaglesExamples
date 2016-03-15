@@ -3,8 +3,8 @@
 // Description: example class
 //------------------------------------------------------------------------------
 
-#ifndef __oe_Tutorial_MyObj_H__
-#define __oe_Tutorial_MyObj_H__
+#ifndef __oe_tutorial_MyObj_H__
+#define __oe_tutorial_MyObj_H__
 
 #include "openeaagles/base/Object.h"
 
@@ -13,7 +13,7 @@ namespace oe {
 namespace base { class PairStream; class List; class String;
                   class Number; class Identifier; }
 
-namespace Tutorial {
+namespace tutorial {
 
 class MyObj : public base::Object
 {
@@ -59,7 +59,7 @@ private:
   bool visible;
 };
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 #endif

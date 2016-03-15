@@ -6,7 +6,7 @@
 #include <cstdlib>
 
 namespace oe {
-namespace Tutorial {
+namespace tutorial {
 
 IMPLEMENT_SUBCLASS(Uniform,"Uniform")
 // setup slot table
@@ -93,5 +93,5 @@ bool Uniform::setSlotMax(const base::Number* const x)
    return true;
 }
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe

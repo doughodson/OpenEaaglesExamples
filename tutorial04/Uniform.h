@@ -3,8 +3,8 @@
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
 
-#ifndef __oe_Tutorial_Uniform_H__
-#define __oe_Tutorial_Uniform_H__
+#ifndef __oe_tutorial_Uniform_H__
+#define __oe_tutorial_Uniform_H__
 
 #include "Random.h"
 
@@ -12,7 +12,7 @@ namespace oe {
 
 namespace base   { class Number; }
 
-namespace Tutorial {
+namespace tutorial {
 
 class Uniform : public Random
 {
@@ -36,7 +36,7 @@ private:
    int min;
 };
 
-} // namespace Tutorial
+} // namespace tutorial
 } // namespace oe
 
 #endif
