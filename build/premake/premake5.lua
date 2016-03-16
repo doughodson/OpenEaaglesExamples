@@ -97,7 +97,7 @@ solution "examples"
    -- destination directory for generated solution/project files
    location (locationPath)
 
-   -- creating console application
+   -- create console application by default
    kind "ConsoleApp"
 
    -- C++ code in all projects

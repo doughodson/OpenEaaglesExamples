@@ -4,6 +4,7 @@
 
 -- testEvents: test of event passing
 project "testEvents"
+   kind "WindowedApp"
    targetname "testEvents"
    targetdir "../../testEvents"
    debugdir "../../testEvents"
@@ -27,6 +28,7 @@ project "testEvents"
 
 -- testGraphics : test of basic graphics
 project "testGraphics"
+   kind "WindowedApp"
    targetname "testGraphics"
    targetdir "../../testGraphics"
    debugdir "../../testGraphics"
@@ -50,6 +52,7 @@ project "testGraphics"
 
 -- testIoHandler: I/O handler test
 project "testIoHandler"
+   kind "WindowedApp"
    targetname "testIoHandler"
    targetdir "../../testIoHandler"
    debugdir "../../testIoHandler"

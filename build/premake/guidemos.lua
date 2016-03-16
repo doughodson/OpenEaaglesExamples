@@ -4,6 +4,7 @@
 
 -- mainFltk1: Fltk-based GUI
 project "mainFltk1"
+   kind "WindowedApp"
    targetname "mainFltk1"
    targetdir "../../mainFltk1"
    debugdir "../../mainFltk1"
@@ -33,6 +34,7 @@ project "mainFltk1"
 
 -- mainFox1: Fox-based GUI
 project "mainFox1"
+   kind "WindowedApp"
    targetname "mainFox1"
    targetdir "../../mainFox1"
    debugdir "../../mainFox1"

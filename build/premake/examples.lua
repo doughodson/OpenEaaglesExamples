@@ -4,6 +4,7 @@
 
 -- Simple cockpit
 project "mainCockpit"
+   kind "ConsoleApp"
    targetname "mainCockpit"
    targetdir "../../mainCockpit"
    debugdir "../../mainCockpit"
@@ -41,6 +42,7 @@ project "mainCockpit"
 
 -- OpenGL example
 project "mainGL"
+   kind "ConsoleApp"
    targetname "mainGL"
    targetdir "../../mainGL"
    debugdir "../../mainGL"
@@ -64,6 +66,7 @@ project "mainGL"
 
 -- Ground Mapping Radar example
 project "mainGndMapRdr"
+   kind "ConsoleApp"
    targetname "mainGndMapRdr"
    targetdir "../../mainGndMapRdr"
    debugdir "../../mainGndMapRdr"
@@ -89,6 +92,7 @@ project "mainGndMapRdr"
 
 -- mainIr example
 project "mainIr"
+   kind "ConsoleApp"
    targetname "mainIr"
    targetdir "../../mainIr"
    debugdir "../../mainIr"
@@ -120,6 +124,7 @@ project "mainIr"
 
 -- mainLaero example
 project "mainLaero"
+   kind "WindowedApp"
    targetname "mainLaero"
    targetdir "../../mainLaero"
    debugdir "../../mainLaero"
@@ -152,6 +157,7 @@ project "mainLaero"
 
 -- Non-RealTime 1 example
 project "mainNonRT1"
+   kind "ConsoleApp"
    targetname "mainNonRT1"
    targetdir "../../mainNonRT1"
    debugdir "../../mainNonRT1"
