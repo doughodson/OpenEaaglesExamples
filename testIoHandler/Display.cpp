@@ -100,8 +100,8 @@ void Display::copyData(const Display& org, const bool cc)
       types[i] = org.types[i];
       channels[i] = org.channels[i];
       labelFlags[i] = org.labelFlags[i];
-      base::lcStrcpy(labels[i], sizeof(labels[i]), org.labels[i]);
-      base::lcStrcpy(labelBuffs[i], sizeof(labelBuffs[i]), org.labelBuffs[i]);
+      base::utStrcpy(labels[i], sizeof(labels[i]), org.labels[i]);
+      base::utStrcpy(labelBuffs[i], sizeof(labelBuffs[i]), org.labelBuffs[i]);
    }
    item = org.item;
 
@@ -240,12 +240,12 @@ void Display::updateDisplay()
                char cbuff[32];
                if (types[i] == AI) std::sprintf(cbuff, "AI(%03d)", channels[i]);
                else                std::sprintf(cbuff, "DI(%03d)", channels[i]);
-               base::lcStrcpy(labels[i], sizeof(labels[i]), cbuff);
+               base::utStrcpy(labels[i], sizeof(labels[i]), cbuff);
             }
 
             // copy the label with a ':'
-            base::lcStrcpy(labelBuffs[i], sizeof(labelBuffs[i]), labels[i]);
-            base::lcStrcat(labelBuffs[i], sizeof(labelBuffs[i]), ":");
+            base::utStrcpy(labelBuffs[i], sizeof(labelBuffs[i]), labels[i]);
+            base::utStrcat(labelBuffs[i], sizeof(labelBuffs[i]), ":");
          }
 
       }
@@ -330,7 +330,7 @@ bool Display::setSlotLabel(const base::String* const msg)
    bool ok = false;
    if (item >= 1 && item <= TBL_SIZE) {
       if (msg != nullptr) {
-         lcStrcpy(labels[item-1], sizeof(labels[item-1]), *msg);
+         utStrcpy(labels[item-1], sizeof(labels[item-1]), *msg);
          labelFlags[item-1] = true;
       }
       else {

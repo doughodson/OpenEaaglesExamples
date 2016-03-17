@@ -28,7 +28,7 @@ TestObject::TestObject()
     floatVal = 0.0f;
     doubleVal = 0.0;
     realVal = 0;
-    base::lcStrcpy(charVal, sizeof(charVal), "ASCII");
+    base::utStrcpy(charVal, sizeof(charVal), "ASCII");
 }
 
 //------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ void TestObject::copyData(const TestObject& org, const bool)
     floatVal = org.floatVal;
     doubleVal = org.doubleVal;
     realVal = org.realVal;
-    base::lcStrcpy(charVal, sizeof(charVal), org.charVal);
+    base::utStrcpy(charVal, sizeof(charVal), org.charVal);
 }
 
 //------------------------------------------------------------------------------

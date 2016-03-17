@@ -33,7 +33,7 @@ public:
     void setFloat(const float x)        { floatVal = x;  }
     void setDouble(const double x)      { doubleVal = x; }
     void setReal(const double x)        { realVal = x;   }
-    void setChar(const char* x)         { base::lcStrcpy(charVal, sizeof(charVal), x); }
+    void setChar(const char* x)         { base::utStrcpy(charVal, sizeof(charVal), x); }
 
     // get functions
     bool getBoolean()                   { return boolVal;   }

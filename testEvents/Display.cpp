@@ -42,7 +42,7 @@ Display::Display()
     myDouble = 0.0;
     doubleSD.empty();
     obj = new TestObject();
-    base::lcStrcpy(myChar, sizeof(myChar), "ASCII");
+    base::utStrcpy(myChar, sizeof(myChar), "ASCII");
     charSD.empty();
     myColor = new base::Color();
     myColor->setRed(0.0);
@@ -123,7 +123,7 @@ void Display::copyData(const Display& org, const bool cc)
         rotationsSD[i].empty();
     }
 
-    base::lcStrcpy(myChar, sizeof(myChar), org.myChar);
+    base::utStrcpy(myChar, sizeof(myChar), org.myChar);
 
     counter = org.counter;
 }
@@ -169,8 +169,8 @@ void Display::updateData(const double dt)
         myDouble += 0.00002f;
         if (myDouble > 2) myDouble = 0;
 
-        if (std::strcmp(myChar, "ASCII") == 0) base::lcStrcpy(myChar, sizeof(myChar), "TEXT");
-        else base::lcStrcpy(myChar, sizeof(myChar), "ASCII");
+        if (std::strcmp(myChar, "ASCII") == 0) base::utStrcpy(myChar, sizeof(myChar), "TEXT");
+        else base::utStrcpy(myChar, sizeof(myChar), "ASCII");
 
         obj->setBoolean(!obj->getBoolean());
         obj->setInteger(obj->getInteger() + 1);
