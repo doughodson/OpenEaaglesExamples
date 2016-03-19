@@ -4,7 +4,7 @@
 #include "MainWindow.h"
 #include "Station.h"
 
-#include "openeaagles/base/Parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/factory.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/simulation/factory.h"
@@ -39,7 +39,7 @@ static void builder(const char* const testFileName)
 {
     // Read the description file
     int errors = 0;
-    oe::base::Object* q1 = oe::base::lcParser(testFileName, factory, &errors);
+    oe::base::Object* q1 = oe::base::edlParser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
         std::exit(EXIT_FAILURE);
