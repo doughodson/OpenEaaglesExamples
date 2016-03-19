@@ -4,7 +4,7 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/simulation/Player.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/Pair.h"
 
 // factories

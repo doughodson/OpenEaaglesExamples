@@ -2,7 +2,7 @@
 #include "DataRecordTest.h"
 #include "factory.h"
 
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/Pair.h"
 
 #include <cstring>

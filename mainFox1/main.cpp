@@ -6,7 +6,7 @@
 #include "FoxDisplay.h"
 #include "Worm.h"
 
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/Pair.h"
 
 // factories

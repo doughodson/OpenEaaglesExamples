@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/functors/Tables.h"
 #include "openeaagles/base/Nav.h"
 #include "openeaagles/base/units/Angles.h"

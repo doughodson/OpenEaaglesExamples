@@ -4,7 +4,7 @@
 #include "State.h"
 #include "factory.h"
 
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/util/system.h"

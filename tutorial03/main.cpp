@@ -4,7 +4,7 @@
 #include <cstdlib>
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 
 // factories
 #include "openeaagles/base/factory.h"

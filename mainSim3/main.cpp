@@ -8,7 +8,7 @@
 
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/parser.h"
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/graphics/Texture.h"
