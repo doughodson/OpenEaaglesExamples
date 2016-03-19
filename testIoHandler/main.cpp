@@ -2,7 +2,7 @@
 // I/O device test program
 //----------------------------------------------------------------
 #include "Display.h"
-#include "Factory.h"
+#include "factory.h"
 
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
@@ -39,7 +39,7 @@ static Display* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   base::Object* obj = base::edlParser(filename, Factory::createObj, &errors);
+   base::Object* obj = base::edlParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
