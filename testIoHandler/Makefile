@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = testIoHandler
 
-OBJS = Display.o Table.o Factory.o main.o
+OBJS = Display.o Table.o factory.o main.o
 
 LDFLAGS += -loeiodevice -loeglut -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread

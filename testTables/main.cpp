@@ -16,7 +16,7 @@
 #include "openeaagles/base/functors/Tables.h"
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/util/system.h"
 
 // class factory
@@ -34,7 +34,7 @@ static base::Table* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   base::Object* obj = base::lcParser(filename, base::factory, &errors);
+   base::Object* obj = base::edlParser(filename, base::factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);

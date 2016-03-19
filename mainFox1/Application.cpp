@@ -4,7 +4,7 @@
 #include "FoxStation.h"
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/base/util/system.h"
 

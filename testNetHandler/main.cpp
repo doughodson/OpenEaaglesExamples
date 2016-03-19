@@ -6,7 +6,7 @@
 #include "Sender.h"
 #include "Echo.h"
 
-#include "openeaagles/base/Parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/util/system.h"
 
@@ -47,7 +47,7 @@ static Endpoint* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
-   base::Object* obj = base::lcParser(filename, factory, &errors);
+   base::Object* obj = base::edlParser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
