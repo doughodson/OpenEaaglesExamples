@@ -17,7 +17,7 @@
 namespace oe {
 namespace tutorial {
 
-static class MyObj* myObj = nullptr;
+static MyObj* myObj = nullptr;
 
 // our class factory
 static base::Object* factory(const char* const name)

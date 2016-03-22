@@ -30,7 +30,7 @@ namespace example {
 // frame rate
 const int frameRate = 20;
 
-static class Station* station = nullptr;
+Station* station = nullptr;
 
 // timer function, in this case, the background (updateData) function
 static void timerFunc(int)

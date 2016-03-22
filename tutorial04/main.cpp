@@ -15,7 +15,7 @@
 namespace oe {
 namespace tutorial {
 
-static class Random* random = nullptr;
+static Random* random = nullptr;
 
 // our class factory
 static base::Object* factory(const char* const name)

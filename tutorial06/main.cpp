@@ -19,7 +19,7 @@ namespace tutorial {
 // frame rate
 const int frameRate = 20;
 
-static class MyComp* myComp = nullptr;
+static MyComp* myComp = nullptr;
 
 // our class factory
 static base::Object* factory(const char* const name)

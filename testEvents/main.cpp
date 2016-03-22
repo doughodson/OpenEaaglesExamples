@@ -24,7 +24,7 @@ namespace test {
 // frame rate
 const int frameRate = 20;
 
-static class Display* display = nullptr;
+static Display* display = nullptr;
 
 // timerFunc()
 static void timerFunc(int)

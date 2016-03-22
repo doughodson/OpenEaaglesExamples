@@ -38,7 +38,7 @@ namespace example {
 // frame rate
 const int frameRate = 20;
 
-static class TestDisplay* testDisplay = nullptr;
+static TestDisplay* testDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff)
 static void timerFunc(int)

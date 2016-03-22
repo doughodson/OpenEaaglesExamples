@@ -25,7 +25,7 @@ namespace example {
 // frame rate
 static const int frameRate = 20;
 
-static class glut::GlutDisplay* glutDisplay = nullptr;
+static glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff
 static void timerFunc(int)

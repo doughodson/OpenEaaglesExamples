@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
    const double dt = 1.0/static_cast<double>(bgRate);
 
    // system Time of Day
-   double simTime = 0.0;                         // Simulator time reference
+   double simTime = 0.0;                               // Simulator time reference
    const double startTime = base::getComputerTime();   // Time of day (sec) run started
 
    int k = 0;

@@ -25,7 +25,7 @@ namespace example {
 const int bgRate = 20;
 
 // System descriptions
-static class TestStation* testStation = nullptr;
+static TestStation* testStation = nullptr;
 
 // updateDataCB() -- Station's background tasks
 static void updateDataCB(int)

@@ -20,7 +20,7 @@ namespace example {
 // frame rate
 static const int frameRate = 20;
 
-static class Board* board = nullptr;
+static Board* board = nullptr;
 
 //
 static void timerCB(int)

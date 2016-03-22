@@ -25,7 +25,7 @@ namespace example {
 // default background frame rate
 static const int BG_RATE = 10;
 
-static SimStation* simStation = nullptr;
+SimStation* simStation = nullptr;
 
 // SimStation builder
 static SimStation* builder(const char* const filename)
