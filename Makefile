@@ -2,7 +2,7 @@
 include makedefs
 
 # demos
-APPLICATIONS += demoEfis
+APPLICATIONS = demoEfis
 APPLICATIONS += demoFlightDisplays1
 APPLICATIONS += demoFlightDisplays2
 APPLICATIONS += demoInstruments
