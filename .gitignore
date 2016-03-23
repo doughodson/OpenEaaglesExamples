@@ -10,6 +10,11 @@ codeblocks/
 codelite/
 
 #
+# kde 5
+#
+.directory
+
+#
 # qt user project file and build directories
 #
 mainSim4-qt/mainSim4-qt.pro.user

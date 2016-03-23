@@ -12,15 +12,18 @@ LIBRARIES += xrecorder
 LIBRARIES += xpanel
 LIBRARIES += xzmq
 
-#
-# Rules
-#
-all:
-	@echo ${OE_ROOT}
-	for subdir in $(LIBRARIES); do \
-	  echo making $@ in $$subdir; \
-	  (cd $$subdir && $(MAKE)) || exit 1; \
-	done
+
+.PHONY: all clean libraries $(LIBRARIES)
+
+all: $(LIBRARIES)
+
+$(LIBRARIES) : libraries $(OBJS)
+	ar r $(LIB) $(OBJS)
+
+libraries: $(LIBRARIES)
+
+$(LIBRARIES):
+	$(MAKE) -C $@
 
 edl:
 

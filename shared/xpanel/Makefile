@@ -4,17 +4,21 @@ include ../../makedefs
 LIB = $(OE_EXAMPLES_LIB_DIR)/libxpanel.a
 
 OBJS += \
-	$(LIB)(DspRadar.o) \
-	$(LIB)(DspRwr.o) \
-	$(LIB)(factory.o) \
-	$(LIB)(Hsi.o) \
-	$(LIB)(Pfd.o) \
-	$(LIB)(SpdLines.o) \
-	$(LIB)(TdAzPtr.o) \
-	$(LIB)(TdElevPtr.o)
+	DspRadar.o \
+	DspRwr.o \
+	factory.o \
+	Hsi.o \
+	Pfd.o \
+	SpdLines.o \
+	TdAzPtr.o \
+	TdElevPtr.o
 
+.PHONY: all clean
 
-all: ${OBJS}
+all: $(LIB)
+
+$(LIB) : $(OBJS)
+	ar r $(LIB) $(OBJS)
 
 clean:
 	-rm -f *.o

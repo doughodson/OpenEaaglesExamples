@@ -1,9 +1,6 @@
 
 include makedefs
 
-# shared libraries
-APPLICATIONS = shared
-
 # demos
 APPLICATIONS += demoEfis
 APPLICATIONS += demoFlightDisplays1
@@ -87,23 +84,31 @@ APPLICATIONS += tutorial06
 APPLICATIONS += tutorial07
 APPLICATIONS += tutorial08
 
-all:
-	for subdir in $(APPLICATIONS); do \
-	  echo making $@ in $$subdir; \
-	  (cd $$subdir && $(MAKE)) || exit 1; \
-	done
+PROJECTS = shared $(APPLICATIONS)
 
+all: projects
+
+.PHONY: all clean projects $(PROJECTS) $(APPLICATIONS) edl
+
+all: projects
+
+projects: $(PROJECTS)
+
+$(PROJECTS):
+	$(MAKE) -C $@
+
+$(APPLICATIONS): shared
 
 edl:
 	-rm -f *.o
-	for subdir in $(APPLICATIONS); do \
+	for subdir in $(PROJECTS); do \
 	    echo $@ in $$subdir; \
 	    (cd $$subdir && $(MAKE) $@) || exit 1; \
 	done
 
 clean:
 	-rm -f *.o
-	for subdir in $(APPLICATIONS); do \
+	for subdir in $(PROJECTS); do \
 	    echo $@ in $$subdir; \
 	    (cd $$subdir && $(MAKE) $@) || exit 1; \
 	done

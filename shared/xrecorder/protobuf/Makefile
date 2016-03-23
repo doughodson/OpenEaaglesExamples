@@ -4,9 +4,14 @@ include ../../../makedefs
 LIB = $(OE_EXAMPLES_LIB_DIR)/libxrecorder.a
 
 OBJS += \
-	$(LIB)(DataRecord.pb.o)
+	DataRecord.pb.o
 
-all: ${OBJS}
+.PHONY: all clean
+
+all: $(LIB)
+
+$(LIB) : $(OBJS)
+	ar r $(LIB) $(OBJS)
 
 clean:
 	-rm -f *.o
