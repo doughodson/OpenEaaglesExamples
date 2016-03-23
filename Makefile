@@ -96,15 +96,8 @@ $(PROJECTS):
 $(APPLICATIONS): shared
 
 edl:
-	for subdir in $(PROJECTS); do \
-	    echo $@ in $$subdir; \
-	    (cd $$subdir && $(MAKE) $@) || exit 1; \
-	done
+	-for d in $(PROJECTS); do (cd $$d; $(MAKE) edl ); done
 
 clean:
-	-rm -f *.o
-	for subdir in $(PROJECTS); do \
-	    echo $@ in $$subdir; \
-	    (cd $$subdir && $(MAKE) $@) || exit 1; \
-	done
+	-for d in $(PROJECTS); do (cd $$d; $(MAKE) clean ); done
 

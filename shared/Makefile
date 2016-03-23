@@ -22,8 +22,5 @@ $(LIBRARIES):
 edl:
 
 clean:
-	for subdir in $(LIBRARIES); do \
-	    echo $@ in $$subdir; \
-	    (cd $$subdir && $(MAKE) $@) || exit 1; \
-	done
+	-for d in $(LIBRARIES); do (cd $$d; $(MAKE) clean ); done
 
