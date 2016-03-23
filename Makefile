@@ -86,13 +86,9 @@ APPLICATIONS += tutorial08
 
 PROJECTS = shared $(APPLICATIONS)
 
-all: projects
+.PHONY: all clean $(PROJECTS) $(APPLICATIONS) edl
 
-.PHONY: all clean projects $(PROJECTS) $(APPLICATIONS) edl
-
-all: projects
-
-projects: $(PROJECTS)
+all: $(PROJECTS)
 
 $(PROJECTS):
 	$(MAKE) -C $@
@@ -100,7 +96,6 @@ $(PROJECTS):
 $(APPLICATIONS): shared
 
 edl:
-	-rm -f *.o
 	for subdir in $(PROJECTS); do \
 	    echo $@ in $$subdir; \
 	    (cd $$subdir && $(MAKE) $@) || exit 1; \

@@ -12,15 +12,9 @@ LIBRARIES += xrecorder
 LIBRARIES += xpanel
 LIBRARIES += xzmq
 
-
-.PHONY: all clean libraries $(LIBRARIES)
+.PHONY: all clean $(LIBRARIES)
 
 all: $(LIBRARIES)
-
-$(LIBRARIES) : libraries $(OBJS)
-	ar r $(LIB) $(OBJS)
-
-libraries: $(LIBRARIES)
 
 $(LIBRARIES):
 	$(MAKE) -C $@
@@ -28,7 +22,6 @@ $(LIBRARIES):
 edl:
 
 clean:
-	-rm -f *.o
 	for subdir in $(LIBRARIES); do \
 	    echo $@ in $$subdir; \
 	    (cd $$subdir && $(MAKE) $@) || exit 1; \
