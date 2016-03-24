@@ -1,6 +1,7 @@
 
 #include "MapItem.h"
 #include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/util/math_utils.h"
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
@@ -189,8 +190,8 @@ void MapItem::drawGrid(QPainter* painter)
    }
 
    // get the nearest starting lat and lon lines to draw
-   int centerLat = oe::nint(refLat);
-   int centerLon = oe::nint(refLon);
+   int centerLat = oe::base::nint(refLat);
+   int centerLon = oe::base::nint(refLon);
 
    // calculate the number of latitude lines
    int numLinesLat = (range / 60.0) + 1;
