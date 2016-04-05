@@ -13,7 +13,7 @@ LDFLAGS += -lrt
 all: $(PGM)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 edl:
 	cpp configs/test.epp >test.edl  $(EPPFLAGS)

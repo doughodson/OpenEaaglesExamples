@@ -36,9 +36,8 @@ edl:
 	cpp configs/testinstruments.epp >testinstruments.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-

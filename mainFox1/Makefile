@@ -23,7 +23,7 @@ edl:
 	cpp configs/testfox.epp >testfox.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o

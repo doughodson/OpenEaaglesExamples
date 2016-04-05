@@ -15,7 +15,7 @@ OBJS += \
 all: $(LIB)
 
 $(LIB) : $(OBJS)
-	ar r $@ $(OBJS)
+	ar rs $@ $(OBJS)
 
 clean:
 	-rm -f *.o

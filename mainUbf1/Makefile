@@ -24,7 +24,7 @@ EPPFLAGS += -I.
 all: $(PGM)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 edl:
 	cpp configs/test00.epp > test00.edl $(EPPFLAGS)
@@ -32,4 +32,3 @@ edl:
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-

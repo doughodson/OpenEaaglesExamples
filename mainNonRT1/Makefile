@@ -5,9 +5,9 @@ PGM = mainNonRT1
 
 OBJS = main.o
 
-LDFLAGS += -loemodels -loesimulation -lJSBSim 
+LDFLAGS += -loemodels -loesimulation -lJSBSim
 LDFLAGS += -loeinstruments -loedafif
-LDFLAGS += -loebase 
+LDFLAGS += -loebase
 LDFLAGS += -lrt -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread
@@ -21,10 +21,8 @@ edl:
 	cpp configs/test2.epp >test2.edl   $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-
-

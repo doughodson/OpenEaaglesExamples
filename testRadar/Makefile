@@ -27,9 +27,8 @@ edl:
 	cpp configs/test4b.epp >test4b.edl   $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-

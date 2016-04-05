@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainGL
 
-OBJS = main.o 
+OBJS = main.o
 
 LDFLAGS += -loeglut -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
@@ -17,7 +17,7 @@ edl:
 
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o

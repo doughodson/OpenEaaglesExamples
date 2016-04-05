@@ -8,12 +8,12 @@ OBJS = main.o
 LDFLAGS += -L../lib/linux -lxzmq -lzmq
 LDFLAGS += -loedis -loemodels -loesimulation
 LDFLAGS += -loeotw -loedafif -loebase
-LDFLAGS += -lcigicl -lJSBSim 
-LDFLAGS += -lrt -lpthread 
+LDFLAGS += -lcigicl -lJSBSim
+LDFLAGS += -lrt -lpthread
 
 CPPFLAGS += -I/usr/local/include
 
-all: $(PGM) 
+all: $(PGM)
 
 edl:
 	cpp configs/test1.epp >test1.edl   $(EPPFLAGS)
@@ -21,10 +21,8 @@ edl:
 	cpp configs/test3.epp >test3.edl   $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
 
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-
-

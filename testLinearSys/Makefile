@@ -4,12 +4,12 @@ include ../makedefs
 PGM = testLinearSys
 OBJS = main.o
 
-LDFLAGS += -loelinearsystem -loebase 
+LDFLAGS += -loelinearsystem -loebase
 
 all: $(PGM)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $(PGM) $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 edl:
 
