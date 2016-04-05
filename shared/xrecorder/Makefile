@@ -13,10 +13,9 @@ OBJS += \
 all: $(LIB)
 
 $(LIB) : $(OBJS)
-	ar r $(LIB) $(OBJS)
+	ar r $@ $(OBJS)
 
 clean:
 	-rm -f protobuf/*.o
 	-rm -f *.o
 	-rm -f $(LIB)
-

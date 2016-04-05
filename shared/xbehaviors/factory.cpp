@@ -65,4 +65,3 @@ base::Object* factory(const char* name)
 
 }
 }
-
