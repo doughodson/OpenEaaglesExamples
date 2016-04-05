@@ -4,30 +4,19 @@ include ../../makedefs
 LIB = $(OE_EXAMPLES_LIB_DIR)/libxrecorder.a
 
 OBJS += \
+	protobuf/DataRecord.pb.o \
 	DataRecorder.o \
 	factory.o
 
-SUBDIRS = protobuf
-
-all: subdirs ${OBJS}
-
-.PHONY: all clean subdirs $(SUBDIRS)
+.PHONY: all clean
 
 all: $(LIB)
 
-$(LIB) : subdirs $(OBJS)
+$(LIB) : $(OBJS)
 	ar r $(LIB) $(OBJS)
 
-subdirs: $(SUBDIRS)
-
-$(SUBDIRS):
-	$(MAKE) -C $@
-
 clean:
+	-rm -f protobuf/*.o
 	-rm -f *.o
-	for subdir in $(SUBDIRS); do \
-	    echo making $@ in $$subdir; \
-	    (cd $$subdir && $(MAKE) $@) || exit 1; \
-	done
 	-rm -f $(LIB)
 
