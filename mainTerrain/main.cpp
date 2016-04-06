@@ -25,10 +25,10 @@ namespace example {
 // frame rate
 const int frameRate = 10;
 
-static Display* display = nullptr;
+Display* display = nullptr;
 
 // timerFunc() -- time critical stuff
-static void timerFunc(int)
+void timerFunc(int)
 {
    double dt = 1.0 / static_cast<double>(frameRate);
 
@@ -41,7 +41,7 @@ static void timerFunc(int)
 }
 
 // display builder
-static Display* builder(const char* const filename)
+Display* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

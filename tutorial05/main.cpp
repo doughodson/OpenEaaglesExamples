@@ -17,10 +17,10 @@
 namespace oe {
 namespace tutorial {
 
-static MyObj* myObj = nullptr;
+MyObj* myObj = nullptr;
 
 // our class factory
-static base::Object* factory(const char* const name)
+base::Object* factory(const char* const name)
 {
    base::Object* obj = nullptr;
 
@@ -34,7 +34,7 @@ static base::Object* factory(const char* const name)
 }
 
 // MyObj builder
-static MyObj* builder(const char* const filename)
+MyObj* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

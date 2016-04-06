@@ -22,10 +22,10 @@ namespace example {
 const int bgRate = 10;
 
 // top level Station object
-static simulation::Station* station = nullptr;
+simulation::Station* station = nullptr;
 
 // station builder
-static simulation::Station* builder(const char* const filename)
+simulation::Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -63,7 +63,7 @@ static simulation::Station* builder(const char* const filename)
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------
-static void updateDataCB(int)
+void updateDataCB(int)
 {
    const double dt0 = 1.0 / static_cast<double>(bgRate);
    const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);

@@ -17,10 +17,10 @@ namespace example {
 // frame rate (50 Hz)
 const unsigned int frameRate = 50;
 
-static simulation::Simulation* simulation = nullptr;
+simulation::Simulation* simulation = nullptr;
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
    base::Object* obj = nullptr;
 
@@ -32,7 +32,7 @@ static base::Object* factory(const char* name)
 }
 
 // simulation builder
-static simulation::Simulation* builder(const char* const filename)
+simulation::Simulation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

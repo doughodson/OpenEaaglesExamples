@@ -18,7 +18,7 @@ namespace example {
 Station* station = nullptr;
 
 // our class factory
-static oe::base::Object* factory(const char* name)
+oe::base::Object* factory(const char* name)
 {
     oe::base::Object* obj = nullptr;
 
@@ -35,7 +35,7 @@ static oe::base::Object* factory(const char* name)
 }
 
 // build a display
-static void builder(const char* const testFileName)
+void builder(const char* const testFileName)
 {
     // Read the description file
     int errors = 0;

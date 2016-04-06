@@ -23,7 +23,7 @@ namespace test {
 const float UPDATE_RATE = 10.0; // main loop update rate
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
    base::Object* obj = nullptr;
 
@@ -43,7 +43,7 @@ static base::Object* factory(const char* name)
 }
 
 // endpoint builder
-static Endpoint* builder(const char* const filename)
+Endpoint* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

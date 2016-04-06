@@ -25,10 +25,10 @@ namespace example {
 const int bgRate = 20;
 
 // System descriptions
-static TestStation* testStation = nullptr;
+TestStation* testStation = nullptr;
 
 // updateDataCB() -- Station's background tasks
-static void updateDataCB(int)
+void updateDataCB(int)
 {
    const double dt0 = 1.0 / static_cast<double>(bgRate);
    const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
@@ -50,7 +50,7 @@ static void updateDataCB(int)
 }
 
 // test station builder
-static TestStation* builder(const char* const filename)
+TestStation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -126,4 +126,3 @@ int main(int argc, char* argv[])
 {
    return oe::example::main(argc,argv);
 }
-

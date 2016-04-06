@@ -25,10 +25,10 @@ namespace example {
 // background frame rate
 const int bgRate = 10;
 
-static simulation::Station* station = nullptr;
+simulation::Station* station = nullptr;
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
    base::Object* obj = nullptr;
 
@@ -44,7 +44,7 @@ static base::Object* factory(const char* name)
 }
 
 // station builder
-static simulation::Station* builder(const char* const filename)
+simulation::Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

@@ -23,10 +23,10 @@ namespace example {
 // background frame rate
 const int bgRate = 10;
 
-static TestStation* testStation = nullptr;
+TestStation* testStation = nullptr;
 
 // test station builder
-static TestStation* builder(const char* const filename)
+TestStation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -64,7 +64,7 @@ static TestStation* builder(const char* const filename)
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------
-static void updateDataCB(int)
+void updateDataCB(int)
 {
    const double dt0 = 1.0 / static_cast<double>(bgRate);
    const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
@@ -133,4 +133,3 @@ int main(int argc, char* argv[])
 {
    return oe::example::main(argc, argv);
 }
-

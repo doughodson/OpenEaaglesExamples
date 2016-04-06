@@ -15,16 +15,15 @@
 #include <cstdlib>
 
 namespace oe {
-
 namespace example {
 
 // frame rate
-static const int frameRate = 20;
+const int frameRate = 20;
 
-static Board* board = nullptr;
+Board* board = nullptr;
 
 //
-static void timerCB(int)
+void timerCB(int)
 {
    double dt0 = 1.0 / static_cast<double>(frameRate);
    unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
@@ -46,7 +45,7 @@ static void timerCB(int)
 }
 
 // board builder
-static Board* builder(const char* const filename)
+Board* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

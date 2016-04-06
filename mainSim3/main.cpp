@@ -23,12 +23,12 @@ namespace oe {
 namespace example {
 
 // default background frame rate
-static const int BG_RATE = 10;
+const int BG_RATE = 10;
 
 SimStation* simStation = nullptr;
 
 // SimStation builder
-static SimStation* builder(const char* const filename)
+SimStation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -64,7 +64,7 @@ static SimStation* builder(const char* const filename)
 //-----------------------------------------------------------------------------
 // updateDataCB() -- Station's background tasks
 //-----------------------------------------------------------------------------
-static void updateDataCB(int msecs)
+void updateDataCB(int msecs)
 {
    glutTimerFunc(msecs, updateDataCB, msecs);
 

@@ -48,10 +48,10 @@ namespace demo {
 const int frameRate = 20;
 
 // System descriptions
-static glut::GlutDisplay* glutDisplay = nullptr;
+glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff
-static void timerFunc(int)
+void timerFunc(int)
 {
     double dt = 1.0 / static_cast<double>(frameRate);
 
@@ -64,7 +64,7 @@ static void timerFunc(int)
 }
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
     base::Object* obj = nullptr;
 
@@ -156,7 +156,7 @@ static base::Object* factory(const char* name)
 }
 
 // display builder
-static glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

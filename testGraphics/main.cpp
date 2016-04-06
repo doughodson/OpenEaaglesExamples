@@ -38,10 +38,10 @@ namespace example {
 // frame rate
 const int frameRate = 20;
 
-static TestDisplay* testDisplay = nullptr;
+TestDisplay* testDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff)
-static void timerFunc(int)
+void timerFunc(int)
 {
    double dt = 1.0 / static_cast<double>(frameRate);
 
@@ -54,7 +54,7 @@ static void timerFunc(int)
 }
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
    base::Object* obj = nullptr;
 
@@ -94,7 +94,7 @@ static base::Object* factory(const char* name)
 }
 
 // test display builder
-static TestDisplay* builder(const char* const filename)
+TestDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -149,8 +149,8 @@ int main(int argc, char* argv[])
    testDisplay->createWindow();
 
    // set timer
-   double dt = 1.0 / static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    glutMainLoop();

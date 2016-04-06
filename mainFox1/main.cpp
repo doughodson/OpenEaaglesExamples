@@ -19,10 +19,10 @@
 namespace oe {
 namespace example {
 
-static FoxStation* foxStation = nullptr;
+FoxStation* foxStation = nullptr;
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
    base::Object* obj = nullptr;
 
@@ -43,7 +43,7 @@ static base::Object* factory(const char* name)
 }
 
 // FOX station builder
-static FoxStation* builder(const char* const filename)
+FoxStation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

@@ -19,13 +19,13 @@ namespace oe {
 namespace example {
 
 // default background frame rate
-static const int bgRate = 10;
+const int bgRate = 10;
 
 // top level Station object
-static simulation::Station* station = nullptr;
+simulation::Station* station = nullptr;
 
 // station builder
-static simulation::Station* builder(const char* const filename)
+simulation::Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -63,7 +63,7 @@ static simulation::Station* builder(const char* const filename)
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------
-static void updateDataCB(int msecs)
+void updateDataCB(int msecs)
 {
    glutTimerFunc(msecs, updateDataCB, msecs);
 

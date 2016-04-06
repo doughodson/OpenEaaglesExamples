@@ -13,7 +13,7 @@ namespace oe {
 namespace test {
 
 // state machine builder
-static base::StateMachine* builder(const char* const filename)
+base::StateMachine* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -47,7 +47,7 @@ static base::StateMachine* builder(const char* const filename)
 }
 
 // main test loop
-static void theTest(base::StateMachine* stateMachine)
+void theTest(base::StateMachine* stateMachine)
 {
    double dt = 0.05;  // Fake delta time
 

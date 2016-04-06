@@ -15,10 +15,10 @@
 namespace oe {
 namespace tutorial {
 
-static Random* random = nullptr;
+Random* random = nullptr;
 
 // our class factory
-static base::Object* factory(const char* const name)
+base::Object* factory(const char* const name)
 {
    base::Object* obj = nullptr;
 
@@ -37,7 +37,7 @@ static base::Object* factory(const char* const name)
 }
 
 // random builder
-static Random* builder(const char* const filename)
+Random* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

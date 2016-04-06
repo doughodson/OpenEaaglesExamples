@@ -33,7 +33,7 @@ const int frameRate = 20;
 Station* station = nullptr;
 
 // timer function, in this case, the background (updateData) function
-static void timerFunc(int)
+void timerFunc(int)
 {
     const double dt0 = 1.0 / static_cast<double>(frameRate);
     const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
@@ -55,7 +55,7 @@ static void timerFunc(int)
 }
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
     base::Object* obj = nullptr;
 
@@ -85,7 +85,7 @@ static base::Object* factory(const char* name)
 }
 
 // station builder
-static Station* builder(const char* const filename)
+Station* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

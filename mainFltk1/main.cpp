@@ -35,10 +35,10 @@ static void update(void* pData)
 namespace oe {
 namespace example {
 
-static FltkStation* fltkStation = nullptr;
+FltkStation* fltkStation = nullptr;
 
 // our class factory
-static base::Object* factory(const char* name)
+base::Object* factory(const char* name)
 {
     base::Object* obj = nullptr;
 
@@ -60,7 +60,7 @@ static base::Object* factory(const char* name)
 }
 
 // FLTK station builder
-static FltkStation* builder(const char* const filename)
+FltkStation* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

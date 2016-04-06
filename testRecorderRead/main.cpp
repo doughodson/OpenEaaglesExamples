@@ -11,7 +11,7 @@ namespace oe {
 namespace test {
 
 // DataRecordTest builder
-static DataRecordTest* builder(const char* const filename)
+DataRecordTest* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -74,4 +74,3 @@ int main(int argc, char* argv[])
 {
     oe::test::main(argc, argv);
 }
-

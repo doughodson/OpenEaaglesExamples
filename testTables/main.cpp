@@ -27,10 +27,10 @@
 namespace oe {
 namespace test {
 
-static const unsigned int TIMING_LOOPS = 10000;
+const unsigned int TIMING_LOOPS = 10000;
 
 // table builder
-static base::Table* builder(const char* const filename)
+base::Table* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -66,8 +66,7 @@ static base::Table* builder(const char* const filename)
 //-----------------------------------------------------------------------------
 // Test 1D LFI tables
 //-----------------------------------------------------------------------------
-static unsigned int
-testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
@@ -105,8 +104,7 @@ testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bo
 //-----------------------------------------------------------------------------
 // Test 2D LFI tables
 //-----------------------------------------------------------------------------
-static unsigned int
-testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
@@ -155,8 +153,7 @@ testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bo
 //-----------------------------------------------------------------------------
 // Test 3D LFI tables
 //-----------------------------------------------------------------------------
-static unsigned int
-testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
@@ -220,8 +217,7 @@ testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bo
 //-----------------------------------------------------------------------------
 // Test 4D LFI tables
 //-----------------------------------------------------------------------------
-static unsigned int
-testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
@@ -300,7 +296,6 @@ testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bo
    if (sflg && s != nullptr) { s->unref(); s = nullptr; }
    return cnt;
 }
-
 
 int main(int argc, char* argv[])
 {

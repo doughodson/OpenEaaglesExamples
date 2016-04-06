@@ -28,14 +28,14 @@
 namespace oe {
 namespace test {
 
-static const double MAIN_TIMER_VALUE = 10.0; // Sec
-static const double TIMERS_PRINT_RATE = 5;   // Hz
+const double MAIN_TIMER_VALUE = 10.0; // Sec
+const double TIMERS_PRINT_RATE = 5;   // Hz
 
 //------------------------------------------------------------------------------
 // Timer thread
 //------------------------------------------------------------------------------
-static const double THREAD_RATE = 20.0;      // hz
-static const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
+const double THREAD_RATE = 20.0;      // hz
+const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
 
 class TimerThread : public base::ThreadPeriodicTask {
    DECLARE_SUBCLASS(TimerThread,base::ThreadPeriodicTask)
@@ -78,7 +78,7 @@ TimerThread* createTheThread(Tester* const tester)
 }
 
 // our class factory
-static base::Object* factory(const char* const name)
+base::Object* factory(const char* const name)
 {
   base::Object* obj = nullptr;
 
@@ -92,7 +92,7 @@ static base::Object* factory(const char* const name)
 }
 
 // Tester builder
-static Tester* builder(const char* const filename)
+Tester* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -222,4 +222,3 @@ int main(int argc, char* argv[])
 {
    oe::test::main(argc, argv);
 }
-

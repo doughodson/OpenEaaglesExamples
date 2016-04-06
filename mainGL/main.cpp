@@ -23,12 +23,12 @@ namespace oe {
 namespace example {
 
 // frame rate
-static const int frameRate = 20;
+const int frameRate = 20;
 
-static glut::GlutDisplay* glutDisplay = nullptr;
+glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff
-static void timerFunc(int)
+void timerFunc(int)
 {
    const double dt = 1.0 / static_cast<double>(frameRate);
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
@@ -40,7 +40,7 @@ static void timerFunc(int)
 }
 
 // our class factory
-static oe::base::Object* factory(const char* name)
+oe::base::Object* factory(const char* name)
 {
    base::Object* obj = nullptr;
    if (obj == nullptr) obj = glut::factory(name);
@@ -51,7 +51,7 @@ static oe::base::Object* factory(const char* name)
 }
 
 // display builder
-static glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;

@@ -22,7 +22,7 @@ const int frameRate = 20;
 Display* display = nullptr;
 
 // timerFunc() -- Time critical stuff)
-static void timerFunc(int)
+void timerFunc(int)
 {
    double dt = 1.0 / static_cast<double>(frameRate);
 
@@ -35,7 +35,7 @@ static void timerFunc(int)
 }
 
 // display builder
-static Display* builder(const char* const filename)
+Display* builder(const char* const filename)
 {
    // read configuration file
    int errors = 0;
@@ -109,4 +109,3 @@ int main(int argc, char* argv[])
 {
    oe::test::main(argc,argv);
 }
-
