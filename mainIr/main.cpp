@@ -21,7 +21,7 @@ namespace oe {
 namespace example {
 
 // background frame rate
-const int bgRate = 10;
+const unsigned int bgRate = 10;
 
 TestStation* testStation = nullptr;
 

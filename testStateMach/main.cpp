@@ -49,7 +49,7 @@ base::StateMachine* builder(const char* const filename)
 // main test loop
 void theTest(base::StateMachine* stateMachine)
 {
-   double dt = 0.05;  // Fake delta time
+   const double dt = 0.05;  // Fake delta time
 
    while (stateMachine->getState() != 99) {
       base::Timer::updateTimers(static_cast<double>(dt));

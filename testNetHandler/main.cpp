@@ -20,7 +20,7 @@
 namespace oe {
 namespace test {
 
-const float UPDATE_RATE = 10.0; // main loop update rate
+const unsigned int UPDATE_RATE = 10;  // main loop update rate (Hz)
 
 // our class factory
 base::Object* factory(const char* name)
@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
    endpoint->event(base::Component::RESET_EVENT);
 
    // system time of day
-   double dt = 1.0/static_cast<double>(UPDATE_RATE);             // Delta time
+   const double dt = 1.0 / static_cast<double>(UPDATE_RATE);   // Delta time
    double simTime = 0.0;                            // Simulator time reference
    double startTime = base::getComputerTime();   // Time of day (sec) run started
 

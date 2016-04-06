@@ -19,7 +19,7 @@ namespace oe {
 namespace example {
 
 // background frame rate
-const int bgRate = 10;
+const unsigned int bgRate = 10;
 
 // top level Station object
 simulation::Station* station = nullptr;
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
    station->createTimeCriticalProcess();
 
    // set timer for the background tasks
-   const double dt = 1.0/static_cast<double>(bgRate);
+   const double dt = 1.0 / static_cast<double>(bgRate);
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset

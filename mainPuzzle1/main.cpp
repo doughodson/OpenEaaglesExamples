@@ -18,7 +18,7 @@ namespace oe {
 namespace example {
 
 // frame rate
-const int frameRate = 20;
+const unsigned int frameRate = 20;
 
 Board* board = nullptr;
 

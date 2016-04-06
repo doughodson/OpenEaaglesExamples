@@ -78,8 +78,9 @@ int main(int argc, char* argv[])
    // build random
    random = builder(configFilename);
 
-   for (unsigned int i=0; i<10; i++)
+   for (unsigned int i=0; i<10; i++) {
       std::cout << random->getNum() << std::endl;
+   }
 
    random->unref();
 

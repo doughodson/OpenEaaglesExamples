@@ -22,7 +22,7 @@ namespace oe {
 namespace test {
 
 // background frame rate
-const int bgRate = 10;
+const unsigned int bgRate = 10;
 
 //
 TestStation* testStation = nullptr;
@@ -88,18 +88,18 @@ TestStation* builder(const char* const filename)
 //-----------------------------------------------------------------------------
 void updateDataCB(int)
 {
-   double dt0 = 1.0 / static_cast<double>(bgRate);
-   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const double dt0 = 1.0 / static_cast<double>(bgRate);
+   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 
    // current time
-   double time = base::getComputerTime();
+   const double time = base::getComputerTime();
 
    // N-1 Time
    static double time0 = time;
 
    // compute delta time
-   double dt = static_cast<double>(time - time0);
+   const double dt = static_cast<double>(time - time0);
    time0 = time;
 
    testStation->updateData(dt);
@@ -127,8 +127,8 @@ int main(int argc, char* argv[])
    testStation->event(base::Component::RESET_EVENT);
 
    // set timer for the background tasks
-   double dt = 1.0/static_cast<double>(bgRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(bgRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    testStation->updateData(dt);

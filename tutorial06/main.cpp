@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
    myComp = builder(configFilename);
 
    // compute a delta time
-   double dt = 1.0 / static_cast<double>(frameRate);
+   const double dt = 1.0 / static_cast<double>(frameRate);
    // process component tree
    myComp->tcFrame(dt);     // time critical
    myComp->updateData(dt);  // non-time critical

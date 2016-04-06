@@ -45,7 +45,7 @@ namespace oe {
 namespace demo {
 
 // frame rate
-const int frameRate = 20;
+const unsigned int frameRate = 20;
 
 // System descriptions
 glut::GlutDisplay* glutDisplay = nullptr;
@@ -53,9 +53,8 @@ glut::GlutDisplay* glutDisplay = nullptr;
 // timerFunc() -- Time critical stuff
 void timerFunc(int)
 {
-    double dt = 1.0 / static_cast<double>(frameRate);
-
-    unsigned int millis = static_cast<unsigned int>(dt * 1000);
+    const double dt = 1.0 / static_cast<double>(frameRate);
+    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
     base::Timer::updateTimers(dt);
@@ -201,8 +200,8 @@ int main(int argc, char* argv[])
    glutDisplay->createWindow();
 
    // setup timer
-   double dt = 1.0 / static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    glutMainLoop();

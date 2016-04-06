@@ -23,7 +23,7 @@ namespace oe {
 namespace example {
 
 // default background frame rate
-const int BG_RATE = 10;
+const unsigned int BG_RATE = 10;
 
 SimStation* simStation = nullptr;
 

@@ -23,16 +23,15 @@ namespace oe {
 namespace example {
 
 // frame rate
-const int frameRate = 10;
+const unsigned int frameRate = 10;
 
 Display* display = nullptr;
 
 // timerFunc() -- time critical stuff
 void timerFunc(int)
 {
-   double dt = 1.0 / static_cast<double>(frameRate);
-
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    base::Timer::updateTimers(static_cast<double>(dt));
@@ -87,20 +86,20 @@ int main(int argc, char* argv[])
 
    // resetting the system will load the data files
    std::cout << "starting loading files --" << std::endl;
-   double start = base::getComputerTime();
+   const double start = base::getComputerTime();
 
    display->reset();
 
-   double end = base::getComputerTime();
-   double dtime = (end - start);
+   const double end = base::getComputerTime();
+   const double dtime = (end - start);
    std::cout << "finished loading files: time(s) = " << dtime << std::endl;
 
    // create a display window
    display->createWindow();
 
    // set timer
-   double dt = 1.0/static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    glutMainLoop();

@@ -16,7 +16,7 @@ namespace oe {
 // this test is to match original Mersenne Twister output
 void testValidation()
 {
-  unsigned int init[4] = {0x123, 0x234, 0x345, 0x456}, length = 4;
+  const unsigned int init[4] = {0x123, 0x234, 0x345, 0x456}, length = 4;
   base::Rng irand(init, length); // 32-bit int generator
   base::Rng drand; // double in [0, 1) generator, already init
 
@@ -110,4 +110,3 @@ int main(int argc, char* argv[])
   //oe::testExponential();
   return 0;
 }
-

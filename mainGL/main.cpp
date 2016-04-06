@@ -23,7 +23,7 @@ namespace oe {
 namespace example {
 
 // frame rate
-const int frameRate = 20;
+const unsigned int frameRate = 20;
 
 glut::GlutDisplay* glutDisplay = nullptr;
 
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
    glutDisplay->createWindow();
 
    // set timer
-   const double dt = 1.0/static_cast<double>(frameRate);
+   const double dt = 1.0 / static_cast<double>(frameRate);
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 

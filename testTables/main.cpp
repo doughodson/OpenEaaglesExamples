@@ -73,9 +73,9 @@ unsigned int testIt(const base::Table1* const tbl, const bool tflg, const bool s
    base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
-   double maxX = tbl->getMaxX();
-   double minX = tbl->getMinX();
-   double dx = (maxX - minX) / static_cast<double>(20);
+   const double maxX = tbl->getMaxX();
+   const double minX = tbl->getMinX();
+   const double dx = (maxX - minX) / static_cast<double>(20);
 
    if (!tflg) {
       std::cout << std::endl;

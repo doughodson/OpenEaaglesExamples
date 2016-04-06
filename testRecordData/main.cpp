@@ -17,7 +17,7 @@ namespace oe {
 namespace test {
 
 // default background frame rate
-const int BG_RATE = 10;
+const unsigned int BG_RATE = 10;
 
 simulation::Station* station = nullptr;
 
@@ -65,11 +65,11 @@ void updateDataCB(int msecs)
    glutTimerFunc(msecs, updateDataCB, msecs);
 
    // Current time
-   double time = base::getComputerTime();
+   const double time = base::getComputerTime();
 
    // Compute delta time
    static double time0 = time;   // N-1 Time
-   double dt = static_cast<double>(time - time0);
+   const double dt = static_cast<double>(time - time0);
    time0 = time;
 
    station->updateData(dt);
@@ -97,8 +97,8 @@ int main(int argc, char* argv[])
    station->event(base::Component::RESET_EVENT);
 
    // set timer for the background tasks
-   double dt = 1.0 / static_cast<double>(BG_RATE);
-   int msecs = static_cast<int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(BG_RATE);
+   const int msecs = static_cast<int>(dt * 1000);
 
    // ensure everything is reset
    station->updateData(dt);

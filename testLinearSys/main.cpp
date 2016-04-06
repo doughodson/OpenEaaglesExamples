@@ -12,7 +12,7 @@ int main(int, char**)
    enum { PULSE, STEP, RAMP };
    const unsigned int inputType = STEP;
    const unsigned int RATE = 100;
-   const double A = 10.0f;
+   const double A = 10.0;
 
    linearsystem::Sz1 filter;
 
@@ -32,8 +32,8 @@ int main(int, char**)
       return EXIT_FAILURE;
    }
 
-   double time = 0;
-   double deltaTime = 1.0 / static_cast<double>(RATE);
+   double time = 0.0;
+   const double deltaTime = 1.0 / static_cast<double>(RATE);
 
    for (unsigned int i = 0; i < RATE; i++) {
       time += deltaTime;

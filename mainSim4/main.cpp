@@ -28,7 +28,7 @@ namespace oe {
 namespace example {
 
 // frame rate
-const int frameRate = 20;
+const unsigned int frameRate = 20;
 
 Station* station = nullptr;
 
@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
    station->event(base::Component::RESET_EVENT);
 
    // set timer for the background tasks
-   const double dt = 1.0/static_cast<double>(frameRate);
+   const double dt = 1.0 / static_cast<double>(frameRate);
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset

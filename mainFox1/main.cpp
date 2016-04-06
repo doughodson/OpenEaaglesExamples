@@ -122,7 +122,6 @@ int main(int argc, char* argv[])
 } // end example namespace
 } // end oe namespace
 
-
 //
 int main(int argc, char* argv[])
 {

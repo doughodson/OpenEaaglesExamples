@@ -22,16 +22,15 @@ namespace oe {
 namespace test {
 
 // frame rate
-const int frameRate = 20;
+const unsigned int frameRate = 20;
 
 Display* display = nullptr;
 
 // timerFunc()
 void timerFunc(int)
 {
-   double dt = 1.0 / static_cast<double>(frameRate);
-
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    base::Timer::updateTimers(static_cast<double>(dt));
@@ -107,8 +106,8 @@ int main(int argc, char* argv[])
    display->createWindow();
 
    // set timer
-   double dt = 1.0/static_cast<double>(frameRate);
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    // main loop

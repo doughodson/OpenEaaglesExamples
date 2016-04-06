@@ -22,7 +22,7 @@ namespace oe {
 namespace example {
 
 // background rate
-const int bgRate = 20;
+const unsigned int bgRate = 20;
 
 // System descriptions
 TestStation* testStation = nullptr;
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
    std::cout << "finished loading files: time(s) = " << dtime << std::endl;
 
    // set timer for background tasks
-   const double dt = 1.0/static_cast<double>(bgRate);
+   const double dt = 1.0 / static_cast<double>(bgRate);
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 

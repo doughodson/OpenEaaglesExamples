@@ -43,9 +43,8 @@ TestDisplay* testDisplay = nullptr;
 // timerFunc() -- Time critical stuff)
 void timerFunc(int)
 {
-   double dt = 1.0 / static_cast<double>(frameRate);
-
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
    base::Timer::updateTimers(static_cast<double>(dt));

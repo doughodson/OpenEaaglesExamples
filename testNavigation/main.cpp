@@ -75,7 +75,6 @@ void test99_printAllExamples();
 void displayNavTestFunctions();
 void selectNavTestFunction(int n);
 
-
 //------------------------------------------------------------------------------
 // Test Nav class functions
 //------------------------------------------------------------------------------
@@ -4536,4 +4535,3 @@ int main(int argc, char* argv[])
 
    return EXIT_SUCCESS;
 }
-
