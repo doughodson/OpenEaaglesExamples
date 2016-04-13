@@ -21,6 +21,10 @@ mainSim4-qt/mainSim4-qt.pro.user
 mainSim4-qt/Makefile
 mainSim4-qt/tmp/
 build-mainSim4-qt-Desktop_Qt*
+mainSim4-qt/Makefile.Debug
+mainSim4-qt/Makefile.Release
+mainSim4-qt/release/*
+mainSim4-qt/debug/*
 
 # visual studio generated files
 *.idb

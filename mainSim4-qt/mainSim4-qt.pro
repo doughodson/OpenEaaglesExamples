@@ -1,4 +1,4 @@
-MSVC_VER = vs2013
+MSVC_VER = vs2015
 
 # OpenEaagles package(s)
 OE_ROOT = $$(OE_ROOT)

@@ -80,8 +80,6 @@ int main(int argc, char* argv[])
       }
    }
 
-   char fileNames[80];
-
 #if !defined(WIN32)
    const char* funcCall = "cpp ";
    std::strcpy(fileNames, funcCall);
