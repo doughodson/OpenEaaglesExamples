@@ -38,20 +38,10 @@ oe::base::Object* factory(const std::string& name)
 void builder(const std::string& filename)
 {
     // Read the description file
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     unsigned int num_errors = 0;
     oe::base::Object* q1 = oe::base::edl_parser(filename, factory, &num_errors);
     if (num_errors > 0) {
         std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
-=======
->>>>>>> master
-    unsigned int errors = 0;
-    oe::base::Object* q1 = oe::base::edl_parser(testFileName, factory, &errors);
-    if (errors > 0) {
-        std::cerr << "Errors in reading file: " << errors << std::endl;
->>>>>>> parser
         std::exit(EXIT_FAILURE);
     }
 
