@@ -12,22 +12,21 @@
 #include "openeaagles/base/factory.h"
 #include "openeaagles/recorder/factory.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
 namespace test {
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    //
-   if ( std::strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
+   if ( name == DataRecordTest::getFactoryName() ) {
       obj = new DataRecordTest();
    }
-
    else {
       if (obj == nullptr) obj = oe::simulation::factory(name);
       if (obj == nullptr) obj = oe::base::factory(name);
@@ -38,7 +37,7 @@ base::Object* factory(const char* name)
 }
 
 // DataRecordTest builder
-DataRecordTest* builder(const char* const filename)
+DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -75,10 +74,10 @@ DataRecordTest* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string  configFilename = "test.edl";
    // parse command line arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

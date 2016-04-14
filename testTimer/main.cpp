@@ -22,7 +22,7 @@
 #include "openeaagles/base/factory.h"
 
 #include <cstdio>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -78,11 +78,11 @@ TimerThread* createTheThread(Tester* const tester)
 }
 
 // our class factory
-base::Object* factory(const char* const name)
+base::Object* factory(const std::string& name)
 {
   base::Object* obj = nullptr;
 
-  if ( std::strcmp(name, Tester::getFactoryName()) == 0 ) {
+  if ( name == Tester::getFactoryName() ) {
     obj = new Tester;
   }
 
@@ -92,7 +92,7 @@ base::Object* factory(const char* const name)
 }
 
 // Tester builder
-Tester* builder(const char* const filename)
+Tester* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -182,11 +182,11 @@ void run(Tester* const tester)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "test01.edl";
+   std::string configFilename = "test01.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
@@ -214,8 +214,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace test
-} // namespace oe
+}
+}
 
 //
 int main(int argc, char* argv[])

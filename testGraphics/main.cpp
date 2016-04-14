@@ -29,7 +29,7 @@
 #include "TdElevPtr.h"
 #include "TestRotator.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -53,34 +53,34 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    // This test ...
-   if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+   if ( name == TestDisplay::getFactoryName() ) {
       obj = new TestDisplay;
    }
-   else if ( std::strcmp(name, MfdPage::getFactoryName()) == 0 ) {
+   else if ( name == MfdPage::getFactoryName() ) {
       obj = new MfdPage;
    }
 
    // TestX
-   else if ( std::strcmp(name, TestOne::getFactoryName()) == 0 ) {
+   else if ( name == TestOne::getFactoryName() ) {
       obj = new TestOne;
    }
 
    // TestY
-   else if ( std::strcmp(name, TestTwo::getFactoryName()) == 0 ) {
+   else if ( name == TestTwo::getFactoryName() ) {
       obj = new TestTwo;
    }
-   else if ( std::strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
+   else if ( name == TdAzPtr::getFactoryName() ) {
       obj = new TdAzPtr;
    }
-   else if ( std::strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
+   else if ( name == TdElevPtr::getFactoryName() ) {
       obj = new TdElevPtr;
    }
-   else if ( std::strcmp(name, TestRotator::getFactoryName()) == 0 ) {
+   else if ( name == TestRotator::getFactoryName() ) {
       obj = new TestRotator;
    }
 
@@ -93,7 +93,7 @@ base::Object* factory(const char* name)
 }
 
 // test display builder
-TestDisplay* builder(const char* const filename)
+TestDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -132,11 +132,11 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

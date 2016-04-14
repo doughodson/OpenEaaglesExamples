@@ -55,8 +55,8 @@ int main(int, char**)
    return EXIT_SUCCESS;
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 
 int main(int argc, char* argv[], char**)

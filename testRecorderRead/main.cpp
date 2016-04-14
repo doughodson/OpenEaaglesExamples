@@ -5,13 +5,13 @@
 #include "openeaagles/base/parser.h"
 #include "openeaagles/base/Pair.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace test {
 
 // DataRecordTest builder
-DataRecordTest* builder(const char* const filename)
+DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -48,11 +48,11 @@ DataRecordTest* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // parse command line arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

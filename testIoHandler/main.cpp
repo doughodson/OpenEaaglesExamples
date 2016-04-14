@@ -10,7 +10,7 @@
 
 #include <GL/glut.h>
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -34,7 +34,7 @@ void timerFunc(int)
 }
 
 // display builder
-Display* builder(const char* const filename)
+Display* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -73,10 +73,10 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test1.edl";
+   std::string configFilename = "test1.edl";
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i], "-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

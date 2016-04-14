@@ -12,19 +12,19 @@
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace test {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-   if ( std::strcmp(name, Display::getFactoryName()) == 0 ) {
+   if ( name == Display::getFactoryName() ) {
       obj = new Display();
    }
-   else if ( std::strcmp(name, Table::getFactoryName()) == 0 ) {
+   else if ( name == Table::getFactoryName() ) {
       obj = new Table();
    }
 
