@@ -33,10 +33,10 @@ const unsigned int TIMING_LOOPS = 10000;
 base::Table* builder(const std::string& filename)
 {
    // read configuration file
-   unsigned int errors = 0;
-   base::Object* obj = base::edl_parser(filename, base::factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, base::factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
