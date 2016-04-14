@@ -4,7 +4,7 @@
 //----------------------------------------------------------------
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 
 #include "openeaagles/graphics/Graphic.h"
 
@@ -17,7 +17,7 @@
 
 #include <GL/glut.h>
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace example {
@@ -40,7 +40,7 @@ void timerFunc(int)
 }
 
 // our class factory
-oe::base::Object* factory(const char* name)
+oe::base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
    if (obj == nullptr) obj = glut::factory(name);
@@ -51,13 +51,13 @@ oe::base::Object* factory(const char* name)
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -90,9 +90,9 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
@@ -111,8 +111,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])

@@ -20,30 +20,30 @@
 #include "openeaagles/models/factory.h"
 #include "openeaagles/simulation/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace example {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
     // Sim3 Station & IoHandler
-    if ( std::strcmp(name, SimStation::getFactoryName()) == 0 ) {
+    if ( name == SimStation::getFactoryName() ) {
         obj = new SimStation();
     }
-     else if ( std::strcmp(name, SimIoHandler::getFactoryName()) == 0 ) {
+     else if ( name == SimIoHandler::getFactoryName() ) {
         obj = new SimIoHandler();
     }
 
     // Sim3 Player
-    else if ( std::strcmp(name, SimPlayer::getFactoryName()) == 0 ) {
+    else if ( name == SimPlayer::getFactoryName() ) {
         obj = new SimPlayer();
     }
 
     // InstrumentPanel
-    else if ( std::strcmp(name, InstrumentPanel::getFactoryName()) == 0 ) {
+    else if ( name == InstrumentPanel::getFactoryName() ) {
         obj = new InstrumentPanel();
     }
 

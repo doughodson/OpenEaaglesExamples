@@ -7,56 +7,56 @@
 #include "PlaneBehaviors.h"
 #include "PriorityArbiter.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace xbehaviors {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if ( std::strcmp(name, PlaneState::getFactoryName()) == 0 ) {
+    if ( name == PlaneState::getFactoryName() ) {
         obj = new PlaneState();
     }
 
-    else if ( std::strcmp(name, PriorityArbiter::getFactoryName()) == 0 ) {
+    else if ( name == PriorityArbiter::getFactoryName() ) {
         obj = new PriorityArbiter();
     }
 
-    else if ( std::strcmp(name, PlaneFire::getFactoryName()) == 0 ) {
+    else if ( name == PlaneFire::getFactoryName() ) {
         obj = new PlaneFire();
     }
-    else if ( std::strcmp(name, PlaneFlyStraight::getFactoryName()) == 0 ) {
+    else if ( name == PlaneFlyStraight::getFactoryName() ) {
         obj = new PlaneFlyStraight();
     }
-    else if ( std::strcmp(name, PlaneFollowEnemy::getFactoryName()) == 0 ) {
+    else if ( name == PlaneFollowEnemy::getFactoryName() ) {
         obj = new PlaneFollowEnemy();
     }
 
-    else if ( std::strcmp(name, PlaneTurn::getFactoryName()) == 0 ) {
+    else if ( name == PlaneTurn::getFactoryName() ) {
         obj = new PlaneTurn();
     }
-    else if ( std::strcmp(name, PlaneSlowTurn::getFactoryName()) == 0 ) {
+    else if ( name == PlaneSlowTurn::getFactoryName() ) {
         obj = new PlaneSlowTurn();
     }
-    else if ( std::strcmp(name, PlaneClimb::getFactoryName()) == 0 ) {
+    else if ( name == PlaneClimb::getFactoryName() ) {
         obj = new PlaneClimb();
     }
-    else if ( std::strcmp(name, PlaneDive::getFactoryName()) == 0 ) {
+    else if ( name == PlaneDive::getFactoryName() ) {
         obj = new PlaneDive();
     }
 
-    else if ( std::strcmp(name, PlaneTrim::getFactoryName()) == 0 ) {
+    else if ( name == PlaneTrim::getFactoryName() ) {
         obj = new PlaneTrim();
     }
-    else if ( std::strcmp(name, PlaneRoll::getFactoryName()) == 0 ) {
+    else if ( name == PlaneRoll::getFactoryName() ) {
         obj = new PlaneRoll();
     }
-    else if ( std::strcmp(name, PlaneBarrelRoll::getFactoryName()) == 0 ) {
+    else if ( name == PlaneBarrelRoll::getFactoryName() ) {
         obj = new PlaneBarrelRoll();
     }
-    else if ( std::strcmp(name, PlaneLoop::getFactoryName()) == 0 ) {
+    else if ( name == PlaneLoop::getFactoryName() ) {
         obj = new PlaneLoop();
     }
 

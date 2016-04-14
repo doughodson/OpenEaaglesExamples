@@ -16,13 +16,13 @@
 #include "openeaagles/base/functors/Tables.h"
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/util/system.h"
 
 // class factory
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace test {
@@ -30,13 +30,13 @@ namespace test {
 const unsigned int TIMING_LOOPS = 10000;
 
 // table builder
-base::Table* builder(const char* const filename)
+base::Table* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, base::factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, base::factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -305,23 +305,23 @@ int main(int argc, char* argv[])
    bool tflg = false;   // Timing flag
 
    // default configuration filename
-   const char* configFilename = "test1.edl";
+   std::string configFilename = "test1.edl";
 
    // Parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
-      else if (std::strcmp(argv[i],"-a") == 0) {
+      else if ( std::string(argv[i]) == "-a") {
          aflg = true;
       }
-      else if (std::strcmp(argv[i],"-r") == 0) {
+      else if ( std::string(argv[i]) == "-r") {
          rflg = true;
       }
-      else if (std::strcmp(argv[i],"-s") == 0) {
+      else if ( std::string(argv[i]) == "-s") {
          sflg = true;
       }
-      else if (std::strcmp(argv[i],"-t") == 0) {
+      else if ( std::string(argv[i]) == "-t") {
          tflg = true;
       }
    }

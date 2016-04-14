@@ -6,7 +6,7 @@
 #include "Sender.h"
 #include "Echo.h"
 
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/util/system.h"
 
@@ -14,7 +14,7 @@
 #include "openeaagles/base/factory.h"
 #include "../shared/xzmq/factory.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -23,14 +23,14 @@ namespace test {
 const unsigned int UPDATE_RATE = 10;  // main loop update rate (Hz)
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
-   if ( std::strcmp(name, Sender::getFactoryName()) == 0 ) {
+   if ( name == Sender::getFactoryName() ) {
       obj = new Sender();
    }
-   else if ( std::strcmp(name, Echo::getFactoryName()) == 0 ) {
+   else if ( name == Echo::getFactoryName() ) {
       obj = new Echo();
    }
 
@@ -43,13 +43,13 @@ base::Object* factory(const char* name)
 }
 
 // endpoint builder
-Endpoint* builder(const char* const filename)
+Endpoint* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -80,10 +80,10 @@ Endpoint* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "configs/senderUdpBroadcast.edl";
+   std::string configFilename = "configs/senderUdpBroadcast.edl";
    // parse command line arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
 
    // system time of day
    const double dt = 1.0 / static_cast<double>(UPDATE_RATE);   // Delta time
-   double simTime = 0.0;                            // Simulator time reference
+   double simTime = 0.0;                         // Simulator time reference
    double startTime = base::getComputerTime();   // Time of day (sec) run started
 
    // main loop
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
       endpoint->updateTC( static_cast<double>(dt) );
       endpoint->updateData( static_cast<double>(dt) );
 
-      simTime += dt;                       // time of next frame
+      simTime += dt;                             // time of next frame
       double timeNow = base::getComputerTime();  // time now
 
       double elapsedTime = timeNow - startTime;

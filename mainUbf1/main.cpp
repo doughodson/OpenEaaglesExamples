@@ -4,7 +4,7 @@
 
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/util/system.h"
@@ -12,7 +12,7 @@
 #include "factory.h"
 
 #include <GL/glut.h>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -25,13 +25,13 @@ const unsigned int bgRate = 10;
 simulation::Station* station = nullptr;
 
 // station builder
-simulation::Station* builder(const char* const filename)
+simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -81,14 +81,14 @@ void updateDataCB(int msecs)
 //
 int main(int argc, char* argv[])
 {
-  glutInit(&argc, argv);
+   glutInit(&argc, argv);
 
    // default configuration file
-   const char* configFilename = "test00.edl";
+   std::string configFilename = "test00.edl";
 
    // parse command arguments
    for (int i=1; i<argc; i++) {
-      if (std::strcmp(argv[i], "-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

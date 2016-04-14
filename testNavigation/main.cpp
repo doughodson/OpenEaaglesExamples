@@ -11,7 +11,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace test {
@@ -4495,8 +4495,8 @@ void test27_convertUtm()
    }
 }
 
-} // end namespace test
-} // end namespace oe
+}
+}
 
 //==============================================================================
 int main(int argc, char* argv[])
@@ -4505,10 +4505,10 @@ int main(int argc, char* argv[])
    bool imode = false;
 
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-a") == 0) {
+      if ( std::string(argv[i]) == "-a" ) {
          runAll = true;
       }
-      else if (std::strcmp(argv[i],"-i") == 0) {
+      else if ( std::string(argv[i]) == "-i" ) {
          imode = true;
       }
    }

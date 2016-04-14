@@ -1,6 +1,6 @@
 
 #include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 
 // factories
@@ -8,7 +8,7 @@
 #include "openeaagles/models/factory.h"
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -20,7 +20,7 @@ const unsigned int frameRate = 50;
 simulation::Simulation* simulation = nullptr;
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
@@ -32,13 +32,13 @@ base::Object* factory(const char* name)
 }
 
 // simulation builder
-simulation::Simulation* builder(const char* const filename)
+simulation::Simulation* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -68,11 +68,11 @@ simulation::Simulation* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "test1.edl";
+   std::string configFilename = "test1.edl";
 
    // read filename from command line if provided
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i], "-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
@@ -97,8 +97,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace example
-} // namespace oe
+}
+}
 
 //
 int main(int argc, char* argv[])

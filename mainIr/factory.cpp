@@ -17,22 +17,22 @@
 #include "openeaagles/networks/dis/factory.h"
 #include "openeaagles/otw/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace example {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-   if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
+   if ( name == TestStation::getFactoryName() ) {
       obj = new TestStation;
    }
-   else if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+   else if ( name == TestDisplay::getFactoryName() ) {
       obj = new TestDisplay;
    }
-   else if ( std::strcmp(name, TestComputer::getFactoryName()) == 0 ) {
+   else if ( name == TestComputer::getFactoryName() ) {
       obj = new TestComputer;
    }
 

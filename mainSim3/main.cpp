@@ -8,7 +8,7 @@
 
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/graphics/Texture.h"
@@ -17,6 +17,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -28,13 +29,13 @@ const unsigned int BG_RATE = 10;
 SimStation* simStation = nullptr;
 
 // SimStation builder
-SimStation* builder(const char* const filename)
+SimStation* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -85,10 +86,10 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test0.edl";
+   std::string configFilename = "test0.edl";
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

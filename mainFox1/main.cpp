@@ -6,14 +6,14 @@
 #include "FoxDisplay.h"
 #include "Worm.h"
 
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 
 // factories
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -22,17 +22,17 @@ namespace example {
 FoxStation* foxStation = nullptr;
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
-   if ( std::strcmp(name, FoxDisplay::getFactoryName()) == 0 ) {
+   if ( name == FoxDisplay::getFactoryName() ) {
       obj = new FoxDisplay();
    }
-   else if ( std::strcmp(name, FoxStation::getFactoryName()) == 0 ) {
+   else if ( name == FoxStation::getFactoryName() ) {
       obj = new FoxStation();
    }
-   else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
+   else if ( name == Worm::getFactoryName() ) {
       obj = new Worm();
    }
 
@@ -43,13 +43,13 @@ base::Object* factory(const char* name)
 }
 
 // FOX station builder
-FoxStation* builder(const char* const filename)
+FoxStation* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -80,10 +80,10 @@ FoxStation* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "testfox.edl";
+   std::string configFilename = "testfox.edl";
    // set optional input file
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

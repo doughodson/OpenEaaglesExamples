@@ -14,22 +14,22 @@
 #include "openeaagles/gui/glut/factory.h"
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace example {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if ( std::strcmp(name, Display::getFactoryName()) == 0 ) {
+    if ( name == Display::getFactoryName() ) {
         obj = new Display();
     }
-    else if ( std::strcmp(name, RealBeamRadar::getFactoryName()) == 0 ) {
+    else if ( name == RealBeamRadar::getFactoryName() ) {
         obj = new RealBeamRadar();
     }
-    else if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
+    else if ( name == TestStation::getFactoryName() ) {
         obj = new TestStation();
     }
 

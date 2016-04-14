@@ -12,41 +12,41 @@
 #include "openeaagles/graphics/factory.h"
 #include "openeaagles/gui/glut/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace example {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
     // Main board
-    if ( std::strcmp(name, Board::getFactoryName()) == 0 ) {
+    if ( name == Board::getFactoryName() ) {
         obj = new Board;
     }
 
     // Puzzle controller
-    else if ( std::strcmp(name, Puzzle::getFactoryName()) == 0 ) {
+    else if ( name == Puzzle::getFactoryName() ) {
         obj = new Puzzle();
     }
 
     // Puzzle state
-    else if ( std::strcmp(name, State::getFactoryName()) == 0 ) {
+    else if ( name == State::getFactoryName() ) {
         obj = new State();
     }
 
     // Puzzle blocks
-    else if ( std::strcmp(name, Block1x1::getFactoryName()) == 0 ) {
+    else if ( name == Block1x1::getFactoryName() ) {
         obj = new Block1x1();
     }
-    else if ( std::strcmp(name, Block1x2::getFactoryName()) == 0 ) {
+    else if ( name == Block1x2::getFactoryName() ) {
         obj = new Block1x2();
     }
-    else if ( std::strcmp(name, Block2x1::getFactoryName()) == 0 ) {
+    else if ( name == Block2x1::getFactoryName() ) {
         obj = new Block2x1();
     }
-    else if ( std::strcmp(name, Block2x2::getFactoryName()) == 0 ) {
+    else if ( name == Block2x2::getFactoryName() ) {
         obj = new Block2x2();
     }
 

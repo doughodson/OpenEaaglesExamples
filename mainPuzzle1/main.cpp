@@ -4,7 +4,7 @@
 #include "State.h"
 #include "factory.h"
 
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/util/system.h"
@@ -12,6 +12,7 @@
 #include <iostream>
 #include <GL/glut.h>
 
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -45,13 +46,13 @@ void timerCB(int)
 }
 
 // board builder
-Board* builder(const char* const filename)
+Board* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -83,7 +84,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "puzzle.edl";
+   std::string configFilename = "puzzle.edl";
 
    board = builder(configFilename);
 
@@ -100,8 +101,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 
 int main(int argc, char* argv[])

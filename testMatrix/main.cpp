@@ -531,8 +531,8 @@ void test_getInverse()
 }
 
 
-} // end namespace base 
-} // end namespace oe
+}
+}
 
 //
 int main(int argc, char* argv[])

@@ -6,14 +6,14 @@
 #include "factory.h"
 
 #include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/util/system.h"
 
 #include <GL/glut.h>
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 //#define PARSE_TIMING_TEST
@@ -28,7 +28,7 @@ const unsigned int bgRate = 10;
 TestStation* testStation = nullptr;
 
 // test station builder
-TestStation* builder(const char* const filename)
+TestStation* builder(const std::string& filename)
 {
 #ifdef PARSE_TIMING_TEST
     LARGE_INTEGER cFreq;
@@ -41,10 +41,10 @@ TestStation* builder(const char* const filename)
 #endif
 
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -111,11 +111,11 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test2a.edl";
+   std::string configFilename = "test2a.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i], "-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
@@ -145,8 +145,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end test namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])

@@ -4,7 +4,7 @@
 #include "openeaagles/simulation/Simulation.h"
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/simulation/Player.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
 
 // factories
@@ -12,22 +12,21 @@
 #include "openeaagles/base/factory.h"
 #include "openeaagles/recorder/factory.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
 namespace test {
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    //
-   if ( std::strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
+   if ( name == DataRecordTest::getFactoryName() ) {
       obj = new DataRecordTest();
    }
-
    else {
       if (obj == nullptr) obj = oe::simulation::factory(name);
       if (obj == nullptr) obj = oe::base::factory(name);
@@ -38,13 +37,13 @@ base::Object* factory(const char* name)
 }
 
 // DataRecordTest builder
-DataRecordTest* builder(const char* const filename)
+DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -75,10 +74,10 @@ DataRecordTest* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string  configFilename = "test.edl";
    // parse command line arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

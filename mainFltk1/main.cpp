@@ -1,6 +1,6 @@
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/PairStream.h"
 
 // factories
@@ -14,7 +14,7 @@
 #include "FltkStation.h"
 #include "FltkDisplay.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 // ----------------------------------------------------------------------------
@@ -38,15 +38,15 @@ namespace example {
 FltkStation* fltkStation = nullptr;
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
     // This test ...
-    if ( std::strcmp(name, FltkStation::getFactoryName()) == 0 ) {
+    if ( name == FltkStation::getFactoryName() ) {
         obj = new FltkStation;
     }
-    else if ( std::strcmp(name, FltkDisplay::getFactoryName()) == 0 ) {
+    else if ( name == FltkDisplay::getFactoryName() ) {
         obj = new FltkDisplay;
     }
     else {
@@ -60,13 +60,13 @@ base::Object* factory(const char* name)
 }
 
 // FLTK station builder
-FltkStation* builder(const char* const filename)
+FltkStation* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -96,7 +96,7 @@ FltkStation* builder(const char* const filename)
 int main(int, char* [])
 {
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
    fltkStation = builder(configFilename);
 
    // now do a reset

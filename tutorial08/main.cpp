@@ -1,10 +1,10 @@
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
@@ -28,24 +28,24 @@ glut::GlutDisplay* glutDisplay = nullptr;
 // timerFunc() -- Time critical stuff)
 void timerFunc(int)
 {
-    const double dt = 1.0 / static_cast<double>(frameRate);
-    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
-    glutTimerFunc(millis, timerFunc, 1);
+  const double dt = 1.0 / static_cast<double>(frameRate);
+  const unsigned int millis = static_cast<unsigned int>(dt * 1000);
+  glutTimerFunc(millis, timerFunc, 1);
 
-    base::Timer::updateTimers(dt);
-    graphics::Graphic::flashTimer(dt);
-    glutDisplay->tcFrame(dt);
+  base::Timer::updateTimers(dt);
+  graphics::Graphic::flashTimer(dt);
+  glutDisplay->tcFrame(dt);
 }
 
 // our class factory
-base::Object* factory(const char* const name)
+base::Object* factory(const std::string& name)
 {
   base::Object* obj = nullptr;
 
-  if ( std::strcmp(name, MyPager::getFactoryName()) == 0 ) {
+  if ( name == MyPager::getFactoryName() ) {
     obj = new MyPager;
   }
-  else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
+  else if ( name == Worm::getFactoryName() ) {
     obj = new Worm;
   }
 
@@ -57,13 +57,13 @@ base::Object* factory(const char* const name)
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "file0.edl";
+   std::string configFilename = "file0.edl";
 
    // build a display
    glutDisplay = builder(configFilename);

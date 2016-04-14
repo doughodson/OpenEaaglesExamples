@@ -10,20 +10,21 @@
 #include "openeaagles/recorder/factory.h"
 #include "openeaagles/simulation/factory.h"
 
+#include <string>
+
 namespace oe {
 namespace test {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if ( std::strcmp(name, DataRecordTest::getFactoryName()) == 0 ) {
+    if ( name == DataRecordTest::getFactoryName() ) {
         obj = new DataRecordTest();
     }
-    else if ( std::strcmp(name, PrintMyData::getFactoryName()) == 0 ) {
+    else if ( name == PrintMyData::getFactoryName() ) {
         obj = new PrintMyData();
     }
-
     else {
         if (obj == nullptr) obj = simulation::factory(name);
         if (obj == nullptr) obj = base::factory(name);

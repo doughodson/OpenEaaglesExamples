@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/functors/Tables.h"
 #include "openeaagles/base/Nav.h"
 #include "openeaagles/base/units/Angles.h"
@@ -29,7 +29,7 @@
 #include "TdElevPtr.h"
 #include "TestRotator.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -40,7 +40,7 @@ const int frameRate = 20;
 
 TestDisplay* testDisplay = nullptr;
 
-// timerFunc() -- Time critical stuff)
+// timerFunc() -- time critical stuff
 void timerFunc(int)
 {
    const double dt = 1.0 / static_cast<double>(frameRate);
@@ -53,34 +53,34 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
-   // This test ...
-   if ( std::strcmp(name, TestDisplay::getFactoryName()) == 0 ) {
+   //
+   if ( name == TestDisplay::getFactoryName() ) {
       obj = new TestDisplay;
    }
-   else if ( std::strcmp(name, MfdPage::getFactoryName()) == 0 ) {
+   else if ( name == MfdPage::getFactoryName() ) {
       obj = new MfdPage;
    }
 
    // TestX
-   else if ( std::strcmp(name, TestOne::getFactoryName()) == 0 ) {
+   else if ( name == TestOne::getFactoryName() ) {
       obj = new TestOne;
    }
 
    // TestY
-   else if ( std::strcmp(name, TestTwo::getFactoryName()) == 0 ) {
+   else if ( name == TestTwo::getFactoryName() ) {
       obj = new TestTwo;
    }
-   else if ( std::strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
+   else if ( name == TdAzPtr::getFactoryName() ) {
       obj = new TdAzPtr;
    }
-   else if ( std::strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
+   else if ( name == TdElevPtr::getFactoryName() ) {
       obj = new TdElevPtr;
    }
-   else if ( std::strcmp(name, TestRotator::getFactoryName()) == 0 ) {
+   else if ( name == TestRotator::getFactoryName() ) {
       obj = new TestRotator;
    }
 
@@ -93,13 +93,13 @@ base::Object* factory(const char* name)
 }
 
 // test display builder
-TestDisplay* builder(const char* const filename)
+TestDisplay* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -132,11 +132,11 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

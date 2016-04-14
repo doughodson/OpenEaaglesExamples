@@ -10,36 +10,36 @@
 #include "TdElevPtr.h"
 #include "Pfd.h"
 #include "SpdLines.h"
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace xpanel {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if ( std::strcmp(name, DspRadar::getFactoryName()) == 0 ) {
+    if ( name == DspRadar::getFactoryName() ) {
         obj = new DspRadar();
     }
-    else if ( std::strcmp(name, DspRwr::getFactoryName()) == 0 ) {
+    else if ( name == DspRwr::getFactoryName() ) {
         obj = new DspRwr();
     }
-    else if ( std::strcmp(name, TdAzPtr::getFactoryName()) == 0 ) {
+    else if ( name == TdAzPtr::getFactoryName() ) {
         obj = new TdAzPtr();
     }
-    else if ( std::strcmp(name, TdElevPtr::getFactoryName()) == 0 ) {
+    else if ( name == TdElevPtr::getFactoryName() ) {
         obj = new TdElevPtr();
     }
 
     // Pfd/Hsi
-    else if ( std::strcmp(name, Pfd::getFactoryName()) == 0 ) {
+    else if ( name == Pfd::getFactoryName() ) {
         obj = new Pfd();
     }
-    else if ( std::strcmp(name, Hsi::getFactoryName()) == 0 ) {
+    else if ( name == Hsi::getFactoryName() ) {
         obj = new Hsi();
     }
-    else if ( std::strcmp(name, SpdLines::getFactoryName()) == 0 ) {
+    else if ( name == SpdLines::getFactoryName() ) {
         obj = new SpdLines();
     }
 

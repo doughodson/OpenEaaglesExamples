@@ -2,7 +2,7 @@
 // Test Component send command, using different parameters
 //----------------------------------------------------------------
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Timers.h"
 
 #include <GL/glut.h>
@@ -15,8 +15,8 @@
 #include "Display.h"
 #include "ObjectHandler.h"
 
-//#include <cstring>
-//#include <cstdlib>
+#include <string>
+#include <cstdlib>
 
 namespace oe {
 namespace test {
@@ -39,14 +39,14 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
-   if (std::strcmp(name, Display::getFactoryName()) == 0) {
+   if ( name == Display::getFactoryName() ) {
       obj = new Display();
    }
-   else if (std::strcmp(name, ObjectHandler::getFactoryName()) == 0) {
+   else if ( name == ObjectHandler::getFactoryName() ) {
       obj = new ObjectHandler();
    }
    else {
@@ -59,13 +59,13 @@ base::Object* factory(const char* name)
 }
 
 // display builder
-Display* builder(const char* const filename)
+Display* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
-   if (errors > 0) {
-      std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
+   unsigned int num_errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    display = builder(configFilename);
 
@@ -116,8 +116,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])
