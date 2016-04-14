@@ -73,9 +73,9 @@ void builder(const std::string& filename)
 void compile_edl(const std::string& filename)
 {
 #if !defined(WIN32)
-   std::string func_call = "cpp configs/" + filename;        // cpp configs/
+   std::string func_call = "cpp configs/" + filename;        // cpp configs/test.edl
    func_call = func_call.substr(0, func_call.length() - 2);  // cpp configs/test.e
-   func_call = func_call + "pp >" + filename;                // cpp configs/test.epp > test.edl
+   func_call = func_call + "pp > " + filename;               // cpp configs/test.epp > test.edl
    std::cout << "Compiling: " << filename << std::endl;
    system(func_call.c_str());
 #endif
