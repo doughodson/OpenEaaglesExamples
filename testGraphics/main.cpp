@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/functors/Tables.h"
 #include "openeaagles/base/Nav.h"
 #include "openeaagles/base/units/Angles.h"
@@ -40,7 +40,7 @@ const int frameRate = 20;
 
 TestDisplay* testDisplay = nullptr;
 
-// timerFunc() -- Time critical stuff)
+// timerFunc() -- time critical stuff
 void timerFunc(int)
 {
    const double dt = 1.0 / static_cast<double>(frameRate);
@@ -57,7 +57,7 @@ base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
-   // This test ...
+   //
    if ( name == TestDisplay::getFactoryName() ) {
       obj = new TestDisplay;
    }
@@ -96,8 +96,8 @@ base::Object* factory(const std::string& name)
 TestDisplay* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
+   unsigned int errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);

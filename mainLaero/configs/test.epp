@@ -8,7 +8,7 @@
 
    ownship: player1
 
-   simulation: 
+   simulation:
    ( Simulation
       latitude:  0
       longitude: 0

@@ -8,7 +8,7 @@
 
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/graphics/Texture.h"
@@ -32,8 +32,8 @@ SimStation* simStation = nullptr;
 SimStation* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
+   unsigned int errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);

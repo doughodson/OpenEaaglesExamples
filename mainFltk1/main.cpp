@@ -1,6 +1,6 @@
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
+#include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/PairStream.h"
 
 // factories
@@ -63,8 +63,8 @@ base::Object* factory(const std::string& name)
 FltkStation* builder(const std::string& filename)
 {
    // read configuration file
-   int errors = 0;
-   base::Object* obj = base::edlParser(filename, factory, &errors);
+   unsigned int errors = 0;
+   base::Object* obj = base::edl_parser(filename, factory, &errors);
    if (errors > 0) {
       std::cerr << "File: " << filename << ", errors: " << errors << std::endl;
       std::exit(EXIT_FAILURE);
