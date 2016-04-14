@@ -21,7 +21,7 @@
 #include "Station.h"
 #include "Display.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -55,17 +55,17 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if (std::strcmp(name, MapPage::getFactoryName()) == 0) {
+    if ( name == MapPage::getFactoryName() ) {
         obj = new MapPage();
     }
-    else if (std::strcmp(name, Station::getFactoryName()) == 0) {
+    else if ( name == Station::getFactoryName() ) {
         obj = new Station();
     }
-    else if (std::strcmp(name, Display::getFactoryName()) == 0) {
+    else if ( name == Display::getFactoryName() ) {
         obj = new Display();
     }
 
@@ -85,7 +85,7 @@ base::Object* factory(const char* name)
 }
 
 // station builder
-Station* builder(const char* const filename)
+Station* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // build a station
    station = builder(configFilename);

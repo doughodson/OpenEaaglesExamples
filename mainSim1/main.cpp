@@ -16,7 +16,7 @@
 #include "openeaagles/otw/factory.h"
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -28,7 +28,7 @@ const unsigned int bgRate = 10;
 simulation::Station* station = nullptr;
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
@@ -46,7 +46,7 @@ base::Object* factory(const char* name)
 }
 
 // station builder
-simulation::Station* builder(const char* const filename)
+simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -82,10 +82,10 @@ simulation::Station* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "test00.edl";
+   std::string configFilename = "test00.edl";
 
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

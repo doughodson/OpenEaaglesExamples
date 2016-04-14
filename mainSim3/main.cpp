@@ -17,6 +17,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -28,7 +29,7 @@ const unsigned int BG_RATE = 10;
 SimStation* simStation = nullptr;
 
 // SimStation builder
-SimStation* builder(const char* const filename)
+SimStation* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -85,10 +86,10 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test0.edl";
+   std::string configFilename = "test0.edl";
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

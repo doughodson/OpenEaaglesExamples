@@ -12,6 +12,7 @@
 #include <iostream>
 #include <GL/glut.h>
 
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -45,7 +46,7 @@ void timerCB(int)
 }
 
 // board builder
-Board* builder(const char* const filename)
+Board* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -83,7 +84,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "puzzle.edl";
+   std::string configFilename = "puzzle.edl";
 
    board = builder(configFilename);
 
@@ -100,8 +101,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 
 int main(int argc, char* argv[])

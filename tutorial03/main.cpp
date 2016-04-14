@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 #include "openeaagles/base/Pair.h"
@@ -17,12 +17,12 @@ namespace tutorial {
 Random* random = nullptr;
 
 // our class factory
-base::Object* factory(const char* const name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    // look in application's classes
-   if ( std::strcmp(name, Random::getFactoryName()) == 0 ) {
+   if ( name == Random::getFactoryName() ) {
       obj = new Random;
    }
 
@@ -32,7 +32,7 @@ base::Object* factory(const char* const name)
 }
 
 // random builder
-Random* builder(const char* const filename)
+Random* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -68,7 +68,7 @@ Random* builder(const char* const filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   const char* configFilename = "file0.edl";
+   std::string configFilename = "file0.edl";
 
    // build random
    random = builder(configFilename);

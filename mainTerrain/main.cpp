@@ -17,6 +17,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -40,7 +41,7 @@ void timerFunc(int)
 }
 
 // display builder
-Display* builder(const char* const filename)
+Display* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -79,7 +80,7 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // build a display
    display = builder(configFilename);
@@ -106,8 +107,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])

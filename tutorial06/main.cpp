@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 #include "openeaagles/base/Pair.h"
@@ -22,12 +22,12 @@ const int frameRate = 20;
 MyComp* myComp = nullptr;
 
 // our class factory
-base::Object* factory(const char* const name)
+base::Object* factory(const std::string& name)
 {
   base::Object* obj = nullptr;
 
   // look in application's classes
-  if ( std::strcmp(name, MyComp::getFactoryName()) == 0 ) {
+  if ( name == MyComp::getFactoryName() ) {
     obj = new MyComp;
   }
   // look in base classes
@@ -37,7 +37,7 @@ base::Object* factory(const char* const name)
 }
 
 // MyComp builder
-MyComp* builder(const char* const filename)
+MyComp* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -73,11 +73,11 @@ MyComp* builder(const char* const filename)
 int main(int argc, char *argv[])
 {
    // default configuration filename
-   const char* configFilename = "file0.edl";
+   std::string configFilename = "file0.edl";
 
    // allow user to specify input file
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i],"-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }

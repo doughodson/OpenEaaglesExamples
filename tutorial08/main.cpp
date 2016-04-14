@@ -1,5 +1,5 @@
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 #include "openeaagles/base/Pair.h"
@@ -38,14 +38,14 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* const name)
+base::Object* factory(const std::string& name)
 {
   base::Object* obj = nullptr;
 
-  if ( std::strcmp(name, MyPager::getFactoryName()) == 0 ) {
+  if ( name == MyPager::getFactoryName() ) {
     obj = new MyPager;
   }
-  else if ( std::strcmp(name, Worm::getFactoryName()) == 0 ) {
+  else if ( name == Worm::getFactoryName() ) {
     obj = new Worm;
   }
 
@@ -57,7 +57,7 @@ base::Object* factory(const char* const name)
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "file0.edl";
+   std::string configFilename = "file0.edl";
 
    // build a display
    glutDisplay = builder(configFilename);
