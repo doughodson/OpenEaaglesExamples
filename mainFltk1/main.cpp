@@ -14,7 +14,7 @@
 #include "FltkStation.h"
 #include "FltkDisplay.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 // ----------------------------------------------------------------------------
@@ -38,15 +38,15 @@ namespace example {
 FltkStation* fltkStation = nullptr;
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
     // This test ...
-    if ( std::strcmp(name, FltkStation::getFactoryName()) == 0 ) {
+    if ( name == FltkStation::getFactoryName() ) {
         obj = new FltkStation;
     }
-    else if ( std::strcmp(name, FltkDisplay::getFactoryName()) == 0 ) {
+    else if ( name == FltkDisplay::getFactoryName() ) {
         obj = new FltkDisplay;
     }
     else {
@@ -60,7 +60,7 @@ base::Object* factory(const char* name)
 }
 
 // FLTK station builder
-FltkStation* builder(const char* const filename)
+FltkStation* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -96,7 +96,7 @@ FltkStation* builder(const char* const filename)
 int main(int, char* [])
 {
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
    fltkStation = builder(configFilename);
 
    // now do a reset

@@ -18,25 +18,25 @@
 #include "openeaagles/gui/glut/factory.h"
 #include "openeaagles/base/factory.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace example {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if ( std::strcmp(name, TestStation::getFactoryName()) == 0 ) {
+    if ( name == TestStation::getFactoryName() ) {
         obj = new TestStation();
     }
-    else if ( std::strcmp(name, AdiDisplay::getFactoryName()) == 0 ) {
+    else if ( name == AdiDisplay::getFactoryName() ) {
         obj = new AdiDisplay();
     }
-    else if ( std::strcmp(name, MapDisplay::getFactoryName()) == 0 ) {
+    else if ( name == MapDisplay::getFactoryName() ) {
         obj = new MapDisplay();
     }
-    else if ( std::strcmp(name, MapPage::getFactoryName()) == 0 ) {
+    else if ( name == MapPage::getFactoryName() ) {
         obj = new MapPage();
     }
 

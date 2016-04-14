@@ -16,6 +16,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -50,7 +51,7 @@ void updateDataCB(int)
 }
 
 // test station builder
-TestStation* builder(const char* const filename)
+TestStation* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -89,7 +90,7 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // build a test station
    testStation = builder(configFilename);
@@ -116,12 +117,10 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return oe::example::main(argc,argv);

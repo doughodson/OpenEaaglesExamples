@@ -12,7 +12,7 @@
 #include "factory.h"
 
 #include <GL/glut.h>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -25,7 +25,7 @@ const unsigned int bgRate = 10;
 simulation::Station* station = nullptr;
 
 // station builder
-simulation::Station* builder(const char* const filename)
+simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -88,11 +88,11 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    // parse command arguments
    for (int i=1; i<argc; i++) {
-      if (std::strcmp(argv[i], "-f") == 0) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
