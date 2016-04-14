@@ -19,7 +19,7 @@
 #include "TestMechanical.h"
 #include "TestElectronic.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -44,29 +44,29 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    // Tests
-   if ( std::strcmp(name, TestMechanical::getFactoryName()) == 0 ) {
+   if ( name == TestMechanical::getFactoryName() ) {
       obj = new TestMechanical;
    }
-   else if ( std::strcmp(name, TestElectronic::getFactoryName()) == 0 ) {
+   else if ( name == TestElectronic::getFactoryName() ) {
       obj = new TestElectronic;
    }
 
    else {
-      if (obj == nullptr) obj = oe::instruments::factory(name);
-      if (obj == nullptr) obj = oe::graphics::factory(name);
-      if (obj == nullptr) obj = oe::glut::factory(name);
+      if (obj == nullptr) obj = oe::instruments::factory(name.c_str());
+      if (obj == nullptr) obj = oe::graphics::factory(name.c_str());
+      if (obj == nullptr) obj = oe::glut::factory(name.c_str());
       if (obj == nullptr) obj = oe::base::factory(name);
    }
    return obj;
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
 
    glutDisplay = builder(configFilename);
 
@@ -121,11 +121,12 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end demo namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])
 {
    return oe::demo::main(argc, argv);
 }
+
