@@ -70,6 +70,19 @@ void builder(const std::string& filename)
     //station->serialize(std::cout);
 }
 
+void compile_edl(const std::string& filename)
+{
+#if !defined(WIN32)
+   std::string func_call = "cpp configs/" + filename;        // cpp configs/
+   func_call = func_call.substr(0, func_call.length() - 2);  // cpp configs/test.e
+   func_call = func_call + "pp >" + filename;                // cpp configs/test.epp > test.edl
+   std::cout << "Compiling: " << filename << std::endl;
+   system(func_call.c_str());
+#endif
+
+   return;
+}
+
 int main(int argc, char* argv[])
 {
    std::string filename = "test.edl";
@@ -79,6 +92,8 @@ int main(int argc, char* argv[])
          filename = argv[++i];
       }
    }
+
+   compile_edl(filename);
 
    builder(filename);
 
