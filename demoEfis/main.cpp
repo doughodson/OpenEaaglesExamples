@@ -57,9 +57,9 @@ base::Object* factory(const std::string& name)
    }
 
    else {
-      if (obj == nullptr) obj = oe::instruments::factory(name.c_str());
-      if (obj == nullptr) obj = oe::graphics::factory(name.c_str());
-      if (obj == nullptr) obj = oe::glut::factory(name.c_str());
+      if (obj == nullptr) obj = oe::instruments::factory(name);
+      if (obj == nullptr) obj = oe::graphics::factory(name);
+      if (obj == nullptr) obj = oe::glut::factory(name);
       if (obj == nullptr) obj = oe::base::factory(name);
    }
    return obj;

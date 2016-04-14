@@ -4,9 +4,7 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/parser.h"
-
 #include "openeaagles/graphics/Graphic.h"
-
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
@@ -28,7 +26,7 @@
 #include "SpdLines.h"
 #include "TerrainFollower.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -53,44 +51,44 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    // Test the primary flight display (PFD)
-   if ( std::strcmp(name, TestPfd::getFactoryName()) == 0 ) {
+   if ( name == TestPfd::getFactoryName() ) {
       obj = new TestPfd;
    }
    // situational display
-   else if ( std::strcmp(name, TestSD::getFactoryName()) == 0 ) {
+   else if ( name == TestSD::getFactoryName() ) {
       obj = new TestSD;
    }
    // CrsPntr
-   else if ( std::strcmp(name, CrsPntr::getFactoryName()) == 0 ) {
+   else if ( name == CrsPntr::getFactoryName() ) {
       obj = new CrsPntr;
    }
    // Hsi
-   else if ( std::strcmp(name, Hsi::getFactoryName()) == 0 ) {
+   else if ( name == Hsi::getFactoryName() ) {
       obj = new Hsi;
    }
    // Pfd
-   else if ( std::strcmp(name, Pfd::getFactoryName()) == 0 ) {
+   else if ( name == Pfd::getFactoryName() ) {
       obj = new Pfd;
    }
    // RdrAlt
-   else if ( std::strcmp(name, RdrAlt::getFactoryName()) == 0 ) {
+   else if ( name == RdrAlt::getFactoryName() ) {
       obj = new RdrAlt;
    }
    // SituationalDisplay
-   else if ( std::strcmp(name, SituationalDisplay::getFactoryName()) == 0 ) {
+   else if ( name == SituationalDisplay::getFactoryName() ) {
       obj = new SituationalDisplay;
    }
    // SpdLines
-   else if ( std::strcmp(name, SpdLines::getFactoryName()) == 0 ) {
+   else if ( name == SpdLines::getFactoryName() ) {
       obj = new SpdLines;
    }
    // TerrainFollower
-   else if ( std::strcmp(name, TerrainFollower::getFactoryName()) == 0 ) {
+   else if ( name == TerrainFollower::getFactoryName() ) {
       obj = new TerrainFollower;
    }
 
@@ -103,7 +101,7 @@ base::Object* factory(const char* name)
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -142,7 +140,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
    glutDisplay = builder(configFilename);
 
    glutDisplay->createWindow();
@@ -157,12 +155,10 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End demo namespace
-} // End oe namespace
+}
+}
 
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
+//
 int main(int argc, char* argv[])
 {
    return oe::demo::main(argc, argv);

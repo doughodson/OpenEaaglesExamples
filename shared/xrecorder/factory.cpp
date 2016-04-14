@@ -5,14 +5,16 @@
 
 #include "DataRecorder.h"
 
+#include <string>
+
 namespace oe {
 namespace xrecorder {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-   if ( std::strcmp(name, DataRecorder::getFactoryName()) == 0 ) {
+   if ( name == DataRecorder::getFactoryName() ) {
       obj = new DataRecorder();
    }
 

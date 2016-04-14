@@ -6,19 +6,19 @@
 #include "ZeroMQContext.h"
 #include "ZeroMQHandler.h"
 
-#include <cstring>
+#include <string>
 
 namespace oe {
 namespace xzmq {
 
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if (std::strcmp (name, ZeroMQContext::getFactoryName ()) == 0) {
+    if ( name == ZeroMQContext::getFactoryName() ) {
         obj = new ZeroMQContext;
     }
-    else if (std::strcmp (name, ZeroMQHandler::getFactoryName ()) == 0) {
+    else if ( name == ZeroMQHandler::getFactoryName() ) {
         obj = new ZeroMQHandler;
     }
 

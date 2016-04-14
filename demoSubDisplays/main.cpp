@@ -5,7 +5,6 @@
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/parser.h"
 #include "openeaagles/graphics/Graphic.h"
-
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
@@ -36,7 +35,7 @@
 #include "TestAdi.h"
 #include "TestAdi2.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -60,83 +59,83 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
 
    // speed brake page
-   if ( std::strcmp(name, TestSpeedBrake::getFactoryName()) == 0 ) {
+   if ( name == TestSpeedBrake::getFactoryName() ) {
       obj = new TestSpeedBrake;
    }
    // engine dial page
-   else if (std::strcmp(name, TestEngineDial::getFactoryName()) == 0 ) {
+   else if ( name == TestEngineDial::getFactoryName() ) {
       obj = new TestEngineDial;
    }
    // calibrated air speed (cas) page
-   else if (std::strcmp(name, TestCas::getFactoryName()) == 0 ) {
+   else if ( name == TestCas::getFactoryName() ) {
       obj = new TestCas;
    }
    // ftit page
-   else if (std::strcmp(name, TestFtitDial::getFactoryName()) == 0 ) {
+   else if ( name == TestFtitDial::getFactoryName() ) {
       obj = new TestFtitDial;
    }
    // TestOilPressure page
-   else if (std::strcmp(name, TestOilPressure::getFactoryName()) == 0 ) {
+   else if ( name == TestOilPressure::getFactoryName() ) {
       obj = new TestOilPressure;
    }
    // TestNozzle page
-   else if (std::strcmp(name, TestNozzle::getFactoryName()) == 0 ) {
+   else if ( name == TestNozzle::getFactoryName() ) {
       obj = new TestNozzle;
    }
    // TestRpmDial page
-   else if (std::strcmp(name, TestRpmDial::getFactoryName()) == 0 ) {
+   else if ( name == TestRpmDial::getFactoryName() ) {
       obj = new TestRpmDial;
    }
    // TestHsi page
-   else if (std::strcmp(name, TestHsi::getFactoryName()) == 0 ) {
+   else if ( name == TestHsi::getFactoryName() ) {
       obj = new TestHsi;
    }
    // TestGauge1 page
-   else if (std::strcmp(name, TestGauge1::getFactoryName()) == 0 ) {
+   else if ( name == TestGauge1::getFactoryName() ) {
       obj = new TestGauge1;
    }
    // TestVVI page
-   else if (std::strcmp(name, TestVVI::getFactoryName()) == 0 ) {
+   else if ( name == TestVVI::getFactoryName() ) {
       obj = new TestVVI;
    }
    // TestAlt page
-   else if (std::strcmp(name, TestAlt::getFactoryName()) == 0 ) {
+   else if ( name == TestAlt::getFactoryName() ) {
       obj = new TestAlt;
    }
    // Compass Rose
-   else if (std::strcmp(name, TestCompass::getFactoryName()) == 0 ) {
+   else if ( name == TestCompass::getFactoryName() ) {
       obj = new TestCompass;
    }
    // Digital Gauge
-   else if (std::strcmp(name, TestDigitalGauge::getFactoryName()) == 0 ) {
+   else if ( name == TestDigitalGauge::getFactoryName() ) {
       obj = new TestDigitalGauge;
    }
    // TestGMeterDial page
-   else if (std::strcmp(name, TestGMeterDial::getFactoryName()) == 0 ) {
+   else if ( name == TestGMeterDial::getFactoryName() ) {
       obj = new TestGMeterDial;
    }
    // TestLandingGear page
-   else if (std::strcmp(name, TestLandingGear::getFactoryName()) == 0 ) {
+   else if ( name == TestLandingGear::getFactoryName() ) {
       obj = new TestLandingGear;
    }
    // TestEngPage
-   else if (std::strcmp(name, TestEngPage::getFactoryName()) == 0 ) {
+   else if ( name == TestEngPage::getFactoryName() ) {
       obj = new TestEngPage;
    }
    // TestButtons
-   else if (std::strcmp(name, TestButtons::getFactoryName()) == 0 ) {
+   else if ( name == TestButtons::getFactoryName() ) {
       obj = new TestButtons;
    }
    // TestAdi
-   else if (std::strcmp(name, TestAdi::getFactoryName()) == 0 ) {
+   else if ( name == TestAdi::getFactoryName() ) {
       obj = new TestAdi;
    }
-   else if (std::strcmp(name, TestAdi2::getFactoryName()) == 0 ) {
+   else if ( name == TestAdi2::getFactoryName() ) {
       obj = new TestAdi2;
    }
 
@@ -151,7 +150,7 @@ base::Object* factory(const char* name)
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -190,7 +189,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
    glutDisplay = builder(configFilename);
 
    glutDisplay->createWindow();

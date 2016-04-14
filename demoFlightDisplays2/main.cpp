@@ -4,9 +4,7 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/parser.h"
-
 #include "openeaagles/graphics/Graphic.h"
-
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include <GL/glut.h>
 
@@ -22,7 +20,7 @@
 #include "Pfd.h"
 #include "SpdLines.h"
 
-#include <cstring>
+#include <string>
 #include <cstdlib>
 
 namespace oe {
@@ -47,23 +45,22 @@ void timerFunc(int)
 }
 
 // our class factory
-base::Object* factory(const char* name)
+base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
     // Test the primary flight display (PFD)
-    if ( std::strcmp(name, TestPfd::getFactoryName()) == 0 ) {
+    if ( name == TestPfd::getFactoryName() ) {
         obj = new TestPfd;
     }
     // Pfd
-    else if ( std::strcmp(name, Pfd::getFactoryName()) == 0 ) {
+    else if ( name == Pfd::getFactoryName() ) {
         obj = new Pfd;
     }
     // SpdLines
-    else if ( std::strcmp(name, SpdLines::getFactoryName()) == 0 ) {
+    else if ( name == SpdLines::getFactoryName() ) {
         obj = new SpdLines;
     }
-
     else {
         if (obj == nullptr) obj = instruments::factory(name);
         if (obj == nullptr) obj = graphics::factory(name);
@@ -75,7 +72,7 @@ base::Object* factory(const char* name)
 }
 
 // display builder
-glut::GlutDisplay* builder(const char* const filename)
+glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int errors = 0;
@@ -114,7 +111,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   const char* configFilename = "test.edl";
+   std::string configFilename = "test.edl";
    glutDisplay = builder(configFilename);
 
    glutDisplay->createWindow();
@@ -128,8 +125,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end demo namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])
