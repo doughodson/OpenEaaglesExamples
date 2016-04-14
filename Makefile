@@ -11,6 +11,8 @@ APPLICATIONS += demoSubDisplays
 # graphic oriented examples
 APPLICATIONS += testGraphics
 APPLICATIONS += mainGL
+#APPLICATIONS += mainFox1
+#APPLICATIONS += mainFltk1
 
 # non-real-time simulation
 APPLICATIONS += mainNonRT1

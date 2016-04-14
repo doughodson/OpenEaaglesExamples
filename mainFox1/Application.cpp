@@ -4,7 +4,6 @@
 #include "FoxStation.h"
 
 #include "openeaagles/base/Pair.h"
-#include "openeaagles/base/parser.h"
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/base/util/system.h"
 
@@ -41,8 +40,8 @@ void Application::init(int& argc, char** argv, bool connect)
    FXApp::init(argc, argv, connect);
 
    // schedule a timer for display refresh
-   double dt0 = 1.0 / static_cast<double>(DRAW_FRAME_RATE);
-   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const double dt0 = 1.0 / static_cast<double>(DRAW_FRAME_RATE);
+   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    addTimeout(this, ID_TIMEOUT, millis);
 }
 
@@ -52,14 +51,14 @@ long Application::onTimeout(FXObject*, FXSelector, void*)
    // ---
    // reschedule the display refresh timer
    // ---
-   double dt0 = 1.0/static_cast<double>(DRAW_FRAME_RATE);
-   unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const double dt0 = 1.0/static_cast<double>(DRAW_FRAME_RATE);
+   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    addTimeout(this, ID_TIMEOUT, millis);
 
    // ---
    // compute delta time
    // ---
-   double time = base::getComputerTime(); // Current time
+   const double time = base::getComputerTime(); // Current time
    static double time0 = time;      // N-1 time
    double dt = time - time0;
    if (dt < 0) {
@@ -84,7 +83,7 @@ long Application::onTimeout(FXObject*, FXSelector, void*)
 
 void Application::setStation(FoxStation* x)
 {
-   if (station!=nullptr) {
+   if (station != nullptr) {
       station->unref();
    }
    station = x;
@@ -96,5 +95,6 @@ FoxStation* Application::getStation()
    return station;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
+
