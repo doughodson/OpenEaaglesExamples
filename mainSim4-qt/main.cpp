@@ -10,7 +10,7 @@
 #include "openeaagles/simulation/factory.h"
 
 #include <cstdlib>
-#include <cstring>
+#include <string>
 
 namespace example {
 
@@ -18,12 +18,12 @@ namespace example {
 Station* station = nullptr;
 
 // our class factory
-oe::base::Object* factory(const char* name)
+oe::base::Object* factory(const std::string& name)
 {
     oe::base::Object* obj = nullptr;
 
     // This test ...
-    if ( std::strcmp(name, Station::getFactoryName()) == 0 ) {
+    if ( name == Station::getFactoryName() ) {
         obj = new Station;
     }
 
@@ -35,13 +35,23 @@ oe::base::Object* factory(const char* name)
 }
 
 // build a display
-void builder(const char* const testFileName)
+void builder(const std::string& filename)
 {
     // Read the description file
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    unsigned int num_errors = 0;
+    oe::base::Object* q1 = oe::base::edl_parser(filename, factory, &num_errors);
+    if (num_errors > 0) {
+        std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
+=======
+>>>>>>> master
     unsigned int errors = 0;
     oe::base::Object* q1 = oe::base::edl_parser(testFileName, factory, &errors);
     if (errors > 0) {
         std::cerr << "Errors in reading file: " << errors << std::endl;
+>>>>>>> parser
         std::exit(EXIT_FAILURE);
     }
 
@@ -72,31 +82,15 @@ void builder(const char* const testFileName)
 
 int main(int argc, char* argv[])
 {
-   const char* fileName = "test.edl";
+   std::string filename = "test.edl";
 
    for (int i = 1; i < argc; i++) {
-      if (std::strcmp(argv[i], "-f") == 0) {
-         fileName = argv[++i];
+      if ( std::string(argv[i]) == "-f" ) {
+         filename = argv[++i];
       }
    }
 
-#if !defined(WIN32)
-   const char* funcCall = "cpp ";
-   std::strcpy(fileNames, funcCall);
-   std::strcat(fileNames, "configs/");
-   if (std::strlen(fileName) < 60){
-      std::strcat(fileNames, fileName);
-      std::strcpy(fileNames + strlen(fileNames)-2, "pp");
-   }
-   std::strcat(fileNames, ">");
-   std::strcat(fileNames, fileName);
-   funcCall = fileNames;
-   std::cout << "Precompiling: " << fileName << std::endl;
-   std::cout << funcCall << std::endl;
-   system(funcCall);
-#endif
-
-   builder(fileName);
+   builder(filename);
 
    // prime the station
    station->event(oe::base::Component::RESET_EVENT);
