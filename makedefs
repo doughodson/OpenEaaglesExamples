@@ -20,7 +20,7 @@ OE_EXAMPLES_LIB_DIR = ${OE_EXAMPLES_ROOT}/lib/linux
 # ---
 # Modify the standard loader flags
 # ---
-LDFLAGS += -L$(OE_ROOT)/lib/linux
+LDFLAGS += -L$(OE_ROOT)/lib/linux -L/usr/local/lib
 
 ifdef OE_3RD_PARTY_ROOT
    LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib/linux
