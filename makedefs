@@ -18,14 +18,16 @@ DATA_DIR = ${OE_ROOT}/../OpenEaaglesExamples/shared/data
 OE_EXAMPLES_LIB_DIR = ${OE_EXAMPLES_ROOT}/lib/linux
 
 # ---
-# Modify the standard loader flags
+# Specift location of OE libraries and our own
 # ---
-LDFLAGS += -L$(OE_ROOT)/lib/linux -L/usr/local/lib
+LDFLAGS += -L$(OE_ROOT)/lib/linux 
+LDFLAGS += -L../lib/linux
 
+# ---
+# Specify location of 3rd party libs
+# ---
 ifdef OE_3RD_PARTY_ROOT
-   LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib/linux
-else
-   LDFLAGS += -L/usr/local/lib
+   LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib
 endif
 
 # ---

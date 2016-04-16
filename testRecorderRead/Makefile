@@ -11,7 +11,6 @@ LDFLAGS += -lprotobuf
 LDFLAGS += -lrt -lpthread
 
 CPPFLAGS += -I/usr/local/include
-LDFLAGS  += -L../lib/linux -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS +=  -I.
 
