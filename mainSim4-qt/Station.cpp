@@ -50,7 +50,6 @@ int Station::createWindow(int argc, char* argv[])
    // start our background timer, which will call our update data
    timerObj = new StnTimerObject(this);
 
-
    // default flags for now
    MainWindow* win = new MainWindow(this);
    win->show();

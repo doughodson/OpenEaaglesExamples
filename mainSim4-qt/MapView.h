@@ -1,3 +1,4 @@
+
 #ifndef __oe_example_MapView_H__
 #define __oe_example_MapView_H__
 
@@ -17,7 +18,6 @@ public:
    MapView(QWidget* parent = nullptr);
    ~MapView();
 
-
 public slots:
    // refresh our view graphics
    virtual void refreshView();
@@ -27,9 +27,9 @@ protected:
 
 private:
    void clearPlayers();
-   Station* stn;     // holds a station for reference
-   MapItem* map;     // our map
-   QList<PlayerItem*> players;      // our "graphical" players
+   Station* stn;                 // holds a station for reference
+   MapItem* map;                 // our map
+   QList<PlayerItem*> players;   // our "graphical" players
 };
 
 }

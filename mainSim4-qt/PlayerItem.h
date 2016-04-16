@@ -1,3 +1,4 @@
+
 #ifndef __oe_example_PlayerItem_H__
 #define __oe_example_PlayerItem_H__
 
@@ -28,7 +29,7 @@ public:
 
    // Qt interface function
    QRectF boundingRect() const;
-   void paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*);
+   void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*);
 
 private:
    unsigned short plyId;                         // ID of the player we are representing

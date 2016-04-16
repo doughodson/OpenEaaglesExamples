@@ -114,7 +114,7 @@ void MapView::refreshView()
                      for (int i = 0; i < players.size() && !found; i++) {
                         found = (id == players[i]->getPlayerId());
                         // if we find it, update it
-                        if (found) players[i]->refreshPlayer(ply);
+                        if (found)   { players[i]->refreshPlayer(ply);  }
                      }
 
                      // create a new player

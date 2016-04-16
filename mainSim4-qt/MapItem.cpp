@@ -69,8 +69,8 @@ void MapItem::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
    if (event != nullptr && event->buttons() & Qt::LeftButton) {
       // determine our delta
-      int deltaX = event->lastPos().x() - event->scenePos().x();
-      int deltaY = event->lastPos().y() - event->scenePos().y();
+      const int deltaX = event->lastPos().x() - event->scenePos().x();
+      const int deltaY = event->lastPos().y() - event->scenePos().y();
       moveMap(deltaY, deltaX);
    }
 }
@@ -190,26 +190,30 @@ void MapItem::drawGrid(QPainter* painter)
    }
 
    // get the nearest starting lat and lon lines to draw
-   int centerLat = oe::base::nint(refLat);
-   int centerLon = oe::base::nint(refLon);
+   const int centerLat = oe::base::nint(refLat);
+   const int centerLon = oe::base::nint(refLon);
 
    // calculate the number of latitude lines
-   int numLinesLat = (range / 60.0) + 1;
+   const int numLinesLat = (range / 60.0) + 1;
 
    // calculate EW range
    double rangeEW(1.0);
-   if (northUp) rangeEW = (bRect.width() * pixWERes);
-   else rangeEW = (bRect.width() * pixWERes / cosineLatReference);
-   int numLinesLon = (rangeEW / 60.0) + 1;
+   if (northUp) {
+      rangeEW = (bRect.width() * pixWERes);
+   } else {
+      rangeEW = (bRect.width() * pixWERes / cosineLatReference);
+   }
+   const int numLinesLon = (rangeEW / 60.0) + 1;
 
    int startLat = centerLat - (numLinesLat / 2);
    int endLat = centerLat + (numLinesLat / 2);
    // top side (or bottom, depending on hemisphere)
-   double py = 0.0, px = 0.0;
-   int wid = bRect.width();
-   int hei = bRect.height();
-   if (endLat >= 90) endLat = 90;
-   if (startLat <= -90) startLat = -90;
+   double py = 0.0;
+   double px = 0.0;
+   const int wid = bRect.width();
+   const int hei = bRect.height();
+   if (endLat >= 90)     { endLat = 90;     }
+   if (startLat <= -90)  { startLat = -90;  }
 
    QVector<QLine> lines;
 
@@ -223,8 +227,8 @@ void MapItem::drawGrid(QPainter* painter)
    painter->drawLines(lines);
    lines.clear();
 
-   int startLon = centerLon - (numLinesLon / 2);
-   int endLon = centerLon + (numLinesLon / 2);
+   const int startLon = centerLon - (numLinesLon / 2);
+   const int endLon = centerLon + (numLinesLon / 2);
    // top side (or bottom, depending on hemisphere)
    for (int i = startLon; i <= endLon; i++) {
       llToPixels(0, i, py, px);
@@ -245,13 +249,15 @@ void MapItem::drawGrid(QPainter* painter)
       stream.str("");
       int aI = abs(i);
       llToPixels(i, 0, py, px);
-      if (i > 0) stream << "N" << aI;
-      else if (i < 0) stream << "S" << aI;
-      else stream << aI;
+
+      if (i > 0)          { stream << "N" << aI;  }
+      else if (i < 0)     { stream << "S" << aI;  }
+      else                { stream << aI;         }
+
       string = stream.str().c_str();
       // Lee - have to use the unicode code for a degree symbol
       string.append(0x00B0);
-      double adjustWidth = fm.width(string);
+      const double adjustWidth = fm.width(string);
       painter->drawText(-(wid/2) + 5, py - adjustHeight, adjustWidth, adjustHeight, 0, string);
    }
 
@@ -260,20 +266,21 @@ void MapItem::drawGrid(QPainter* painter)
       stream.str("");
       llToPixels(0, i, py, px);
       int aI = std::abs(i);
-      if (i > 180) aI = (180 - i) + 180;
-      else if (i < -180) aI = (180 + i) + 180;
+
+      if (i > 180)         { aI = (180 - i) + 180; }
+      else if (i < -180)   { aI = (180 + i) + 180; }
+
       if (i != 0 && i != 180 && i != -180) {
-         if (i > 0 || i < -180) stream << "E" << aI;
-         else if (i < 0 || i > 180) stream << "W" << aI;
-         else stream << aI;
+         if (i > 0 || i < -180)       { stream << "E" << aI;  }
+         else if (i < 0 || i > 180)   { stream << "W" << aI;  }
+         else                         { stream << aI;         }
       }
       string = stream.str().c_str();
       // Lee - have to use the unicode code for a degree symbol
       string.append(0x00B0);
-      double adjustWidth = fm.width(string);
+      const double adjustWidth = fm.width(string);
       painter->drawText(px + 5, -hei/2, adjustWidth, adjustHeight, 0, string);
    }
-
 }
 
 // ---
@@ -285,7 +292,7 @@ void MapItem::drawGrid(QPainter* painter)
 // ---
 void MapItem::setHeading(const double x)
 {
-   double hdgRad = oe::base::Angle::D2RCC * x;
+   const double hdgRad = oe::base::Angle::D2RCC * x;
    heading = x;
    headingSin = std::sin(hdgRad);
    headingCos = std::cos(hdgRad);
@@ -297,10 +304,11 @@ void MapItem::setHeading(const double x)
 void MapItem::pixelsToLL(const double px, const double py, double& lon, double& lat) const
 {
    // pixels to aircraft
-   double acX = px * pixWERes;
-   double acY = -py * pixNSRes;
+   const double acX = px * pixWERes;
+   const double acY = -py * pixNSRes;
 
-   double east = 0.0, north = 0.0;
+   double east = 0.0;
+   double north = 0.0;
    if (northUp) {
       east = acX;
       north = acY;
@@ -312,8 +320,8 @@ void MapItem::pixelsToLL(const double px, const double py, double& lon, double& 
 
    // ne to aircraft (if needed)
    lat = (north / 60.0) + refLat;
-   if (northUp) lon = (east / 60.0) + refLon;
-   else lon = (east / 60.0 / cosineLatReference) + refLon;
+   if (northUp)        { lon = (east / 60.0) + refLon;                      }
+   else                { lon = (east / 60.0 / cosineLatReference) + refLon; }
 }
 
 // ---
@@ -322,10 +330,10 @@ void MapItem::pixelsToLL(const double px, const double py, double& lon, double& 
 void MapItem::llToPixels(const double lat, const double lon, double& py, double& px) const
 {
    // first go from lat lon to NE
-   double north = 0, east = 0;
-   north = (lat - refLat) * 60.0;
-   if (!northUp) east = (lon - refLon) * 60.0 * cosineLatReference;
-   else east = (lon - refLon) * 60.0;
+   double north = (lat - refLat) * 60.0;
+   double east = 0;
+   if (!northUp)     { east = (lon - refLon) * 60.0 * cosineLatReference;  }
+   else              { east = (lon - refLon) * 60.0;                       }
 
    double acX = 0.0;
    double acY = 0.0;
@@ -353,3 +361,4 @@ void MapItem::initialize(const double lat, const double lon, const double range)
 }
 
 }
+

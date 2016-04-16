@@ -36,8 +36,8 @@ QRectF PlayerItem::boundingRect() const
 void PlayerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
    // get our width and height from our icon
-   int w = size.width();
-   int h = size.height();
+   const int w = size.width();
+   const int h = size.height();
    if (defaultImage != nullptr) {
       painter->drawImage(QRectF(QPointF(-w/2, -h/2), QSizeF(w, h)), *defaultImage);
    }
@@ -51,8 +51,10 @@ void PlayerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidg
 
    double hdg = rotation();
    painter->rotate(-hdg);
-   if (hdg < 270 && hdg > 90) painter->translate(-fontRect.width()/2, -size.height() + fontRect.height() - 5);
-   else painter->translate(-fontRect.width()/2, size.height() + 5);
+
+   if (hdg < 270 && hdg > 90)    { painter->translate(-fontRect.width()/2, -size.height() + fontRect.height() - 5);  }
+   else                          { painter->translate(-fontRect.width()/2, size.height() + 5);                       }
+
    QColor sideColor(qRgba(0, 0, 0, 255));
    sideColor.setAlpha(150);
    painter->setBrush(sideColor);
@@ -71,11 +73,14 @@ bool PlayerItem::useDefaultImage(QString fullName, QSize x)
 {
    if (defaultImage == nullptr) {
       defaultImage = new QImage(fullName);
-      if (defaultImage->isNull()) std::cout << "DEFAULT IMAGE NAME NOT LOADED: " << fullName.toLatin1().data() << std::endl;
-   }
-   else {
-      bool ok = defaultImage->load(fullName);
-      if (!ok) std::cout << "DEFAULT IMAGE NAME NOT LOADED: " << fullName.toLatin1().data() << std::endl;
+      if (defaultImage->isNull()) {
+         std::cout << "DEFAULT IMAGE NAME NOT LOADED: " << fullName.toLatin1().data() << std::endl;
+      }
+   } else {
+      const bool ok = defaultImage->load(fullName);
+      if (!ok) {
+         std::cout << "DEFAULT IMAGE NAME NOT LOADED: " << fullName.toLatin1().data() << std::endl;
+      }
    }
 
    // set our size to display
@@ -96,7 +101,10 @@ void PlayerItem::refreshPlayer(const oe::simulation::Player* const ownship)
 {
    if (ownship != nullptr) {
       plyId = ownship->getID();
-      double oLat = 0.0, oLon = 0.0, tpLat = 0.0, tpLon = 0.0;
+      double oLat = 0.0;
+      double oLon = 0.0;
+      double tpLat = 0.0;
+      double tpLon = 0.0;
       ownship->getPositionLL(&oLat, &oLon);
       if (myMap != nullptr) {
          myMap->llToPixels(oLat, oLon, tpLat, tpLon);

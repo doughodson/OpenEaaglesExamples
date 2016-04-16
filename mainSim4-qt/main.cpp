@@ -21,15 +21,12 @@ oe::base::Object* factory(const std::string& name)
 {
    oe::base::Object* obj = nullptr;
 
-   // This test ...
    if ( name == Station::getFactoryName() ) {
       obj = new Station;
    }
 
-   else {
-      if (obj == nullptr) obj = oe::simulation::factory(name);
-      if (obj == nullptr) obj = oe::base::factory(name);
-   }
+   if (obj == nullptr)  { obj = oe::simulation::factory(name);  }
+   if (obj == nullptr)  { obj = oe::base::factory(name);        }
    return obj;
 }
 
@@ -111,3 +108,4 @@ int main(int argc, char* argv[])
 {
    return example::main(argc, argv);
 }
+
