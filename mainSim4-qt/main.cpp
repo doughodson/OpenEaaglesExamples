@@ -14,60 +14,57 @@
 
 namespace example {
 
-// The main station
 Station* station = nullptr;
 
 // our class factory
 oe::base::Object* factory(const std::string& name)
 {
-    oe::base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
-    // This test ...
-    if ( name == Station::getFactoryName() ) {
-        obj = new Station;
-    }
+   // This test ...
+   if ( name == Station::getFactoryName() ) {
+      obj = new Station;
+   }
 
-    else {
-        if (obj == nullptr) obj = oe::simulation::factory(name);
-        if (obj == nullptr) obj = oe::base::factory(name);
-    }
-    return obj;
+   else {
+      if (obj == nullptr) obj = oe::simulation::factory(name);
+      if (obj == nullptr) obj = oe::base::factory(name);
+   }
+   return obj;
 }
 
-// build a display
-void builder(const std::string& filename)
+// Station builder
+Station* builder(const std::string& filename)
 {
-    // Read the description file
-    unsigned int num_errors = 0;
-    oe::base::Object* q1 = oe::base::edl_parser(filename, factory, &num_errors);
-    if (num_errors > 0) {
-        std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
+   // Read the description file
+   unsigned int num_errors = 0;
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-    // Set 'station' to our basic description object.
-    station = nullptr;
-    if (q1 != nullptr) {
+   // test to see if an object was created
+   if (obj == nullptr) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
 
-        // When we were given a Pair, get the pointer to its object.
-        oe::base::Pair* pp = dynamic_cast<oe::base::Pair*>(q1);
-        if (pp != nullptr) {
-           std::cout << "Factory: " << *pp->slot() << std::endl;
-           q1 = pp->object();
-        }
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   if (pair != nullptr) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
 
-        // What we should have here is the description object and
-        // it should be of type 'Station'.
-        station = dynamic_cast<Station*>(q1);
-    }
-
-    // Make sure we did get a valid object (we must have one!)
-    if (station == nullptr) {
-        std::cout << "Invalid description file!" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
-    //station->serialize(std::cout);
+   // try to cast to proper object, and check
+   Station* station = dynamic_cast<Station*>(obj);
+   if (station == nullptr) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return station;
 }
 
 void compile_edl(const std::string& filename)
@@ -85,17 +82,18 @@ void compile_edl(const std::string& filename)
 
 int main(int argc, char* argv[])
 {
-   std::string filename = "test.edl";
-
+   // default configuration filename
+   std::string configFilename = "test.edl";
+   // parse arguments
    for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
-         filename = argv[++i];
+         configFilename = argv[++i];
       }
    }
 
-   compile_edl(filename);
+   compile_edl(configFilename);
 
-   builder(filename);
+   station = builder(configFilename);
 
    // prime the station
    station->event(oe::base::Component::RESET_EVENT);
