@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Glut Display
-//------------------------------------------------------------------------------
+
 #include "InstrumentPanel.h"
 #include "SimStation.h"
 #include "SimPlayer.h"
@@ -18,7 +16,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_SUBCLASS(InstrumentPanel,"InstrumentPanel")
+IMPLEMENT_SUBCLASS(InstrumentPanel, "InstrumentPanel")
 EMPTY_SERIALIZER(InstrumentPanel)
 EMPTY_SLOTTABLE(InstrumentPanel)
 
@@ -219,5 +217,6 @@ bool InstrumentPanel::onStepOwnshipKey()
    return true;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
+

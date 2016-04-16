@@ -10,20 +10,7 @@ namespace example {
 IMPLEMENT_SUBCLASS(SimPlayer, "SimPlayer")
 EMPTY_DELETEDATA(SimPlayer)
 EMPTY_COPYDATA(SimPlayer)
-
-//------------------------------------------------------------------------------
-// Slot table for this form type
-//------------------------------------------------------------------------------
-BEGIN_SLOTTABLE(SimPlayer)
-    "xxx",             // dummy
-END_SLOTTABLE(SimPlayer)
-
-//------------------------------------------------------------------------------
-//  Map slot table to handlers
-//------------------------------------------------------------------------------
-BEGIN_SLOT_MAP(SimPlayer)
-    //ON_SLOT(1, setSlotMasterMode, base::String)
-END_SLOT_MAP()
+EMPTY_SLOTTABLE(SimPlayer)
 
 //------------------------------------------------------------------------------
 // Constructor(s)
@@ -42,14 +29,6 @@ SimPlayer::SimPlayer()
 void SimPlayer::reset()
 {
     BaseClass::reset();
-}
-
-//------------------------------------------------------------------------------
-// getSlotByIndex() for graphics::Graphic
-//------------------------------------------------------------------------------
-base::Object* SimPlayer::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
 }
 
 //------------------------------------------------------------------------------
@@ -76,5 +55,6 @@ std::ostream& SimPlayer::serialize(std::ostream& sout, const int i, const bool s
     return sout;
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}
+

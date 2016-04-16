@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SimPlayer
-//
-// Description: Simulation player
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_SimPlayer_H__
 #define __oe_example_SimPlayer_H__
 
@@ -11,6 +7,11 @@
 namespace oe {
 namespace example {
 
+//------------------------------------------------------------------------------
+// Class: SimPlayer
+//
+// Description: Simulation player
+//------------------------------------------------------------------------------
 class SimPlayer : public simulation::Aircraft
 {
     DECLARE_SUBCLASS(SimPlayer, simulation::Aircraft)
@@ -23,7 +24,7 @@ public:
 private:
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

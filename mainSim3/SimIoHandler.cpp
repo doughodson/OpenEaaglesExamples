@@ -15,11 +15,7 @@
 namespace oe {
 namespace example {
 
-//==============================================================================
-// SimIoHandler
-//==============================================================================
-
-IMPLEMENT_SUBCLASS(SimIoHandler,"SimIoHandler")
+IMPLEMENT_SUBCLASS(SimIoHandler, "SimIoHandler")
 EMPTY_SLOTTABLE(SimIoHandler)
 EMPTY_SERIALIZER(SimIoHandler)
 
@@ -116,7 +112,7 @@ void SimIoHandler::inputDevices(const double dt)
       simulation::Autopilot* ap = nullptr;
       {
          base::Pair* p = av->getPilotByType( typeid( simulation::Autopilot) );
-         if (p != nullptr) ap = static_cast<simulation::Autopilot*>(p->object());
+         if (p != nullptr)   { ap = static_cast<simulation::Autopilot*>(p->object());  }
       }
 
       // ------------------------------------------------------------
@@ -130,7 +126,7 @@ void SimIoHandler::inputDevices(const double dt)
          {  // Toggle simulation freeze
             bool sw = false;
             inData->getDiscreteInput(FREEZE_SW, &sw);
-            bool frzSw = sw && enabled;
+            const bool frzSw = sw && enabled;
             if (frzSw && !frzSw1) {
                base::Boolean newFrz( !sim->isFrozen() );
                sim->event(FREEZE_EVENT, &newFrz);
@@ -141,7 +137,7 @@ void SimIoHandler::inputDevices(const double dt)
          {  // Send a reset pulse to the station
             bool sw = false;
             inData->getDiscreteInput(RESET_SW, &sw);
-            bool rstSw = sw && enabled;
+            const bool rstSw = sw && enabled;
             if (rstSw && !rstSw1) {
                sta->event(RESET_EVENT);
             }
@@ -151,7 +147,7 @@ void SimIoHandler::inputDevices(const double dt)
          {  // Send a weapons reload pulse to the station
             bool sw = false;
             inData->getDiscreteInput(RELOAD_SW, &sw);
-            bool wpnReloadSw = sw && enabled;
+            const bool wpnReloadSw = sw && enabled;
             if (wpnReloadSw && !wpnReloadSw1) {
                sta->event(WPN_RELOAD);
             }
@@ -167,7 +163,7 @@ void SimIoHandler::inputDevices(const double dt)
       {  // Process Roll Input
          double ai = 0;
          inData->getAnalogInput(ROLL_AI, &ai);
-         double aiLim = base::alim(ai, 1.0f);
+         const double aiLim = base::alim(ai, 1.0f);
          if (ap != nullptr) ap->setControlStickRollInput(aiLim);
          else av->setControlStickRollInput(aiLim);
       }
@@ -175,15 +171,15 @@ void SimIoHandler::inputDevices(const double dt)
       {  // Process Pitch Input
          double ai = 0;
          inData->getAnalogInput(PITCH_AI, &ai);
-         double aiLim = base::alim(ai, 1.0f);
-         if (ap != nullptr) ap->setControlStickPitchInput(aiLim);
-         else av->setControlStickPitchInput(aiLim);
+         const double aiLim = base::alim(ai, 1.0f);
+         if (ap != nullptr)    { ap->setControlStickPitchInput(aiLim);  }
+         else                  { av->setControlStickPitchInput(aiLim);  }
       }
 
       {  // Process Rudder Input
          double ai = 0;
          inData->getAnalogInput(RUDDER_AI, &ai);
-         double aiLim = base::alim(ai, 1.0f);
+         const double aiLim = base::alim(ai, 1.0f);
          av->setRudderPedalInput(aiLim);
       }
 
@@ -191,11 +187,11 @@ void SimIoHandler::inputDevices(const double dt)
          double value = 0;
          inData->getAnalogInput(THROTTLE_AI, &value);
 
-         if (value < 0.0f) value = 0.0f;
-         else if (value > 2.0f) value = 2.0f;
+         if (value < 0.0f)        { value = 0.0f; }
+         else if (value > 2.0f)   { value = 2.0f; }
 
-         if (ap != nullptr) ap->setThrottles(&value,1);
-         else av->setThrottles(&value,1);
+         if (ap != nullptr)       { ap->setThrottles(&value,1);  }
+         else                     { av->setThrottles(&value,1);  }
       }
 
       { // Weapons Release
@@ -211,7 +207,7 @@ void SimIoHandler::inputDevices(const double dt)
       { // Trigger switch
          bool sw = false;
          inData->getDiscreteInput(TRIGGER_SW2, &sw);
-         if(sw != trgSw1) {
+         if (sw != trgSw1) {
             base::Boolean sw(sw);
             av->event(TRIGGER_SW_EVENT, &sw);
          }
@@ -221,7 +217,7 @@ void SimIoHandler::inputDevices(const double dt)
       { // Target Step (reject)
          bool sw = false;
          inData->getDiscreteInput(TMS_RIGHT_SW, &sw);
-         if(sw && !tgtStepSw1) {
+         if (sw && !tgtStepSw1) {
             av->event(TGT_STEP_EVENT);
          }
          tgtStepSw1 = sw;
@@ -230,7 +226,7 @@ void SimIoHandler::inputDevices(const double dt)
       { // Target Designate
          bool sw = false;
          inData->getDiscreteInput(TMS_UP_SW, &sw);
-         if(sw && !tgtDesSw1) {
+         if (sw && !tgtDesSw1) {
             av->event(TGT_DESIGNATE);
          }
          tgtDesSw1 = sw;
@@ -239,7 +235,7 @@ void SimIoHandler::inputDevices(const double dt)
       { // Return-To-Search
          bool sw = false;
          inData->getDiscreteInput(TMS_DOWN_SW, &sw);
-         if(sw && !rtn2SrchSw1) {
+         if (sw && !rtn2SrchSw1) {
             av->event(SENSOR_RTS);
          }
          rtn2SrchSw1 = sw;
@@ -268,15 +264,15 @@ void SimIoHandler::inputDevices(const double dt)
          inData->getDiscreteInput(SB_RET_SW, &sbRetSw);
 
          double sb = 0.0;
-         if(sbExtSw) sb = -1.0f;
-         if(sbRetSw) sb =  1.0f;
+         if (sbExtSw) sb = -1.0f;
+         if (sbRetSw) sb =  1.0f;
          av->setSpeedBrakesSwitch(sb);
       }
 
       { // Steerpoint increment
          bool incStptSw = false;
          inData->getDiscreteInput(DMS_UP_SW, &incStptSw);
-         if(incStptSw && !incStptSw1) {
+         if (incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
             simulation::Navigation* myNav = av->getNavigation();
             if (myNav != nullptr) {
@@ -295,7 +291,7 @@ void SimIoHandler::inputDevices(const double dt)
       { // Steerpoint decrement
          bool decStptSw = false;
          inData->getDiscreteInput(DMS_DOWN_SW, &decStptSw);
-         if(decStptSw && !decStptSw1) {
+         if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
             simulation::Navigation* myNav = av->getNavigation();
             if (myNav != nullptr) {
@@ -324,5 +320,6 @@ void SimIoHandler::clear()
 {
 }
 
-} // End example
-} // end oe namespace
+}
+}
+

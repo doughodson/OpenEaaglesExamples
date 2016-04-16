@@ -174,9 +174,9 @@ void SimStation::stepOwnshipPlayer()
 // Main Display
 bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 {
-    if (mainDisplay != nullptr) mainDisplay->container(nullptr);
+    if (mainDisplay != nullptr)   { mainDisplay->container(nullptr);  }
     mainDisplay = d;
-    if (mainDisplay != nullptr) mainDisplay->container(this);
+    if (mainDisplay != nullptr)   { mainDisplay->container(this);     }
     displayInit = false;
     return true;
 }
@@ -205,5 +205,5 @@ base::Object* SimStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

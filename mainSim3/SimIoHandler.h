@@ -1,13 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: SimIoHandler
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_SimIoHandler_H__
 #define __oe_example_SimIoHandler_H__
 
 #include "openeaagles/base/IoHandler.h"
 
 namespace oe {
-   namespace simulation { class AirVehicle; }
+
+namespace simulation { class AirVehicle; }
 
 namespace example {
 
@@ -19,7 +18,7 @@ namespace example {
 //------------------------------------------------------------------------------
 class SimIoHandler : public base::IoHandler
 {
-   DECLARE_SUBCLASS(SimIoHandler,base::IoHandler)
+   DECLARE_SUBCLASS(SimIoHandler, base::IoHandler)
 
 public:
    SimIoHandler();
@@ -47,7 +46,8 @@ private:
    bool decStptSw1;
 };
 
-} // end example
-} // end oe namespace
+}
+}
 
 #endif
+

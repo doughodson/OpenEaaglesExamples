@@ -1,3 +1,19 @@
+
+#ifndef __oe_example_InstrumentPanel_H__
+#define __oe_example_InstrumentPanel_H__
+
+#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/simulation/Player.h"
+
+namespace oe {
+
+namespace simulation { class Player; class Simulation; class Station; }
+
+namespace example {
+
+class DedDisplay;
+class MfdDisplay;
+
 //------------------------------------------------------------------------------
 // Class:  InstrumentPanel
 //
@@ -8,25 +24,6 @@
 //   'f' or 'F'   -- Toggle simulation freeze
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-#ifndef __oe_example_InstrumentPanel_H__
-#define __oe_example_InstrumentPanel_H__
-
-#include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/simulation/Player.h"
-
-namespace oe {
-
-   namespace simulation {
-      class Player;
-      class Simulation;
-      class Station;
-   }
-
-namespace example {
-
-   class DedDisplay;
-   class MfdDisplay;
-
 class InstrumentPanel : public glut::GlutDisplay
 {
    DECLARE_SUBCLASS(InstrumentPanel, glut::GlutDisplay)
@@ -99,7 +96,8 @@ private:
    SendData gloadSD;
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif
+

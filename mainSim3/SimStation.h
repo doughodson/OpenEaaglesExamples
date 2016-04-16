@@ -1,15 +1,14 @@
-//------------------------------------------------------------------------------
-// Class: SimStation
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_SimStation_H__
 #define __oe_example_SimStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-   namespace base { class Table1; }
-   namespace glut { class GlutDisplay; }
-   namespace simulation { class AirVehicle; }
+
+namespace base { class Table1; }
+namespace glut { class GlutDisplay; }
+namespace simulation { class AirVehicle; }
 
 namespace example {
 
@@ -50,11 +49,11 @@ private:
     bool displayInit;
 
     // Auto reset timer
-    double      autoResetTimer;      // Auto RESET timer (sends a RESET_EVENT after timeout)
+    double autoResetTimer;               // Auto RESET timer (sends a RESET_EVENT after timeout)
     const base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Example simulation #3
-//------------------------------------------------------------------------------
+
 
 #include "SimStation.h"
 
@@ -115,8 +113,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])
