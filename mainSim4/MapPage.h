@@ -1,3 +1,17 @@
+#ifndef __oe_example_MapPage_H__
+#define __oe_example_MapPage_H__
+
+#include "openeaagles/graphics/MapPage.h"
+
+namespace oe {
+
+namespace simulation { class Player;        }
+namespace graphics   { class SymbolLoader;  }
+
+namespace example {
+
+class Station;
+
 // -------------------------------------------------------------------------------
 // Class: MapPage
 //
@@ -5,22 +19,6 @@
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-#ifndef __oe_example_MapPage_H__
-#define __oe_example_MapPage_H__
-
-#include "openeaagles/graphics/MapPage.h"
-
-namespace oe {
-namespace simulation {
-    class Player;
-}
-namespace graphics {
-    class SymbolLoader;
-}
-namespace example {
-
-class Station;
-
 class MapPage : public graphics::MapPage
 {
     DECLARE_SUBCLASS(MapPage, graphics::MapPage)
@@ -38,8 +36,8 @@ private:
     static const int MAX_READOUTS = 20;
     simulation::Player* player[MAX_PLAYERS];    // player pointer
     int playerIdx[MAX_PLAYERS];                 // index of our symbol for the given player
-    graphics::SymbolLoader* loader;              // holds our loader for quick reference
-    Station* stn;                   // holds our station (to get the player list quickly)
+    graphics::SymbolLoader* loader;             // holds our loader for quick reference
+    Station* stn;                               // holds our station (to get the player list quickly)
     // show where our lat/lons are
     SendData latsSD[MAX_READOUTS];
     int lats[MAX_READOUTS];
@@ -56,8 +54,8 @@ private:
     float lonReadoutYPos[MAX_READOUTS];
 };
 
-}  // end of example namespace
-}  // end of oe namespace
+}
+}
 
 #endif
 

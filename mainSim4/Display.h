@@ -1,9 +1,4 @@
-// -------------------------------------------------------------------------------
-// Class: Display
-//
-// Description:
-//      Derived Display that will make our map page move.
-// -------------------------------------------------------------------------------
+
 #ifndef __oe_example_Display_H__
 #define __oe_example_Display_H__
 
@@ -12,6 +7,12 @@
 namespace oe {
 namespace example {
 
+// -------------------------------------------------------------------------------
+// Class: Display
+//
+// Description:
+//      Derived Display that will make our map page move.
+// -------------------------------------------------------------------------------
 class Display : public glut::GlutDisplay
 {
     DECLARE_SUBCLASS(Display, glut::GlutDisplay)
@@ -33,8 +34,8 @@ private:
     SendData rangeSD;
 };
 
-}  // end of example namespace
-}  // end of oe namespace
+}
+}
 
 #endif
 

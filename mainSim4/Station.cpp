@@ -6,7 +6,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_SUBCLASS(Station,"MapTestStation")
+IMPLEMENT_SUBCLASS(Station, "MapTestStation")
 EMPTY_SERIALIZER(Station)
 
 BEGIN_SLOTTABLE(Station)
@@ -112,6 +112,6 @@ base::Object* Station::getSlotByIndex(const int si)
    return BaseClass::getSlotByIndex(si);
 }
 
-}  // end of example namespace
-}  // end of oe namespace
+}
+}
 

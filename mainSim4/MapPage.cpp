@@ -23,14 +23,14 @@ EMPTY_SERIALIZER(MapPage)
 MapPage::MapPage()
 {
     STANDARD_CONSTRUCTOR()
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (unsigned int i = 0; i < MAX_PLAYERS; i++) {
         player[i] = nullptr;
         playerIdx[i] = -1;
     }
     stn = nullptr;
     loader = nullptr;
 
-    for (int i = 0; i < MAX_READOUTS; i++) {
+    for (unsigned int i = 0; i < MAX_READOUTS; i++) {
         latsSD[i].empty();
         lats[i] = 0;
         latReadoutXPosSD[i].empty();
@@ -55,7 +55,7 @@ void MapPage::copyData(const MapPage& org, const bool)
     BaseClass::copyData(org);
 
     // regardless of copy, we will create all new symbols
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (unsigned int i = 0; i < MAX_PLAYERS; i++) {
         if (player[i] != nullptr) {
             player[i]->unref();
             player[i] = nullptr;
@@ -85,7 +85,7 @@ void MapPage::copyData(const MapPage& org, const bool)
         stn->ref();
     }
 
-    for (int i = 0; i < MAX_READOUTS; i++) {
+    for (unsigned int i = 0; i < MAX_READOUTS; i++) {
         latsSD[i].empty();
         lats[i] = org.lats[i];
         latReadoutXPosSD[i].empty();
@@ -106,7 +106,7 @@ void MapPage::copyData(const MapPage& org, const bool)
 //------------------------------------------------------------------------------
 void MapPage::deleteData()
 {
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (unsigned int i = 0; i < MAX_PLAYERS; i++) {
         if (player[i] != nullptr) {
             player[i]->unref();
             player[i] = nullptr;
@@ -170,7 +170,7 @@ void MapPage::drawFunc()
 
         lonRange *= 2;
         start = base::nint( static_cast<double>(easternLon) - 1);
-        double inchPerDegEW = r*2 / lonRange;
+        const double inchPerDegEW = r*2 / lonRange;
         glPushMatrix();
             glBegin(GL_LINES);
                 count = 0;
@@ -229,7 +229,7 @@ void MapPage::updateData(const double dt)
         if (stream != nullptr) {
             // create our new player list
             simulation::Player* newPlayers[MAX_PLAYERS];
-            int numNewPlayers = 0;
+            unsigned int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
@@ -247,10 +247,10 @@ void MapPage::updateData(const double dt)
             // ok, go through our new list and match it with our old, and throw
             // away any old players that aren't in the new list, and add any new
             // players that aren't in the old list
-            for (int i = 0; i < MAX_PLAYERS; i++) {
+            for (unsigned int i = 0; i < MAX_PLAYERS; i++) {
                 if (player[i] != nullptr) {
                     bool match = false;
-                    for (int j = 0; j < numNewPlayers && !match; j++) {
+                    for (unsigned int j = 0; j < numNewPlayers && !match; j++) {
                         if (player[i] == newPlayers[j]) {
                             // if they do match, get rid of our new player, so we don't re-add it
                             // later accidentally
@@ -270,11 +270,11 @@ void MapPage::updateData(const double dt)
             }
 
             // ok, now we have removed our old players (and our matched ones), let's add our new ones!
-            for (int i = 0; i < numNewPlayers; i++) {
+            for (unsigned int i = 0; i < numNewPlayers; i++) {
                 // make sure this player wasn't deleted earlier
                 if (newPlayers[i] != nullptr) {
                     bool found = false;
-                    for (int j = 0; j < MAX_PLAYERS && !found; j++) {
+                    for (unsigned int j = 0; j < MAX_PLAYERS && !found; j++) {
                         if (player[j] == nullptr) {
                             found = true;
                             // found an empty player, let's set him!
@@ -295,7 +295,7 @@ void MapPage::updateData(const double dt)
             }
 
             // ok, now update our symbols' positions
-            for (int i = 0; i < MAX_PLAYERS; i++) {
+            for (unsigned int i = 0; i < MAX_PLAYERS; i++) {
                 if (player[i] != nullptr) {
                     loader->updateSymbolPositionLL(playerIdx[i], player[i]->getLatitude(), player[i]->getLongitude());
                     loader->updateSymbolHeading(playerIdx[i], player[i]->getHeadingD());
@@ -313,6 +313,6 @@ void MapPage::updateData(const double dt)
     send("lontext%d", UPDATE_VALUE, lons, lonsSD, MAX_READOUTS);
 }
 
-}  // end of example namespace
-}  // end of oe namespace
+}
+}
 

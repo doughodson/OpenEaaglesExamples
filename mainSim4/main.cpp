@@ -59,27 +59,21 @@ base::Object* factory(const std::string& name)
 {
     base::Object* obj = nullptr;
 
-    if ( name == MapPage::getFactoryName() ) {
-        obj = new MapPage();
-    }
-    else if ( name == Station::getFactoryName() ) {
-        obj = new Station();
-    }
-    else if ( name == Display::getFactoryName() ) {
-        obj = new Display();
-    }
+    if ( name == MapPage::getFactoryName() )       { obj = new MapPage(); }
+    else if ( name == Station::getFactoryName() )  { obj = new Station(); }
+    else if ( name == Display::getFactoryName() )  { obj = new Display(); }
 
     // example libraries
-    if (obj == nullptr) obj = xzmq::factory(name);
+    if (obj == nullptr)  { obj = xzmq::factory(name);         }
 
     // framework libraries
-    if (obj == nullptr) obj = otw::factory(name);
-    if (obj == nullptr) obj = instruments::factory(name);
-    if (obj == nullptr) obj = simulation::factory(name);
-    if (obj == nullptr) obj = dis::factory(name);
-    if (obj == nullptr) obj = graphics::factory(name);
-    if (obj == nullptr) obj = glut::factory(name);
-    if (obj == nullptr) obj = base::factory(name);
+    if (obj == nullptr)  { obj = otw::factory(name);          }
+    if (obj == nullptr)  { obj = instruments::factory(name);  }
+    if (obj == nullptr)  { obj = simulation::factory(name);   }
+    if (obj == nullptr)  { obj = dis::factory(name);          }
+    if (obj == nullptr)  { obj = graphics::factory(name);     }
+    if (obj == nullptr)  { obj = glut::factory(name);         }
+    if (obj == nullptr)  { obj = base::factory(name);         }
 
     return obj;
 }
@@ -150,8 +144,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])

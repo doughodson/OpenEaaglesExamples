@@ -1,3 +1,4 @@
+
 #include "Display.h"
 #include "MapPage.h"
 #include <GL/glut.h>
@@ -5,7 +6,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display,"MapTestDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "MapTestDisplay")
 EMPTY_SERIALIZER(Display)
 
 //------------------------------------------------------------------------------
@@ -50,8 +51,8 @@ void Display::mouseEvent(const int button, const int state, const int x, const i
 {
     BaseClass::mouseEvent(button, state, x, y);
 
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) dragging = false;
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && !dragging) dragging = true;
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)                 { dragging = false;  }
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && !dragging)  { dragging = true;   }
 }
 
 // ----------------------------------------------------------------------------
@@ -78,17 +79,14 @@ void Display::mouseMotionEvent(const int x, const int y)
             const double lat = page->getReferenceLatDeg();
             if (lat < 70 && lat > -70) {
                 page->moveMap(startX, startY, x, y);
-            }
-            else {
+            } else {
                 if (lat > 0) page->setReferenceLatDeg(65);
                 else page->setReferenceLatDeg(-65);
             }
-
             startX = x;
             startY = y;
         }
     }
-
     setMouse(x, y);
 }
 
@@ -106,8 +104,7 @@ void Display::buttonEvent(const int b)
                 myRange += 5;
                 page->setRange(myRange);
             }
-        }
-        else if (b == 1001) {
+        } else if (b == 1001) {
             if (myRange > 10) {
                 myRange -= 5;
                 page->setRange(myRange);
@@ -129,6 +126,6 @@ void Display::updateData(const double dt)
     send("range", UPDATE_VALUE, range, rangeSD);
 }
 
-}  // end of example namespace
-}  // end of oe namespace
+}
+}
 
