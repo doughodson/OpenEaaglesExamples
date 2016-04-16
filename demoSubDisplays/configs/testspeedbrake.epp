@@ -40,7 +40,7 @@ testspeedbrake:
         
         #include "openeaagles/instruments/dials/speedbrake.epp"
         // include our basic speedbrake module, which is simply an instrument object that is named and understands event messages, we could also copy and paste speedbrake.epp directly into 
-        // here, and it would work just the same.  This is an instrument library object, and can be found in eaagles1/dials/speedbrake.epp
+        // here, and it would work just the same.  This is an instrument library object
         
         // These are AsciiText readouts, which use the fonts we created in our InstrDisplay.  The position is [ line column ] value on the screen.
         ( AsciiText

@@ -6,7 +6,7 @@
 
 // ----------------------------------------------------------------------------
 // drawCallBack() - this is a static callback made from the GLWindow that tells
-// us to draw while idle.
+// us to draw while idle
 // ----------------------------------------------------------------------------
 void drawCallBack(void* pData)
 {
@@ -43,8 +43,7 @@ GLWindow::GLWindow(int x, int y) : Fl_Gl_Window(x,y)
 }
 
 // ----------------------------------------------------------------------------
-// destructor() - just take care of oe object deletion here, because Fltk
-// automatically destroys it's child windows upon destruction.
+// unref the oe objects, Fltk automatically destroys it's child windows
 // ----------------------------------------------------------------------------
 GLWindow::~GLWindow()
 {
@@ -56,7 +55,7 @@ GLWindow::~GLWindow()
 
 // ----------------------------------------------------------------------------
 // draw() - called after a redraw() command, this is where we will draw
-// our oe graphics.
+// our oe graphics
 // ----------------------------------------------------------------------------
 void GLWindow::draw()
 {
@@ -73,7 +72,7 @@ void GLWindow::draw()
 
 
 // ----------------------------------------------------------------------------
-// handle() - grab mouse events and pass them down as needed.
+// handle() - grab mouse events and pass them down as needed
 // ----------------------------------------------------------------------------
 int GLWindow::handle(int x)
 {
@@ -108,7 +107,7 @@ void GLWindow::setDisplay(FltkDisplay* x)
 }
 
 // ----------------------------------------------------------------------------
-// resize() - update the size of our window and eaagles window.
+// resize() - update the size of our window
 // ----------------------------------------------------------------------------
 void GLWindow::resize(int x, int y, int w, int h)
 {
@@ -121,7 +120,7 @@ void GLWindow::resize(int x, int y, int w, int h)
 }
 
 // ----------------------------------------------------------------------------
-// glInit() - called for setting up our GL settings before drawing.
+// glInit() - called for setting up our GL settings before drawing
 // ----------------------------------------------------------------------------
 void GLWindow::glInit()
 {
