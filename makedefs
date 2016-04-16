@@ -24,6 +24,8 @@ LDFLAGS += -L$(OE_ROOT)/lib/linux -L/usr/local/lib
 
 ifdef OE_3RD_PARTY_ROOT
    LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib/linux
+else
+   LDFLAGS += -L/usr/local/lib
 endif
 
 # ---
