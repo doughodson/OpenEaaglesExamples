@@ -2,6 +2,7 @@
 // Simple example program that creates a GLUT window and draws an image
 // as defined by EDL file.
 //----------------------------------------------------------------
+
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
 #include "openeaagles/base/edl_parser.h"
@@ -114,8 +115,8 @@ int main(int argc, char* argv[])
 }
 }
 
-//
 int main(int argc, char* argv[])
 {
    return oe::example::main(argc,argv);
 }
+

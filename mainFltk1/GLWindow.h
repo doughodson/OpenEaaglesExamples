@@ -1,9 +1,3 @@
-//-----------------------------------------------------
-// Class: GLWindow
-//
-// Description: This is our OpenGL window where
-//              drawing will be done
-//-----------------------------------------------------
 
 #ifndef __oe_example_GLWindow_H__
 #define __oe_example_GLWindow_H__
@@ -15,6 +9,11 @@ namespace example {
 
 class FltkDisplay;
 
+//-----------------------------------------------------
+// Class: GLWindow
+//
+// Description: This is our OpenGL window where drawing will be done
+//-----------------------------------------------------
 class GLWindow : public Fl_Gl_Window
 {
 public:
@@ -44,3 +43,4 @@ private:
 }
 
 #endif
+

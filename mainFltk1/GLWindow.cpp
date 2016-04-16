@@ -1,6 +1,4 @@
-//-----------------------------------------------------
-// Class: GLWindow
-//-----------------------------------------------------
+
 #include "GLWindow.h"
 #include "FltkDisplay.h"
 
@@ -22,9 +20,6 @@ void drawCallBack(void* pData)
 namespace oe {
 namespace example {
 
-// ----------------------------------------------------------------------------
-// constructor(s) -
-// ----------------------------------------------------------------------------
 GLWindow::GLWindow(int x, int y, int w, int h, const char* l) : Fl_Gl_Window(x,y,w,h,l)
 {
     display = nullptr;
@@ -48,7 +43,7 @@ GLWindow::GLWindow(int x, int y) : Fl_Gl_Window(x,y)
 }
 
 // ----------------------------------------------------------------------------
-// destructor() - just take care of eaagles deletion here, because Fltk
+// destructor() - just take care of oe object deletion here, because Fltk
 // automatically destroys it's child windows upon destruction.
 // ----------------------------------------------------------------------------
 GLWindow::~GLWindow()

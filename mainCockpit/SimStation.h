@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SimStation
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_SimStation_H__
 #define __oe_example_SimStation_H__
 
@@ -24,8 +22,8 @@ namespace example {
 //
 // Factory name: SimStation
 // Slots:
-//      display                 <graphics::GlutDisplay> ! Main graphics display
-//      autoResetTimer          <Time>               ! Auto RESET timer value (base::Time); default: 0
+//      display          <graphics::GlutDisplay> ! Main graphics display
+//      autoResetTimer   <Time>                  ! Auto RESET timer value (base::Time); default: 0
 //------------------------------------------------------------------------------
 class SimStation : public simulation::Station
 {
@@ -55,8 +53,8 @@ private:
     const base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif
 

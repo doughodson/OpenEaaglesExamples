@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: SimStation
-//------------------------------------------------------------------------------
 
 #include "SimStation.h"
 
@@ -21,7 +18,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_SUBCLASS(SimStation,"SimStation")
+IMPLEMENT_SUBCLASS(SimStation, "SimStation")
 EMPTY_SERIALIZER(SimStation)
 
 // slot table for this class type
@@ -32,8 +29,8 @@ END_SLOTTABLE(SimStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
-    ON_SLOT( 1, setSlotMainDisplay,         glut::GlutDisplay)
-    ON_SLOT( 2, setSlotAutoResetTime,       base::Time)
+    ON_SLOT( 1, setSlotMainDisplay,    glut::GlutDisplay)
+    ON_SLOT( 2, setSlotAutoResetTime,  base::Time)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -208,5 +205,6 @@ base::Object* SimStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}
+

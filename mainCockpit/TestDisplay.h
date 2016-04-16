@@ -1,15 +1,14 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_TestDisplay_H__
 #define __oe_example_TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace simulation { class Missile; class Player; class Simulation; class Station; }
-   namespace graphics { class SymbolLoader; }
-   namespace xpanel { class DspRadar; class DspRwr; }
+
+namespace simulation { class Missile; class Player; class Simulation; class Station; }
+namespace graphics { class SymbolLoader; }
+namespace xpanel { class DspRadar; class DspRwr; }
 
 namespace example {
 
@@ -140,8 +139,8 @@ private:
     double baroRate;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif
 

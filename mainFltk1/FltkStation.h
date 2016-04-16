@@ -1,12 +1,4 @@
-// ----------------------------------------------------------------------------
-// Class: FltkStation
-//
-// Description: Station to start our fltk drawing 
-// NOTE: If you don't want to use the OpenEaagles simulation class, you create your
-// own derived component to do this same functionality.  I am just
-// using a Station so we can test interfacing and make sure our threads all
-// still run correctly and work.
-// ----------------------------------------------------------------------------
+
 #ifndef __oe_example_FoxStation_H__
 #define __oe_example_FoxStation_H__
 
@@ -18,6 +10,15 @@ namespace example {
 class MainWindow;
 class FltkDisplay;
 
+// ----------------------------------------------------------------------------
+// Class: FltkStation
+//
+// Description: Station to start our fltk drawing 
+// NOTE: If you don't want to use the OpenEaagles simulation class, you create your
+// own derived component to do this same functionality.  I am just
+// using a Station so we can test interfacing and make sure our threads all
+// still run correctly and work.
+// ----------------------------------------------------------------------------
 class FltkStation : public simulation::Station
 {
    DECLARE_SUBCLASS(FltkStation, simulation::Station)
@@ -44,7 +45,8 @@ private:
    MainWindow* mainWin;        // main Fltk window
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif
+

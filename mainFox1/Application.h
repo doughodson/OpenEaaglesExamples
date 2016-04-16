@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Application
-//
-// Description: Application class which processes GUI events
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_Application_H__
 #define __oe_example_Application_H__
 
@@ -10,15 +6,19 @@
 
 #include "fx.h"
 
-
 namespace oe {
 
 namespace example {
 
 class Station;
 
-class Application : public FX::FXApp {
-
+//------------------------------------------------------------------------------
+// Class: Application
+//
+// Description: Application class which processes GUI events
+//------------------------------------------------------------------------------
+class Application : public FX::FXApp
+{
    FXDECLARE(Application)
 
 public:
@@ -53,7 +53,8 @@ private:
   FoxStation* station;
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif
+

@@ -1,6 +1,4 @@
-// ----------------------------------------------------------------------------
-// Class: FltkStation
-// ----------------------------------------------------------------------------
+
 #include "FltkStation.h"
 #include "FltkDisplay.h"
 
@@ -12,7 +10,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_SUBCLASS(FltkStation,"FltkStation")
+IMPLEMENT_SUBCLASS(FltkStation, "FltkStation")
 EMPTY_SERIALIZER(FltkStation)
 
 // slot table for this class type
@@ -41,9 +39,6 @@ void FltkStation::initData()
    display2 = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy our objects data
-//------------------------------------------------------------------------------
 void FltkStation::copyData(const FltkStation& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -65,18 +60,13 @@ void FltkStation::copyData(const FltkStation& org, const bool cc)
    init = false;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- copy our objects data
-//------------------------------------------------------------------------------
 void FltkStation::deleteData()
 {
    if (display1 != nullptr) { display1->unref();  display1 = nullptr; }
    if (display2 != nullptr) { display2->unref();  display2 = nullptr; }
 }
 
-//------------------------------------------------------------------------------
-// reset() -- reset our values, and setup our displays if needed
-//------------------------------------------------------------------------------
+// reset values and setup our displays if needed
 void FltkStation::reset()
 {
    // setup our displays.
@@ -92,9 +82,6 @@ void FltkStation::reset()
    }
 }
 
-//------------------------------------------------------------------------------
-// updateData() --
-//------------------------------------------------------------------------------
 void FltkStation::updateData(double dt)
 {
    BaseClass::updateData(dt);
@@ -103,9 +90,6 @@ void FltkStation::updateData(double dt)
    if (display2 != nullptr) display2->updateData(dt);
 }
 
-//------------------------------------------------------------------------------
-// setSlotDisplay() - set our display
-//------------------------------------------------------------------------------
 bool FltkStation::setSlotDisplay1(FltkDisplay* const x)
 {
    if (display1 != nullptr) {
@@ -119,9 +103,6 @@ bool FltkStation::setSlotDisplay1(FltkDisplay* const x)
    return true;
 }
 
-//------------------------------------------------------------------------------
-// setSlotDisplay2() - set our 2nd display
-//------------------------------------------------------------------------------
 bool FltkStation::setSlotDisplay2(FltkDisplay* const x)
 {
    if (display2 != nullptr) {
@@ -135,14 +116,11 @@ bool FltkStation::setSlotDisplay2(FltkDisplay* const x)
    return true;
 }
 
-
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* FltkStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
+

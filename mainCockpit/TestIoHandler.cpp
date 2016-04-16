@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: TestIoHandler
-//------------------------------------------------------------------------------
 
 #include "TestIoHandler.h"
 #include "SimStation.h"
@@ -18,26 +15,17 @@
 namespace oe {
 namespace example {
 
-//==============================================================================
-// TestIoHandler
-//==============================================================================
-
-IMPLEMENT_SUBCLASS(TestIoHandler,"TestIoHandler")
+IMPLEMENT_SUBCLASS(TestIoHandler, "TestIoHandler")
 EMPTY_SLOTTABLE(TestIoHandler)
 EMPTY_SERIALIZER(TestIoHandler)
+EMPTY_DELETEDATA(TestIoHandler)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestIoHandler::TestIoHandler()
 {
    STANDARD_CONSTRUCTOR()
    initData();
 }
 
-//------------------------------------------------------------------------------
-// initData -- initialize our data for the first time
-//------------------------------------------------------------------------------
 void TestIoHandler::initData()
 {
    rstSw1 = false;
@@ -55,9 +43,6 @@ void TestIoHandler::initData()
    decStptSw1 = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -78,16 +63,7 @@ void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
    decStptSw1 = org.decStptSw1;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void TestIoHandler::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// Handle input devices
-//------------------------------------------------------------------------------
+// handle input devices
 void TestIoHandler::inputDevices(const double dt)
 {
    BaseClass::inputDevices(dt);
@@ -133,7 +109,7 @@ void TestIoHandler::inputDevices(const double dt)
          {  // Toggle simulation freeze
             bool sw = false;
             inData->getDiscreteInput(FREEZE_SW, &sw);
-            bool frzSw = sw && enabled;
+            const bool frzSw = sw && enabled;
             if (frzSw && !frzSw1) {
                base::Boolean newFrz( !sim->isFrozen() );
                sim->event(FREEZE_EVENT, &newFrz);
@@ -144,7 +120,7 @@ void TestIoHandler::inputDevices(const double dt)
          {  // Send a reset pulse to the station
             bool sw = false;
             inData->getDiscreteInput(RESET_SW, &sw);
-            bool rstSw = sw && enabled;
+            const bool rstSw = sw && enabled;
             if (rstSw && !rstSw1) {
                sta->event(RESET_EVENT);
             }
@@ -154,7 +130,7 @@ void TestIoHandler::inputDevices(const double dt)
          {  // Send a weapons reload pulse to the station
             bool sw = false;
             inData->getDiscreteInput(RELOAD_SW, &sw);
-            bool wpnReloadSw = sw && enabled;
+            const bool wpnReloadSw = sw && enabled;
             if (wpnReloadSw && !wpnReloadSw1) {
                sta->event(WPN_RELOAD);
             }
@@ -168,37 +144,37 @@ void TestIoHandler::inputDevices(const double dt)
       // ------------------------------------------------------------
 
       {  // Process Roll Input
-         double ai = 0;
+         double ai(0.0);
          inData->getAnalogInput(ROLL_AI, &ai);
-         double aiLim = base::alim(ai, 1.0f);
-         if (ap != nullptr) ap->setControlStickRollInput(aiLim);
-         else av->setControlStickRollInput(aiLim);
+         const double aiLim = base::alim(ai, 1.0f);
+         if (ap != nullptr)   { ap->setControlStickRollInput(aiLim);  }
+         else                 { av->setControlStickRollInput(aiLim);  }
       }
 
       {  // Process Pitch Input
-         double ai = 0;
+         double ai(0.0);
          inData->getAnalogInput(PITCH_AI, &ai);
-         double aiLim = base::alim(ai, 1.0f);
-         if (ap != nullptr) ap->setControlStickPitchInput(aiLim);
-         else av->setControlStickPitchInput(aiLim);
+         const double aiLim = base::alim(ai, 1.0f);
+         if (ap != nullptr)   { ap->setControlStickPitchInput(aiLim); }
+         else                 { av->setControlStickPitchInput(aiLim); }
       }
 
       {  // Process Rudder Input
-         double ai = 0;
+         double ai(0.0);
          inData->getAnalogInput(RUDDER_AI, &ai);
-         double aiLim = base::alim(ai, 1.0f);
+         const double aiLim = base::alim(ai, 1.0f);
          av->setRudderPedalInput(aiLim);
       }
 
       {  // Process Throttle Input
-         double value = 0;
+         double value(0.0);
          inData->getAnalogInput(THROTTLE_AI, &value);
 
-         if (value < 0.0f) value = 0.0f;
-         else if (value > 2.0f) value = 2.0f;
+         if (value < 0.0f)         { value = 0.0f; }
+         else if (value > 2.0f)    { value = 2.0f; }
 
-         if (ap != nullptr) ap->setThrottles(&value,1);
-         else av->setThrottles(&value,1);
+         if (ap != nullptr)        { ap->setThrottles(&value,1); }
+         else                      { av->setThrottles(&value,1); }
       }
 
       { // Weapons Release
@@ -270,7 +246,7 @@ void TestIoHandler::inputDevices(const double dt)
          inData->getDiscreteInput(SB_EXT_SW, &sbExtSw);
          inData->getDiscreteInput(SB_RET_SW, &sbRetSw);
 
-         double sb = 0.0;
+         double sb(0.0);
          if(sbExtSw) sb = -1.0f;
          if(sbRetSw) sb =  1.0f;
          av->setSpeedBrakesSwitch(sb);
@@ -325,5 +301,6 @@ void TestIoHandler::clear()
 {
 }
 
-} // End example namespace
-} // end oe namespace
+}
+}
+

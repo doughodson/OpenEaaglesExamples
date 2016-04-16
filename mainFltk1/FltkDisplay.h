@@ -1,8 +1,4 @@
-//-----------------------------------------------------
-// Class: FltkDisplay
-//
-// Description: Display that will rotate our graphics.
-//-----------------------------------------------------
+
 #ifndef __oe_example_FltkDisplay_H__
 #define __oe_example_FltkDisplay_H__
 
@@ -11,6 +7,9 @@
 namespace oe {
 namespace example {
 
+//-----------------------------------------------------
+// Class: FltkDisplay
+//-----------------------------------------------------
 class FltkDisplay : public graphics::Display
 {
    DECLARE_SUBCLASS(FltkDisplay, graphics::Display)
@@ -43,7 +42,8 @@ private:
    SendData zRotationSD;
 };
 
-}  // end example
-}  // end oe
+}
+}
 
 #endif
+

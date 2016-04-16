@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
 
 #include "TestDisplay.h"
 #include "SimStation.h"
@@ -27,7 +24,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
+IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
 EMPTY_SERIALIZER(TestDisplay)
 EMPTY_DELETEDATA(TestDisplay)
@@ -54,11 +51,7 @@ BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('+',onStepOwnshipKey)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
 
-// constructor
 TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
@@ -131,7 +124,6 @@ TestDisplay::TestDisplay() : myStation(nullptr)
    baroRate = 10.0;
 }
 
-// copy member data
 void TestDisplay::copyData(const TestDisplay& org, const bool)
 {
    BaseClass::copyData(org);
@@ -250,7 +242,6 @@ bool TestDisplay::onRtn2SearchKey()
    return true;
 }
 
-
 // Air to Air mode key
 bool TestDisplay::onAir2AirKey()
 {
@@ -341,9 +332,6 @@ bool TestDisplay::onStepOwnshipKey()
    return true;
 }
 
-//------------------------------------------------------------------------------
-// shutdownNotification() -- Shutdown the simulation
-//------------------------------------------------------------------------------
 bool TestDisplay::shutdownNotification()
 {
    base::Component* parent = container();
@@ -352,9 +340,7 @@ bool TestDisplay::shutdownNotification()
    return BaseClass::shutdownNotification();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
+// update non-time critical stuff here
 void TestDisplay::updateData(const double dt)
 {
    // Update the PFD
@@ -436,9 +422,6 @@ void TestDisplay::updateData(const double dt)
    BaseClass::updateData(dt);
 }
 
-//------------------------------------------------------------------------------
-// mouseEvent() -- Handle mouse inputs
-//------------------------------------------------------------------------------
 void TestDisplay::mouseEvent(const int button, const int state, const int x, const int y)
 {
    setMouse(x,y);
@@ -484,7 +467,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
     // Set the initial codes
     for (int i = 0; i < maxTracks; i++) {
         if (tracks[i] != nullptr) codes[i] = -1;  // needs to be matched
-        else codes[i] = 0;                  // empty slot
+        else codes[i] = 0;                        // empty slot
     }
 
     // find all air vehicles within range
@@ -677,7 +660,7 @@ void TestDisplay::updatePfd(const double)
 
     // vvi tape gauge test
     const osg::Vec3 vel = av->getVelocity();
-    double vvMps = -vel[2];
+    const double vvMps = -vel[2];
     vvi = vvMps * 60.0f * base::Distance::M2FT;
 
     // flight director stuff
@@ -714,6 +697,6 @@ void TestDisplay::updatePfd(const double)
     }
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
