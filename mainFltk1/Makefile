@@ -21,7 +21,7 @@ edl:
 
 
 $(PGM): $(OBJS)
-	g++ -o $@ $(OBJS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
 
 clean:
 	-rm -f *.o
