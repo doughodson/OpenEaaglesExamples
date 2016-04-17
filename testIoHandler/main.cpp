@@ -100,10 +100,9 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end of test namespace
-} // end of oe namespace
+}
+}
 
-//
 int main(int argc, char* argv[])
 {
    oe::test::main(argc,argv);

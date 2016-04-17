@@ -40,7 +40,7 @@ const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
 class TimerThread : public base::ThreadPeriodicTask {
    DECLARE_SUBCLASS(TimerThread,base::ThreadPeriodicTask)
    public: TimerThread(base::Component* const parent, const double priority, const double rate);
-   private: virtual unsigned long userFunc(const double dt);
+   private: unsigned long userFunc(const double dt) override;
 };
 
 IMPLEMENT_SUBCLASS(TimerThread,"TimerThread")
