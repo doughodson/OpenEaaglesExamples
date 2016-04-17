@@ -18,7 +18,7 @@ DATA_DIR = ${OE_ROOT}/../OpenEaaglesExamples/shared/data
 OE_EXAMPLES_LIB_DIR = ${OE_EXAMPLES_ROOT}/lib/linux
 
 # ---
-# Specift location of OE libraries and our own
+# Specify location of OE libraries and our own
 # ---
 LDFLAGS += -L$(OE_ROOT)/lib/linux 
 LDFLAGS += -L../lib/linux
