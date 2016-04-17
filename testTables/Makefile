@@ -9,7 +9,7 @@ LDFLAGS += -loebase -lpthread -lrt
 all: $(PGM)
 
 $(PGM): $(OBJS)
-	g++ -o $@ $(OBJS) $(LDFLAGS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 edl:
 
