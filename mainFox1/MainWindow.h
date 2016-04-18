@@ -1,10 +1,4 @@
-//------------------------------------------------------------------
-// Class: MainWindow
-//
-// Description: OpenEaagles version of a Fox MainWindow, understands
-// mainFox::Application and mainFox::Display
-//
-//------------------------------------------------------------------
+
 #ifndef __oe_example_MainWindow_H__
 #define __oe_example_MainWindow_H__
 
@@ -16,6 +10,13 @@ namespace example {
 class Application;
 class FoxDisplay;
 
+//------------------------------------------------------------------
+// Class: MainWindow
+//
+// Description: OpenEaagles version of a Fox MainWindow, understands
+// mainFox::Application and mainFox::Display
+//
+//------------------------------------------------------------------
 class MainWindow : public FX::FXMainWindow
 {
    FXDECLARE(MainWindow)
@@ -64,7 +65,7 @@ private:
 
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif

@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: FoxStation
-//
-// Description: Station class that a FoxDisplay can be attached
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_FoxStation_H__
 #define __oe_example_FoxStation_H__
 
@@ -13,6 +9,11 @@ namespace example {
 
 class FoxDisplay;
 
+//------------------------------------------------------------------------------
+// Class: FoxStation
+//
+// Description: Station class that a FoxDisplay can be attached
+//------------------------------------------------------------------------------
 class FoxStation : public simulation::Station
 {
    DECLARE_SUBCLASS(FoxStation, simulation::Station)
@@ -35,7 +36,7 @@ private:
    base::safe_ptr<FoxDisplay> display;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

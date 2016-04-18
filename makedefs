@@ -31,11 +31,14 @@ ifdef OE_3RD_PARTY_ROOT
 endif
 
 # ---
-# Fox GUI library settings
+# Fox GUI library settings (v1.6.x or v1.7.x)
 # ---
-FOX_INC_DIR = /usr/include/fox-1.6
 FOX_DEFINES = -DFOX_1_6
-FOX_LIBS    = -lFOX-1.6
+FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.6
+FOX_LIB     = $(OE_3RD_PARTY_ROOT)/lib/libFOX-1.6.a
+#FOX_DEFINES = -DFOX_1_7
+#FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.7
+#FOX_LIB     = $(OE_3RD_PARTY_ROOT)/lib/libFOX-1.7.a
 
 # ---
 # CPP flags

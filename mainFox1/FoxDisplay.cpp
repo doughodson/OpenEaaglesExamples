@@ -12,7 +12,7 @@
 namespace oe {
 namespace example {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay,"FoxDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay, "FoxDisplay")
 EMPTY_SERIALIZER(FoxDisplay)
 
 //------------------------------------------------------------------------------
@@ -329,6 +329,6 @@ void FoxDisplay::printSelectBuffer(const GLuint sbuff[], const int size)
    //std::cout << std::endl;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 

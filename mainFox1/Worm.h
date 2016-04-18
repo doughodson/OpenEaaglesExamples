@@ -1,11 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Worm
-//
-// Description: Move within a user defined box displaying a trail
-//
-//  ( def-form Worm
-//  )
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_Worm_H__
 #define __oe_example_Worm_H__
 
@@ -17,6 +10,14 @@ namespace base { class Angle; }
 
 namespace example {
 
+//------------------------------------------------------------------------------
+// Class: Worm
+//
+// Description: Move within a user defined box displaying a trail
+//
+//  ( def-form Worm
+//  )
+//------------------------------------------------------------------------------
 class Worm : public graphics::Graphic
 {
   DECLARE_SUBCLASS(Worm, graphics::Graphic)
@@ -70,8 +71,8 @@ private:
 
 };
 
-} // namespace example
-} // namespace oe
+}
+}
 
 #endif
 

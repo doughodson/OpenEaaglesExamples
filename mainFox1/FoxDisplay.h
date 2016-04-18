@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: FoxDisplay
-//
-// Description:  Handles the drawing of an OpenEaagles display within Fox
-//------------------------------------------------------------------------------
+
 #ifndef __oe_example_FoxDisplay_H__
 #define __oe_example_FoxDisplay_H__
 
@@ -19,6 +15,11 @@ namespace FX {
 namespace oe {
 namespace example {
 
+//------------------------------------------------------------------------------
+// Class: FoxDisplay
+//
+// Description:  Handles the drawing of an OpenEaagles display within Fox
+//------------------------------------------------------------------------------
 class FoxDisplay : public graphics::Display
 {
    DECLARE_SUBCLASS(FoxDisplay, graphics::Display)
@@ -73,7 +74,8 @@ private:
    double transRate;
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
+
 
 #endif
