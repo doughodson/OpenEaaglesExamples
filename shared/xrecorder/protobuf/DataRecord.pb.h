@@ -32,7 +32,7 @@ namespace xrecorder {
 namespace pb {
 
 // Internal implementation detail -- do not call these.
-void protobuf_AddDesc_xrecorder_2fprotobuf_2fDataRecord_2eproto();
+void  protobuf_AddDesc_xrecorder_2fprotobuf_2fDataRecord_2eproto();
 void protobuf_AssignDesc_xrecorder_2fprotobuf_2fDataRecord_2eproto();
 void protobuf_ShutdownFile_xrecorder_2fprotobuf_2fDataRecord_2eproto();
 

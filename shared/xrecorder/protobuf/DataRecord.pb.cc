@@ -83,14 +83,13 @@ void protobuf_AddDesc_xrecorder_2fprotobuf_2fDataRecord_2eproto() {
 
   ::oe::recorder::pb::protobuf_AddDesc_openeaagles_2frecorder_2fprotobuf_2fDataRecord_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n#xrecorder/protobuf/DataRecord.proto\022\024E"
-    "aagles.xrecorder.pb\032.openeaagles/recorde"
-    "r/protobuf/DataRecord.proto\"0\n\tMyDataMsg"
-    "\022\013\n\003fee\030\001 \002(\r\022\n\n\002fi\030\002 \002(\r\022\n\n\002fo\030\003 \002(\r:V\n"
-    "\013my_data_msg\022\037.oe.recorder.pb.DataR"
-    "ecord\030\350\007 \001(\0132\037.oe.xrecorder.pb.MyDa"
-    "taMsg:+\n\003foo\022\036.oe.recorder.pb.Marke"
-    "rMsg\030d \001(\r", 290);
+    "\n#xrecorder/protobuf/DataRecord.proto\022\017o"
+    "e.xrecorder.pb\032.openeaagles/recorder/pro"
+    "tobuf/DataRecord.proto\"0\n\tMyDataMsg\022\013\n\003f"
+    "ee\030\001 \002(\r\022\n\n\002fi\030\002 \002(\r\022\n\n\002fo\030\003 \002(\r:L\n\013my_d"
+    "ata_msg\022\032.oe.recorder.pb.DataRecord\030\350\007 \001"
+    "(\0132\032.oe.xrecorder.pb.MyDataMsg:&\n\003foo\022\031."
+    "oe.recorder.pb.MarkerMsg\030d \001(\r", 270);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "xrecorder/protobuf/DataRecord.proto", &protobuf_RegisterTypes);
   MyDataMsg::default_instance_ = new MyDataMsg();

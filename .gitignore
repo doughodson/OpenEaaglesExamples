@@ -56,6 +56,11 @@ mainSim4-qt/debug/*
 # preprocessed input (scenario) files
 *.edl
 
+# protocol buffers test apps
+testRecordData/*.csv
+testRecorderRead/*.csv
+shared/data/recorder/*.ebd*
+
 # linux executables
 demoEfis/demoEfis
 demoFlightDisplays1/demoFlightDisplays1
