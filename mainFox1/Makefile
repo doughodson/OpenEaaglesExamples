@@ -4,6 +4,7 @@ include ../makedefs
 PGM = mainFox1
 
 CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR)
+LDFLAGS  += $(FOX_LIBS)
 
 EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
@@ -14,7 +15,7 @@ OBJS = main.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
 LDFLAGS += -loesimulation -loedafif -loeinstruments -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL
-LDFLAGS += -lXcursor -lXrandr -lXi -lXrender -lXext -lXfixes -lXft -lX11
+LDFLAGS += -lXcursor -lXrandr -lXi -lXrender -lXext -lXfixes -lXft -lXinerama -lX11
 LDFLAGS += -lfontconfig
 LDFLAGS += -lpthread -lrt
 
@@ -24,7 +25,7 @@ edl:
 	cpp configs/testfox.epp >testfox.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(FOX_LIB)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
 
 clean:
 	-rm -f *.o

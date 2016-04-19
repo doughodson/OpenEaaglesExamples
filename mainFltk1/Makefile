@@ -3,16 +3,14 @@ include ../makedefs
 
 PGM = mainFltk1
 
-CPPFLAGS += -I/usr/include/Fl
-
 OBJS = FltkDisplay.o MainWindow.o GLWindow.o FltkStation.o main.o
 
 LDFLAGS += -loesimulation -loeinstruments -loedafif  -loegraphics -loebase
-LDFLAGS += -lfltk_images -lfltk_gl -lfltk
+LDFLAGS += -lfltk_forms -lfltk_gl -lfltk_images -lfltk_jpeg -lfltk
 LDFLAGS += -lfreetype -lftgl -lGLU -lGL
-LDFLAGS += -lpthread -lX11 -lXft
-#LDFLAGS += -lXi -lXmu
-LDFLAGS += -lrt
+LDFLAGS += -lXcursor -lXrandr -lXi -lXrender -lXext -lXfixes -lXft -lXinerama -lX11
+LDFLAGS += -lfontconfig
+LDFLAGS += -lpthread -lrt -ldl
 
 all: $(PGM)
 
