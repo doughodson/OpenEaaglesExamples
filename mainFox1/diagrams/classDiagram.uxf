@@ -1,64 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="11.3">
+<diagram program="umlet" version="14.2">
   <zoom_level>10</zoom_level>
   <element>
-    <type>com.umlet.element.Class</type>
+    <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
-      <y>150</y>
-      <w>160</w>
+      <x>560</x>
+      <y>400</y>
+      <w>230</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>Application
---
-Station* station
---
-getStation()</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>60</x>
-      <y>40</y>
-      <w>160</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>FX::FXApp</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>110</x>
-      <y>50</y>
-      <w>50</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;100</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>60</x>
-      <y>340</y>
-      <w>170</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>BasicGL::Display
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>40</x>
-      <y>450</y>
-      <w>210</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>Display
+    <panel_attributes>FoxDisplay
 --
 FX::FXGLCanvas* glCanvas
 FX::FXGLVisual* glVisual
@@ -67,73 +18,44 @@ FX::FXComposite* myComp
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <id>UMLClass</id>
     <coordinates>
-      <x>110</x>
-      <y>350</y>
-      <w>50</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;100</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>310</x>
-      <y>40</y>
-      <w>160</w>
+      <x>560</x>
+      <y>300</y>
+      <w>230</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>FX::FXMainWindow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>300</x>
-      <y>130</y>
-      <w>180</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>MainWindow
---
-Display* display
-FXMenuBar* menuBar
-FXComposite* leftFrame
-FXComposite* rightFrame
-
+    <panel_attributes>graphics::Display
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>50</y>
-      <w>50</w>
-      <h>100</h>
+      <x>660</x>
+      <y>330</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;80</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>340</y>
+      <x>290</x>
+      <y>300</y>
       <w>170</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Simulation::Station
-</panel_attributes>
+    <panel_attributes>simulation::Station</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>450</y>
+      <x>290</x>
+      <y>400</y>
       <w>170</w>
       <h>100</h>
     </coordinates>
@@ -146,14 +68,199 @@ getMainDisplay()
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>350</y>
-      <w>50</w>
-      <h>120</h>
+      <x>370</x>
+      <y>330</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;100</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>450</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>40</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>FX::FXApp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>140</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Application
+--
+Station* station
+--
+getStation()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>40</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>FX::FXMainWindow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>70</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>140</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>MainWindow
+--
+Display* display
+FXMenuBar* menuBar
+FXComposite* leftFrame
+FXComposite* rightFrame</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>70</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>600</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MainWindow
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>670</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Application
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>740</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Station
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>820</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Display
+--
+FX::FXGLCanvas* glCanvas
+FX::FXGLVisual* glVisual
+FX::FXComposite* myComp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>610</y>
+      <w>490</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+</panel_attributes>
+    <additional_attributes>10.0;20.0;470.0;20.0;470.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>660</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>730</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>800</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
