@@ -1,11 +1,8 @@
 
-#ifndef __oe_example_MainWindow_H__
-#define __oe_example_MainWindow_H__
+#ifndef __MainWindow_H__
+#define __MainWindow_H__
 
 #include "fx.h"
-
-namespace oe {
-namespace example {
 
 class Application;
 class FoxDisplay;
@@ -60,8 +57,5 @@ private:
    FXComposite* rightFrame;
 
 };
-
-}
-}
 
 #endif

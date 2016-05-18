@@ -9,9 +9,6 @@
 #include "fx.h"
 #include "fx3d.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay, "FoxDisplay")
 EMPTY_SERIALIZER(FoxDisplay)
 
@@ -177,9 +174,9 @@ void FoxDisplay::drawIt()
          glCanvas->makeCurrent();
       }
       // if we are rotating, get our graphic and rotate it
-      base::Pair* p = (base::Pair*)findByType(typeid(graphics::Polygon));
+      oe::base::Pair* p = (oe::base::Pair*)findByType(typeid(oe::graphics::Polygon));
       if (p != nullptr) {
-         graphics::Polygon* g = dynamic_cast<graphics::Polygon*>(p->object());
+         oe::graphics::Polygon* g = dynamic_cast<oe::graphics::Polygon*>(p->object());
          if (g != nullptr) {
             g->lcSaveMatrix();
             g->lcTranslate(trans, 0);
@@ -201,7 +198,7 @@ void FoxDisplay::swapBuffers()
    }
 }
 
-graphics::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int item)
+oe::graphics::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, const int item)
 {
    GLint viewport[4];
 
@@ -261,9 +258,9 @@ void FoxDisplay::clearSelectBuffer(GLuint sbuff[], const int size)
 // 4) Returns zero(0) when there are no entries in the select buffer or if the
 //    Graphic for the select ID is not found.
 //-----------------------------------------------------------------------------
-graphics::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size, const int item)
+oe::graphics::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size, const int item)
 {
-   graphics::Graphic* sel = nullptr;
+   oe::graphics::Graphic* sel = nullptr;
    GLuint id = 0;
 
    GLuint dmin = 0;
@@ -304,9 +301,9 @@ graphics::Graphic* FoxDisplay::findSelected(const GLuint sbuff[], const int size
    // Find the Graphic with this id
    if (id > 0) {
       //std::cout << "selected id = " << id << std::endl;
-      base::Pair* pair = findBySelectName(id);
+      oe::base::Pair* pair = findBySelectName(id);
       if (pair != nullptr) {
-         sel = dynamic_cast<graphics::Graphic*>(pair->object());
+         sel = dynamic_cast<oe::graphics::Graphic*>(pair->object());
          if (sel != nullptr) {
             return sel;
          }
@@ -328,7 +325,3 @@ void FoxDisplay::printSelectBuffer(const GLuint sbuff[], const int size)
    }
    //std::cout << std::endl;
 }
-
-}
-}
-

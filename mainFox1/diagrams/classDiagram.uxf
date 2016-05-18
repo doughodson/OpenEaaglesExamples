@@ -25,7 +25,7 @@ FX::FXComposite* myComp
       <w>230</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>graphics::Display
+    <panel_attributes>oe::graphics::Display
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -48,7 +48,7 @@ FX::FXComposite* myComp
       <w>170</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>simulation::Station</panel_attributes>
+    <panel_attributes>oe::simulation::Station</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

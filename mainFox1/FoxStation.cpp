@@ -4,9 +4,6 @@
 
 #include "openeaagles/base/Timers.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_SUBCLASS(FoxStation, "FoxStation")
 EMPTY_SERIALIZER(FoxStation)
 EMPTY_DELETEDATA(FoxStation)
@@ -41,8 +38,8 @@ void FoxStation::updateTC(const double dt)
    // update the simulation
    BaseClass::updateTC(dt);
 
-   base::Timer::updateTimers(dt);
-   graphics::Graphic::flashTimer(dt);
+   oe::base::Timer::updateTimers(dt);
+   oe::graphics::Graphic::flashTimer(dt);
 
    // update TC associated with display
    if (display != nullptr) display->updateTC(dt);
@@ -69,11 +66,7 @@ bool FoxStation::setSlotMainDisplay(FoxDisplay* const msg)
    return true;
 }
 
-base::Object* FoxStation::getSlotByIndex(const int si)
+oe::base::Object* FoxStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
-
-}
-}
-

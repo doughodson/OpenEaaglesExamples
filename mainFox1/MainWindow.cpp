@@ -6,9 +6,6 @@
 
 #include "fx3d.h"
 
-namespace oe {
-namespace example {
-
 const int MAIN_WIN_HEIGHT = 1000;
 const int MAIN_WIN_WIDTH  = 1000;
 
@@ -149,6 +146,3 @@ void MainWindow::setupGUI()
       display->create(getApp(), leftFrame, this, ID_CANVAS, LAYOUT_FIX_HEIGHT | LAYOUT_FIX_WIDTH, 0, 0, 0, 0);
    }
 }
-
-} // end example namespace
-} // end oe namespace

@@ -1,11 +1,8 @@
 
-#ifndef __oe_example_FoxStation_H__
-#define __oe_example_FoxStation_H__
+#ifndef __FoxStation_H__
+#define __FoxStation_H__
 
 #include "openeaagles/simulation/Station.h"
-
-namespace oe {
-namespace example {
 
 class FoxDisplay;
 
@@ -14,9 +11,9 @@ class FoxDisplay;
 //
 // Description: Station class that can attach a FoxDisplay
 //------------------------------------------------------------------------------
-class FoxStation : public simulation::Station
+class FoxStation : public oe::simulation::Station
 {
-   DECLARE_SUBCLASS(FoxStation, simulation::Station)
+   DECLARE_SUBCLASS(FoxStation, oe::simulation::Station)
 
 public:
    FoxStation();
@@ -33,10 +30,7 @@ protected:
 
 private:
 
-   base::safe_ptr<FoxDisplay> display;
+   oe::base::safe_ptr<FoxDisplay> display;
 };
-
-}
-}
 
 #endif

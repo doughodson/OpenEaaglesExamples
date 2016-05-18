@@ -7,9 +7,6 @@
 #include "openeaagles/graphics/Graphic.h"
 #include "openeaagles/base/util/system.h"
 
-namespace oe {
-namespace example {
-
 // display refresh rate (Hz)
 static const FXuint DRAW_FRAME_RATE = 50;
 
@@ -58,7 +55,7 @@ long Application::onTimeout(FXObject*, FXSelector, void*)
    // ---
    // compute delta time
    // ---
-   const double time = base::getComputerTime(); // Current time
+   const double time = oe::base::getComputerTime(); // Current time
    static double time0 = time;      // N-1 time
    double dt = time - time0;
    if (dt < 0) {
@@ -94,7 +91,3 @@ FoxStation* Application::getStation()
 {
    return station;
 }
-
-}
-}
-

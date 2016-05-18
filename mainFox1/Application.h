@@ -1,21 +1,22 @@
 
-#ifndef __oe_example_Application_H__
-#define __oe_example_Application_H__
+#ifndef __Application_H__
+#define __Application_H__
 
 #include "FoxStation.h"
 
 #include "fx.h"
 
 namespace oe {
-
-namespace example {
-
-class Station;
+namespace simulation {
+   class Station;
+}
+}
 
 //------------------------------------------------------------------------------
 // Class: Application
 //
-// Description: Application class which processes GUI events
+// Description: Application class which manages an oe Station and processes
+//              GUI events
 //------------------------------------------------------------------------------
 class Application : public FX::FXApp
 {
@@ -53,8 +54,4 @@ private:
   FoxStation* station;
 };
 
-}
-}
-
 #endif
-

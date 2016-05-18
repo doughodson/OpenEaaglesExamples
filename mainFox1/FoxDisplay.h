@@ -1,6 +1,6 @@
 
-#ifndef __oe_example_FoxDisplay_H__
-#define __oe_example_FoxDisplay_H__
+#ifndef __FoxDisplay_H__
+#define __FoxDisplay_H__
 
 #include "openeaagles/graphics/Display.h"
 
@@ -12,17 +12,14 @@ namespace FX {
    class FXObject;
 };
 
-namespace oe {
-namespace example {
-
 //------------------------------------------------------------------------------
 // Class: FoxDisplay
 //
 // Description:  Handles the drawing of an OpenEaagles display within Fox
 //------------------------------------------------------------------------------
-class FoxDisplay : public graphics::Display
+class FoxDisplay : public oe::graphics::Display
 {
-   DECLARE_SUBCLASS(FoxDisplay, graphics::Display)
+   DECLARE_SUBCLASS(FoxDisplay, oe::graphics::Display)
 
 public:
 
@@ -44,13 +41,13 @@ public:
    void updateData(const double dt = 0.0) override;
 
    // mouse event to handle the pick event
-   Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1);
+   oe::graphics::Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1);
    void printSelectBuffer(const GLuint sbuff[], const int size);
    void clearSelectBuffer(GLuint sbuff[], const int size);
-   graphics::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
+   oe::graphics::Graphic* findSelected(const GLuint sbuff[], const int size, const int item = 0);
 
-   FX::FXGLCanvas* getCanvas()                                                               { return glCanvas; };
-   FX::FXComposite* getParentWindow()                                                        { return myComp;   };
+   FX::FXGLCanvas* getCanvas()                                          { return glCanvas; };
+   FX::FXComposite* getParentWindow()                                   { return myComp;   };
 
    // interface for the fox main window to manipulate our graphics - YOU CAN PULL THIS OUT!
    virtual void toggleRotation();
@@ -73,9 +70,5 @@ private:
    double trans;                       // transform amount (units)
    double transRate;
 };
-
-}
-}
-
 
 #endif

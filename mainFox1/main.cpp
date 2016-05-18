@@ -13,10 +13,8 @@
 #include "openeaagles/base/factory.h"
 
 #include <string>
-#include <cstdlib>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 base::Object* factory(const std::string& name)
 {
@@ -63,12 +61,12 @@ FoxStation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   FoxStation* foxStation = dynamic_cast<FoxStation*>(obj);
-   if (foxStation == nullptr) {
+   FoxStation* station = dynamic_cast<FoxStation*>(obj);
+   if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
    }
-   return foxStation;
+   return station;
 }
 
 int main(int argc, char* argv[])
@@ -112,12 +110,4 @@ int main(int argc, char* argv[])
 
    // cleanup
    delete mainWindow;
-}
-
-}
-}
-
-int main(int argc, char* argv[])
-{
-   oe::example::main(argc, argv);
 }
