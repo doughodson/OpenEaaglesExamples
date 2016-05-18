@@ -33,12 +33,12 @@ endif
 # ---
 # Fox GUI library settings (v1.6.x or v1.7.x)
 # ---
-FOX_DEFINES = -DFOX_1_6
-FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.6
-FOX_LIBS    = -lFOX-1.6
-#FOX_DEFINES = -DFOX_1_7
-#FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.7
-#FOX_LIBS    = -FOX-1.7
+#FOX_DEFINES = -DFOX_1_6
+#FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.6
+#FOX_LIBS    = -lFOX-1.6
+FOX_DEFINES = -DFOX_1_7
+FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.7
+FOX_LIBS    = -lFOX-1.7
 
 # ---
 # CPP flags
