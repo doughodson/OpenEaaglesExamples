@@ -1,8 +1,8 @@
 
 
-// This application uses the open-source Fox Toolkit GUI and the OpenEaagles graphics
-// and simulation libraries. It shows how to set up the threading for drawing the
-// openGL OpenEaagles context within the Fox Toolkit GUI.
+// This application uses the open-source Fox GUI toolkit and the graphics
+// and simulation libraries. It shows how to set up the threading for drawing in
+// the OpenGL oe context within Fox
 
 ( FoxStation
    maindisplay:

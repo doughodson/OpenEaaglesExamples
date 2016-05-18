@@ -1,5 +1,4 @@
 
-//
 #include "Application.h"
 #include "MainWindow.h"
 #include "FoxStation.h"
@@ -19,9 +18,6 @@
 namespace oe {
 namespace example {
 
-FoxStation* foxStation = nullptr;
-
-// our class factory
 base::Object* factory(const std::string& name)
 {
    base::Object* obj = nullptr;
@@ -42,7 +38,6 @@ base::Object* factory(const std::string& name)
    return obj;
 }
 
-// FOX station builder
 FoxStation* builder(const std::string& filename)
 {
    // read configuration file
@@ -76,7 +71,6 @@ FoxStation* builder(const std::string& filename)
    return foxStation;
 }
 
-//
 int main(int argc, char* argv[])
 {
    // default configuration filename
@@ -87,8 +81,9 @@ int main(int argc, char* argv[])
          configFilename = argv[++i];
       }
    }
+
    // build a station
-   foxStation = builder(configFilename);
+   FoxStation* foxStation = builder(configFilename);
 
    // send a reset pulse to station
    foxStation->event(base::Component::RESET_EVENT);
@@ -119,11 +114,10 @@ int main(int argc, char* argv[])
    delete mainWindow;
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
-//
 int main(int argc, char* argv[])
 {
-  oe::example::main(argc, argv);
+   oe::example::main(argc, argv);
 }

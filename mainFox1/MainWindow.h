@@ -12,10 +12,6 @@ class FoxDisplay;
 
 //------------------------------------------------------------------
 // Class: MainWindow
-//
-// Description: OpenEaagles version of a Fox MainWindow, understands
-// mainFox::Application and mainFox::Display
-//
 //------------------------------------------------------------------
 class MainWindow : public FX::FXMainWindow
 {

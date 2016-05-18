@@ -11,27 +11,20 @@ IMPLEMENT_SUBCLASS(FoxStation, "FoxStation")
 EMPTY_SERIALIZER(FoxStation)
 EMPTY_DELETEDATA(FoxStation)
 
-// slot table for this class type
 BEGIN_SLOTTABLE(FoxStation)
    "maindisplay",         // 1) main display
 END_SLOTTABLE(FoxStation)
 
-//  Map slot table to handles
+// map slot table to handles
 BEGIN_SLOT_MAP(FoxStation)
    ON_SLOT(1, setSlotMainDisplay, FoxDisplay)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 FoxStation::FoxStation()
 {
    STANDARD_CONSTRUCTOR()
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void FoxStation::copyData(const FoxStation& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -42,34 +35,28 @@ void FoxStation::copyData(const FoxStation& org, const bool cc)
       setSlotMainDisplay(nullptr);
 }
 
-//------------------------------------------------------------------------------
-// updateTC() -- update time critical stuff here
-//------------------------------------------------------------------------------
+// update time critical stuff here
 void FoxStation::updateTC(const double dt)
 {
-   // First update the simulation
+   // update the simulation
    BaseClass::updateTC(dt);
 
    base::Timer::updateTimers(dt);
    graphics::Graphic::flashTimer(dt);
 
-   // Update any TC stuff in our main display
+   // update TC associated with display
    if (display != nullptr) display->updateTC(dt);
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
+// update non-time critical stuff here
 void FoxStation::updateData(const double dt)
 {
-   // Update any stuff in our main display
+   // update our display
    if (display != nullptr) display->updateData(dt);
 
    BaseClass::updateData(dt);
 }
 
-//
-//
 bool FoxStation::setSlotMainDisplay(FoxDisplay* const msg)
 {
    if (display != nullptr) {
@@ -82,14 +69,11 @@ bool FoxStation::setSlotMainDisplay(FoxDisplay* const msg)
    return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* FoxStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-} // end example namespace
-} // end oe namespace
+}
+}
 

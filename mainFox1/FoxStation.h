@@ -12,7 +12,7 @@ class FoxDisplay;
 //------------------------------------------------------------------------------
 // Class: FoxStation
 //
-// Description: Station class that a FoxDisplay can be attached
+// Description: Station class that can attach a FoxDisplay
 //------------------------------------------------------------------------------
 class FoxStation : public simulation::Station
 {
@@ -21,14 +21,14 @@ class FoxStation : public simulation::Station
 public:
    FoxStation();
 
-   // Displays
+   // display
    FoxDisplay* getMainDisplay()                     { return display; }
 
    void updateTC(const double dt = 0.0) override;
    void updateData(const double dt = 0.0) override;
 
 protected:
-   // Slot functions
+
    bool setSlotMainDisplay(FoxDisplay* const msg);
 
 private:
