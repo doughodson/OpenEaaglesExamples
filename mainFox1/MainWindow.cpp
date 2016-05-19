@@ -38,9 +38,7 @@ MainWindow::MainWindow(Application* app) :
       display = nullptr;
    }
 
-   // ---
-   // Create the GUI here
-   // ---
+   // layout GUI interface
    setupGUI();
 }
 
@@ -145,4 +143,5 @@ void MainWindow::setupGUI()
       // this will set it's own width and height
       display->create(getApp(), leftFrame, this, ID_CANVAS, LAYOUT_FIX_HEIGHT | LAYOUT_FIX_WIDTH, 0, 0, 0, 0);
    }
+
 }

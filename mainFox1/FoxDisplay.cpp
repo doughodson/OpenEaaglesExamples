@@ -12,9 +12,6 @@
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FoxDisplay, "FoxDisplay")
 EMPTY_SERIALIZER(FoxDisplay)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 FoxDisplay::FoxDisplay()
 {
    STANDARD_CONSTRUCTOR()
@@ -34,9 +31,6 @@ void FoxDisplay::initData()
   transRate = 0.10;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void FoxDisplay::copyData(const FoxDisplay& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -51,9 +45,6 @@ void FoxDisplay::copyData(const FoxDisplay& org, const bool cc)
    transRate = org.transRate;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
 void FoxDisplay::deleteData()
 {
    if (glVisual != nullptr)
@@ -63,9 +54,7 @@ void FoxDisplay::deleteData()
    delete myComp;
 }
 
-//------------------------------------------------------------------------------
-// bind() -- bind Fox Toolkit canvas and visual objects with this class
-//------------------------------------------------------------------------------
+// associate Fox toolkit canvas and visual objects with this class
 void FoxDisplay::create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObject* tgt,
                      unsigned short selector, unsigned short opt, unsigned short x,
                      unsigned short y, unsigned short w, unsigned short h)
@@ -79,9 +68,7 @@ void FoxDisplay::create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObje
    glCanvas = new FXGLCanvas(frame, glVisual, tgt, selector, opt, x, y, w, h);
 }
 
-//------------------------------------------------------------------------------
-// initialize() -- initialize the canvases
-//------------------------------------------------------------------------------
+// initialize the canvas
 void FoxDisplay::initialize()
 {
    if (glCanvas != nullptr) {
@@ -92,25 +79,16 @@ void FoxDisplay::initialize()
    }
 }
 
-//------------------------------------------------------------------------------
-// toggleRotation()
-//------------------------------------------------------------------------------
 void FoxDisplay::toggleRotation()
 {
    rotate = !rotate;
 }
 
-//------------------------------------------------------------------------------
-// toggleTranslation()
-//------------------------------------------------------------------------------
 void FoxDisplay::toggleTranslation()
 {
    translate = !translate;
 }
 
-//------------------------------------------------------------------------------
-// updateData()
-//------------------------------------------------------------------------------
 void FoxDisplay::updateData(const double dt)
 {
    BaseClass::updateData(dt);
@@ -135,10 +113,6 @@ void FoxDisplay::updateData(const double dt)
    }
 }
 
-
-//------------------------------------------------------------------------------
-// setCanvasSize() - set our gl canvas width and height
-//------------------------------------------------------------------------------
 bool FoxDisplay::setCanvasSize(const float newW, const float newH)
 {
    if (glCanvas != nullptr) {
@@ -148,9 +122,7 @@ bool FoxDisplay::setCanvasSize(const float newW, const float newH)
    return true;
 }
 
-//-----------------------------------------------------------------------------
-// reshapeIt() -- default function to reshape the viewport
-//-----------------------------------------------------------------------------
+//default function to reshape the viewport
 void FoxDisplay::reshapeIt(int, int)
 {
    if (glCanvas != nullptr) {
@@ -164,9 +136,7 @@ void FoxDisplay::reshapeIt(int, int)
    }
 }
 
-//-----------------------------------------------------------------------------
-// drawIt() -- default function to draw the display
-//-----------------------------------------------------------------------------
+// function to draw the display
 void FoxDisplay::drawIt()
 {
    if (glCanvas != nullptr) {
@@ -188,9 +158,6 @@ void FoxDisplay::drawIt()
    }
 }
 
-//------------------------------------------------------------------------------
-// swapBuffers() --
-//------------------------------------------------------------------------------
 void FoxDisplay::swapBuffers()
 {
    if (glVisual != nullptr && glCanvas != nullptr) {
@@ -240,9 +207,7 @@ oe::graphics::Graphic* FoxDisplay::pick(const int mouseX, const int mouseY, cons
    return selected;
 }
 
-//-----------------------------------------------------------------------------
-// clearSelectBuffer() -- clears our pick select buffer
-//-----------------------------------------------------------------------------
+// clears our pick select buffer
 void FoxDisplay::clearSelectBuffer(GLuint sbuff[], const int size)
 {
    for (int j = 0; j < size; j++) sbuff[j] = 0;

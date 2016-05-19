@@ -16,7 +16,7 @@ class MainWindow : public FX::FXMainWindow
 
 public:
 
-   MainWindow(Application* a);
+   MainWindow(Application*);
    virtual ~MainWindow();
 
    // initialize
