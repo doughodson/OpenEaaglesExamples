@@ -69,8 +69,9 @@ demoInstruments/demoInstruments
 demoSubDisplays/demoSubDisplays
 mainCockpit/mainCockpit
 mainFltk1/mainFltk1
-mainFox1/mainFox1
 mainGL/mainGL
+mainFox0/mainFox0
+mainFox1/mainFox1
 mainGndMapRdr/mainGndMapRdr
 mainIr/mainIr
 mainLaero/mainLaero
