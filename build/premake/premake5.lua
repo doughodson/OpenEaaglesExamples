@@ -2,8 +2,6 @@
 -- If premake command is not supplied an action (target compiler), exit!
 --
 -- Target of interest:
---     vs2010     (Visual Studio 2010)
---     vs2012     (Visual Studio 2012)
 --     vs2013     (Visual Studio 2013)
 --     vs2015     (Visual Studio 2015)
 --     codeblocks (Code::Blocks)
