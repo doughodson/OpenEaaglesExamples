@@ -1,9 +1,6 @@
 #
 # windows specific directories
 #
-vs2008/
-vs2010/
-vs2012/
 vs2013/
 vs2015/
 codeblocks/
@@ -69,9 +66,10 @@ demoInstruments/demoInstruments
 demoSubDisplays/demoSubDisplays
 mainCockpit/mainCockpit
 mainFltk1/mainFltk1
-mainGL/mainGL
-mainFox0/mainFox0
 mainFox1/mainFox1
+mainFox2/mainFox2
+mainFox3/mainFox3
+mainGlut/mainGL
 mainGndMapRdr/mainGndMapRdr
 mainIr/mainIr
 mainLaero/mainLaero
