@@ -2,7 +2,31 @@
 -- GUI examples
 --------------------------------------------------------
 
--- mainFltk1: Fltk-based GUI
+-- GLUT-based GUI example
+project "mainGlut"
+   kind "ConsoleApp"
+   targetname "mainGlut"
+   targetdir "../../mainGlut"
+   debugdir "../../mainGlut"
+   files {
+      "../../mainGlut/**.cpp",
+      "../../mainGlut/**.h",
+      "../../mainGlut/**.epp",
+      "../../mainGlut/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   configuration "Release"
+      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
+      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+   configuration "Debug"
+      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
+      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
+-- Fltk-based GUI example
 project "mainFltk1"
    kind "WindowedApp"
    targetname "mainFltk1"
@@ -31,8 +55,7 @@ project "mainFltk1"
       links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
 
-
--- mainFox1: Fox-based GUI
+-- Fox-based GUI example
 project "mainFox1"
    kind "WindowedApp"
    targetname "mainFox1"
@@ -46,17 +69,70 @@ project "mainFox1"
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.6" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   defines {"FOX_1_6"}
    configuration "Release"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
-      links {"FOX-1.6"}
+      links {"FOX-1.7"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
    configuration "Debug"
       links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
       links {"oegraphics_d", "oebase_d"}
-      links {"FOX-1.6_d"}
+      links {"FOX-1.7_d"}
+      links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
+      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
+
+-- Fox-based GUI example
+project "mainFox2"
+   kind "WindowedApp"
+   targetname "mainFox2"
+   targetdir "../../mainFox2"
+   debugdir "../../mainFox2"
+   files {
+      "../../mainFox2/**.cpp",
+      "../../mainFox2/**.h",
+      "../../mainFox2/**.epp"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   configuration "Release"
+      links {"oesimulation", "oedafif", "oeinstruments"}
+      links {"oegraphics", "oebase"}
+      links {"FOX-1.7"}
+      links {LibFtgl, LibFreetype, LibGLU, LibGL}
+      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
+   configuration "Debug"
+      links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
+      links {"oegraphics_d", "oebase_d"}
+      links {"FOX-1.7_d"}
+      links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
+      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
+
+-- Fox-based GUI example
+project "mainFox3"
+   kind "WindowedApp"
+   targetname "mainFox3"
+   targetdir "../../mainFox3"
+   debugdir "../../mainFox3"
+   files {
+      "../../mainFox3/**.cpp",
+      "../../mainFox3/**.h",
+      "../../mainFox3/**.epp"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   configuration "Release"
+      links {"oesimulation", "oedafif", "oeinstruments"}
+      links {"oegraphics", "oebase"}
+      links {"FOX-1.7"}
+      links {LibFtgl, LibFreetype, LibGLU, LibGL}
+      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
+   configuration "Debug"
+      links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
+      links {"oegraphics_d", "oebase_d"}
+      links {"FOX-1.7_d"}
       links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32"}
 

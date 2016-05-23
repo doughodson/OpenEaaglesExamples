@@ -38,8 +38,6 @@ Example Applications
 
 * mainCockpit -- Simple flight simulation program
 
-* mainGL -- Example alignment pattern drawn using only configuration file graphics.
-
 * mainGndMapRdr -- Simple ground mapping radar example
 
 * mainNonRT1 -- Example that demonstrates executing the simulation as fast as possible
@@ -61,6 +59,20 @@ Example Applications
 * mainTerrain -- Displays terrain elevation data
 
 * mainUbf1 -- A version of 'mainCockpit' used to test UBF behaviors
+
+
+Example GUI Applications
+------------------------
+
+* mainGlut -- Opens a GLUT window and draws a pattern.
+
+* mainFltk1 -- Opens a Fltk GUI window
+
+* mainFox1 -- Opens a FOX GUI window
+
+* mainFox2 -- Opens a FOX GUI window and draws a pattern
+
+* mainFox3 -- Opens a FOX GUI window and demostrates animated graphics drawing
 
 
 Test Applications

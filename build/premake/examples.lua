@@ -40,30 +40,6 @@ project "mainCockpit"
       links { "libprotobuf_d" }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
--- OpenGL example
-project "mainGL"
-   kind "ConsoleApp"
-   targetname "mainGL"
-   targetdir "../../mainGL"
-   debugdir "../../mainGL"
-   files {
-      "../../mainGL/**.cpp",
-      "../../mainGL/**.h",
-      "../../mainGL/**.epp",
-      "../../mainGL/**.edl"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
-   configuration "Release"
-      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
-      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
-      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
-      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-
 -- Ground Mapping Radar example
 project "mainGndMapRdr"
    kind "ConsoleApp"

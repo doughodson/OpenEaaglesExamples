@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = mainFox0
+PGM = mainFox2
 
 CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR) -DHAVE_GL_H
 LDFLAGS  += $(FOX_LIBS)
@@ -30,3 +30,4 @@ $(PGM): $(OBJS)
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
+

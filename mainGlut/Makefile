@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = mainGL
+PGM = mainGlut
 
 OBJS = main.o
 
@@ -22,3 +22,4 @@ $(PGM): $(OBJS)
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
+

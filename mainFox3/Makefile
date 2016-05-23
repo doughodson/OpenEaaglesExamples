@@ -1,16 +1,16 @@
 #
 include ../makedefs
 
-PGM = mainFox1
+PGM = mainFox3
 
-CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR) -DHAVE_GL_H
+CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR)
 LDFLAGS  += $(FOX_LIBS)
 
 EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = main.o GLSettingsDialog.o GLTestWindow.o
+OBJS = main.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
 
 LDFLAGS += -loesimulation -loedafif -loeinstruments -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype
@@ -30,4 +30,3 @@ $(PGM): $(OBJS)
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-
