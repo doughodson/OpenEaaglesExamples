@@ -90,6 +90,6 @@ void TestAdi::updateData(const double dt)
     send("adi", UPDATE_VALUE, roll, rollSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 

@@ -374,5 +374,5 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    return sout;
 }
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}

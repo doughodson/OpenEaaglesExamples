@@ -381,6 +381,6 @@ void TestMechanical::updateData(const double dt)
     send("sdevfail", SET_VISIBILITY, sdFail, sdFailSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 

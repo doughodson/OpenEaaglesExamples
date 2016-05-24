@@ -39,8 +39,8 @@ private:
     bool drawBack;  // draw the background (for transparency purposes)
 };
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 
 #endif
 

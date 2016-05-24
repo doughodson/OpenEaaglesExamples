@@ -51,11 +51,11 @@ class ZeroMQHandler : public base::NetHandler
 public:
    ZeroMQHandler();
 
-   virtual virtual bool initNetwork(const bool noWaitFlag) override;
-   virtual virtual bool isConnected() const override;
-   virtual virtual bool closeConnection() override;
-   virtual virtual bool sendData(const char* const packet, const int size) override;
-   virtual virtual unsigned int recvData(char* const packet, const int maxSize) override;
+   virtual bool initNetwork(const bool noWaitFlag) override;
+   virtual bool isConnected() const override;
+   virtual bool closeConnection() override;
+   virtual bool sendData(const char* const packet, const int size) override;
+   virtual unsigned int recvData(char* const packet, const int maxSize) override;
 
    // Casting for the dereference operator much like base::String.  This is
    // useful when using a 0MQ function directly like zmq_poll.
@@ -126,8 +126,8 @@ protected:
    bool           ready;         // Initialization was successful
 };
 
-}  // End xZeroMQHandlers namespace
-}  // End oe namespace
+}
+}
 
 #endif
 

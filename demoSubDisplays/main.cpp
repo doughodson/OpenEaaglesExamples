@@ -203,8 +203,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // end demo namespace
-} // end oe namespace
+}
+}
 
 //
 int main(int argc, char* argv[])

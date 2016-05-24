@@ -42,8 +42,8 @@ private:
    bool haveTarget;   // flag indicating if we have a target track
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif
 

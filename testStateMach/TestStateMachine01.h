@@ -43,7 +43,7 @@ private:
    void anyStateFunc(const double dt);
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

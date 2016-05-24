@@ -30,7 +30,7 @@ public:
   
 };
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 #endif

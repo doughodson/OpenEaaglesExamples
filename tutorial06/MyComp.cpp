@@ -127,6 +127,6 @@ void MyComp::updateData(const double dt)
    BaseClass::updateData(dt);
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 

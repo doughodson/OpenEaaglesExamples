@@ -136,7 +136,7 @@ private:
     double baroRate;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

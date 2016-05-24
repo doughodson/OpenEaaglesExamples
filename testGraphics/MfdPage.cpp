@@ -67,5 +67,5 @@ void MfdPage::updateData(const double dt)
     send("rotator", UPDATE_VALUE2, rotate, rSD);
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

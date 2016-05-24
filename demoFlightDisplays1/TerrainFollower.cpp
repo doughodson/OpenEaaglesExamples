@@ -450,6 +450,6 @@ void TerrainFollower::updateData(const double dt)
     send("fourthr", UPDATE_VALUE, range, fRSD);
 }
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 

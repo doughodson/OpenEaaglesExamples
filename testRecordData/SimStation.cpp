@@ -208,5 +208,5 @@ base::Object* SimStation::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

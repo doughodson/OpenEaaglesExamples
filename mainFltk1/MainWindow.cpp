@@ -199,6 +199,6 @@ void MainWindow::setZRotation(const double x)
 }
 
 
-} // end example namespace
-} // end oe namespace
+}
+}
 

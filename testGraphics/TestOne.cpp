@@ -265,5 +265,5 @@ bool TestOne::setAngle(const base::Number* const saobj)
     return true;
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

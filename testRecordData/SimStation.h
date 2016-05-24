@@ -54,8 +54,8 @@ private:
     const base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif
 

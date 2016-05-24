@@ -121,8 +121,8 @@ int main(int argc, char* argv[])
    return 0;
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 //
 int main(int argc, char* argv[])

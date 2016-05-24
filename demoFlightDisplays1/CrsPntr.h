@@ -68,8 +68,8 @@ private:
     bool showToFrom;        // show our to from arrow?
 };
 
-}; // end of Instruments namespace
-}; // end of oe namespace
+}
+}
 
 #endif
 

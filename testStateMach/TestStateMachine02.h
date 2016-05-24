@@ -54,7 +54,7 @@ private:
    void stateFunc99(const double dt);
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

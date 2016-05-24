@@ -18,5 +18,5 @@ MfdDisplay::MfdDisplay()
    STANDARD_CONSTRUCTOR()
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

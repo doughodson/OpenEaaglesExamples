@@ -241,5 +241,5 @@ void Display::updateData(const double dt)
 }
 
 
-} // End test namespace
-} // End oe namespace
+}
+}

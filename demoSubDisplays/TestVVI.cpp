@@ -59,5 +59,5 @@ void TestVVI::updateData(const double dt)
     send("vviro", UPDATE_VALUE, gaugePosition, gaugePositionROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

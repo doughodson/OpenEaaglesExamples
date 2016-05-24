@@ -21,7 +21,7 @@ public:
    virtual bool onEntry() override;
 };
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 #endif

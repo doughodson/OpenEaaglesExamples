@@ -47,7 +47,7 @@ private:
    int numWins;                    // number of GL windows we have.
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif

@@ -86,5 +86,5 @@ base::Object* Exp::getSlotByIndex(const int si)
   return BaseClass::getSlotByIndex(si);
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}

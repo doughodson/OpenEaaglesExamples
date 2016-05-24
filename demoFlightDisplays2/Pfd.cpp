@@ -353,5 +353,5 @@ void Pfd::updateData(const double dt)
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }
 
-}; // end of demo namespace
-}; // end of oe Namespace
+}
+}

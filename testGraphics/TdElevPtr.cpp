@@ -58,5 +58,5 @@ bool TdElevPtr::onUpdateValue(const base::Number* const ouvobj)
     return true;
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

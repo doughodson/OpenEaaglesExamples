@@ -31,8 +31,8 @@ private:
    graphics::Graphic* selected;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif
 

@@ -218,6 +218,6 @@ std::ostream& ZeroMQContext::serialize(std::ostream& sout, const int i, const bo
    return sout;
 }
 
-}  // End xZeroMQHandlers namespace
-}  // End oe namespace
+}
+}
 

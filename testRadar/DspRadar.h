@@ -48,7 +48,7 @@ private:
     double      trkRelGndTrk[MAX_TRKS];     // Track's relative ground track (to nearest 45 deg)
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

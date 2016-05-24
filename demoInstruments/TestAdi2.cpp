@@ -188,5 +188,5 @@ void TestAdi2::updateData(const double dt)
     send("ghosthorizon", UPDATE_VALUE, roll, ghostRollSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

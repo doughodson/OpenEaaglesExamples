@@ -82,7 +82,7 @@ private:
    int      hValue;                    // h() value
 };
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 #endif

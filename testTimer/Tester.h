@@ -44,8 +44,8 @@ private:
    base::PairStream* timers;    // List of timers
 };
 
-} // namespace test
-} // namespace oe
+}
+}
 
 #endif
 

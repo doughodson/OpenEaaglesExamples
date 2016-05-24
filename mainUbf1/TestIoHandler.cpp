@@ -313,5 +313,5 @@ void TestIoHandler::clear()
 {
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

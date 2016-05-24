@@ -41,5 +41,5 @@ bool MyPager::onEntry()
    return true;
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}

@@ -53,8 +53,8 @@ private:
    const base::PairStream* columns;  // columns items
 };
 
-} // End of test namespace
-} // End of oe namespace
+}
+}
 
 #endif
 

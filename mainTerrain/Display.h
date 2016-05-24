@@ -107,8 +107,8 @@ private:
                                        //   --   icol : [ 0 ... (imgWidth-1) ]
 };
 
-}; // end example namespace
-}; // end oe namespace
+}
+}
 
 #endif
 

@@ -245,5 +245,5 @@ bool MyObj::isValid() const
    return true;
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}

@@ -93,5 +93,5 @@ bool Uniform::setSlotMax(const base::Number* const x)
    return true;
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}

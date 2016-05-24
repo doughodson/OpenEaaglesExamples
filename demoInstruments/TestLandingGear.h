@@ -18,8 +18,8 @@ class TestLandingGear : public graphics::Page
 public:
    TestLandingGear();
 
-   virtual virtual bool event(const int event, base::Object* const obj = nullptr) override;
-   virtual virtual void updateData(const double dt = 0.0) override;
+   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
     // event functions
@@ -31,8 +31,8 @@ private:
     double  gearRate;          // rate which are going (up or down)
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

@@ -70,7 +70,7 @@ private:
    int      generation;                // Generation index
 };
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 #endif

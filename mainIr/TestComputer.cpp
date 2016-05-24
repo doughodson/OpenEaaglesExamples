@@ -265,5 +265,5 @@ void TestComputer::updateShootList(const bool step)
    else setNextToShoot(nullptr);
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

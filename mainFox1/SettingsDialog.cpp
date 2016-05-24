@@ -4,6 +4,7 @@
 
 #include <GL/glu.h>
 
+#include <cstdio>
 #include "SettingsDialog.h"
 
 #define PRINT_YESNO(x) ( x ? "yes" : "no" )
@@ -19,13 +20,17 @@ SettingsDialog::SettingsDialog():canvas(nullptr), thickfont(nullptr), extensionl
 {}
 
 // construct with GL canvas (free floating version)
-SettingsDialog::SettingsDialog(FXApp *a,FXGLCanvas *ca):FXDialogBox(a,FXString::null,DECOR_STRETCHABLE|DECOR_TITLE|DECOR_BORDER,0,0,0,0,0,0,0,0,0,0),canvas(ca),thickfont(NULL),extensionlist(NULL)
+SettingsDialog::SettingsDialog(FXApp* a, FXGLCanvas* ca)
+:FXDialogBox(a, FXString::null, DECOR_STRETCHABLE|DECOR_TITLE|DECOR_BORDER, 0,0,0,0,0,0,0,0,0,0),
+             canvas(ca), thickfont(nullptr), extensionlist(nullptr)
 {
    setup();
 }
 
 // construct with GL canvas (modal version)
-SettingsDialog::SettingsDialog(FXWindow *o,FXGLCanvas *ca):FXDialogBox(o,FXString::null,DECOR_STRETCHABLE|DECOR_TITLE|DECOR_BORDER,0,0,0,0,0,0,0,0,0,0),canvas(ca),thickfont(NULL),extensionlist(NULL)
+SettingsDialog::SettingsDialog(FXWindow* o, FXGLCanvas* ca)
+:FXDialogBox(o, FXString::null, DECOR_STRETCHABLE|DECOR_TITLE|DECOR_BORDER, 0,0,0,0,0,0,0,0,0,0),
+             canvas(ca), thickfont(nullptr), extensionlist(nullptr)
 {
    setup();
 }
@@ -42,12 +47,8 @@ void SettingsDialog::setup()
    thickfont=new FXFont(getApp(), fontdescription);
    thickfont->create();
 
-   FXGLVisual* glvisual = (FXGLVisual*)canvas->getVisual();
+   FXGLVisual* glvisual = static_cast<FXGLVisual*>(canvas->getVisual());
    canvas->makeCurrent();
-
-   GLint	intval;
-   GLint	intvals[2];
-   char *token, *text, *tmp;
 
    setTitle(tr("OpenGL Information"));
 
@@ -98,18 +99,20 @@ void SettingsDialog::setup()
 
    label = new FXLabel(matrix,tr("Multi Sample:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
-   new FXLabel(matrix,FXString::value("%dx",glvisual->getActualMultiSamples()),nullptr,LABEL_NORMAL);
+   new FXLabel(matrix,FXString::value("%dx", glvisual->getActualMultiSamples()), nullptr, LABEL_NORMAL);
 
    new FXTabItem(tabbook,tr(" Limits "));
    matrix = new FXMatrix(tabbook, 2, MATRIX_BY_COLUMNS|LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_RAISED|FRAME_THICK);
 
+   GLint	intvals[2] = {0, 0};
    glGetIntegerv(GL_MAX_VIEWPORT_DIMS, intvals);
-   label = new FXLabel(matrix,tr("Viewport Size:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix,tr("Viewport Size:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d x %d", intvals[0], intvals[1]));
 
+   GLint	intval(0);
    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &intval);
-   label = new FXLabel(matrix,tr("Texture Size:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix,tr("Texture Size:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d", intval));
 
@@ -121,31 +124,31 @@ void SettingsDialog::setup()
 #endif
 
    glGetIntegerv(GL_MAX_LIGHTS, &intval);
-   label = new FXLabel(matrix,tr("Lights:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix,tr("Lights:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d", intval));
 
    glGetIntegerv(GL_MAX_CLIP_PLANES, &intval);
-   label = new FXLabel(matrix,tr("Clipping Planes:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix,tr("Clipping Planes:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d", intval));
 
    glGetIntegerv(GL_MAX_MODELVIEW_STACK_DEPTH, &intval);
-   label = new FXLabel(matrix,tr("Modelview Stack:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix,tr("Modelview Stack:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d", intval));
 
    glGetIntegerv(GL_MAX_PROJECTION_STACK_DEPTH, &intval);
-   label = new FXLabel(matrix,tr("Projection Stack:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix,tr("Projection Stack:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d", intval));
 
    glGetIntegerv(GL_MAX_ATTRIB_STACK_DEPTH, &intval);
-   label = new FXLabel(matrix,tr("Attribute Stack:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("Attribute Stack:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
    new FXLabel(matrix, FXString::value("%d", intval));
 
-   label = new FXLabel(matrix,tr("Vertex Attributes:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("Vertex Attributes:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
 #if defined(GL_MAX_VERTEX_ATTRIBS)
    glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &intval);
@@ -154,38 +157,38 @@ void SettingsDialog::setup()
    new FXLabel(matrix,"-");
 #endif
 
-   label = new FXLabel(matrix,tr("Vertex Uniform Components:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("Vertex Uniform Components:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
 #if defined(GL_MAX_VERTEX_UNIFORM_COMPONENTS)
    glGetIntegerv(GL_MAX_VERTEX_UNIFORM_COMPONENTS, &intval);
    new FXLabel(matrix, FXString::value("%d", intval));
 #else
-   new FXLabel(matrix,"-");
+   new FXLabel(matrix, "-");
 #endif
 
-   label = new FXLabel(matrix,tr("Fragment Uniform Components:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("Fragment Uniform Components:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
 #if defined(GL_MAX_FRAGMENT_UNIFORM_COMPONENTS)
    glGetIntegerv(GL_MAX_FRAGMENT_UNIFORM_COMPONENTS, &intval);
    new FXLabel(matrix, FXString::value("%d", intval));
 #else
-   new FXLabel(matrix,"-");
+   new FXLabel(matrix, "-");
 #endif
 
-   new FXTabItem(tabbook,tr(" Extensions "));
-   vframe = new FXVerticalFrame(tabbook,LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_RAISED|FRAME_THICK);
+   new FXTabItem(tabbook, tr(" Extensions "));
+   vframe = new FXVerticalFrame(tabbook, LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_RAISED|FRAME_THICK);
 
-   vframe = new FXVerticalFrame(vframe,LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_SUNKEN|FRAME_THICK,0,0,0,0,0,0,0,0);
-   extensionlist = new FXList(vframe,nullptr,0,FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|HSCROLLING_OFF);
+   vframe = new FXVerticalFrame(vframe, LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_SUNKEN|FRAME_THICK, 0,0,0,0,0,0,0,0);
+   extensionlist = new FXList(vframe, nullptr, 0, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|HSCROLLING_OFF);
 
    // Get OpenGL extensions
-   tmp = (char*)glGetString(GL_EXTENSIONS);
+   char* tmp = (char*)glGetString(GL_EXTENSIONS);
    if (tmp) {
-      text=strdup(tmp);
-      token=strtok(text," ");
+      char* text = strdup(tmp);
+      char* token = strtok(text, " ");
       while(token) {
          extensionlist->appendItem(token);
-         token=strtok(nullptr," ");
+         token = strtok(nullptr, " ");
       }
       free(text);
    }
@@ -197,34 +200,34 @@ void SettingsDialog::setup()
 #ifdef GLU_VERSION_1_1
    tmp = (char*)gluGetString(GLU_EXTENSIONS);
    if (tmp) {
-      text=strdup(tmp);
-      token=strtok(text," ");
-      while (token!=nullptr) {
+      char* text = strdup(tmp);
+      char* token = strtok(text, " ");
+      while (token != nullptr) {
          extensionlist->appendItem(token);
-         token=strtok(nullptr," ");
+         token = strtok(nullptr, " ");
       }
       free(text);
    }
 #endif
 
-   new FXTabItem(tabbook,tr(" Driver "));
+   new FXTabItem(tabbook, tr(" Driver "));
    matrix = new FXMatrix(tabbook, 2, MATRIX_BY_COLUMNS|LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_RAISED|FRAME_THICK);
 
-   label = new FXLabel(matrix,tr("Vendor:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("Vendor:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
-   new FXLabel(matrix,FXString::value("%s",glGetString(GL_VENDOR)),nullptr,LABEL_NORMAL);
+   new FXLabel(matrix, FXString::value("%s",glGetString(GL_VENDOR)), nullptr, LABEL_NORMAL);
 
-   label = new FXLabel(matrix,tr("Renderer:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("Renderer:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
-   new FXLabel(matrix,FXString::value("%s",glGetString(GL_RENDERER)),nullptr,LABEL_NORMAL);
+   new FXLabel(matrix, FXString::value("%s",glGetString(GL_RENDERER)), nullptr, LABEL_NORMAL);
 
-   label = new FXLabel(matrix,tr("GL Version:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("GL Version:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
-   new FXLabel(matrix,FXString::value("%s",glGetString(GL_VERSION)),nullptr,LABEL_NORMAL);
+   new FXLabel(matrix, FXString::value("%s",glGetString(GL_VERSION)), nullptr, LABEL_NORMAL);
 
-   label = new FXLabel(matrix,tr("GLU Version:"),nullptr,LABEL_NORMAL|LAYOUT_RIGHT);
+   label = new FXLabel(matrix, tr("GLU Version:"), nullptr, LABEL_NORMAL|LAYOUT_RIGHT);
    label->setFont(thickfont);
-   new FXLabel(matrix,FXString::value("%s",gluGetString(GLU_VERSION)),nullptr,LABEL_NORMAL);
+   new FXLabel(matrix, FXString::value("%s", gluGetString(GLU_VERSION)), nullptr, LABEL_NORMAL);
 
    canvas->makeNonCurrent();
 }
@@ -232,85 +235,87 @@ void SettingsDialog::setup()
 // Save OpenGL info to a file
 FXbool SettingsDialog::saveInformation(const FXString& filename)
 {
-   GLint intval;
-   GLint intvals[2];
-
-   FILE *fp=fopen(filename.text(),"w");
+   FILE* fp = std::fopen(filename.text(),"w");
    if (fp) {
-      FXGLVisual *glvisual=(FXGLVisual*)canvas->getVisual();
+      FXGLVisual *glvisual = static_cast<FXGLVisual*>(canvas->getVisual());
       canvas->makeCurrent();
-      fprintf(fp,"Driver Information\n");
-      fprintf(fp,"------------------\n");
-      fprintf(fp,"\n");
-      fprintf(fp,"                       Vendor: %s\n",glGetString(GL_VENDOR));
-      fprintf(fp,"                     Renderer: %s\n",glGetString(GL_RENDERER));
-      fprintf(fp,"                   GL Version: %s\n",glGetString(GL_VERSION));
-      fprintf(fp,"                  GLU Version: %s\n",gluGetString(GLU_VERSION));
-      fprintf(fp,"\n");
-      fprintf(fp,"Implementation Limits\n");
-      fprintf(fp,"---------------------\n");
-      fprintf(fp,"\n");
+      std::fprintf(fp,"Driver Information\n");
+      std::fprintf(fp,"------------------\n");
+      std::fprintf(fp,"\n");
+      std::fprintf(fp,"                       Vendor: %s\n", glGetString(GL_VENDOR));
+      std::fprintf(fp,"                     Renderer: %s\n", glGetString(GL_RENDERER));
+      std::fprintf(fp,"                   GL Version: %s\n", glGetString(GL_VERSION));
+      std::fprintf(fp,"                  GLU Version: %s\n", gluGetString(GLU_VERSION));
+      std::fprintf(fp,"\n");
+      std::fprintf(fp,"Implementation Limits\n");
+      std::fprintf(fp,"---------------------\n");
+      std::fprintf(fp,"\n");
+
+      GLint intval(0);
+      GLint intvals[2] = {0, 0};
       glGetIntegerv(GL_MAX_VIEWPORT_DIMS, intvals);
-      fprintf(fp,"                Viewport Size: %d x %d\n",intvals[0],intvals[1]);
+      std::fprintf(fp,"                Viewport Size: %d x %d\n", intvals[0], intvals[1]);
       glGetIntegerv(GL_MAX_TEXTURE_SIZE, &intval);
-      fprintf(fp,"                 Texture Size: %d\n",intval);
+      std::fprintf(fp,"                 Texture Size: %d\n", intval);
+
 #if defined(GL_MAX_TEXTURE_UNITS)
       glGetIntegerv(GL_MAX_TEXTURE_UNITS, &intval);
-      fprintf(fp,"                Texture Units: %d\n",intval);
+      std::fprintf(fp,"                Texture Units: %d\n", intval);
 #endif
+
       glGetIntegerv(GL_MAX_LIGHTS, &intval);
-      fprintf(fp,"                       Lights: %d\n",intval);
+      std::fprintf(fp,"                       Lights: %d\n", intval);
       glGetIntegerv(GL_MAX_CLIP_PLANES, &intval);
-      fprintf(fp,"              Clipping Planes: %d\n",intval);
+      std::fprintf(fp,"              Clipping Planes: %d\n", intval);
       glGetIntegerv(GL_MAX_MODELVIEW_STACK_DEPTH,&intval);
-      fprintf(fp,"              Modelview Stack: %d\n",intval);
+      std::fprintf(fp,"              Modelview Stack: %d\n", intval);
       glGetIntegerv(GL_MAX_PROJECTION_STACK_DEPTH,&intval);
-      fprintf(fp,"             Projection Stack: %d\n",intval);
+      std::fprintf(fp,"             Projection Stack: %d\n", intval);
       glGetIntegerv(GL_MAX_ATTRIB_STACK_DEPTH,&intval);
-      fprintf(fp,"              Attribute Stack: %d\n",intval);
+      std::fprintf(fp,"              Attribute Stack: %d\n", intval);
 #if defined(GL_MAX_VERTEX_ATTRIBS)
       glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &intval);
-      fprintf(fp,"            Vertex Attributes: %d\n",intval);
+      std::fprintf(fp,"            Vertex Attributes: %d\n", intval);
 #else
-      fprintf(fp,"            Vertex Attributes: -\n");
+      std::fprintf(fp,"            Vertex Attributes: -\n");
 #endif
 #if defined(GL_MAX_VERTEX_UNIFORM_COMPONENTS)
       glGetIntegerv(GL_MAX_VERTEX_UNIFORM_COMPONENTS, &intval);
-      fprintf(fp,"    Vertex Uniform Components: %d\n",intval);
+      std::fprintf(fp,"    Vertex Uniform Components: %d\n", intval);
 #else
-      fprintf(fp,"    Vertex Uniform Components: -\n");
+      std::fprintf(fp,"    Vertex Uniform Components: -\n");
 #endif
 
 #if defined(GL_MAX_FRAGMENT_UNIFORM_COMPONENTS)
       glGetIntegerv(GL_MAX_FRAGMENT_UNIFORM_COMPONENTS, &intval);
-      fprintf(fp,"  Fragment Uniform Components: %d\n",intval);
+      std::fprintf(fp,"  Fragment Uniform Components: %d\n", intval);
 #else
-      fprintf(fp,"  Fragment Uniform Components: -\n");
+      std::fprintf(fp,"  Fragment Uniform Components: -\n");
 #endif
 
-      fprintf(fp,"\n");
-      fprintf(fp,"Display Mode\n");
-      fprintf(fp,"------------\n");
-      fprintf(fp,"\n");
-      fprintf(fp,"         Hardware Accelerated: %s\n",PRINT_YESNO(glvisual->isAccelerated()));
-      fprintf(fp,"             Double Buffering: %s\n",PRINT_YESNO(glvisual->isDoubleBuffer()));
-      fprintf(fp,"                  Stereo View: %s\n",PRINT_YESNO(glvisual->isStereo()));
-      fprintf(fp,"          Buffer-swap by copy: %s\n",PRINT_YESNO(glvisual->isBufferSwapCopy()));
-      fprintf(fp,"                  Color Depth: %d\n",glvisual->getActualRedSize()+glvisual->getActualGreenSize()+glvisual->getActualBlueSize()+glvisual->getActualAlphaSize());
-      fprintf(fp,"            Depth Buffer Size: %d\n",glvisual->getActualDepthSize());
-      fprintf(fp,"          Stencil Buffer Size: %d\n",glvisual->getActualStencilSize());
-      fprintf(fp,"                         RGBA: %d-%d-%d-%d\n",glvisual->getActualRedSize(),glvisual->getActualGreenSize(),glvisual->getActualBlueSize(),glvisual->getActualAlphaSize());
-      fprintf(fp,"                   Accum RGBA: %d-%d-%d-%d\n",glvisual->getActualAccumRedSize(),glvisual->getActualAccumGreenSize(),glvisual->getActualAccumBlueSize(),glvisual->getActualAccumAlphaSize());
-      fprintf(fp,"                 Multi Sample: %d\n",glvisual->getActualMultiSamples());
-      fprintf(fp,"\n");
-      fprintf(fp,"Available Extensions\n");
-      fprintf(fp,"--------------------\n");
-      fprintf(fp,"\n");
-      for (FXint i=0;i<extensionlist->getNumItems(); i++) {
-         fprintf(fp,"  %s\n",extensionlist->getItemText(i).text());
+      std::fprintf(fp,"\n");
+      std::fprintf(fp,"Display Mode\n");
+      std::fprintf(fp,"------------\n");
+      std::fprintf(fp,"\n");
+      std::fprintf(fp,"         Hardware Accelerated: %s\n", PRINT_YESNO(glvisual->isAccelerated()));
+      std::fprintf(fp,"             Double Buffering: %s\n", PRINT_YESNO(glvisual->isDoubleBuffer()));
+      std::fprintf(fp,"                  Stereo View: %s\n", PRINT_YESNO(glvisual->isStereo()));
+      std::fprintf(fp,"          Buffer-swap by copy: %s\n", PRINT_YESNO(glvisual->isBufferSwapCopy()));
+      std::fprintf(fp,"                  Color Depth: %d\n", glvisual->getActualRedSize()+glvisual->getActualGreenSize()+glvisual->getActualBlueSize()+glvisual->getActualAlphaSize());
+      std::fprintf(fp,"            Depth Buffer Size: %d\n", glvisual->getActualDepthSize());
+      std::fprintf(fp,"          Stencil Buffer Size: %d\n", glvisual->getActualStencilSize());
+      std::fprintf(fp,"                         RGBA: %d-%d-%d-%d\n", glvisual->getActualRedSize(), glvisual->getActualGreenSize(), glvisual->getActualBlueSize(), glvisual->getActualAlphaSize());
+      std::fprintf(fp,"                   Accum RGBA: %d-%d-%d-%d\n", glvisual->getActualAccumRedSize(), glvisual->getActualAccumGreenSize(), glvisual->getActualAccumBlueSize(), glvisual->getActualAccumAlphaSize());
+      std::fprintf(fp,"                 Multi Sample: %d\n", glvisual->getActualMultiSamples());
+      std::fprintf(fp,"\n");
+      std::fprintf(fp,"Available Extensions\n");
+      std::fprintf(fp,"--------------------\n");
+      std::fprintf(fp,"\n");
+      for (FXint i=0; i < extensionlist->getNumItems(); i++) {
+         std::fprintf(fp, "  %s\n", extensionlist->getItemText(i).text());
       }
       canvas->makeNonCurrent();
-      fclose(fp);
+      std::fclose(fp);
       return true;
    }
    return false;
@@ -319,14 +324,14 @@ FXbool SettingsDialog::saveInformation(const FXString& filename)
 // Save OpenGL info to file
 long SettingsDialog::onCmdSave(FXObject*, FXSelector, void*)
 {
-   FXString filename=FXFileDialog::getSaveFilename(this,tr("Save Information"),FXSystem::getHomeDirectory()+PATHSEPSTRING+"opengl.txt",tr("Text Files (*.txt)\nAll Files(*.*)"));
+   FXString filename = FXFileDialog::getSaveFilename(this, tr("Save Information"), FXSystem::getHomeDirectory()+PATHSEPSTRING+"opengl.txt", tr("Text Files (*.txt)\nAll Files(*.*)"));
    if (!filename.empty()) {
       if (FXStat::exists(filename)) {
-         if (FXMessageBox::question(this,MBOX_YES_NO,tr("Overwrite File?"),tr("File %s already exists.\nWould you like to overwrite this file?"),filename.text())!=MBOX_CLICKED_YES)
+         if (FXMessageBox::question(this, MBOX_YES_NO, tr("Overwrite File?"), tr("File %s already exists.\nWould you like to overwrite this file?"), filename.text()) != MBOX_CLICKED_YES)
             return 1;
       }
       if (!saveInformation(filename)) {
-         FXMessageBox::error(this,MBOX_OK,tr("Write Error"),tr("An error occured trying to write file."));
+         FXMessageBox::error(this, MBOX_OK, tr("Write Error"), tr("An error occured trying to write file."));
       }
    }
    return 1;

@@ -34,7 +34,7 @@ private:
    SendData charSD;
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

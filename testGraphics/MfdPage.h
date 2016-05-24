@@ -28,7 +28,7 @@ private:
    SendData rSD;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

@@ -751,5 +751,5 @@ void TestDisplay::updatePfd(const double)
     }
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

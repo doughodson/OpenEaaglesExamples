@@ -22,7 +22,7 @@ public:
    MfdDisplay();
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

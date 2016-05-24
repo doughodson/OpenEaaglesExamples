@@ -52,7 +52,7 @@ private:
 
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

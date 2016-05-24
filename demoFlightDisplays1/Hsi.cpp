@@ -161,6 +161,6 @@ void Hsi::updateData(const double dt)
     send("selhdgro", UPDATE_VALUE, selHdg, selHdgROSD);
 }
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 

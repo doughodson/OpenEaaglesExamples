@@ -168,5 +168,5 @@ void TestStateMachine02::stateFunc99(const double)
    }
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

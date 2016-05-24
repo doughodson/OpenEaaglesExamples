@@ -25,7 +25,7 @@ private:
     double azimuth;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

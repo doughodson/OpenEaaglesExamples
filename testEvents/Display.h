@@ -60,7 +60,7 @@ private:
     int counter;    // to slowly increment our numbers
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

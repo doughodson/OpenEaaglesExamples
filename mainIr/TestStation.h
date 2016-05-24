@@ -43,7 +43,7 @@ private:
    bool glutDisplayInit;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

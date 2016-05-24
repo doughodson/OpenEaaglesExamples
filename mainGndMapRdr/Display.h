@@ -44,8 +44,8 @@ private:
    GLuint texture;          // Texture
 };
 
-}; // end example namespace
-}; // end oe namespace
+}
+}
 
 #endif
 

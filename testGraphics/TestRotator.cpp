@@ -134,5 +134,5 @@ void TestRotator::updateData(const double dt)
     
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

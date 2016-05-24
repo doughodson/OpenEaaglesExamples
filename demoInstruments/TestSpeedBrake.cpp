@@ -57,5 +57,5 @@ void TestSpeedBrake::updateData(const double dt)
     send("sbrakeRO", UPDATE_VALUE, sbrakePosition, sbrakePositionROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

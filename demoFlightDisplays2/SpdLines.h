@@ -39,8 +39,8 @@ private:
     bool isAlt;     // are we drawing the altitude lines instead?
 };
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 
 #endif
 

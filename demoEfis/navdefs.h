@@ -35,7 +35,7 @@ namespace demo {
     const int ND_ET   = 4;   // elapsed time
     const int ND_WIND = 5;   // wind dir/speed, drift angle
 
-}; // end demo namespace 
-}; // end oe namespace
+}
+}
 
 #endif

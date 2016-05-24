@@ -204,5 +204,5 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
    return sout;
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

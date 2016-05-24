@@ -418,5 +418,5 @@ void TableRow::position()
    }
 }
 
-} // End of test namespace
-} // End of oe namespace
+}
+}

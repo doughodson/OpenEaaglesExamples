@@ -54,5 +54,5 @@ void TestRpmDial::updateData(const double dt)
     send("rpmRO", UPDATE_VALUE, rpm, rpmROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

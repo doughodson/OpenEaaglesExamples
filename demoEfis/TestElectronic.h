@@ -125,8 +125,8 @@ private:
     SendData toFromSD;          // to from translation
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

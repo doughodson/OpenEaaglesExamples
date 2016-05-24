@@ -41,8 +41,8 @@ private:
     SendData latchedSD;
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

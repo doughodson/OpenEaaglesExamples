@@ -29,8 +29,8 @@ private:
     SendData ftitRotationROSD;  // for our readout
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

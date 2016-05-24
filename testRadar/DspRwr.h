@@ -37,7 +37,7 @@ private:
     simulation::Rwr* rwr;     // The test RWR sensor
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

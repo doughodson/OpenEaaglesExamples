@@ -60,6 +60,6 @@ void TestHsi::updateData(const double dt)
     send("dmeRO", UPDATE_VALUE, dme, dmeROSD);
 }
 
-} // end of demo  namespace
-} // end of oe namespace
+}
+}
 

@@ -670,6 +670,5 @@ unsigned int Block15::getTypeId() const     { return 15; }
 unsigned int Block15::getSizeX() const      { return 1; }
 unsigned int Block15::getSizeY() const      { return 1; }
 
-
-}  // End of example namespace
-}  // End of oe namespace
+}
+}

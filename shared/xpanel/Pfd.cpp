@@ -275,6 +275,7 @@ bool Pfd::setRange(const double newR)
     range = newR;
     return true;
 }
+
 bool Pfd::setGLoad(const double newLoad)
 {
     gLoad = newLoad;
@@ -356,6 +357,6 @@ void Pfd::updateData(const double dt)
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }
 
-}; // end of xPanel namespace
-}; // end of oe Namespace
+}
+}
 

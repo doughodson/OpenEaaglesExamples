@@ -531,5 +531,5 @@ simulation::Station* TestDisplay::getStation()
     return myStation;
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

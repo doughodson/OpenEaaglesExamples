@@ -551,5 +551,5 @@ std::ostream& State::serialize(std::ostream& sout, const int i, const bool slots
    return sout;
 }
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}

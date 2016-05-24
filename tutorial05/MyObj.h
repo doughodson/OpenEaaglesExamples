@@ -59,7 +59,7 @@ private:
   bool visible;
 };
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 #endif

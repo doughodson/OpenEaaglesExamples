@@ -45,7 +45,7 @@ private:
    double elev;  // (degs)
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

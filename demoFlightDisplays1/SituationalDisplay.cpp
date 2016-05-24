@@ -255,6 +255,5 @@ void SituationalDisplay::updateData(const double dt)
 
 }
 
-}; // end of demo namespace
-}; // end of oe Namespace
-
+}
+}

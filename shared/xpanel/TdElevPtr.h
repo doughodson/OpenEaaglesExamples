@@ -45,8 +45,8 @@ private:
    double elev;  // (degs)
 };
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 
 #endif
 

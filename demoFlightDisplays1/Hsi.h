@@ -69,8 +69,8 @@ private:
     SendData selHdgROSD;
 };
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 
 #endif
 

@@ -47,6 +47,6 @@ private:
 };
 
 } // end test
-} // end oe namespace
+}
 
 #endif

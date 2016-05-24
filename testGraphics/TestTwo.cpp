@@ -277,5 +277,5 @@ bool TestTwo::setV2Min(const base::Number* const sv2miobj)
     return true;
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

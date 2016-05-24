@@ -39,8 +39,8 @@ private:
     double ffRate[instruments::EngPage::NUM_ENG];
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

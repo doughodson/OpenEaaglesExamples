@@ -61,5 +61,5 @@ void TestDigitalGauge::updateData(const double dt)
     send("analogaoa", UPDATE_INSTRUMENTS, aoa, aoaASD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

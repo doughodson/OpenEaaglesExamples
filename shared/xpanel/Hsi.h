@@ -69,8 +69,8 @@ private:
     SendData selHdgROSD;
 };
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 
 #endif
 

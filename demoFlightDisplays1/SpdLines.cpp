@@ -198,6 +198,6 @@ base::Object* SpdLines::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 

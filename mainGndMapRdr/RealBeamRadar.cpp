@@ -477,7 +477,7 @@ base::Object* RealBeamRadar::getSlotByIndex(const int si)
 }
 
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 

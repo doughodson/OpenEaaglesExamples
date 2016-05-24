@@ -68,5 +68,5 @@ void TestLandingGear::updateData(const double dt)
     send("gearRO", UPDATE_VALUE, gearPosition, gearPositionROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

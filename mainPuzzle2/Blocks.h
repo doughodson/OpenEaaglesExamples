@@ -261,7 +261,7 @@ public:
    virtual unsigned int getSizeY() const override;
 };
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 #endif

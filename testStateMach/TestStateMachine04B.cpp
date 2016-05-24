@@ -60,5 +60,5 @@ void TestStateMachine04B::stateFunc02(const double)
 }
 
 
-} // End test namespace
-} // End oe namespace
+}
+}

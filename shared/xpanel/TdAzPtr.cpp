@@ -73,6 +73,6 @@ void TdAzPtr::draw()
    }
 }
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 

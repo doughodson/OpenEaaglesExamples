@@ -64,7 +64,7 @@ private:
    unsigned int       nblocks;               // number of blocks
 };
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 #endif

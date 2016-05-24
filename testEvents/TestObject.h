@@ -52,7 +52,7 @@ private:
     char charVal[10];
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

@@ -65,8 +65,8 @@ private:
    bool  ready;                  // initialized flag
 };
 
-}  // End xZeroMQHandlers namespace
-}  // End oe namespace
+}
+}
 
 #endif
 

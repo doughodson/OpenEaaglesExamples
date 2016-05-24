@@ -50,7 +50,7 @@ private:
     SendData v2TitleSD;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

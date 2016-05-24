@@ -30,8 +30,8 @@ private:
    SendData aoaASD;        // analog readout
 };
 
-} // end of Instruments namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

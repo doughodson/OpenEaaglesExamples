@@ -73,5 +73,5 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
     return true;
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

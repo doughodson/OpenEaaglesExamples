@@ -165,6 +165,6 @@ void Hsi::updateData(const double dt)
     send("selhdgro", UPDATE_VALUE, selHdg, selHdgROSD);
 }
 
-}; // end of xPanel namespace
-}; // end of oe namespace
+}
+}
 

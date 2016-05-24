@@ -45,7 +45,7 @@ private:
    bool decStptSw1;
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif

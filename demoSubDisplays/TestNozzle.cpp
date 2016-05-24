@@ -53,5 +53,5 @@ void TestNozzle::updateData(const double dt)
     send("nozRO", UPDATE_VALUE, nozPos, nozPosROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

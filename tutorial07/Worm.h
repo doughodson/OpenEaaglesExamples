@@ -70,7 +70,7 @@ private:
 
 };
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 #endif

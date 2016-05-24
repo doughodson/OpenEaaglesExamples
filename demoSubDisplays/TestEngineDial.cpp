@@ -55,5 +55,5 @@ void TestEngineDial::updateData(const double dt)
     send("enginereadout", UPDATE_VALUE, engineRotation, engineReadoutSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

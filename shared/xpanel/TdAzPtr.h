@@ -45,8 +45,8 @@ private:
    double azimuth;  // (degs)
 };
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 
 #endif
 

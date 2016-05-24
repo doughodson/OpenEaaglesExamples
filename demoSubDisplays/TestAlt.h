@@ -27,8 +27,8 @@ private:
     SendData altROSD;
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

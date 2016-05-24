@@ -72,5 +72,5 @@ void TestStateMachine04C::stateFunc00(const double)
    }
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

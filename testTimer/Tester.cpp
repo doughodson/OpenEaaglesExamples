@@ -197,5 +197,5 @@ base::Object* Tester::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-} // namespace test
-} // namespace oe
+}
+}

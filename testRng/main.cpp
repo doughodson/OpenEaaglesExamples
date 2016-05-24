@@ -100,7 +100,7 @@ void testExponential()
   return;
 }
 
-} // end namespace oe
+}
 
 int main(int argc, char* argv[])
 {

@@ -170,6 +170,6 @@ base::Object* SpdLines::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end of xPanel namespace
-}; // end of oe namespace
+}
+}
 

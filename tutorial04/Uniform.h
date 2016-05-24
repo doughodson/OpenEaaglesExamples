@@ -36,7 +36,7 @@ private:
    int min;
 };
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 #endif

@@ -167,8 +167,8 @@ private:
     SendData pitchGhostSD;
 };
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 
 #endif
 

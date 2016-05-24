@@ -41,8 +41,8 @@ private:
    const base::String* str;
 };
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 
 #endif
 

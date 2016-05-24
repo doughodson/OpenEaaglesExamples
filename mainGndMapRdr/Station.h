@@ -31,7 +31,7 @@ private:
     bool displayInit;
 };
 
-} // end example namespace
-} // end oe namespace
+}
+}
 
 #endif

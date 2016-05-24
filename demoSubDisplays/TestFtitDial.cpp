@@ -52,6 +52,6 @@ void TestFtitDial::updateData(const double dt)
     send("ftitRO", UPDATE_VALUE, ftitRotation, ftitRotationROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 

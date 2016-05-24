@@ -56,6 +56,6 @@ bool TestDisplay::onFrameBufferKey()
    return true;
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}
 

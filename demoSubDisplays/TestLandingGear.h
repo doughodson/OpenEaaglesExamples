@@ -31,8 +31,8 @@ private:
    double  gearRate;          // rate which are going (up or down)
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

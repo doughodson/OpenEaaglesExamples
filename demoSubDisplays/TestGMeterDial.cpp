@@ -77,6 +77,6 @@ void TestGMeterDial::updateData(const double dt)
     BaseClass::updateData(dt);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 

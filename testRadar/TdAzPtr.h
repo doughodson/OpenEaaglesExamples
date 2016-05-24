@@ -46,8 +46,8 @@ private:
    double azimuth;  // (degs)
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif
 

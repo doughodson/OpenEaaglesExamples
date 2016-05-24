@@ -289,6 +289,6 @@ bool TestSD::onToggleRange()
     return true;
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 

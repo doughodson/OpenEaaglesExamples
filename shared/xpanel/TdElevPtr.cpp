@@ -74,6 +74,6 @@ void TdElevPtr::draw()
    }
 }
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 

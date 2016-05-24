@@ -703,6 +703,6 @@ base::Object* Display::getSlotByIndex(const int si)
     return BaseClass::getSlotByIndex(si);
 }
 
-}; // end example namespace
-}; // end oe namespace
+}
+}
 

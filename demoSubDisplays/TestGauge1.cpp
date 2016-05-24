@@ -79,5 +79,5 @@ void TestGauge1::updateData(const double dt)
     send("tapero", UPDATE_VALUE, tapePos, tapePosROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

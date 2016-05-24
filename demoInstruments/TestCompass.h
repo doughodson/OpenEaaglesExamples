@@ -69,8 +69,8 @@ private:
     bool navAidsLoaded;                 // navaids have been loaded
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

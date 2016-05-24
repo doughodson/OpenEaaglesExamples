@@ -227,6 +227,6 @@ void DspRadar::drawFunc()
    glColor4dv(ocolor);
 }
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 

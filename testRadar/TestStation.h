@@ -52,7 +52,7 @@ private:
    double bgAntenna;
 };
 
-} // End test namespace
-} // End oe namespace
+}
+}
 
 #endif

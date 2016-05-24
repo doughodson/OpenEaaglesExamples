@@ -57,5 +57,5 @@ void TestCas::updateData(const double dt)
     send("tasRO", UPDATE_VALUE, tas, tasROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

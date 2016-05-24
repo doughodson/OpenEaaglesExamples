@@ -54,6 +54,6 @@ void TestAlt::updateData(const double dt)
     send("altRO", UPDATE_VALUE, alt, altROSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 

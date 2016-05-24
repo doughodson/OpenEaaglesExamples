@@ -73,8 +73,8 @@ private:
    unsigned int nhe;                   // Number of entries in hash table
 };
 
-}  // End of Puzzle namespace
-}  // End of oe namespace
+}
+}
 
 #endif
 

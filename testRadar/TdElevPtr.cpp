@@ -73,5 +73,5 @@ void TdElevPtr::draw()
    }
 }
 
-} // End test namespace
-} // End oe namespace
+}
+}

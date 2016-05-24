@@ -257,8 +257,8 @@ private:
     SendData pitchGhostSD;
 };
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 
 #endif
 

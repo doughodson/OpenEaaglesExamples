@@ -69,7 +69,7 @@ private:
     base::Angle* iangle;         // Input angle
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

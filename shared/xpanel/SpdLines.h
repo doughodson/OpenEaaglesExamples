@@ -43,8 +43,8 @@ private:
     bool isAlt;     // are we drawing the altitude lines instead?
 };
 
-} // End xPanel namespace
-} // End oe namespace
+}
+}
 
 #endif
 

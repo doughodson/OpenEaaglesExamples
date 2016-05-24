@@ -65,8 +65,8 @@ private:
     int trkIdx[MAX_TRACKS];    // Index of track symbols
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif
 

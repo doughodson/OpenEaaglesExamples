@@ -394,5 +394,5 @@ std::ostream& Display::serialize(std::ostream& sout, const int i, const bool slo
    return sout;
 }
 
-} // End of test namespace
-} // End of oe namespace
+}
+}

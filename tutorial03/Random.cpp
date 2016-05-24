@@ -70,5 +70,5 @@ bool Random::setSlotSeed(const base::Number* const seed)
   return ok;
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}

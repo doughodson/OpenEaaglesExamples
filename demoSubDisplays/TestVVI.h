@@ -29,8 +29,8 @@ private:
    double  gaugeRate;          // rate which are going (up or down)
 };
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}
 
 #endif
 

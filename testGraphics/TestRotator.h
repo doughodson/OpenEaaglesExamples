@@ -34,7 +34,7 @@ private:
     int count;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

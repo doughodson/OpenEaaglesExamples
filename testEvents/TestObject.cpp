@@ -51,5 +51,5 @@ void TestObject::copyData(const TestObject& org, const bool)
 //------------------------------------------------------------------------------
 EMPTY_DELETEDATA(TestObject)
 
-} // End test namespace
-} // End oe namespace
+}
+}

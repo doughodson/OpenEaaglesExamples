@@ -127,5 +127,5 @@ void TestButtons::updateData(const double dt)
     send("value", UPDATE_VALUE, value, valueSD);
 }
 
-} // end of demo namespace
-} // end of oe namespace
+}
+}

@@ -131,6 +131,6 @@ void RdrAlt::updateData(const double dt)
     send("ralt", UPDATE_VALUE, rAlt, rAltSD);
 }
 
-}; // end of demo namespace
-}; // end of oe namespace
+}
+}
 

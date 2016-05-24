@@ -239,6 +239,6 @@ bool Worm::setAngle(const oe::base::Number* const saobj)
    return ok;
 }
 
-} // namespace tutorial
-} // namespace oe
+}
+}
 

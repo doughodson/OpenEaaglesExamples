@@ -77,7 +77,7 @@ private:
    unsigned int nhe;                   // Number of entries in hash table
 };
 
-}  // End of example namespace
-}  // End of oe namespace
+}
+}
 
 #endif

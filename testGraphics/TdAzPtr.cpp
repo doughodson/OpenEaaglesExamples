@@ -69,5 +69,5 @@ void TdAzPtr::draw()
    }
 }
 
-} // End example namespace
-} // End oe namespace
+}
+}

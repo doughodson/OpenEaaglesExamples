@@ -28,7 +28,7 @@ private:
     double  elev;
 };
 
-} // End example namespace
-} // End oe namespace
+}
+}
 
 #endif

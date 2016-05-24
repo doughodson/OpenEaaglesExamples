@@ -354,6 +354,5 @@ Block::BlockId Block2x2::getTypeId() const   { return Block::BLOCK_2X2; }
 unsigned int Block2x2::getSizeX() const      { return 2; }
 unsigned int Block2x2::getSizeY() const      { return 2; }
 
-
-}  // End of example namespace
-}  // End of oe namespace
+}
+}

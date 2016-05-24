@@ -87,7 +87,7 @@ private:
    SendData table_aiSD[TBL_SIZE];
 };
 
-} // End of test namespace
-} // End of oe namespace
+}
+}
 
 #endif
