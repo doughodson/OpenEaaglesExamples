@@ -10,10 +10,8 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = main.o GLSettingsDialog.o GLTestWindow.o
+OBJS = main.o SettingsDialog.o TestWindow.o
 
-LDFLAGS += -loesimulation -loedafif -loeinstruments -loegraphics -loebase
-LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL
 LDFLAGS += -lXcursor -lXrandr -lXi -lXrender -lXext -lXfixes -lXft -lXinerama -lX11
 LDFLAGS += -lfontconfig
@@ -22,7 +20,7 @@ LDFLAGS += -lpthread -lrt
 all: $(PGM)
 
 edl:
-	cpp configs/testfox.epp >testfox.edl  $(EPPFLAGS)
+	@echo "No input files to process"
 
 $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
