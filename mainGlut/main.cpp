@@ -20,8 +20,7 @@
 
 #include <string>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 // frame rate
 const unsigned int frameRate = 20;
@@ -110,12 +109,4 @@ int main(int argc, char* argv[])
 
    glutMainLoop();
    return 0;
-}
-
-}
-}
-
-int main(int argc, char* argv[])
-{
-   return oe::example::main(argc,argv);
 }
