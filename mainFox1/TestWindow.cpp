@@ -8,7 +8,7 @@
 #include "SettingsDialog.h"
 
 // timer setting (in nanoseconds)
-const FXTime TIMER_INTERVAL=100000000;
+const FXTime TIMER_INTERVAL = 100000000;
 
 // Message Map
 FXDEFMAP(TestWindow) TestWindowMap[] = {
@@ -41,13 +41,13 @@ TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "OpenGL Test Application", null
    FXGroupBox* groupbox;
 
    // RIGHT pane for the buttons
-   buttonFrame = new FXVerticalFrame(this,LAYOUT_SIDE_RIGHT|LAYOUT_FILL_Y,0,0,0,0,2,2,3,3);
+   buttonFrame = new FXVerticalFrame(this, LAYOUT_SIDE_RIGHT|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
 
    // LEFT pane to contain the glcanvas
-   glcanvasFrame = new FXVerticalFrame(this,LAYOUT_FILL_X|LAYOUT_FILL_Y,0,0,0,0,2,2,3,3);
+   glcanvasFrame = new FXVerticalFrame(this, LAYOUT_FILL_X|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
 
    // Drawing glcanvas
-   glpanel = new FXVerticalFrame(glcanvasFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0, 0,0,0,0);
+   glpanel = new FXVerticalFrame(glcanvasFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0, 0,0,0,0);
 
    // A Visual to drag OpenGL
    glvisual = new FXGLVisual(getApp(), VISUAL_DOUBLE_BUFFER);
@@ -81,16 +81,16 @@ TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "OpenGL Test Application", null
    new FXToolTip(getApp());
 
    // Initialize private variables
-   spinning=0;
-   angle=0.0;
-   rts=1.0;
+   spinning = 0;
+   angle = 0.0;
+   rts = 1.0;
    dt_rts.connect(rts);
 }
 
 TestWindow::~TestWindow()
 {
-   getApp()->removeTimeout(this,ID_TIMEOUT);
-   getApp()->removeChore(this,ID_CHORE);
+   getApp()->removeTimeout(this, ID_TIMEOUT);
+   getApp()->removeChore(this, ID_CHORE);
    delete glvisual;
 }
 
@@ -105,7 +105,7 @@ void TestWindow::create()
 long TestWindow::onConfigure(FXObject*, FXSelector, void*)
 {
   if ( glcanvas->makeCurrent() ) {
-     glViewport(0,0,glcanvas->getWidth(),glcanvas->getHeight());
+     glViewport(0, 0, glcanvas->getWidth(), glcanvas->getHeight());
      glcanvas->makeNonCurrent();
   }
   return 1;
@@ -122,21 +122,21 @@ long TestWindow::onExpose(FXObject*, FXSelector, void*)
 long TestWindow::onTimeout(FXObject*, FXSelector, void*)
 {
    angle+=2.0;
-   if (angle>360.0) angle-=360.0;
-   lasttime=FXThread::time();
+   if (angle>360.0) angle -= 360.0;
+   lasttime = FXThread::time();
    drawScene();
-   getApp()->addTimeout(this,ID_TIMEOUT,TIMER_INTERVAL);
+   getApp()->addTimeout(this, ID_TIMEOUT, TIMER_INTERVAL);
    return 1;
 }
 
 // rotate the boxes when a chore message is received
 long TestWindow::onChore(FXObject*, FXSelector, void*)
 {
-   FXTime c=FXThread::time();
-   FXTime d=c-lasttime;
-   angle+=(d/1000000000.0)*(360.0*rts);
+   FXTime c = FXThread::time();
+   FXTime d = c-lasttime;
+   angle += (d/1000000000.0)*(360.0*rts);
    if (angle>360.0) angle-=360.0;
-   lasttime=c;
+   lasttime = c;
    drawScene();
    getApp()->addChore(this, ID_CHORE);
    return 1;
@@ -145,7 +145,7 @@ long TestWindow::onChore(FXObject*, FXSelector, void*)
 // Start the boxes spinning
 long TestWindow::onCmdSpin(FXObject*, FXSelector, void*)
 {
-   spinning=1;
+   spinning = 1;
    getApp()->addTimeout(this, ID_TIMEOUT, TIMER_INTERVAL);
    return 1;
 }
@@ -153,7 +153,7 @@ long TestWindow::onCmdSpin(FXObject*, FXSelector, void*)
 // enable or disable the spin button
 long TestWindow::onUpdSpin(FXObject* sender, FXSelector, void*)
 {
-   FXButton* button=(FXButton*)sender;
+   FXButton* button = static_cast<FXButton*>(sender);
    spinning ? button->disable() : button->enable();
    return 1;
 }
@@ -161,17 +161,17 @@ long TestWindow::onUpdSpin(FXObject* sender, FXSelector, void*)
 // Start the boxes spinning
 long TestWindow::onCmdSpinFast(FXObject*, FXSelector, void*)
 {
-  spinning=1;
-  lasttime=FXThread::time();
+  spinning = 1;
+  lasttime = FXThread::time();
   speedcontrol->enable();
-  getApp()->addChore(this,ID_CHORE);
+  getApp()->addChore(this, ID_CHORE);
   return 1;
 }
 
 // enable or disable the spin button
 long TestWindow::onUpdSpinFast(FXObject* sender, FXSelector,void*)
 {
-   FXButton* button = (FXButton*)sender;
+   FXButton* button = static_cast<FXButton*>(sender);
    spinning ? button->disable() : button->enable();
    return 1;
 }
@@ -179,17 +179,17 @@ long TestWindow::onUpdSpinFast(FXObject* sender, FXSelector,void*)
 // if boxes are spinning, stop them
 long TestWindow::onCmdStop(FXObject*, FXSelector, void*)
 {
-   getApp()->removeTimeout(this,ID_TIMEOUT);
-   getApp()->removeChore(this,ID_CHORE);
+   getApp()->removeTimeout(this, ID_TIMEOUT);
+   getApp()->removeChore(this, ID_CHORE);
    speedcontrol->disable();
-   spinning=0;
+   spinning = 0;
    return 1;
 }
 
 // enable or disable the stop button
 long TestWindow::onUpdStop(FXObject* sender, FXSelector,void*)
 {
-   FXButton* button=(FXButton*)sender;
+   FXButton* button = static_cast<FXButton*>(sender);
    spinning ? button->enable() : button->disable();
    return 1;
 }
@@ -197,10 +197,10 @@ long TestWindow::onUpdStop(FXObject* sender, FXSelector,void*)
 // enable or disable the stop button
 long TestWindow::onUpdSpeed(FXObject* sender, FXSelector,void*)
 {
-   if (getApp()->hasTimeout(this,ID_TIMEOUT))
-      sender->handle(this,FXSEL(SEL_COMMAND,ID_DISABLE),nullptr);
+   if (getApp()->hasTimeout(this, ID_TIMEOUT))
+      sender->handle(this, FXSEL(SEL_COMMAND, ID_DISABLE), nullptr);
    else
-      sender->handle(this,FXSEL(SEL_COMMAND,ID_ENABLE),nullptr);
+      sender->handle(this, FXSEL(SEL_COMMAND, ID_ENABLE), nullptr);
    return 1;
 }
 
@@ -208,7 +208,7 @@ long TestWindow::onUpdSpeed(FXObject* sender, FXSelector,void*)
 void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat ymax, GLfloat zmax)
 {
    glBegin(GL_TRIANGLE_STRIP);
-      glNormal3f(0.,0.,-1.);
+      glNormal3f(0.0, 0.0, -1.0);
       glVertex3f(xmin, ymin, zmin);
       glVertex3f(xmin, ymax, zmin);
       glVertex3f(xmax, ymin, zmin);
@@ -216,7 +216,7 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
    glEnd();
 
    glBegin(GL_TRIANGLE_STRIP);
-      glNormal3f(1.,0.,0.);
+      glNormal3f(1.0, 0.0, 0.0);
       glVertex3f(xmax, ymin, zmin);
       glVertex3f(xmax, ymax, zmin);
       glVertex3f(xmax, ymin, zmax);
@@ -224,7 +224,7 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
    glEnd();
 
    glBegin(GL_TRIANGLE_STRIP);
-      glNormal3f(0.,0.,1.);
+      glNormal3f(0.0, 0.0, 1.0);
       glVertex3f(xmax, ymin, zmax);
       glVertex3f(xmax, ymax, zmax);
       glVertex3f(xmin, ymin, zmax);
@@ -232,7 +232,7 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
    glEnd();
 
    glBegin(GL_TRIANGLE_STRIP);
-      glNormal3f(-1.,0.,0.);
+      glNormal3f(-1.0, 0.0, 0.0);
       glVertex3f(xmin, ymin, zmax);
       glVertex3f(xmin, ymax, zmax);
       glVertex3f(xmin, ymin, zmin);
@@ -240,7 +240,7 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
    glEnd();
 
    glBegin(GL_TRIANGLE_STRIP);
-      glNormal3f(0.,1.,0.);
+      glNormal3f(0.0,1.0, 0.0);
       glVertex3f(xmin, ymax, zmin);
       glVertex3f(xmin, ymax, zmax);
       glVertex3f(xmax, ymax, zmin);
@@ -248,7 +248,7 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
    glEnd();
 
    glBegin(GL_TRIANGLE_STRIP);
-      glNormal3f(0.,-1.,0.);
+      glNormal3f(0.0, -1.0, 0.0);
       glVertex3f(xmax, ymin, zmax);
       glVertex3f(xmax, ymin, zmin);
       glVertex3f(xmin, ymin, zmax);
@@ -259,11 +259,11 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
 // draw the GL scene
 void TestWindow::drawScene()
 {
-   const GLfloat lightPosition[]={15.,10.,5.,1.};
-   const GLfloat lightAmbient[]={.1f,.1f,.1f,1.};
-   const GLfloat lightDiffuse[]={.9f,.9f,.9f,1.};
-   const GLfloat redMaterial[]={1.,0.,0.,1.};
-   const GLfloat blueMaterial[]={0.,0.,1.,1.};
+   const GLfloat lightPosition[] = { 15.0, 10.0, 5.0, 1.0 };
+   const GLfloat lightAmbient[]  = { 0.1f, 0.1f, 0.1f, 1.0 };
+   const GLfloat lightDiffuse[]  = { 0.9f, 0.9f, 0.9f, 1.0 };
+   const GLfloat redMaterial[]   = { 1.0, 0.0, 0.0, 1.0 };
+   const GLfloat blueMaterial[]  = { 0.0, 0.0, 1.0, 1.0 };
 
    GLdouble canvaswidth = glcanvas->getWidth();
    GLdouble canvasheight = glcanvas->getHeight();
@@ -274,7 +274,7 @@ void TestWindow::drawScene()
 
       glViewport(0,0,glcanvas->getWidth(),glcanvas->getHeight());
 
-      glClearColor(1.0,1.0,1.0,1.0);
+      glClearColor(1.0, 1.0, 1.0, 1.0);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
       glEnable(GL_DEPTH_TEST);
 
@@ -282,11 +282,11 @@ void TestWindow::drawScene()
 
       glMatrixMode(GL_PROJECTION);
       glLoadIdentity();
-      gluPerspective(30.,aspect,1.,100.);
+      gluPerspective(30.0, aspect, 1.0, 100.0);
 
       glMatrixMode(GL_MODELVIEW);
       glLoadIdentity();
-      gluLookAt(5.,10.,15.,0.,0.,0.,0.,1.,0.);
+      gluLookAt(5.0, 10.0, 15.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 
       glShadeModel(GL_SMOOTH);
       glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
@@ -299,50 +299,50 @@ void TestWindow::drawScene()
       glMaterialfv(GL_FRONT, GL_DIFFUSE, blueMaterial);
 
       glPushMatrix();
-      glRotated(angle, 0., 1., 0.);
+      glRotated(angle, 0.0, 1.0, 0.0);
       drawBox(-1, -1, -1, 1, 1, 1);
 
       glMaterialfv(GL_FRONT, GL_AMBIENT, redMaterial);
       glMaterialfv(GL_FRONT, GL_DIFFUSE, redMaterial);
 
       glPushMatrix();
-      glTranslated(0.,1.75,0.);
-      glRotated(angle, 0., 1., 0.);
-      drawBox(-.5,-.5,-.5,.5,.5,.5);
+      glTranslated(0.0, 1.75, 0.0);
+      glRotated(angle, 0.0, 1.0, 0.0);
+      drawBox(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5);
       glPopMatrix();
 
       glPushMatrix();
-      glTranslated(0.,-1.75,0.);
-      glRotated(angle, 0., 1., 0.);
-      drawBox(-.5,-.5,-.5,.5,.5,.5);
+      glTranslated(0.0, -1.75, 0.0);
+      glRotated(angle, 0.0, 1.0, 0.0);
+      drawBox(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5);
       glPopMatrix();
 
       glPushMatrix();
-      glRotated(90., 1., 0., 0.);
-      glTranslated(0.,1.75,0.);
-      glRotated(angle, 0., 1., 0.);
-      drawBox(-.5,-.5,-.5,.5,.5,.5);
+      glRotated(90.0, 1.0, 0.0, 0.0);
+      glTranslated(0.0, 1.75, 0.0);
+      glRotated(angle, 0.0, 1.0, 0.0);
+      drawBox(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5);
       glPopMatrix();
 
       glPushMatrix();
-      glRotated(90., -1., 0., 0.);
-      glTranslated(0.,1.75,0.);
-      glRotated(angle, 0., 1., 0.);
-      drawBox(-.5,-.5,-.5,.5,.5,.5);
+      glRotated(90.0, -1.0, 0.0, 0.0);
+      glTranslated(0.0, 1.75, 0.0);
+      glRotated(angle, 0.0, 1.0, 0.0);
+      drawBox(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5);
       glPopMatrix();
 
       glPushMatrix();
-      glRotated(90., 0., 0., 1.);
-      glTranslated(0.,1.75,0.);
-      glRotated(angle, 0., 1., 0.);
-      drawBox(-.5,-.5,-.5,.5,.5,.5);
+      glRotated(90.0, 0.0, 0.0, 1.0);
+      glTranslated(0.0, 1.75, 0.0);
+      glRotated(angle, 0.0, 1.0, 0.0);
+      drawBox(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5);
       glPopMatrix();
 
       glPushMatrix();
-      glRotated(90., 0., 0., -1.);
-      glTranslated(0.,1.75,0.);
-      glRotated(angle, 0., 1., 0.);
-      drawBox(-.5,-.5,-.5,.5,.5,.5);
+      glRotated(90.0, 0.0, 0.0, -1.0);
+      glTranslated(0.0, 1.75, 0.0);
+      glRotated(angle, 0.0, 1.0, 0.0);
+      drawBox(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5);
       glPopMatrix();
 
       glPopMatrix();
@@ -368,7 +368,7 @@ long TestWindow::onCmdOpenGL(FXObject*, FXSelector, void*)
 // switch multisampling on
 long TestWindow::onCmdMultiSample(FXObject* sender, FXSelector sel, void*)
 {
-   FXint nsamples=0;
+   FXint nsamples = 0;
    switch( FXSELID(sel) ) {
       case ID_MULTISAMPLE_OFF: nsamples=0; break;
       case ID_MULTISAMPLE_2X : nsamples=2; break;
@@ -388,15 +388,15 @@ long TestWindow::onCmdMultiSample(FXObject* sender, FXSelector sel, void*)
 // update multisampling radio buttons
 long TestWindow::onUpdMultiSample(FXObject* sender, FXSelector sel, void*)
 {
-   FXbool check=false;
+   FXbool check = false;
    switch(FXSELID(sel)) {
       case ID_MULTISAMPLE_OFF: if(glvisual->getActualMultiSamples()!=2 && glvisual->getActualMultiSamples()!=4) check=true; break;
       case ID_MULTISAMPLE_2X : if(glvisual->getActualMultiSamples()==2) check=true; break;
       case ID_MULTISAMPLE_4X : if(glvisual->getActualMultiSamples()==4) check=true; break;
    }
    if (check)
-      sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),nullptr);
+      sender->handle(this, FXSEL(SEL_COMMAND,ID_CHECK), nullptr);
    else
-      sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),nullptr);
+      sender->handle(this, FXSEL(SEL_COMMAND,ID_UNCHECK), nullptr);
    return 1;
 }
