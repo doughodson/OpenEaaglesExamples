@@ -30,9 +30,9 @@ class TestStation : public simulation::Station
 public:
    TestStation();
 
-   void updateTC(const double dt = 0.0) override;
-   void updateData(const double dt = 0.0) override;
-   void reset() override;
+   virtual void updateTC(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
+   virtual void reset() override;
 
 private:
    bool setSlotGlutDisplay(glut::GlutDisplay* const msg);

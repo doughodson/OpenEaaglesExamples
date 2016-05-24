@@ -32,13 +32,13 @@ public:
    // initialize our display
    virtual void initialize();
 
-   void reshapeIt(int w, int h) override;
-   void drawIt() override;
-   void swapBuffers() override;
+   virtual void reshapeIt(int w, int h) override;
+   virtual void drawIt() override;
+   virtual void swapBuffers() override;
 
    virtual bool setCanvasSize(const float newW = 0, const float newH = 0);
 
-   void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
    // mouse event to handle the pick event
    oe::graphics::Graphic* pick(const int mouseX = 0, const int mouseY = 0, const int item = -1);

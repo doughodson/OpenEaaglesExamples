@@ -16,22 +16,22 @@ class TestObject;
 
 class ObjectHandler : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(ObjectHandler,graphics::Graphic)
+   DECLARE_SUBCLASS(ObjectHandler,graphics::Graphic)
 
 public:
    ObjectHandler();
 
-    bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
-    bool onUpdateObject(const TestObject* const x);
+   bool onUpdateObject(const TestObject* const x);
 
-    SendData boolSD;
-    SendData intSD;
-    SendData floatSD;
-    SendData doubleSD;
-    SendData realSD;
-    SendData charSD;
+   SendData boolSD;
+   SendData intSD;
+   SendData floatSD;
+   SendData doubleSD;
+   SendData realSD;
+   SendData charSD;
 };
 
 } // End test namespace

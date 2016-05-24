@@ -18,7 +18,7 @@ class TestNozzle : public graphics::Page
 public:
     TestNozzle();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double nozPos;

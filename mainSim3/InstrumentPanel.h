@@ -35,8 +35,8 @@ public:
    simulation::Simulation* getSimulation();
    simulation::Station* getStation();
 
-   bool event(const int event, base::Object* const obj = nullptr) override;
-   void updateData(const double dt = 0.0) override;
+   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 protected:
    // Key event handlers

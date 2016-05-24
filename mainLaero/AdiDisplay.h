@@ -24,7 +24,7 @@ public:
    simulation::Aircraft* getOwnship();
    simulation::Station* getStation();
 
-   void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
    base::safe_ptr<simulation::Station> myStation;

@@ -18,8 +18,8 @@ class TestSD : public graphics::Page
 public:
     TestSD();
 
-    void updateData(const double dt = 0.0) override;
-    bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void updateData(const double dt = 0.0) override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;

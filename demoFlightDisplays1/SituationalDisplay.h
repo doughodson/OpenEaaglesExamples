@@ -48,7 +48,7 @@ public:
     double getNav2Dme()         { return nav2Dme; }
     bool getNav2Id(const int index, char* newString);
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double refLat;              // latitude

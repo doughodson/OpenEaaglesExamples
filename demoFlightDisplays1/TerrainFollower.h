@@ -26,10 +26,10 @@ class TerrainFollower : public graphics::Graphic
 public:
     TerrainFollower();
 
-    void updateData(const double dt = 0.0) override;
-    bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void updateData(const double dt = 0.0) override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
     // set functions
     virtual bool setPlaneAlt(const double newAlt);

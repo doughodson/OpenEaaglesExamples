@@ -41,8 +41,8 @@ public:
    // Slot functions
    virtual bool setSlotMainDisplay(glut::GlutDisplay* const d);
 
-   void updateTC(const double dt = 0.0) override;
-   void reset() override;
+   virtual void updateTC(const double dt = 0.0) override;
+   virtual void reset() override;
 
 private:
 

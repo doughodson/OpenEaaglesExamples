@@ -37,13 +37,14 @@ const double TIMERS_PRINT_RATE = 5;   // Hz
 const double THREAD_RATE = 20.0;      // hz
 const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
 
-class TimerThread : public base::ThreadPeriodicTask {
-   DECLARE_SUBCLASS(TimerThread,base::ThreadPeriodicTask)
+class TimerThread : public base::ThreadPeriodicTask
+{
+   DECLARE_SUBCLASS(TimerThread, base::ThreadPeriodicTask)
    public: TimerThread(base::Component* const parent, const double priority, const double rate);
-   private: unsigned long userFunc(const double dt) override;
+   private: virtual unsigned long userFunc(const double dt) override;
 };
 
-IMPLEMENT_SUBCLASS(TimerThread,"TimerThread")
+IMPLEMENT_SUBCLASS(TimerThread, "TimerThread")
 EMPTY_SLOTTABLE(TimerThread)
 EMPTY_COPYDATA(TimerThread)
 EMPTY_DELETEDATA(TimerThread)

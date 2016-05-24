@@ -20,7 +20,7 @@ class TestGauge1 : public graphics::Page
 public:
     TestGauge1();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double gaugePosition;       // our gauge position (inches)

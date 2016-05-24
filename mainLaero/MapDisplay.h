@@ -27,12 +27,12 @@ public:
    simulation::Aircraft* getOwnship();
    simulation::Station* getStation();
 
-   void mouseMotionEvent(const int x, const int y) override;
-   void mouseEvent(const int button, const int state, const int x, const int y) override;
-   void passiveMotionEvent(const int x, const int y) override;
-   void buttonEvent(const int b) override;
+   virtual void mouseMotionEvent(const int x, const int y) override;
+   virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
+   virtual void passiveMotionEvent(const int x, const int y) override;
+   virtual void buttonEvent(const int b) override;
 
-   void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
    // button hit enumerations

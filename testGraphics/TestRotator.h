@@ -18,8 +18,8 @@ class TestRotator : public graphics::Graphic
 public:
     TestRotator();
 
-    void drawFunc() override;
-    void updateData(const double dt = 0.0) override;
+    virtual void drawFunc() override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     double t1Pos;

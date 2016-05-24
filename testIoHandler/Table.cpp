@@ -35,10 +35,10 @@ public:
    void put(base::Pair* const item);
    
    // graphics::Field class interface
-   int line() const override;
-   int line(const int ll) override;
-   int column() const override;
-   int column(const int cc) override;
+   virtual int line() const override;
+   virtual int line(const int ll) override;
+   virtual int column() const override;
+   virtual int column(const int cc) override;
    
 private:
    void position();

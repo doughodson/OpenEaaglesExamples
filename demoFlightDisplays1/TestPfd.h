@@ -18,7 +18,7 @@ class TestPfd : public graphics::Page
 public:
     TestPfd();
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     // pitch and roll

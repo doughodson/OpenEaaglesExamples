@@ -17,13 +17,13 @@ namespace test {
 //------------------------------------------------------------------------------
 class PrintMyData : public recorder::PrintHandler
 {
-    DECLARE_SUBCLASS(PrintMyData, recorder::PrintHandler)
+   DECLARE_SUBCLASS(PrintMyData, recorder::PrintHandler)
 
 public:
    PrintMyData();
 
 protected:
-   void processRecordImp(const recorder::DataRecordHandle* const handle) override;
+   virtual void processRecordImp(const recorder::DataRecordHandle* const handle) override;
 
 private:
    void initData();

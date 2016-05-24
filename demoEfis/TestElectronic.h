@@ -18,7 +18,7 @@ class TestElectronic : public graphics::Page
 public:
     TestElectronic();
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     void updateTestValues(const double dt);    // update our data

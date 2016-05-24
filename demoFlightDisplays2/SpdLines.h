@@ -20,8 +20,8 @@ class SpdLines : public graphics::Graphic
 public:
     SpdLines();
 
-    void drawFunc() override;
-    bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void drawFunc() override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
     // set methods
     virtual bool setIsAlt(const bool newIsAlt)          { isAlt = newIsAlt; return true; }

@@ -20,7 +20,7 @@ class Display : public glut::GlutDisplay
 public:
    Display();
 
-    void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
     // boolean

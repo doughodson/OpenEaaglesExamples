@@ -55,7 +55,7 @@ public:
     virtual bool setSlotNoWait(base::Number* const msg);
     virtual bool setSlotLoops(base::Number* const msg);
 
-    void reset() override;
+    virtual void reset() override;
 
 protected:
     void closeConnections();

@@ -12,10 +12,7 @@ namespace test {
 //------------------------------------------------------------------------------
 // Class: Echo
 //
-// Description:
-//
 // Factory name: Echo
-//
 //------------------------------------------------------------------------------
 class Echo : public Endpoint
 {
@@ -24,11 +21,11 @@ class Echo : public Endpoint
 public:
    Echo();
 
-   void updateData(const double dt = 0.0) override;
-   void reset() override;
+   virtual void updateData(const double dt = 0.0) override;
+   virtual void reset() override;
 
 private:
-    unsigned int loopCounter;
+   unsigned int loopCounter;
 };
 
 }

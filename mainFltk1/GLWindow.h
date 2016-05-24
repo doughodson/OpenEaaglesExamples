@@ -27,9 +27,9 @@ public:
    // get function(s)
    FltkDisplay* getDisplay()             { return display; }
 
-   void draw() override;
-   int handle(int x) override;
-   void resize(int x, int y, int w, int h) override;
+   virtual void draw() override;
+   virtual int handle(int x) override;
+   virtual void resize(int x, int y, int w, int h) override;
 
 private:
 

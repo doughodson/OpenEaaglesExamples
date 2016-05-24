@@ -68,11 +68,11 @@ public:
    virtual bool setSlotEarthCurvatureTest(const base::Number* const msg);
    virtual bool setSlotTextureTest(const base::Number* const msg);
 
-   void configure() override;
-   void drawFunc() override;
+   virtual void configure() override;
+   virtual void drawFunc() override;
 
-   void reset() override;
-   void updateData(const double dt = 0.0) override;
+   virtual void reset() override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
    bool initImageMemory(const GLsizei width, const GLsizei height);

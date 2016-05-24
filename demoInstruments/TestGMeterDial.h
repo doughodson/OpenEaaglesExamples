@@ -19,7 +19,7 @@ class TestGMeterDial : public graphics::Page
 public:
     TestGMeterDial();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double currGs;      // current G's

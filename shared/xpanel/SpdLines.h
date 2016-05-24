@@ -29,9 +29,9 @@ public:
     // get functions
     bool isAltSelected()                            { return isAlt; }
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
-    bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
 protected:
     bool setSlotIsAlt(const base::Number* newIsAlt);

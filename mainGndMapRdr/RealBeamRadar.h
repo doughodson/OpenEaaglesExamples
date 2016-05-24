@@ -23,10 +23,10 @@ public:
    const base::Terrain* getTerrain() const                      { return terrain; }
    virtual bool setTerrain(const base::Terrain* const msg);
 
-   double getAltitude() const                { return altitude; }    // Ref altitude (meters)
-   double getAntennaAzimuthAngle() const     { return antAzAngle; }  // Antenna look angle (degs)
-   double getAntennaElevationAngle() const   { return antElAngle; }  // Antenna look angle (degs)
-   double getBeamWidth() const override      { return beamWidth; }   // Antenna beam width (degs)
+   double getAltitude() const                     { return altitude; }    // Ref altitude (meters)
+   double getAntennaAzimuthAngle() const          { return antAzAngle; }  // Antenna look angle (degs)
+   double getAntennaElevationAngle() const        { return antElAngle; }  // Antenna look angle (degs)
+   virtual double getBeamWidth() const override   { return beamWidth; }   // Antenna beam width (degs)
 
    // The RADAR image pixels
    //   -- access individual pixels by mainImage[icol*imgWidth*PIZEL_SIZE + irow*PIZEL_SIZE]
@@ -48,7 +48,7 @@ public:
    static bool computeEarthCurvature(double* const curvature, const unsigned int n, const double maxRngNM, const double radiusNM);
 
 protected:
-   void transmit(const double dt) override;
+   virtual void transmit(const double dt) override;
 
 private:
    bool initImageMemory(const int width, const int height);

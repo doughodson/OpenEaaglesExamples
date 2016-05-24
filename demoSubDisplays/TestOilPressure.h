@@ -19,7 +19,7 @@ class TestOilPressure : public graphics::Page
 public:
     TestOilPressure();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double oilPressure;

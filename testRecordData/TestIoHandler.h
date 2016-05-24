@@ -23,10 +23,10 @@ class TestIoHandler : public base::IoHandler {
 public:
    TestIoHandler();
 
-   void inputDevices(const double dt) override;
+   virtual void inputDevices(const double dt) override;
 
 protected:
-   void clear() override;
+   virtual void clear() override;
 
 private:
    void initData();

@@ -18,7 +18,7 @@ class TestMechanical : public graphics::Page
 public:
     TestMechanical();
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     static const double T1;     // heading slew rate (deg/sec)

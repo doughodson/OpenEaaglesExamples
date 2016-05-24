@@ -33,7 +33,7 @@ public:
    // Restart all of the timers -- they're left in an active state
    void restartAllTimers();
 
-   void reset() override;
+   virtual void reset() override;
 
 protected:
    bool setSlotTimers(const base::PairStream* const msg);

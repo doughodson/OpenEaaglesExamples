@@ -27,9 +27,9 @@ public:
 
    const State* getFinalState() const  { return finalState; }  // Returns the final state
 
-   void drawFunc() override;
+   virtual void drawFunc() override;
 
-   void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 protected:
    virtual bool setSlotPuzzle(Puzzle* const s);                       // Sets the Puzzle controller

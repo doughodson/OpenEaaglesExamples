@@ -48,9 +48,9 @@ public:
 public:
    Display();
 
-   void reset() override;
-   void updateData(const double dt = 0.0) override;
-   void updateTC(const double dt = 0.0) override;
+   virtual void reset() override;
+   virtual void updateData(const double dt = 0.0) override;
+   virtual void updateTC(const double dt = 0.0) override;
 
 protected:
    virtual bool setSlotIoHandler(base::IoHandler* const msg);
@@ -59,7 +59,7 @@ protected:
    virtual bool setSlotDiChannel(const base::Number* const msg);
    virtual bool setSlotLabel(const base::String* const msg);
 
-   bool onEscKey() override;
+   virtual bool onEscKey() override;
 
 private:
    enum Type { NONE, AI, DI };

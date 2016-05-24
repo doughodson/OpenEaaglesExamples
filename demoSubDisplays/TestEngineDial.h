@@ -19,7 +19,7 @@ class TestEngineDial : public graphics::Page
 public:
     TestEngineDial();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double engineRotation;          // our engine rpm position (1 - 100)

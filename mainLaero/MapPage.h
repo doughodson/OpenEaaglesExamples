@@ -28,10 +28,10 @@ class MapPage : public graphics::MapPage
 public:
    MapPage();
 
-   void drawFunc() override;
+   virtual void drawFunc() override;
    //virtual void drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tgs);
 
-   void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
    void drawLine(const double x, const double y);

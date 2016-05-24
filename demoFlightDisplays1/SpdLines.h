@@ -19,7 +19,7 @@ class SpdLines : public graphics::Graphic
 public:
     SpdLines();
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
     // set functions
     virtual bool setIsAlt(const bool newIsAlt);

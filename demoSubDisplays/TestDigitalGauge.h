@@ -20,14 +20,14 @@ class TestDigitalGauge : public graphics::Page
 public:
    TestDigitalGauge();
 
-   void updateData(const double dt = 0) override;
+   virtual void updateData(const double dt = 0) override;
 
 private:
-    double aoa;
-    SendData aoaSD;
-    double  aoaRate;        // rate which are going (up or down)
-    SendData aoaROSD;       // aoa readout
-    SendData aoaASD;        // analog readout
+   double aoa;
+   SendData aoaSD;
+   double  aoaRate;        // rate which are going (up or down)
+   SendData aoaROSD;       // aoa readout
+   SendData aoaASD;        // analog readout
 };
 
 } // end of Instruments namespace

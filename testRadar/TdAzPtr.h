@@ -36,9 +36,9 @@ public:
    double getAzimuth() const;       // degs
    bool setAzimuth(const double);   // degs
 
-   void draw() override;
+   virtual void draw() override;
 
-   bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
    bool onUpdateValue(const base::Number* const msg);

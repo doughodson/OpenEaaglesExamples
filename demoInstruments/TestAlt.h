@@ -18,7 +18,7 @@ class TestAlt : public graphics::Page
 public:
     TestAlt();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double alt;             // our heading

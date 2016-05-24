@@ -46,12 +46,12 @@ public:
     void setStartAngle(const double deg);
     void setSpeed(const double xx);
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
-    void updateTC(const double dt = 0.0) override;
-    void updateData(const double dt = 0.0) override;
-    bool event(const int event, base::Object* const obj = nullptr) override;
-    void reset() override;
+    virtual void updateTC(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void reset() override;
 
 private:
 

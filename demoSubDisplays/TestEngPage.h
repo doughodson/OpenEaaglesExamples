@@ -19,7 +19,7 @@ class TestEngPage : public oe::graphics::Page
 public:
     TestEngPage();
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     // engine 1 n1

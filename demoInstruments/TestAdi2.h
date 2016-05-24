@@ -18,7 +18,7 @@ class TestAdi2 : public graphics::Page
 public:
     TestAdi2();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double pitch;           // our pitch (90 to -90)

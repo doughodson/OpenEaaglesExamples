@@ -42,8 +42,8 @@ public:
     double getCdiDots() { return cdiDots; }
     double getToFrom()  { return toFrom; }
 
-    void updateData(const double dt = 0.0) override;
-    bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void updateData(const double dt = 0.0) override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
 private:
     // event functions

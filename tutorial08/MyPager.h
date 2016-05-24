@@ -18,7 +18,7 @@ public:
 
    MyPager();
 
-   bool onEntry() override;
+   virtual bool onEntry() override;
 };
 
 } // namespace tutorial

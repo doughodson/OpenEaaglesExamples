@@ -20,7 +20,7 @@ class TestFtitDial : public graphics::Page
 public:
     TestFtitDial();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double ftitRotation;        // our ftit position (0 - 1000)

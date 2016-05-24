@@ -39,9 +39,9 @@ public:
    virtual bool setSlotMainDisplay(glut::GlutDisplay* const d);
    virtual bool setSlotAutoResetTime(const base::Time* const num);     // Sets the auto RESET timer
 
-   void updateTC(const double dt = 0.0) override;
-   void updateData(const double dt = 0.0) override;
-   void reset() override;
+   virtual void updateTC(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
+   virtual void reset() override;
 
 private:
     // Main Display

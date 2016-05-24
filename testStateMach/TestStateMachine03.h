@@ -27,9 +27,9 @@ public:
    TestStateMachine03();
 
 protected:
-   void preStateProc(const double dt) override;
-   void postStateProc(const double dt) override;
-   unsigned short stateTable(
+   virtual void preStateProc(const double dt) override;
+   virtual void postStateProc(const double dt) override;
+   virtual unsigned short stateTable(
          const unsigned short cstate,
          const StateTableCode code,
          const double dt=0

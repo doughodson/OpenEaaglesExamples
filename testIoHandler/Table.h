@@ -36,12 +36,12 @@ public:
    virtual bool setSlotSpacing(base::Number* const);
    virtual bool setSlotColumns(base::PairStream* const);
 
-   int line() const override;
-   int line(const int ll) override;
-   int column() const override;
-   int column(const int cc) override;
+   virtual int line() const override;
+   virtual int line(const int ll) override;
+   virtual int column() const override;
+   virtual int column(const int cc) override;
 
-   void reset() override;
+   virtual void reset() override;
 
 private:
    void initData();

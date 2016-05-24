@@ -29,7 +29,7 @@ public:
    bool setSlotMax(const base::Number* const);
    bool setSlotMin(const base::Number* const);
 
-   int getNum(void) const override;
+   virtual int getNum(void) const override;
 
 private:
    int max;

@@ -26,9 +26,9 @@ class MapPage : public graphics::MapPage
 public:
     MapPage();
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     // holds our players

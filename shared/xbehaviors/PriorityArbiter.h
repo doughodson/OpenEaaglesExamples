@@ -24,7 +24,7 @@ class PriorityArbiter : public base::ubf::Arbiter
 public:
    PriorityArbiter();
 
-   base::ubf::Action* genComplexAction(base::List* const actionSet) override;
+   virtual base::ubf::Action* genComplexAction(base::List* const actionSet) override;
 
 private:
 

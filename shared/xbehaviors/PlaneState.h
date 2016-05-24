@@ -26,9 +26,9 @@ class PlaneState : public base::ubf::State
 public:
    PlaneState();
 
-   void reset() override;
+   virtual void reset() override;
 
-   void updateState(const base::Component* const actor) override;
+   virtual void updateState(const base::Component* const actor) override;
 
    // set/get
    virtual void setAlive(const bool x)                 { alive = x; return; }

@@ -73,7 +73,7 @@ public:
     double getGLoad()               { return gLoad; }
     double getMach()                { return mach; }
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     // pitch and roll

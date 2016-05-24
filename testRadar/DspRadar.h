@@ -29,9 +29,9 @@ public:
    const simulation::Radar* getRadar() const   { return radar; }
    bool setRadar(simulation::Radar* const s)   { radar = s; return true; }
 
-   void drawFunc() override;
+   virtual void drawFunc() override;
 
-   void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
     const simulation::Radar* radar;     // The test RADAR sensor

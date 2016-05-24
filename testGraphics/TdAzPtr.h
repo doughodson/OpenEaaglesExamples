@@ -18,8 +18,8 @@ class TdAzPtr : public graphics::Graphic
 public:
     TdAzPtr();
 
-    bool event(const int event, base::Object* const obj = nullptr) override;
-    void draw() override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void draw() override;
 
 private:
     double azimuth;

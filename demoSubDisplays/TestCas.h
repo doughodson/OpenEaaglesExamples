@@ -19,7 +19,7 @@ class TestCas : public graphics::Page
 public:
     TestCas();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double tas;                     // our cas dial rotation position (1 - 900)

@@ -29,9 +29,9 @@ public:
     const simulation::Rwr* getRwr() const { return rwr; }
     void setRwr(simulation::Rwr* s)       { rwr = s; }
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
-    void updateData(const double dt = 0.0) override;
+    virtual void updateData(const double dt = 0.0) override;
 
 private:
     simulation::Rwr* rwr;     // The test RWR sensor

@@ -28,7 +28,7 @@ public:
    // slot table functions
    virtual bool setSlotMean(const base::Number* const);
 
-   int getNum(void) const override;
+   virtual int getNum(void) const override;
 
 private:
 

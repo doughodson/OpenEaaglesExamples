@@ -79,13 +79,13 @@ private:
 //------------------------------------------------------------------------------
 class Block1x1 : public Block
 {
-    DECLARE_SUBCLASS(Block1x1,Block)
+   DECLARE_SUBCLASS(Block1x1,Block)
 public:
    Block1x1();
 
-   BlockId getTypeId() const override;
-   unsigned int getSizeX() const override;
-   unsigned int getSizeY() const override;
+   virtual BlockId getTypeId() const override;
+   virtual unsigned int getSizeX() const override;
+   virtual unsigned int getSizeY() const override;
 };
 
 //------------------------------------------------------------------------------
@@ -95,13 +95,13 @@ public:
 //------------------------------------------------------------------------------
 class Block1x2 : public Block
 {
-    DECLARE_SUBCLASS(Block1x2,Block)
+   DECLARE_SUBCLASS(Block1x2,Block)
 public:
    Block1x2();
 
-   BlockId getTypeId() const override;
-   unsigned int getSizeX() const override;
-   unsigned int getSizeY() const override;
+   virtual BlockId getTypeId() const override;
+   virtual unsigned int getSizeX() const override;
+   virtual unsigned int getSizeY() const override;
 };
 
 //------------------------------------------------------------------------------
@@ -111,13 +111,13 @@ public:
 //------------------------------------------------------------------------------
 class Block2x1 : public Block
 {
-    DECLARE_SUBCLASS(Block2x1,Block)
+   DECLARE_SUBCLASS(Block2x1,Block)
 public:
    Block2x1();
 
-   BlockId getTypeId() const override;
-   unsigned int getSizeX() const override;
-   unsigned int getSizeY() const override;
+   virtual BlockId getTypeId() const override;
+   virtual unsigned int getSizeX() const override;
+   virtual unsigned int getSizeY() const override;
 };
 
 //------------------------------------------------------------------------------
@@ -127,13 +127,13 @@ public:
 //------------------------------------------------------------------------------
 class Block2x2 : public Block
 {
-    DECLARE_SUBCLASS(Block2x2,Block)
+   DECLARE_SUBCLASS(Block2x2,Block)
 public:
    Block2x2();
 
-   BlockId getTypeId() const override;
-   unsigned int getSizeX() const override;
-   unsigned int getSizeY() const override;
+   virtual BlockId getTypeId() const override;
+   virtual unsigned int getSizeX() const override;
+   virtual unsigned int getSizeY() const override;
 };
 
 }  // End of example namespace

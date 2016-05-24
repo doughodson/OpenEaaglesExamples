@@ -25,7 +25,7 @@ class Station : public simulation::Station
 public:
     Station();
 
-    void reset() override;
+    virtual void reset() override;
 
 protected:
     // slot methods

@@ -20,7 +20,7 @@ class TestSpeedBrake : public graphics::Page
 public:
     TestSpeedBrake();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double sbrakePosition;          // our speed brake position (1 - 100)

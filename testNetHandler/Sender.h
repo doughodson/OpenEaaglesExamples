@@ -23,8 +23,8 @@ class Sender : public Endpoint
 public:
     Sender();
 
-    void updateData(const double dt = 0.0) override;
-    void reset() override;
+    virtual void updateData(const double dt = 0.0) override;
+    virtual void reset() override;
 
 private:
     unsigned int msgCounter;    // test message counter

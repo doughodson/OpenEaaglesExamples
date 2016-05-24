@@ -48,7 +48,7 @@ public:
   bool setSlotVisible(const base::Number* const);
   bool setSlotMessage(const base::String* const);
 
-   bool isValid() const override;
+  virtual bool isValid() const override;
 
 private:
   const base::PairStream* colorTable;

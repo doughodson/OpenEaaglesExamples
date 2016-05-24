@@ -18,8 +18,8 @@ class TestLandingGear : public graphics::Page
 public:
    TestLandingGear();
 
-   bool event(const int event, base::Object* const obj = nullptr) override;
-   void updateData(const double dt = 0.0) override;
+   virtual virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual virtual void updateData(const double dt = 0.0) override;
 
 private:
     // event functions

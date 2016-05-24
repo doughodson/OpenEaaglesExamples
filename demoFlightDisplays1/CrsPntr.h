@@ -40,10 +40,10 @@ public:
     bool isCrsPtrOn()       { return showCrsPtr; }
     bool isToFromOn()       { return showToFrom; }
 
-    void drawFunc() override;
+    virtual void drawFunc() override;
 
-    void updateData(const double dt = 0.0) override;
-    bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual void updateData(const double dt = 0.0) override;
+    virtual bool event(const int event, base::Object* const obj = nullptr) override;
 
 protected:
     // slot functions

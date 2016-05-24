@@ -25,17 +25,17 @@ public:
    TestComputer();
    bool haveTgt() const { return haveTarget; }
 
-   void updateShootList(const bool step = false) override;      // Updates the shoot list
+   virtual void updateShootList(const bool step = false) override;      // Updates the shoot list
 
-   void updateTC(const double dt = 0.0) override;
+   virtual void updateTC(const double dt = 0.0) override;
 
-   void reset() override;
+   virtual void reset() override;
 
 protected:
    // process() subfunction, tells computer if we are tracking a target or not
    virtual bool processIr();
 
-   void process(const double dt) override;
+   virtual void process(const double dt) override;
 
 private:
    bool uncaged;      // flag that indicates whether gimbal is free to track target

@@ -18,7 +18,7 @@ class TestHsi : public graphics::Page
 public:
     TestHsi();
 
-    void updateData(const double dt = 0) override;
+    virtual void updateData(const double dt = 0) override;
 
 private:
     double heading;             // our heading

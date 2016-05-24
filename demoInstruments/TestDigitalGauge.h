@@ -20,7 +20,7 @@ class TestDigitalGauge : public graphics::Page
 public:
    TestDigitalGauge();
 
-   void updateData(const double dt = 0) override;
+   virtual void updateData(const double dt = 0) override;
 
 private:
     double aoa;

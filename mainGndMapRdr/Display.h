@@ -35,7 +35,7 @@ public:
    virtual bool setSlotTextureTest(const base::Number* const msg);
 
    virtual void configure() override;
-   void drawFunc() override;
+   virtual void drawFunc() override;
 
 private:
    base::safe_ptr<simulation::Station> myStation;

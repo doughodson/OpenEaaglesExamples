@@ -20,9 +20,10 @@ class TestDisplay : public glut::GlutDisplay
 public:
    TestDisplay();
 
-   void drawIt() override;
-   void mouseEvent(const int button, const int state, const int x, const int y) override;
-   bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual void drawIt() override;
+   virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
+   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   
    bool onFrameBufferKey();
 
 private:
