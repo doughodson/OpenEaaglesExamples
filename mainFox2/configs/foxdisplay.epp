@@ -1,99 +1,228 @@
+// ---
+// Simple example display ---
+//   30 degree FOV alignment pattern
+// ---
 
-( FoxDisplay 
 
-    clearColor: ( rgb 0 0 0 )
+( FoxDisplay
+
+    name: "Alignmet Window"
+    color: red
+    fullScreen: true
+
+    left:       -15.0   // 30 degrees horizontal
+    right:       15.0
+    
+    bottom:     -15.0   // and 30 degrees vertical
+    top:         15.0
+    
+    near:        10.0
+    far:        -10.0
+
     clearDepth: 1.0
-   
-    colorTable: { 
-        black:      ( rgb 0 0 0 )
-        red:        ( rgb 1 0 0 )
-        green:      ( rgb 0 1 0 )
-        yellow:     ( rgb 1 1 0 )
-        blue:       ( rgb 0 0 1 )
-        magenta:    ( rgb 1 0 1 )
-        cyan:       ( rgb 0 1 1 )
-        gray:       ( rgb 0.1 0.1 0.1 )
-        white:      ( rgb 1 1 1 )
-        brown:      ( rgb 0.392 0.270 0.156 )
-        textbg:     ( rgb 0.576 0.776 0.780 )
-        orange:     ( rgb 0.847 0.486 0.152 )
-        tgtorange:  ( rgb 0.947 0.586 0.252 )
-    }
+    clearColor: ( rgb 0 0 0 )
+
+    vpWidth:    1200
+    vpHeight:   1000
     
-    vpX: 0
-    vpY: 0
-    vpWidth: 600
-    vpHeight: 400
-//    left: -1
-//    right: 1
-//    bottom: -1
-//    top: 1
-
-    left: -10.5
-    right: 10.5
-    bottom: -10.5
-    top: 10.5
-
-    near: 2
-    far: -2
+    stdLineWidth: 2.0
     
-    textures: {
-        logo:  ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "logo.bmp" )
-    }
-
-    normalFont: 
-      ( FTGLPolygonFonts
-          fontPosition: [ -10 9.4 ]
-          path: FONT_PATH
-          file: "arialn.ttf"
-          // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
-          fontWidth: 1
-          fontHeight: 1
-          lineSpacing: 0.2
-          characterSpacing: 0.2
-      )        
-
     components: {
-
-        ( Worm selectName: 111 color: green
-          speed: 10 startAngle: ( Degrees 30 ) )
-        ( Worm selectName: 112 color: blue
-          speed: 5  startAngle: ( Degrees 155 ) )
-        ( Worm selectName: 113 color: red
-          speed: 5  startAngle: ( Degrees 85 ) )
-        ( Worm selectName: 114 color: yellow
-          speed: 5  startAngle: ( Degrees -110 ) )
-        ( Worm selectName: 115 color: magenta
-          speed: 5  startAngle: ( Degrees -92 ) )
-        ( Worm selectName: 116 color: white
-          speed: 5  startAngle: ( Degrees -57 ) )
-        ( Worm selectName: 117 color: orange
-          speed: 5  startAngle: ( Degrees -20 ) )
-
-        ( AsciiText
-            position: [ 1 1 ]
-            color: blue
-            text: "Seven Moving Worms Example"
-        )
-
-        maingraphic:
-        ( Polygon
-            color: red
-            texture: logo
-            selectName: 100
+    
+        // Main X Axes with tic marks every degree
+        ( Line
+            segment: true
+            color: green
             vertices: {
-                [  4.0  4.0 ]
-                [ -4.0  4.0 ]
-                [ -4.0 -4.0 ]
-                [  4.0 -4.0 ]
+                [ -15.0   0.0 ] [  15.0   0.0 ]      // X axes 
+                
+                [ -15.0   1.0 ] [ -15.0  -1.0 ]
+                [ -14.0   0.5 ] [ -14.0  -0.5 ]
+                [ -13.0   0.5 ] [ -13.0  -0.5 ]
+                [ -12.0   0.5 ] [ -12.0  -0.5 ]
+                [ -11.0   0.5 ] [ -11.0  -0.5 ]
+                [ -10.0   1.0 ] [ -10.0  -1.0 ]
+                [  -9.0   0.5 ] [  -9.0  -0.5 ]
+                [  -8.0   0.5 ] [  -8.0  -0.5 ]
+                [  -7.0   0.5 ] [  -7.0  -0.5 ]
+                [  -6.0   0.5 ] [  -6.0  -0.5 ]
+                [  -5.0   1.0 ] [  -5.0  -1.0 ]
+                [  -4.0   0.5 ] [  -4.0  -0.5 ]
+                [  -3.0   0.5 ] [  -3.0  -0.5 ]
+                [  -2.0   0.5 ] [  -2.0  -0.5 ]
+                [  -1.0   0.5 ] [  -1.0  -0.5 ]
+                
+                [  15.0   1.0 ] [  15.0  -1.0 ]
+                [  14.0   0.5 ] [  14.0  -0.5 ]
+                [  13.0   0.5 ] [  13.0  -0.5 ]
+                [  12.0   0.5 ] [  12.0  -0.5 ]
+                [  11.0   0.5 ] [  11.0  -0.5 ]
+                [  10.0   1.0 ] [  10.0  -1.0 ]
+                [   9.0   0.5 ] [   9.0  -0.5 ]
+                [   8.0   0.5 ] [   8.0  -0.5 ]
+                [   7.0   0.5 ] [   7.0  -0.5 ]
+                [   6.0   0.5 ] [   6.0  -0.5 ]
+                [   5.0   1.0 ] [   5.0  -1.0 ]
+                [   4.0   0.5 ] [   4.0  -0.5 ]
+                [   3.0   0.5 ] [   3.0  -0.5 ]
+                [   2.0   0.5 ] [   2.0  -0.5 ]
+                [   1.0   0.5 ] [   1.0  -0.5 ]
+            }            
+        )
+    
+        // Main Y Axes with tic marks every degree
+        ( Line
+            segment: true
+            color: green
+            vertices: {
+                [   0.0 -12.5 ] [  0.0  12.5 ]      // Y axes
+                
+                [  -0.5  12.0 ] [  0.5  12.0 ]
+                [  -0.5  11.0 ] [  0.5  11.0 ]
+                [  -1.0  10.0 ] [  1.0  10.0 ]
+                [  -0.5   9.0 ] [  0.5   9.0 ]
+                [  -0.5   8.0 ] [  0.5   8.0 ]
+                [  -0.5   7.0 ] [  0.5   7.0 ]
+                [  -0.5   6.0 ] [  0.5   6.0 ]
+                [  -1.0   5.0 ] [  1.0   5.0 ]
+                [  -0.5   4.0 ] [  0.5   4.0 ]
+                [  -0.5   3.0 ] [  0.5   3.0 ]
+                [  -0.5   2.0 ] [  0.5   2.0 ]
+                [  -0.5   1.0 ] [  0.5   1.0 ]
+                
+                [  -0.5 -12.0 ] [  0.5 -12.0 ]
+                [  -0.5 -11.0 ] [  0.5 -11.0 ]
+                [  -1.0 -10.0 ] [  1.0 -10.0 ]
+                [  -0.5  -9.0 ] [  0.5  -9.0 ]
+                [  -0.5  -8.0 ] [  0.5  -8.0 ]
+                [  -0.5  -7.0 ] [  0.5  -7.0 ]
+                [  -0.5  -6.0 ] [  0.5  -6.0 ]
+                [  -1.0  -5.0 ] [  1.0  -5.0 ]
+                [  -0.5  -4.0 ] [  0.5  -4.0 ]
+                [  -0.5  -3.0 ] [  0.5  -3.0 ]
+                [  -0.5  -2.0 ] [  0.5  -2.0 ]
+                [  -0.5  -1.0 ] [  0.5  -1.0 ]
+            }            
+        )
+    
+        // Upper right brakets
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [   4.0    5.0 ] [  5.0   5.0 ]
+                [   5.0    4.0 ] [  5.0   5.0 ]
+                [   9.0   10.0 ] [ 10.0  10.0 ]
+                [  10.0    9.0 ] [ 10.0  10.0 ]
             }
-            texCoord: {
-                [  1.0  1.0 ]
-                [  0.0  1.0 ]
-                [  0.0  0.0 ]
-                [  1.0  0.0 ]
+        )
+    
+        // Upper left brakets
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [  -4.0    5.0 ] [  -5.0   5.0 ]
+                [  -5.0    4.0 ] [  -5.0   5.0 ]
+                [  -9.0   10.0 ] [ -10.0  10.0 ]
+                [ -10.0    9.0 ] [ -10.0  10.0 ]
             }
+        )
+    
+        // Lower right brakets
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [   4.0   -5.0 ] [  5.0   -5.0 ]
+                [   5.0   -4.0 ] [  5.0   -5.0 ]
+                [   9.0  -10.0 ] [ 10.0  -10.0 ]
+                [  10.0   -9.0 ] [ 10.0  -10.0 ]
+            }
+        )
+    
+        // Lower left brakets
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [  -4.0   -5.0 ] [  -5.0   -5.0 ]
+                [  -5.0   -4.0 ] [  -5.0   -5.0 ]
+                [  -9.0  -10.0 ] [ -10.0  -10.0 ]
+                [ -10.0   -9.0 ] [ -10.0  -10.0 ]
+            }
+        )
+    
+        // Upper right crosses
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [   4.5   10.0 ] [  5.5  10.0 ]
+                [   5.0    9.5 ] [  5.0  10.5 ]
+                [   9.5    5.0 ] [ 10.5   5.0 ]
+                [  10.0    4.5 ] [ 10.0   5.5 ]
+            }
+        )
+    
+        // Upper left crosses
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [  -4.5   10.0 ] [  -5.5  10.0 ]
+                [  -5.0    9.5 ] [  -5.0  10.5 ]
+                [  -9.5    5.0 ] [ -10.5   5.0 ]
+                [ -10.0    4.5 ] [ -10.0   5.5 ]
+            }
+        )
+    
+        // Lower right crosses
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [   4.5  -10.0 ] [  5.5 -10.0 ]
+                [   5.0   -9.5 ] [  5.0 -10.5 ]
+                [   9.5   -5.0 ] [ 10.5  -5.0 ]
+                [  10.0   -4.5 ] [ 10.0  -5.5 ]
+            }
+        )
+    
+        // Lower left crosses
+        ( Line
+            color: green
+            segment: true
+            vertices: {
+                [  -4.5  -10.0 ] [  -5.5 -10.0 ]
+                [  -5.0   -9.5 ] [  -5.0 -10.5 ]
+                [  -9.5   -5.0 ] [ -10.5  -5.0 ]
+                [ -10.0   -4.5 ] [ -10.0  -5.5 ]
+            }
+        )
+        
+        // 5 degree circle
+        ( Circle
+            color: yellow
+            radius: 5.0
+            filled: false
+            slices: 64
+        )
+            
+        // 10 degree circle
+        ( Circle
+            color: yellow
+            radius: 10.0
+            filled: false
+            slices: 64
+        )
+        
+        // 15 degree circle
+        ( Circle
+            color: yellow
+            radius: 15.0
+            filled: false
+            slices: 64
         )
     }
 )
-

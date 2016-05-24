@@ -72,7 +72,7 @@ FoxStation* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename = "testfox.edl";
+   std::string configFilename = "foxstation.edl";
    // set optional input file
    for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {

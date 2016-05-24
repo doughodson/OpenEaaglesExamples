@@ -5,7 +5,6 @@
 #include <GL/glu.h>
 
 #include "TestWindow.h"
-#include "SettingsDialog.h"
 
 // timer setting (in nanoseconds)
 const FXTime TIMER_INTERVAL=100000000;
@@ -25,7 +24,6 @@ FXDEFMAP(TestWindow) TestWindowMap[] = {
   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPEED,    TestWindow::onUpdSpeed),
   FXMAPFUNC(SEL_TIMEOUT,   TestWindow::ID_TIMEOUT,  TestWindow::onTimeout),
   FXMAPFUNC(SEL_CHORE,     TestWindow::ID_CHORE,    TestWindow::onChore),
-  FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_OPENGL,   TestWindow::onCmdOpenGL),
   FXMAPFUNCS(SEL_COMMAND,  TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onCmdMultiSample),
   FXMAPFUNCS(SEL_UPDATE,   TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onUpdMultiSample),
 };
@@ -54,8 +52,6 @@ TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "OpenGL Test Application", null
 
    // Drawing glcanvas
    glcanvas=new FXGLCanvas(glpanel,glvisual,this,ID_CANVAS,LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT);
-
-   new FXButton(buttonFrame,tr("&OpenGL Info\tDisplay OpenGL Capabilities"),nullptr,this,ID_OPENGL,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
 
    // Button to print
    new FXButton(buttonFrame,tr("Spin &Timer\tSpin using interval timers\nNote the app blocks until the interal has elapsed..."),nullptr,this,ID_SPIN,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
@@ -355,14 +351,6 @@ void TestWindow::drawScene()
       // Make context non-current
       glcanvas->makeNonCurrent();
    }
-}
-
-// pop a dialog showing OpenGL properties
-long TestWindow::onCmdOpenGL(FXObject*, FXSelector, void*)
-{
-   SettingsDialog sd(this, glcanvas);
-   sd.execute();
-   return 1;
 }
 
 // switch multisampling on

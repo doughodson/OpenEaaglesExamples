@@ -10,7 +10,7 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = main.o GLSettingsDialog.o GLTestWindow.o
+OBJS = main.o TestWindow.o
 
 LDFLAGS += -loesimulation -loedafif -loeinstruments -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype
