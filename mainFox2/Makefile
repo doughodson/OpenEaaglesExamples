@@ -22,7 +22,7 @@ LDFLAGS += -lpthread -lrt
 all: $(PGM)
 
 edl:
-	cpp configs/testfox.epp >testfox.edl  $(EPPFLAGS)
+	cpp configs/foxdisplay.epp > foxdisplay.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
