@@ -56,13 +56,13 @@ protected:
    TestWindow()    {}
 
 private:
-   FXGLCanvas* glcanvas;         // GL Canvas to draw into
-   FXRealSpinner* speedcontrol;  // Spinner for speed
+   FXGLCanvas* glcanvas;         // GL canvas for drawing
+   FXRealSpinner* speedcontrol;  // spinner control for speed
    FXGLVisual* glvisual;         // OpenGL visual
 
    FXdouble rts;
    FXTime lasttime;
-   int spinning;                 // Is box spinning
+   bool spinning;                // spinning flag
    double angle;                 // Rotation angle of box
    FXDataTarget dt_rts;
 };

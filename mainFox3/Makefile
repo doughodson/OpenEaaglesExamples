@@ -15,7 +15,8 @@ OBJS = main.o Application.o FoxDisplay.o MainWindow.o FoxStation.o Worm.o
 LDFLAGS += -loesimulation -loedafif -loeinstruments -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL
-LDFLAGS += -lXcursor -lXrandr -lXi -lXrender -lXext -lXfixes -lXft -lXinerama -lX11
+#LDFLAGS += -lXrandr -lXi -lXinerama
+LDFLAGS += -lXcursor -lXrender -lXext -lXfixes -lXft -lX11
 LDFLAGS += -lfontconfig
 LDFLAGS += -lpthread -lrt
 

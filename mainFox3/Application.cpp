@@ -12,12 +12,12 @@ static const FXuint DRAW_FRAME_RATE = 50;
 
 // Message Map
 FXDEFMAP(Application) AppMap[] = {
-  //_Message_Type__________ID______________________________________Message_Handler__________________
-  FXMAPFUNC(SEL_TIMEOUT,   Application::ID_TIMEOUT,                Application::onTimeout),
+   //_Message_Type__________ID______________________________________Message_Handler__________________
+   FXMAPFUNC(SEL_TIMEOUT,   Application::ID_TIMEOUT,                Application::onTimeout),
 };
 
 // Macro for the Application class hierarchy implementation
-FXIMPLEMENT(Application,FXApp,AppMap,ARRAYNUMBER(AppMap))
+FXIMPLEMENT(Application, FXApp, AppMap, ARRAYNUMBER(AppMap))
 
 Application::Application(const FXString& name, const FXString& vendor) : FXApp(name, vendor)
 {

@@ -20,15 +20,15 @@ FoxDisplay::FoxDisplay()
 
 void FoxDisplay::initData()
 {
-  glCanvas = nullptr;
-  glVisual = nullptr;
-  myComp = nullptr;
-  rotate = false;
-  rotAng = 0.0;
-  rotRate = 0.05;
-  translate = false;
-  trans = 0.0;
-  transRate = 0.10;
+   glCanvas = nullptr;
+   glVisual = nullptr;
+   myComp = nullptr;
+   rotate = false;
+   rotAng = 0.0;
+   rotRate = 0.05;
+   translate = false;
+   trans = 0.0;
+   transRate = 0.10;
 }
 
 void FoxDisplay::copyData(const FoxDisplay& org, const bool cc)
@@ -60,11 +60,7 @@ void FoxDisplay::create(FX::FXApp* app, FX::FXComposite* const frame, FX::FXObje
                      unsigned short y, unsigned short w, unsigned short h)
 {
    myComp = frame;
-#ifdef FOX_1_6
-   glVisual = new FXGLVisual(app, VISUAL_DOUBLEBUFFER);
-#else
    glVisual = new FXGLVisual(app, VISUAL_DOUBLE_BUFFER);
-#endif
    glCanvas = new FXGLCanvas(frame, glVisual, tgt, selector, opt, x, y, w, h);
 }
 
@@ -161,7 +157,7 @@ void FoxDisplay::drawIt()
 void FoxDisplay::swapBuffers()
 {
    if (glVisual != nullptr && glCanvas != nullptr) {
-      if(glVisual->isDoubleBuffer()) glCanvas->swapBuffers();
+      if ( glVisual->isDoubleBuffer() ) glCanvas->swapBuffers();
    }
 }
 

@@ -1,25 +1,24 @@
 
-
 #include "fx.h"
 #include "fx3d.h"
 
-#include "SettingsDialog.h"
 #include "TestWindow.h"
 
 int main(int argc,char *argv[]){
 
-  // Make application
+  // application object
   FXApp application("GLTest", "FoxTest");
 
-  // Open the display
-  application.init(argc,argv);
+  // init application and open display (no actual window will open)
+  application.init(argc, argv);
 
-  // Make window
+  // create main/central window for the application
+  // associate it with application
   new TestWindow(&application);
 
-  // Create the application's windows
+  // create application's windows
   application.create();
 
-  // Run the application
+  // start event loop
   return application.run();
 }

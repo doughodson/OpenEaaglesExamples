@@ -1,10 +1,10 @@
 
-( FoxDisplay 
+( FoxDisplay
 
     clearColor: ( rgb 0 0 0 )
     clearDepth: 1.0
-   
-    colorTable: { 
+
+    colorTable: {
         black:      ( rgb 0 0 0 )
         red:        ( rgb 1 0 0 )
         green:      ( rgb 0 1 0 )
@@ -19,7 +19,7 @@
         orange:     ( rgb 0.847 0.486 0.152 )
         tgtorange:  ( rgb 0.947 0.586 0.252 )
     }
-    
+
     vpX: 0
     vpY: 0
     vpWidth: 600
@@ -36,22 +36,22 @@
 
     near: 2
     far: -2
-    
+
     textures: {
         logo:  ( BitmapTexture width: 256 height: 256 path: TEXTURES_PATH  file: "logo.bmp" )
     }
 
-    normalFont: 
+    normalFont:
       ( FTGLPolygonFonts
           fontPosition: [ -10 9.4 ]
           path: FONT_PATH
           file: "arialn.ttf"
-          // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+          // facesize is default to 1 inch, so you can manipulate the norm with font width and height
           fontWidth: 1
           fontHeight: 1
           lineSpacing: 0.2
           characterSpacing: 0.2
-      )        
+      )
 
     components: {
 
@@ -96,4 +96,3 @@
         )
     }
 )
-

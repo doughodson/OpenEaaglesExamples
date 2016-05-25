@@ -13,7 +13,8 @@ EPPFLAGS += -I$(DATA_DIR) \
 OBJS = main.o SettingsDialog.o TestWindow.o
 
 LDFLAGS += -lGLU -lGL
-LDFLAGS += -lXcursor -lXrandr -lXi -lXrender -lXext -lXfixes -lXft -lXinerama -lX11
+#LDFLAGS += -lXrandr -lXi -lXinerama
+LDFLAGS += -lXcursor -lXrender -lXext -lXfixes -lXft -lX11
 LDFLAGS += -lfontconfig
 LDFLAGS += -lpthread -lrt
 

@@ -1,8 +1,8 @@
 
 
-// This application uses the open-source Fox GUI toolkit and the graphics
-// and simulation libraries. It shows how to set up the threading for drawing in
-// the OpenGL oe context within Fox
+// This application uses the Fox GUI toolkit and the oe graphics
+// and simulation libraries. It shows how to set up the threading for drawing
+// an oe display within a Fox widget
 
 ( FoxStation
    maindisplay:

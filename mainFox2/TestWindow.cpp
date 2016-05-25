@@ -9,6 +9,17 @@
 // timer setting (in nanoseconds)
 const FXTime TIMER_INTERVAL = 100000000;
 
+//--------------------------------------------------------------------------------
+// message types in map:
+//
+// SEL_PAINT : must repaint window
+// SEL_CONFIGURE : resize
+// SEL_COMMAND : GUI command
+// SEL_UPDATE : GUI update
+// SEL_TIMEOUT : timeout occurred
+// SEL_CHORE : background chore
+//--------------------------------------------------------------------------------
+
 // message map which assoicates messages objects received to specific member functions
 FXDEFMAP(TestWindow) TestWindowMap[] = {
    //___Message_Type________ID______________________________Message_Handler_______
@@ -74,7 +85,7 @@ TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "FOX GUI Drawing an OE Display"
    // enables tooltips
    new FXToolTip(getApp());
 
-   spinning = 0;
+   spinning = false;
    angle = 0.0;
    rts = 1.0;
    dt_rts.connect(rts);
@@ -87,7 +98,7 @@ TestWindow::~TestWindow()
    delete glvisual;
 }
 
-// create and initialize
+// start
 void TestWindow::create()
 {
    FXMainWindow::create();
@@ -104,41 +115,41 @@ long TestWindow::onConfigure(FXObject*, FXSelector, void*)
    return 1;
 }
 
-// Widget needs repainting
+// widget needs repainting
 long TestWindow::onExpose(FXObject*, FXSelector, void*)
 {
    drawScene();
    return 1;
 }
 
-// Rotate the boxes when a timer message is received
+// timer expired, rotate the boxes, draw and reset timer
 long TestWindow::onTimeout(FXObject*, FXSelector, void*)
 {
    angle += 2.0;
-   if (angle>360.0) angle -= 360.0;
+   if ( angle > 360.0 ) angle -= 360.0;
    lasttime = FXThread::time();
    drawScene();
-   getApp()->addTimeout(this,ID_TIMEOUT,TIMER_INTERVAL);
+   getApp()->addTimeout(this, ID_TIMEOUT,TIMER_INTERVAL);
    return 1;
 }
 
-// rotate the boxes when a chore message is received
+// chore message received, rotate boxes, redraw, add new chore
 long TestWindow::onChore(FXObject*, FXSelector, void*)
 {
    FXTime c = FXThread::time();
-   FXTime d = c-lasttime;
-   angle += (d/1000000000.0)*(360.0*rts);
-   if (angle>360.0) angle-=360.0;
+   FXTime d = c - lasttime;
+   angle += (d / 1000000000.0) * (360.0 * rts);
+   if ( angle > 360.0 ) angle-=360.0;
    lasttime = c;
    drawScene();
    getApp()->addChore(this, ID_CHORE);
    return 1;
 }
 
-// Start the boxes spinning
+// start spinning, add timer to animate
 long TestWindow::onCmdSpin(FXObject*, FXSelector, void*)
 {
-   spinning = 1;
+   spinning = true;
    getApp()->addTimeout(this, ID_TIMEOUT, TIMER_INTERVAL);
    return 1;
 }
@@ -151,13 +162,13 @@ long TestWindow::onUpdSpin(FXObject* sender, FXSelector, void*)
    return 1;
 }
 
-// Start the boxes spinning
+// start spinning boxes, add chore to keep spinning
 long TestWindow::onCmdSpinFast(FXObject*, FXSelector, void*)
 {
-  spinning = 1;
+  spinning = true;
   lasttime = FXThread::time();
   speedcontrol->enable();
-  getApp()->addChore(this,ID_CHORE);
+  getApp()->addChore(this, ID_CHORE);
   return 1;
 }
 
@@ -175,7 +186,7 @@ long TestWindow::onCmdStop(FXObject*, FXSelector, void*)
    getApp()->removeTimeout(this, ID_TIMEOUT);
    getApp()->removeChore(this, ID_CHORE);
    speedcontrol->disable();
-   spinning = 0;
+   spinning = false;
    return 1;
 }
 
@@ -197,7 +208,7 @@ long TestWindow::onUpdSpeed(FXObject* sender, FXSelector,void*)
    return 1;
 }
 
-// draws a simple box using the given corners
+// draw a box using the given corners
 void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat ymax, GLfloat zmax)
 {
    glBegin(GL_TRIANGLE_STRIP);
@@ -249,7 +260,7 @@ void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat yma
    glEnd();
 }
 
-// draw the GL scene
+// draw the scene
 void TestWindow::drawScene()
 {
    const GLfloat lightPosition[] = { 15.0, 10.0, 5.0, 1.0 };
@@ -262,7 +273,7 @@ void TestWindow::drawScene()
    GLdouble canvasheight = glcanvas->getHeight();
    GLdouble aspect = canvasheight>0 ? canvaswidth/canvasheight : 1.0;
 
-   // Make context current
+   // make context current
    if (glcanvas->makeCurrent()) {
 
       glViewport(0,0,glcanvas->getWidth(),glcanvas->getHeight());
@@ -340,12 +351,12 @@ void TestWindow::drawScene()
 
       glPopMatrix();
 
-      // Swap if it is double-buffered
+      // swap if it is double-buffered
       if ( glvisual->isDoubleBuffer() ) {
          glcanvas->swapBuffers();
       }
 
-      // Make context non-current
+      // make context non-current
       glcanvas->makeNonCurrent();
    }
 }
@@ -355,9 +366,9 @@ long TestWindow::onCmdMultiSample(FXObject* sender, FXSelector sel, void*)
 {
    FXint nsamples = 0;
    switch( FXSELID(sel) ) {
-      case ID_MULTISAMPLE_OFF: nsamples=0; break;
-      case ID_MULTISAMPLE_2X : nsamples=2; break;
-      case ID_MULTISAMPLE_4X : nsamples=4; break;
+      case ID_MULTISAMPLE_OFF: nsamples = 0; break;
+      case ID_MULTISAMPLE_2X : nsamples = 2; break;
+      case ID_MULTISAMPLE_4X : nsamples = 4; break;
    }
    glcanvas->destroy();
    glvisual->destroy();
@@ -375,9 +386,9 @@ long TestWindow::onUpdMultiSample(FXObject* sender, FXSelector sel, void*)
 {
    FXbool check = false;
    switch(FXSELID(sel)) {
-      case ID_MULTISAMPLE_OFF: if(glvisual->getActualMultiSamples()!=2 && glvisual->getActualMultiSamples()!=4) check=true; break;
-      case ID_MULTISAMPLE_2X : if(glvisual->getActualMultiSamples()==2) check=true; break;
-      case ID_MULTISAMPLE_4X : if(glvisual->getActualMultiSamples()==4) check=true; break;
+      case ID_MULTISAMPLE_OFF: if ( glvisual->getActualMultiSamples() != 2 && glvisual->getActualMultiSamples() != 4 ) check = true; break;
+      case ID_MULTISAMPLE_2X : if ( glvisual->getActualMultiSamples() == 2 ) check=true; break;
+      case ID_MULTISAMPLE_4X : if ( glvisual->getActualMultiSamples() == 4 ) check=true; break;
    }
    if (check)
       sender->handle(this, FXSEL(SEL_COMMAND, ID_CHECK), nullptr);
