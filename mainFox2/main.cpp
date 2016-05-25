@@ -7,18 +7,19 @@
 
 int main(int argc,char *argv[]){
 
-  // Make application
-  FXApp application("GLTest", "FoxTest");
+  // application object
+  FXApp application("example", "openeaagles");
 
-  // Open the display
-  application.init(argc,argv);
+  // init application and open display (no actual window will open)
+  application.init(argc, argv);
 
-  // Make window
+  // create main/central window for the application
+  // associate it with application
   new TestWindow(&application);
 
-  // Create the application's windows
+  // create application's windows
   application.create();
 
-  // Run the application
+  // start event loop
   return application.run();
 }

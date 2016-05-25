@@ -9,74 +9,71 @@
 // timer setting (in nanoseconds)
 const FXTime TIMER_INTERVAL = 100000000;
 
-// Message Map
+// message map which assoicates messages objects received to specific member functions
 FXDEFMAP(TestWindow) TestWindowMap[] = {
-
-  //___Message_Type________ID______________________________Message_Handler_______
-  FXMAPFUNC(SEL_PAINT,     TestWindow::ID_CANVAS,          TestWindow::onExpose),
-  FXMAPFUNC(SEL_CONFIGURE, TestWindow::ID_CANVAS,          TestWindow::onConfigure),
-  FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPIN,            TestWindow::onCmdSpin),
-  FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPIN,            TestWindow::onUpdSpin),
-  FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPINFAST,        TestWindow::onCmdSpinFast),
-  FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPINFAST,        TestWindow::onUpdSpinFast),
-  FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_STOP,            TestWindow::onCmdStop),
-  FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_STOP,            TestWindow::onUpdStop),
-  FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPEED,           TestWindow::onUpdSpeed),
-  FXMAPFUNC(SEL_TIMEOUT,   TestWindow::ID_TIMEOUT,         TestWindow::onTimeout),
-  FXMAPFUNC(SEL_CHORE,     TestWindow::ID_CHORE,           TestWindow::onChore),
-  FXMAPFUNCS(SEL_COMMAND,  TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onCmdMultiSample),
-  FXMAPFUNCS(SEL_UPDATE,   TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onUpdMultiSample),
+   //___Message_Type________ID______________________________Message_Handler_______
+   FXMAPFUNC(SEL_PAINT,     TestWindow::ID_CANVAS,          TestWindow::onExpose),
+   FXMAPFUNC(SEL_CONFIGURE, TestWindow::ID_CANVAS,          TestWindow::onConfigure),
+   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPIN,            TestWindow::onCmdSpin),
+   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPIN,            TestWindow::onUpdSpin),
+   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPINFAST,        TestWindow::onCmdSpinFast),
+   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPINFAST,        TestWindow::onUpdSpinFast),
+   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_STOP,            TestWindow::onCmdStop),
+   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_STOP,            TestWindow::onUpdStop),
+   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPEED,           TestWindow::onUpdSpeed),
+   FXMAPFUNC(SEL_TIMEOUT,   TestWindow::ID_TIMEOUT,         TestWindow::onTimeout),
+   FXMAPFUNC(SEL_CHORE,     TestWindow::ID_CHORE,           TestWindow::onChore),
+   FXMAPFUNCS(SEL_COMMAND,  TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onCmdMultiSample),
+   FXMAPFUNCS(SEL_UPDATE,   TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onUpdMultiSample),
 };
 
-// Implementation
+// macro generated code (class name, base class name, pointer to message map, # of entries in message map)
 FXIMPLEMENT(TestWindow, FXMainWindow, TestWindowMap, ARRAYNUMBER(TestWindowMap))
 
-TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "OpenGL Test Application", nullptr, nullptr, DECOR_ALL, 0, 0, 800, 600)
+TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "FOX GUI Drawing an OE Display", nullptr, nullptr, DECOR_ALL, 0, 0, 800, 600)
 {
-   FXVerticalFrame* glcanvasFrame;
-   FXVerticalFrame* buttonFrame;
-   FXComposite* glpanel;
-   FXGroupBox* groupbox;
+   // right vertical frame that will contain buttons
+   FXVerticalFrame* buttonFrame = new FXVerticalFrame(this, LAYOUT_SIDE_RIGHT|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
 
-   // RIGHT pane for the buttons
-   buttonFrame = new FXVerticalFrame(this, LAYOUT_SIDE_RIGHT|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
-
-   // LEFT pane to contain the glcanvas
-   glcanvasFrame = new FXVerticalFrame(this, LAYOUT_FILL_X|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
-
-   // Drawing glcanvas
-   glpanel = new FXVerticalFrame(glcanvasFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0, 0,0,0,0);
-
-   // A Visual to drag OpenGL
-   glvisual = new FXGLVisual(getApp(), VISUAL_DOUBLE_BUFFER);
-
-   // Drawing glcanvas
-   glcanvas = new FXGLCanvas(glpanel, glvisual, this, ID_CANVAS,LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT);
-
-   // Button to print
+   // buttons to select the mode of spinning - timers or chores
    new FXButton(buttonFrame, tr("Spin &Timer\tSpin using interval timers\nNote the app blocks until the interal has elapsed..."),nullptr,this,ID_SPIN,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
    new FXButton(buttonFrame, tr("Spin &Chore\tSpin as fast as possible using chores\nNote even though the app is very responsive, it never blocks;\nthere is always something to do..."),nullptr,this,ID_SPINFAST,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
 
-   // Button to print
-   new FXButton(buttonFrame, tr("&Stop Spin\tStop this mad spinning, I'm getting dizzy"),nullptr,this,ID_STOP,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
+   // button to stop spinning
+   new FXButton(buttonFrame, tr("&Stop Spin\tStop this mad spinning, I'm getting dizzy"), nullptr, this, ID_STOP, FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
 
-   groupbox = new FXGroupBox(buttonFrame, tr("Speed (rts)"), GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
-   speedcontrol = new FXRealSpinner(groupbox,3, &dt_rts, FXDataTarget::ID_VALUE,FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X);
+   // group box which will contain a spinner control
+   FXGroupBox* groupbox1 = new FXGroupBox(buttonFrame, tr("Speed (rts)"), GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
+
+   // spinner control which is used to set speed
+   speedcontrol = new FXRealSpinner(groupbox1, 3, &dt_rts, FXDataTarget::ID_VALUE,FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X);
    speedcontrol->setRange(0.1, 3.0);
    speedcontrol->setIncrement(0.1);
 
-   groupbox = new FXGroupBox(buttonFrame, tr("Multi Sampling"),GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
-   new FXRadioButton(groupbox, "Off", this, ID_MULTISAMPLE_OFF);
-   new FXRadioButton(groupbox, "2x", this, ID_MULTISAMPLE_2X);
-   new FXRadioButton(groupbox, "4x", this, ID_MULTISAMPLE_4X);
+   // group box which will contain radio buttons to set sampling
+   FXGroupBox* groupbox2 = new FXGroupBox(buttonFrame, tr("Multi Sampling"), GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
+   new FXRadioButton(groupbox2, "Off", this, ID_MULTISAMPLE_OFF);
+   new FXRadioButton(groupbox2, "2x", this, ID_MULTISAMPLE_2X);
+   new FXRadioButton(groupbox2, "4x", this, ID_MULTISAMPLE_4X);
 
-   // Exit button
-   new FXButton(buttonFrame, tr("&Exit\tExit the application"), nullptr, getApp(), FXApp::ID_QUIT,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_BOTTOM|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
+   // button to exit application
+   new FXButton(buttonFrame, tr("&Exit\tExit the application"), nullptr, getApp(), FXApp::ID_QUIT,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_BOTTOM|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
 
-   // Make a tooltip
+   // left vertical frame that will contain an opengl canvas
+   FXVerticalFrame* glcanvasFrame = new FXVerticalFrame(this, LAYOUT_FILL_X|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
+
+   // subframe within drawing glcanvas
+   FXComposite* glpanelFrame = new FXVerticalFrame(glcanvasFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0, 0,0,0,0);
+
+   // a visual that contains pixel information for opengl drawing
+   glvisual = new FXGLVisual(getApp(), VISUAL_DOUBLE_BUFFER);
+
+   // defines the area to be drawn by another object, i.e., opengl code
+   glcanvas = new FXGLCanvas(glpanelFrame, glvisual, this, ID_CANVAS, LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT);
+
+   // enables tooltips
    new FXToolTip(getApp());
 
-   // Initialize private variables
    spinning = 0;
    angle = 0.0;
    rts = 1.0;
@@ -100,11 +97,11 @@ void TestWindow::create()
 // widget has been resized
 long TestWindow::onConfigure(FXObject*, FXSelector, void*)
 {
-  if ( glcanvas->makeCurrent() ) {
-     glViewport(0, 0, glcanvas->getWidth(), glcanvas->getHeight());
-     glcanvas->makeNonCurrent();
-  }
-  return 1;
+   if ( glcanvas->makeCurrent() ) {
+      glViewport(0, 0, glcanvas->getWidth(), glcanvas->getHeight());
+      glcanvas->makeNonCurrent();
+   }
+   return 1;
 }
 
 // Widget needs repainting

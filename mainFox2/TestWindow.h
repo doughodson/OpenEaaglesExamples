@@ -4,42 +4,34 @@
 
 //-------------------------------------------------------
 // Class: TestWindow
-//
-// Description: Event Handler Object
+// Description: Central window for the application
 //-------------------------------------------------------
 class TestWindow : public FXMainWindow
 {
+   // macro generated code
    FXDECLARE(TestWindow)
 
-private:
-
-   FXGLCanvas* glcanvas;         // GL Canvas to draw into
-   FXRealSpinner* speedcontrol;  // Spinner for speed
-   FXGLVisual* glvisual;         // OpenGL visual
-   FXdouble rts;
-   FXTime lasttime;
-   int spinning;                 // Is box spinning
-   double angle;                 // Rotation angle of box
-   FXDataTarget dt_rts;
-
-protected:
-   TestWindow() {}
-
 public:
+   TestWindow(FXApp*);
+   virtual ~TestWindow();
 
-   // We define additional ID's, starting from the last one used by the base class+1.
-   // This way, we know the ID's are all unique for this particular target.
+   // initialize
+   void create();
+
+   void drawScene();
+
+   // define additional message IDs for this window
    enum {
-     ID_CANVAS=FXMainWindow::ID_LAST,
-     ID_SPIN,
-     ID_SPINFAST,
-     ID_STOP,
-     ID_TIMEOUT,
-     ID_CHORE,
-     ID_MULTISAMPLE_OFF,
-     ID_MULTISAMPLE_2X,
-     ID_MULTISAMPLE_4X,
-     ID_SPEED
+      ID_CANVAS = FXMainWindow::ID_LAST,
+      ID_SPIN,
+      ID_SPINFAST,
+      ID_STOP,
+      ID_TIMEOUT,
+      ID_CHORE,
+      ID_MULTISAMPLE_OFF,
+      ID_MULTISAMPLE_2X,
+      ID_MULTISAMPLE_4X,
+      ID_SPEED
    };
 
    // Message handlers
@@ -60,16 +52,19 @@ public:
    long onUpdMultiSample(FXObject*, FXSelector, void*);
    long onUpdSpeed(FXObject*, FXSelector, void*);
 
-public:
+protected:
+   TestWindow()    {}
 
-   TestWindow(FXApp* a);
+private:
+   FXGLCanvas* glcanvas;         // GL Canvas to draw into
+   FXRealSpinner* speedcontrol;  // Spinner for speed
+   FXGLVisual* glvisual;         // OpenGL visual
 
-   // initialize
-   void create();
-
-   void drawScene();
-
-   virtual ~TestWindow();
+   FXdouble rts;
+   FXTime lasttime;
+   int spinning;                 // Is box spinning
+   double angle;                 // Rotation angle of box
+   FXDataTarget dt_rts;
 };
 
 #endif
