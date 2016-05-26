@@ -1,9 +1,6 @@
 
 #include "FltkDisplay.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FltkDisplay, "FltkDisplay")
 EMPTY_SERIALIZER(FltkDisplay)
 EMPTY_DELETEDATA(FltkDisplay)
@@ -44,7 +41,3 @@ void FltkDisplay::setZRotation(const double z)
 {
    send("logo", UPDATE_VALUE5, z, zRotationSD);
 }
-
-}
-}
-

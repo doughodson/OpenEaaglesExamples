@@ -12,13 +12,10 @@ void drawCallBack(void* pData)
 {
     if (pData != nullptr) {
         // we know GLWindow called this.
-        oe::example::GLWindow* gl = reinterpret_cast<oe::example::GLWindow*>(pData);
+        GLWindow* gl = reinterpret_cast<GLWindow*>(pData);
         if (gl != 0) gl->redraw();
     }
 }
-
-namespace oe {
-namespace example {
 
 GLWindow::GLWindow(int x, int y, int w, int h, const char* l) : Fl_Gl_Window(x,y,w,h,l)
 {
@@ -157,7 +154,4 @@ void GLWindow::glInit()
     if (display != 0) display->loadTextures();
 
     glInitialized = true;
-}
-
-}
 }

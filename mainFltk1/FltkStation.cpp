@@ -7,9 +7,6 @@
 
 #include "MainWindow.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_SUBCLASS(FltkStation, "FltkStation")
 EMPTY_SERIALIZER(FltkStation)
 
@@ -116,11 +113,7 @@ bool FltkStation::setSlotDisplay2(FltkDisplay* const x)
    return true;
 }
 
-base::Object* FltkStation::getSlotByIndex(const int si)
+oe::base::Object* FltkStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
-
-}
-}
-

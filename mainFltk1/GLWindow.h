@@ -1,11 +1,8 @@
 
-#ifndef __oe_example_GLWindow_H__
-#define __oe_example_GLWindow_H__
+#ifndef __GLWindow_H__
+#define __GLWindow_H__
 
 #include <FL/Fl_Gl_Window.H>
-
-namespace oe {
-namespace example {
 
 class FltkDisplay;
 
@@ -39,8 +36,4 @@ private:
    FltkDisplay* display;
 };
 
-}
-}
-
 #endif
-

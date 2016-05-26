@@ -23,7 +23,7 @@
 static void update(void* pData)
 {
    if (pData != nullptr) {
-      oe::example::FltkStation* stn = reinterpret_cast<oe::example::FltkStation*>(pData);
+      FltkStation* stn = reinterpret_cast<FltkStation*>(pData);
       if (stn != nullptr) {
          const double dt = 1 / 20.0;
          stn->updateData(dt);
@@ -32,15 +32,10 @@ static void update(void* pData)
    }
 }
 
-namespace oe {
-namespace example {
-
-FltkStation* fltkStation = nullptr;
-
 // our class factory
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     // This test ...
     if ( name == FltkStation::getFactoryName() ) {
@@ -50,10 +45,10 @@ base::Object* factory(const std::string& name)
         obj = new FltkDisplay;
     }
     else {
-        if (obj == nullptr) obj = simulation::factory(name);
-        if (obj == nullptr) obj = instruments::factory(name);
-        if (obj == nullptr) obj = graphics::factory(name);
-        if (obj == nullptr) obj = base::factory(name);
+        if (obj == nullptr) obj = oe::simulation::factory(name);
+        if (obj == nullptr) obj = oe::instruments::factory(name);
+        if (obj == nullptr) obj = oe::graphics::factory(name);
+        if (obj == nullptr) obj = oe::base::factory(name);
     }
 
     return obj;
@@ -64,7 +59,7 @@ FltkStation* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -77,7 +72,7 @@ FltkStation* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -97,7 +92,8 @@ int main(int, char* [])
 {
    // default configuration filename
    std::string configFilename = "test.edl";
-   fltkStation = builder(configFilename);
+
+   FltkStation* fltkStation = builder(configFilename);
 
    // now do a reset
    fltkStation->reset();
@@ -109,13 +105,4 @@ int main(int, char* [])
    Fl::add_timeout(dt, update, fltkStation);
 
    return Fl::run();
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::example::main(argc,argv);
 }

@@ -1,21 +1,19 @@
-//-----------------------------------------------------
-// Class: MainWindow
-//
-// Description: Defines our main window
-//-----------------------------------------------------
-#ifndef __oe_example_MainWindow_H__
-#define __oe_example_MainWindow_H__
+
+#ifndef __MainWindow_H__
+#define __MainWindow_H__
 
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Menu_Bar.H>
 #include <FL/Fl_Roller.H>
 
-namespace oe {
-namespace example {
-
 class GLWindow;
 class FltkDisplay;
 
+//-----------------------------------------------------
+// Class: MainWindow
+//
+// Description: Defines our main window
+//-----------------------------------------------------
 class MainWindow :  public Fl_Window
 {
 public:
@@ -46,8 +44,5 @@ private:
    Fl_Roller* zRoll;               // roller around the Z-axis
    int numWins;                    // number of GL windows we have.
 };
-
-}
-}
 
 #endif

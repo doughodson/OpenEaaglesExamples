@@ -1,24 +1,20 @@
 
-#ifndef __oe_example_FltkDisplay_H__
-#define __oe_example_FltkDisplay_H__
+#ifndef __FltkDisplay_H__
+#define __FltkDisplay_H__
 
 #include "openeaagles/graphics/Display.h"
-
-namespace oe {
-namespace example {
 
 //-----------------------------------------------------
 // Class: FltkDisplay
 //-----------------------------------------------------
-class FltkDisplay : public graphics::Display
+class FltkDisplay : public oe::graphics::Display
 {
-   DECLARE_SUBCLASS(FltkDisplay, graphics::Display)
+   DECLARE_SUBCLASS(FltkDisplay, oe::graphics::Display)
 
 public:
-
    FltkDisplay();
 
-   // these are our mouse states, so we can 
+   // these are our mouse states, so we can
    // keep track of our mouse state internally
    enum ButtonStates {
       MOUSE_UP = 0,
@@ -31,19 +27,13 @@ public:
    virtual void setZRotation(const double z);
 
 protected:
-
    void initData();
 
 private:
-
    // send data for our rotations
    SendData xRotationSD;
    SendData yRotationSD;
    SendData zRotationSD;
 };
 
-}
-}
-
 #endif
-
