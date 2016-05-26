@@ -20,12 +20,10 @@
 
 #include <string>
 
-using namespace oe;
-
 // frame rate
 const unsigned int frameRate = 20;
 
-glut::GlutDisplay* glutDisplay = nullptr;
+oe::glut::GlutDisplay* glutDisplay = nullptr;
 
 // timerFunc() -- Time critical stuff
 void timerFunc(int)
@@ -34,28 +32,28 @@ void timerFunc(int)
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   base::Timer::updateTimers(static_cast<double>(dt));
-   graphics::Graphic::flashTimer(static_cast<double>(dt));
+   oe::base::Timer::updateTimers(static_cast<double>(dt));
+   oe::graphics::Graphic::flashTimer(static_cast<double>(dt));
    glutDisplay->tcFrame(static_cast<double>(dt));
 }
 
 // our class factory
 oe::base::Object* factory(const std::string& name)
 {
-   base::Object* obj = nullptr;
-   if (obj == nullptr) obj = glut::factory(name);
-   if (obj == nullptr) obj = graphics::factory(name);
-   if (obj == nullptr) obj = base::factory(name);
+   oe::base::Object* obj = nullptr;
+   if (obj == nullptr) obj = oe::glut::factory(name);
+   if (obj == nullptr) obj = oe::graphics::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
 
    return obj;
 }
 
 // display builder
-glut::GlutDisplay* builder(const std::string& filename)
+oe::glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -68,7 +66,7 @@ glut::GlutDisplay* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -76,7 +74,7 @@ glut::GlutDisplay* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   glut::GlutDisplay* glutDisplay = dynamic_cast<glut::GlutDisplay*>(obj);
+   oe::glut::GlutDisplay* glutDisplay = dynamic_cast<oe::glut::GlutDisplay*>(obj);
    if (glutDisplay == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

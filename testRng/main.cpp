@@ -11,14 +11,12 @@
 #include "openeaagles/base/distributions/Lognormal.h"
 #include "openeaagles/base/distributions/Exponential.h"
 
-namespace oe {
-
 // this test is to match original Mersenne Twister output
 void testValidation()
 {
   const unsigned int init[4] = {0x123, 0x234, 0x345, 0x456}, length = 4;
-  base::Rng irand(init, length); // 32-bit int generator
-  base::Rng drand; // double in [0, 1) generator, already init
+  oe::base::Rng irand(init, length); // 32-bit int generator
+  oe::base::Rng drand; // double in [0, 1) generator, already init
 
   std::printf("1000 32-bit integer random numbers:\n");
   for (int i = 0; i < 1000; ++i) {
@@ -36,7 +34,7 @@ void testValidation()
 //
 void testUniform()
 {
-  base::Uniform rng;
+  oe::base::Uniform rng;
   rng.setMin(0.0);
   rng.setMax(10.0);
 
@@ -49,7 +47,7 @@ void testUniform()
 
 void testPareto()
 {
-  base::Pareto rng;
+  oe::base::Pareto rng;
   rng.setAlpha(5.0);
   rng.setBeta(8.0);
 
@@ -62,7 +60,7 @@ void testPareto()
 
 void testLognormal()
 {
-  base::Lognormal rng;
+  oe::base::Lognormal rng;
   rng.setSigma(1.0);
   rng.setMu(4.0);
   rng.setGamma(5.0);     // location
@@ -76,8 +74,8 @@ void testLognormal()
 
 void testExponential()
 {
-  base::Exponential rng;
-  base::Statistic stats;
+  oe::base::Exponential rng;
+  oe::base::Statistic stats;
 
   //rng.setMean(10);       // 1/lambda
   rng.setLambda(1);
@@ -100,13 +98,11 @@ void testExponential()
   return;
 }
 
-}
-
 int main(int argc, char* argv[])
 {
-  oe::testValidation();
-  //oe::testLognormal();
-  //oe::testPareto();
-  //oe::testExponential();
+  testValidation();
+  //testLognormal();
+  //testPareto();
+  //testExponential();
   return 0;
 }
