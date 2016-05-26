@@ -2,17 +2,14 @@
 // Class: MyPager
 // Description: Example pager
 //------------------------------------------------------------------------------
-#ifndef __oe_tutorial_MyPager_H__
-#define __oe_tutorial_MyPager_H__
+#ifndef __MyPager_H__
+#define __MyPager_H__
 
 #include "openeaagles/graphics/Page.h"
 
-namespace oe {
-namespace tutorial {
-
-class MyPager : public graphics::Page
+class MyPager : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(MyPager, graphics::Page)
+   DECLARE_SUBCLASS(MyPager, oe::graphics::Page)
 
 public:
 
@@ -20,8 +17,5 @@ public:
 
    virtual bool onEntry() override;
 };
-
-}
-}
 
 #endif

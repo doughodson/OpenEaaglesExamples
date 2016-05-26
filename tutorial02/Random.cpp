@@ -1,20 +1,12 @@
-//------------------------------------------------------------------------------
-// Random
-//------------------------------------------------------------------------------
+
 #include "Random.h"
 #include <cstdlib>
 
-namespace oe {
-namespace tutorial {
-
-IMPLEMENT_SUBCLASS(Random,"Random")
+IMPLEMENT_SUBCLASS(Random, "Random")
 EMPTY_SLOTTABLE(Random)
 EMPTY_SERIALIZER(Random)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
-Random::Random(void)
+Random::Random()
 {
    STANDARD_CONSTRUCTOR()
 
@@ -24,9 +16,6 @@ Random::Random(void)
    std::cout << "Random::Random() called\n";
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Random::copyData(const Random& org, const bool)
 {
    BaseClass::copyData(org);
@@ -34,18 +23,12 @@ void Random::copyData(const Random& org, const bool)
    std::cout << "Random::copyData() called\n";
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Random::deleteData()
 {
    std::cout << "Random::deleteData() called\n";
 }
 
-//------------------------------------------------------------------------------
-// data access functions
-//------------------------------------------------------------------------------
-int Random::getNum(void) const
+int Random::getNum() const
 {
    return std::rand();
 }
@@ -54,7 +37,3 @@ void Random::setSeed(const unsigned int seed)
 {
    std::srand(seed);
 }
-
-}
-}
-

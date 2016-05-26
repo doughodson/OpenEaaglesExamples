@@ -1,14 +1,8 @@
-//------------------------------------------------------------------------------
-// Worm
-//------------------------------------------------------------------------------
 
 #include "Worm.h"
 #include "openeaagles/base/units/Angles.h"
 
 #include <cmath>
-
-namespace oe {
-namespace tutorial {
 
 IMPLEMENT_SUBCLASS(Worm, "Worm")
 
@@ -30,9 +24,6 @@ END_EVENT_HANDLER()
 EMPTY_DELETEDATA(Worm)
 EMPTY_SERIALIZER(Worm)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Worm::Worm()
 {
    STANDARD_CONSTRUCTOR()
@@ -51,9 +42,6 @@ Worm::Worm()
    iangle = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void Worm::copyData(const Worm& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -64,7 +52,7 @@ void Worm::copyData(const Worm& org, const bool cc)
 
    if (iangle != nullptr) { iangle->unref(); iangle = nullptr; }
    if (org.iangle != nullptr) iangle = org.iangle->clone();
-  
+
    left = org.left;
    right = org.right;
    bottom = org.bottom;
@@ -85,9 +73,6 @@ void Worm::copyData(const Worm& org, const bool cc)
    }
 }
 
-//------------------------------------------------------------------------------
-// reset()
-//------------------------------------------------------------------------------
 void Worm::reset()
 {
    BaseClass::reset();
@@ -101,9 +86,6 @@ void Worm::reset()
    }
 }
 
-//------------------------------------------------------------------------------
-// setStartAngle() -- set starting angle
-//------------------------------------------------------------------------------
 void Worm::setStartAngle(const double radians)
 {
    sangle = radians;
@@ -111,9 +93,6 @@ void Worm::setStartAngle(const double radians)
    dy = std::sin(sangle) * speed;
 }
 
-//------------------------------------------------------------------------------
-// setSpeed() -- set speed
-//------------------------------------------------------------------------------
 void Worm::setSpeed(const double xx)
 {
    speed = xx;
@@ -121,9 +100,6 @@ void Worm::setSpeed(const double xx)
    dy = std::sin(sangle) * speed;
 }
 
-//------------------------------------------------------------------------------
-// updateTC() -- update time critical stuff here
-//------------------------------------------------------------------------------
 void Worm::updateTC(const double dt)
 {
    // Update base classes stuff
@@ -154,9 +130,6 @@ void Worm::updateTC(const double dt)
    }
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void Worm::updateData(const double dt)
 {
    // Update base classes stuff
@@ -174,9 +147,6 @@ void Worm::updateData(const double dt)
    }
 }
 
-//------------------------------------------------------------------------------
-// drawFunc() -- 
-//------------------------------------------------------------------------------
 void Worm::drawFunc()
 {
    glBegin(GL_LINE_STRIP);
@@ -188,18 +158,11 @@ void Worm::drawFunc()
    glEnd();
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 oe::base::Object* Worm::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-//SLOTTABLE FUNCTIONS//
-//------------------------------------------------------------------------------
-// realSpeed() -- sets the starting real speed
-//------------------------------------------------------------------------------
 bool Worm::realSpeed(const oe::base::Number* const rsobj)
 {
    bool ok = false;
@@ -210,9 +173,6 @@ bool Worm::realSpeed(const oe::base::Number* const rsobj)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// setAngle() -- sets the starting angle using an Angle parameter
-//------------------------------------------------------------------------------ 
 bool Worm::setAngle(const oe::base::Angle* const saobj)
 {
    bool ok = false;
@@ -226,9 +186,6 @@ bool Worm::setAngle(const oe::base::Angle* const saobj)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// setAngle() -- sets the starting angle using an Number parameter
-//------------------------------------------------------------------------------ 
 bool Worm::setAngle(const oe::base::Number* const saobj)
 {
    bool ok = false;
@@ -238,7 +195,3 @@ bool Worm::setAngle(const oe::base::Number* const saobj)
    }
    return ok;
 }
-
-}
-}
-

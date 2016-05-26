@@ -1,14 +1,9 @@
-//------------------------------------------------------------------------------
-// Uniform
-//------------------------------------------------------------------------------
+
 #include "Uniform.h"
 #include "openeaagles/base/Number.h"
 #include <cstdlib>
 
-namespace oe {
-namespace tutorial {
-
-IMPLEMENT_SUBCLASS(Uniform,"Uniform")
+IMPLEMENT_SUBCLASS(Uniform, "Uniform")
 // setup slot table
 BEGIN_SLOTTABLE(Uniform)
   "min",
@@ -16,16 +11,13 @@ BEGIN_SLOTTABLE(Uniform)
 END_SLOTTABLE(Uniform)
 // map attributes to slots
 BEGIN_SLOT_MAP(Uniform)
-  ON_SLOT(1, setSlotMin, base::Number)
-  ON_SLOT(2, setSlotMax, base::Number)
+  ON_SLOT(1, setSlotMin, oe::base::Number)
+  ON_SLOT(2, setSlotMax, oe::base::Number)
 END_SLOT_MAP()
 // nothing to serialize
 EMPTY_SERIALIZER(Uniform)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
-Uniform::Uniform(void)
+Uniform::Uniform()
 {
    STANDARD_CONSTRUCTOR()
    min = 0;
@@ -34,9 +26,6 @@ Uniform::Uniform(void)
    std::cout << "Uniform::Uniform() called\n";
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Uniform::copyData(const Uniform& org, const bool)
 {
    BaseClass::copyData(org);
@@ -45,17 +34,11 @@ void Uniform::copyData(const Uniform& org, const bool)
    min = org.min;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Uniform::deleteData()
 {
    std::cout << "Uniform::deleteData() called\n";
 }
 
-//------------------------------------------------------------------------------
-// data access functions
-//------------------------------------------------------------------------------
 void Uniform::setMin(const int x)
 {
    min = x;
@@ -66,32 +49,26 @@ void Uniform::setMax(const int x)
    max = x;
 }
 
-int Uniform::getNum(void) const
+int Uniform::getNum() const
 {
    return static_cast<int>((min+(max-min)*(std::rand()/(RAND_MAX+1.0))));
 }
 
-//------------------------------------------------------------------------------
-// slot table functions
-//------------------------------------------------------------------------------
-base::Object* Uniform::getSlotByIndex(const int si)
+oe::base::Object* Uniform::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-bool Uniform::setSlotMin(const base::Number* const x)
+bool Uniform::setSlotMin(const oe::base::Number* const x)
 {
    if (x != nullptr)
       setMin(x->getInt());
    return true;
 }
 
-bool Uniform::setSlotMax(const base::Number* const x)
+bool Uniform::setSlotMax(const oe::base::Number* const x)
 {
    if (x != nullptr)
       setMax(x->getInt());
    return true;
-}
-
-}
 }

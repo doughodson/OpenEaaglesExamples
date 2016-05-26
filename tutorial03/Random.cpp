@@ -1,74 +1,52 @@
-//------------------------------------------------------------------------------
-// Random
-//------------------------------------------------------------------------------
 
 #include "Random.h"
 #include "openeaagles/base/Number.h"
 #include <cstdlib>
 
-namespace oe {
-namespace tutorial {
-
-IMPLEMENT_SUBCLASS(Random,"Random")
+IMPLEMENT_SUBCLASS(Random, "Random")
 // setup slot table
 BEGIN_SLOTTABLE(Random)
-    "seed",
+   "seed",
 END_SLOTTABLE(Random)
 // map attributes to slots
 BEGIN_SLOT_MAP(Random)
-    ON_SLOT(1, setSlotSeed, base::Number)
+   ON_SLOT(1, setSlotSeed, oe::base::Number)
 END_SLOT_MAP()
 
 EMPTY_DELETEDATA(Random)
 EMPTY_SERIALIZER(Random)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
-Random::Random(void)
+Random::Random()
 {
   STANDARD_CONSTRUCTOR()
-
   setSeed(50);  // default random number generator seed
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Random::copyData(const Random& org, const bool)
 {
   BaseClass::copyData(org);
 }
 
-//------------------------------------------------------------------------------
-// data access functions
-//------------------------------------------------------------------------------
 bool Random::setSeed(const unsigned int seed)
 {
   std::srand(seed);
   return true;
 }
 
-int Random::getNum(void) const
+int Random::getNum() const
 {
   return std::rand();
 }
 
-//------------------------------------------------------------------------------
-// slot table functions
-//------------------------------------------------------------------------------
-base::Object* Random::getSlotByIndex(const int si)
+oe::base::Object* Random::getSlotByIndex(const int si)
 {
   return BaseClass::getSlotByIndex(si);
 }
 
-bool Random::setSlotSeed(const base::Number* const seed)
+bool Random::setSlotSeed(const oe::base::Number* const seed)
 {
   bool ok = false;
   if (seed != nullptr)
     ok = setSeed(seed->getInt());
   return ok;
-}
-
-}
 }

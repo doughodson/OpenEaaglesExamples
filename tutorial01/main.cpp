@@ -3,8 +3,6 @@
 
 #include "openeaagles/base/String.h"
 
-namespace tutorial {
-
 int main(int argc, char* argv[])
 {
    oe::base::String* str = new oe::base::String("Hello world\n");
@@ -18,12 +16,4 @@ int main(int argc, char* argv[])
    str->unref();
 
    return 0;
-}
-
-}
-
-//
-int main(int argc, char* argv[])
-{
-   tutorial::main(argc, argv);
 }

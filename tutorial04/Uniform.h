@@ -2,17 +2,14 @@
 // Class: Uniform
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
-
-#ifndef __oe_tutorial_Uniform_H__
-#define __oe_tutorial_Uniform_H__
+#ifndef __Uniform_H__
+#define __Uniform_H__
 
 #include "Random.h"
 
 namespace oe {
-
 namespace base   { class Number; }
-
-namespace tutorial {
+}
 
 class Uniform : public Random
 {
@@ -26,17 +23,14 @@ public:
    void setMin(const int);
 
    // slot table functions
-   bool setSlotMax(const base::Number* const);
-   bool setSlotMin(const base::Number* const);
+   bool setSlotMax(const oe::base::Number* const);
+   bool setSlotMin(const oe::base::Number* const);
 
-   virtual int getNum(void) const override;
+   virtual int getNum() const override;
 
 private:
    int max;
    int min;
 };
-
-}
-}
 
 #endif

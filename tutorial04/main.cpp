@@ -12,15 +12,10 @@
 #include "Uniform.h"
 #include "Exp.h"
 
-namespace oe {
-namespace tutorial {
-
-Random* random = nullptr;
-
-// our class factory
-base::Object* factory(const std::string& name)
+// class factory
+oe::base::Object* factory(const std::string& name)
 {
-   base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
    // look in application's classes
    if ( name == Uniform::getFactoryName() ) {
@@ -31,7 +26,7 @@ base::Object* factory(const std::string& name)
    }
 
    // look in base classes
-   if (obj == nullptr) obj = base::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
 
    return obj;
 }
@@ -41,7 +36,7 @@ Random* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -54,7 +49,7 @@ Random* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -76,7 +71,7 @@ int main(int argc, char* argv[])
    std::string configFilename = "file0.edl";
 
    // build random
-   random = builder(configFilename);
+   Random* random = builder(configFilename);
 
    for (unsigned int i=0; i<10; i++) {
       std::cout << random->getNum() << std::endl;
@@ -85,13 +80,4 @@ int main(int argc, char* argv[])
    random->unref();
 
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-  oe::tutorial::main(argc, argv);
 }

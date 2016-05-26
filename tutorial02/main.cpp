@@ -3,9 +3,6 @@
 
 #include "Random.h"
 
-namespace oe {
-namespace tutorial {
-
 int main(int argc, char* argv[])
 {
    std::cout << "Creating Random object\n";
@@ -14,7 +11,7 @@ int main(int argc, char* argv[])
 
    rgen->setSeed(25);
 
-   for(unsigned int i=0; i<10; i++)
+   for (unsigned int i=0; i<10; i++)
       std::cout << rgen->getNum() << std::endl;
 
    std::cout << "Unref'ing random object\n";
@@ -23,15 +20,3 @@ int main(int argc, char* argv[])
 
    return 0;
 }
-
-}
-}
-
-//-----------------------------------------------------------------------------
-// main() -- Main routine
-//-----------------------------------------------------------------------------
-int main(int argc, char* argv[])
-{
-   oe::tutorial::main(argc, argv);
-}
-

@@ -2,31 +2,28 @@
 // Class: MyComp
 // Description: example class
 //------------------------------------------------------------------------------
-
-#ifndef __oe_tutorial_MyComp_H__
-#define __oe_tutorial_MyComp_H__
+#ifndef __MyComp_H__
+#define __MyComp_H__
 
 #include "openeaagles/base/Component.h"
 
 namespace oe {
-
 namespace base { class String; }
+}
 
-namespace tutorial {
-
-class MyComp : public base::Component
+class MyComp : public oe::base::Component
 {
-   DECLARE_SUBCLASS(MyComp, base::Component)
+   DECLARE_SUBCLASS(MyComp, oe::base::Component)
 
 public:
    MyComp();
 
    // data access functions
-   bool setStr(const base::String* const);
-   const base::String* getStr(void) const;
+   bool setStr(const oe::base::String* const);
+   const oe::base::String* getStr() const;
 
    // slot table functions
-   bool setSlotStr(const base::String* const);
+   bool setSlotStr(const oe::base::String* const);
 
    virtual void reset() override;
    virtual void updateTC(const double dt = 0.0) override;
@@ -38,11 +35,7 @@ protected:
 
 private:
 
-   const base::String* str;
+   const oe::base::String* str;
 };
 
-}
-}
-
 #endif
-

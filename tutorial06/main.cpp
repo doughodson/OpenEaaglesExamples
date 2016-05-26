@@ -11,25 +11,20 @@
 
 #include "MyComp.h"
 
-namespace oe {
-namespace tutorial {
-
 // frame rate
 const int frameRate = 20;
 
-MyComp* myComp = nullptr;
-
-// our class factory
-base::Object* factory(const std::string& name)
+// class factory
+oe::base::Object* factory(const std::string& name)
 {
-  base::Object* obj = nullptr;
+  oe::base::Object* obj = nullptr;
 
   // look in application's classes
   if ( name == MyComp::getFactoryName() ) {
     obj = new MyComp;
   }
   // look in base classes
-  if (obj == nullptr) obj = base::factory(name);
+  if (obj == nullptr) obj = oe::base::factory(name);
 
   return obj;
 }
@@ -39,7 +34,7 @@ MyComp* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -52,7 +47,7 @@ MyComp* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -81,7 +76,7 @@ int main(int argc, char *argv[])
    }
 
    // build my component
-   myComp = builder(configFilename);
+   MyComp* myComp = builder(configFilename);
 
    // compute a delta time
    const double dt = 1.0 / static_cast<double>(frameRate);
@@ -99,13 +94,4 @@ int main(int argc, char *argv[])
    myComp->unref();
 
   return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   oe::tutorial::main(argc, argv);
 }

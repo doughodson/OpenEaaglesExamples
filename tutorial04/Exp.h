@@ -2,17 +2,14 @@
 // Class: Exponential
 // Description: Generates Random Numbers
 //------------------------------------------------------------------------------
-
-#ifndef __oe_tutorial_Exp_H__
-#define __oe_tutorial_Exp_H__
+#ifndef __Exp_H__
+#define __Exp_H__
 
 #include "Random.h"
 
 namespace oe {
-
 namespace base { class Number; }
-
-namespace tutorial {
+}
 
 class Exp : public Random
 {
@@ -26,9 +23,9 @@ public:
    virtual void setMean(const double);
 
    // slot table functions
-   virtual bool setSlotMean(const base::Number* const);
+   virtual bool setSlotMean(const oe::base::Number* const);
 
-   virtual int getNum(void) const override;
+   virtual int getNum() const override;
 
 private:
 
@@ -36,8 +33,4 @@ private:
 
 };
 
-}
-}
-
 #endif
-

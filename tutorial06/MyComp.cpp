@@ -1,13 +1,7 @@
-//------------------------------------------------------------------------------
-// MyComp
-//------------------------------------------------------------------------------
 
 #include "MyComp.h"
 #include "openeaagles/base/String.h"
 #include <cstdlib>
-
-namespace oe {
-namespace tutorial {
 
 IMPLEMENT_SUBCLASS(MyComp,"MyComp")
 // setup slot table
@@ -16,14 +10,11 @@ BEGIN_SLOTTABLE(MyComp)
 END_SLOTTABLE(MyComp)
 // map attributes to slots
 BEGIN_SLOT_MAP(MyComp)
-  ON_SLOT(1, setSlotStr, base::String)
+  ON_SLOT(1, setSlotStr, oe::base::String)
 END_SLOT_MAP()
 EMPTY_SERIALIZER(MyComp)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
-MyComp::MyComp(void)
+MyComp::MyComp()
 {
    STANDARD_CONSTRUCTOR()
    initData();
@@ -35,9 +26,6 @@ void MyComp::initData()
    str = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void MyComp::copyData(const MyComp& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -52,19 +40,13 @@ void MyComp::copyData(const MyComp& org, const bool cc)
    std::cout << "MyComp::copyData() called\n";
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void MyComp::deleteData()
 {
    setStr( nullptr );
    std::cout << "MyComp::deleteData() called\n";
 }
 
-//------------------------------------------------------------------------------
-// data access functions
-//------------------------------------------------------------------------------
-bool MyComp::setStr(const base::String* const x)
+bool MyComp::setStr(const oe::base::String* const x)
 {
    if (str != nullptr) str->unref();
    str = x;
@@ -72,20 +54,17 @@ bool MyComp::setStr(const base::String* const x)
    return true;
 }
 
-const base::String* MyComp::getStr(void) const
+const oe::base::String* MyComp::getStr() const
 {
    return str;
 }
 
-//------------------------------------------------------------------------------
-// slot table functions
-//------------------------------------------------------------------------------
-base::Object* MyComp::getSlotByIndex(const int si)
+oe::base::Object* MyComp::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-bool MyComp::setSlotStr(const base::String* const x)
+bool MyComp::setSlotStr(const oe::base::String* const x)
 {
    bool ok = false;
    if(x != nullptr) {
@@ -94,9 +73,6 @@ bool MyComp::setSlotStr(const base::String* const x)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// Component class related methods
-//------------------------------------------------------------------------------
 void MyComp::reset()
 {
    // as an example, I'm going to dump string
@@ -126,7 +102,3 @@ void MyComp::updateData(const double dt)
    // Update base classes stuff
    BaseClass::updateData(dt);
 }
-
-}
-}
-

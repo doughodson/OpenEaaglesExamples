@@ -14,22 +14,17 @@
 
 #include "MyObj.h"
 
-namespace oe {
-namespace tutorial {
-
-MyObj* myObj = nullptr;
-
 // our class factory
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-   base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
    // look in application's classes
    if ( name == MyObj::getFactoryName() ) {
       obj = new MyObj;
    }
    // look in base classes
-   if (obj == nullptr) obj = base::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
    return obj;
 }
 
@@ -38,7 +33,7 @@ MyObj* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -51,7 +46,7 @@ MyObj* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -73,18 +68,18 @@ int main(int argc, char* argv[])
    std::string configFilename = "file0.edl";
 
    // build my object
-   myObj = builder(configFilename);
+   MyObj* myObj = builder(configFilename);
 
    // print out some color information
-   const base::PairStream* colorTable = myObj->getColorTable();
+   const oe::base::PairStream* colorTable = myObj->getColorTable();
    if (colorTable != nullptr) {
 //    Pair* p = colorTable->findByName("green");
-      const base::Identifier* id = myObj->getTextColor();
+      const oe::base::Identifier* id = myObj->getTextColor();
       if (id != nullptr) {
-         const base::Pair* p = colorTable->findByName(id->getString());
+         const oe::base::Pair* p = colorTable->findByName(id->getString());
          if (p != nullptr) {
             std::cout << "Text color: " << id->getString();
-            const base::Color* color = dynamic_cast<const base::Color*>(p->object());
+            const oe::base::Color* color = dynamic_cast<const oe::base::Color*>(p->object());
             if (color != nullptr) {
                std::cout << " Red: "   << color->red();
                std::cout << " Green: " << color->green();
@@ -98,7 +93,7 @@ int main(int argc, char* argv[])
    }
 
    // print out vector information
-   const base::List* vector = myObj->getVector();
+   const oe::base::List* vector = myObj->getVector();
    if (vector != nullptr) {
       int numValues = vector->entries();
       int* values = new int[numValues];
@@ -113,19 +108,10 @@ int main(int argc, char* argv[])
 
    // print out visible and message info
    std::cout << "Visible: " << myObj->getVisible() << "\n";
-   const base::String* message = myObj->getMessage();
+   const oe::base::String* message = myObj->getMessage();
    std::cout << "Message: " << message->getString() << "\n";
 
    myObj->unref();
 
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   oe::tutorial::main(argc, argv);
 }
