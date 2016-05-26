@@ -1,16 +1,14 @@
 
-#ifndef __oe_example_SimStation_H__
-#define __oe_example_SimStation_H__
+#ifndef __SimStation_H__
+#define __SimStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-
-namespace base { class Table1; }
-namespace glut  { class GlutDisplay; }
-namespace simulation { class AirVehicle; }
-
-namespace example {
+   namespace base { class Table1; }
+   namespace glut  { class GlutDisplay; }
+   namespace simulation { class AirVehicle; }
+}
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -25,9 +23,9 @@ namespace example {
 //      display          <graphics::GlutDisplay> ! Main graphics display
 //      autoResetTimer   <Time>                  ! Auto RESET timer value (base::Time); default: 0
 //------------------------------------------------------------------------------
-class SimStation : public simulation::Station
+class SimStation : public oe::simulation::Station
 {
-    DECLARE_SUBCLASS(SimStation, simulation::Station)
+    DECLARE_SUBCLASS(SimStation, oe::simulation::Station)
 
 public:
     SimStation();
@@ -36,8 +34,8 @@ public:
    void stepOwnshipPlayer();
 
    // Slot functions
-   virtual bool setSlotMainDisplay(glut::GlutDisplay* const d);
-   virtual bool setSlotAutoResetTime(const base::Time* const num);     // Sets the auto RESET timer
+   virtual bool setSlotMainDisplay(oe::glut::GlutDisplay* const d);
+   virtual bool setSlotAutoResetTime(const oe::base::Time* const num);     // Sets the auto RESET timer
 
    virtual void updateTC(const double dt = 0.0) override;
    virtual void updateData(const double dt = 0.0) override;
@@ -45,16 +43,12 @@ public:
 
 private:
     // Main Display
-    base::safe_ptr<glut::GlutDisplay> mainDisplay;
+    oe::base::safe_ptr<oe::glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
     // Auto reset timer
-    double autoResetTimer;                // Auto RESET timer (sends a RESET_EVENT after timeout)
-    const base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
+    double autoResetTimer;                   // Auto RESET timer (sends a RESET_EVENT after timeout)
+    const oe::base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
 };
 
-}
-}
-
 #endif
-

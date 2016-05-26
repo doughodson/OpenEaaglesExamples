@@ -1,14 +1,12 @@
 
-#ifndef __oe_example_TestIoHandler_H__
-#define __oe_example_TestIoHandler_H__
+#ifndef __TestIoHandler_H__
+#define __TestIoHandler_H__
 
 #include "openeaagles/base/IoHandler.h"
 
 namespace oe {
-
-namespace simulation { class AirVehicle; }
-
-namespace example {
+    namespace simulation { class AirVehicle; }
+}
 
 //------------------------------------------------------------------------------
 // Class:  TestIoHandler
@@ -16,9 +14,9 @@ namespace example {
 // Description: Handles the flow of I/O data to and from the
 //              stick and throttle hardware.
 //------------------------------------------------------------------------------
-class TestIoHandler : public base::IoHandler
+class TestIoHandler : public oe::base::IoHandler
 {
-   DECLARE_SUBCLASS(TestIoHandler, base::IoHandler)
+   DECLARE_SUBCLASS(TestIoHandler, oe::base::IoHandler)
 
 public:
    TestIoHandler();
@@ -46,8 +44,4 @@ private:
    bool decStptSw1;
 };
 
-}
-}
-
 #endif
-

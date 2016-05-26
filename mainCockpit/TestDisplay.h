@@ -1,16 +1,14 @@
 
-#ifndef __oe_example_TestDisplay_H__
-#define __oe_example_TestDisplay_H__
+#ifndef __TestDisplay_H__
+#define __TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-
-namespace simulation { class Missile; class Player; class Simulation; class Station; }
-namespace graphics { class SymbolLoader; }
-namespace xpanel { class DspRadar; class DspRwr; }
-
-namespace example {
+   namespace simulation { class Missile; class Player; class Simulation; class Station; }
+   namespace graphics { class SymbolLoader; }
+   namespace xpanel { class DspRadar; class DspRwr; }
+}
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -33,9 +31,9 @@ namespace example {
 //   'd' or 'D'   -- Decrease Range
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-class TestDisplay : public glut::GlutDisplay
+class TestDisplay : public oe::glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay, glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay, oe::glut::GlutDisplay)
 
 public:
     enum { MAX_TRACKS = 60 };
@@ -45,15 +43,15 @@ public:
 public:
     TestDisplay();
 
-    simulation::Player* getOwnship();
-    simulation::Simulation* getSimulation();
-    simulation::Station* getStation();
+    oe::simulation::Player* getOwnship();
+    oe::simulation::Simulation* getSimulation();
+    oe::simulation::Station* getStation();
 
-    void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng);
+    void maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng);
 
     virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
     virtual void updateData(const double dt = 0.0) override;
 
 protected:
@@ -74,17 +72,17 @@ private:
 
     void updatePfd(const double dt);
 
-    xpanel::DspRadar*   rdrDisplay;     // Test RADAR display
-    xpanel::DspRwr*     rwrDisplay;     // Test RWR display
-    double              range;          // SD range
+    oe::xpanel::DspRadar* rdrDisplay;   // Test RADAR display
+    oe::xpanel::DspRwr* rwrDisplay;     // Test RWR display
+    double range;                       // SD range
 
-    SendData        headingSD;
-    SendData        rangeSD;
+    SendData headingSD;
+    SendData rangeSD;
 
-    base::safe_ptr<simulation::Station> myStation;
+    oe::base::safe_ptr<oe::simulation::Station> myStation;
 
-    simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
-    int                 trkIdx[MAX_TRACKS];    // Index of track symbols
+    oe::simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
+    int trkIdx[MAX_TRACKS];                        // Index of track symbols
 
     // pitch and roll
     double pitch;           // degs
@@ -139,8 +137,4 @@ private:
     double baroRate;
 };
 
-}
-}
-
 #endif
-
