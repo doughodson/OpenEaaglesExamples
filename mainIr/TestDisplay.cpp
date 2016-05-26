@@ -12,10 +12,7 @@
 #include "openeaagles/base/PairStream.h"
 #include "openeaagles/base/units/Distances.h"
 
-namespace oe {
-namespace example {
-
-IMPLEMENT_SUBCLASS(TestDisplay,"TestDisplay")
+IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
 EMPTY_SERIALIZER(TestDisplay)
 EMPTY_DELETEDATA(TestDisplay)
@@ -38,11 +35,6 @@ BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('S',onStepOwnshipKey)  // Step ownship
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// constructor
 TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
@@ -54,7 +46,6 @@ TestDisplay::TestDisplay() : myStation(nullptr)
    range = 40.0;
 }
 
-// copy member data
 void TestDisplay::copyData(const TestDisplay& org, const bool)
 {
    BaseClass::copyData(org);
@@ -86,7 +77,7 @@ bool TestDisplay::onResetKey()
 bool TestDisplay::onFreezeKey()
 {
    if ( getSimulation() != nullptr ) {
-      base::Boolean newFrz( !getSimulation()->isFrozen() );
+      oe::base::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
    return true;
@@ -97,9 +88,9 @@ bool TestDisplay::onFreezeKey()
 bool TestDisplay::onWpnRelKey()
 {
    if (getOwnship() != nullptr) {
-      simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
+      oe::simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
-         sms->setWeaponDeliveryMode(simulation::StoresMgr::A2A);
+         sms->setWeaponDeliveryMode(oe::simulation::StoresMgr::A2A);
          getOwnship()->event(WPN_REL_EVENT);
       }
    }
@@ -110,10 +101,10 @@ bool TestDisplay::onWpnRelKey()
 bool TestDisplay::onPreRelKey()
 {
     if (getOwnship() != nullptr) {
-       simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
+       oe::simulation::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
-            sms->setWeaponDeliveryMode(simulation::StoresMgr::A2A);
-            simulation::Weapon* wpn = sms->getCurrentWeapon();
+            sms->setWeaponDeliveryMode(oe::simulation::StoresMgr::A2A);
+            oe::simulation::Weapon* wpn = sms->getCurrentWeapon();
             if (wpn != nullptr) {
                wpn->prerelease();
                std::cout << "Prelaunched wpn = " << wpn << std::endl;
@@ -160,11 +151,10 @@ void TestDisplay::updateData(const double dt)
        send("hsi", UPDATE_VALUE5, getOwnship()->getHeadingR(), headingSD);
        send("rangeRO", UPDATE_VALUE, range, rangeSD);
 
-
        // Maintain Air Tracks
-       base::Pair* pair = findByName("airTracks");
+       oe::base::Pair* pair = findByName("airTracks");
        if (pair != nullptr) {
-          graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
+          oe::graphics::SymbolLoader* myLoader = dynamic_cast<oe::graphics::SymbolLoader*>(pair->object());
           if (myLoader != nullptr) {
              myLoader->setRange(range);
              myLoader->setHeadingDeg(getOwnship()->getHeadingD());
@@ -182,14 +172,14 @@ void TestDisplay::updateData(const double dt)
 //------------------------------------------------------------------------------
 // maintainAirTrackSymbols() -- maintain the air track symbology
 //------------------------------------------------------------------------------
-void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng)
+void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng)
 {
    int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
    double rng2 = (rng * rng);          // Range squared (KM * KM)
 
-   simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
-   int nNewTracks = 0;                         // Number of new tracks
-   simulation::Player* target = nullptr;
+   oe::simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
+   int nNewTracks = 0;                             // Number of new tracks
+   oe::simulation::Player* target = nullptr;
 
    // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
    int maxTracks = loader->getMaxSymbols();
@@ -204,20 +194,20 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
    // find all air vehicles within range
    {
       // get the player list
-      simulation::Simulation* sim = getSimulation();
-      base::PairStream* plist = sim->getPlayers();
+      oe::simulation::Simulation* sim = getSimulation();
+      oe::base::PairStream* plist = sim->getPlayers();
 
       // search for air vehicles or missiles within range
-      base::List::Item* item = plist->getFirstItem();
+      oe::base::List::Item* item = plist->getFirstItem();
       while (item != nullptr && nNewTracks < maxTracks) {
-         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
-         simulation::Player* p = static_cast<simulation::Player*>(pair->object());
-         osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
-         double x = rpos[0] * base::Distance::M2NM;
-         double y = rpos[1] * base::Distance::M2NM;
+         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
+         oe::simulation::Player* p = static_cast<oe::simulation::Player*>(pair->object());
+         oe::osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
+         double x = rpos[0] * oe::base::Distance::M2NM;
+         double y = rpos[1] * oe::base::Distance::M2NM;
 
-         simulation::Weapon* weapon = dynamic_cast<simulation::Weapon*>(p);
-         if (weapon && (weapon->isMode(simulation::Player::PRE_RELEASE) || weapon->isActive())) {
+         oe::simulation::Weapon* weapon = dynamic_cast<oe::simulation::Weapon*>(p);
+         if (weapon && (weapon->isMode(oe::simulation::Player::PRE_RELEASE) || weapon->isActive())) {
             target = weapon->getTargetPlayer();
          }
 
@@ -225,7 +215,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
             p != getOwnship() &&
             p->isActive() &&
             ((x*x + y*y) < rng2) &&
-            (p->isClassType(typeid(simulation::AirVehicle)) || p->isClassType(typeid(simulation::Missile))) ) {
+            (p->isClassType(typeid(oe::simulation::AirVehicle)) || p->isClassType(typeid(oe::simulation::Missile))) ) {
                // Ok, it's an active air vehicle or missile that's within range, and it's not us.
 
                // Are we already in the track list?
@@ -274,12 +264,12 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
             // We have an empty slot, so add the symbol
 
             int type = 4;                                                            // unknown
-            if (newTracks[inew]->isClassType(typeid(simulation::AirVehicle))) {
-               if (newTracks[inew]->isSide(simulation::Player::BLUE)) type = 1;      // friend
-               else if (newTracks[inew]->isSide(simulation::Player::RED)) type = 2;  // foe
+            if (newTracks[inew]->isClassType(typeid(oe::simulation::AirVehicle))) {
+               if (newTracks[inew]->isSide(oe::simulation::Player::BLUE)) type = 1;      // friend
+               else if (newTracks[inew]->isSide(oe::simulation::Player::RED)) type = 2;  // foe
                else type = 3; // neutral/commercial
             }
-            else if (newTracks[inew]->isClassType(typeid(simulation::Missile))) {
+            else if (newTracks[inew]->isClassType(typeid(oe::simulation::Missile))) {
                type = 5;                                                             // missile
             }
 
@@ -309,7 +299,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
       if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp = tracks[i]->getXPosition() - osX;
          double yp = tracks[i]->getYPosition() - osY;
-         loader->updateSymbolPositionXY( trkIdx[i], (xp * base::Distance::M2NM), (yp * base::Distance::M2NM) );
+         loader->updateSymbolPositionXY( trkIdx[i], (xp * oe::base::Distance::M2NM), (yp * oe::base::Distance::M2NM) );
          loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
          if (tracks[i]==target) {
             //base::Identifier* temp = new base::Identifier("green");
@@ -320,34 +310,30 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
    }
 }
 
-
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-simulation::Player* TestDisplay::getOwnship()
+oe::simulation::Player* TestDisplay::getOwnship()
 {
-   simulation::Player* p = nullptr;
-   simulation::Station* sta = getStation();
+   oe::simulation::Player* p = nullptr;
+   oe::simulation::Station* sta = getStation();
    if (sta != nullptr) p = sta->getOwnship();
    return p;
 }
 
-simulation::Simulation* TestDisplay::getSimulation()
+oe::simulation::Simulation* TestDisplay::getSimulation()
 {
-   simulation::Simulation* s = nullptr;
-   simulation::Station* sta = getStation();
+   oe::simulation::Simulation* s = nullptr;
+   oe::simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
-simulation::Station* TestDisplay::getStation()
+oe::simulation::Station* TestDisplay::getStation()
 {
    if (myStation == nullptr) {
-      simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+      oe::simulation::Station* s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;
-}
-
-}
 }

@@ -1,3 +1,9 @@
+
+#ifndef __TestComputer_H__
+#define __TestComputer_H__
+
+#include "openeaagles/simulation/OnboardComputer.h"
+
 //------------------------------------------------------------------------------
 // Class: TestComputer
 //
@@ -9,17 +15,9 @@
 //       haveTgt()   true if computer/seeker currently tracking a target
 //
 //------------------------------------------------------------------------------
-#ifndef __oe_example_TestComputer_H__
-#define __oe_example_TestComputer_H__
-
-#include "openeaagles/simulation/OnboardComputer.h"
-
-namespace oe {
-namespace example {
-
-class TestComputer : public simulation::OnboardComputer
+class TestComputer : public oe::simulation::OnboardComputer
 {
-    DECLARE_SUBCLASS(TestComputer, simulation::OnboardComputer)
+    DECLARE_SUBCLASS(TestComputer, oe::simulation::OnboardComputer)
 
 public:
    TestComputer();
@@ -42,9 +40,4 @@ private:
    bool haveTarget;   // flag indicating if we have a target track
 };
 
-}
-}
-
 #endif
-
-

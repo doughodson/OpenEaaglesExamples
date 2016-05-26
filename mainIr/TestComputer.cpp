@@ -10,20 +10,10 @@
 
 #include <iostream>
 
-namespace oe {
-namespace example {
-
-//==============================================================================
-// Class: TestComputer
-//==============================================================================
-
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestComputer,"TestComputer")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestComputer, "TestComputer")
 EMPTY_SERIALIZER(TestComputer)
 EMPTY_DELETEDATA(TestComputer)
 
-//------------------------------------------------------------------------------
-// Constructors, destructor, copy operator and clone()
-//------------------------------------------------------------------------------
 TestComputer::TestComputer()
 {
    STANDARD_CONSTRUCTOR()
@@ -31,9 +21,6 @@ TestComputer::TestComputer()
    haveTarget=false;
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset vehicle
-//------------------------------------------------------------------------------
 void TestComputer::reset()
 {
    BaseClass::reset();
@@ -41,9 +28,6 @@ void TestComputer::reset()
    haveTarget=false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void TestComputer::copyData(const TestComputer& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -78,14 +62,14 @@ void TestComputer::updateTC(const double dt0)
    // ---
    // Four phases per frame
    // ---
-   simulation::Simulation* sim = getOwnship()->getSimulation();
+   oe::simulation::Simulation* sim = getOwnship()->getSimulation();
    if (sim == nullptr) return;
 
    // ---
    // bypass System:: version, forward call to Component directly,
    // and use 'dt' because if we're frozen then so are our subcomponents.
    // ---
-   base::Component::updateTC(dt);
+   oe::base::Component::updateTC(dt);
 
    switch (sim->phase()) {
 
@@ -115,12 +99,11 @@ void TestComputer::process(const double dt)
 {
    BaseClass::process(dt);
 
-   simulation::IrSeeker* irSeeker = dynamic_cast<simulation::IrSeeker*>(getOwnship()->getGimbal());
+   oe::simulation::IrSeeker* irSeeker = dynamic_cast<oe::simulation::IrSeeker*>(getOwnship()->getGimbal());
    if (irSeeker) {
       haveTarget = processIr();
    }
 }
-
 
 //------------------------------------------------------------------------------
 // Update gimbal for latest trackmanager track information/prediction,
@@ -130,18 +113,18 @@ void TestComputer::process(const double dt)
 bool TestComputer::processIr()
 {
    // set the seeker/gimbal free to track target if just launched
-   if (uncaged==false && getOwnship()->isMode(simulation::Player::ACTIVE))
+   if (uncaged==false && getOwnship()->isMode(oe::simulation::Player::ACTIVE))
       uncaged = true;
 
    // waiting on getnexttarget may mean missing one or two updates
    // because we have to wait for obc::updateShootList which is an updateData task
-   simulation::Track* irTrk = getNextTarget();
+   oe::simulation::Track* irTrk = getNextTarget();
    if (irTrk && uncaged) {
       // we have a target and our gimbal must be updated
       double pt_az = irTrk->getPredictedAzimuth();
       double pt_el = irTrk->getPredictedElevation();
 
-      simulation::IrSeeker* irSeeker = dynamic_cast<simulation::IrSeeker*>(getOwnship()->getGimbal());
+      oe::simulation::IrSeeker* irSeeker = dynamic_cast<oe::simulation::IrSeeker*>(getOwnship()->getGimbal());
 
       // reposition seeker/gimbal to follow IR target
       if (irSeeker) {
@@ -152,13 +135,13 @@ bool TestComputer::processIr()
       }
    }
 
-   simulation::Weapon* ourWeapon = dynamic_cast<simulation::Weapon*>(getOwnship());
+   oe::simulation::Weapon* ourWeapon = dynamic_cast<oe::simulation::Weapon*>(getOwnship());
 
    // update the weapon's tracking if the target changed (includes loss of target)
    // weapon::targetPlayer tells the dynamics model where the target is -
    // if the seeker has no track, then the targetPlayer must be cleared
 
-   simulation::Player* irTarget = nullptr;
+   oe::simulation::Player* irTarget = nullptr;
    if (irTrk)
       irTarget = irTrk->getTarget();
    // tell the missile what to track
@@ -168,7 +151,6 @@ bool TestComputer::processIr()
    }
    return (irTarget != nullptr);
 }
-
 
 //------------------------------------------------------------------------------
 // updateShootList() -- Update the shoot list.  When the step flag is true,
@@ -182,16 +164,16 @@ void TestComputer::updateShootList(const bool step)
 
    // First, let's get the active track list
    const unsigned int MAX_TRKS = 20;
-   base::safe_ptr<simulation::Track> trackList[MAX_TRKS];
+   oe::base::safe_ptr<oe::simulation::Track> trackList[MAX_TRKS];
 
    int n = 0;
-   simulation::TrackManager* tm = getTrackManagerByType(typeid(simulation::AngleOnlyTrackManager));
+   oe::simulation::TrackManager* tm = getTrackManagerByType(typeid(oe::simulation::AngleOnlyTrackManager));
    if (tm != nullptr) n = tm->getTrackList(trackList, MAX_TRKS);
 
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
-         simulation::Track* trk = trackList[i];
-         simulation::IrTrack* irTrk = dynamic_cast<simulation::IrTrack*>(trk);
+         oe::simulation::Track* trk = trackList[i];
+         oe::simulation::IrTrack* irTrk = dynamic_cast<oe::simulation::IrTrack*>(trk);
          std::cout << irTrk->getTarget()->getID() << " avg " << irTrk->getAvgSignal() << " max " << irTrk->getMaxSignal() << std::endl;
       }
    }
@@ -207,11 +189,11 @@ void TestComputer::updateShootList(const bool step)
             //if (trackList[i]->getGroundSpeed() >= 1.0f) {
                if (nNTS >= 0) {
                   // is this one closer?
-                  simulation::Track* trk = trackList[i];
-                  simulation::IrTrack* irTrk = dynamic_cast<simulation::IrTrack*>(trk);
+                  oe::simulation::Track* trk = trackList[i];
+                  oe::simulation::IrTrack* irTrk = dynamic_cast<oe::simulation::IrTrack*>(trk);
 
                   trk = trackList[nNTS];
-                  simulation::IrTrack* irTrknNTS = dynamic_cast<simulation::IrTrack*>(trk);
+                  oe::simulation::IrTrack* irTrknNTS = dynamic_cast<oe::simulation::IrTrack*>(trk);
 
                   if (irTrk->getAvgSignal() > irTrknNTS->getAvgSignal()) {
                      nNTS = i;
@@ -263,7 +245,4 @@ void TestComputer::updateShootList(const bool step)
    // Update the next to shoot
    if (nNTS >= 0) setNextToShoot( trackList[nNTS] );
    else setNextToShoot(nullptr);
-}
-
-}
 }

@@ -11,32 +11,27 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace example {
-
 // frame rate (50 Hz)
 const unsigned int frameRate = 50;
 
-simulation::Simulation* simulation = nullptr;
-
-// our class factory
-base::Object* factory(const std::string& name)
+// class factory
+oe::base::Object* factory(const std::string& name)
 {
-   base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
-   if (obj == nullptr) obj = simulation::factory(name);
-   if (obj == nullptr) obj = models::factory(name);
-   if (obj == nullptr) obj = base::factory(name);
+   if (obj == nullptr) obj = oe::simulation::factory(name);
+   if (obj == nullptr) obj = oe::models::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
 
    return obj;
 }
 
 // simulation builder
-simulation::Simulation* builder(const std::string& filename)
+oe::simulation::Simulation* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -49,7 +44,7 @@ simulation::Simulation* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -57,7 +52,7 @@ simulation::Simulation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   simulation::Simulation* simulation = dynamic_cast<simulation::Simulation*>(obj);
+   oe::simulation::Simulation* simulation = dynamic_cast<oe::simulation::Simulation*>(obj);
    if (simulation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -78,7 +73,7 @@ int main(int argc, char* argv[])
    }
 
    // build simulation
-   simulation = builder(configFilename);
+   oe::simulation::Simulation* simulation = builder(configFilename);
 
    // reset component tree
    simulation->reset();
@@ -95,13 +90,4 @@ int main(int argc, char* argv[])
       simulation->updateData( dt );
    }
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-  oe::example::main(argc, argv);
 }

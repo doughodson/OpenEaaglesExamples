@@ -10,10 +10,7 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace oe {
-namespace example {
-
-IMPLEMENT_SUBCLASS(TestStation,"TestStation")
+IMPLEMENT_SUBCLASS(TestStation, "TestStation")
 
 // slot table for this class type
 BEGIN_SLOTTABLE(TestStation)
@@ -22,14 +19,9 @@ END_SLOTTABLE(TestStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
-    ON_SLOT(1, setSlotGlutDisplay, glut::GlutDisplay)
+    ON_SLOT(1, setSlotGlutDisplay, oe::glut::GlutDisplay)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// Constructor
 TestStation::TestStation()
 {
    STANDARD_CONSTRUCTOR()
@@ -38,7 +30,6 @@ TestStation::TestStation()
    glutDisplayInit = false;
 }
 
-// copy member data
 void TestStation::copyData(const TestStation& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -78,8 +69,8 @@ void TestStation::updateData(const double dt)
    // own displays.
 
    // manage the timers
-   base::Timer::updateTimers(dt);
-   graphics::Graphic::flashTimer(dt);
+   oe::base::Timer::updateTimers(dt);
+   oe::graphics::Graphic::flashTimer(dt);
 
    BaseClass::updateData(dt);
 }
@@ -106,20 +97,20 @@ void TestStation::reset()
 //------------------------------------------------------------------------------
 void TestStation::stepOwnshipPlayer()
 {
-   base::PairStream* pl = getSimulation()->getPlayers();
+   oe::base::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
-      simulation::Player* f = nullptr;
-      simulation::Player* n = nullptr;
+      oe::simulation::Player* f = nullptr;
+      oe::simulation::Player* n = nullptr;
       bool found = false;
 
       // Find the next player
-      base::List::Item* item = pl->getFirstItem();
+      oe::base::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
+         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            simulation::Player* ip = static_cast<simulation::Player*>( pair->object() );
-            if ( ip->isMode(simulation::Player::ACTIVE) &&
+            oe::simulation::Player* ip = static_cast<oe::simulation::Player*>( pair->object() );
+            if ( ip->isMode(oe::simulation::Player::ACTIVE) &&
                ip->isLocalPlayer()
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first
@@ -136,28 +127,18 @@ void TestStation::stepOwnshipPlayer()
    }
 }
 
-//------------------------------------------------------------------------------
-// Set slot functions
-//------------------------------------------------------------------------------
-
-bool TestStation::setSlotGlutDisplay(glut::GlutDisplay* const d)
+bool TestStation::setSlotGlutDisplay(oe::glut::GlutDisplay* const d)
 {
     glutDisplay = d;
     glutDisplay->container(this);
     return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* TestStation::getSlotByIndex(const int si)
+oe::base::Object* TestStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -180,7 +161,4 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
     }
 
    return sout;
-}
-
-}
 }

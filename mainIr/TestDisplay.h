@@ -1,16 +1,13 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
-#ifndef __oe_example_TestDisplay_H__
-#define __oe_example_TestDisplay_H__
+
+#ifndef __TestDisplay_H__
+#define __TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
    namespace simulation { class Missile; class Player; class Simulation; class Station; }
    namespace graphics { class SymbolLoader; }
-
-namespace example {
+}
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -26,20 +23,20 @@ namespace example {
 //   'i' or 'I'   -- Increase Range
 //   'd' or 'D'   -- Decrease Range
 //------------------------------------------------------------------------------
-class TestDisplay : public glut::GlutDisplay
+class TestDisplay : public oe::glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay, glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay, oe::glut::GlutDisplay)
 
 public:
     TestDisplay();
 
-    simulation::Player* getOwnship();
-    simulation::Simulation* getSimulation();
-    simulation::Station* getStation();
+    oe::simulation::Player* getOwnship();
+    oe::simulation::Simulation* getSimulation();
+    oe::simulation::Station* getStation();
 
-    virtual void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng);
+    virtual void maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng);
 
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
     virtual void updateData(const double dt = 0.0) override;
 
 private:
@@ -58,15 +55,11 @@ private:
     SendData        headingSD;
     SendData        rangeSD;
 
-    base::safe_ptr<simulation::Station> myStation;
+    oe::base::safe_ptr<oe::simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
-    simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
+    oe::simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
     int trkIdx[MAX_TRACKS];    // Index of track symbols
 };
 
-}
-}
-
 #endif
-

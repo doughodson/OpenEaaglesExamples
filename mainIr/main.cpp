@@ -17,9 +17,6 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace example {
-
 // background frame rate
 const unsigned int bgRate = 10;
 
@@ -30,7 +27,7 @@ TestStation* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -43,7 +40,7 @@ TestStation* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -71,7 +68,7 @@ void updateDataCB(int)
    glutTimerFunc(millis, updateDataCB, 1);
 
    // Current time
-   const double time = base::getComputerTime();
+   const double time = oe::base::getComputerTime();
 
    // N-1 Time
    static double time0 = time;
@@ -80,8 +77,8 @@ void updateDataCB(int)
    const double dt = static_cast<double>(time - time0);
    time0 = time;
 
-   base::Timer::updateTimers(dt);
-   graphics::Graphic::flashTimer(dt);
+   oe::base::Timer::updateTimers(dt);
+   oe::graphics::Graphic::flashTimer(dt);
    testStation->updateData(dt);
 }
 
@@ -103,7 +100,7 @@ int main(int argc, char* argv[])
    testStation = builder(configFilename);
 
    // reset the Simulation
-   testStation->event(base::Component::RESET_EVENT);
+   testStation->event(oe::base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    const double dt = 1.0 / static_cast<double>(bgRate);
@@ -123,13 +120,4 @@ int main(int argc, char* argv[])
    // ---
    glutMainLoop();
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::example::main(argc, argv);
 }
