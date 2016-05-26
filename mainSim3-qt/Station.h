@@ -6,9 +6,6 @@
 #include <QObject>
 
 class QTimer;
-
-namespace example {
-
 class Station;
 
 // helper object for background station tasks
@@ -40,7 +37,5 @@ public:
 private:
    StnTimerObject* timerObj;
 };
-
-}
 
 #endif

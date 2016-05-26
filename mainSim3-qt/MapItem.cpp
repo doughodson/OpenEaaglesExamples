@@ -8,8 +8,6 @@
 #include <sstream>
 #include <cmath>
 
-namespace example {
-
 MapItem::MapItem(MapView* v, QGraphicsItem* parent) : QGraphicsItem(parent)
 {
    view = v;
@@ -359,6 +357,3 @@ void MapItem::initialize(const double lat, const double lon, const double range)
       init = true;
    }
 }
-
-}
-

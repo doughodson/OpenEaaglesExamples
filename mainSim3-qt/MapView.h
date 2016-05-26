@@ -1,10 +1,8 @@
 
-#ifndef __oe_example_MapView_H__
-#define __oe_example_MapView_H__
+#ifndef __MapView_H__
+#define __MapView_H__
 
 #include <QGraphicsView>
-
-namespace example {
 
 class Station;
 class MapItem;
@@ -31,7 +29,5 @@ private:
    MapItem* map;                 // our map
    QList<PlayerItem*> players;   // our "graphical" players
 };
-
-}
 
 #endif

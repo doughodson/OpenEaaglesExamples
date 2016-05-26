@@ -3,9 +3,6 @@
 
 #include <QGraphicsItem>
 
-// Basic map that does map math for us.
-namespace example {
-
 class MapView;
 
 class MapItem: public QGraphicsItem
@@ -115,7 +112,5 @@ inline bool MapItem::isNorthUp() const                   { return northUp; }
 inline double MapItem::getNSPixelRes() const             { return pixNSRes; }
 inline double MapItem::getWEPixelRes() const             { return pixWERes; }
 inline bool MapItem::isInit() const                      { return init; }
-
-}
 
 #endif

@@ -32,7 +32,7 @@
      </widget>
     </item>
     <item>
-     <widget class="example::MapView" name="mapView">
+     <widget class="MapView" name="mapView">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(10, 10, 10);</string>
       </property>

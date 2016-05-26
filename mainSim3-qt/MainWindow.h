@@ -1,11 +1,9 @@
 
-#ifndef __oe_example_MainWindow_H__
-#define __oe_example_MainWindow_H__
+#ifndef __MainWindow_H__
+#define __MainWindow_H__
 
 #include <QMainWindow>
 #include "ui_MainWindow.h"
-
-namespace example {
 
 class Station;
 
@@ -37,7 +35,5 @@ private:
 
 inline Station* MainWindow::getStation()              { return stn; }
 inline const Station* MainWindow::getStation() const  { return stn; }
-
-}
 
 #endif

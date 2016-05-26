@@ -6,8 +6,6 @@
 #include <QTimer>
 #include <sstream>
 
-namespace example {
-
 MainWindow::MainWindow(Station* station, QWidget* parent) :QMainWindow(parent)
 {
    stn = station;
@@ -112,6 +110,4 @@ void MainWindow::reset()
          stn->event(oe::base::Component::RESET_EVENT);
       }
    }
-}
-
 }

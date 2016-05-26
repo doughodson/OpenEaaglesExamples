@@ -6,8 +6,6 @@
 #include <QPainter>
 #include <sstream>
 
-namespace example {
-
 PlayerItem::PlayerItem(MapView* viewer, MapItem* map, QGraphicsItem* parent) : QGraphicsItem(parent)
 {
    view = viewer;
@@ -125,7 +123,4 @@ void PlayerItem::refreshPlayer(const oe::simulation::Player* const ownship)
    else {
       plyId = 0;
    }
-}
-
-
 }

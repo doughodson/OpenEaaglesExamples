@@ -67,7 +67,6 @@ private:
    double dme;                 // dme (miles)
    SendData dmeSD;
 
-
    // CAS Stuff
    double airSpeed;            // our air speed (in knots)
    SendData airSpeedSD;

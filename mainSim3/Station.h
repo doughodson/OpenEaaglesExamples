@@ -1,14 +1,12 @@
 
-#ifndef __oe_example_Station_H__
-#define __oe_example_Station_H__
+#ifndef __Station_H__
+#define __Station_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-
-namespace glut { class GlutDisplay; }
-
-namespace example {
+   namespace glut { class GlutDisplay; }
+}
 
 // -------------------------------------------------------------------------------
 // Class: Station
@@ -18,9 +16,9 @@ namespace example {
 //      it.  This also runs the simulation, and acts as the interface between the
 //      graphics and simulation.
 // -------------------------------------------------------------------------------
-class Station : public simulation::Station
+class Station : public oe::simulation::Station
 {
-    DECLARE_SUBCLASS(Station, simulation::Station)
+    DECLARE_SUBCLASS(Station, oe::simulation::Station)
 
 public:
     Station();
@@ -29,15 +27,11 @@ public:
 
 protected:
     // slot methods
-    bool setSlotDisplay(glut::GlutDisplay*);
+    bool setSlotDisplay(oe::glut::GlutDisplay*);
 
 private:
-    glut::GlutDisplay* display;     // this is our main display that
+    oe::glut::GlutDisplay* display; // this is our main display that
     bool displayInit;               // is our display created?
 };
 
-}
-}
-
 #endif
-

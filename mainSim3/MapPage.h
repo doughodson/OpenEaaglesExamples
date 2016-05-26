@@ -1,14 +1,13 @@
-#ifndef __oe_example_MapPage_H__
-#define __oe_example_MapPage_H__
+
+#ifndef __MapPage_H__
+#define __MapPage_H__
 
 #include "openeaagles/graphics/MapPage.h"
 
 namespace oe {
-
-namespace simulation { class Player;        }
-namespace graphics   { class SymbolLoader;  }
-
-namespace example {
+   namespace simulation { class Player;        }
+   namespace graphics   { class SymbolLoader;  }
+}
 
 class Station;
 
@@ -19,9 +18,9 @@ class Station;
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-class MapPage : public graphics::MapPage
+class MapPage : public oe::graphics::MapPage
 {
-    DECLARE_SUBCLASS(MapPage, graphics::MapPage)
+    DECLARE_SUBCLASS(MapPage, oe::graphics::MapPage)
 
 public:
     MapPage();
@@ -34,10 +33,10 @@ private:
     // holds our players
     static const int MAX_PLAYERS = 200;
     static const int MAX_READOUTS = 20;
-    simulation::Player* player[MAX_PLAYERS];    // player pointer
-    int playerIdx[MAX_PLAYERS];                 // index of our symbol for the given player
-    graphics::SymbolLoader* loader;             // holds our loader for quick reference
-    Station* stn;                               // holds our station (to get the player list quickly)
+    oe::simulation::Player* player[MAX_PLAYERS];    // player pointer
+    int playerIdx[MAX_PLAYERS];                     // index of our symbol for the given player
+    oe::graphics::SymbolLoader* loader;             // holds our loader for quick reference
+    Station* stn;                                   // holds our station (to get the player list quickly)
     // show where our lat/lons are
     SendData latsSD[MAX_READOUTS];
     int lats[MAX_READOUTS];
@@ -54,8 +53,4 @@ private:
     float lonReadoutYPos[MAX_READOUTS];
 };
 
-}
-}
-
 #endif
-

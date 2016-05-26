@@ -12,11 +12,7 @@
 #include <cstdlib>
 #include <string>
 
-namespace example {
-
-Station* station = nullptr;
-
-// our class factory
+// class factory
 oe::base::Object* factory(const std::string& name)
 {
    oe::base::Object* obj = nullptr;
@@ -90,7 +86,7 @@ int main(int argc, char* argv[])
 
    compile_edl(configFilename);
 
-   station = builder(configFilename);
+   Station* station = builder(configFilename);
 
    // prime the station
    station->event(oe::base::Component::RESET_EVENT);
@@ -101,11 +97,3 @@ int main(int argc, char* argv[])
 
    return 0;
 }
-
-}
-
-int main(int argc, char* argv[])
-{
-   return example::main(argc, argv);
-}
-

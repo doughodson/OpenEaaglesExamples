@@ -24,9 +24,6 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace example {
-
 // frame rate
 const unsigned int frameRate = 20;
 
@@ -40,7 +37,7 @@ void timerFunc(int)
     glutTimerFunc(millis, timerFunc, 1);
 
     // Current time
-    const double time = base::getComputerTime();
+    const double time = oe::base::getComputerTime();
 
     // N-1 Time
     static double time0 = time;
@@ -49,31 +46,31 @@ void timerFunc(int)
     const double dt = static_cast<double>(time - time0);
     time0 = time;
 
-    base::Timer::updateTimers(dt);
-    graphics::Graphic::flashTimer(dt);
+    oe::base::Timer::updateTimers(dt);
+    oe::graphics::Graphic::flashTimer(dt);
     station->updateData(dt);
 }
 
 // our class factory
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     if ( name == MapPage::getFactoryName() )       { obj = new MapPage(); }
     else if ( name == Station::getFactoryName() )  { obj = new Station(); }
     else if ( name == Display::getFactoryName() )  { obj = new Display(); }
 
     // example libraries
-    if (obj == nullptr)  { obj = xzmq::factory(name);         }
+    if (obj == nullptr)  { obj = oe::xzmq::factory(name);         }
 
     // framework libraries
-    if (obj == nullptr)  { obj = otw::factory(name);          }
-    if (obj == nullptr)  { obj = instruments::factory(name);  }
-    if (obj == nullptr)  { obj = simulation::factory(name);   }
-    if (obj == nullptr)  { obj = dis::factory(name);          }
-    if (obj == nullptr)  { obj = graphics::factory(name);     }
-    if (obj == nullptr)  { obj = glut::factory(name);         }
-    if (obj == nullptr)  { obj = base::factory(name);         }
+    if (obj == nullptr)  { obj = oe::otw::factory(name);          }
+    if (obj == nullptr)  { obj = oe::instruments::factory(name);  }
+    if (obj == nullptr)  { obj = oe::simulation::factory(name);   }
+    if (obj == nullptr)  { obj = oe::dis::factory(name);          }
+    if (obj == nullptr)  { obj = oe::graphics::factory(name);     }
+    if (obj == nullptr)  { obj = oe::glut::factory(name);         }
+    if (obj == nullptr)  { obj = oe::base::factory(name);         }
 
     return obj;
 }
@@ -83,7 +80,7 @@ Station* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -96,7 +93,7 @@ Station* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -124,7 +121,7 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the Simulation
-   station->event(base::Component::RESET_EVENT);
+   station->event(oe::base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    const double dt = 1.0 / static_cast<double>(frameRate);
@@ -133,7 +130,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    station->updateData(dt);
    station->updateTC(dt);
-   station->event(base::Component::RESET_EVENT);
+   station->event(oe::base::Component::RESET_EVENT);
 
    glutTimerFunc(millis, timerFunc, 1);
 
@@ -142,13 +139,4 @@ int main(int argc, char* argv[])
 
    glutMainLoop();
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::example::main(argc,argv);
 }

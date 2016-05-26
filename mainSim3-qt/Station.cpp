@@ -3,8 +3,6 @@
 #include "MainWindow.h"
 #include <QTimer>
 
-namespace example {
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Station, "QtStation")
 EMPTY_SERIALIZER(Station)
 
@@ -41,7 +39,6 @@ void StnTimerObject::updateStation()
    }
 }
 
-
 // create our window and startup any timers needed
 int Station::createWindow(int argc, char* argv[])
 {
@@ -55,6 +52,4 @@ int Station::createWindow(int argc, char* argv[])
    win->show();
 
    return a.exec();
-}
-
 }

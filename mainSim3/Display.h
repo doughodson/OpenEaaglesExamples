@@ -1,11 +1,8 @@
 
-#ifndef __oe_example_Display_H__
-#define __oe_example_Display_H__
+#ifndef __Display_H__
+#define __Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
-
-namespace oe {
-namespace example {
 
 // -------------------------------------------------------------------------------
 // Class: Display
@@ -13,9 +10,9 @@ namespace example {
 // Description:
 //      Derived Display that will make our map page move.
 // -------------------------------------------------------------------------------
-class Display : public glut::GlutDisplay
+class Display : public oe::glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(Display, glut::GlutDisplay)
+    DECLARE_SUBCLASS(Display, oe::glut::GlutDisplay)
 
 public:
     Display();
@@ -34,8 +31,4 @@ private:
     SendData rangeSD;
 };
 
-}
-}
-
 #endif
-

@@ -3,15 +3,10 @@
 #include "MapPage.h"
 #include <GL/glut.h>
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "MapTestDisplay")
 EMPTY_SERIALIZER(Display)
+EMPTY_DELETEDATA(Display)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Display::Display()
 {
     STANDARD_CONSTRUCTOR()
@@ -22,9 +17,6 @@ Display::Display()
     rangeSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Display::copyData(const Display& org, const bool cc)
 {
     // copy base class stuff first
@@ -37,15 +29,8 @@ void Display::copyData(const Display& org, const bool cc)
     rangeSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void Display::deleteData()
-{
-}
-
 // ----------------------------------------------------------------------------
-// mouseEvent() override this to set our start position.
+// sets our start position.
 // ----------------------------------------------------------------------------
 void Display::mouseEvent(const int button, const int state, const int x, const int y)
 {
@@ -55,9 +40,6 @@ void Display::mouseEvent(const int button, const int state, const int x, const i
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && !dragging)  { dragging = true;   }
 }
 
-// ----------------------------------------------------------------------------
-// passiveMotionEvent() .
-// ----------------------------------------------------------------------------
 void Display::passiveMotionEvent(const int x, const int y)
 {
     BaseClass::passiveMotionEvent(x,y);
@@ -67,9 +49,6 @@ void Display::passiveMotionEvent(const int x, const int y)
     }
 }
 
-// ----------------------------------------------------------------------------
-// mouseMotionEvent() override this to move our map.
-// ----------------------------------------------------------------------------
 void Display::mouseMotionEvent(const int x, const int y)
 {
     if (dragging) {
@@ -90,9 +69,6 @@ void Display::mouseMotionEvent(const int x, const int y)
     setMouse(x, y);
 }
 
-// ----------------------------------------------------------------------------
-// buttonEvent() - called when a button is pressed
-// ----------------------------------------------------------------------------
 void Display::buttonEvent(const int b)
 {
     // range up, down
@@ -113,9 +89,6 @@ void Display::buttonEvent(const int b)
     }
 }
 
-// ----------------------------------------------------------------------------
-// updateData() - update background data
-// ----------------------------------------------------------------------------
 void Display::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -125,7 +98,3 @@ void Display::updateData(const double dt)
 
     send("range", UPDATE_VALUE, range, rangeSD);
 }
-
-}
-}
-

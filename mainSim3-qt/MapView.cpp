@@ -15,8 +15,6 @@
 #include <iostream>
 #include <QResizeEvent>
 
-namespace example {
-
 MapView::MapView(QWidget* parent) : QGraphicsView(parent)
 {
    QGraphicsScene* myScene = new QGraphicsScene(this);
@@ -154,6 +152,4 @@ void MapView::refreshView()
          clearPlayers();
       }
    }
-}
-
 }

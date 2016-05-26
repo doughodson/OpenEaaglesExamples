@@ -5,10 +5,8 @@
 #include <QGraphicsItem>
 
 namespace  oe {
-namespace simulation { class Player; }
+   namespace simulation { class Player; }
 }
-
-namespace example {
 
 class MapView;
 class MapItem;
@@ -42,7 +40,5 @@ private:
 };
 
 inline unsigned short PlayerItem::getPlayerId() const      { return plyId; }
-
-}
 
 #endif

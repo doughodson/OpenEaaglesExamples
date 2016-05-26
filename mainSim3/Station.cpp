@@ -3,18 +3,15 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_SUBCLASS(Station, "MapTestStation")
 EMPTY_SERIALIZER(Station)
 
 BEGIN_SLOTTABLE(Station)
-    "display",      // 1) sets our display
+    "display",          // 1) sets our display
 END_SLOTTABLE(Station)
 
 BEGIN_SLOT_MAP(Station)
-    ON_SLOT(1, setSlotDisplay, glut::GlutDisplay)
+    ON_SLOT(1, setSlotDisplay, oe::glut::GlutDisplay)
 END_SLOT_MAP()
 
 //------------------------------------------------------------------------------
@@ -85,7 +82,7 @@ void Station::reset()
 //------------------------------------------------------------------------------
 // setSlotDisplay() - sets our display
 //------------------------------------------------------------------------------
-bool Station::setSlotDisplay(glut::GlutDisplay* dis)
+bool Station::setSlotDisplay(oe::glut::GlutDisplay* dis)
 {
     bool ok = false;
     // clear out our old display first
@@ -104,14 +101,7 @@ bool Station::setSlotDisplay(glut::GlutDisplay* dis)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() - needed to be declared when we don't have an empty slottable
-//------------------------------------------------------------------------------
-base::Object* Station::getSlotByIndex(const int si)
+oe::base::Object* Station::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
-
-}
-}
-
