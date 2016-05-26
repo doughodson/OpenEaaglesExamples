@@ -4,7 +4,7 @@
 ( AsciiText
     color: white
     transform: { ( Translation -2.95 2.75 ) ( Scale 0.3 ) }
-    text: "MECHANICAL"
+    text: "ADI MODE"
 )
 
 ( Graphic
@@ -16,7 +16,7 @@
         // Commanded pitch and roll indicator (another Adi)
         cmdpitch:
         ( GaugeSlider
-            scalingTable: 
+            scalingTable:
             ( Table1
                 // degrees pitch
                 x: [ -30 30 ]
@@ -69,9 +69,9 @@
                 )
             }
         )
-        
+
         // rate of turn indicator
-        #include "rateofturn.epp"     
+        #include "rateofturn.epp"
 
         // speed deviation indicator
         #include "speeddevindicator.epp"
@@ -88,14 +88,14 @@
                 // This is our first graphic
                 ( Graphic
                     linewidth: 2
-                    components: {   
+                    components: {
                         ( Line
                             color: white
                             vertices: {
                                 [ -0.048 -0.004 ]
                                 [ -0.015 -0.004 ]
                                 [ -0.015 -0.088 ]
-                            }   
+                            }
                         )
                         ( Line
                             color: white
@@ -135,7 +135,7 @@
                             radius: 0.252
                             slices: 1000
                         )
-                            
+
                     }
                 )
                 // This is our second graphic
@@ -204,7 +204,7 @@
                 // This is our first graphic
                 ( Graphic
                     linewidth: 2
-                    components: {   
+                    components: {
                         ( Line
                             color: white
                             vertices: {
@@ -332,7 +332,7 @@
                         [ 0.031 -0.064 ]
                         [ -0.031 -0.064 ]
                     }
-                )        
+                )
                 ( Polygon
                     // this is actually orange, according to the KC-135 definition, but we will leave the name alone
                     color: amber
@@ -382,7 +382,7 @@
         )
 
         // include our gryo flag graphic
-        #include "gryoflag.epp"  
+        #include "gryoflag.epp"
         // include our command bars unreliable graphic
         #include "cmptrflag.epp"
 
@@ -405,22 +405,22 @@
                         #include "ladder.epp"
 
                         backsky:
-                        ( Polygon 
+                        ( Polygon
                             color: sky
                             transform: ( Translation 0 0 -1 )
                             vertices: {
-                                [ -5 0 ] 
+                                [ -5 0 ]
                                 [  5 0 ]
                                 [  5 8 ]
                                 [ -5 8 ]
                             }
                         )
-                        background: 
+                        background:
                         ( Polygon
                             color: black
                             transform: ( Translation 0 -5 -1 )
                             vertices: {
-                                [ -5 0 ] 
+                                [ -5 0 ]
                                 [  5 0 ]
                                 [  5 8 ]
                                 [ -5 8 ]

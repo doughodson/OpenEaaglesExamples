@@ -13,7 +13,7 @@ LDFLAGS += -lrt
 all: $(PGM)
 
 edl:
-	cpp configs/test.epp >test.edl   $(EPPFLAGS)
+	cpp configs/glutdisplay.epp > glutdisplay.edl   $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)

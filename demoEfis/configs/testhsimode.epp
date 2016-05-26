@@ -6,7 +6,7 @@ hsimode:
 ( TestElectronic
     pagingEvent: {
         n: arcmode
-        p: mechanical
+        p: adimode
     }
     components: {
         ( AsciiText
@@ -14,7 +14,7 @@ hsimode:
             transform: { ( Translation -2.95 2.75 ) ( Scale 0.3 ) }
             text: "HSI MODE"
         )
-        
+
         // Label to tell us what test we are running
         ( AsciiText
             transform: { ( Translation -2.9 -2.9 ) ( Scale 0.3 ) }
@@ -64,7 +64,7 @@ hsimode:
                 distdatacolor:
                 ( Instrument
                     components: {
-                        distlabel:  
+                        distlabel:
                         ( Rotary2
                             transform: ( Translation -1.7 1.4 )
                             components: {
@@ -117,22 +117,22 @@ hsimode:
         ( Rotary
             components: {
                 // time to go
-                ttg:    
-                ( NumericReadout 
-                    inheritColor: 1 
-                    format: "###.#" 
-                    transform: { ( Translation 1.21 -1.45 ) ( Scale 0.15 ) } 
-                )   
-                                
+                ttg:
+                ( NumericReadout
+                    inheritColor: 1
+                    format: "###.#"
+                    transform: { ( Translation 1.21 -1.45 ) ( Scale 0.15 ) }
+                )
+
                 // ground speed, drift angle, and drift angle side
                 ( Graphic
                     components: {
                         groundspeed:
-                        ( NumericReadout 
+                        ( NumericReadout
                             inheritColor: 1
-                            transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) } 
-                            format: "###" 
-                            value: 9 
+                            transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }
+                            format: "###"
+                            value: 9
                         )
                         // drift angle
                         driftangle:
@@ -141,7 +141,7 @@ hsimode:
                             inheritColor: 1
                             format: "###"
                         )
-                        driftangleside:     
+                        driftangleside:
                         ( Rotary2
                             transform: { ( Translation 1.6 -1.45 ) ( Scale 0.15 ) }
                             components: {
@@ -153,8 +153,8 @@ hsimode:
                 )
 
                 // true air speed
-                trueairspeed: 
-                ( NumericReadout 
+                trueairspeed:
+                ( NumericReadout
                     inheritColor: 1
                     transform:  { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }
                     format: "###"
@@ -199,7 +199,7 @@ hsimode:
                 ( Graphic
                     components: {
                         // drift angle
-                        driftanglewind:     
+                        driftanglewind:
                         ( NumericReadout
                             transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }
                             inheritColor: 1
@@ -265,7 +265,7 @@ hsimode:
                 )
 
                 // bearing readout
-                bearingro:      
+                bearingro:
                 ( NumericReadout
                     transform: { ( Translation -1.35 -1.25 ) ( Scale 0.12 ) }
                     inheritColor: 1
@@ -341,7 +341,7 @@ hsimode:
                 )
             }
         )
-        
+
         // include our compass
         #include "electronic/hsimode/compass.epp"
 
@@ -385,7 +385,7 @@ hsimode:
         )
 
         // this just switches our asterisk from primary to secondary and back
-        whichnavsource: 
+        whichnavsource:
         ( Rotary2
             transform: ( Translation -1.725 0 )
             components: {
@@ -450,8 +450,8 @@ hsimode:
                             }
                         )
                     }
-                )  
-                
+                )
+
             }
         )
 
@@ -463,7 +463,7 @@ hsimode:
                 whichprimaryreadout:
                 ( Rotary
                     components: {
-                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "INAV" ) // 1 
+                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "INAV" ) // 1
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "VOR1" ) // 3
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC2" ) // 4
@@ -481,7 +481,7 @@ hsimode:
                 whichsecondaryreadout:
                 ( Rotary
                     components: {
-                        ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "INAV" ) // 1 
+                        ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "INAV" ) // 1
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "VOR1" ) // 3
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "LOC2" ) // 4
@@ -519,4 +519,3 @@ hsimode:
         )
     }
 )
-

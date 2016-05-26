@@ -1,7 +1,7 @@
 //
 // Test our Efis Mechanical ADI
 //
-mechanical:
+adimode:
 ( TestMechanical
     pagingEvent: {
         n: hsimode
@@ -17,4 +17,3 @@ mechanical:
         #include "mechanical/mechanical.epp"
     }
 )
-

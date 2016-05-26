@@ -1,4 +1,4 @@
-( GlutDisplay
+glutdisplay: ( GlutDisplay
     name: "Flight Display Test"
     left:   -3
     right:   3
@@ -31,7 +31,7 @@
 
     fonts: {
         // normal font for the instruments
-        default: 
+        default:
         ( FTGLPolygonFonts
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -3 3 ]
@@ -50,16 +50,15 @@
 
     normalFont: default
 
-    page: hsimode
+    page: adimode
 
     pages: {
 
         // mechanical adi
-        #include "testmechanical.epp"
+        #include "testadimode.epp"
 
         // electronic hsi and arc mode
         #include "testhsimode.epp"
         #include "testarcmode.epp"
      }
 )
-

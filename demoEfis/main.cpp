@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename = "test.edl";
+   std::string configFilename = "glutdisplay.edl";
 
    glutDisplay = builder(configFilename);
 
@@ -129,4 +129,3 @@ int main(int argc, char* argv[])
 {
    return oe::demo::main(argc, argv);
 }
-

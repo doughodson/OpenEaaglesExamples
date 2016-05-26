@@ -4,7 +4,7 @@
 arcmode:
 ( TestElectronic
     pagingEvent: {
-        n: mechanical
+        n: adimode
         p: hsimode
     }
     components: {
@@ -18,7 +18,7 @@ arcmode:
             transform: { ( Translation -2.9 -2.9 ) ( Scale 0.3 ) }
             color: white
             text: "testarcmode.epp"
-        ) 
+        )
 
         // here is the background line
         ( LineLoop
@@ -34,7 +34,7 @@ arcmode:
 
         // this is the heading bug readout
         headingbugro:
-        ( Translator 
+        ( Translator
             color: magenta
             components: {
                 bugro:
@@ -104,22 +104,22 @@ arcmode:
         ( Rotary
             components: {
                 // time to go
-                ttg:    
-                ( NumericReadout 
-                    inheritColor: 1 
-                    format: "###.#" 
-                    transform: { ( Translation 1.21 -1.45 ) ( Scale 0.15 ) } 
+                ttg:
+                ( NumericReadout
+                    inheritColor: 1
+                    format: "###.#"
+                    transform: { ( Translation 1.21 -1.45 ) ( Scale 0.15 ) }
                 )
 
                 // ground speed, drift angle, and drift angle side
                 ( Graphic
                     components: {
                         groundspeed:
-                        ( NumericReadout 
+                        ( NumericReadout
                             inheritColor: 1
-                            transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) } 
-                            format: "###" 
-                            value: 9 
+                            transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }
+                            format: "###"
+                            value: 9
                         )
                         // drift angle
                         driftangle:
@@ -140,8 +140,8 @@ arcmode:
                 )
 
                 // true air speed
-                trueairspeed: 
-                ( NumericReadout 
+                trueairspeed:
+                ( NumericReadout
                     inheritColor: 1
                     transform:  { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }
                     format: "###"
@@ -176,7 +176,7 @@ arcmode:
                                     inheritColor: 1
                                     transform: { ( Translation 1.125 -1.45 ) ( Scale 0.15 ) }
                                     format: "MM:SS"
-                                )   
+                                )
                             }
                         )
                     }
@@ -305,7 +305,7 @@ arcmode:
                     }
                 )
                 glideslopedev:
-                ( Translator 
+                ( Translator
                     components: {
                         ( Line
                             vertices: {
@@ -362,7 +362,7 @@ arcmode:
             }
         ) // end of heading bug
 
-        // decide which course pointer we are using, depending on the 
+        // decide which course pointer we are using, depending on the
         // nav source
         whichcourseptr:
         ( Rotary2
@@ -465,8 +465,8 @@ arcmode:
                             }
                         )
                     }
-                )  
-                
+                )
+
             }
         )
 
@@ -478,7 +478,7 @@ arcmode:
                 whichprimaryreadout:
                 ( Rotary
                     components: {
-                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "INAV" ) // 1 
+                        ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "INAV" ) // 1
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "VOR1" ) // 3
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC2" ) // 4
@@ -496,7 +496,7 @@ arcmode:
                 whichsecondaryreadout:
                 ( Rotary
                     components: {
-                        ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "INAV" ) // 1 
+                        ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "INAV" ) // 1
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "VOR1" ) // 3
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "LOC2" ) // 4
@@ -508,4 +508,3 @@ arcmode:
         )
     }
 )
-
