@@ -6,28 +6,16 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
 
-namespace oe {
-namespace example {
+IMPLEMENT_SUBCLASS(State, "PuzzleState")
 
-IMPLEMENT_SUBCLASS(State,"PuzzleState")
-
-//------------------------------------------------------------------------------
-// Slot table for this form type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(State)
     "blocks",      //  1: list of blocks
 END_SLOTTABLE(State)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(State)
-    ON_SLOT( 1, setSlotBlocks, base::PairStream )
+    ON_SLOT( 1, setSlotBlocks, oe::base::PairStream )
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 State::State()
 {
    STANDARD_CONSTRUCTOR()
@@ -62,9 +50,6 @@ State::State(const State& org, const Block* const nb, const unsigned int idx)
    expanded = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void State::copyData(const State& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -82,25 +67,16 @@ void State::copyData(const State& org, const bool cc)
    setBlocks(org.blocks, org.nblocks);
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void State::deleteData()
 {
    clearBlocks();
 }
 
-//------------------------------------------------------------------------------
-// g()
-//------------------------------------------------------------------------------
 int State::g() const
 {
   return getGeneration();
 }
 
-//------------------------------------------------------------------------------
-// h()
-//------------------------------------------------------------------------------
 int State::h() const
 {
 #if 1
@@ -368,7 +344,7 @@ void State::clearBlocks()
 //------------------------------------------------------------------------------
 
 // Blocks (list of Blocks)
-bool State::setSlotBlocks(const base::PairStream* const msg)
+bool State::setSlotBlocks(const oe::base::PairStream* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -381,9 +357,9 @@ bool State::setSlotBlocks(const base::PairStream* const msg)
       ok = true;
 
       // Find all blocks (and check their type to make sure)
-      const base::List::Item* item = msg->getFirstItem();
+      const oe::base::List::Item* item = msg->getFirstItem();
       while (item != nullptr && n < MAX_BLOCKS && ok) {
-         const base::Pair* pair = static_cast<const base::Pair*>(item->getValue());
+         const oe::base::Pair* pair = static_cast<const oe::base::Pair*>(item->getValue());
          const Block* p = dynamic_cast<const Block*>( pair->object() );
          if (p != nullptr) {
             newBlocks[n++] = p;  // Save the point
@@ -403,17 +379,11 @@ bool State::setSlotBlocks(const base::PairStream* const msg)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* State::getSlotByIndex(const int si)
+oe::base::Object* State::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& State::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -442,7 +412,4 @@ std::ostream& State::serialize(std::ostream& sout, const int i, const bool slots
    }
 
    return sout;
-}
-
-}
 }

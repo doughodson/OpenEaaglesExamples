@@ -3,19 +3,19 @@
 // ---
 
 ( PuzzleBoard
-    
+
     name: "Puzzle Board"
     textures: {
         marble: ( BitmapTexture width: 128 height: 128 path: TEXTURES_PATH file: "Green_Veined_Marble.bmp" )
     }
-    
+
     left:         0.8
     right:        5.0
     bottom:       0.8
     top:          6.0
     near:        -2.0
     far:          2.0
-    
+
     vpWidth:    420
     vpHeight:   520
 
@@ -29,7 +29,7 @@
         cyan:       ( rgb 0 1 1 )
         white:      ( rgb 1 1 1 )
     }
-    
+
     clearDepth: 1.0
     clearColor: ( hsv 180.0 0.4 0.2 )
 
@@ -90,7 +90,7 @@
     //  (positions in list (slot numbers) MUST match block type IDs)
     // ---
     templates: {
-    
+
         // 2x2 block (type 1)
         1: ( Polygon
             color: white
@@ -109,7 +109,7 @@
                 [  1.0  0.0 ]
             }
         )
-    
+
         // 1x1 block (type 2)
         2: ( Polygon
             color: white
@@ -128,7 +128,7 @@
                 [  1.0  0.0 ]
             }
         )
-    
+
         // 2x1 block (type 3)
         3: ( Polygon
             color: white
@@ -147,7 +147,7 @@
                 [  1.0  0.0 ]
             }
         )
-    
+
         // 1x2 block (type 4)
         4: ( Polygon
             color: white
@@ -166,10 +166,10 @@
                 [  1.0  0.0 ]
             }
         )
-        
+
     }
-    
-    
+
+
     // ---
     // Background components
     // ---
@@ -195,5 +195,5 @@
             }
         )
     }
-     
+
 )

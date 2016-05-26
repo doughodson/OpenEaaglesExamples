@@ -1,15 +1,12 @@
-//------------------------------------------------------------------------------
-// Class:  Block1x1, Block1x2, Block2x1, Block2x2, Block
-//------------------------------------------------------------------------------
-#ifndef __oe_example_Block_H__
-#define __oe_example_Block_H__
+
+#ifndef __Block_H__
+#define __Block_H__
 
 #include "openeaagles/base/Object.h"
 
 namespace oe {
    namespace base { class List; class Integer; }
-
-namespace example {
+}
 
 //------------------------------------------------------------------------------
 // Class:  Block
@@ -20,9 +17,9 @@ namespace example {
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
 //------------------------------------------------------------------------------
-class Block : public base::Object
+class Block : public oe::base::Object
 {
-    DECLARE_SUBCLASS(Block,base::Object)
+    DECLARE_SUBCLASS(Block, oe::base::Object)
 
 public:
    static const unsigned int BOARD_X_SIZE = 4;
@@ -60,8 +57,8 @@ public:
    virtual unsigned int computeHashValue(const unsigned int blockIndex, const unsigned int rehashCount) const;
 
    // Slot function(s)
-   virtual bool setSlotPosition(const base::List* const msg);
-   virtual bool setSlotRefId(const base::Integer* const msg);
+   virtual bool setSlotPosition(const oe::base::List* const msg);
+   virtual bool setSlotRefId(const oe::base::Integer* const msg);
 
 protected:
    virtual bool setInitPosition(const unsigned int x, const unsigned int y);
@@ -79,7 +76,7 @@ private:
 //------------------------------------------------------------------------------
 class Block1x1 : public Block
 {
-   DECLARE_SUBCLASS(Block1x1,Block)
+   DECLARE_SUBCLASS(Block1x1, Block)
 public:
    Block1x1();
 
@@ -95,7 +92,7 @@ public:
 //------------------------------------------------------------------------------
 class Block1x2 : public Block
 {
-   DECLARE_SUBCLASS(Block1x2,Block)
+   DECLARE_SUBCLASS(Block1x2, Block)
 public:
    Block1x2();
 
@@ -111,7 +108,7 @@ public:
 //------------------------------------------------------------------------------
 class Block2x1 : public Block
 {
-   DECLARE_SUBCLASS(Block2x1,Block)
+   DECLARE_SUBCLASS(Block2x1, Block)
 public:
    Block2x1();
 
@@ -127,7 +124,7 @@ public:
 //------------------------------------------------------------------------------
 class Block2x2 : public Block
 {
-   DECLARE_SUBCLASS(Block2x2,Block)
+   DECLARE_SUBCLASS(Block2x2, Block)
 public:
    Block2x2();
 
@@ -135,8 +132,5 @@ public:
    virtual unsigned int getSizeX() const override;
    virtual unsigned int getSizeY() const override;
 };
-
-}
-}
 
 #endif

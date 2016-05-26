@@ -1,15 +1,14 @@
 //------------------------------------------------------------------------------
-// Class:  State
+// Class: State
 //------------------------------------------------------------------------------
-#ifndef __oe_example_State_H__
-#define __oe_example_State_H__
+#ifndef __State_H__
+#define __State_H__
 
 #include "openeaagles/base/Component.h"
 
 namespace oe {
    namespace base { class PairStream; }
-
-namespace example {
+}
 
 class Block;
 class Puzzle;
@@ -19,9 +18,9 @@ class Puzzle;
 //
 // Description:  Puzzle state vector
 //------------------------------------------------------------------------------
-class State : public base::Component
+class State : public oe::base::Component
 {
-    DECLARE_SUBCLASS(State, base::Component)
+    DECLARE_SUBCLASS(State, oe::base::Component)
 
 public:
    static const unsigned int MAX_BLOCKS = 30;         // Max number of blocks in each state
@@ -40,7 +39,7 @@ public:
    virtual const Block* getBlock(const unsigned int n) const;           // Returns the n'th block (range: 1 .. getNumberOfBlocks())
    virtual const Block* getBlockByRefNum(const unsigned int refId) const;  // Returns the block with ref ID
 
-   // Expand the state, s, and 
+   // Expand the state, s, and
    //  returns the state that matches the 'goal' state, if found, else zero
    virtual const State* expand(const State* const goal, Puzzle* const puz);
 
@@ -51,7 +50,7 @@ public:
    friend bool operator!=(const State& s1, const State& s2);
 
    // Slot function(s)
-   virtual bool setSlotBlocks(const base::PairStream* const msg);
+   virtual bool setSlotBlocks(const oe::base::PairStream* const msg);
 
 protected:
    //  create a new state (based on this one) and replace the block
@@ -69,8 +68,5 @@ private:
    bool     expanded;                  // True if we've been expanded
    int      generation;                // Generation index
 };
-
-}
-}
 
 #endif

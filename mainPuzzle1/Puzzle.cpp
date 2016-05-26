@@ -4,30 +4,18 @@
 
 #include "openeaagles/base/List.h"
 
-namespace oe {
-namespace example {
+IMPLEMENT_SUBCLASS(Puzzle, "Puzzle")
 
-IMPLEMENT_SUBCLASS(Puzzle,"Puzzle")
-
-//------------------------------------------------------------------------------
-// Slot table for this form type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Puzzle)
     "initState",      //  1: Our initial state
     "goalState",      //  2: Our goal state
 END_SLOTTABLE(Puzzle)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Puzzle)
     ON_SLOT( 1, setInitState, State )
     ON_SLOT( 2, setGoalState, State )
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Puzzle::Puzzle()
 {
    STANDARD_CONSTRUCTOR()
@@ -42,9 +30,6 @@ Puzzle::Puzzle()
    nhe = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Puzzle::copyData(const Puzzle& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -74,9 +59,6 @@ void Puzzle::copyData(const Puzzle& org, const bool cc)
    clearOpenList();
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Puzzle::deleteData()
 {
    setInitState(nullptr);
@@ -199,19 +181,19 @@ void Puzzle::putOpen(State* const s)
 {
    if (openStates == nullptr) {
       // create the list (as needed)
-      openStates = new base::List();
+      openStates = new oe::base::List();
    }
 
    if (s != nullptr) {
       // Create a new list item for this state and get the state's f() value
-      base::List::Item* newItem = new base::List::Item();
+      oe::base::List::Item* newItem = new oe::base::List::Item();
       newItem->value = s;
       s->ref();
       int f = s->f();
 
       // Find where in the list to insert this new state (based on their f() values)
-      base::List::Item* item = openStates->getFirstItem();
-      base::List::Item* refItem = nullptr;
+      oe::base::List::Item* item = openStates->getFirstItem();
+      oe::base::List::Item* refItem = nullptr;
       while (item != nullptr && refItem == nullptr) {
          const State* p = static_cast<const State*>( item->getValue() );
          if (f < p->f()) {
@@ -315,17 +297,11 @@ void Puzzle::clearHashTable()
    nhe = 0;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* Puzzle::getSlotByIndex(const int si)
+oe::base::Object* Puzzle::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -360,7 +336,4 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    }
 
    return sout;
-}
-
-}
 }

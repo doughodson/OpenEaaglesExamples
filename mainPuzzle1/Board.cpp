@@ -7,10 +7,7 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
 
-namespace oe {
-namespace example {
-
-IMPLEMENT_SUBCLASS(Board,"PuzzleBoard")
+IMPLEMENT_SUBCLASS(Board, "PuzzleBoard")
 
 //------------------------------------------------------------------------------
 // Slot table for this form type
@@ -25,12 +22,9 @@ END_SLOTTABLE(Board)
 //------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Board)
     ON_SLOT( 1, setSlotPuzzle,    Puzzle )
-    ON_SLOT( 2, setSlotTemplates, base::PairStream )
+    ON_SLOT( 2, setSlotTemplates, oe::base::PairStream )
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Board::Board()
 {
    STANDARD_CONSTRUCTOR()
@@ -65,9 +59,6 @@ Board::Board()
    movingFlg = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Board::copyData(const Board& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -111,9 +102,6 @@ void Board::copyData(const Board& org, const bool cc)
    startupTimer = 0;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Board::deleteData()
 {
    setSlotPuzzle(nullptr);
@@ -121,9 +109,6 @@ void Board::deleteData()
    clearGraphics();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- Update non-time critical (background) stuff here
-//------------------------------------------------------------------------------
 void Board::updateData(const double dt)
 {
    BaseClass::updateData(dt);
@@ -187,9 +172,9 @@ unsigned int Board::setupBlockGraphics()
             const Block* b = s->getBlock(i+1);
             if (b != nullptr) {
                unsigned int typeId = b->getTypeId();
-               const base::Pair* pair = templates->getPosition(typeId);
+               const oe::base::Pair* pair = templates->getPosition(typeId);
                if (pair != nullptr) {
-                  const graphics::Graphic* g = dynamic_cast<const graphics::Graphic*>( pair->object() );
+                  const oe::graphics::Graphic* g = dynamic_cast<const oe::graphics::Graphic*>( pair->object() );
                   if (g != nullptr) {
                      // Ok, we've found a graphics::Graphic to draw this block!
                      blocks[nblocks] = g->clone();
@@ -323,7 +308,7 @@ bool Board::setSlotPuzzle(Puzzle* const p)
 //------------------------------------------------------------------------------
 // Sets a list of the graphical templates for the blocks
 //------------------------------------------------------------------------------
-bool Board::setSlotTemplates(const base::PairStream* const p)
+bool Board::setSlotTemplates(const oe::base::PairStream* const p)
 {
    if (templates != nullptr) templates->unref();
    templates = p;
@@ -331,17 +316,11 @@ bool Board::setSlotTemplates(const base::PairStream* const p)
    return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* Board::getSlotByIndex(const int si)
+oe::base::Object* Board::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -376,7 +355,4 @@ std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slots
    }
 
    return sout;
-}
-
-}
 }

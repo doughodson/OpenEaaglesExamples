@@ -4,46 +4,27 @@
 #include "openeaagles/base/Integer.h"
 #include "openeaagles/base/List.h"
 
-namespace oe {
-namespace example {
+IMPLEMENT_ABSTRACT_SUBCLASS(Block, "PuzzleBlock")
+EMPTY_DELETEDATA(Block)
 
-//==============================================================================
-// Class: Block
-//==============================================================================
-
-IMPLEMENT_ABSTRACT_SUBCLASS(Block,"PuzzleBlock")
-
-//------------------------------------------------------------------------------
-// Slot table for this form type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Block)
     "position",      //  1: initial position vector
     "id",            //  2: Block's reference ID
 END_SLOTTABLE(Block)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Block)
-    ON_SLOT( 1, setSlotPosition, base::List)
-    ON_SLOT( 2, setSlotRefId, base::Integer)
+    ON_SLOT( 1, setSlotPosition, oe::base::List)
+    ON_SLOT( 2, setSlotRefId, oe::base::Integer)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Block::Block()
 {
    STANDARD_CONSTRUCTOR()
-
    x  = 0;
    y  = 0;
    refId = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Block::copyData(const Block& org, const bool)
 {
    BaseClass::copyData(org);
@@ -52,17 +33,6 @@ void Block::copyData(const Block& org, const bool)
    y  = org.y;
    refId = org.refId;
 }
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void Block::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// Comparison functions
-//------------------------------------------------------------------------------
 
 bool operator>(const Block& b1, const Block& b2)
 {
@@ -82,13 +52,11 @@ bool operator>(const Block& b1, const Block& b2)
    return gt;
 }
 
-
 // Are two blocks equal
 bool operator==(const Block& b1, const Block& b2)
 {
    return ( (b1.getTypeId() == b2.getTypeId()) && (b1.x == b2.x) && (b1.y == b2.y) );
 }
-
 
 // Are two blocks not equal
 bool operator!=(const Block& b1, const Block& b2)
@@ -185,7 +153,7 @@ bool Block::setReferenceID(const unsigned int v)
 //------------------------------------------------------------------------------
 // Slot function(s)
 //------------------------------------------------------------------------------
-bool Block::setSlotPosition(const base::List* const msg)
+bool Block::setSlotPosition(const oe::base::List* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -198,7 +166,7 @@ bool Block::setSlotPosition(const base::List* const msg)
    return ok;
 }
 
-bool Block::setSlotRefId(const base::Integer* const msg)
+bool Block::setSlotRefId(const oe::base::Integer* const msg)
 {
    bool ok = false;
    if (msg != nullptr) {
@@ -211,17 +179,11 @@ bool Block::setSlotRefId(const base::Integer* const msg)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* Block::getSlotByIndex(const int si)
+oe::base::Object* Block::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Block::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -243,22 +205,17 @@ std::ostream& Block::serialize(std::ostream& sout, const int i, const bool slots
    return sout;
 }
 
-
-
 //==============================================================================
 // Class: Block1x1
 //==============================================================================
 
-IMPLEMENT_SUBCLASS(Block1x1,"Block1x1")
+IMPLEMENT_SUBCLASS(Block1x1, "Block1x1")
 EMPTY_SLOTTABLE(Block1x1)
 EMPTY_SERIALIZER(Block1x1)
 
 EMPTY_COPYDATA(Block1x1)
 EMPTY_DELETEDATA(Block1x1)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Block1x1::Block1x1()
 {
    STANDARD_CONSTRUCTOR()
@@ -284,9 +241,6 @@ EMPTY_SERIALIZER(Block1x2)
 EMPTY_COPYDATA(Block1x2)
 EMPTY_DELETEDATA(Block1x2)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Block1x2::Block1x2()
 {
    STANDARD_CONSTRUCTOR()
@@ -312,9 +266,6 @@ EMPTY_SERIALIZER(Block2x1)
 EMPTY_COPYDATA(Block2x1)
 EMPTY_DELETEDATA(Block2x1)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Block2x1::Block2x1()
 {
    STANDARD_CONSTRUCTOR()
@@ -339,9 +290,6 @@ EMPTY_SERIALIZER(Block2x2)
 EMPTY_COPYDATA(Block2x2)
 EMPTY_DELETEDATA(Block2x2)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Block2x2::Block2x2()
 {
    STANDARD_CONSTRUCTOR()
@@ -353,6 +301,3 @@ Block2x2::Block2x2()
 Block::BlockId Block2x2::getTypeId() const   { return Block::BLOCK_2X2; }
 unsigned int Block2x2::getSizeX() const      { return 2; }
 unsigned int Block2x2::getSizeY() const      { return 2; }
-
-}
-}

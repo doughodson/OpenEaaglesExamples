@@ -1,29 +1,25 @@
 //------------------------------------------------------------------------------
 // Class:  Puzzle
 //------------------------------------------------------------------------------
-#ifndef __oe_example_Puzzle_H__
-#define __oe_example_Puzzle_H__
+#ifndef __Puzzle_H__
+#define __Puzzle_H__
 
 #include "openeaagles/base/Component.h"
 
 namespace oe {
-   namespace base {
-      class List;
-   }
-
-namespace example {
+   namespace base { class List; }
+}
 
 class State;
 
 //------------------------------------------------------------------------------
 // Class:  Puzzle
-// Base class:  base::Object-> Puzzle
 //
 // Description:  Puzzle engine
 //------------------------------------------------------------------------------
-class Puzzle : public base::Component
+class Puzzle : public oe::base::Component
 {
-    DECLARE_SUBCLASS(Puzzle,base::Component)
+    DECLARE_SUBCLASS(Puzzle, oe::base::Component)
 
 public:
    static const unsigned int MAX_STATES = 1000000;    // Max number of states
@@ -65,16 +61,12 @@ private:
    const State*   goalState;     // Goal (ending) state
 
    // Open list
-   base::List*  openStates;   // List of 'open' states (still need to be expanded)
-                                 // (list is ordered by the state's f() values)
+   oe::base::List*  openStates;   // List of 'open' states (still need to be expanded)
+                                  // (list is ordered by the state's f() values)
 
    // HashTable
    const State* hashTable[MAX_STATES]; // Hash table (for quick lookup of states)
    unsigned int nhe;                   // Number of entries in hash table
 };
 
-}
-}
-
 #endif
-
