@@ -1,3 +1,4 @@
+
 #include "SpdLines.h"
 #include "openeaagles/base/Number.h"
 
@@ -6,6 +7,7 @@ namespace demo {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
+EMPTY_DELETEDATA(SpdLines)
 
 // Event handler
 BEGIN_EVENT_HANDLER(SpdLines)
@@ -23,18 +25,12 @@ BEGIN_SLOT_MAP(SpdLines)
     ON_SLOT(1, setSlotIsAlt, base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SpdLines::SpdLines()
 {
     STANDARD_CONSTRUCTOR()
     isAlt = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void SpdLines::copyData(const SpdLines& org, const bool)
 {
     // copy baseclass stuff first
@@ -42,17 +38,6 @@ void SpdLines::copyData(const SpdLines& org, const bool)
     isAlt = org.isAlt;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void SpdLines::deleteData()
-{
-}
-
-
-//------------------------------------------------------------------------------
-// drawFunc() - draw our objects
-//------------------------------------------------------------------------------
 void SpdLines::drawFunc()
 {
     GLfloat ocolor[4];
@@ -158,9 +143,8 @@ bool SpdLines::onEventSetIsAltSpdLines(const base::Number* const x)
     return ok;
 }
 
-// SLOT FUNCTIONS
 //------------------------------------------------------------------------------
-// setSlotIsAlt() - sets our altitude flag
+// sets our altitude flag
 //------------------------------------------------------------------------------
 bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 {
@@ -169,9 +153,6 @@ bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* SpdLines::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
@@ -179,4 +160,3 @@ base::Object* SpdLines::getSlotByIndex(const int si)
 
 }
 }
-

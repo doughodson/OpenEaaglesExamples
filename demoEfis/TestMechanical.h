@@ -1,19 +1,17 @@
+
+#ifndef __TestMechanical_H__
+#define __TestMechanical_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestMechanical
 //
 // Description: Simulates a rockwell collins type EFIS Mechanical ADI graphic
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestMechanical_H__
-#define __oe_demo_TestMechanical_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestMechanical : public graphics::Page
+class TestMechanical : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestMechanical, graphics::Page)
+   DECLARE_SUBCLASS(TestMechanical, oe::graphics::Page)
 
 public:
     TestMechanical();
@@ -91,9 +89,4 @@ private:
     SendData curRotSD;
 };
 
-}
-}
-
 #endif
-
-

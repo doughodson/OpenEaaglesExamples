@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: ZeroMQHandler
-//------------------------------------------------------------------------------
+
 #include "ZeroMQHandler.h"
 #include "ZeroMQContext.h"
 #include "openeaagles/base/Boolean.h"
@@ -14,12 +12,8 @@
 namespace oe {
 namespace xzmq {
 
-//==============================================================================
-// Class: ZeroMQHandler
-//==============================================================================
 IMPLEMENT_SUBCLASS(ZeroMQHandler, "ZeroMQHandler")
 
-// Slot Table
 BEGIN_SLOTTABLE(ZeroMQHandler)
    "context",              //  1) String containing the parent context's name
    "socketType",           //  2) String containing the socket type
@@ -36,7 +30,6 @@ BEGIN_SLOTTABLE(ZeroMQHandler)
    "recvHighWaterMark",    // 13) Integer containing the receive HWM count
 END_SLOTTABLE(ZeroMQHandler)
 
-// Map slot table to handles
 BEGIN_SLOT_MAP(ZeroMQHandler)
    ON_SLOT( 1, setSlotContext,     ZeroMQContext)
    ON_SLOT( 2, setSlotSocketType,  base::String)
@@ -53,9 +46,6 @@ BEGIN_SLOT_MAP(ZeroMQHandler)
    ON_SLOT(13, setSlotRecvHWM,     base::Integer)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructors
-//------------------------------------------------------------------------------
 ZeroMQContext* ZeroMQHandler::masterContext = nullptr;
 
 s2i_t ZeroMQHandler::sts2i;
@@ -121,9 +111,6 @@ void ZeroMQHandler::initData()
    ready       = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void ZeroMQHandler::copyData(const ZeroMQHandler& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -155,9 +142,6 @@ void ZeroMQHandler::copyData(const ZeroMQHandler& org, const bool cc)
    ready       = false;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void ZeroMQHandler::deleteData()
 {
    // Shutdown the connection
@@ -170,9 +154,6 @@ void ZeroMQHandler::deleteData()
    initData();
 }
 
-//------------------------------------------------------------------------------
-// NetHandler override functions
-//------------------------------------------------------------------------------
 bool ZeroMQHandler::initNetwork(const bool noWaitFlag)
 {
    // First check to see if the master context has been created.  If it has
@@ -307,10 +288,6 @@ unsigned int ZeroMQHandler::recvData(char* const packet, const int maxSize)
    return static_cast<unsigned int>(result);
 }
 
-
-//------------------------------------------------------------------------------
-// Set functions
-//------------------------------------------------------------------------------
 bool ZeroMQHandler::setContext(ZeroMQContext* const ctx)
 {
    context = ctx;
@@ -529,18 +506,11 @@ bool ZeroMQHandler::setSlotRecvHWM(const base::Integer* const msg)
    return ok;
 }
 
-
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* ZeroMQHandler::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -634,4 +604,3 @@ std::ostream& ZeroMQHandler::serialize(std::ostream& sout, const int i, const bo
 
 }
 }
-

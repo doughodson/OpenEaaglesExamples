@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Pfd
-//------------------------------------------------------------------------------
+
 #include "Pfd.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/units/Distances.h"
@@ -13,12 +11,10 @@
 namespace oe {
 namespace xpanel {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd, "Pfd")
 EMPTY_SERIALIZER(Pfd)
+EMPTY_DELETEDATA(Pfd)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Pfd::Pfd()
 {
     STANDARD_CONSTRUCTOR()
@@ -31,7 +27,7 @@ Pfd::Pfd()
     baSD.empty();
     bascaleSD.empty();
     // heading and nav stuff
-    trueHdg = 0;  
+    trueHdg = 0;
     tHdgSD.empty();
     cmdHdg = 0;
     cmdHdgROSD.empty();
@@ -96,9 +92,6 @@ Pfd::Pfd()
     pitchGhostSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void Pfd::copyData(const Pfd& org, const bool)
 {
     // Always copy base class stuff first
@@ -126,17 +119,6 @@ void Pfd::copyData(const Pfd& org, const bool)
     mach = org.mach;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void Pfd::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// Set functions --
-//------------------------------------------------------------------------------
-
 bool Pfd::setPitchDeg(const double newP)
 {
     pitch = newP;
@@ -151,7 +133,7 @@ bool Pfd::setPitchRad(const double newP)
 }
 
 bool Pfd::setRollDeg(const double newR)
-{ 
+{
     roll = newR;
     return true;
 }
@@ -255,7 +237,7 @@ bool Pfd::setBaroPress(const double newBOP)
 }
 
 bool Pfd::setMach(const double x)
-{ 
+{
     mach = x;
     return true;
 }
@@ -282,28 +264,25 @@ bool Pfd::setGLoad(const double newLoad)
     return true;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void Pfd::updateData(const double dt)
 {
     // update our BaseClass
     BaseClass::updateData(dt);
-    
+
     // find the last digit for the readout tape
     double ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
     int rest = static_cast<int>(airSpd / 10.0f);
-    
+
     double diff = airSpd - cmdSpd;
-    
+
     double altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
     double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
     int altRest = static_cast<int>(alt/99.9999);
-    
+
     // all the sends are here
     // hsi
     send("cmdhdg", UPDATE_VALUE, cmdHdg, cmdHdgROSD);
@@ -346,8 +325,8 @@ void Pfd::updateData(const double dt)
     send("bankscale", UPDATE_INSTRUMENTS, roll, bascaleSD);
     // send our bank angle the roll
     send("bankangle", UPDATE_INSTRUMENTS, -roll, baSD);
-    // sideslip 
-    send("sideslip", UPDATE_INSTRUMENTS, slip, slipSD);   
+    // sideslip
+    send("sideslip", UPDATE_INSTRUMENTS, slip, slipSD);
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout
@@ -359,4 +338,3 @@ void Pfd::updateData(const double dt)
 
 }
 }
-

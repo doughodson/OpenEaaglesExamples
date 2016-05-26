@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: DspRadar
-//------------------------------------------------------------------------------
+
 #include "DspRadar.h"
 
 #include "openeaagles/simulation/Antenna.h"
@@ -20,11 +18,6 @@ EMPTY_SLOTTABLE(DspRadar)
 EMPTY_SERIALIZER(DspRadar)
 EMPTY_DELETEDATA(DspRadar)
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// Constructor
 DspRadar::DspRadar()
 {
    STANDARD_CONSTRUCTOR()
@@ -36,7 +29,6 @@ DspRadar::DspRadar()
    elSD.empty();
 }
 
-// copy member data
 void DspRadar::copyData(const DspRadar& org, const bool)
 {
    BaseClass::copyData(org);
@@ -48,9 +40,6 @@ void DspRadar::copyData(const DspRadar& org, const bool)
    elSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void DspRadar::updateData(const double dt)
 {
    const simulation::Antenna* antenna = nullptr;
@@ -92,9 +81,6 @@ void DspRadar::updateData(const double dt)
    BaseClass::updateData(dt);
 }
 
-//------------------------------------------------------------------------------
-// drawFunc() --
-//------------------------------------------------------------------------------
 void DspRadar::drawFunc()
 {
    // Need a RADAR to draw; if not, just draw a big X
@@ -229,4 +215,3 @@ void DspRadar::drawFunc()
 
 }
 }
-

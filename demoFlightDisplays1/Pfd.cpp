@@ -1,3 +1,4 @@
+
 #include "Pfd.h"
 #include "openeaagles/base/Pair.h"
 #include "SituationalDisplay.h"
@@ -16,9 +17,6 @@ namespace demo {
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Pfd::Pfd()
 {
     STANDARD_CONSTRUCTOR()
@@ -150,9 +148,6 @@ Pfd::Pfd()
     mach = 0.0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void Pfd::copyData(const Pfd& org, const bool)
 {
     // Always copy base class stuff first
@@ -741,4 +736,3 @@ void Pfd::updateData(const double dt)
 
 }
 }
-

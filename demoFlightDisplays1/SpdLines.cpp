@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SpdLines
-//------------------------------------------------------------------------------
+
 #include "SpdLines.h"
 #include "openeaagles/base/Number.h"
 #include <GL/glu.h>
@@ -10,6 +8,7 @@ namespace demo {
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
+EMPTY_DELETEDATA(SpdLines)
 
 BEGIN_SLOTTABLE(SpdLines)
     "isAlt",              // draw for the altitude scale (instead of making a new class)
@@ -24,9 +23,6 @@ BEGIN_SLOT_MAP(SpdLines)
     ON_SLOT(2, setSlotDrawBack, base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SpdLines::SpdLines()
 {
     STANDARD_CONSTRUCTOR()
@@ -34,9 +30,6 @@ SpdLines::SpdLines()
     drawBack = true;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void SpdLines::copyData(const SpdLines& org, const bool)
 {
     // copy baseclass stuff first
@@ -45,29 +38,18 @@ void SpdLines::copyData(const SpdLines& org, const bool)
     drawBack = org.drawBack;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void SpdLines::deleteData()
-{
-}
-
-// Set functions
 bool SpdLines::setIsAlt(const bool newIsAlt)
 {
     isAlt = newIsAlt;
     return true;
 }
+
 bool SpdLines::setDrawBack(const bool newDB)
 {
     drawBack = newDB;
     return true;
 }
 
-
-//------------------------------------------------------------------------------
-// drawFunc() - draw our objects
-//------------------------------------------------------------------------------
 void SpdLines::drawFunc()
 {
     GLfloat ocolor[4];
@@ -169,10 +151,6 @@ void SpdLines::drawFunc()
     glLineWidth(lw);
 }
 
-// SLOT FUNCTIONS
-//------------------------------------------------------------------------------
-// setSlotIsAlt() - sets our altitude flag
-//------------------------------------------------------------------------------
 bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 {
     bool ok = false;
@@ -181,7 +159,7 @@ bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 }
 
 //------------------------------------------------------------------------------
-// setSlotDrawBack() - sets our draw background flag
+// sets our draw background flag
 //------------------------------------------------------------------------------
 bool SpdLines::setSlotDrawBack(const base::Number* const newDB)
 {
@@ -190,9 +168,6 @@ bool SpdLines::setSlotDrawBack(const base::Number* const newDB)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* SpdLines::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
@@ -200,4 +175,3 @@ base::Object* SpdLines::getSlotByIndex(const int si)
 
 }
 }
-

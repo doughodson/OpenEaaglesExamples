@@ -1,3 +1,4 @@
+
 #include "RdrAlt.h"
 #include "openeaagles/graphics/Readouts.h"
 #include "openeaagles/base/Pair.h"
@@ -8,6 +9,7 @@ namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(RdrAlt, "RdrAlt")
 EMPTY_SERIALIZER(RdrAlt)
+EMPTY_DELETEDATA(RdrAlt)
 
 // Event handler
 BEGIN_EVENT_HANDLER(RdrAlt)
@@ -15,9 +17,6 @@ BEGIN_EVENT_HANDLER(RdrAlt)
     ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetRAltMinRdrAlt, base::Number)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 RdrAlt::RdrAlt()
 {
     STANDARD_CONSTRUCTOR()
@@ -27,9 +26,6 @@ RdrAlt::RdrAlt()
     rAltMinSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void RdrAlt::copyData(const RdrAlt& org, const bool)
 {
     BaseClass::copyData(org);
@@ -39,16 +35,6 @@ void RdrAlt::copyData(const RdrAlt& org, const bool)
     rAltMinSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void RdrAlt::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// set functions
-//------------------------------------------------------------------------------
 bool RdrAlt::setRAltMin(const double newRM)
 {
     rAltMin = newRM;
@@ -133,4 +119,3 @@ void RdrAlt::updateData(const double dt)
 
 }
 }
-

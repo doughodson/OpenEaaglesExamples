@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: ZeroMQContext
-//------------------------------------------------------------------------------
+
 #include "ZeroMQContext.h"
 
 #include "openeaagles/base/Boolean.h"
@@ -11,9 +9,6 @@
 namespace oe {
 namespace xzmq {
 
-//==============================================================================
-// Class: ZeroMQContext
-//==============================================================================
 IMPLEMENT_SUBCLASS(ZeroMQContext, "ZeroMQContext")
 
 // Slot Table
@@ -30,9 +25,6 @@ BEGIN_SLOT_MAP(ZeroMQContext)
    ON_SLOT(3, setSlotEnableIPV6,  base::Boolean)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructors
-//------------------------------------------------------------------------------
 ZeroMQContext::ZeroMQContext()
 {
    STANDARD_CONSTRUCTOR()
@@ -48,9 +40,6 @@ void ZeroMQContext::initData()
    ready       = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void ZeroMQContext::copyData(const ZeroMQContext& org, const bool cc)
 {
    BaseClass::copyData (org);
@@ -65,9 +54,6 @@ void ZeroMQContext::copyData(const ZeroMQContext& org, const bool cc)
    ready       = org.ready;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void ZeroMQContext::deleteData()
 {
    terminateContext();
@@ -120,9 +106,6 @@ bool ZeroMQContext::isInitialized() const
    else return false;
 }
 
-//------------------------------------------------------------------------------
-// Set functions
-//------------------------------------------------------------------------------
 bool ZeroMQContext::setThreadCount(int count)
 {
    threadCount = count;
@@ -140,10 +123,6 @@ bool ZeroMQContext::setEnableIPV6(bool enable)
    enableIPV6 = enable ? 1 : 0;
    return true;
 }
-
-//------------------------------------------------------------------------------
-// Set slot functions
-//------------------------------------------------------------------------------
 
 // threadCount: Integer containing the I/O thread count
 bool ZeroMQContext::setSlotThreadCount(const base::Integer* const msg)
@@ -169,17 +148,11 @@ bool ZeroMQContext::setSlotEnableIPV6(const base::Boolean* const msg)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* ZeroMQContext::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& ZeroMQContext::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -220,4 +193,3 @@ std::ostream& ZeroMQContext::serialize(std::ostream& sout, const int i, const bo
 
 }
 }
-

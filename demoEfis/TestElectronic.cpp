@@ -1,3 +1,4 @@
+
 #include "TestElectronic.h"
 #include "navdefs.h"
 
@@ -7,18 +8,12 @@
 
 #include <cmath>
 
-namespace oe {
-namespace demo {
-
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestElectronic,"TestElectronic")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestElectronic, "TestElectronic")
 EMPTY_SERIALIZER(TestElectronic)
+EMPTY_DELETEDATA(TestElectronic)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestElectronic::TestElectronic()
 {
-
     STANDARD_CONSTRUCTOR()
     // compass heading and heading bug
     heading = 0.0;
@@ -124,9 +119,6 @@ TestElectronic::TestElectronic()
     toFromSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestElectronic::copyData(const TestElectronic& org, const bool)
 {
     // copy our baseclass stuff first
@@ -233,11 +225,6 @@ void TestElectronic::copyData(const TestElectronic& org, const bool)
     toFromSD.empty();
 }
 
-EMPTY_DELETEDATA(TestElectronic)
-
-//------------------------------------------------------------------------------
-// updateTestValues() -- update our test data
-//------------------------------------------------------------------------------
 void TestElectronic::updateTestValues(const double dt)
 {
     // heading and heading bug
@@ -405,9 +392,6 @@ void TestElectronic::updateTestValues(const double dt)
     //navSource = SECONDARY;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestElectronic::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -417,17 +401,17 @@ void TestElectronic::updateData(const double dt)
     // current heading / current heading bug
     {
         // max rate here is 120 degs / second
-        double delta = base::alim(base::Angle::aepcdDeg(heading - curHdg), 120 * dt);
-        curHdg = base::Angle::aepcdDeg(curHdg + delta);
+        double delta = oe::base::alim(oe::base::Angle::aepcdDeg(heading - curHdg), 120 * dt);
+        curHdg = oe::base::Angle::aepcdDeg(curHdg + delta);
 
         // now figure our heading bug
-        delta = base::alim(base::Angle::aepcdDeg(headingBug - curBug), 120 * dt);
-        curBug = base::Angle::aepcdDeg(curBug + delta);
+        delta = oe::base::alim(oe::base::Angle::aepcdDeg(headingBug - curBug), 120 * dt);
+        curBug = oe::base::Angle::aepcdDeg(curBug + delta);
 
         if (navMode == ARC_MODE) {
             // we either move it to the left or right, depending on how far
             // off our slew is.
-            double diff = base::Angle::aepcdDeg(curHdg - curBug);
+            double diff = oe::base::Angle::aepcdDeg(curHdg - curBug);
             double moveX = -1.8f;
             if (diff >= -36 && diff < 36) {
                 if (diff > 0) moveX = 1.53;
@@ -450,7 +434,7 @@ void TestElectronic::updateData(const double dt)
         // are we a distance type or DME type?
         bool distType = true;   // initial type is DME
         bool distVis = true;    // initial visibility is true
-        double curDist = base::alim(dist, 999.9);    // current distance to DME
+        double curDist = oe::base::alim(dist, 999.9);    // current distance to DME
 
         if (navSource == PRIMARY) {
             // valid DME makes our label visible
@@ -479,13 +463,13 @@ void TestElectronic::updateData(const double dt)
         double tempCourse = 0.0;
         // primary nav course
         if (navSource == PRIMARY) {
-            curIntCourse = base::nint(course);
+            curIntCourse = oe::base::nint(course);
             tempCDI = cdi;
             tempCourse = course;
         }
         // secondary nav course
         else {
-            curIntCourse = base::nint(secCourse);
+            curIntCourse = oe::base::nint(secCourse);
             tempCDI = secCdi;
             tempCourse = secCourse;
         }
@@ -495,15 +479,15 @@ void TestElectronic::updateData(const double dt)
         send("course", UPDATE_VALUE, curIntCourse, courseSD);
 
         // here is the course deviation
-        double delta = base::alim (base::Angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
-        curCdi = base::alim (curCdi + delta, 2.0);
+        double delta = oe::base::alim (oe::base::Angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
+        curCdi = oe::base::alim (curCdi + delta, 2.0);
 
         // now find our inches to translate the cdi
         double cdiInch = curCdi * 0.43f;
 
         // now figure our course slew
-        delta = base::alim(base::Angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
-        curCourse = (base::Angle::aepcdDeg(curCourse + delta));
+        delta = oe::base::alim(oe::base::Angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
+        curCourse = (oe::base::Angle::aepcdDeg(curCourse + delta));
 
         // ok, do our color determination for the course pointer - primary first
         if (navSource == PRIMARY) {
@@ -516,7 +500,7 @@ void TestElectronic::updateData(const double dt)
             send("primarycoursepointer", UPDATE_VALUE6, heading - curCourse, crsPntrSD);
 
             // course pointer color
-            base::String* string = new base::String("white");
+            oe::base::String* string = new oe::base::String("white");
             if (navType == VORTAC) {
                 if ((vhfReceive && !(vhfDIC || vhfLGS)) || (vhfLocValid && vhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
@@ -540,7 +524,7 @@ void TestElectronic::updateData(const double dt)
             send("secondarycoursepointer", UPDATE_VALUE2, curCourse - heading, secCrsPntrSD);
 
             // course pointer color
-            base::String* string = new base::String("white");
+            oe::base::String* string = new oe::base::String("white");
             if (secNavType == VORTAC) {
                 if ((secVhfReceive && !(secVhfDIC || secVhfLGS)) || (secVhfLocValid && secVhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
@@ -579,7 +563,7 @@ void TestElectronic::updateData(const double dt)
         }
         // true air speed
         else if (readoutMode == ND_TAS) {
-            int curTAS = base::nintd(trueAirSpeed * base::LinearVelocity::FPS2KTSCC);
+            int curTAS = oe::base::nintd(trueAirSpeed * oe::base::LinearVelocity::FPS2KTSCC);
             send("trueairspeed", UPDATE_VALUE, curTAS, trueAirSpeedSD);
         }
         // elapsed time
@@ -630,7 +614,7 @@ void TestElectronic::updateData(const double dt)
 
     // glide slope
     {
-        double gsDev = static_cast<double>(base::alim (gsDots, 2.1f) * 0.35f);
+        double gsDev = static_cast<double>(oe::base::alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
 
@@ -687,11 +671,11 @@ void TestElectronic::updateData(const double dt)
     // TO / FROM arrow - HSI mode only
     {
         double toFrom = 0;
-        if (navSource == PRIMARY) toFrom = 1 - std::fabs(base::Angle::aepcdDeg(bearing - course)) / 90;
-        else toFrom = 1 - std::fabs(base::Angle::aepcdDeg(secBearing - secCourse)) / 90;
+        if (navSource == PRIMARY) toFrom = 1 - std::fabs(oe::base::Angle::aepcdDeg(bearing - course)) / 90;
+        else toFrom = 1 - std::fabs(oe::base::Angle::aepcdDeg(secBearing - secCourse)) / 90;
 
-        double delta = base::alim(toFrom - curToFrom, dt);
-        curToFrom = base::alim(curToFrom + delta, 0.65);
+        double delta = oe::base::alim(toFrom - curToFrom, dt);
+        curToFrom = oe::base::alim(curToFrom + delta, 0.65);
 
         // if we are positive, we are to, negative, from
         bool whichToFrom = (curToFrom > 0);
@@ -700,7 +684,4 @@ void TestElectronic::updateData(const double dt)
         // now send down where to translate
         send("tofrom", UPDATE_VALUE2, curToFrom, toFromSD);
     }
-}
-
-}
 }

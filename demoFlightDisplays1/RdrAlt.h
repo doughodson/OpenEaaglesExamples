@@ -1,3 +1,12 @@
+
+#ifndef __oe_demo_RdrAlt_H__
+#define __oe_demo_RdrAlt_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
+namespace oe {
+namespace demo {
+
 //------------------------------------------------------------------------------
 // Class: RdrAlt
 //
@@ -8,14 +17,6 @@
 //      UPDATE_VALUE  -> actual radar alt
 //      UPDATE_VALUE2 -> minimum radar alt
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_RdrAlt_H__
-#define __oe_demo_RdrAlt_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace demo {
-
 class RdrAlt : public graphics::Graphic
 {
     DECLARE_SUBCLASS(RdrAlt,graphics::Graphic)

@@ -1,7 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Random
-// Description: Generates Random Numbers
-//------------------------------------------------------------------------------
+
 #ifndef __Random_H__
 #define __Random_H__
 
@@ -11,6 +8,10 @@ namespace oe {
 namespace base { class Number; }
 }
 
+//------------------------------------------------------------------------------
+// Class: Random
+// Description: Generates Random Numbers
+//------------------------------------------------------------------------------
 class Random : public oe::base::Object
 {
    DECLARE_SUBCLASS(Random, oe::base::Object)

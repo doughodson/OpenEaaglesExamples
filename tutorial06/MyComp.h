@@ -1,7 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: MyComp
-// Description: example class
-//------------------------------------------------------------------------------
+
 #ifndef __MyComp_H__
 #define __MyComp_H__
 
@@ -11,6 +8,10 @@ namespace oe {
 namespace base { class String; }
 }
 
+//------------------------------------------------------------------------------
+// Class: MyComp
+// Description: example class
+//------------------------------------------------------------------------------
 class MyComp : public oe::base::Component
 {
    DECLARE_SUBCLASS(MyComp, oe::base::Component)

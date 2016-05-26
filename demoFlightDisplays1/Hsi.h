@@ -1,3 +1,12 @@
+
+#ifndef __oe_demo_Hsi_H__
+#define __oe_demo_Hsi_H__
+
+#include "openeaagles/graphics/Rotators.h"
+
+namespace oe {
+namespace demo {
+
 //------------------------------------------------------------------------------
 // Class: Hsi
 //
@@ -11,14 +20,6 @@
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_Hsi_H__
-#define __oe_demo_Hsi_H__
-
-#include "openeaagles/graphics/Rotators.h"
-
-namespace oe {
-namespace demo {
-
 class Hsi : public graphics::Rotators
 {
     DECLARE_SUBCLASS(Hsi,graphics::Rotators)
@@ -73,4 +74,3 @@ private:
 }
 
 #endif
-

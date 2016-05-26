@@ -1,7 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Exponential
-// Description: Generates Random Numbers
-//------------------------------------------------------------------------------
+
 #ifndef __Exp_H__
 #define __Exp_H__
 
@@ -11,6 +8,10 @@ namespace oe {
 namespace base { class Number; }
 }
 
+//------------------------------------------------------------------------------
+// Class: Exponential
+// Description: Generates Random Numbers
+//------------------------------------------------------------------------------
 class Exp : public Random
 {
    DECLARE_SUBCLASS(Exp, Random)

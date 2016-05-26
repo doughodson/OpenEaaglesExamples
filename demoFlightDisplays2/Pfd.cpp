@@ -1,3 +1,4 @@
+
 #include "Pfd.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/units/Distances.h"
@@ -12,10 +13,8 @@ namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
+EMPTY_DELETEDATA(Pfd)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Pfd::Pfd()
 {
     STANDARD_CONSTRUCTOR()
@@ -93,9 +92,6 @@ Pfd::Pfd()
     pitchGhostSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void Pfd::copyData(const Pfd& org, const bool)
 {
     // Always copy base class stuff first
@@ -122,17 +118,6 @@ void Pfd::copyData(const Pfd& org, const bool)
     gLoad = org.gLoad;
     mach = org.mach;
 }
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void Pfd::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// Set functions --
-//------------------------------------------------------------------------------
 
 bool Pfd::setPitchDeg(const double newP)
 {
@@ -278,9 +263,6 @@ bool Pfd::setGLoad(const double newLoad)
     return true;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void Pfd::updateData(const double dt)
 {
     // update our BaseClass

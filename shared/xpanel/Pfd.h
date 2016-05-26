@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Pfd
-//
-// Description: Tests the pfd.
-//------------------------------------------------------------------------------
+
 #ifndef __oe_xpanel_Pfd_H__
 #define __oe_xpanel_Pfd_H__
 
@@ -12,6 +8,11 @@
 namespace oe {
 namespace xpanel {
 
+//------------------------------------------------------------------------------
+// Class: Pfd
+//
+// Description: Tests the pfd.
+//------------------------------------------------------------------------------
 class Pfd : public graphics::Page
 {
    DECLARE_SUBCLASS(Pfd, graphics::Page)
@@ -171,4 +172,3 @@ private:
 }
 
 #endif
-

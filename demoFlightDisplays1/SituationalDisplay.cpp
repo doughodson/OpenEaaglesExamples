@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SituationalDisplay
-//------------------------------------------------------------------------------
+
 #include "SituationalDisplay.h"
 #include <cstring>
 
@@ -12,12 +10,10 @@
 namespace oe {
 namespace demo {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(SituationalDisplay,"SituationalDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(SituationalDisplay, "SituationalDisplay")
 EMPTY_SERIALIZER(SituationalDisplay)
+EMPTY_DELETEDATA(SituationalDisplay)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SituationalDisplay::SituationalDisplay()
 {
     STANDARD_CONSTRUCTOR()
@@ -66,9 +62,6 @@ SituationalDisplay::SituationalDisplay()
     headingCRSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
 {
     // Always copy base class stuff first
@@ -115,16 +108,6 @@ void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
     headingCRSD.empty();
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void SituationalDisplay::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// set functions
-//------------------------------------------------------------------------------
 bool SituationalDisplay::setReferenceLat(const double newL)
 {
     refLat = newL;
@@ -216,9 +199,6 @@ bool SituationalDisplay::getNav2Id(const int index, char* newString)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void SituationalDisplay::updateData(const double dt)
 {
     // update our BaseClass

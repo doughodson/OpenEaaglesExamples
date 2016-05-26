@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: DataRecorder
-//------------------------------------------------------------------------------
+
 #ifndef __oe_xrecorder_DataRecorder_H__
 #define __oe_xrecorder_DataRecorder_H__
 
@@ -15,7 +13,6 @@ namespace xrecorder {
 //
 // Factory name: XDataRecorder
 //
-//------------------------------------------------------------------------------
 // Recorder events handled ---
 //
 // -- new handlers --
@@ -52,4 +49,3 @@ private:
 }
 
 #endif
-

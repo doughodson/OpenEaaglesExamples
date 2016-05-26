@@ -1,7 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Uniform
-// Description: Generates Random Numbers
-//------------------------------------------------------------------------------
+
 #ifndef __Uniform_H__
 #define __Uniform_H__
 
@@ -11,6 +8,10 @@ namespace oe {
 namespace base   { class Number; }
 }
 
+//------------------------------------------------------------------------------
+// Class: Uniform
+// Description: Generates Random Numbers
+//------------------------------------------------------------------------------
 class Uniform : public Random
 {
    DECLARE_SUBCLASS(Uniform, Random)

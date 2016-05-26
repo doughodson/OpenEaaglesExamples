@@ -1,17 +1,17 @@
-//------------------------------------------------------------------------------
-// Class: MyObj
-// Description: example class
-//------------------------------------------------------------------------------
+
 #ifndef __MyObj_H__
 #define __MyObj_H__
 
 #include "openeaagles/base/Object.h"
 
 namespace oe {
-namespace base { class PairStream; class List; class String;
-                  class Number; class Identifier; }
+namespace base { class PairStream; class List; class String; class Number; class Identifier; }
 }
 
+//------------------------------------------------------------------------------
+// Class: MyObj
+// Description: example class
+//------------------------------------------------------------------------------
 class MyObj : public oe::base::Object
 {
   DECLARE_SUBCLASS(MyObj, oe::base::Object)

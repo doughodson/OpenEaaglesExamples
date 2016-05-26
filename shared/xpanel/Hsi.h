@@ -1,3 +1,12 @@
+
+#ifndef __oe_xpanel_Hsi_H__
+#define __oe_xpanel_Hsi_H__
+
+#include "openeaagles/graphics/Rotators.h"
+
+namespace oe {
+namespace xpanel {
+
 //------------------------------------------------------------------------------
 // Class: Hsi
 //
@@ -11,14 +20,6 @@
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
-#ifndef __oe_xpanel_Hsi_H__
-#define __oe_xpanel_Hsi_H__
-
-#include "openeaagles/graphics/Rotators.h"
-
-namespace oe {
-namespace xpanel {
-
 class Hsi : public graphics::Rotators
 {
     DECLARE_SUBCLASS(Hsi,graphics::Rotators)
@@ -73,4 +74,3 @@ private:
 }
 
 #endif
-

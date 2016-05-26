@@ -10,9 +10,6 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd,"TestPfd")
 EMPTY_SERIALIZER(TestPfd)
 EMPTY_DELETEDATA(TestPfd)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestPfd::TestPfd()
 {
     STANDARD_CONSTRUCTOR()
@@ -70,9 +67,6 @@ TestPfd::TestPfd()
     baroRate = 10.0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void TestPfd::copyData(const TestPfd& org, const bool)
 {
     // Always copy base class stuff first
@@ -129,9 +123,6 @@ void TestPfd::copyData(const TestPfd& org, const bool)
     baroRate = org.baroRate;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void TestPfd::updateData(const double dt)
 {
     // update our BaseClass
@@ -305,4 +296,3 @@ void TestPfd::updateData(const double dt)
 
 }
 }
-

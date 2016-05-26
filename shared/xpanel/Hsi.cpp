@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Hsi
-//------------------------------------------------------------------------------
+
 #include "Hsi.h"
 
 namespace oe {
@@ -8,19 +6,17 @@ namespace xpanel {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
 EMPTY_SERIALIZER(Hsi)
+EMPTY_DELETEDATA(Hsi)
 
 BEGIN_EVENT_HANDLER(Hsi)
-    ON_EVENT_OBJ(UPDATE_VALUE3, onUpdateSelHdgHsi, base::Number)    
-    ON_EVENT_OBJ(UPDATE_VALUE4, onUpdateSelCrsHsi, base::Number)    
-    ON_EVENT_OBJ(UPDATE_VALUE5, onUpdateNav1BrgHsi, base::Number)    
-    ON_EVENT_OBJ(UPDATE_VALUE6, onUpdateNav2BrgHsi, base::Number)    
-    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsHsi, base::Number)    
-    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromHsi, base::Number)    
+    ON_EVENT_OBJ(UPDATE_VALUE3, onUpdateSelHdgHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE4, onUpdateSelCrsHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE5, onUpdateNav1BrgHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE6, onUpdateNav2BrgHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsHsi, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromHsi, base::Number)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Hsi::Hsi()
 {
     STANDARD_CONSTRUCTOR()
@@ -34,16 +30,13 @@ Hsi::Hsi()
     nav1Brg = 0;
     nav2Brg = 0;
     nav1BrgSD.empty();
-    nav2BrgSD.empty();    
+    nav2BrgSD.empty();
     selHdgROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Hsi::copyData(const Hsi& org, const bool)
 {
-    BaseClass::copyData(org);    
+    BaseClass::copyData(org);
     selHdg = org.selHdg;
     selCrs = org.selCrs;
     selCrsSD.empty();
@@ -54,20 +47,10 @@ void Hsi::copyData(const Hsi& org, const bool)
     nav1Brg = org.nav1Brg;
     nav2Brg = org.nav2Brg;
     nav1BrgSD.empty();
-    nav2BrgSD.empty();    
+    nav2BrgSD.empty();
     selHdgROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void Hsi::deleteData()
-{
-}
-    
-//------------------------------------------------------------------------------
-// set functions
-//------------------------------------------------------------------------------
 bool Hsi::setSelectedHeading(const double newSH)
 {
     selHdg = newSH;
@@ -142,24 +125,20 @@ bool Hsi::onUpdateToFromHsi(const base::Number* const x)
     return ok;
 }
 
-
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void Hsi::updateData(const double dt)
 {
     // update our baseclass first
     BaseClass::updateData(dt);
-        
+
     // send our data down to our primary course pointer
     send("pricrsptr", UPDATE_VALUE2, selCrs, selCrsSD);
     send("pricrsptr", UPDATE_VALUE3, cdiDots, cdiDotsSD);
     send("pricrsptr", UPDATE_VALUE4, toFrom, toFromSD);
-        
+
     // send our data down to our bearing pointers
     send("nav1brgptr", UPDATE_VALUE2, nav1Brg, nav1BrgSD);
     send("nav2brgptr", UPDATE_VALUE2, nav2Brg, nav2BrgSD);
-    
+
     // send our selected heading it's value (just a rotator)
     send("selhdg", UPDATE_VALUE2, selHdg, selHdgSD);
     send("selhdgro", UPDATE_VALUE, selHdg, selHdgROSD);
@@ -167,4 +146,3 @@ void Hsi::updateData(const double dt)
 
 }
 }
-

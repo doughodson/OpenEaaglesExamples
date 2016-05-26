@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TdElevPtr
-//------------------------------------------------------------------------------
+
 #include "TdElevPtr.h"
 #include "openeaagles/base/Number.h"
 #include "openeaagles/base/units/Angles.h"
@@ -13,7 +11,7 @@ EMPTY_SERIALIZER(TdElevPtr)
 EMPTY_DELETEDATA(TdElevPtr)
 
 BEGIN_EVENT_HANDLER(TdElevPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)   
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)
 END_EVENT_HANDLER()
 
 
@@ -76,4 +74,3 @@ void TdElevPtr::draw()
 
 }
 }
-

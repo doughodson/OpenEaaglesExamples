@@ -1,3 +1,4 @@
+
 #include "Hsi.h"
 
 namespace oe {
@@ -15,9 +16,6 @@ BEGIN_EVENT_HANDLER(Hsi)
     ON_EVENT_OBJ(USER_EVENTS + 3, onUpdateToFromHsi, base::Number)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Hsi::Hsi()
 {
     STANDARD_CONSTRUCTOR()
@@ -35,9 +33,6 @@ Hsi::Hsi()
     selHdgROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Hsi::copyData(const Hsi& org, const bool)
 {
     BaseClass::copyData(org);
@@ -163,4 +158,3 @@ void Hsi::updateData(const double dt)
 
 }
 }
-

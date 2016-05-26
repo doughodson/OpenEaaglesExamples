@@ -1,9 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Pfd
-//
-// Description: Sends data down to the Pfd
-// Inputs: Use public member functions instead of send commands here
-//------------------------------------------------------------------------------
+
 #ifndef __oe_demo_Pfd_H__
 #define __oe_demo_Pfd_H__
 
@@ -13,6 +8,12 @@
 namespace oe {
 namespace demo {
 
+//------------------------------------------------------------------------------
+// Class: Pfd
+//
+// Description: Sends data down to the Pfd
+// Inputs: Use public member functions instead of send commands here
+//------------------------------------------------------------------------------
 class Pfd : public graphics::Page
 {
    DECLARE_SUBCLASS(Pfd,graphics::Page)
@@ -261,4 +262,3 @@ private:
 }
 
 #endif
-

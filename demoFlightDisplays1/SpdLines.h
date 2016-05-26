@@ -1,9 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SpdLines
-//
-// Description: Draws the lines for the airspeed graphic
-// Inputs:  Slots only
-//------------------------------------------------------------------------------
+
 #ifndef __oe_demo_SpdLines_H__
 #define __oe_demo_SpdLines_H__
 
@@ -12,6 +7,12 @@
 namespace oe {
 namespace demo {
 
+//------------------------------------------------------------------------------
+// Class: SpdLines
+//
+// Description: Draws the lines for the airspeed graphic
+// Inputs:  Slots only
+//------------------------------------------------------------------------------
 class SpdLines : public graphics::Graphic
 {
     DECLARE_SUBCLASS(SpdLines,graphics::Graphic)
@@ -43,4 +44,3 @@ private:
 }
 
 #endif
-

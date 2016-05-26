@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestSD
-//
-// Description: Sends test data down to the situational display
-//------------------------------------------------------------------------------
+
 #ifndef __oe_demo_TestSD_H__
 #define __oe_demo_TestSD_H__
 
@@ -11,6 +7,11 @@
 namespace oe {
 namespace demo {
 
+//------------------------------------------------------------------------------
+// Class: TestSD
+//
+// Description: Sends test data down to the situational display
+//------------------------------------------------------------------------------
 class TestSD : public graphics::Page
 {
    DECLARE_SUBCLASS(TestSD, graphics::Page )
@@ -67,4 +68,3 @@ private:
 }
 
 #endif
-

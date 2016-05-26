@@ -1,3 +1,4 @@
+
 #include "CrsPntr.h"
 #include "openeaagles/base/Number.h"
 #include "openeaagles/base/units/Angles.h"
@@ -285,4 +286,3 @@ base::Object* CrsPntr::getSlotByIndex(const int si)
 
 }
 }
-

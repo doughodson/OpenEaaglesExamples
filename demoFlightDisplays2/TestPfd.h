@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestPfd
-//
-// Description: Tests another pfd page
-//------------------------------------------------------------------------------
+
 #ifndef __oe_demo_TestPfd_H__
 #define __oe_demo_TestPfd_H__
 
@@ -11,6 +7,11 @@
 namespace oe {
 namespace demo {
 
+//------------------------------------------------------------------------------
+// Class: TestPfd
+//
+// Description: Tests another pfd page
+//------------------------------------------------------------------------------
 class TestPfd : public graphics::Page
 {
    DECLARE_SUBCLASS(TestPfd, graphics::Page )
@@ -78,4 +79,3 @@ private:
 }
 
 #endif
-

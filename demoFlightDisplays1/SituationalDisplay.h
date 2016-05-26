@@ -1,8 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SituationalDisplay
-//
-// Description: Situational Display
-//------------------------------------------------------------------------------
+
 #ifndef __oe_demo_SituationalDisplay_H__
 #define __oe_demo_SituationalDisplay_H__
 
@@ -11,6 +7,11 @@
 namespace oe {
 namespace demo {
 
+//------------------------------------------------------------------------------
+// Class: SituationalDisplay
+//
+// Description: Situational Display
+//------------------------------------------------------------------------------
 class SituationalDisplay : public graphics::Page
 {
    DECLARE_SUBCLASS(SituationalDisplay,graphics::Page)
@@ -100,4 +101,3 @@ private:
 }
 
 #endif
-

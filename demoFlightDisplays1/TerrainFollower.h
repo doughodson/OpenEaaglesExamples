@@ -1,3 +1,12 @@
+
+#ifndef __oe_demo_TerrainFollower_H__
+#define __oe_demo_TerrainFollower_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
+namespace oe {
+namespace demo {
+
 //------------------------------------------------------------------------------
 // Class: TerrainFollower
 //
@@ -11,14 +20,6 @@
 //      UPDATE_VALUE4 -> viewable width on screen (inches
 //      The list of points is sent in as an double array
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TerrainFollower_H__
-#define __oe_demo_TerrainFollower_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace demo {
-
 class TerrainFollower : public graphics::Graphic
 {
     DECLARE_SUBCLASS(TerrainFollower,graphics::Graphic)
@@ -79,4 +80,3 @@ private:
 }
 
 #endif
-

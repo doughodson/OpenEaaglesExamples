@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: DataRecorder
-//------------------------------------------------------------------------------
+
 #include "DataRecorder.h"
 #include "protobuf/DataRecord.pb.h"
 #include "dataRecorderTokens.h"
@@ -21,9 +19,6 @@ BEGIN_RECORDER_HANDLER_TABLE(DataRecorder)
    ON_RECORDER_EVENT_ID( REID_MY_DATA_EVENT,   recordMyData )
 END_RECORDER_HANDLER_TABLE()
 
-//------------------------------------------------------------------------------
-// Constructor
-//------------------------------------------------------------------------------
 DataRecorder::DataRecorder()
 {
    STANDARD_CONSTRUCTOR()
@@ -34,9 +29,6 @@ void DataRecorder::initData()
 {
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void DataRecorder::copyData(const DataRecorder& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -53,7 +45,7 @@ bool DataRecorder::recordMyData(const base::Object* objs[4], const double values
 {
    //const simulation::Player* player = dynamic_cast<const simulation::Player*>( objs[0] );
    recorder::pb::DataRecord* msg = new recorder::pb::DataRecord();
-   
+
    // DataRecord header
    timeStamp(msg);
    msg->set_id( REID_MY_DATA_EVENT );
@@ -70,7 +62,6 @@ bool DataRecorder::recordMyData(const base::Object* objs[4], const double values
    return true;
 }
 
-
 //------------------------------------------------------------------------------
 // (Overloaded) Marker event handler
 //    value[0] => marker ID
@@ -81,7 +72,7 @@ bool DataRecorder::recordMarker(const base::Object* objs[4], const double values
 {
    //const simulation::Player* player = dynamic_cast<const simulation::Player*>( objs[0] );
    recorder::pb::DataRecord* msg = new recorder::pb::DataRecord();
-   
+
    // DataRecord header
    timeStamp(msg);
    msg->set_id( REID_MARKER );
@@ -102,4 +93,3 @@ bool DataRecorder::recordMarker(const base::Object* objs[4], const double values
 
 }
 }
-

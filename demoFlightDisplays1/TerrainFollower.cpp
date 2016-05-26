@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: TerrainFollower
-//------------------------------------------------------------------------------
 
 #define TEST_ONE
 //#define TEST_ALT
@@ -14,6 +11,7 @@ namespace demo {
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TerrainFollower, "TerrainFollower")
 EMPTY_SERIALIZER(TerrainFollower)
+EMPTY_DELETEDATA(TerrainFollower)
 
 // Event handler
 BEGIN_EVENT_HANDLER(TerrainFollower)
@@ -23,9 +21,6 @@ BEGIN_EVENT_HANDLER(TerrainFollower)
     ON_EVENT_OBJ(UPDATE_VALUE4, onEventSetViewWidthTerrainFollower, base::Number)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TerrainFollower::TerrainFollower()
 {
     STANDARD_CONSTRUCTOR()
@@ -153,10 +148,6 @@ TerrainFollower::TerrainFollower()
     timerRate = 0.5;
 }
 
-
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void TerrainFollower::copyData(const TerrainFollower& org, const bool)
 {
     // always copy baseclass stuff FIRST
@@ -185,14 +176,7 @@ void TerrainFollower::copyData(const TerrainFollower& org, const bool)
 }
 
 //------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void TerrainFollower::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// testElevPoints() - shifts all the points to the left
+// shifts all the points to the left
 //------------------------------------------------------------------------------
 void TerrainFollower::testElevPoints()
 {
@@ -208,27 +192,30 @@ void TerrainFollower::testElevPoints()
 
 }
 
-// set functions
 bool TerrainFollower::setPlaneAlt(const double newAlt)
 {
     planeAlt = newAlt;
     return true;
 }
+
 bool TerrainFollower::setScanRange(const double newR)
 {
     range = newR;
     return true;
 }
+
 bool TerrainFollower::setViewHeight(const double newH)
 {
     height = newH;
     return true;
 }
+
 bool TerrainFollower::setViewWidth(const double newW)
 {
     width = newW;
     return true;
 }
+
 bool TerrainFollower::setElevPts(const int num, const double newEPts[])
 {
     bool ok = false;
@@ -267,9 +254,6 @@ bool TerrainFollower::onEventSetViewWidthTerrainFollower(const base::Number* con
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// drawFunc() -- draws the object(s)
-//------------------------------------------------------------------------------
 void TerrainFollower::drawFunc()
 {
     GLfloat ocolor[4];
@@ -379,9 +363,6 @@ void TerrainFollower::drawFunc()
     glColor4fv(ocolor);
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void TerrainFollower::updateData(const double dt)
 {
     // update our Baseclass first
@@ -452,4 +433,3 @@ void TerrainFollower::updateData(const double dt)
 
 }
 }
-

@@ -3,19 +3,14 @@
 
 #include "openeaagles/base/units/Angles.h"
 
-namespace oe {
-namespace demo {
-
 // static slew rates
 const double TestMechanical::T1 = 120;
 const double TestMechanical::T2 = 0.40f;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestMechanical, "TestMechanical")
 EMPTY_SERIALIZER(TestMechanical)
+EMPTY_DELETEDATA(TestMechanical)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestMechanical::TestMechanical()
 {
     STANDARD_CONSTRUCTOR()
@@ -88,10 +83,6 @@ TestMechanical::TestMechanical()
     curRotSD.empty();
 }
 
-
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestMechanical::copyData(const TestMechanical& org, const bool)
 {
     BaseClass::copyData(org);
@@ -166,12 +157,6 @@ void TestMechanical::copyData(const TestMechanical& org, const bool)
     curRotSD.empty();
 }
 
-EMPTY_DELETEDATA(TestMechanical)
-
-
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestMechanical::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -370,7 +355,7 @@ void TestMechanical::updateData(const double dt)
 
     // Roll indicator
     // we have to roll negative in order to keep with the adi
-    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * base::Angle::D2RCC), rollIndSD);
+    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * oe::base::Angle::D2RCC), rollIndSD);
 
     // send our visibility data down (for failure flags)
     send("rtfail", SET_VISIBILITY, rtFail, rtFailSD);
@@ -380,7 +365,3 @@ void TestMechanical::updateData(const double dt)
     send("rwfail", SET_VISIBILITY, rwFail, rwFailSD);
     send("sdevfail", SET_VISIBILITY, sdFail, sdFailSD);
 }
-
-}
-}
-

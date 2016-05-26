@@ -1,19 +1,17 @@
+
+#ifndef __TestElectronic_H__
+#define __TestElectronic_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestElectronic
 //
 // Description: Rockwell-Collins Efis test page to stimulate arc mode.
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestElectronic_H__
-#define __oe_demo_TestElectronic_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestElectronic : public graphics::Page
+class TestElectronic : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestElectronic, graphics::Page)
+   DECLARE_SUBCLASS(TestElectronic, oe::graphics::Page)
 
 public:
     TestElectronic();
@@ -125,8 +123,4 @@ private:
     SendData toFromSD;          // to from translation
 };
 
-}
-}
-
 #endif
-

@@ -1,3 +1,4 @@
+
 #define TEST_ND
 
 #include "TestSD.h"
@@ -20,12 +21,12 @@ static const double refLon =  111.9f;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSD,"TestSD")
 EMPTY_SERIALIZER(TestSD)
+EMPTY_DELETEDATA(TestSD)
 
 // Test event handler
 BEGIN_EVENT_HANDLER(TestSD)
     ON_EVENT('r', onToggleRange)
 END_EVENT_HANDLER()
-
 
 // navaid names
 static const char* navNames[TestSD::MAX_NAV_AIDS] = {
@@ -39,9 +40,6 @@ static const char* apNames[TestSD::MAX_AIRPORTS] = {
     "AP5", "AP6", "AP7", "AP8",
 };
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
@@ -128,9 +126,6 @@ TestSD::TestSD()
     }
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void TestSD::copyData(const TestSD& org, const bool)
 {
     // Always copy base class stuff first
@@ -153,16 +148,6 @@ void TestSD::copyData(const TestSD& org, const bool)
     airportsLoaded = org.airportsLoaded;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void TestSD::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void TestSD::updateData(const double dt)
 {
     // update our BaseClass
@@ -291,4 +276,3 @@ bool TestSD::onToggleRange()
 
 }
 }
-

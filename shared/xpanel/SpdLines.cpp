@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SpdLines
-//------------------------------------------------------------------------------
+
 #include "SpdLines.h"
 #include "openeaagles/base/Number.h"
 
@@ -24,18 +22,12 @@ BEGIN_EVENT_HANDLER(SpdLines)
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, base::Number)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SpdLines::SpdLines()
 {
     STANDARD_CONSTRUCTOR()
     isAlt = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void SpdLines::copyData(const SpdLines& org, const bool)
 {
     // copy baseclass stuff first
@@ -47,12 +39,12 @@ void SpdLines::copyData(const SpdLines& org, const bool)
 // drawFunc() - draw our objects
 //------------------------------------------------------------------------------
 void SpdLines::drawFunc()
-{    
+{
     GLfloat ocolor[4];
     GLfloat lw;
     glGetFloatv(GL_CURRENT_COLOR, ocolor);
     glGetFloatv(GL_LINE_WIDTH, &lw);
-    
+
     BEGIN_DLIST
 
         if (!isAlt) {
@@ -136,9 +128,9 @@ void SpdLines::drawFunc()
                     glVertex2f(0.879f, 1500);
                 glEnd();
             glPopMatrix();
-        }        
-    END_DLIST  
-      
+        }
+    END_DLIST
+
     glColor4fv(ocolor);
     glLineWidth(lw);
 }
@@ -163,7 +155,7 @@ bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 base::Object* SpdLines::getSlotByIndex(const int si)
 {
@@ -172,4 +164,3 @@ base::Object* SpdLines::getSlotByIndex(const int si)
 
 }
 }
-

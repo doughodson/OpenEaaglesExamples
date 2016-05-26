@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: PriorityArbiter
-//------------------------------------------------------------------------------
+
 #ifndef __oe_xbehaviors_PriorityArbiter_H__
 #define __oe_xbehaviors_PriorityArbiter_H__
 
@@ -39,4 +37,3 @@ private:
 }
 
 #endif
-

@@ -1,10 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SpdLines
-//
-// Description: Draws the lines for the airspeed graphic
-// Inputs:
-//      UPDATE_VALUE  -> altitude flag on or off
-//------------------------------------------------------------------------------
+
 #ifndef __oe_demo_SpdLines_H__
 #define __oe_demo_SpdLines_H__
 
@@ -13,6 +7,13 @@
 namespace oe {
 namespace demo {
 
+//------------------------------------------------------------------------------
+// Class: SpdLines
+//
+// Description: Draws the lines for the airspeed graphic
+// Inputs:
+//      UPDATE_VALUE  -> altitude flag on or off
+//------------------------------------------------------------------------------
 class SpdLines : public graphics::Graphic
 {
     DECLARE_SUBCLASS(SpdLines, graphics::Graphic)
@@ -43,4 +44,3 @@ private:
 }
 
 #endif
-
