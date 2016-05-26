@@ -4,36 +4,24 @@
 #include "openeaagles/base/osg/Matrix"
 #include "openeaagles/base/units/Angles.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_SUBCLASS(SimPlayer, "SimPlayer")
 EMPTY_DELETEDATA(SimPlayer)
 EMPTY_COPYDATA(SimPlayer)
 EMPTY_SLOTTABLE(SimPlayer)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SimPlayer::SimPlayer()
 {
     STANDARD_CONSTRUCTOR()
 
-    static base::String generic("Sim");
+    static oe::base::String generic("Sim");
     setType(&generic);
 }
 
-//------------------------------------------------------------------------------
-// reset() --
-//------------------------------------------------------------------------------
 void SimPlayer::reset()
 {
     BaseClass::reset();
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& SimPlayer::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
     using namespace std;
@@ -54,7 +42,3 @@ std::ostream& SimPlayer::serialize(std::ostream& sout, const int i, const bool s
 
     return sout;
 }
-
-}
-}
-

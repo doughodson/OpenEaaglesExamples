@@ -13,12 +13,10 @@
 #include "openeaagles/base/Boolean.h"
 #include <GL/glut.h>
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_SUBCLASS(InstrumentPanel, "InstrumentPanel")
 EMPTY_SERIALIZER(InstrumentPanel)
 EMPTY_SLOTTABLE(InstrumentPanel)
+EMPTY_DELETEDATA(InstrumentPanel)
 
 // Event() map
 BEGIN_EVENT_HANDLER(InstrumentPanel)
@@ -29,66 +27,43 @@ BEGIN_EVENT_HANDLER(InstrumentPanel)
    ON_EVENT('+',onStepOwnshipKey)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor
-//------------------------------------------------------------------------------
 InstrumentPanel::InstrumentPanel()
 {
    STANDARD_CONSTRUCTOR()
    myStation = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// copyData() - copies one object to another
-//------------------------------------------------------------------------------
 void InstrumentPanel::copyData(const InstrumentPanel& org, const bool)
 {
    BaseClass::copyData(org);
-
    myStation = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void InstrumentPanel::deleteData()
+oe::simulation::Player* InstrumentPanel::getOwnship()
 {
-   myStation = nullptr;
-}
-
-
-//------------------------------------------------------------------------------
-// Simulation access functions
-//------------------------------------------------------------------------------
-simulation::Player* InstrumentPanel::getOwnship()
-{
-   simulation::Player* p = nullptr;
-   simulation::Station* sta = getStation();
+   oe::simulation::Player* p = nullptr;
+   oe::simulation::Station* sta = getStation();
    if (sta != nullptr) p = sta->getOwnship();
    return p;
 }
 
-simulation::Simulation* InstrumentPanel::getSimulation()
+oe::simulation::Simulation* InstrumentPanel::getSimulation()
 {
-   simulation::Simulation* s = nullptr;
-   simulation::Station* sta = getStation();
+   oe::simulation::Simulation* s = nullptr;
+   oe::simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
-simulation::Station* InstrumentPanel::getStation()
+oe::simulation::Station* InstrumentPanel::getStation()
 {
    if (myStation == nullptr) {
-      simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+      oe::simulation::Station* s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;
 }
 
-
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void InstrumentPanel::updateData(const double dt)
 {
    // update our base class first
@@ -97,7 +72,7 @@ void InstrumentPanel::updateData(const double dt)
    // try to get an Sim3 first.  If that doesn't work, then get a generic air vehicle
    // Get the data from our ownship, if we have a valid one.  Else everything goes to a default value
    // we need to dynamically cast to an AirVehicle* for this instrument panel
-   simulation::AirVehicle* tempOwnship = dynamic_cast<simulation::AirVehicle*>( getOwnship() );
+   oe::simulation::AirVehicle* tempOwnship = dynamic_cast<oe::simulation::AirVehicle*>( getOwnship() );
    if (tempOwnship != nullptr) {
       tempOwnship->ref();
 #if 0
@@ -156,15 +131,15 @@ void InstrumentPanel::updateData(const double dt)
       }
    }
 
-   base::Pair* a = findSubpageByType(typeid(instruments::Eadi3DPage));
+   oe::base::Pair* a = findSubpageByType(typeid(oe::instruments::Eadi3DPage));
    if (a != nullptr) {
-      instruments::Eadi3DPage* eadi = dynamic_cast<instruments::Eadi3DPage*>(a->object());
+      oe::instruments::Eadi3DPage* eadi = dynamic_cast<oe::instruments::Eadi3DPage*>(a->object());
       if (eadi != nullptr) {
          eadi->setAltitude(altitude);
          eadi->setAirspeed(airSpeed);
          eadi->setHeading(heading);
          eadi->setAOA(aoa);
-         eadi->setVVI(-vvi.z() * base::Distance::M2FT * 60.0);
+         eadi->setVVI(-vvi.z() * oe::base::Distance::M2FT * 60.0);
          eadi->setPitch(pitch);
          eadi->setRoll(roll);
          eadi->setMach(mach);
@@ -201,7 +176,7 @@ bool InstrumentPanel::onResetKey()
 bool InstrumentPanel::onFreezeKey()
 {
    if ( getSimulation() != nullptr ) {
-      base::Boolean newFrz( !getSimulation()->isFrozen() );
+      oe::base::Boolean newFrz( !getSimulation()->isFrozen() );
       getSimulation()->event(FREEZE_EVENT, &newFrz);
    }
    return true;
@@ -216,7 +191,3 @@ bool InstrumentPanel::onStepOwnshipKey()
    }
    return true;
 }
-
-}
-}
-

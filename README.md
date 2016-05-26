@@ -9,7 +9,7 @@ Notes
 -----
 
 *  Use makeEdl.bat to generate the example *.edl files under windows, and
-   use 'make edl' to generate the *.edl files under linux. 
+   use 'make edl' to generate the *.edl files under linux.
 
 *  Most of the examples are in the 'Eaagles' namespace.
 
@@ -24,14 +24,13 @@ Demonstration Applications
 * demoFlightDisplays2 -- demo of flight displays
 
 * demoInstruments -- Instrument library demo program
-    1. Contains several test instrument pages 
+    1. Contains several test instrument pages
     2. Use 'n' and 'p' (next and previous) to move between pages
     3. Use ESC to exit
 
 * demoSubDisplays -- Quad subdisplay version of the Instrument Library demo program
-    1. Contains 4 subdisplays, each containing the instrument lib demo 
+    1. Contains 4 subdisplays, each containing the instrument lib demo
     2. See demoInstruments
-
 
 Example Applications
 --------------------
@@ -46,20 +45,17 @@ Example Applications
 
 * mainPuzzle2 -- Another problem solver example (15 block puzzle)
 
-* mainSim1 -- A very simple simulation built with and only with Eaagles classes
+* mainSim1 -- A very simple simulation built with and only with oe classes. Includes a variety of examples.
 
-* mainSim2 -- Same as mainSim1 except multiple vehicles flying routes 
+* mainSim2 -- Same as mainSim2 except the vehicle can be flown with a joystick and supports the JSBSim model
 
-* mainSim3 -- Same as mainSim2 except the vehicle can be flown with a joystick and supports the JSBSim model
+* mainSim3 -- simulation that display all players on a map
 
-* mainSim4 -- simulation that display all players on a map
-
-* mainSim4-qt -- simulation that display all players on a map using a Qt-based GUI
+* mainSim3-qt -- simulation that display all players on a map using a Qt-based GUI
 
 * mainTerrain -- Displays terrain elevation data
 
 * mainUbf1 -- A version of 'mainCockpit' used to test UBF behaviors
-
 
 Example GUI Applications
 ------------------------
@@ -72,8 +68,7 @@ Example GUI Applications
 
 * mainFox2 -- Opens a FOX GUI window and draws a pattern
 
-* mainFox3 -- Opens a FOX GUI window and demostrates animated graphics drawing
-
+* mainFox3 -- Opens a FOX GUI window and demonstrates animated graphics drawing
 
 Test Applications
 -----------------
@@ -147,4 +142,3 @@ Libraries: (the 'x' in library name indicates eXample)
 
 
 [1]: http://www.OpenEaagles.org
-

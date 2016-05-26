@@ -12,25 +12,17 @@
 #include "openeaagles/base/IoData.h"
 #include "openeaagles/base/util/math_utils.h"
 
-namespace oe {
-namespace example {
-
 IMPLEMENT_SUBCLASS(SimIoHandler, "SimIoHandler")
 EMPTY_SLOTTABLE(SimIoHandler)
 EMPTY_SERIALIZER(SimIoHandler)
+EMPTY_DELETEDATA(SimIoHandler)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SimIoHandler::SimIoHandler()
 {
    STANDARD_CONSTRUCTOR()
    initData();
 }
 
-//------------------------------------------------------------------------------
-// initData -- initialize our data for the first time
-//------------------------------------------------------------------------------
 void SimIoHandler::initData()
 {
    rstSw1 = false;
@@ -48,9 +40,6 @@ void SimIoHandler::initData()
    decStptSw1 = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void SimIoHandler::copyData(const SimIoHandler& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -71,16 +60,6 @@ void SimIoHandler::copyData(const SimIoHandler& org, const bool cc)
    decStptSw1 = org.decStptSw1;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void SimIoHandler::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// Handle input devices
-//------------------------------------------------------------------------------
 void SimIoHandler::inputDevices(const double dt)
 {
    BaseClass::inputDevices(dt);
@@ -88,19 +67,19 @@ void SimIoHandler::inputDevices(const double dt)
    // ---
    // get the Input data buffer
    // ---
-   const base::IoData* const inData = getInputData();
+   const oe::base::IoData* const inData = getInputData();
 
    // ---
    // get the Station, Simulation and our ownship player
    // ---
    SimStation* const sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
-   simulation::Simulation* sim = nullptr;
-   simulation::AirVehicle* av = nullptr;
+   oe::simulation::Simulation* sim = nullptr;
+   oe::simulation::AirVehicle* av = nullptr;
 
    if (sta != nullptr) {
       sim = sta->getSimulation();
-      av = dynamic_cast<simulation::AirVehicle*>(sta->getOwnship());
+      av = dynamic_cast<oe::simulation::AirVehicle*>(sta->getOwnship());
    }
 
    // ---
@@ -109,10 +88,10 @@ void SimIoHandler::inputDevices(const double dt)
    if (av != nullptr && sim != nullptr && inData != nullptr) {
 
       // find the (optional) autopilot
-      simulation::Autopilot* ap = nullptr;
+      oe::simulation::Autopilot* ap = nullptr;
       {
-         base::Pair* p = av->getPilotByType( typeid( simulation::Autopilot) );
-         if (p != nullptr)   { ap = static_cast<simulation::Autopilot*>(p->object());  }
+         oe::base::Pair* p = av->getPilotByType( typeid( oe::simulation::Autopilot) );
+         if (p != nullptr)   { ap = static_cast<oe::simulation::Autopilot*>(p->object());  }
       }
 
       // ------------------------------------------------------------
@@ -128,7 +107,7 @@ void SimIoHandler::inputDevices(const double dt)
             inData->getDiscreteInput(FREEZE_SW, &sw);
             const bool frzSw = sw && enabled;
             if (frzSw && !frzSw1) {
-               base::Boolean newFrz( !sim->isFrozen() );
+               oe::base::Boolean newFrz( !sim->isFrozen() );
                sim->event(FREEZE_EVENT, &newFrz);
             }
             frzSw1 = frzSw;
@@ -163,7 +142,7 @@ void SimIoHandler::inputDevices(const double dt)
       {  // Process Roll Input
          double ai = 0;
          inData->getAnalogInput(ROLL_AI, &ai);
-         const double aiLim = base::alim(ai, 1.0f);
+         const double aiLim = oe::base::alim(ai, 1.0f);
          if (ap != nullptr) ap->setControlStickRollInput(aiLim);
          else av->setControlStickRollInput(aiLim);
       }
@@ -171,7 +150,7 @@ void SimIoHandler::inputDevices(const double dt)
       {  // Process Pitch Input
          double ai = 0;
          inData->getAnalogInput(PITCH_AI, &ai);
-         const double aiLim = base::alim(ai, 1.0f);
+         const double aiLim = oe::base::alim(ai, 1.0f);
          if (ap != nullptr)    { ap->setControlStickPitchInput(aiLim);  }
          else                  { av->setControlStickPitchInput(aiLim);  }
       }
@@ -179,7 +158,7 @@ void SimIoHandler::inputDevices(const double dt)
       {  // Process Rudder Input
          double ai = 0;
          inData->getAnalogInput(RUDDER_AI, &ai);
-         const double aiLim = base::alim(ai, 1.0f);
+         const double aiLim = oe::base::alim(ai, 1.0f);
          av->setRudderPedalInput(aiLim);
       }
 
@@ -198,7 +177,7 @@ void SimIoHandler::inputDevices(const double dt)
          bool sw = false;
          inData->getDiscreteInput(PICKLE_SW, &sw);
          if(sw != wpnRelSw1) {
-            base::Boolean sw(sw);
+            oe::base::Boolean sw(sw);
             av->event(WPN_REL_EVENT, &sw);
          }
          wpnRelSw1 = sw;
@@ -208,7 +187,7 @@ void SimIoHandler::inputDevices(const double dt)
          bool sw = false;
          inData->getDiscreteInput(TRIGGER_SW2, &sw);
          if (sw != trgSw1) {
-            base::Boolean sw(sw);
+            oe::base::Boolean sw(sw);
             av->event(TRIGGER_SW_EVENT, &sw);
          }
          trgSw1 = sw;
@@ -245,7 +224,7 @@ void SimIoHandler::inputDevices(const double dt)
          bool autopilotSw = false;
          inData->getDiscreteInput(PADDLE_SW, &autopilotSw);
          if (autopilotSw && !autopilotSw1) {
-            simulation::Autopilot* ap = dynamic_cast<simulation::Autopilot*>(av->getPilot());
+            oe::simulation::Autopilot* ap = dynamic_cast<oe::simulation::Autopilot*>(av->getPilot());
             if (ap != nullptr) {
                ap->setHeadingHoldMode(false);
                ap->setAltitudeHoldMode(false);
@@ -274,10 +253,10 @@ void SimIoHandler::inputDevices(const double dt)
          inData->getDiscreteInput(DMS_UP_SW, &incStptSw);
          if (incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
-            simulation::Navigation* myNav = av->getNavigation();
+            oe::simulation::Navigation* myNav = av->getNavigation();
             if (myNav != nullptr) {
                myNav->ref();
-               simulation::Route* myRoute = myNav->getPriRoute();
+               oe::simulation::Route* myRoute = myNav->getPriRoute();
                if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->incStpt();
@@ -293,10 +272,10 @@ void SimIoHandler::inputDevices(const double dt)
          inData->getDiscreteInput(DMS_DOWN_SW, &decStptSw);
          if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
-            simulation::Navigation* myNav = av->getNavigation();
+            oe::simulation::Navigation* myNav = av->getNavigation();
             if (myNav != nullptr) {
                myNav->ref();
-               simulation::Route* myRoute = myNav->getPriRoute();
+               oe::simulation::Route* myRoute = myNav->getPriRoute();
                if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->decStpt();
@@ -319,7 +298,3 @@ void SimIoHandler::inputDevices(const double dt)
 void SimIoHandler::clear()
 {
 }
-
-}
-}
-

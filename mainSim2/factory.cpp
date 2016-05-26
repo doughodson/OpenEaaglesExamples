@@ -22,12 +22,9 @@
 
 #include <string>
 
-namespace oe {
-namespace example {
-
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     // Sim3 Station & IoHandler
     if ( name == SimStation::getFactoryName() ) {
@@ -47,20 +44,17 @@ base::Object* factory(const std::string& name)
         obj = new InstrumentPanel();
     }
 
-   if (obj == nullptr) obj = xzmq::factory(name);
+   if (obj == nullptr) obj = oe::xzmq::factory(name);
 
-   if (obj == nullptr) obj = otw::factory(name);
-   if (obj == nullptr) obj = models::factory(name);
-   if (obj == nullptr) obj = simulation::factory(name);
-   if (obj == nullptr) obj = dis::factory(name);
-   if (obj == nullptr) obj = iodevice::factory(name);
-   if (obj == nullptr) obj = instruments::factory(name);
-   if (obj == nullptr) obj = graphics::factory(name);
-   if (obj == nullptr) obj = glut::factory(name);
-   if (obj == nullptr) obj = base::factory(name);
+   if (obj == nullptr) obj = oe::otw::factory(name);
+   if (obj == nullptr) obj = oe::models::factory(name);
+   if (obj == nullptr) obj = oe::simulation::factory(name);
+   if (obj == nullptr) obj = oe::dis::factory(name);
+   if (obj == nullptr) obj = oe::iodevice::factory(name);
+   if (obj == nullptr) obj = oe::instruments::factory(name);
+   if (obj == nullptr) obj = oe::graphics::factory(name);
+   if (obj == nullptr) obj = oe::glut::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
 
     return obj;
-}
-
-}
 }

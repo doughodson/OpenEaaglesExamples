@@ -12,8 +12,9 @@
 
    tcPriority: 1
 
-   #include "./test2/networkSetup.epp"
-   //#include "./test2/otwSetupPC.epp"
-   //#include "./test2/otwSetupCIGI.epp"
+//#include "io/otwSetupPC.epp"
+//#include "io/otwSetupCigi.epp"
+#include "io/networkSetup.epp"
+
    #include "./test2/scenario.epp"
 )

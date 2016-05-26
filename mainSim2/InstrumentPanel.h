@@ -1,15 +1,13 @@
 
-#ifndef __oe_example_InstrumentPanel_H__
-#define __oe_example_InstrumentPanel_H__
+#ifndef __InstrumentPanel_H__
+#define __InstrumentPanel_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 #include "openeaagles/simulation/Player.h"
 
 namespace oe {
-
-namespace simulation { class Player; class Simulation; class Station; }
-
-namespace example {
+   namespace simulation { class Player; class Simulation; class Station; }
+}
 
 class DedDisplay;
 class MfdDisplay;
@@ -24,18 +22,18 @@ class MfdDisplay;
 //   'f' or 'F'   -- Toggle simulation freeze
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-class InstrumentPanel : public glut::GlutDisplay
+class InstrumentPanel : public oe::glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(InstrumentPanel, glut::GlutDisplay)
+   DECLARE_SUBCLASS(InstrumentPanel, oe::glut::GlutDisplay)
 
 public:
    InstrumentPanel();
 
-   simulation::Player* getOwnship();
-   simulation::Simulation* getSimulation();
-   simulation::Station* getStation();
+   oe::simulation::Player* getOwnship();
+   oe::simulation::Simulation* getSimulation();
+   oe::simulation::Station* getStation();
 
-   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
    virtual void updateData(const double dt = 0.0) override;
 
 protected:
@@ -45,14 +43,14 @@ protected:
    bool onStepOwnshipKey();
 
 private:
-   base::safe_ptr<simulation::Station> myStation;
+   oe::base::safe_ptr<oe::simulation::Station> myStation;
 
    // ALT Stuff
    double altitude;            // our current altitude
    SendData altitudeSD;
 
    // VVI Stuff
-   osg::Vec3 vvi;              // velocity vector
+   oe::osg::Vec3 vvi;          // velocity vector
    SendData vviSD;
    double pastVvi;             // our past vvi value (to create a linear filter)
 
@@ -96,8 +94,4 @@ private:
    SendData gloadSD;
 };
 
-}
-}
-
 #endif
-
