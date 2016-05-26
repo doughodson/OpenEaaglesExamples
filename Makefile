@@ -30,7 +30,7 @@ APPLICATIONS += mainPuzzle1 mainPuzzle2
 APPLICATIONS += mainIr
 
 # simple simulation examples
-APPLICATIONS += mainSim1 mainSim2 mainSim3 mainSim4
+APPLICATIONS += mainSim1 mainSim2 mainSim3
 
 # ground mapping radar example
 APPLICATIONS += mainGndMapRdr
@@ -105,4 +105,3 @@ edl:
 
 clean:
 	-for d in $(PROJECTS); do (cd $$d; $(MAKE) clean ); done
-

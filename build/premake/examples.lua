@@ -262,40 +262,6 @@ project "mainSim2"
    defines { "_CONSOLE" }
    configuration "Release"
       links { "oemodels", "JSBSim", "libzmq" }
-      links { "oeotw", LibCigi }
-      links { "oedis" }
-      links { "oesimulation", "oedafif", "oeterrain" }
-      links { "oeglut", "oeinstruments", "oegraphics", "oebase" }
-      links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
-      links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
-   configuration "Debug"
-      links { "oemodels_d", "JSBSim_d", "libzmq_d" }
-      links { "oeotw_d", LibCigi_d }
-      links { "oedis_d" }
-      links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
-      links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
-      links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
-      links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
-
--- simple Simulation 3 example
-project "mainSim3"
-   targetname "mainSim3"
-   targetdir "../../mainSim3"
-   debugdir "../../mainSim3"
-   files {
-      "../../mainSim3/**.cpp",
-      "../../mainSim3/**.h",
-      "../../mainSim3/**.epp",
-      "../../mainSim3/**.edl"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
-   -- zeromq nethandlers
-   defines { "ZMQ_STATIC" }
-   links { "libxzmq" }
-   defines { "_CONSOLE" }
-   configuration "Release"
-      links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi}
       links { "oedis", "oeiodevice"}
       links { "oesimulation", "oedafif", "oeterrain"}
@@ -311,16 +277,16 @@ project "mainSim3"
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
--- simple Simulation 4 example
-project "mainSim4"
-   targetname "mainSim4"
-   targetdir "../../mainSim4"
-   debugdir "../../mainSim4"
+-- simple Simulation 3 example
+project "mainSim3"
+   targetname "mainSim3"
+   targetdir "../../mainSim3"
+   debugdir "../../mainSim3"
    files {
-      "../../mainSim4/**.cpp",
-      "../../mainSim4/**.h",
-      "../../mainSim4/**.epp",
-      "../../mainSim4/**.edl"
+      "../../mainSim3/**.cpp",
+      "../../mainSim3/**.h",
+      "../../mainSim3/**.epp",
+      "../../mainSim3/**.edl"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
@@ -401,5 +367,3 @@ project "mainUbf1"
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
-
-

@@ -1,7 +1,7 @@
 
 include ../makedefs
 
-PGM = mainSim3
+PGM = mainSim2
 
 OBJS = \
 	factory.o \
@@ -26,7 +26,7 @@ EPPFLAGS +=  -I.
 all: $(PGM)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 edl:
 	cpp configs/test0.epp >test0.edl $(EPPFLAGS)

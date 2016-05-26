@@ -14,14 +14,14 @@ codelite/
 #
 # qt user project file and build directories
 #
-mainSim4-qt/mainSim4-qt.pro.user
-mainSim4-qt/Makefile
-mainSim4-qt/tmp/
-build-mainSim4-qt-Desktop_Qt*
-mainSim4-qt/Makefile.Debug
-mainSim4-qt/Makefile.Release
-mainSim4-qt/release/*
-mainSim4-qt/debug/*
+mainSim3-qt/mainSim4-qt.pro.user
+mainSim3-qt/Makefile
+mainSim3-qt/tmp/
+build-mainSim3-qt-Desktop_Qt*
+mainSim3-qt/Makefile.Debug
+mainSim3-qt/Makefile.Release
+mainSim3-qt/release/*
+mainSim3-qt/debug/*
 
 # visual studio generated files
 *.idb
@@ -79,8 +79,7 @@ mainPuzzle2/mainPuzzle2
 mainSim1/mainSim1
 mainSim2/mainSim2
 mainSim3/mainSim3
-mainSim4/mainSim4
-mainSim4-qt/mainSim4-qt
+mainSim3-qt/mainSim3-qt
 mainTerrain/mainTerrain
 mainUbf1/mainUbf1
 testEvents/testEvents
@@ -107,4 +106,3 @@ tutorial05/tutorial05
 tutorial06/tutorial06
 tutorial07/tutorial07
 tutorial08/tutorial08
-

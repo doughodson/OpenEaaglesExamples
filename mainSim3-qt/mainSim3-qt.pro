@@ -10,7 +10,7 @@ message(OE_3RD_PARTY_ROOT = $${OE_3RD_PARTY_ROOT})
 
 QT += core widgets
 
-TARGET = mainSim4-qt
+TARGET = mainSim3-qt
 CONFIG += c++11
 CONFIG += console
 CONFIG -= app_bundle
@@ -66,4 +66,3 @@ else:unix:!macx:!symbian: LIBS +=                     \
 
 RESOURCES += \
     data/icons.qrc
-
