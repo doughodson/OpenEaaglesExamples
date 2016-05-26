@@ -1,11 +1,8 @@
 
-#ifndef __oe_demo_SpdLines_H__
-#define __oe_demo_SpdLines_H__
+#ifndef __SpdLines_H__
+#define __SpdLines_H__
 
 #include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: SpdLines
@@ -13,9 +10,9 @@ namespace demo {
 // Description: Draws the lines for the airspeed graphic
 // Inputs:  Slots only
 //------------------------------------------------------------------------------
-class SpdLines : public graphics::Graphic
+class SpdLines : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(SpdLines,graphics::Graphic)
+    DECLARE_SUBCLASS(SpdLines, oe::graphics::Graphic)
 
 public:
     SpdLines();
@@ -32,15 +29,12 @@ public:
 
 protected:
     // slot functions
-    bool setSlotIsAlt(const base::Number* newIsAlt);
-    bool setSlotDrawBack(const base::Number* newDB);
+    bool setSlotIsAlt(const oe::base::Number* newIsAlt);
+    bool setSlotDrawBack(const oe::base::Number* newDB);
 
 private:
     bool isAlt;     // are we drawing the altitude lines instead?
     bool drawBack;  // draw the background (for transparency purposes)
 };
-
-}
-}
 
 #endif

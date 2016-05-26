@@ -11,11 +11,11 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
 EMPTY_SERIALIZER(Pfd)
+EMPTY_DELETEDATA(Pfd)
 
 Pfd::Pfd()
 {
@@ -274,13 +274,6 @@ void Pfd::copyData(const Pfd& org, const bool)
     gLoad = org.gLoad;
     // mach
     mach = org.mach;
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
-void Pfd::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------
@@ -732,7 +725,4 @@ void Pfd::updateData(const double dt)
             pair->unref();
         }
     }
-}
-
-}
 }

@@ -3,8 +3,7 @@
 #include "openeaagles/base/Number.h"
 #include <GL/glu.h>
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
@@ -15,9 +14,6 @@ BEGIN_SLOTTABLE(SpdLines)
     "isBackground",       // do we draw the background?
 END_SLOTTABLE(SpdLines)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles for Analog Dial
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(SpdLines)
     ON_SLOT(1, setSlotIsAlt, base::Number)
     ON_SLOT(2, setSlotDrawBack, base::Number)
@@ -171,7 +167,4 @@ bool SpdLines::setSlotDrawBack(const base::Number* const newDB)
 base::Object* SpdLines::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
-}
-
-}
 }

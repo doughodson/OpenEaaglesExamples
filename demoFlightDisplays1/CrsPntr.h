@@ -1,11 +1,8 @@
 
-#ifndef __oe_demo_CrsPntr_H__
-#define __oe_demo_CrsPntr_H__
+#ifndef __CrsPntr_H__
+#define __CrsPntr_H__
 
 #include "openeaagles/graphics/Rotators.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: CrsPntr
@@ -16,9 +13,9 @@ namespace demo {
 //      UPDATE_VALUE3  -> cdi dots
 //      UPDATE_VALUE4 -> to from
 //------------------------------------------------------------------------------
-class CrsPntr : public graphics::Rotators
+class CrsPntr : public oe::graphics::Rotators
 {
-    DECLARE_SUBCLASS(CrsPntr,graphics::Rotators)
+    DECLARE_SUBCLASS(CrsPntr, oe::graphics::Rotators)
 
 public:
     CrsPntr();
@@ -44,20 +41,20 @@ public:
     virtual void drawFunc() override;
 
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
 protected:
     // slot functions
-    bool setSlotNumCdiDots(const base::Number* const newCDI);
-    bool setSlotNumInches(const base::Number* const newNI);
-    bool setSlotShowCdi(const base::Number* const newSCDI);
-    bool setSlotShowCrsPntr(const base::Number* const newSCP);
-    bool setSlotShowToFrom(const base::Number* const newTF);
+    bool setSlotNumCdiDots(const oe::base::Number* const newCDI);
+    bool setSlotNumInches(const oe::base::Number* const newNI);
+    bool setSlotShowCdi(const oe::base::Number* const newSCDI);
+    bool setSlotShowCrsPntr(const oe::base::Number* const newSCP);
+    bool setSlotShowToFrom(const oe::base::Number* const newTF);
 
 private:
     // event functions
-    bool onUpdateCdiDotsCrsPntr(const base::Number* const x);
-    bool onUpdateToFromCrsPntr(const base::Number* const x);
+    bool onUpdateCdiDotsCrsPntr(const oe::base::Number* const x);
+    bool onUpdateToFromCrsPntr(const oe::base::Number* const x);
 
     double toFrom;          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
     double cdiDots;         // course deviation dots
@@ -68,8 +65,5 @@ private:
     bool showCrsPtr;        // show the course pointer?
     bool showToFrom;        // show our to from arrow?
 };
-
-}
-}
 
 #endif

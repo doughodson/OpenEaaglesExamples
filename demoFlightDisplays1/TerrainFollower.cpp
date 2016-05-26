@@ -6,8 +6,7 @@
 #include "openeaagles/base/Number.h"
 #include <GL/glu.h>
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TerrainFollower, "TerrainFollower")
 EMPTY_SERIALIZER(TerrainFollower)
@@ -429,7 +428,4 @@ void TerrainFollower::updateData(const double dt)
     send("maxalt", UPDATE_VALUE, maxAlt, maxAltSD);
     // send our range values out
     send("fourthr", UPDATE_VALUE, range, fRSD);
-}
-
-}
 }

@@ -3,16 +3,14 @@
 #include "openeaagles/base/Number.h"
 #include "openeaagles/base/units/Angles.h"
 
-namespace oe {
-namespace demo {
-
 IMPLEMENT_SUBCLASS(CrsPntr, "CrsPntr")
 EMPTY_SERIALIZER(CrsPntr)
+EMPTY_DELETEDATA(CrsPntr)
 
 // Event handler
 BEGIN_EVENT_HANDLER(CrsPntr)
-    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsCrsPntr, base::Number)
-    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromCrsPntr, base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsCrsPntr, oe::base::Number)
+    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromCrsPntr, oe::base::Number)
 END_EVENT_HANDLER()
 
 BEGIN_SLOTTABLE(CrsPntr)
@@ -23,20 +21,14 @@ BEGIN_SLOTTABLE(CrsPntr)
     "showToFrom",   // show our to from pointer?
 END_SLOTTABLE(CrsPntr)
 
-//------------------------------------------------------------------------------
-//  Map slot table
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(CrsPntr)
-    ON_SLOT(1, setSlotNumCdiDots, base::Number)
-    ON_SLOT(2, setSlotNumInches, base::Number)
-    ON_SLOT(3, setSlotShowCdi, base::Number)
-    ON_SLOT(4, setSlotShowCrsPntr, base::Number)
-    ON_SLOT(5, setSlotShowToFrom, base::Number)
+    ON_SLOT(1, setSlotNumCdiDots, oe::base::Number)
+    ON_SLOT(2, setSlotNumInches, oe::base::Number)
+    ON_SLOT(3, setSlotShowCdi, oe::base::Number)
+    ON_SLOT(4, setSlotShowCrsPntr, oe::base::Number)
+    ON_SLOT(5, setSlotShowToFrom, oe::base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 CrsPntr::CrsPntr()
 {
     STANDARD_CONSTRUCTOR()
@@ -50,9 +42,6 @@ CrsPntr::CrsPntr()
     showToFrom = true;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void CrsPntr::copyData(const CrsPntr& org, const bool)
 {
     BaseClass::copyData(org);
@@ -64,13 +53,6 @@ void CrsPntr::copyData(const CrsPntr& org, const bool)
     showCdi = org.showCdi;
     showCrsPtr = org.showCrsPtr;
     showToFrom = org.showToFrom;
-}
-
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void CrsPntr::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------
@@ -118,23 +100,19 @@ bool CrsPntr::setShowToFrom(const bool newTF)
 }
 
 // Event functions
-bool CrsPntr::onUpdateCdiDotsCrsPntr(const base::Number* const x)
+bool CrsPntr::onUpdateCdiDotsCrsPntr(const oe::base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setCdiDots(x->getReal());
     return ok;
 }
-bool CrsPntr::onUpdateToFromCrsPntr(const base::Number* const x)
+bool CrsPntr::onUpdateToFromCrsPntr(const oe::base::Number* const x)
 {
     bool ok = false;
     if (x != nullptr) ok = setToFrom(x->getReal());
     return ok;
 }
 
-
-//------------------------------------------------------------------------------
-// drawFunc() - draw our objects
-//------------------------------------------------------------------------------
 void CrsPntr::drawFunc()
 {
     GLfloat ocolor[4];
@@ -214,10 +192,6 @@ void CrsPntr::drawFunc()
     glLineWidth(lw);
 }
 
-
-//------------------------------------------------------------------------------
-// updateData() - update non time-critical threads here
-//------------------------------------------------------------------------------
 void CrsPntr::updateData(const double dt)
 {
     // update base class first
@@ -228,11 +202,10 @@ void CrsPntr::updateData(const double dt)
 
 }
 
-// SLOT FUNCTIONS
 //------------------------------------------------------------------------------
 // setSlotNumCdiDots() - set the number of cdi dots we are using
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotNumCdiDots(const base::Number* const newCDI)
+bool CrsPntr::setSlotNumCdiDots(const oe::base::Number* const newCDI)
 {
     bool ok = false;
     if (newCDI != nullptr) ok = setNumCdiDots(newCDI->getInt());
@@ -241,7 +214,7 @@ bool CrsPntr::setSlotNumCdiDots(const base::Number* const newCDI)
 //------------------------------------------------------------------------------
 // setSlotNumInches() - set the number of inches we are scaling across the dots
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotNumInches(const base::Number* const newNI)
+bool CrsPntr::setSlotNumInches(const oe::base::Number* const newNI)
 {
     bool ok = false;
     if (newNI != nullptr) ok = setNumInches(newNI->getReal());
@@ -250,7 +223,7 @@ bool CrsPntr::setSlotNumInches(const base::Number* const newNI)
 //------------------------------------------------------------------------------
 // setSlotShowCdi() - display the cdi?
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotShowCdi(const base::Number* const newSCDI)
+bool CrsPntr::setSlotShowCdi(const oe::base::Number* const newSCDI)
 {
     bool ok = false;
     if (newSCDI != nullptr) ok = setShowCdi(newSCDI->getBoolean());
@@ -259,7 +232,7 @@ bool CrsPntr::setSlotShowCdi(const base::Number* const newSCDI)
 //------------------------------------------------------------------------------
 // setSlotShowCrsPntr() - display the course pointer?
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotShowCrsPntr(const base::Number* const newSCP)
+bool CrsPntr::setSlotShowCrsPntr(const oe::base::Number* const newSCP)
 {
     bool ok = false;
     if (newSCP != nullptr) ok = setShowCrsPntr(newSCP->getBoolean());
@@ -268,21 +241,14 @@ bool CrsPntr::setSlotShowCrsPntr(const base::Number* const newSCP)
 //------------------------------------------------------------------------------
 // setSlotShowToFrom() - display the to from arrow?
 //------------------------------------------------------------------------------
-bool CrsPntr::setSlotShowToFrom(const base::Number* const newTF)
+bool CrsPntr::setSlotShowToFrom(const oe::base::Number* const newTF)
 {
     bool ok = false;
     if (newTF != nullptr) ok = setShowToFrom(newTF->getBoolean());
     return ok;
 }
 
-
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* CrsPntr::getSlotByIndex(const int si)
+oe::base::Object* CrsPntr::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
-}
-
-}
 }

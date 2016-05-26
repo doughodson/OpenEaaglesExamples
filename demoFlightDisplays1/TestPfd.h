@@ -1,20 +1,17 @@
 
-#ifndef __oe_demo_TestPfd_H__
-#define __oe_demo_TestPfd_H__
+#ifndef __TestPfd_H__
+#define __TestPfd_H__
 
 #include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: TestPfd
 //
 // Description: Basic Pfd test page, stimulates the Pfd
 //------------------------------------------------------------------------------
-class TestPfd : public graphics::Page
+class TestPfd : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestPfd,graphics::Page)
+   DECLARE_SUBCLASS(TestPfd, oe::graphics::Page)
 
 public:
     TestPfd();
@@ -119,8 +116,5 @@ private:
     SendData sixtyVisSD;    // sixty degree bank marker visibility
     SendData ninetyVisSD;   // ninety  "        "       "       "
 };
-
-}
-}
 
 #endif

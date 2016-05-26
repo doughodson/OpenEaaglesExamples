@@ -4,8 +4,7 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/graphics/Display.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(RdrAlt, "RdrAlt")
 EMPTY_SERIALIZER(RdrAlt)
@@ -60,9 +59,6 @@ bool RdrAlt::onEventSetRAltMinRdrAlt(const base::Number* const x)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// updateData()
-//------------------------------------------------------------------------------
 void RdrAlt::updateData(const double dt)
 {
     // update our base class first
@@ -115,7 +111,4 @@ void RdrAlt::updateData(const double dt)
     // send our radar alts out
     send("rmin", UPDATE_VALUE, rAltMin, rAltMinSD);
     send("ralt", UPDATE_VALUE, rAlt, rAltSD);
-}
-
-}
 }

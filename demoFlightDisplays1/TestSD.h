@@ -1,26 +1,23 @@
 
-#ifndef __oe_demo_TestSD_H__
-#define __oe_demo_TestSD_H__
+#ifndef __TestSD_H__
+#define __TestSD_H__
 
 #include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: TestSD
 //
 // Description: Sends test data down to the situational display
 //------------------------------------------------------------------------------
-class TestSD : public graphics::Page
+class TestSD : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestSD, graphics::Page )
+   DECLARE_SUBCLASS(TestSD, oe::graphics::Page )
 
 public:
     TestSD();
 
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;
@@ -63,8 +60,5 @@ private:
     mySymbols myNA[MAX_NAV_AIDS];       // holds our navaid data
     bool navAidsLoaded;                 // navaids have been loaded
 };
-
-}
-}
 
 #endif

@@ -12,6 +12,11 @@ codelite/
 .directory
 
 #
+#
+#
+*.gch
+
+#
 # qt user project file and build directories
 #
 mainSim3-qt/mainSim4-qt.pro.user

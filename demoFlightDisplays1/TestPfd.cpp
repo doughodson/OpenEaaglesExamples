@@ -6,10 +6,9 @@
 #include "Pfd.h"
 #include "openeaagles/graphics/Display.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd,"TestPfd")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd, "TestPfd")
 EMPTY_SERIALIZER(TestPfd)
 EMPTY_DELETEDATA(TestPfd)
 
@@ -510,8 +509,4 @@ void TestPfd::updateData(const double dt)
 
     send("60indices", SET_VISIBILITY, sixtyVis, sixtyVisSD);
     send("90indices", SET_VISIBILITY, ninetyVis, ninetyVisSD);
-
-}
-
-}
 }

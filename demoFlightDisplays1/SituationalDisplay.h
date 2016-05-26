@@ -1,20 +1,17 @@
 
-#ifndef __oe_demo_SituationalDisplay_H__
-#define __oe_demo_SituationalDisplay_H__
+#ifndef __SituationalDisplay_H__
+#define __SituationalDisplay_H__
 
 #include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: SituationalDisplay
 //
 // Description: Situational Display
 //------------------------------------------------------------------------------
-class SituationalDisplay : public graphics::Page
+class SituationalDisplay : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(SituationalDisplay,graphics::Page)
+   DECLARE_SUBCLASS(SituationalDisplay, oe::graphics::Page)
 
     enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
 
@@ -96,8 +93,5 @@ private:
     SendData planeAltSD;
     SendData headingCRSD;
 };
-
-}
-}
 
 #endif

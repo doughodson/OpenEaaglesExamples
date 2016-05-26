@@ -7,8 +7,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(SituationalDisplay, "SituationalDisplay")
 EMPTY_SERIALIZER(SituationalDisplay)
@@ -233,7 +232,4 @@ void SituationalDisplay::updateData(const double dt)
     send("nav2Id", UPDATE_VALUE, nav2Id, nav2IdSD);
     send("nav2brgptr", UPDATE_VALUE6, -nav2Brg, nav2BrgSD);
 
-}
-
-}
 }

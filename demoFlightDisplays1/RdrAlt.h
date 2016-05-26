@@ -1,11 +1,12 @@
 
-#ifndef __oe_demo_RdrAlt_H__
-#define __oe_demo_RdrAlt_H__
+#ifndef __RdrAlt_H__
+#define __RdrAlt_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
-namespace demo {
+   namespace base { class Number; }
+}
 
 //------------------------------------------------------------------------------
 // Class: RdrAlt
@@ -17,9 +18,9 @@ namespace demo {
 //      UPDATE_VALUE  -> actual radar alt
 //      UPDATE_VALUE2 -> minimum radar alt
 //------------------------------------------------------------------------------
-class RdrAlt : public graphics::Graphic
+class RdrAlt : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(RdrAlt,graphics::Graphic)
+    DECLARE_SUBCLASS(RdrAlt, oe::graphics::Graphic)
 
 public:
     RdrAlt();
@@ -33,12 +34,12 @@ public:
     double getRdrMinAltFt() { return rAltMin; }
 
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
 private:
     // event functions
-    bool onEventSetRAltRdrAlt(const base::Number* const x);
-    bool onEventSetRAltMinRdrAlt(const base::Number* const x);
+    bool onEventSetRAltRdrAlt(const oe::base::Number* const x);
+    bool onEventSetRAltMinRdrAlt(const oe::base::Number* const x);
 
     double rAlt;        // ft -- our actual radar alt
     SendData rAltSD;
@@ -46,8 +47,5 @@ private:
     double rAltMin;     // ft -- our minimum radar altitude setting
     SendData rAltMinSD;
 };
-
-}
-}
 
 #endif

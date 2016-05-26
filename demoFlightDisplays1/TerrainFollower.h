@@ -1,11 +1,8 @@
 
-#ifndef __oe_demo_TerrainFollower_H__
-#define __oe_demo_TerrainFollower_H__
+#ifndef __TerrainFollower_H__
+#define __TerrainFollower_H__
 
 #include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: TerrainFollower
@@ -20,15 +17,15 @@ namespace demo {
 //      UPDATE_VALUE4 -> viewable width on screen (inches
 //      The list of points is sent in as an double array
 //------------------------------------------------------------------------------
-class TerrainFollower : public graphics::Graphic
+class TerrainFollower : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(TerrainFollower,graphics::Graphic)
+    DECLARE_SUBCLASS(TerrainFollower, oe::graphics::Graphic)
 
 public:
     TerrainFollower();
 
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
     virtual void drawFunc() override;
 
@@ -44,10 +41,10 @@ public:
 
 private:
     // event functions
-    bool onEventSetPlaneAltTerrainFollower(const base::Number* const x);
-    bool onEventSetScanRangeTerrainFollower(const base::Number* const x);
-    bool onEventSetViewHeightTerrainFollower(const base::Number* const x);
-    bool onEventSetViewWidthTerrainFollower(const base::Number* const x);
+    bool onEventSetPlaneAltTerrainFollower(const oe::base::Number* const x);
+    bool onEventSetScanRangeTerrainFollower(const oe::base::Number* const x);
+    bool onEventSetViewHeightTerrainFollower(const oe::base::Number* const x);
+    bool onEventSetViewWidthTerrainFollower(const oe::base::Number* const x);
 
     enum { MAX_POINTS = 1000 }; // maximum number of terrain elevation points
     double range;               // our scan range ahead of us
@@ -75,8 +72,5 @@ private:
     double timerRate;
 
 };
-
-}
-}
 
 #endif

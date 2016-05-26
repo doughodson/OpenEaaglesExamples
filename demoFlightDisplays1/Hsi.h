@@ -1,11 +1,8 @@
 
-#ifndef __oe_demo_Hsi_H__
-#define __oe_demo_Hsi_H__
+#ifndef __Hsi_H__
+#define __Hsi_H__
 
 #include "openeaagles/graphics/Rotators.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: Hsi
@@ -20,9 +17,9 @@ namespace demo {
 //      UPDATE_VALUE7 -> cdi dots
 //      UPDATE_VALUE8 -> to from
 //------------------------------------------------------------------------------
-class Hsi : public graphics::Rotators
+class Hsi : public oe::graphics::Rotators
 {
-    DECLARE_SUBCLASS(Hsi,graphics::Rotators)
+    DECLARE_SUBCLASS(Hsi, oe::graphics::Rotators)
 
 public:
     Hsi();
@@ -44,16 +41,16 @@ public:
     double getToFrom()  { return toFrom; }
 
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
 private:
     // event functions
-    bool onUpdateSelHdgHsi(const base::Number* const x);
-    bool onUpdateSelCrsHsi(const base::Number* const x);
-    bool onUpdateNav1BrgHsi(const base::Number* const x);
-    bool onUpdateNav2BrgHsi(const base::Number* const x);
-    bool onUpdateCdiDotsHsi(const base::Number* const x);
-    bool onUpdateToFromHsi(const base::Number* const x);
+    bool onUpdateSelHdgHsi(const oe::base::Number* const x);
+    bool onUpdateSelCrsHsi(const oe::base::Number* const x);
+    bool onUpdateNav1BrgHsi(const oe::base::Number* const x);
+    bool onUpdateNav2BrgHsi(const oe::base::Number* const x);
+    bool onUpdateCdiDotsHsi(const oe::base::Number* const x);
+    bool onUpdateToFromHsi(const oe::base::Number* const x);
 
     double selHdg;      // selected heading (degs)
     SendData selHdgSD;
@@ -69,8 +66,5 @@ private:
     SendData nav2BrgSD;
     SendData selHdgROSD;
 };
-
-}
-}
 
 #endif

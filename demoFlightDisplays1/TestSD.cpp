@@ -13,13 +13,12 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 static const double refLat =   41.1f;
 static const double refLon =  111.9f;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSD,"TestSD")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSD, "TestSD")
 EMPTY_SERIALIZER(TestSD)
 EMPTY_DELETEDATA(TestSD)
 
@@ -272,7 +271,4 @@ bool TestSD::onToggleRange()
     if (range >= 160) range = 10;
     else range *= 2;
     return true;
-}
-
-}
 }

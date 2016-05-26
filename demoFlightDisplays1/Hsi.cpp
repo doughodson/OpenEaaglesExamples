@@ -1,11 +1,11 @@
 
 #include "Hsi.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Hsi, "Hsi")
 EMPTY_SERIALIZER(Hsi)
+EMPTY_DELETEDATA(Hsi)
 
 BEGIN_EVENT_HANDLER(Hsi)
     ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateSelHdgHsi, base::Number)
@@ -48,13 +48,6 @@ void Hsi::copyData(const Hsi& org, const bool)
     nav1BrgSD.empty();
     nav2BrgSD.empty();
     selHdgROSD.empty();
-}
-
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void Hsi::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------
@@ -134,9 +127,6 @@ bool Hsi::onUpdateToFromHsi(const base::Number* const x)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void Hsi::updateData(const double dt)
 {
     // update our baseclass first
@@ -154,7 +144,4 @@ void Hsi::updateData(const double dt)
     // send our selected heading it's value (just a rotator)
     send("selhdg", UPDATE_VALUE6, -selHdg, selHdgSD);
     send("selhdgro", UPDATE_VALUE, selHdg, selHdgROSD);
-}
-
-}
 }
