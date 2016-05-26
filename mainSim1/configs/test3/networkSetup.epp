@@ -1,0 +1,90 @@
+
+networks: {
+  ( DisNetIO
+
+   siteID: 2
+   applicationID: 2
+   exerciseID: 1
+
+   enableInput: true
+   enableOutput: true
+   enableRelay: false
+
+    maxTimeDR: { K1D01: ( Seconds 20 ) }
+
+    netInput:  ( UdpBroadcastHandler 
+      localIpAddress:   localhost
+      networkMask:      "255.0.0.0"
+      port: 3000 
+      ignoreSourcePort: 3022 
+      shared: true
+      sendBuffSizeKb: 256
+      recvBuffSizeKb: 256
+    )
+   
+    netOutput: ( UdpBroadcastHandler
+      localIpAddress: localhost
+      networkMask:    "255.0.0.0"
+      port: 3000
+      localPort: 3022
+      shared: true 
+      sendBuffSizeKb: 256
+      recvBuffSizeKb: 256
+    )
+
+   // Example emission handler list
+   emissionPduHandlers: {
+
+      ( EmissionPduHandler
+         emitterName: 991
+         emitterFunction: 1
+         sensor: ( Radar  typeId: "EW" )
+         antenna: ( Antenna
+            initPosition: [ 0 0 ]
+            maxRates: [ 0.8727 0.6981 ]
+            reference: [ 0 0 ]
+            scanMode: circular
+            commandRateAzimuth: ( Degrees 50 )
+            commandRateElevation: ( Degrees 0 )
+            localPlayersOfInterestOnly: true
+         )
+         defaultIn:  false
+         defaultOut:  false
+      )
+
+      ( EmissionPduHandler
+         emitterName: 992
+         emitterFunction: 2
+         sensor: ( Radar  typeId: "TWS" )
+         antenna: ( Antenna
+            //gain: ( dB 32 )
+            #include "./gainPattern.epp"
+            initPosition: [ 0 0 ]
+            maxRates: [ 0.8727 0.6981 ]
+            reference: [ 0 0 ]
+            searchVolume: [ 2.0944 0.197 ]  
+            numBars: 4
+            localPlayersOfInterestOnly: true
+         )
+         defaultIn:  false
+         defaultOut:  false
+      )
+
+      ( EmissionPduHandler
+         emitterName: 0
+         emitterFunction: 1
+         sensor: ( Radar )
+         antenna: ( Antenna
+            localPlayersOfInterestOnly: true
+         )
+         defaultIn:  true
+         defaultOut:  true
+      )
+   }
+
+    // DIS entity type files
+    #include "DisIncomingEntityTypes.epp"
+    #include "DisOutgoingEntityTypes.epp"
+
+  ) // DisIO
+}

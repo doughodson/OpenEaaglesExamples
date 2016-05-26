@@ -1,0 +1,784 @@
+
+g12728:
+( Artillery
+   id:12728
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12729:
+( Artillery
+   id:12729
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12730:
+( Artillery
+   id:12730
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12731:
+( Artillery
+   id:12731
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12732:
+( Artillery
+   id:12732
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12733:
+( Artillery
+   id:12733
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12734:
+( Artillery
+   id:12734
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles -12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12828:
+( Artillery
+   id:12828
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12829:
+( Artillery
+   id:12829
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12830:
+( Artillery
+   id:12830
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12831:
+( Artillery
+   id:12831
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12832:
+( Artillery
+   id:12832
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12833:
+( Artillery
+   id:12833
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12834:
+( Artillery
+   id:12834
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles -8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12928:
+( Artillery
+   id:12928
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12929:
+( Artillery
+   id:12929
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12930:
+( Artillery
+   id:12930
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12931:
+( Artillery
+   id:12931
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12932:
+( Artillery
+   id:12932
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12933:
+( Artillery
+   id:12933
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g12934:
+( Artillery
+   id:12934
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles -4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13028:
+( Artillery
+   id:13028
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13029:
+( Artillery
+   id:13029
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13030:
+( Artillery
+   id:13030
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13031:
+( Artillery
+   id:13031
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13032:
+( Artillery
+   id:13032
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13033:
+( Artillery
+   id:13033
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13034:
+( Artillery
+   id:13034
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles 0 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13128:
+( Artillery
+   id:13128
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13129:
+( Artillery
+   id:13129
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13130:
+( Artillery
+   id:13130
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13131:
+( Artillery
+   id:13131
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13132:
+( Artillery
+   id:13132
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13133:
+( Artillery
+   id:13133
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13134:
+( Artillery
+   id:13134
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles 4 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13228:
+( Artillery
+   id:13228
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13229:
+( Artillery
+   id:13229
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13230:
+( Artillery
+   id:13230
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13231:
+( Artillery
+   id:13231
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13232:
+( Artillery
+   id:13232
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13233:
+( Artillery
+   id:13233
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13234:
+( Artillery
+   id:13234
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles 8 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13328:
+( Artillery
+   id:13328
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -12 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13329:
+( Artillery
+   id:13329
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles -8 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13330:
+( Artillery
+   id:13330
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles -4 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13331:
+( Artillery
+   id:13331
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 0 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13332:
+( Artillery
+   id:13332
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 4 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13333:
+( Artillery
+   id:13333
+   side: red
+   type: "ScudB"
+
+   initXPos:  ( NauticalMiles 8 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)
+
+g13334:
+( Artillery
+   id:13334
+   side: blue
+   type: "ScudA"
+
+   initXPos:  ( NauticalMiles 12 )
+   initYPos:  ( NauticalMiles 12 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+   components: {
+#include "gnd.epp"
+   }
+)

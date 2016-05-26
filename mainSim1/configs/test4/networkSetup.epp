@@ -1,0 +1,55 @@
+
+networks: {
+  ( DisNetIO
+
+   siteID: 2
+   applicationID: 3
+   exerciseID: 1
+
+   enableInput: true
+   enableOutput: true
+   enableRelay: false
+
+    maxTimeDR: { K1D01: ( Seconds 20 ) }
+
+    netInput:  ( UdpBroadcastHandler 
+      localIpAddress:   localhost
+      networkMask:      "255.0.0.0"
+      port: 3000 
+      ignoreSourcePort: 3002 
+      shared: true
+      sendBuffSizeKb: 256
+      recvBuffSizeKb: 256
+    )
+   
+    netOutput: ( UdpBroadcastHandler
+      localIpAddress:   localhost
+      networkMask:      "255.0.0.0"
+      port: 3000
+      localPort: 3002
+      shared: true 
+      sendBuffSizeKb: 256
+      recvBuffSizeKb: 256
+    )
+
+   // Example emission handler list
+   emissionPduHandlers: {
+      ( EmissionPduHandler
+         emitterName: 999
+         emitterFunction: 1
+         sensor: ( Radar )
+         antenna: ( Antenna
+            localPlayersOfInterestOnly: true
+            #include "gainPattern.epp"
+         )
+         defaultIn:  true
+         defaultOut:  true
+      )
+   }
+
+    // DIS entity type files
+    #include "DisIncomingEntityTypes.epp"
+    #include "DisOutgoingEntityTypes.epp"
+
+  ) // DisIO
+}

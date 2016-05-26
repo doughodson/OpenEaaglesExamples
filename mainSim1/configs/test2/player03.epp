@@ -1,0 +1,40 @@
+// ---
+// Player #3 scenario
+// ---
+
+p03:
+( Aircraft
+
+    id: 3
+    side: blue
+    type: "F-16C"
+    signature: ( SigSphere radius: 2.0 )
+
+    initLatitude:  ( LatLon direction: "n" degrees: 37.0 minutes: 5.0 )
+    initLongitude: ( LatLon direction: "w" degrees: 116.0 minutes: 30.0 )
+   
+    initAlt: ( Feet 10000 )
+    initHeading: ( Degrees 30.0 )      // Initial heading
+    initVelocity: 225
+    
+    positionFreeze: false
+
+    components: {
+
+      dynamicsModel: ( RacModel )
+     
+      pilot: ( Autopilot
+         navMode: true
+         altitudeHoldMode: true
+         headingHoldMode: true
+         velocityHoldMode: false
+      )
+
+      nav:( Navigation
+         utc: ( Seconds 0 )
+         #include "route01.epp"
+      )
+    
+    }
+)
+

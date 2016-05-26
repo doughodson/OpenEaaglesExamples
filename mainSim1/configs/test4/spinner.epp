@@ -1,0 +1,35 @@
+
+ew:
+( GroundStation
+   id: 1
+   side: blue
+   type: "EW"
+
+   initXPos:  ( NauticalMiles  2 )
+   initYPos:  ( NauticalMiles  2 )
+   initAlt:       ( Feet 0 )
+   initHeading:   ( Degrees 0 )
+   initVelocity:  0
+
+   components: {
+      antenna:
+      ( Antenna
+             initPosition: [ 0 0 ]
+             maxRates: [ 0.8727 0.6981 ]
+             reference: [ 0 0 ]
+             scanMode: circular
+             commandRateAzimuth: ( Degrees 36 )
+             commandRateElevation: ( Degrees 0 )
+             #include "gainPattern.epp"
+      )
+
+      sensors:
+      ( Radar
+        antennaName: antenna
+        powerPeak:  ( KiloWatts 6.7 )
+        frequency:  ( GigaHertz 3.0 )
+        PRF:        ( Hertz 250.0 ) 
+        pulseWidth: ( MicroSeconds 6.5 )
+      )
+   }
+)

@@ -1,0 +1,21 @@
+// ---
+// Simulation scenario
+// ---
+
+
+ownship: ew
+
+simulation: ( Simulation
+
+   // Initial freeze condition
+   freeze: false
+
+   // Reference position (player positions are relative to this location)
+   latitude:  REF_LATITUDE
+   longitude: REF_LONGITUDE
+
+   // The initial player list
+   players: {
+      #include "./spinner.epp"
+  }
+)

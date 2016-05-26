@@ -1,3 +1,4 @@
+
 include ../makedefs
 
 PGM = mainSim1
@@ -17,11 +18,14 @@ EPPFLAGS +=  -I.
 all: $(PGM)
 
 edl:
-	cpp configs/test00.epp >test00.edl $(EPPFLAGS)
-	cpp configs/test01.epp >test01.edl $(EPPFLAGS)
+	cpp configs/test0.epp > test0.edl $(EPPFLAGS)
+	cpp configs/test1.epp > test1.edl $(EPPFLAGS)
+	cpp configs/test2.epp > test2.edl $(EPPFLAGS)
+	cpp configs/test3.epp > test3.edl $(EPPFLAGS)
+	cpp configs/test4.epp > test4.edl $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o
