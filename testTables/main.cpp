@@ -24,17 +24,14 @@
 
 #include <string>
 
-namespace oe {
-namespace test {
-
 const unsigned int TIMING_LOOPS = 10000;
 
 // table builder
-base::Table* builder(const std::string& filename)
+oe::base::Table* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, base::factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, oe::base::factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -47,7 +44,7 @@ base::Table* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -55,7 +52,7 @@ base::Table* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   base::Table* table = dynamic_cast<base::Table*>(obj);
+   oe::base::Table* table = dynamic_cast<oe::base::Table*>(obj);
    if (table == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -66,11 +63,11 @@ base::Table* builder(const std::string& filename)
 //-----------------------------------------------------------------------------
 // Test 1D LFI tables
 //-----------------------------------------------------------------------------
-unsigned int testIt(const base::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const oe::base::Table1* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   base::FStorage* s = nullptr;
+   oe::base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    const double maxX = tbl->getMaxX();
@@ -104,11 +101,11 @@ unsigned int testIt(const base::Table1* const tbl, const bool tflg, const bool s
 //-----------------------------------------------------------------------------
 // Test 2D LFI tables
 //-----------------------------------------------------------------------------
-unsigned int testIt(const base::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const oe::base::Table2* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   base::FStorage* s = nullptr;
+   oe::base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    double maxY = tbl->getMaxY();
@@ -153,11 +150,11 @@ unsigned int testIt(const base::Table2* const tbl, const bool tflg, const bool s
 //-----------------------------------------------------------------------------
 // Test 3D LFI tables
 //-----------------------------------------------------------------------------
-unsigned int testIt(const base::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const oe::base::Table3* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   base::FStorage* s = nullptr;
+   oe::base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    // Setup Z
@@ -217,11 +214,11 @@ unsigned int testIt(const base::Table3* const tbl, const bool tflg, const bool s
 //-----------------------------------------------------------------------------
 // Test 4D LFI tables
 //-----------------------------------------------------------------------------
-unsigned int testIt(const base::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
+unsigned int testIt(const oe::base::Table4* const tbl, const bool tflg, const bool sflg, const bool rflg)
 {
    unsigned int cnt = 0;
 
-   base::FStorage* s = nullptr;
+   oe::base::FStorage* s = nullptr;
    if (sflg) s = tbl->storageFactory();
 
    // Setup W
@@ -327,7 +324,7 @@ int main(int argc, char* argv[])
    }
 
    // build table
-   const base::Table* table = builder(configFilename);
+   const oe::base::Table* table = builder(configFilename);
 
    // ---
    // Serialize the table to the output stream
@@ -337,15 +334,15 @@ int main(int argc, char* argv[])
    // ---
    // Cast table pointers
    // ---
-   const base::Table1* t1 = dynamic_cast<const base::Table1*>(table);
-   const base::Table2* t2 = dynamic_cast<const base::Table2*>(table);
-   const base::Table3* t3 = dynamic_cast<const base::Table3*>(table);
-   const base::Table4* t4 = dynamic_cast<const base::Table4*>(table);
+   const oe::base::Table1* t1 = dynamic_cast<const oe::base::Table1*>(table);
+   const oe::base::Table2* t2 = dynamic_cast<const oe::base::Table2*>(table);
+   const oe::base::Table3* t3 = dynamic_cast<const oe::base::Table3*>(table);
+   const oe::base::Table4* t4 = dynamic_cast<const oe::base::Table4*>(table);
 
    // ---
    // Call the test function for this LFI table type
    // ---
-   double startTime = base::getComputerTime();
+   double startTime = oe::base::getComputerTime();
    unsigned int cnt = 0;
    unsigned int n = 1;
    if (tflg) n = TIMING_LOOPS;
@@ -368,7 +365,7 @@ int main(int argc, char* argv[])
    // Timing data
    // ---
    if (tflg) {
-      double endTime = base::getComputerTime();
+      double endTime = oe::base::getComputerTime();
       double deltaTime = endTime - startTime;
       double perFrameTime = deltaTime/static_cast<double>(TIMING_LOOPS);
       std::cout << "Total Time = " << deltaTime << " for " << TIMING_LOOPS << " frames." << std::endl;
@@ -380,13 +377,4 @@ int main(int argc, char* argv[])
    }
 
    return EXIT_SUCCESS;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::test::main(argc, argv);
 }
