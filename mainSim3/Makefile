@@ -1,14 +1,12 @@
 
 include ../makedefs
 
-PGM = mainSim3
+PGM = mainSim4
 
 OBJS = \
-	factory.o \
-	InstrumentPanel.o \
-	SimStation.o \
-	SimIoHandler.o \
-	SimPlayer.o \
+	Display.o \
+	MapPage.o \
+	Station.o \
 	main.o
 
 LDFLAGS += -L../lib/linux -lxzmq -lzmq
@@ -29,7 +27,7 @@ $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
 
 edl:
-	cpp configs/test0.epp >test0.edl $(EPPFLAGS)
+	cpp configs/test.epp >test.edl $(EPPFLAGS)
 
 clean:
 	-rm -f *.o

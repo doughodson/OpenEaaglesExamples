@@ -1,0 +1,45 @@
+// ---
+// Barco #2 Network Setup
+// ---
+
+networks: {
+
+    ( DisNetIO
+    
+       siteID: 3
+       applicationID: 1
+       exerciseID: 1
+       enableInput: 1
+       enableOutput: 1
+       enableRelay: 0
+       
+       maxTimeDR: ( Seconds 0.01 )
+       
+       timeline: EXEC
+       
+    netInput:  ( UdpBroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  ignoreSourcePort: 3003 shared: true )
+    netOutput: ( UdpBroadcastHandler localIpAddress: localhost  networkMask: "255.0.0.0"  port: 3000  localPort: 3003        shared: true )
+
+       // Example emission handler list
+       emissionPduHandlers: {
+         ( EmissionPduHandler
+            emitterName: 999
+            emitterFunction: 1
+            sensor: ( Radar )
+            antenna: ( Antenna
+               localPlayersOfInterestOnly: true
+               #include "gainPattern.epp"
+            )
+            defaultIn:  true
+            defaultOut:  true
+         )
+       }
+
+       // DIS entity type files
+       #include "DisIncomingEntityTypes.epp"
+       #include "DisOutgoingEntityTypes.epp"
+         
+    )
+
+}
+    
