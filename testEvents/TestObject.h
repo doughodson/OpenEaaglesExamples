@@ -1,12 +1,6 @@
-//------------------------------------------------------------------------------
-// Class: TestObject
-// Description: A very simple object class that will hold basic information, and
-// will be passed from a parent to ObjectHandler via send commands, and the
-// ObjectHandler will extract the data and send it to the output.  This tests
-// the send command passing objects.
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TestObject_H__
-#define __oe_test_TestObject_H__
+
+#ifndef __TestObject_H__
+#define __TestObject_H__
 
 #include "openeaagles/base/Object.h"
 #include "openeaagles/base/util/str_utils.h"
@@ -17,12 +11,16 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
-
-class TestObject : public base::Object
+//------------------------------------------------------------------------------
+// Class: TestObject
+// Description: A very simple object class that will hold basic information, and
+// will be passed from a parent to ObjectHandler via send commands, and the
+// ObjectHandler will extract the data and send it to the output.  This tests
+// the send command passing objects.
+//------------------------------------------------------------------------------
+class TestObject : public oe::base::Object
 {
-   DECLARE_SUBCLASS(TestObject,base::Object)
+   DECLARE_SUBCLASS(TestObject, oe::base::Object)
 
 public:
    TestObject();
@@ -33,7 +31,7 @@ public:
     void setFloat(const float x)        { floatVal = x;  }
     void setDouble(const double x)      { doubleVal = x; }
     void setReal(const double x)        { realVal = x;   }
-    void setChar(const char* x)         { base::utStrcpy(charVal, sizeof(charVal), x); }
+    void setChar(const char* x)         { oe::base::utStrcpy(charVal, sizeof(charVal), x); }
 
     // get functions
     bool getBoolean()                   { return boolVal;   }
@@ -51,8 +49,5 @@ private:
     double realVal;
     char charVal[10];
 };
-
-}
-}
 
 #endif

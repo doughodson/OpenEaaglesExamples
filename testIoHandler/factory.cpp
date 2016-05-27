@@ -14,12 +14,9 @@
 
 #include <string>
 
-namespace oe {
-namespace test {
-
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
    if ( name == Display::getFactoryName() ) {
       obj = new Display();
@@ -28,13 +25,10 @@ base::Object* factory(const std::string& name)
       obj = new Table();
    }
 
-   if (obj == nullptr) obj = iodevice::factory(name);
-   if (obj == nullptr) obj = glut::factory(name);
-   if (obj == nullptr) obj = graphics::factory(name);
-   if (obj == nullptr) obj = base::factory(name);
+   if (obj == nullptr) obj = oe::iodevice::factory(name);
+   if (obj == nullptr) obj = oe::glut::factory(name);
+   if (obj == nullptr) obj = oe::graphics::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
 
     return obj;
-}
-
-}
 }

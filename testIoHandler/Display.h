@@ -1,15 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: Display
-//------------------------------------------------------------------------------
-#ifndef __oe_test_Display_H__
-#define __oe_test_Display_H__
+
+#ifndef __Display_H__
+#define __Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
    namespace base { class IoHandler; class Number; class String; }
-
-namespace test {
+}
 
 //------------------------------------------------------------------------------
 // Class Display
@@ -35,9 +32,9 @@ namespace test {
 //       item:  5   di: 11    // Item #4 is DI #11
 //   )
 //------------------------------------------------------------------------------
-class Display : public glut::GlutDisplay
+class Display : public oe::glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(Display, glut::GlutDisplay)
+   DECLARE_SUBCLASS(Display, oe::glut::GlutDisplay)
 
 public:
    static const unsigned int ROWS = 20;      /* see display.epp */
@@ -53,11 +50,11 @@ public:
    virtual void updateTC(const double dt = 0.0) override;
 
 protected:
-   virtual bool setSlotIoHandler(base::IoHandler* const msg);
-   virtual bool setSlotItem(const base::Number* const msg);
-   virtual bool setSlotAiChannel(const base::Number* const msg);
-   virtual bool setSlotDiChannel(const base::Number* const msg);
-   virtual bool setSlotLabel(const base::String* const msg);
+   virtual bool setSlotIoHandler(oe::base::IoHandler* const msg);
+   virtual bool setSlotItem(const oe::base::Number* const msg);
+   virtual bool setSlotAiChannel(const oe::base::Number* const msg);
+   virtual bool setSlotDiChannel(const oe::base::Number* const msg);
+   virtual bool setSlotLabel(const oe::base::String* const msg);
 
    virtual bool onEscKey() override;
 
@@ -68,7 +65,7 @@ private:
    void initData();
    void updateDisplay();
 
-   base::safe_ptr<base::IoHandler> ioHandler;   // The I/O data handler
+   oe::base::safe_ptr<oe::base::IoHandler> ioHandler;   // The I/O data handler
 
    // Item/Channel mapping
    unsigned short item;
@@ -86,8 +83,5 @@ private:
    SendData table_typeRoSD[TBL_SIZE];
    SendData table_aiSD[TBL_SIZE];
 };
-
-}
-}
 
 #endif

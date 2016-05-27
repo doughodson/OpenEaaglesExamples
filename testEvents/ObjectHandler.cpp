@@ -1,22 +1,17 @@
-//------------------------------------------------------------------------------
-// Class: ObjectHandler
-//------------------------------------------------------------------------------
+
 #include "ObjectHandler.h"
 #include "TestObject.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(ObjectHandler, "ObjectHandler")
 EMPTY_SERIALIZER(ObjectHandler)
+EMPTY_DELETEDATA(ObjectHandler)
 
 BEGIN_EVENT_HANDLER(ObjectHandler)
     ON_EVENT_OBJ(UPDATE_VALUE, onUpdateObject, TestObject)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 ObjectHandler::ObjectHandler()
 {
     STANDARD_CONSTRUCTOR()
@@ -29,9 +24,6 @@ ObjectHandler::ObjectHandler()
     charSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void ObjectHandler::copyData(const ObjectHandler& org, const bool)
 {
     BaseClass::copyData(org);
@@ -43,11 +35,6 @@ void ObjectHandler::copyData(const ObjectHandler& org, const bool)
     realSD.empty();
     charSD.empty();
 }
-
-//------------------------------------------------------------------------------
-// deleteData()
-//------------------------------------------------------------------------------
-EMPTY_DELETEDATA(ObjectHandler)
 
 //------------------------------------------------------------------------------
 // onUpdateObject() - bring our test object in and fill our data.
@@ -69,9 +56,6 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
         const char* myChar = obj->getChar();
         send("objascii", UPDATE_VALUE, myChar, charSD);
     }
-            
-    return true;
-}
 
-}
+    return true;
 }

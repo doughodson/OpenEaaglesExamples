@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Table
-//------------------------------------------------------------------------------
+
 #include "Table.h"
 
 #include "openeaagles/base/Number.h"
@@ -15,8 +13,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 static const unsigned int DEFAULT_ROW     = 1;
 static const unsigned int DEFAULT_SPACING = 1;
@@ -31,15 +28,15 @@ class TableRow : public graphics::Field
 
 public:
    TableRow();
-   
+
    void put(base::Pair* const item);
-   
+
    // graphics::Field class interface
    virtual int line() const override;
    virtual int line(const int ll) override;
    virtual int column() const override;
    virtual int column(const int cc) override;
-   
+
 private:
    void position();
 };
@@ -84,7 +81,7 @@ void Table::initData()
 void Table::copyData(const Table& org, const bool cc)
 {
    BaseClass::copyData(org);
-   
+
    if (cc) initData();
 
    rows = org.rows;
@@ -129,7 +126,7 @@ int Table::line() const
 {
    return BaseClass::line();
 }
-   
+
 int Table::column() const
 {
    return BaseClass::column();
@@ -154,7 +151,7 @@ int Table::line(const int ll)
    position();
    return BaseClass::line();
 }
-   
+
 int Table::column(const int cc)
 {
    BaseClass::column(cc);
@@ -169,7 +166,7 @@ void Table::position()
 {
    base::PairStream* subcomponents = getComponents();
    if (subcomponents != nullptr) {
-   
+
       int ln = line();
       int cp = column();
 
@@ -205,7 +202,7 @@ void Table::build()
       for (unsigned int i = 1; i <= rows; i++) {
 
          // new row
-         TableRow* row = new TableRow(); 
+         TableRow* row = new TableRow();
          row->container(this);
 
          const base::List::Item* item = columns->getFirstItem();
@@ -297,7 +294,7 @@ bool Table::setSlotColumns(base::PairStream* const msg)
 }
 
 //------------------------------------------------------------------------------
-// getSlotByIndex() 
+// getSlotByIndex()
 //------------------------------------------------------------------------------
 base::Object* Table::getSlotByIndex(const int si)
 {
@@ -398,25 +395,22 @@ void TableRow::position()
    // position the fields in this table item
    base::PairStream* subcomponents = getComponents();
    if (subcomponents != nullptr) {
-   
+
       int ln = line();
       int cp = column();
-      
+
       base::List::Item* item = subcomponents->getFirstItem();
       while (item != nullptr) {
          base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          graphics::Field* ti = static_cast<graphics::Field*>(pair->object());
-        
+
          ti->line(ln);
          ti->column(cp);
          cp += static_cast<int>(ti->width());
-         
+
          item = item->getNext();
       }
       subcomponents->unref();
       subcomponents = nullptr;
    }
-}
-
-}
 }

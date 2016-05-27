@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Display
-//------------------------------------------------------------------------------
+
 #include "Display.h"
 #include "TestObject.h"
 
@@ -20,15 +18,11 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "SendDataDisplay")
 EMPTY_SERIALIZER(Display)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Display::Display()
 {
     STANDARD_CONSTRUCTOR()
@@ -81,9 +75,6 @@ Display::Display()
     counter = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void Display::copyData(const Display& org, const bool cc)
 {
     BaseClass::copyData(org);
@@ -128,9 +119,6 @@ void Display::copyData(const Display& org, const bool cc)
     counter = org.counter;
 }
 
-//------------------------------------------------------------------------------
-// deleteData()
-//------------------------------------------------------------------------------
 void Display::deleteData()
 {
     if (obj != nullptr) {
@@ -149,9 +137,6 @@ void Display::deleteData()
     }
 }
 
-//------------------------------------------------------------------------------
-// updateData(dt)
-//------------------------------------------------------------------------------
 void Display::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -238,8 +223,4 @@ void Display::updateData(const double dt)
     send("matarray%d", SET_MATERIAL, tempMat, materialSD, MAX_MATERIALS);
     // send rotations to our objects as well
     send("rotators%d", UPDATE_VALUE2, rotations, rotationsSD, MAX_MATERIALS);
-}
-
-
-}
 }

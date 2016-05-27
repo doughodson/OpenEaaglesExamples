@@ -1,15 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: Table
-//------------------------------------------------------------------------------
-#ifndef __oe_test_Table_H__
-#define __oe_test_Table_H__
+
+#ifndef __Table_H__
+#define __Table_H__
 
 #include "openeaagles/graphics/Field.h"
 
 namespace oe {
    namespace base { class Number; class PairStream; }
-
-namespace test {
+}
 
 //------------------------------------------------------------------------------
 // Class: Table
@@ -21,20 +18,20 @@ namespace test {
 //    spacing  <Number>     ! Spacing between rows (default: 1)
 //    columns  <PairStream> ! Column descriptions: list of items in each row
 //------------------------------------------------------------------------------
-class Table : public graphics::Field
+class Table : public oe::graphics::Field
 {
-   DECLARE_SUBCLASS(Table,graphics::Field)
+   DECLARE_SUBCLASS(Table, oe::graphics::Field)
 
 public:
    Table();
 
-   virtual const base::PairStream* getColumns() const;
+   virtual const oe::base::PairStream* getColumns() const;
    virtual unsigned int getNumberOfRows() const;
 
    // Slot functions
-   virtual bool setSlotRows(base::Number* const);
-   virtual bool setSlotSpacing(base::Number* const);
-   virtual bool setSlotColumns(base::PairStream* const);
+   virtual bool setSlotRows(oe::base::Number* const);
+   virtual bool setSlotSpacing(oe::base::Number* const);
+   virtual bool setSlotColumns(oe::base::PairStream* const);
 
    virtual int line() const override;
    virtual int line(const int ll) override;
@@ -50,11 +47,7 @@ private:
 
    unsigned int  rows;     // Number of rows in table
    unsigned int  spacing;  // Spacing between rows (default: 1)
-   const base::PairStream* columns;  // columns items
+   const oe::base::PairStream* columns;  // columns items
 };
 
-}
-}
-
 #endif
-

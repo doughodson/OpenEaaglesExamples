@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: Display
-//------------------------------------------------------------------------------
+
 #include "Display.h"
 
 #include "openeaagles/base/IoData.h"
@@ -12,20 +10,16 @@
 #include <cstdio>
 #include <cstdlib>
 
+using namespace oe;
+
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...
 #if(_MSC_VER>=1400)   // VC8+
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
+IMPLEMENT_SUBCLASS(Display, "TestIoDisplay")
 
-IMPLEMENT_SUBCLASS(Display,"TestIoDisplay")
-
-//------------------------------------------------------------------------------
-// Slot table
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Display)
    "ioHandler",   // 1: I/O data handler
    "item",        // 2: Item number [ 1 ... TBL_SIZE ]
@@ -34,9 +28,6 @@ BEGIN_SLOTTABLE(Display)
    "label"        // 5: (optional) Label
 END_SLOTTABLE(Display)
 
-//------------------------------------------------------------------------------
-// Slot table                                                               SLS
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Display)
     ON_SLOT(1, setSlotIoHandler, base::IoHandler)
     ON_SLOT(2, setSlotItem,      base::Number)
@@ -45,18 +36,12 @@ BEGIN_SLOT_MAP(Display)
     ON_SLOT(5, setSlotLabel,     base::String)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Display::Display()
 {
    STANDARD_CONSTRUCTOR()
    initData();
 }
 
-//------------------------------------------------------------------------------
-// initData() -- Init member data (from constructors and copyData())
-//------------------------------------------------------------------------------
 void Display::initData()
 {
    ioHandler = nullptr;
@@ -80,9 +65,6 @@ void Display::initData()
 
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Display::copyData(const Display& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -113,9 +95,6 @@ void Display::copyData(const Display& org, const bool cc)
    }
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete this object's data
-//------------------------------------------------------------------------------
 void Display::deleteData()
 {
    setSlotIoHandler(nullptr);
@@ -130,9 +109,6 @@ bool Display::onEscKey()
    std::exit(EXIT_FAILURE);
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset parameters
-//------------------------------------------------------------------------------
 void Display::reset()
 {
    BaseClass::reset();
@@ -145,9 +121,6 @@ void Display::reset()
    }
 }
 
-//------------------------------------------------------------------------------
-// updateTC() -- update time critical stuff here
-//------------------------------------------------------------------------------
 void Display::updateTC(const double dt)
 {
    // I/O Handler
@@ -160,9 +133,6 @@ void Display::updateTC(const double dt)
    BaseClass::updateTC(dt);
 }
 
-//------------------------------------------------------------------------------
-// updateData() --
-//------------------------------------------------------------------------------
 void Display::updateData(const double dt)
 {
    // I/O Handler
@@ -200,9 +170,6 @@ void Display::updateData(const double dt)
    BaseClass::updateData(dt);
 }
 
-//------------------------------------------------------------------------------
-// Function collect the data to be displayed
-//------------------------------------------------------------------------------
 void Display::updateDisplay()
 {
    base::IoData* ioData = nullptr;
@@ -344,17 +311,11 @@ bool Display::setSlotLabel(const base::String* const msg)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Display::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -392,7 +353,4 @@ std::ostream& Display::serialize(std::ostream& sout, const int i, const bool slo
    }
 
    return sout;
-}
-
-}
 }

@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestObject
-//------------------------------------------------------------------------------
+
 #include "TestObject.h"
 
 #include "openeaagles/base/util/str_utils.h"
@@ -11,15 +9,12 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestObject, "TestObject")
 EMPTY_SERIALIZER(TestObject)
+EMPTY_DELETEDATA(TestObject)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestObject::TestObject()
 {
     STANDARD_CONSTRUCTOR()
@@ -31,9 +26,6 @@ TestObject::TestObject()
     base::utStrcpy(charVal, sizeof(charVal), "ASCII");
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestObject::copyData(const TestObject& org, const bool)
 {
     BaseClass::copyData(org);
@@ -44,12 +36,4 @@ void TestObject::copyData(const TestObject& org, const bool)
     doubleVal = org.doubleVal;
     realVal = org.realVal;
     base::utStrcpy(charVal, sizeof(charVal), org.charVal);
-}
-
-//------------------------------------------------------------------------------
-// deleteData()
-//------------------------------------------------------------------------------
-EMPTY_DELETEDATA(TestObject)
-
-}
 }

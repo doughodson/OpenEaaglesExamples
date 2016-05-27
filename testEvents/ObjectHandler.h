@@ -1,27 +1,25 @@
+
+#ifndef __ObjectHandler_H__
+#define __ObjectHandler_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
+class TestObject;
+
 //------------------------------------------------------------------------------
 // Class: ObjectHandler
 // Description: This is a simple generic class that will take in a send
 // command from it's parent as an object, and will then fill it's own
 // private data from that object.
 //------------------------------------------------------------------------------
-#ifndef __oe_test_ObjectHandler_H__
-#define __oe_test_ObjectHandler_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace test {
-
-class TestObject;
-
-class ObjectHandler : public graphics::Graphic
+class ObjectHandler : public oe::graphics::Graphic
 {
-   DECLARE_SUBCLASS(ObjectHandler,graphics::Graphic)
+   DECLARE_SUBCLASS(ObjectHandler, oe::graphics::Graphic)
 
 public:
    ObjectHandler();
 
-   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
 private:
    bool onUpdateObject(const TestObject* const x);
@@ -33,8 +31,5 @@ private:
    SendData realSD;
    SendData charSD;
 };
-
-}
-}
 
 #endif

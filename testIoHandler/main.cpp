@@ -13,9 +13,6 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace test {
-
 // frame rate
 const unsigned int frameRate = 20;
 
@@ -28,8 +25,8 @@ void timerFunc(int)
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   base::Timer::updateTimers(dt);
-   graphics::Graphic::flashTimer(dt);
+   oe::base::Timer::updateTimers(dt);
+   oe::graphics::Graphic::flashTimer(dt);
    display->updateTC(dt);
 }
 
@@ -38,7 +35,7 @@ Display* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -51,7 +48,7 @@ Display* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -98,12 +95,4 @@ int main(int argc, char* argv[])
    // main loop
    glutMainLoop();
    return 0;
-}
-
-}
-}
-
-int main(int argc, char* argv[])
-{
-   oe::test::main(argc,argv);
 }
