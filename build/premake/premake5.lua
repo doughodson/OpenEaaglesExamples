@@ -28,14 +28,6 @@ if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
    OEExamplesIncPath = "../../shared"
    OEExamplesLibPath = "../../lib/".._ACTION
 end
-if (_ACTION == "codelite") or (_ACTION == "codeblocks") then
-   OEIncPath         = OE_ROOT.."/include"
-   OELibPath         = OE_ROOT.."/lib/mingw"
-   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
-   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/mingw-32"
-   OEExamplesIncPath = "../../shared"
-   OEExamplesLibPath = "../../lib/mingw"
-end
 print ("OpenEaagles Paths:")
 print ("  Include   : "..OEIncPath)
 print ("  Libraries : "..OELibPath)
@@ -98,10 +90,10 @@ workspace "examples"
    --     Release        (Application linked to Multi-threaded DLL)
    --     Debug          (Application linked to Multi-threaded Debug DLL)
    --
-   configurations { "Release", "Debug" }
+   configurations { "Release32", "Debug32" }
 
    -- common release configuration flags and symbols
-   configuration { "Release" }
+   filter { "Release32" }
       flags { "Optimize" }
       if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
          -- enable compiler intrinsics and favour speed over size
@@ -110,7 +102,7 @@ workspace "examples"
       end
 
    -- common debug configuration flags and symbols
-   configuration { "Debug" }
+   filter { "Debug32" }
       flags { "Symbols" }
       targetsuffix "_d"
       if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
