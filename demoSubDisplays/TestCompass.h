@@ -1,25 +1,23 @@
+
+#ifndef __TestCompass_H__
+#define __TestCompass_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestCompass
 //
 // Description: This page will test the CompassRose
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestCompass_H__
-#define __oe_demo_TestCompass_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestCompass : public graphics::Page
+class TestCompass : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestCompass, graphics::Page)
+   DECLARE_SUBCLASS(TestCompass, oe::graphics::Page)
 
 public:
     TestCompass();
 
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
     static const int MAX_TRACKS = 8;
     static const int MAX_AIRPORTS = 8;
@@ -69,8 +67,4 @@ private:
     bool navAidsLoaded;                 // navaids have been loaded
 };
 
-}
-}
-
 #endif
-

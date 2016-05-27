@@ -1,19 +1,17 @@
+
+#ifndef __TestAdi_H__
+#define __TestAdi_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestAdi
 //
 // Description: Tests our core ADI graphic
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestAdi_H__
-#define __oe_demo_TestAdi_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestAdi : public graphics::Page
+class TestAdi : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestAdi, graphics::Page)
+   DECLARE_SUBCLASS(TestAdi, oe::graphics::Page)
 
 public:
     TestAdi();
@@ -32,8 +30,4 @@ private:
     double slipRate;
 };
 
-}
-}
-
 #endif
-

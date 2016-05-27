@@ -1,19 +1,17 @@
+
+#ifndef __TestAdi2_H__
+#define __TestAdi2_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestAdi2
 //
 // Description: Tests an MFD version of the ADI
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestAdi2_H__
-#define __oe_demo_TestAdi2_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestAdi2 : public graphics::Page
+class TestAdi2 : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestAdi2, graphics::Page)
+   DECLARE_SUBCLASS(TestAdi2, oe::graphics::Page)
 
 public:
     TestAdi2();
@@ -48,8 +46,5 @@ private:
     SendData ghostPitchSD;  // ghost horizon pitch
     SendData ghostRollSD;   // ghost horizon roll
 };
-
-}
-}
 
 #endif

@@ -1,15 +1,12 @@
+
 #include "TestNozzle.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestNozzle,"TestNozzle")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestNozzle, "TestNozzle")
 EMPTY_SERIALIZER(TestNozzle)
 EMPTY_DELETEDATA(TestNozzle)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestNozzle::TestNozzle()
 {
     STANDARD_CONSTRUCTOR()
@@ -19,9 +16,6 @@ TestNozzle::TestNozzle()
     nozPosROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestNozzle::copyData(const TestNozzle& org, const bool)
 {
     BaseClass::copyData(org);
@@ -31,9 +25,6 @@ void TestNozzle::copyData(const TestNozzle& org, const bool)
     nozPosROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestNozzle::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -51,7 +42,4 @@ void TestNozzle::updateData(const double dt)
     // send the data down
     send("noz", UPDATE_INSTRUMENTS, nozPos, nozPosSD);
     send("nozRO", UPDATE_VALUE, nozPos, nozPosROSD);
-}
-
-}
 }

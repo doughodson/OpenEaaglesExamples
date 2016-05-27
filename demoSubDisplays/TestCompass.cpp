@@ -1,3 +1,4 @@
+
 #include "TestCompass.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
@@ -10,11 +11,9 @@
 # pragma warning(disable: 4996)
 #endif
 
+using namespace oe;
 
-namespace oe {
-namespace demo {
-
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCompass,"TestCompass")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCompass, "TestCompass")
 EMPTY_SERIALIZER(TestCompass)
 EMPTY_DELETEDATA(TestCompass)
 
@@ -39,9 +38,6 @@ static const char* apNames[TestCompass::MAX_AIRPORTS] = {
     "AP5", "AP6", "AP7", "AP8",
 };
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestCompass::TestCompass()
 {
     STANDARD_CONSTRUCTOR()
@@ -129,10 +125,6 @@ TestCompass::TestCompass()
     }
 }
 
-
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestCompass::copyData(const TestCompass& org, const bool)
 {
     // copy our baseclass stuff first
@@ -157,9 +149,6 @@ void TestCompass::copyData(const TestCompass& org, const bool)
     isCenteredBRGSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestCompass::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -258,7 +247,3 @@ bool TestCompass::onToggleCenteredTestCompass()
     centered = !centered;
     return true;
 }
-
-}
-}
-

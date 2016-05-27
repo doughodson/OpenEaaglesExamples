@@ -1,14 +1,12 @@
+
 #include "TestGauge1.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGauge1, "TestGauge1")
 EMPTY_SERIALIZER(TestGauge1)
+EMPTY_DELETEDATA(TestGauge1)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestGauge1::TestGauge1()
 {
     STANDARD_CONSTRUCTOR()
@@ -22,10 +20,6 @@ TestGauge1::TestGauge1()
     tapePosROSD.empty();
 }
 
-
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestGauge1::copyData(const TestGauge1& org, const bool)
 {
     // copy our baseclass stuff first
@@ -40,12 +34,6 @@ void TestGauge1::copyData(const TestGauge1& org, const bool)
     tapePosROSD.empty();
 }
 
-EMPTY_DELETEDATA(TestGauge1)
-
-
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestGauge1::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -77,7 +65,4 @@ void TestGauge1::updateData(const double dt)
     // here is our tape
     send("tape", UPDATE_INSTRUMENTS, tapePos, tapePosSD);
     send("tapero", UPDATE_VALUE, tapePos, tapePosROSD);
-}
-
-}
 }

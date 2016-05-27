@@ -1,17 +1,14 @@
+
 #include "TestGMeterDial.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/instruments/dials/GMeterDial.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestGMeterDial, "TestGMeterDial")
 EMPTY_SERIALIZER(TestGMeterDial)
 EMPTY_DELETEDATA(TestGMeterDial)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestGMeterDial::TestGMeterDial()
 {
     STANDARD_CONSTRUCTOR()
@@ -23,9 +20,6 @@ TestGMeterDial::TestGMeterDial()
     timerRate = 0.2;
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestGMeterDial::copyData(const TestGMeterDial& org, const bool)
 {
     currGs = org.currGs;
@@ -36,9 +30,6 @@ void TestGMeterDial::copyData(const TestGMeterDial& org, const bool)
     timerRate = org.timerRate;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestGMeterDial::updateData(const double dt)
 {
     currGs += (gRate * dt);
@@ -76,7 +67,3 @@ void TestGMeterDial::updateData(const double dt)
 
     BaseClass::updateData(dt);
 }
-
-}
-}
-

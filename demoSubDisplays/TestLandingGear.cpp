@@ -1,22 +1,16 @@
+
 #include "TestLandingGear.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestLandingGear, "TestLandingGear")
 EMPTY_SERIALIZER(TestLandingGear)
 EMPTY_DELETEDATA(TestLandingGear)
 
-//------------------------------------------------------------------------------
-// Event handler for TestLandingGear
-//------------------------------------------------------------------------------
 BEGIN_EVENT_HANDLER(TestLandingGear)
     ON_EVENT('g', onUpdateLandingGearTestLandingGear)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestLandingGear::TestLandingGear()
 {
     STANDARD_CONSTRUCTOR()
@@ -26,9 +20,6 @@ TestLandingGear::TestLandingGear()
     gearPositionROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestLandingGear::copyData(const TestLandingGear& org, const bool)
 {
     // copy our baseclass stuff first
@@ -40,9 +31,6 @@ void TestLandingGear::copyData(const TestLandingGear& org, const bool)
 
 }
 
-//------------------------------------------------------------------------------
-// onLandinGearEvent()
-//------------------------------------------------------------------------------
 bool TestLandingGear::onUpdateLandingGearTestLandingGear()
 {
     // switch our gear rate
@@ -50,9 +38,6 @@ bool TestLandingGear::onUpdateLandingGearTestLandingGear()
     return true;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestLandingGear::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -66,7 +51,4 @@ void TestLandingGear::updateData(const double dt)
     send("gear", UPDATE_INSTRUMENTS, gearPosition, gearPositionSD);
     // here is the readout
     send("gearRO", UPDATE_VALUE, gearPosition, gearPositionROSD);
-}
-
-}
 }

@@ -1,20 +1,18 @@
+
+#ifndef __TestGMeterDial_H__
+#define __TestGMeterDial_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestGMeterDial
 //
 // Description: This page will test the G meter, which is a dial showing
 // the min and max Gs as well as the current Gs being pulled.
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestGMeterDial_H__
-#define __oe_demo_TestGMeterDial_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestGMeterDial : public graphics::Page
+class TestGMeterDial : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestGMeterDial, graphics::Page)
+   DECLARE_SUBCLASS(TestGMeterDial, oe::graphics::Page)
 
 public:
     TestGMeterDial();
@@ -30,8 +28,4 @@ private:
     double timerRate;
 };
 
-}
-}
-
 #endif
-

@@ -1,15 +1,12 @@
+
 #include "TestSpeedBrake.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSpeedBrake, "TestSpeedBrake")
 EMPTY_SERIALIZER(TestSpeedBrake)
 EMPTY_DELETEDATA(TestSpeedBrake)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestSpeedBrake::TestSpeedBrake()
 {
     STANDARD_CONSTRUCTOR()
@@ -20,9 +17,6 @@ TestSpeedBrake::TestSpeedBrake()
     sbrakeRate = 3.0;
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestSpeedBrake::copyData(const TestSpeedBrake& org, const bool)
 {
     BaseClass::copyData(org);
@@ -32,9 +26,6 @@ void TestSpeedBrake::copyData(const TestSpeedBrake& org, const bool)
     sbrakeRate = org.sbrakeRate;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestSpeedBrake::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -55,7 +46,4 @@ void TestSpeedBrake::updateData(const double dt)
     send("sbrake", UPDATE_INSTRUMENTS, sbrakePosition, sbrakePositionSD);
     // Update the numeric readout of the speedbrake position
     send("sbrakeRO", UPDATE_VALUE, sbrakePosition, sbrakePositionROSD);
-}
-
-}
 }
