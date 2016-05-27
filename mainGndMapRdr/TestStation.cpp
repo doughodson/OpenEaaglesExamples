@@ -1,7 +1,5 @@
-//------------------------------------------------------------------------------
-// Class: TestStation
-//------------------------------------------------------------------------------
-#include "Station.h"
+
+#include "TestStation.h"
 #include "Display.h"
 
 #include "openeaagles/simulation/Gimbal.h"
@@ -15,11 +13,11 @@
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/osg/Vec4"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(TestStation,"TestStation")
 EMPTY_SERIALIZER(TestStation)
+EMPTY_DELETEDATA(TestStation)
 
 // slot table for this class type
 BEGIN_SLOTTABLE(TestStation)
@@ -28,12 +26,9 @@ END_SLOTTABLE(TestStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
-   ON_SLOT(1, setDisplay, example::Display)
+   ON_SLOT(1, setDisplay, Display)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestStation::TestStation()
 {
     STANDARD_CONSTRUCTOR()
@@ -42,9 +37,6 @@ TestStation::TestStation()
     displayInit = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void TestStation::copyData(const TestStation& org, const bool)
 {
     BaseClass::copyData(org);
@@ -53,11 +45,6 @@ void TestStation::copyData(const TestStation& org, const bool)
     displayInit = false;
 }
 
-EMPTY_DELETEDATA(TestStation)
-
-//------------------------------------------------------------------------------
-// updateTC() -- Update time critical stuff here
-//------------------------------------------------------------------------------
 void TestStation::updateTC(const double dt)
 {
    BaseClass::updateTC(dt);
@@ -65,9 +52,6 @@ void TestStation::updateTC(const double dt)
    if (display != nullptr) display->updateTC(dt);
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset the station
-//------------------------------------------------------------------------------
 void TestStation::reset()
 {
     BaseClass::reset();
@@ -88,14 +72,7 @@ bool TestStation::setDisplay(Display* const d)
     return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Page
-//------------------------------------------------------------------------------
 base::Object* TestStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
-}
-}
-

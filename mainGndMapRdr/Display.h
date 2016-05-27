@@ -1,3 +1,14 @@
+
+#ifndef __Display_H__
+#define __Display_H__
+
+#include "openeaagles/gui/glut/GlutDisplay.h"
+
+namespace oe {
+   namespace base { class Number; }
+   namespace simulation { class Player; class Simulation; class Station; }
+}
+
 // ----------------------------------------------------------------------------
 // Class: Display
 //
@@ -8,44 +19,28 @@
 // Slots:
 //    textureTest <Boolean>   Texture test enabled
 // ----------------------------------------------------------------------------
-#ifndef __oe_example_Display_H__
-#define __oe_example_Display_H__
-
-#include "openeaagles/gui/glut/GlutDisplay.h"
-
-namespace oe {
-
-namespace base { class Number; }
-namespace simulation { class Player; class Simulation; class Station; }
-
-namespace example {
-
-class Display : public glut::GlutDisplay
+class Display : public oe::glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(Display, glut::GlutDisplay)
+   DECLARE_SUBCLASS(Display, oe::glut::GlutDisplay)
 
 public:
    Display();
 
-   simulation::Player* getOwnship();
-   simulation::Simulation* getSimulation();
-   simulation::Station* getStation();
+   oe::simulation::Player* getOwnship();
+   oe::simulation::Simulation* getSimulation();
+   oe::simulation::Station* getStation();
 
    // Slot functions
-   virtual bool setSlotTextureTest(const base::Number* const msg);
+   virtual bool setSlotTextureTest(const oe::base::Number* const msg);
 
    virtual void configure() override;
    virtual void drawFunc() override;
 
 private:
-   base::safe_ptr<simulation::Station> myStation;
+   oe::base::safe_ptr<oe::simulation::Station> myStation;
 
    bool   testTexture;      // Texture image test
    GLuint texture;          // Texture
 };
 
-}
-}
-
 #endif
-

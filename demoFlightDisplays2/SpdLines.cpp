@@ -2,8 +2,7 @@
 #include "SpdLines.h"
 #include "openeaagles/base/Number.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
@@ -18,9 +17,6 @@ BEGIN_SLOTTABLE(SpdLines)
     "isAlt",              // draw for the altitude scale (instead of making a new class)
 END_SLOTTABLE(SpdLines)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles for Analog Dial
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(SpdLines)
     ON_SLOT(1, setSlotIsAlt, base::Number)
 END_SLOT_MAP()
@@ -156,7 +152,4 @@ bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 base::Object* SpdLines::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
-}
-
-}
 }

@@ -3,10 +3,9 @@
 #include "openeaagles/base/Pair.h"
 #include "Pfd.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd,"TestPfd")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestPfd, "TestPfd")
 EMPTY_SERIALIZER(TestPfd)
 EMPTY_DELETEDATA(TestPfd)
 
@@ -292,7 +291,4 @@ void TestPfd::updateData(const double dt)
             p->setBaroPress(baro);
         }
     }
-}
-
-}
 }

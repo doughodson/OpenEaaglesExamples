@@ -5,7 +5,7 @@
 
 #include "Display.h"
 #include "RealBeamRadar.h"
-#include "Station.h"
+#include "TestStation.h"
 
 // factories
 #include "openeaagles/simulation/factory.h"
@@ -16,12 +16,9 @@
 
 #include <string>
 
-namespace oe {
-namespace example {
-
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     if ( name == Display::getFactoryName() ) {
         obj = new Display();
@@ -33,14 +30,11 @@ base::Object* factory(const std::string& name)
         obj = new TestStation();
     }
 
-    if (obj == nullptr) obj = simulation::factory(name);
-    if (obj == nullptr) obj = terrain::factory(name);
-    if (obj == nullptr) obj = graphics::factory(name);
-    if (obj == nullptr) obj = glut::factory(name);
-    if (obj == nullptr) obj = base::factory(name);
+    if (obj == nullptr) obj = oe::simulation::factory(name);
+    if (obj == nullptr) obj = oe::terrain::factory(name);
+    if (obj == nullptr) obj = oe::graphics::factory(name);
+    if (obj == nullptr) obj = oe::glut::factory(name);
+    if (obj == nullptr) obj = oe::base::factory(name);
 
     return obj;
-}
-
-}
 }

@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: RealBeamRadar
-//------------------------------------------------------------------------------
+
 #include "RealBeamRadar.h"
 
 #include "openeaagles/simulation/Antenna.h"
@@ -22,8 +20,7 @@
 
 #include <cmath>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 const int IMG_WIDTH = 1024;
 const int IMG_HEIGHT = 1024;
@@ -39,9 +36,6 @@ BEGIN_SLOT_MAP(RealBeamRadar)
    ON_SLOT( 1, setSlotInterpolate,   base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructors, destructor, copy operator & clone()
-//------------------------------------------------------------------------------
 RealBeamRadar::RealBeamRadar()
 {
    STANDARD_CONSTRUCTOR()
@@ -71,9 +65,6 @@ RealBeamRadar::RealBeamRadar()
    initImageMemory(IMG_WIDTH, IMG_HEIGHT);
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void RealBeamRadar::copyData(const RealBeamRadar& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -102,15 +93,11 @@ void RealBeamRadar::copyData(const RealBeamRadar& org, const bool cc)
    copyImageMemory(org);
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void RealBeamRadar::deleteData()
 {
    setTerrain( nullptr );
    freeImageMemory();
 }
-
 
 //------------------------------------------------------------------------------
 // transmit() -- send radar emissions
@@ -468,16 +455,7 @@ void RealBeamRadar::freeImageMemory()
    if (maskFlgs != nullptr)   { delete[] maskFlgs;   maskFlgs = nullptr; }
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* RealBeamRadar::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
-
-}
-}
-
-

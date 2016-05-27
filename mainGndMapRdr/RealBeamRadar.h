@@ -1,27 +1,27 @@
-//------------------------------------------------------------------------------
-// Class: RealBeamRadar
-//
-// Description: Real-Beam Radar Model
-//------------------------------------------------------------------------------
-#ifndef __oe_example_RealBeamRadar_H__
-#define __oe_example_RealBeamRadar_H__
+
+#ifndef __RealBeamRadar_H__
+#define __RealBeamRadar_H__
 
 #include "openeaagles/simulation/Radar.h"
 
 namespace oe {
    namespace base { class Angle; class Distance; class Number; class Terrain; }
+}
 
-namespace example {
-
-class RealBeamRadar : public simulation::Radar
+//------------------------------------------------------------------------------
+// Class: RealBeamRadar
+//
+// Description: Real-Beam Radar Model
+//------------------------------------------------------------------------------
+class RealBeamRadar : public oe::simulation::Radar
 {
-    DECLARE_SUBCLASS(RealBeamRadar,simulation::Radar)
+    DECLARE_SUBCLASS(RealBeamRadar, oe::simulation::Radar)
 
 public:
     RealBeamRadar();
 
-   const base::Terrain* getTerrain() const                      { return terrain; }
-   virtual bool setTerrain(const base::Terrain* const msg);
+   const oe::base::Terrain* getTerrain() const                      { return terrain; }
+   virtual bool setTerrain(const oe::base::Terrain* const msg);
 
    double getAltitude() const                     { return altitude; }    // Ref altitude (meters)
    double getAntennaAzimuthAngle() const          { return antAzAngle; }  // Antenna look angle (degs)
@@ -39,7 +39,7 @@ public:
    int getPixelSize() const   { return PIXEL_SIZE; }        // Number of components (RGBA) in each image pixel
 
    // Slot functions
-   virtual bool setSlotInterpolate(const base::Number* const msg);
+   virtual bool setSlotInterpolate(const oe::base::Number* const msg);
 
    // Compute earth curvature effects
    static bool computeGroundRanges(double* const groundRange, const unsigned int n, const double maxRngNM);
@@ -55,7 +55,7 @@ private:
    bool copyImageMemory(const RealBeamRadar& org);
    void freeImageMemory();
 
-   const base::Terrain* terrain;      // Terrain data
+   const oe::base::Terrain* terrain;   // Terrain data
    double            altitude;         // Ref altitude (meters)
    double            antAzAngle;       // Antenna azimuth angle (degs)
    double            antElAngle;       // Antenna elevation angle (degs)
@@ -81,8 +81,5 @@ private:
                                      //   --   irow : [ 0 ... (imgHeight-1) ]
                                      //   --   icol : [ 0 ... (imgWidth-1) ]
 };
-
-}
-}
 
 #endif

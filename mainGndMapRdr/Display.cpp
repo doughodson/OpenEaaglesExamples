@@ -1,6 +1,4 @@
-// ----------------------------------------------------------------------------
-// Class: Display
-// ----------------------------------------------------------------------------
+
 #include "Display.h"
 #include "RealBeamRadar.h"
 
@@ -19,8 +17,7 @@
 #include "openeaagles/base/units/Angles.h"
 #include "openeaagles/base/units/Distances.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(Display,"RbrDisplay")
 EMPTY_SERIALIZER(Display)
@@ -33,9 +30,6 @@ BEGIN_SLOT_MAP(Display)
    ON_SLOT( 1, setSlotTextureTest, base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor
-//------------------------------------------------------------------------------
 Display::Display()
 {
    STANDARD_CONSTRUCTOR()
@@ -45,9 +39,6 @@ Display::Display()
    texture = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy our objects data
-//------------------------------------------------------------------------------
 void Display::copyData(const Display& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -59,9 +50,6 @@ void Display::copyData(const Display& org, const bool cc)
    }
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- copy our objects data
-//------------------------------------------------------------------------------
 void Display::deleteData()
 {
    // Free the texture
@@ -99,10 +87,6 @@ simulation::Station* Display::getStation()
     return myStation;
 }
 
-//------------------------------------------------------------------------------
-// Slot functions
-//------------------------------------------------------------------------------
-
 // Set texture test flag
 bool Display::setSlotTextureTest(const base::Number* const msg)
 {
@@ -114,10 +98,6 @@ bool Display::setSlotTextureTest(const base::Number* const msg)
    return ok;
 }
 
-
-//------------------------------------------------------------------------------
-// drawFunc()
-//------------------------------------------------------------------------------
 void Display::drawFunc()
 {
    simulation::Player* own = getOwnship();
@@ -204,9 +184,6 @@ void Display::drawFunc()
    }
 }
 
-//-----------------------------------------------------------------------------
-// configureIt() -- function to configure the display
-//-----------------------------------------------------------------------------
 void Display::configure()
 {
    BaseClass::configure();
@@ -219,14 +196,7 @@ void Display::configure()
    glBlendFunc(GL_ONE, GL_ZERO);
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
-}; // end example namespace
-}; // end oe namespace
-

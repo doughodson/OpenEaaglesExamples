@@ -8,10 +8,9 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd, "Pfd")
 EMPTY_SERIALIZER(Pfd)
 EMPTY_DELETEDATA(Pfd)
 
@@ -333,7 +332,4 @@ void Pfd::updateData(const double dt)
     double mAltBug = base::Distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
-}
-
-}
 }

@@ -1,20 +1,17 @@
 
-#ifndef __oe_demo_TestPfd_H__
-#define __oe_demo_TestPfd_H__
+#ifndef __TestPfd_H__
+#define __TestPfd_H__
 
 #include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
 
 //------------------------------------------------------------------------------
 // Class: TestPfd
 //
 // Description: Tests another pfd page
 //------------------------------------------------------------------------------
-class TestPfd : public graphics::Page
+class TestPfd : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestPfd, graphics::Page )
+   DECLARE_SUBCLASS(TestPfd, oe::graphics::Page )
 
 public:
     TestPfd();
@@ -74,8 +71,5 @@ private:
     double baro;
     double baroRate;
 };
-
-}
-}
 
 #endif
