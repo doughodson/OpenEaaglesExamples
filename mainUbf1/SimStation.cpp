@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: SimStation
-//------------------------------------------------------------------------------
 
 #include "SimStation.h"
 
@@ -18,10 +15,9 @@
 #include "openeaagles/base/units/Times.h"
 #include "openeaagles/base/osg/Vec4"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(SimStation,"SimStation")
+IMPLEMENT_SUBCLASS(SimStation, "SimStation")
 EMPTY_SERIALIZER(SimStation)
 EMPTY_COPYDATA(SimStation)
 EMPTY_DELETEDATA(SimStation)
@@ -36,9 +32,6 @@ BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay, glut::GlutDisplay)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SimStation::SimStation()
 {
     STANDARD_CONSTRUCTOR()
@@ -47,9 +40,6 @@ SimStation::SimStation()
     displayInit = false;
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset the station
-//------------------------------------------------------------------------------
 void SimStation::reset()
 {
     // setup ownship player pointer
@@ -69,9 +59,6 @@ void SimStation::reset()
     BaseClass::reset();
 }
 
-//------------------------------------------------------------------------------
-// updateTC() -- update time critical stuff here
-//------------------------------------------------------------------------------
 void SimStation::updateTC(const double dt)
 {
     // First update the simulation
@@ -120,11 +107,6 @@ void SimStation::stepOwnshipPlayer()
     }
 }
 
-//------------------------------------------------------------------------------
-// Set Slot Functions
-//------------------------------------------------------------------------------
-
-// Main display
 bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 {
     if (mainDisplay != nullptr) mainDisplay->container(nullptr);
@@ -134,13 +116,7 @@ bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
     return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for graphics::Page
-//------------------------------------------------------------------------------
 base::Object* SimStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
-}
-
-}
 }

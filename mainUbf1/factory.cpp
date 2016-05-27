@@ -23,12 +23,9 @@
 
 #include <string>
 
-namespace oe {
-namespace example {
-
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     if ( name == SimStation::getFactoryName() ) {
         obj = new SimStation();
@@ -41,23 +38,20 @@ base::Object* factory(const std::string& name)
     }
 
     // Example library packages
-    if (obj == nullptr) obj = xbehaviors::factory(name);
-    if (obj == nullptr) obj = xpanel::factory(name);
+    if (obj == nullptr) obj = oe::xbehaviors::factory(name);
+    if (obj == nullptr) obj = oe::xpanel::factory(name);
 
     // Openoe packages
-    if (obj == nullptr) obj = simulation::factory(name);
-    if (obj == nullptr) obj = instruments::factory(name);
-    if (obj == nullptr) obj = iodevice::factory(name);
-    if (obj == nullptr) obj = instruments::factory(name);
-    if (obj == nullptr) obj = models::factory(name);
-    if (obj == nullptr) obj = otw::factory(name);
-    if (obj == nullptr) obj = dis::factory(name);
-    if (obj == nullptr) obj = graphics::factory(name);
-    if (obj == nullptr) obj = glut::factory(name);
-    if (obj == nullptr) obj = base::factory(name);
+    if (obj == nullptr) obj = oe::simulation::factory(name);
+    if (obj == nullptr) obj = oe::instruments::factory(name);
+    if (obj == nullptr) obj = oe::iodevice::factory(name);
+    if (obj == nullptr) obj = oe::instruments::factory(name);
+    if (obj == nullptr) obj = oe::models::factory(name);
+    if (obj == nullptr) obj = oe::otw::factory(name);
+    if (obj == nullptr) obj = oe::dis::factory(name);
+    if (obj == nullptr) obj = oe::graphics::factory(name);
+    if (obj == nullptr) obj = oe::glut::factory(name);
+    if (obj == nullptr) obj = oe::base::factory(name);
 
     return obj;
-}
-
-}
 }

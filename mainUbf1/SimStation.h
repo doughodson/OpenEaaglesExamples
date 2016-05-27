@@ -1,19 +1,15 @@
-//------------------------------------------------------------------------------
-// Class: SimStation
-//------------------------------------------------------------------------------
-#ifndef __oe_example_SimStation_H__
-#define __oe_example_SimStation_H__
+
+#ifndef __SimStation_H__
+#define __SimStation_H__
 
 //#include "agent/AgentStation.h"
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-
-namespace base { class Table1; class PairStream; }
-namespace glut { class GlutDisplay; }
-namespace simulation { class AirVehicle; }
-
-namespace example {
+   namespace base { class Table1; class PairStream; }
+   namespace glut { class GlutDisplay; }
+   namespace simulation { class AirVehicle; }
+}
 
 //------------------------------------------------------------------------------
 // Class: SimStation
@@ -28,9 +24,9 @@ namespace example {
 //      display       <graphics::GlutDisplay>  ! Main graphics display
 //
 //------------------------------------------------------------------------------
-class SimStation : public simulation::Station
+class SimStation : public oe::simulation::Station
 {
-   DECLARE_SUBCLASS(SimStation, simulation::Station)
+   DECLARE_SUBCLASS(SimStation, oe::simulation::Station)
 
 public:
     SimStation();
@@ -39,7 +35,7 @@ public:
    void stepOwnshipPlayer();
 
    // Slot functions
-   virtual bool setSlotMainDisplay(glut::GlutDisplay* const d);
+   virtual bool setSlotMainDisplay(oe::glut::GlutDisplay* const d);
 
    virtual void updateTC(const double dt = 0.0) override;
    virtual void reset() override;
@@ -47,12 +43,9 @@ public:
 private:
 
     // Main Display
-    base::safe_ptr<glut::GlutDisplay> mainDisplay;
+    oe::base::safe_ptr<oe::glut::GlutDisplay> mainDisplay;
     bool displayInit;
 
 };
-
-}
-}
 
 #endif

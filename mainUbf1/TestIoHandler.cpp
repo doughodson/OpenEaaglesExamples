@@ -12,30 +12,19 @@
 #include "openeaagles/base/IoData.h"
 #include "openeaagles/base/util/math_utils.h"
 
-namespace oe {
-namespace example {
-
-//------------------------------------------------------------------------------
-// TestIoHandler
-//------------------------------------------------------------------------------
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(TestIoHandler,"TestIoHandler")
 EMPTY_SLOTTABLE(TestIoHandler)
 EMPTY_SERIALIZER(TestIoHandler)
 EMPTY_DELETEDATA(TestIoHandler)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestIoHandler::TestIoHandler()
 {
    STANDARD_CONSTRUCTOR()
    initData();
 }
 
-//------------------------------------------------------------------------------
-// initData -- initialize our data for the first time
-//------------------------------------------------------------------------------
 void TestIoHandler::initData()
 {
    rstSw1 = false;
@@ -53,9 +42,6 @@ void TestIoHandler::initData()
    decStptSw1 = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -253,7 +239,7 @@ void TestIoHandler::inputDevices(const double)
          autopilotSw1 = autopilotSw;
       }
 
-      { // Speedbrake switch  
+      { // Speedbrake switch
          bool sbExtSw = false;
          bool sbRetSw = false;
          inData->getDiscreteInput(SB_EXT_SW, &sbExtSw);
@@ -311,7 +297,4 @@ void TestIoHandler::inputDevices(const double)
 // -----------------------------------------------------------------------------
 void TestIoHandler::clear()
 {
-}
-
-}
 }
