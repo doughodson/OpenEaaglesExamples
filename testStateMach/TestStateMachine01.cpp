@@ -4,10 +4,9 @@
 #include "openeaagles/base/Integer.h"
 #include "openeaagles/base/Boolean.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(TestStateMachine01,"TestStateMachine01")
+IMPLEMENT_SUBCLASS(TestStateMachine01, "TestStateMachine01")
 EMPTY_SLOTTABLE(TestStateMachine01)
 EMPTY_CONSTRUCTOR(TestStateMachine01)
 EMPTY_COPYDATA(TestStateMachine01)
@@ -160,7 +159,4 @@ void TestStateMachine01::anyStateFunc(const double)
       }
 
    };
-}
-
-}
 }

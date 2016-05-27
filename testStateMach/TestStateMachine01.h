@@ -1,13 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: TestStateMachine01
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TestStateMachine01_H__
-#define __oe_test_TestStateMachine01_H__
+
+#ifndef __TestStateMachine01_H__
+#define __TestStateMachine01_H__
 
 #include "openeaagles/base/StateMachine.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine01
@@ -19,9 +14,9 @@ namespace test {
 //    select each state's specific code.
 //
 //------------------------------------------------------------------------------
-class TestStateMachine01 : public base::StateMachine
+class TestStateMachine01 : public oe::base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine01, base::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine01, oe::base::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };
@@ -42,8 +37,5 @@ private:
    // State specific functions
    void anyStateFunc(const double dt);
 };
-
-}
-}
 
 #endif

@@ -1,21 +1,16 @@
-//------------------------------------------------------------------------------
-// Class: TestStateMachine04B
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TestStateMachine04B_H__
-#define __oe_test_TestStateMachine04B_H__
+
+#ifndef __TestStateMachine04B_H__
+#define __TestStateMachine04B_H__
 
 #include "openeaagles/base/StateMachine.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04B
 //
 //------------------------------------------------------------------------------
-class TestStateMachine04B : public base::StateMachine
+class TestStateMachine04B : public oe::base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine04B, base::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine04B, oe::base::StateMachine)
 
 public:
    TestStateMachine04B();
@@ -34,8 +29,5 @@ private:
    void stateFunc01(const double dt);
    void stateFunc02(const double dt);
 };
-
-}
-}
 
 #endif

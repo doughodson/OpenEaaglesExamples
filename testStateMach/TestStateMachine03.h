@@ -1,13 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: TestStateMachine03
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TestStateMachine03_H__
-#define __oe_test_TestStateMachine03_H__
+
+#ifndef __TestStateMachine03_H__
+#define __TestStateMachine03_H__
 
 #include "openeaagles/base/StateMachine.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine03
@@ -16,9 +11,9 @@ namespace test {
 //    functions: nextSubstate() and goToSubstate().
 //
 //------------------------------------------------------------------------------
-class TestStateMachine03 : public base::StateMachine
+class TestStateMachine03 : public oe::base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine03, base::StateMachine)
+   DECLARE_SUBCLASS(TestStateMachine03, oe::base::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };
@@ -53,8 +48,5 @@ private:
    void stateFunc23(const double dt);
    void stateFunc99(const double dt);
 };
-
-}
-}
 
 #endif

@@ -4,10 +4,9 @@
 #include "openeaagles/base/Integer.h"
 #include "openeaagles/base/Boolean.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(TestStateMachine04,"TestStateMachine04")
+IMPLEMENT_SUBCLASS(TestStateMachine04, "TestStateMachine04")
 EMPTY_SLOTTABLE(TestStateMachine04)
 EMPTY_CONSTRUCTOR(TestStateMachine04)
 EMPTY_COPYDATA(TestStateMachine04)
@@ -130,7 +129,4 @@ void TestStateMachine04::stateFunc99(const double)
    if (getMode() == NEW_STATE) {
       std::cout << "Finished;";
    }
-}
-
-}
 }

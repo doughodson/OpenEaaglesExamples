@@ -9,15 +9,12 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace test {
-
 // state machine builder
-base::StateMachine* builder(const std::string& filename)
+oe::base::StateMachine* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -30,7 +27,7 @@ base::StateMachine* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -38,7 +35,7 @@ base::StateMachine* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   base::StateMachine* stateMachine = dynamic_cast<base::StateMachine*>(obj);
+   oe::base::StateMachine* stateMachine = dynamic_cast<oe::base::StateMachine*>(obj);
    if (stateMachine == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -47,12 +44,12 @@ base::StateMachine* builder(const std::string& filename)
 }
 
 // main test loop
-void theTest(base::StateMachine* stateMachine)
+void theTest(oe::base::StateMachine* stateMachine)
 {
    const double dt = 0.05;  // Fake delta time
 
    while (stateMachine->getState() != 99) {
-      base::Timer::updateTimers(static_cast<double>(dt));
+      oe::base::Timer::updateTimers(static_cast<double>(dt));
       stateMachine->updateTC(dt);
       stateMachine->updateData(dt);
    }
@@ -74,7 +71,7 @@ int main(int argc, char* argv[])
    // ---
    // Read in the description files
    // ---
-   base::StateMachine* stateMachine = builder(configFilename);
+   oe::base::StateMachine* stateMachine = builder(configFilename);
 
    //stateMachine->serialize(std::cout);
 
@@ -85,13 +82,4 @@ int main(int argc, char* argv[])
    theTest(stateMachine);
 
    return EXIT_SUCCESS;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::test::main(argc,argv);
 }

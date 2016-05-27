@@ -15,8 +15,7 @@
 
 #include <string>
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 base::Object* factory(const std::string& name)
 {
@@ -55,7 +54,4 @@ base::Object* factory(const std::string& name)
     if (obj == nullptr) obj = base::factory(name);
 
     return obj;
-}
-
-}
 }
