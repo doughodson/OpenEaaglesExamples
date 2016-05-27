@@ -1,6 +1,6 @@
-//-----------------------------------------------------------------------------
-// Test base::Nav functions
-//-----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Test Matrix class functions
+//------------------------------------------------------------------------------
 
 #include "openeaagles/base/Matrix.h"
 #include "openeaagles/base/Vectors.h"
@@ -8,17 +8,16 @@
 #include <iostream>
 #include <iomanip>
 
-namespace oe {
-namespace base {
+using namespace oe::base;
 
 const unsigned int ROWS = 4;
 const unsigned int COLS = 4;
 const unsigned int SIZE = ROWS*COLS;
 
-  // Size = 3 
+  // Size = 3
   //double pArr[] = {4,-1,1,-1,3,-2,1,-2,3};
 
-  // Size = 4 
+  // Size = 4
   double pArr[] = {4,1,-2,2,1,2,0,1,-2,0,3,-2,2,1,-2,-1};
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -32,10 +31,7 @@ void test_getTriDiagonal();
 void test_getEigenPower();
 void test_getInverse();
 
-//------------------------------------------------------------------------------
-// Test Matrix class functions 
-//------------------------------------------------------------------------------
-void testMatrixFns()
+int main(int argc, char**)
 {
    std::cout << "===============================================================" << std::endl;
    // Select a matrix feature to test
@@ -53,7 +49,7 @@ void testMatrixFns()
 
    int num = 0;
    std::cout << "Enter a number: ";
-   std::cin >> num; 
+   std::cin >> num;
 
    switch (num)
    {
@@ -97,8 +93,8 @@ void testMatrixFns()
          std::cout << "Bad selection." << std::endl;
          break;
    }
+   return 0;
 }
-
 
 //------------------------------------------------------------------------------
 // Test Matrix class constructors
@@ -115,49 +111,49 @@ void testConstructors()
    //---------------------------------------------
    Matrix A;                                      // default declaration
    std::cout << "A = " << std::endl;              // Matrix name associated with matrix output in next step.
-   std::cout << A << std::endl;                   // Matrix not displayed by "<<" since it is not a "good" matrix. 
-   std::cout << "A = " << std::endl;         
-   A.showMatrix(); std::cout << std::endl;        // Matrix cannot be displayed by showMatrix (same reason).  
+   std::cout << A << std::endl;                   // Matrix not displayed by "<<" since it is not a "good" matrix.
+   std::cout << "A = " << std::endl;
+   A.showMatrix(); std::cout << std::endl;        // Matrix cannot be displayed by showMatrix (same reason).
 
    //---------------------------------------------
-   // Size Constructor 
+   // Size Constructor
    //---------------------------------------------
    Matrix B(ROWS,COLS);                           // Creates a ROWS x COLS matrix with all zero elements.
    B.setFldWidth(12);                             // Field width is set to 12 for each matrix element.
    B.setDecPoint(5);                              // Decimal point is set to 5 digits of precision.
-   std::cout << "B = " << std::endl;         
+   std::cout << "B = " << std::endl;
    std::cout << B << std::endl;                   // Matrix displayed using overloaded "<<" operator
                                                   // Note that decimal point = 5 and all elements are zero,
                                                   // as expected, but field width = 10, not 12. The overloaded
                                                   // operator "<<" always calculates an appropriate field
                                                   // width regardless of the current setting.
-   std::cout << "B = " << std::endl; 
+   std::cout << "B = " << std::endl;
    B.showMatrix(4); std::cout << std::endl;       // Matrix displayed using "showMatrix" member function
                                                   // with 4 decimal point precision and field width = 12.
 
    //---------------------------------------------
-   // Data Constructor 
+   // Data Constructor
    //---------------------------------------------
    Matrix* pM1 = new Matrix(ROWS,COLS,pArr,SIZE); // Constructor allocates memory for a 3x3 matrix and
                                                   // inits matrix with data from array pArr and returns
                                                   // a pointer to the matrix
    std::cout << "M1 = " << std::endl;
    std::cout << *pM1 << std::endl;                // Note fldWidth=DEF_FLDWIDTH and decPoint=DEF_DECPOINT
-   std::cout << "M1 = " << std::endl; 
+   std::cout << "M1 = " << std::endl;
    pM1->showMatrix(3,10); std::cout << std::endl; // Note that showMatrix used decPoint=3 to set decimal
                                                   // precision and fldWidth=10.
 
    //---------------------------------------------
-   // Copy Constructor 
+   // Copy Constructor
    //---------------------------------------------
    Matrix* pM2 = new Matrix(*pM1);                // Constructor creates a new matrix D with the same
                                                   // elements as matrix C.
    pM2->setDecPoint(8);
    pM2->setFldWidth(11);                          // This field width leaves no margin between row elements
-                                                  // in this example. 
+                                                  // in this example.
    std::cout << "M2 = " << std::endl;
    std::cout << *pM2 << std::endl;                // The output for the matrix is FW=14 and DP=8.
-   std::cout << "M2 = " << std::endl; 
+   std::cout << "M2 = " << std::endl;
    pM2->showMatrix(6,9); std::cout << std::endl;  // Since the field width value of 9 would leaves no space
                                                   // between some of the matrix elements, the function
                                                   // showMatrix calculates a field width that leaves >= 2
@@ -171,13 +167,12 @@ void testConstructors()
 
 }
 
-
 //------------------------------------------------------------------------------
-// Test Matrix class information access 
+// Test Matrix class information access
 //------------------------------------------------------------------------------
 void testInformation()
 {
-   // Test Matrix class information functions 
+   // Test Matrix class information functions
    std::cout << "=============================================" << std::endl;
    std::cout << "Test information functions" << std::endl;
 
@@ -203,17 +198,17 @@ void testInformation()
    std::cout << "Good matrix?     = " << std::boolalpha << pA->isGoodMatrix()   << std::endl;
    std::cout << "Square?          = " << std::boolalpha << pA->isSquare()       << std::endl;
    std::cout << "Symmetric?       = " << std::boolalpha << pA->isSymmetric()    << std::endl;
-   
+
    // Cleanup
    if (pA != nullptr) pA->unref();                    // Decrement the reference counter for pointer pA
 }
 
 //------------------------------------------------------------------------------
-// Test Matrix class overloaded operators 
+// Test Matrix class overloaded operators
 //------------------------------------------------------------------------------
 void testOverloadedOps()
 {
-   // Test Matrix class overloaded operators 
+   // Test Matrix class overloaded operators
    std::cout << "=============================================" << std::endl;
    std::cout << "Test overloaded operators" << std::endl;
 
@@ -225,10 +220,10 @@ void testOverloadedOps()
    pA->showMatrix(); std::cout << std::endl;
 
    // overloaded "="
-   Matrix B = *pA;  // Now matrix A and B are identical 
+   Matrix B = *pA;  // Now matrix A and B are identical
    std::cout << "B = " << std::endl;
    B.showMatrix(); std::cout << std::endl;
-   
+
    // overloaded "()"
    std::cout << "B(1,1)     = " << B(1,1) << std::endl;
 
@@ -272,9 +267,8 @@ void testOverloadedOps()
    if (pV != nullptr) pV->unref();                    // Decrement the reference counter for pointer pV
 }
 
-
 //------------------------------------------------------------------------------
-// Test Matrix class transformation functions 
+// Test Matrix class transformation functions
 //------------------------------------------------------------------------------
 void test_getTriDiagonal()
 {
@@ -284,7 +278,7 @@ void test_getTriDiagonal()
 
    Matrix* pA = new Matrix(ROWS,COLS,pArr,SIZE);
 
-   // Show the base matrix 
+   // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
@@ -302,7 +296,6 @@ void test_getTriDiagonal()
    if (pB != nullptr) pB->unref();                    // Decrement the reference counter for pointer pB
 }
 
-
 //------------------------------------------------------------------------------
 void test_getQR()
 {
@@ -312,7 +305,7 @@ void test_getQR()
 
    Matrix* pA = new Matrix(ROWS,COLS,pArr,SIZE);
 
-   // Show the base matrix 
+   // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
@@ -342,7 +335,7 @@ void test_getQR()
    std::cout << "inverse(Q) = Q' (?)" << std::endl;
    pQinv->showMatrix(); std::cout << std::endl;
 
-   Matrix* pI = multiply(*pQ, *pQinv); 
+   Matrix* pI = multiply(*pQ, *pQinv);
    std::cout << "Q * Qinv = I (?)" << std::endl;
    pI->showMatrix(); std::cout << std::endl;
 
@@ -355,7 +348,7 @@ void test_getQR()
    }
    std::cout << "R * Q (after 10 iterations) = " << std::endl;
    pB->showMatrix(); std::cout << std::endl;
-   CVector* pV = getDiag(*pB); 
+   CVector* pV = getDiag(*pB);
    std::cout << "Diagonal = eigenvalue estimates" << std::endl;
    pV->showVector(); std::cout << std::endl;
 
@@ -376,7 +369,7 @@ void test_getLU()
 
    Matrix* pA = new Matrix(ROWS,COLS,pArr,SIZE);
 
-   // Show the base matrix 
+   // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
@@ -390,7 +383,7 @@ void test_getLU()
    std::cout << "L = " << std::endl;
    pL->showMatrix(); std::cout << std::endl;
 
-   CVector* pV = getDiag(*pL); 
+   CVector* pV = getDiag(*pL);
    std::cout << "Diagonal = all 1's (?)" << std::endl;
    pV->showVector(); std::cout << std::endl;
 
@@ -418,7 +411,7 @@ void test_getCholesky()
 
    Matrix* pA = new Matrix(ROWS,COLS,pArr,SIZE);
 
-   // Show the base matrix 
+   // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
@@ -427,7 +420,7 @@ void test_getCholesky()
    Matrix* pU = new Matrix(ROWS,COLS);
    bool b1 = pA->getCholesky(pL, pU);
    std::cout << "getCholesky function return value = " << std::boolalpha << b1 << std::endl;
-   std::cout << std::endl; 
+   std::cout << std::endl;
 
    if (pL != nullptr) {
       std::cout << "L = " << std::endl;
@@ -462,14 +455,14 @@ void test_getEigenPower()
 
    Matrix* pA = new Matrix(ROWS,COLS,pArr,SIZE);
 
-   // Show the base matrix 
+   // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
    bool b1 = pA->getEigenPower(maxErr, maxIter, &Val, pVec);
    std::cout << "getEigenPower function return value = " << std::boolalpha << b1 << std::endl;
-   std::cout << std::endl; 
+   std::cout << std::endl;
 
    std::cout << std::setprecision(4);
    std::cout << "Eigenvalue = " << Val << std::endl;
@@ -503,7 +496,7 @@ void test_getInverse()
    Matrix* pA = new Matrix(ROWS,COLS,pArr,SIZE);
    Matrix* pI = new Matrix(ROWS,COLS);
 
-   // Show the base matrix 
+   // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
@@ -529,16 +522,3 @@ void test_getInverse()
    pI->unref();
    pInv->unref();
 }
-
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   oe::base::testMatrixFns();
-
-   return 0;
-}
-

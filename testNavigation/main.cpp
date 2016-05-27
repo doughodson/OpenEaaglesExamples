@@ -13,8 +13,7 @@
 #include <cstdlib>
 #include <string>
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 // -----------------------------------------------------------------------------
 // Global Variables (and Constants)
@@ -4495,10 +4494,6 @@ void test27_convertUtm()
    }
 }
 
-}
-}
-
-//==============================================================================
 int main(int argc, char* argv[])
 {
    bool runAll = false;
@@ -4515,12 +4510,12 @@ int main(int argc, char* argv[])
 
    if (runAll) {
       // Run all tests
-      oe::test::testNumber = 99;
-      oe::test::test99_printAllExamples();
+      testNumber = 99;
+      test99_printAllExamples();
    }
    else if (imode) {
       // Interactive mode
-      oe::test::testNavFns();
+      testNavFns();
    }
    else {
       std::cout                                             << std::endl;

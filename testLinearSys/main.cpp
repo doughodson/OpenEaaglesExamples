@@ -4,9 +4,6 @@
 #include <cstdlib>
 #include <cmath>
 
-namespace oe {
-namespace test {
-
 int main(int, char**)
 {
    enum { PULSE, STEP, RAMP };
@@ -14,7 +11,7 @@ int main(int, char**)
    const unsigned int RATE = 100;
    const double A = 10.0;
 
-   linearsystem::Sz1 filter;
+   oe::linearsystem::Sz1 filter;
 
    filter.setN1(0.0);
    filter.setN2(1.0);
@@ -53,13 +50,4 @@ int main(int, char**)
    }
 
    return EXIT_SUCCESS;
-}
-
-}
-}
-
-
-int main(int argc, char* argv[], char**)
-{
-   return oe::test::main(argc,argv);
 }
