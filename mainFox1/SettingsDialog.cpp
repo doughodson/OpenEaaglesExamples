@@ -7,6 +7,10 @@
 #include <cstdio>
 #include "SettingsDialog.h"
 
+#if defined(WIN32)
+#pragma warning(disable: 4996)
+#endif
+
 #define PRINT_YESNO(x) ( x ? "yes" : "no" )
 
 // Implementation
