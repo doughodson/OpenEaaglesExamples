@@ -17,11 +17,11 @@ project "demoEfis"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -41,11 +41,11 @@ project "demoFlightDisplays1"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -65,11 +65,11 @@ project "demoFlightDisplays2"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -89,11 +89,11 @@ project "demoInstruments"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -113,11 +113,11 @@ project "demoSubDisplays"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}

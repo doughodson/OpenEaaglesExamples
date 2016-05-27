@@ -17,11 +17,11 @@ project "mainGlut"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -40,14 +40,14 @@ project "mainFltk1"
    includedirs { OEIncPath, OE3rdPartyIncPath }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oesimulation", "oedafif"}
       links {"oeinstruments", "oegraphics", "oebase"}
       links {"fltk_images", "fltk_gl", "fltk"}
 --    links {"fltk_jpeg", "fltk_png", "fltk_z"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Ole32", "ComDlg32", "Uuid", "Gdi32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oesimulation_d", "oedafif_d"}
       links {"oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {"fltk_images_d", "fltk_gl_d", "fltk_d"}
@@ -69,13 +69,13 @@ project "mainFox1"
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
       links {"fox-1.7"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32", "mpr", "imm32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
       links {"oegraphics_d", "oebase_d"}
       links {"fox-1.7_d"}
@@ -96,13 +96,13 @@ project "mainFox2"
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
       links {"fox-1.7"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32", "mpr", "imm32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
       links {"oegraphics_d", "oebase_d"}
       links {"fox-1.7_d"}
@@ -123,13 +123,13 @@ project "mainFox3"
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
-   configuration "Release"
+   filter "configurations:Release*"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
       links {"fox-1.7"}
       links {LibFtgl, LibFreetype, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32", "mpr", "imm32"}
-   configuration "Debug"
+   filter "configurations:Debug*"
       links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
       links {"oegraphics_d", "oebase_d"}
       links {"fox-1.7_d"}

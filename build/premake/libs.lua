@@ -12,9 +12,9 @@
          "../../shared/xbehaviors/*.h",
       }
       defines { "_LIB" }
-      configuration "Release"
+      filter "configurations:Release*"
          targetname "xbehaviors"
-      configuration "Debug"
+      filter "configurations:Debug*"
          targetname "xbehaviors_d"
 
     --  eXample library that extends the data recorder
@@ -30,9 +30,9 @@
       }
       defines { "_LIB" }
       defines { "_SCL_SECURE_NO_WARNINGS" } -- suppress protocol buffer warning
-      configuration "Release"
+      filter "configurations:Release*"
          targetname "xrecorder"
-      configuration "Debug"
+      filter "configurations:Debug*"
          targetname "xrecorder_d"
 
     --  eXample Panel library -- common instrument panel code for several examples
@@ -46,9 +46,9 @@
          "../../shared/xpanel/**.epp",
       }
       defines { "_LIB" }
-      configuration "Release"
+      filter "configurations:Release*"
          targetname "xpanel"
-      configuration "Debug"
+      filter "configurations:Debug*"
          targetname "xpanel_d"
 
     --  eXample ZeroMQ network handlers
@@ -63,8 +63,8 @@
          "../../shared/xzmq/**.epp",
       }
       defines { "_LIB" }
-      configuration "Release"
+      filter "configurations:Release*"
          targetname "xzmq"
-      configuration "Debug"
+      filter "configurations:Debug*"
          targetname "xzmq_d"
 
