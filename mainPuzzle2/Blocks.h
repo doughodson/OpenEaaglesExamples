@@ -1,30 +1,26 @@
-//------------------------------------------------------------------------------
-// Class:  Block1, Block2, ... Block15, Block
-//------------------------------------------------------------------------------
-#ifndef __oe_example_Blocks_H__
-#define __oe_example_Blocks_H__
+
+#ifndef __Blocks_H__
+#define __Blocks_H__
 
 #include "openeaagles/base/Object.h"
 
 namespace oe {
    namespace base { class List; class Integer; }
-
-namespace example {
+}
 
 class Puzzle;
 
 //------------------------------------------------------------------------------
 // Class:  Block
-// Base class:  base::Object-> Block
 //
 // Description:  Abstract puzzle block
 //
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
 //------------------------------------------------------------------------------
-class Block : public base::Object
+class Block : public oe::base::Object
 {
-    DECLARE_SUBCLASS(Block, base::Object)
+    DECLARE_SUBCLASS(Block, oe::base::Object)
 
 public:
    Block();
@@ -54,8 +50,8 @@ public:
    virtual unsigned int computeHashValue(const unsigned int blockIndex, const unsigned int rehashCount) const;
 
    // Slot function(s)
-   virtual bool setSlotPosition(const base::List* const msg);
-   virtual bool setSlotRefId(const base::Integer* const msg);
+   virtual bool setSlotPosition(const oe::base::List* const msg);
+   virtual bool setSlotRefId(const oe::base::Integer* const msg);
 
 protected:
    virtual bool setInitPosition(const unsigned int x, const unsigned int y);
@@ -70,7 +66,7 @@ private:
 // Class:  Block1
 //------------------------------------------------------------------------------
 class Block1 : public Block {
-   DECLARE_SUBCLASS(Block1,Block)
+   DECLARE_SUBCLASS(Block1, Block)
 public:
    Block1();
 
@@ -83,7 +79,7 @@ public:
 // Class:  Block2
 //------------------------------------------------------------------------------
 class Block2 : public Block {
-   DECLARE_SUBCLASS(Block2,Block)
+   DECLARE_SUBCLASS(Block2, Block)
 public:
    Block2();
 
@@ -96,7 +92,7 @@ public:
 // Class:  Block3
 //------------------------------------------------------------------------------
 class Block3 : public Block {
-   DECLARE_SUBCLASS(Block3,Block)
+   DECLARE_SUBCLASS(Block3, Block)
 public:
    Block3();
 
@@ -109,7 +105,7 @@ public:
 // Class:  Block4
 //------------------------------------------------------------------------------
 class Block4 : public Block {
-   DECLARE_SUBCLASS(Block4,Block)
+   DECLARE_SUBCLASS(Block4, Block)
 public:
    Block4();
 
@@ -122,7 +118,7 @@ public:
 // Class:  Block5
 //------------------------------------------------------------------------------
 class Block5 : public Block {
-   DECLARE_SUBCLASS(Block5,Block)
+   DECLARE_SUBCLASS(Block5, Block)
 public:
    Block5();
 
@@ -135,7 +131,7 @@ public:
 // Class:  Block6
 //------------------------------------------------------------------------------
 class Block6 : public Block {
-   DECLARE_SUBCLASS(Block6,Block)
+   DECLARE_SUBCLASS(Block6, Block)
 public:
    Block6();
 
@@ -148,7 +144,7 @@ public:
 // Class:  Block7
 //------------------------------------------------------------------------------
 class Block7 : public Block {
-   DECLARE_SUBCLASS(Block7,Block)
+   DECLARE_SUBCLASS(Block7, Block)
 public:
    Block7();
 
@@ -161,7 +157,7 @@ public:
 // Class:  Block8
 //------------------------------------------------------------------------------
 class Block8 : public Block {
-   DECLARE_SUBCLASS(Block8,Block)
+   DECLARE_SUBCLASS(Block8, Block)
 public:
    Block8();
 
@@ -174,7 +170,7 @@ public:
 // Class:  Block9
 //------------------------------------------------------------------------------
 class Block9 : public Block {
-   DECLARE_SUBCLASS(Block9,Block)
+   DECLARE_SUBCLASS(Block9, Block)
 public:
    Block9();
 
@@ -187,7 +183,7 @@ public:
 // Class:  Block10
 //------------------------------------------------------------------------------
 class Block10 : public Block {
-   DECLARE_SUBCLASS(Block10,Block)
+   DECLARE_SUBCLASS(Block10, Block)
 public:
    Block10();
 
@@ -200,7 +196,7 @@ public:
 // Class:  Block11
 //------------------------------------------------------------------------------
 class Block11 : public Block {
-   DECLARE_SUBCLASS(Block11,Block)
+   DECLARE_SUBCLASS(Block11, Block)
 public:
    Block11();
 
@@ -213,7 +209,7 @@ public:
 // Class:  Block12
 //------------------------------------------------------------------------------
 class Block12 : public Block {
-   DECLARE_SUBCLASS(Block12,Block)
+   DECLARE_SUBCLASS(Block12, Block)
 public:
    Block12();
 
@@ -226,7 +222,7 @@ public:
 // Class:  Block13
 //------------------------------------------------------------------------------
 class Block13 : public Block {
-   DECLARE_SUBCLASS(Block13,Block)
+   DECLARE_SUBCLASS(Block13, Block)
 public:
    Block13();
 
@@ -239,7 +235,7 @@ public:
 // Class:  Block14
 //------------------------------------------------------------------------------
 class Block14 : public Block {
-   DECLARE_SUBCLASS(Block14,Block)
+   DECLARE_SUBCLASS(Block14, Block)
 public:
    Block14();
 
@@ -252,7 +248,7 @@ public:
 // Class:  Block15
 //------------------------------------------------------------------------------
 class Block15 : public Block {
-   DECLARE_SUBCLASS(Block15,Block)
+   DECLARE_SUBCLASS(Block15, Block)
 public:
    Block15();
 
@@ -260,8 +256,5 @@ public:
    virtual unsigned int getSizeX() const override;
    virtual unsigned int getSizeY() const override;
 };
-
-}
-}
 
 #endif

@@ -1,14 +1,11 @@
-//------------------------------------------------------------------------------
-// Class:  Block1, Block2, ... Block15, Block
-//------------------------------------------------------------------------------
+
 #include "Blocks.h"
 #include "Puzzle.h"
 
 #include "openeaagles/base/Integer.h"
 #include "openeaagles/base/List.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 //==============================================================================
 // Class: Block
@@ -669,6 +666,3 @@ Block15::Block15()
 unsigned int Block15::getTypeId() const     { return 15; }
 unsigned int Block15::getSizeX() const      { return 1; }
 unsigned int Block15::getSizeY() const      { return 1; }
-
-}
-}

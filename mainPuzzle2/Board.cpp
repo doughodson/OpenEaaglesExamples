@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Puzzle board
-//------------------------------------------------------------------------------
+
 #include "Board.h"
 #include "Puzzle.h"
 #include "State.h"
@@ -9,10 +7,9 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(Board,"PuzzleBoard")
+IMPLEMENT_SUBCLASS(Board, "PuzzleBoard")
 
 //------------------------------------------------------------------------------
 // Slot table for this form type
@@ -30,9 +27,6 @@ BEGIN_SLOT_MAP(Board)
     ON_SLOT( 2, setSlotTemplates, base::PairStream )
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Board::Board()
 {
    STANDARD_CONSTRUCTOR()
@@ -67,9 +61,6 @@ Board::Board()
    movingFlg = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Board::copyData(const Board& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -113,9 +104,6 @@ void Board::copyData(const Board& org, const bool cc)
    startupTimer = 0;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Board::deleteData()
 {
    setSlotPuzzle(nullptr);
@@ -123,9 +111,6 @@ void Board::deleteData()
    clearGraphics();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- Update non-time critical (background) stuff here
-//------------------------------------------------------------------------------
 void Board::updateData(const double dt)
 {
    BaseClass::updateData(dt);
@@ -296,9 +281,6 @@ void Board::updateBlockDeltaPositions()
    }
 }
 
-//------------------------------------------------------------------------------
-// drawFunc()
-//------------------------------------------------------------------------------
 void Board::drawFunc()
 {
    for (unsigned int i = 0; i < nblocks; i++) {
@@ -333,17 +315,11 @@ bool Board::setSlotTemplates(const base::PairStream* const p)
    return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* Board::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -378,7 +354,4 @@ std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slots
    }
 
    return sout;
-}
-
-}
 }

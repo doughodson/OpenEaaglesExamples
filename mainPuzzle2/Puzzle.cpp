@@ -1,19 +1,15 @@
-//------------------------------------------------------------------------------
-// Class:  Puzzle
-//------------------------------------------------------------------------------
+
 #include "Puzzle.h"
 #include "State.h"
 
 #include "openeaagles/base/List.h"
 
-namespace oe {
+using namespace oe;
 
-namespace example {
-
-IMPLEMENT_SUBCLASS(Puzzle,"Puzzle")
+IMPLEMENT_SUBCLASS(Puzzle, "Puzzle")
 
 //------------------------------------------------------------------------------
-// Slot table for this form type
+// Slot table for this factory type
 //------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Puzzle)
     "initState",      //  1: Our initial state
@@ -28,9 +24,6 @@ BEGIN_SLOT_MAP(Puzzle)
     ON_SLOT( 2, setGoalState, State )
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Puzzle::Puzzle()
 {
    STANDARD_CONSTRUCTOR()
@@ -45,9 +38,6 @@ Puzzle::Puzzle()
    nhe = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Puzzle::copyData(const Puzzle& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -77,9 +67,6 @@ void Puzzle::copyData(const Puzzle& org, const bool cc)
    clearOpenList();
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Puzzle::deleteData()
 {
    setInitState(nullptr);
@@ -231,7 +218,6 @@ void Puzzle::putOpen(State* const s)
    }
 }
 
-
 // Removes this state from the 'open' list
 void Puzzle::removeOpen(const State* const s)
 {
@@ -327,17 +313,11 @@ void Puzzle::clearHashTable()
    nhe = 0;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* Puzzle::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -372,7 +352,4 @@ std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slot
    }
 
    return sout;
-}
-
-}
 }

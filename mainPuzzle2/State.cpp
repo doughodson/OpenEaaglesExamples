@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: State
-//------------------------------------------------------------------------------
+
 #include "State.h"
 #include "Blocks.h"
 #include "Puzzle.h"
@@ -8,11 +6,9 @@
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
 
-namespace oe {
+using namespace oe;
 
-namespace example {
-
-IMPLEMENT_SUBCLASS(State,"PuzzleState")
+IMPLEMENT_SUBCLASS(State, "PuzzleState")
 
 //------------------------------------------------------------------------------
 // Slot table for this form type
@@ -28,9 +24,6 @@ BEGIN_SLOT_MAP(State)
     ON_SLOT( 1, setSlotBlocks, base::PairStream )
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 State::State()
 {
    STANDARD_CONSTRUCTOR()
@@ -75,9 +68,6 @@ State::State(const State& org, const Block* const nb, const unsigned int idx)
    hValue = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void State::copyData(const State& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -100,17 +90,11 @@ void State::copyData(const State& org, const bool cc)
    hValue = org.hValue;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void State::deleteData()
 {
    clearBlocks();
 }
 
-//------------------------------------------------------------------------------
-// gFunc()
-//------------------------------------------------------------------------------
 int State::gFunc()
 {
    gValue = getGeneration();
@@ -510,17 +494,11 @@ bool State::setSlotBlocks(const base::PairStream* const msg)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* State::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& State::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -549,7 +527,4 @@ std::ostream& State::serialize(std::ostream& sout, const int i, const bool slots
    }
 
    return sout;
-}
-
-}
 }

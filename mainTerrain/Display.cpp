@@ -16,10 +16,9 @@
 
 #include <cmath>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(Display,"TerrainDisplay")
+IMPLEMENT_SUBCLASS(Display, "TerrainDisplay")
 EMPTY_SERIALIZER(Display)
 
 BEGIN_SLOTTABLE(Display)
@@ -52,9 +51,6 @@ BEGIN_SLOT_MAP(Display)
    ON_SLOT(12, setSlotTextureTest, base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor
-//------------------------------------------------------------------------------
 Display::Display()
 {
    STANDARD_CONSTRUCTOR()
@@ -82,9 +78,6 @@ Display::Display()
    texture = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy our objects data
-//------------------------------------------------------------------------------
 void Display::copyData(const Display& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -118,18 +111,12 @@ void Display::copyData(const Display& org, const bool cc)
    copyImageMemory(org);
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- copy our objects data
-//------------------------------------------------------------------------------
 void Display::deleteData()
 {
    setSlotTerrain( nullptr );
    freeImageMemory();
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset the simulation & players
-//------------------------------------------------------------------------------
 void Display::reset()
 {
    if (terrain != nullptr) terrain->reset();
@@ -339,7 +326,7 @@ void Display::updateData(const double dt)
          const int NUM_COLUMNS = imgWidth;
          const int NUM_ROWS = imgHeight;
 
-         // Allocating space for 'multi-point' tests 
+         // Allocating space for 'multi-point' tests
          double* elevations = nullptr;
          double* aacData = nullptr;
          bool* validFlgs = nullptr;
@@ -409,24 +396,24 @@ void Display::updateData(const double dt)
          const base::Hsva* greenTable[19];
          //                   hue     sat    value  alpha
          greenTable[0]  = new base::Hsva(  120.0f,  1.0f,  0.0f,     1.0f );
-         greenTable[1]  = new base::Hsva(  120.0f,  1.0f,  0.0872f,  1.0f );  
-         greenTable[2]  = new base::Hsva(  120.0f,  1.0f,  0.1736f,  1.0f ); 
-         greenTable[3]  = new base::Hsva(  120.0f,  1.0f,  0.2588f,  1.0f ); 
-         greenTable[4]  = new base::Hsva(  120.0f,  1.0f,  0.3420f,  1.0f );  
-         greenTable[5]  = new base::Hsva(  120.0f,  1.0f,  0.4226f,  1.0f );  
-         greenTable[6]  = new base::Hsva(  120.0f,  1.0f,  0.5000f,  1.0f ); 
-         greenTable[7]  = new base::Hsva(  120.0f,  1.0f,  0.5736f,  1.0f );  
-         greenTable[8]  = new base::Hsva(  120.0f,  1.0f,  0.6428f,  1.0f );  
-         greenTable[9]  = new base::Hsva(  120.0f,  1.0f,  0.7071f,  1.0f );  
-         greenTable[10] = new base::Hsva(  120.0f,  1.0f,  0.7660f,  1.0f );  
-         greenTable[11] = new base::Hsva(  120.0f,  1.0f,  0.8192f,  1.0f );  
-         greenTable[12] = new base::Hsva(  120.0f,  1.0f,  0.8660f,  1.0f ); 
-         greenTable[13] = new base::Hsva(  120.0f,  1.0f,  0.9063f,  1.0f ); 
-         greenTable[14] = new base::Hsva(  120.0f,  1.0f,  0.9397f,  1.0f );  
-         greenTable[15] = new base::Hsva(  120.0f,  1.0f,  0.9659f,  1.0f );  
-         greenTable[16] = new base::Hsva(  120.0f,  1.0f,  0.9848f,  1.0f );  
-         greenTable[17] = new base::Hsva(  120.0f,  1.0f,  0.9962f,  1.0f );  
-         greenTable[18] = new base::Hsva(  120.0f,  1.0f,  1.0f,     1.0f );  
+         greenTable[1]  = new base::Hsva(  120.0f,  1.0f,  0.0872f,  1.0f );
+         greenTable[2]  = new base::Hsva(  120.0f,  1.0f,  0.1736f,  1.0f );
+         greenTable[3]  = new base::Hsva(  120.0f,  1.0f,  0.2588f,  1.0f );
+         greenTable[4]  = new base::Hsva(  120.0f,  1.0f,  0.3420f,  1.0f );
+         greenTable[5]  = new base::Hsva(  120.0f,  1.0f,  0.4226f,  1.0f );
+         greenTable[6]  = new base::Hsva(  120.0f,  1.0f,  0.5000f,  1.0f );
+         greenTable[7]  = new base::Hsva(  120.0f,  1.0f,  0.5736f,  1.0f );
+         greenTable[8]  = new base::Hsva(  120.0f,  1.0f,  0.6428f,  1.0f );
+         greenTable[9]  = new base::Hsva(  120.0f,  1.0f,  0.7071f,  1.0f );
+         greenTable[10] = new base::Hsva(  120.0f,  1.0f,  0.7660f,  1.0f );
+         greenTable[11] = new base::Hsva(  120.0f,  1.0f,  0.8192f,  1.0f );
+         greenTable[12] = new base::Hsva(  120.0f,  1.0f,  0.8660f,  1.0f );
+         greenTable[13] = new base::Hsva(  120.0f,  1.0f,  0.9063f,  1.0f );
+         greenTable[14] = new base::Hsva(  120.0f,  1.0f,  0.9397f,  1.0f );
+         greenTable[15] = new base::Hsva(  120.0f,  1.0f,  0.9659f,  1.0f );
+         greenTable[16] = new base::Hsva(  120.0f,  1.0f,  0.9848f,  1.0f );
+         greenTable[17] = new base::Hsva(  120.0f,  1.0f,  0.9962f,  1.0f );
+         greenTable[18] = new base::Hsva(  120.0f,  1.0f,  1.0f,     1.0f );
 
          std::cout << "start image generation" << std::endl;
          double start = base::getComputerTime();
@@ -559,7 +546,7 @@ void Display::drawFunc()
 
          // set our texture environment
          glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-         
+
          glBindTexture(GL_TEXTURE_2D, texture);
          glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
          glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -653,7 +640,7 @@ bool Display::copyImageMemory(const Display& org)
 bool Display::initImageMemory(const GLsizei width, const GLsizei height)
 {
    bool ok = false;
-   if (width > 0  && width <= MAX_IMAGE_WIDTH && 
+   if (width > 0  && width <= MAX_IMAGE_WIDTH &&
       height > 0 && height <= MAX_IMAGE_HEIGHT) {
 
       // allocate space for the image
@@ -695,14 +682,7 @@ void Display::freeImageMemory()
 }
 
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* Display::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
-}
-}
-

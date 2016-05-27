@@ -20,9 +20,6 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace example {
-
 // frame rate
 const unsigned int frameRate = 10;
 
@@ -35,8 +32,8 @@ void timerFunc(int)
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   base::Timer::updateTimers(static_cast<double>(dt));
-   graphics::Graphic::flashTimer(static_cast<double>(dt));
+   oe::base::Timer::updateTimers(static_cast<double>(dt));
+   oe::graphics::Graphic::flashTimer(static_cast<double>(dt));
    display->tcFrame(static_cast<double>(dt));
 }
 
@@ -45,7 +42,7 @@ Display* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -58,7 +55,7 @@ Display* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -87,11 +84,11 @@ int main(int argc, char* argv[])
 
    // resetting the system will load the data files
    std::cout << "starting loading files --" << std::endl;
-   const double start = base::getComputerTime();
+   const double start = oe::base::getComputerTime();
 
    display->reset();
 
-   const double end = base::getComputerTime();
+   const double end = oe::base::getComputerTime();
    const double dtime = (end - start);
    std::cout << "finished loading files: time(s) = " << dtime << std::endl;
 
@@ -105,13 +102,4 @@ int main(int argc, char* argv[])
 
    glutMainLoop();
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::example::main(argc,argv);
 }
