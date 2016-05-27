@@ -1,11 +1,11 @@
+
 #include "TestButtons.h"
 #include "openeaagles/instruments/buttons/Knob.h"
 #include "openeaagles/base/Pair.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestButtons,"TestButtons")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestButtons, "TestButtons")
 EMPTY_SERIALIZER(TestButtons)
 EMPTY_DELETEDATA(TestButtons)
 
@@ -20,9 +20,6 @@ BEGIN_EVENT_HANDLER(TestButtons)
     ON_EVENT(507, solenoidDown);
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestButtons::TestButtons()
 {
     STANDARD_CONSTRUCTOR()
@@ -34,9 +31,6 @@ TestButtons::TestButtons()
     latchedSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestButtons::copyData(const TestButtons& org, const bool)
 {
     // copy our baseclass stuff first
@@ -108,9 +102,6 @@ bool TestButtons::solenoidDown()
     return true;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestButtons::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -125,7 +116,4 @@ void TestButtons::updateData(const double dt)
 
     // send our value out
     send("value", UPDATE_VALUE, value, valueSD);
-}
-
-}
 }

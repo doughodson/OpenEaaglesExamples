@@ -1,3 +1,9 @@
+
+#ifndef __TestGauge1_H__
+#define __TestGauge1_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestGauge1
 //
@@ -5,17 +11,9 @@
 // This page will supply test data to a generic analog gauge
 //
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestGauge1_H__
-#define __oe_demo_TestGauge1_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestGauge1 : public graphics::Page
+class TestGauge1 : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestGauge1, graphics::Page)
+   DECLARE_SUBCLASS(TestGauge1, oe::graphics::Page)
 
 public:
     TestGauge1();
@@ -33,8 +31,4 @@ private:
     SendData tapePosROSD;
 };
 
-}
-}
-
 #endif
-

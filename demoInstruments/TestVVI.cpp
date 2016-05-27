@@ -1,14 +1,12 @@
+
 #include "TestVVI.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestVVI,"TestVVI")
 EMPTY_SERIALIZER(TestVVI)
+EMPTY_DELETEDATA(TestVVI)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestVVI::TestVVI()
 {
     STANDARD_CONSTRUCTOR()
@@ -18,10 +16,6 @@ TestVVI::TestVVI()
     gaugePositionROSD.empty();
 }
 
-
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestVVI::copyData(const TestVVI& org, const bool)
 {
     // copy our baseclass stuff first
@@ -33,16 +27,10 @@ void TestVVI::copyData(const TestVVI& org, const bool)
 
 }
 
-EMPTY_DELETEDATA(TestVVI)
-
-
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestVVI::updateData(const double dt)
 {
     BaseClass::updateData(dt);
-    
+
     gaugePosition += (gaugeRate * dt);
     if (gaugePosition > 6000) {
         gaugePosition = 6000;
@@ -52,12 +40,9 @@ void TestVVI::updateData(const double dt)
         gaugePosition = -6000;
         gaugeRate = -gaugeRate;
     }
-    
-    // here is the gauge display 
+
+    // here is the gauge display
     send("vvi", UPDATE_INSTRUMENTS, gaugePosition, gaugePositionSD);
     // here is the readout
     send("vviro", UPDATE_VALUE, gaugePosition, gaugePositionROSD);
-}
-
-}
 }

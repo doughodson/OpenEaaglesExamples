@@ -1,16 +1,13 @@
+
 #include "TestEngPage.h"
 #include "openeaagles/base/Pair.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngPage,"TestEngPage")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngPage, "TestEngPage")
 EMPTY_SERIALIZER(TestEngPage)
 EMPTY_DELETEDATA(TestEngPage)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestEngPage::TestEngPage()
 {
     STANDARD_CONSTRUCTOR()
@@ -35,9 +32,6 @@ TestEngPage::TestEngPage()
     }
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy this object's data
-//------------------------------------------------------------------------------
 void TestEngPage::copyData(const TestEngPage& org, const bool)
 {
     // Always copy base class stuff first
@@ -58,9 +52,6 @@ void TestEngPage::copyData(const TestEngPage& org, const bool)
     }
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical threads here
-//------------------------------------------------------------------------------
 void TestEngPage::updateData(const double dt)
 {
     // update our BaseClass
@@ -135,7 +126,4 @@ void TestEngPage::updateData(const double dt)
             }
         }
     }
-}
-
-}
 }

@@ -1,15 +1,12 @@
+
 #include "TestAdi.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi, "TestAdi")
 EMPTY_SERIALIZER(TestAdi)
 EMPTY_DELETEDATA(TestAdi)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestAdi::TestAdi()
 {
     STANDARD_CONSTRUCTOR()
@@ -28,9 +25,6 @@ TestAdi::TestAdi()
     slipRate = 5.0;
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestAdi::copyData(const TestAdi& org, const bool)
 {
     BaseClass::copyData(org);
@@ -45,9 +39,6 @@ void TestAdi::copyData(const TestAdi& org, const bool)
     slipRate = org.slipRate;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestAdi::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -89,7 +80,3 @@ void TestAdi::updateData(const double dt)
     send("adi", UPDATE_INSTRUMENTS, pitch, pitchSD);
     send("adi", UPDATE_VALUE, roll, rollSD);
 }
-
-}
-}
-

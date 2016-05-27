@@ -1,15 +1,12 @@
+
 #include "TestHsi.h"
 
-namespace oe {
-namespace demo  {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestHsi, "TestHsi")
 EMPTY_SERIALIZER(TestHsi)
 EMPTY_DELETEDATA(TestHsi)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestHsi::TestHsi()
 {
     STANDARD_CONSTRUCTOR()
@@ -21,9 +18,6 @@ TestHsi::TestHsi()
     dmeROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestHsi::copyData(const TestHsi& org, const bool)
 {
     BaseClass::copyData(org);
@@ -35,9 +29,6 @@ void TestHsi::copyData(const TestHsi& org, const bool)
     dmeROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestHsi::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -59,7 +50,3 @@ void TestHsi::updateData(const double dt)
     send("hsiRO", UPDATE_VALUE, heading, headingROSD);
     send("dmeRO", UPDATE_VALUE, dme, dmeROSD);
 }
-
-}
-}
-

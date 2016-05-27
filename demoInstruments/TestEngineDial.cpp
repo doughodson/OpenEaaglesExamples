@@ -1,14 +1,11 @@
 #include "TestEngineDial.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestEngineDial, "TestEngineDial")
 EMPTY_SERIALIZER(TestEngineDial)
+EMPTY_DELETEDATA(TestEngineDial)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestEngineDial::TestEngineDial()
 {
     STANDARD_CONSTRUCTOR()
@@ -18,9 +15,6 @@ TestEngineDial::TestEngineDial()
     engineReadoutSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestEngineDial::copyData(const TestEngineDial& org, const bool)
 {
     BaseClass::copyData(org);
@@ -30,12 +24,6 @@ void TestEngineDial::copyData(const TestEngineDial& org, const bool)
     engineReadoutSD.empty();
 }
 
-EMPTY_DELETEDATA(TestEngineDial)
-
-
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestEngineDial::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -53,7 +41,4 @@ void TestEngineDial::updateData(const double dt)
     // send the data down to our instruments and readouts
     send("enginedial", UPDATE_INSTRUMENTS, engineRotation, engineRotationSD);
     send("enginereadout", UPDATE_VALUE, engineRotation, engineReadoutSD);
-}
-
-}
 }

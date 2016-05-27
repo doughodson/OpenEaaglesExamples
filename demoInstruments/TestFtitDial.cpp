@@ -1,15 +1,12 @@
+
 #include "TestFtitDial.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestFtitDial, "TestFtitDial")
 EMPTY_SERIALIZER(TestFtitDial)
 EMPTY_DELETEDATA(TestFtitDial)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestFtitDial::TestFtitDial()
 {
     STANDARD_CONSTRUCTOR()
@@ -19,9 +16,6 @@ TestFtitDial::TestFtitDial()
     ftitRotationROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestFtitDial::copyData(const TestFtitDial& org, const bool)
 {
     BaseClass::copyData(org);
@@ -31,9 +25,6 @@ void TestFtitDial::copyData(const TestFtitDial& org, const bool)
     ftitRotationROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestFtitDial::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -51,7 +42,3 @@ void TestFtitDial::updateData(const double dt)
     send("ftit", UPDATE_INSTRUMENTS, ftitRotation, ftitRotationSD);
     send("ftitRO", UPDATE_VALUE, ftitRotation, ftitRotationROSD);
 }
-
-}
-}
-

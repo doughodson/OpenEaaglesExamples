@@ -1,15 +1,12 @@
+
 #include "TestRpmDial.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestRpmDial, "TestRpmDial")
 EMPTY_SERIALIZER(TestRpmDial)
 EMPTY_DELETEDATA(TestRpmDial)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestRpmDial::TestRpmDial()
 {
     STANDARD_CONSTRUCTOR()
@@ -19,9 +16,6 @@ TestRpmDial::TestRpmDial()
     rpmROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestRpmDial::copyData(const TestRpmDial& org, const bool)
 {
     BaseClass::copyData(org);
@@ -31,9 +25,6 @@ void TestRpmDial::copyData(const TestRpmDial& org, const bool)
     rpmROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestRpmDial::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -52,7 +43,4 @@ void TestRpmDial::updateData(const double dt)
 
     send("rpm", UPDATE_INSTRUMENTS, rpm, rpmSD);
     send("rpmRO", UPDATE_VALUE, rpm, rpmROSD);
-}
-
-}
 }

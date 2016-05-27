@@ -1,19 +1,17 @@
+
+#ifndef __TestHsi_H__
+#define __TestHsi_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestHsi
 //
 // Description: Tests our core HSI graphic
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestHsi_H__
-#define __oe_demo_TestHsi_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestHsi : public graphics::Page
+class TestHsi : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestHsi,graphics::Page)
+   DECLARE_SUBCLASS(TestHsi, oe::graphics::Page)
 
 public:
     TestHsi();
@@ -29,8 +27,4 @@ private:
     double dme;
 };
 
-}
-}
-
 #endif
-

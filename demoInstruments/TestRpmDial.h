@@ -1,19 +1,17 @@
+
+#ifndef __TestRpmDial_H__
+#define __TestRpmDial_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestRpmDial
 //
 // Description: Another example of using an analog dial.
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestRpmDial_H__
-#define __oe_demo_TestRpmDial_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestRpmDial : public graphics::Page
+class TestRpmDial : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestRpmDial, graphics::Page)
+   DECLARE_SUBCLASS(TestRpmDial, oe::graphics::Page)
 
 public:
     TestRpmDial();
@@ -27,8 +25,4 @@ private:
     double  rpmRate;
 };
 
-}
-}
-
 #endif
-

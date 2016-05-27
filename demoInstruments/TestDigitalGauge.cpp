@@ -1,15 +1,12 @@
+
 #include "TestDigitalGauge.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDigitalGauge, "TestDigitalGauge")
 EMPTY_SERIALIZER(TestDigitalGauge)
 EMPTY_DELETEDATA(TestDigitalGauge)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestDigitalGauge::TestDigitalGauge()
 {
     STANDARD_CONSTRUCTOR()
@@ -20,9 +17,6 @@ TestDigitalGauge::TestDigitalGauge()
     aoaASD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestDigitalGauge::copyData(const TestDigitalGauge& org, const bool)
 {
     // copy our baseclass stuff first
@@ -35,9 +29,6 @@ void TestDigitalGauge::copyData(const TestDigitalGauge& org, const bool)
     aoaASD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestDigitalGauge::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -59,7 +50,4 @@ void TestDigitalGauge::updateData(const double dt)
     send("aoagauge", UPDATE_INSTRUMENTS, aoa, aoaSD);
     // analog version of the aoa
     send("analogaoa", UPDATE_INSTRUMENTS, aoa, aoaASD);
-}
-
-}
 }

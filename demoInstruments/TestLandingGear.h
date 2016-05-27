@@ -1,24 +1,22 @@
+
+#ifndef __TestLandingGear_H__
+#define __TestLandingGear_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestLandingGear
 //
 // Description: Tests our generic landing gear and lights
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestLandingGear_H__
-#define __oe_demo_TestLandingGear_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestLandingGear : public graphics::Page
+class TestLandingGear : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestLandingGear, graphics::Page)
+   DECLARE_SUBCLASS(TestLandingGear, oe::graphics::Page)
 
 public:
    TestLandingGear();
 
-   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
    virtual void updateData(const double dt = 0.0) override;
 
 private:
@@ -31,8 +29,4 @@ private:
     double  gearRate;          // rate which are going (up or down)
 };
 
-}
-}
-
 #endif
-

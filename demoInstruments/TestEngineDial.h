@@ -1,20 +1,18 @@
+
+#ifndef __TestEngineDial_H__
+#define __TestEngineDial_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestEngineDial
 //
 // Description: Example Analog Dial Page
 // This page will supply test data to the engine dial
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestEngineDial_H__
-#define __oe_demo_TestEngineDial_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestEngineDial : public graphics::Page
+class TestEngineDial : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestEngineDial, graphics::Page)
+   DECLARE_SUBCLASS(TestEngineDial, oe::graphics::Page)
 
 public:
     TestEngineDial();
@@ -28,8 +26,4 @@ private:
     double  engineRate;             // rate which are going (up or down)
 };
 
-}
-}
-
 #endif
-

@@ -1,15 +1,12 @@
+
 #include "TestOilPressure.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestOilPressure, "TestOilPressure")
 EMPTY_SERIALIZER(TestOilPressure)
 EMPTY_DELETEDATA(TestOilPressure)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestOilPressure::TestOilPressure()
 {
     STANDARD_CONSTRUCTOR()
@@ -19,9 +16,6 @@ TestOilPressure::TestOilPressure()
     oilPressureROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestOilPressure::copyData(const TestOilPressure& org, const bool)
 {
     BaseClass::copyData(org);
@@ -31,9 +25,6 @@ void TestOilPressure::copyData(const TestOilPressure& org, const bool)
     oilPressureROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestOilPressure::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -51,7 +42,4 @@ void TestOilPressure::updateData(const double dt)
     // send our data down
     send("oil", UPDATE_INSTRUMENTS, oilPressure, oilPressureSD);
     send("oilRO", UPDATE_VALUE, oilPressure, oilPressureROSD);
-}
-
-}
 }

@@ -1,15 +1,12 @@
+
 #include "TestCas.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCas, "TestCas")
 EMPTY_SERIALIZER(TestCas)
 EMPTY_DELETEDATA(TestCas)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestCas::TestCas()
 {
     STANDARD_CONSTRUCTOR()
@@ -20,9 +17,6 @@ TestCas::TestCas()
     tasROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestCas::copyData(const TestCas& org, const bool)
 {
     BaseClass::copyData(org);
@@ -33,9 +27,6 @@ void TestCas::copyData(const TestCas& org, const bool)
     tasROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestCas::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -55,7 +46,4 @@ void TestCas::updateData(const double dt)
     // send the data down to the instruments and to the readouts
     send("tas", UPDATE_INSTRUMENTS, tas, tasSD);
     send("tasRO", UPDATE_VALUE, tas, tasROSD);
-}
-
-}
 }

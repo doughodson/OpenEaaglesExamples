@@ -1,3 +1,9 @@
+
+#ifndef __TestDigitalGauge_H__
+#define __TestDigitalGauge_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestDigitalGauge
 //
@@ -5,17 +11,9 @@
 // This page will show an analog F16-like aoa gauge beside a digital aoa gauge
 //
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestDigitalGauge_H__
-#define __oe_demo_TestDigitalGauge_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestDigitalGauge : public graphics::Page
+class TestDigitalGauge : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestDigitalGauge, graphics::Page)
+   DECLARE_SUBCLASS(TestDigitalGauge, oe::graphics::Page)
 
 public:
    TestDigitalGauge();
@@ -30,8 +28,4 @@ private:
     SendData aoaASD;        // analog readout
 };
 
-}
-}
-
 #endif
-

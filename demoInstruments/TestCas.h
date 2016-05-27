@@ -1,20 +1,18 @@
+
+#ifndef __TestCas_H__
+#define __TestCas_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestCas
 //
 // Description: Example Analog Dial Page
 // This page will supply test data to a generic calibrated air speed
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestCas_H__
-#define __oe_demo_TestCas_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestCas : public graphics::Page
+class TestCas : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestCas, graphics::Page)
+   DECLARE_SUBCLASS(TestCas, oe::graphics::Page)
 
 public:
     TestCas();
@@ -29,8 +27,4 @@ private:
     SendData tasROSD;
 };
 
-}
-}
-
 #endif
-

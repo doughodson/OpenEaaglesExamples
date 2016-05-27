@@ -1,19 +1,17 @@
+
+#ifndef __TestAlt_H__
+#define __TestAlt_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestAlt
 //
 // Description: Tests our altitude tape instrument
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestAlt_H__
-#define __oe_demo_TestAlt_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestAlt : public graphics::Page
+class TestAlt : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestAlt, graphics::Page)
+   DECLARE_SUBCLASS(TestAlt, oe::graphics::Page)
 
 public:
     TestAlt();
@@ -27,8 +25,4 @@ private:
     SendData altROSD;
 };
 
-}
-}
-
 #endif
-

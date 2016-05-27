@@ -1,3 +1,9 @@
+
+#ifndef __TestFtitDial_H__
+#define __TestFtitDial_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestFtitDial
 //
@@ -5,17 +11,9 @@
 // This page will supply test data to the fuel temperature internal dial
 //
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestFtitDial_H__
-#define __oe_demo_TestFtitDial_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestFtitDial : public graphics::Page
+class TestFtitDial : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestFtitDial, graphics::Page)
+   DECLARE_SUBCLASS(TestFtitDial, oe::graphics::Page)
 
 public:
     TestFtitDial();
@@ -29,8 +27,4 @@ private:
     SendData ftitRotationROSD;  // for our readout
 };
 
-}
-}
-
 #endif
-

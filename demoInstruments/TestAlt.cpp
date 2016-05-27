@@ -1,15 +1,12 @@
+
 #include "TestAlt.h"
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAlt, "TestAlt")
 EMPTY_SERIALIZER(TestAlt)
 EMPTY_DELETEDATA(TestAlt)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestAlt::TestAlt()
 {
     STANDARD_CONSTRUCTOR()
@@ -20,9 +17,6 @@ TestAlt::TestAlt()
     altROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestAlt::copyData(const TestAlt& org, const bool)
 {
     BaseClass::copyData(org);
@@ -32,9 +26,6 @@ void TestAlt::copyData(const TestAlt& org, const bool)
     altROSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestAlt::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -53,7 +44,3 @@ void TestAlt::updateData(const double dt)
     send("alt", UPDATE_INSTRUMENTS, alt, altSD);
     send("altRO", UPDATE_VALUE, alt, altROSD);
 }
-
-}
-}
-

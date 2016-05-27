@@ -1,18 +1,15 @@
+
 #include "TestAdi2.h"
 #include "openeaagles/base/units/Angles.h"
 
 #include <cmath>
 
-namespace oe {
-namespace demo {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestAdi2, "TestAdi2")
 EMPTY_SERIALIZER(TestAdi2)
 EMPTY_DELETEDATA(TestAdi2)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestAdi2::TestAdi2()
 {
     STANDARD_CONSTRUCTOR()
@@ -44,9 +41,6 @@ TestAdi2::TestAdi2()
     ghostRollSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// copyData()
-//------------------------------------------------------------------------------
 void TestAdi2::copyData(const TestAdi2& org, const bool)
 {
     BaseClass::copyData(org);
@@ -78,9 +72,6 @@ void TestAdi2::copyData(const TestAdi2& org, const bool)
     ghostRollSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non time-critical stuff here
-//------------------------------------------------------------------------------
 void TestAdi2::updateData(const double dt)
 {
     BaseClass::updateData(dt);
@@ -186,7 +177,4 @@ void TestAdi2::updateData(const double dt)
     send("bankangle", UPDATE_INSTRUMENTS, -roll, rollBASD);
     send("ghosthorizon", UPDATE_INSTRUMENTS, pitch, ghostPitchSD);
     send("ghosthorizon", UPDATE_VALUE, roll, ghostRollSD);
-}
-
-}
 }

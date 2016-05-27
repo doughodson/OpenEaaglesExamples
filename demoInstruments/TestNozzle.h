@@ -1,19 +1,17 @@
+
+#ifndef __TestNozzle_H__
+#define __TestNozzle_H__
+
+#include "openeaagles/graphics/Page.h"
+
 //------------------------------------------------------------------------------
 // Class: TestNozzle
 //
 // Description: Another example of using an analog dial.
 //------------------------------------------------------------------------------
-#ifndef __oe_demo_TestNozzle_H__
-#define __oe_demo_TestNozzle_H__
-
-#include "openeaagles/graphics/Page.h"
-
-namespace oe {
-namespace demo {
-
-class TestNozzle : public graphics::Page
+class TestNozzle : public oe::graphics::Page
 {
-   DECLARE_SUBCLASS(TestNozzle, graphics::Page)
+   DECLARE_SUBCLASS(TestNozzle, oe::graphics::Page)
 
 public:
     TestNozzle();
@@ -27,8 +25,4 @@ private:
     double  nozRate;
 };
 
-}
-}
-
 #endif
-
