@@ -1,7 +1,7 @@
 rem
 rem set premake location
 rem
-@SET Premake=..\..\..\OpenEaagles3rdParty\bin\premake5-alpha4.exe
+@SET Premake=..\..\..\OpenEaagles3rdParty\bin\premake5-alpha8.exe
 rem
 rem delete old solution/workspace files
 rem
@@ -20,4 +20,3 @@ rem create solution/workspace files
 rem
 %Premake% vs2013
 %Premake% vs2015
-
