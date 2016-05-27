@@ -1,19 +1,24 @@
-#
-# windows specific directories
-#
+# vs directories
+vs2008/
+vs2010/
+vs2012/
 vs2013/
 vs2015/
 codeblocks/
 codelite/
 
-#
+# vs runtime libs
+concrt*.dll
+msvcp*.dll
+vcamp*.dll
+vccorlib*.dll
+vcomp*.dll
+vcruntime*.dll
+
 # kde 5
-#
 .directory
 
-#
-#
-#
+# gcc header files
 *.gch
 
 #
