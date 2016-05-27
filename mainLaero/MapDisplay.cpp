@@ -1,6 +1,3 @@
-// -------------------------------------------------------------------------------
-// Class: MapDisplay
-// -------------------------------------------------------------------------------
 
 #include "MapDisplay.h"
 #include "TestStation.h"
@@ -19,15 +16,12 @@
 #include <GL/glut.h>
 #include <iomanip>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")
 EMPTY_SERIALIZER(MapDisplay)
+EMPTY_DELETEDATA(MapDisplay)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 MapDisplay::MapDisplay()
 {
    STANDARD_CONSTRUCTOR()
@@ -49,9 +43,6 @@ MapDisplay::MapDisplay()
    passiveEnable = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void MapDisplay::copyData(const MapDisplay& org, const bool)
 {
    // copy base class stuff first
@@ -73,13 +64,6 @@ void MapDisplay::copyData(const MapDisplay& org, const bool)
    maxTurnSD.empty();
 
    passiveEnable = org.passiveEnable;
-}
-
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void MapDisplay::deleteData()
-{
 }
 
 // ----------------------------------------------------------------------------
@@ -393,7 +377,4 @@ simulation::Aircraft* MapDisplay::getOwnship()
       p = dynamic_cast<simulation::Aircraft*>(sta->getOwnship());
    }
    return p;
-}
-
-}
 }

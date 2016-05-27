@@ -1,6 +1,4 @@
-// -------------------------------------------------------------------------------
-// Class: MapPage
-// -------------------------------------------------------------------------------
+
 #include "MapPage.h"
 #include "TestStation.h"
 #include "MapDisplay.h"
@@ -26,19 +24,15 @@
 #include <GL/glut.h>
 
 namespace oe {
-   namespace graphics {
-      class OcclusionArc;
-   }
+   namespace graphics { class OcclusionArc; }
+}
 
-namespace example {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(MapPage,"TestMapPage")
+IMPLEMENT_SUBCLASS(MapPage, "TestMapPage")
 EMPTY_SLOTTABLE(MapPage)
 EMPTY_SERIALIZER(MapPage)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 MapPage::MapPage()
 {
     STANDARD_CONSTRUCTOR()
@@ -67,9 +61,6 @@ MapPage::MapPage()
     routeLoaded = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void MapPage::copyData(const MapPage& org, const bool)
 {
     // copy base class stuff first
@@ -124,9 +115,6 @@ void MapPage::copyData(const MapPage& org, const bool)
     routeLoaded = org.routeLoaded;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void MapPage::deleteData()
 {
     for (int i = 0; i < MAX_PLAYERS; i++) {
@@ -518,7 +506,3 @@ void MapPage::updateData(const double dt)
     send("lonline%d", UPDATE_VALUE,  lonReadoutXPos, lonReadoutXPosSD, MAX_READOUTS);
     send("lonline%d", UPDATE_VALUE2, lonReadoutYPos, lonReadoutYPosSD, MAX_READOUTS);
 }
-
-}
-}
-

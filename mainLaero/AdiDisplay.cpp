@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: AdiDisplay
-//------------------------------------------------------------------------------
 
 #include "AdiDisplay.h"
 
@@ -12,18 +9,12 @@
 #include "openeaagles/base/units/Distances.h"
 #include "openeaagles/base/units/Times.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay,"AdiDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
 EMPTY_DELETEDATA(AdiDisplay)
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// constructor
 AdiDisplay::AdiDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
@@ -51,7 +42,6 @@ AdiDisplay::AdiDisplay() : myStation(nullptr)
    pitchADI_SD.empty();
 }
 
-// copy member data
 void AdiDisplay::copyData(const AdiDisplay& org, const bool)
 {
    BaseClass::copyData(org);
@@ -70,9 +60,6 @@ void AdiDisplay::copyData(const AdiDisplay& org, const bool)
    myStation = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void AdiDisplay::updateData(const double dt)
 {
    // Update base classes stuff
@@ -117,9 +104,6 @@ void AdiDisplay::updateData(const double dt)
    //send("pitchangle",   UPDATE_INSTRUMENTS, pitch,    pitchSD);
 }
 
-//------------------------------------------------------------------------------
-// Simulation access functions
-//------------------------------------------------------------------------------
 simulation::Station* AdiDisplay::getStation()
 {
    if (myStation == nullptr) {
@@ -143,7 +127,3 @@ simulation::Aircraft* AdiDisplay::getOwnship()
    }
    return pA;
 }
-
-}
-}
-

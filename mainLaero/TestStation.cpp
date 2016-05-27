@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: TestStation
-//------------------------------------------------------------------------------
 
 #include "TestStation.h"
 
@@ -15,10 +12,9 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(TestStation,"TestStation")
+IMPLEMENT_SUBCLASS(TestStation, "TestStation")
 
 // slot table for this class type
 BEGIN_SLOTTABLE(TestStation)
@@ -32,11 +28,6 @@ BEGIN_SLOT_MAP(TestStation)
     ON_SLOT(2, setSlotMapDisplay, glut::GlutDisplay)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// Constructor
 TestStation::TestStation()
 {
    STANDARD_CONSTRUCTOR()
@@ -48,7 +39,6 @@ TestStation::TestStation()
 
 }
 
-// copy member data
 void TestStation::copyData(const TestStation& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -64,16 +54,12 @@ void TestStation::copyData(const TestStation& org, const bool cc)
    mapDisplayInit = false;
 }
 
-// delete member data
 void TestStation::deleteData()
 {
    setSlotGlutDisplay(nullptr);
    setSlotMapDisplay(nullptr);
 }
 
-//------------------------------------------------------------------------------
-// updateTC() -- Update time critical stuff here
-//------------------------------------------------------------------------------
 void TestStation::updateTC(const double dt)
 {
    // manage the timers
@@ -86,9 +72,6 @@ void TestStation::updateTC(const double dt)
    BaseClass::updateTC(dt);
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void TestStation::updateData(const double dt)
 {
    // ### Don't call updateData for our 'glutDisplay', which is derived from
@@ -98,9 +81,6 @@ void TestStation::updateData(const double dt)
    BaseClass::updateData(dt);
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset the station
-//------------------------------------------------------------------------------
 void TestStation::reset()
 {
    BaseClass::reset();
@@ -122,10 +102,6 @@ void TestStation::reset()
    }
 }
 
-//------------------------------------------------------------------------------
-// Set slot functions
-//------------------------------------------------------------------------------
-
 bool TestStation::setSlotGlutDisplay(glut::GlutDisplay* const d)
 {
    glutDisplay = d;
@@ -140,18 +116,11 @@ bool TestStation::setSlotMapDisplay(glut::GlutDisplay* const d)
    return true;
 }
 
-
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
 base::Object* TestStation::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;
@@ -174,7 +143,4 @@ std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool
    }
 
    return sout;
-}
-
-}
 }

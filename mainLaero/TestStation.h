@@ -1,16 +1,13 @@
-//------------------------------------------------------------------------------
-// Class: TestStation
-//------------------------------------------------------------------------------
-#ifndef __oe_example_TestStation_H__
-#define __oe_example_TestStation_H__
+
+#ifndef __TestStation_H__
+#define __TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-namespace base { class Number; }
-namespace glut { class GlutDisplay; }
-
-namespace example {
+   namespace base { class Number; }
+   namespace glut { class GlutDisplay; }
+}
 
 //------------------------------------------------------------------------------
 // Class: TestStation
@@ -23,9 +20,9 @@ namespace example {
 // Slots:
 //   glutDisplay  <graphics::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
-class TestStation : public simulation::Station
+class TestStation : public oe::simulation::Station
 {
-   DECLARE_SUBCLASS(TestStation,simulation::Station)
+   DECLARE_SUBCLASS(TestStation, oe::simulation::Station)
 
 public:
    TestStation();
@@ -35,16 +32,13 @@ public:
    virtual void reset() override;
 
 private:
-   bool setSlotGlutDisplay(glut::GlutDisplay* const msg);
-   bool setSlotMapDisplay(glut::GlutDisplay* const msg);
+   bool setSlotGlutDisplay(oe::glut::GlutDisplay* const msg);
+   bool setSlotMapDisplay(oe::glut::GlutDisplay* const msg);
 
-   base::safe_ptr<glut::GlutDisplay> glutDisplay;
-   base::safe_ptr<glut::GlutDisplay> mapDisplay;
+   oe::base::safe_ptr<oe::glut::GlutDisplay> glutDisplay;
+   oe::base::safe_ptr<oe::glut::GlutDisplay> mapDisplay;
    bool glutDisplayInit;
    bool mapDisplayInit;
 };
-
-}
-}
 
 #endif

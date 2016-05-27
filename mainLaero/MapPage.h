@@ -1,29 +1,25 @@
+
+#ifndef __MapPage_H__
+#define __MapPage_H__
+
+#include "openeaagles/graphics/MapPage.h"
+
+namespace oe {
+   namespace simulation { class Player; }
+   namespace graphics { class SymbolLoader; }
+}
+
+class TestStation;
+
 // -------------------------------------------------------------------------------
 // Class: MapPage
 // Description:
 //      Derived MapPage that will show how to add, remove, and update symbols with the
 //      SymbolLoader class.
 // -------------------------------------------------------------------------------
-#ifndef __oe_example_MapPage_H__
-#define __oe_example_MapPage_H__
-
-#include "openeaagles/graphics/MapPage.h"
-
-namespace oe {
-namespace simulation {
-   class Player;
-}
-namespace graphics {
-   class SymbolLoader;
-}
-
-namespace example {
-
-class TestStation;
-
-class MapPage : public graphics::MapPage
+class MapPage : public oe::graphics::MapPage
 {
-   DECLARE_SUBCLASS(MapPage, graphics::MapPage)
+   DECLARE_SUBCLASS(MapPage, oe::graphics::MapPage)
 
 public:
    MapPage();
@@ -41,11 +37,11 @@ private:
    static const int MAX_PLAYERS = 200;
    static const int MAX_READOUTS = 20;
 
-   simulation::Player* player[MAX_PLAYERS];    // player pointer
-   int playerIdx[MAX_PLAYERS];                 // index of our symbol for the given player
+   oe::simulation::Player* player[MAX_PLAYERS];   // player pointer
+   int playerIdx[MAX_PLAYERS];                    // index of our symbol for the given player
    // player symbol loader
-   graphics::SymbolLoader* loader;              // holds our loader for quick reference
-   TestStation* pStn;                           // holds our station (to get the player list quickly)
+   oe::graphics::SymbolLoader* loader;            // holds our loader for quick reference
+   TestStation* pStn;                             // holds our station (to get the player list quickly)
 
    // is our route loaded?
    bool routeLoaded;
@@ -71,8 +67,4 @@ private:
    float lonReadoutYPos[MAX_READOUTS];
 };
 
-}
-}
-
 #endif
-

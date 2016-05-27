@@ -1,33 +1,30 @@
-//------------------------------------------------------------------------------
-// Class: AdiDisplay
-//------------------------------------------------------------------------------
-#ifndef __oe_example_AdiDisplay_H__
-#define __oe_example_AdiDisplay_H__
+
+#ifndef __AdiDisplay_H__
+#define __AdiDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace simulation {
-      class Station;
-      class Aircraft;
-   }
+   namespace simulation { class Station; class Aircraft; }
+}
 
-namespace example {
-
-class AdiDisplay : public glut::GlutDisplay
+//------------------------------------------------------------------------------
+// Class: AdiDisplay
+//------------------------------------------------------------------------------
+class AdiDisplay : public oe::glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(AdiDisplay, glut::GlutDisplay)
+   DECLARE_SUBCLASS(AdiDisplay, oe::glut::GlutDisplay)
 
 public:
    AdiDisplay();
 
-   simulation::Aircraft* getOwnship();
-   simulation::Station* getStation();
+   oe::simulation::Aircraft* getOwnship();
+   oe::simulation::Station* getStation();
 
    virtual void updateData(const double dt = 0.0) override;
 
 private:
-   base::safe_ptr<simulation::Station> myStation;
+   oe::base::safe_ptr<oe::simulation::Station> myStation;
 
    //-----------------------------
    double psiRO;     // [deg]
@@ -57,8 +54,5 @@ private:
    SendData bankADI_SD;
    SendData pitchADI_SD;
 };
-
-}
-}
 
 #endif

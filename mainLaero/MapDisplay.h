@@ -1,11 +1,6 @@
-// -------------------------------------------------------------------------------
-// Class: MapDisplay
-//
-// Description:
-//      Derived MapDisplay that will simply make our map page move.
-// -------------------------------------------------------------------------------
-#ifndef __oe_example_MapDisplay_H__
-#define __oe_example_MapDisplay_H__
+
+#ifndef __MapDisplay_H__
+#define __MapDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
@@ -14,18 +9,23 @@ namespace oe {
       class Station;
       class Aircraft;
    }
+}
 
-namespace example {
-
-class MapDisplay : public glut::GlutDisplay
+// -------------------------------------------------------------------------------
+// Class: MapDisplay
+//
+// Description:
+//      Derived MapDisplay that will simply make our map page move.
+// -------------------------------------------------------------------------------
+class MapDisplay : public oe::glut::GlutDisplay
 {
-   DECLARE_SUBCLASS(MapDisplay, glut::GlutDisplay)
+   DECLARE_SUBCLASS(MapDisplay, oe::glut::GlutDisplay)
 
 public:
    MapDisplay();
 
-   simulation::Aircraft* getOwnship();
-   simulation::Station* getStation();
+   oe::simulation::Aircraft* getOwnship();
+   oe::simulation::Station* getStation();
 
    virtual void mouseMotionEvent(const int x, const int y) override;
    virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
@@ -58,7 +58,7 @@ private:
       CHANGE_AP_MODE             // Change the autopilot mode (Nav/Loiter/FollowTheLead or None)
    };
 
-   base::safe_ptr<simulation::Station> myStation;
+   oe::base::safe_ptr<oe::simulation::Station> myStation;
 
    int startX;         // startX of our last mouse position
    int startY;         // startY of our last mouse position
@@ -83,8 +83,4 @@ private:
    bool passiveEnable;
 };
 
-}
-}
-
 #endif
-
