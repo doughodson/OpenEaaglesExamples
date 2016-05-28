@@ -4,39 +4,48 @@
 
 #include "fx.h"
 
+namespace oe {
+   namespace graphics { class Display; }
+}
+
+#include "openeaagles/base/safe_ptr.h"
+
 //-------------------------------------------------------
 // Class: TestWindow
 // Description: Central window for the application
 //-------------------------------------------------------
 class TestWindow : public FXMainWindow
 {
-   // macro generated code
    FXDECLARE(TestWindow)
 
 public:
-   TestWindow(FXApp*);
+   TestWindow(FXApp*, oe::graphics::Display*);
    virtual ~TestWindow();
 
    // initialize
    void create();
 
-   void drawScene();
-
    // define additional message IDs for this window
    enum {
-      ID_CANVAS = FXMainWindow::ID_LAST
+      ID_CANVAS = FXMainWindow::ID_LAST,
+      ID_CHORE
    };
 
    // message handlers
    long onExpose(FXObject*, FXSelector, void*);
    long onConfigure(FXObject*, FXSelector, void*);
+   long onChore(FXObject*, FXSelector, void*);
 
 protected:
    TestWindow()    {}
 
 private:
-   FXGLCanvas* glcanvas;         // GL canvas for drawing
    FXGLVisual* glvisual;         // OpenGL visual
+   FXGLCanvas* glcanvas;         // OpenGL canvas for drawing
+
+   oe::base::safe_ptr<oe::graphics::Display> display;
+
+   void drawDisplay();
 
 };
 

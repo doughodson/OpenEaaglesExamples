@@ -1,17 +1,10 @@
-//
-// My graphics application
-//
-( GlutDisplay
 
-  //
-  // GlutDisplay class settings
-  //
-  fullScreen: false              // full screen or not
+( Display
 
   //
   // Display class settings
   //
-  name: "Glut Main Window"       // display name
+  name: "MainWindow"             // display name
 
   // logical coordinate system for openGL drawing
   left:       -10.5              // left ortho bound
@@ -47,4 +40,4 @@
         ) // Page
   } // pages
 
-) // MainDisplay
+) // Display

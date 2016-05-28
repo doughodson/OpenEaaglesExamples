@@ -102,7 +102,6 @@ TestWindow::~TestWindow()
    delete glvisual;
 }
 
-// start
 void TestWindow::create()
 {
    FXMainWindow::create();
@@ -133,7 +132,7 @@ long TestWindow::onTimeout(FXObject*, FXSelector, void*)
    if ( angle > 360.0 ) angle -= 360.0;
    lasttime = FXThread::time();
    drawScene();
-   getApp()->addTimeout(this, ID_TIMEOUT,TIMER_INTERVAL);
+   getApp()->addTimeout(this, ID_TIMEOUT, TIMER_INTERVAL);
    return 1;
 }
 
@@ -273,14 +272,14 @@ void TestWindow::drawScene()
    const GLfloat redMaterial[]   = { 1.0, 0.0, 0.0, 1.0 };
    const GLfloat blueMaterial[]  = { 0.0, 0.0, 1.0, 1.0 };
 
-   GLdouble canvaswidth = glcanvas->getWidth();
-   GLdouble canvasheight = glcanvas->getHeight();
-   GLdouble aspect = canvasheight>0 ? canvaswidth/canvasheight : 1.0;
+   const GLdouble canvaswidth = glcanvas->getWidth();
+   const GLdouble canvasheight = glcanvas->getHeight();
+   const GLdouble aspect = canvasheight>0 ? canvaswidth/canvasheight : 1.0;
 
    // make context current
    if (glcanvas->makeCurrent()) {
 
-      glViewport(0,0,glcanvas->getWidth(),glcanvas->getHeight());
+      glViewport(0, 0, glcanvas->getWidth(), glcanvas->getHeight());
 
       glClearColor(1.0, 1.0, 1.0, 1.0);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );

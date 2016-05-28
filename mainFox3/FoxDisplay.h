@@ -15,14 +15,13 @@ namespace FX {
 //------------------------------------------------------------------------------
 // Class: FoxDisplay
 //
-// Description:  Handles the drawing of an OpenEaagles display within Fox
+// Description:  Handles the drawing of an oe display within Fox widget
 //------------------------------------------------------------------------------
 class FoxDisplay : public oe::graphics::Display
 {
    DECLARE_SUBCLASS(FoxDisplay, oe::graphics::Display)
 
 public:
-
    FoxDisplay();
 
    // Create with the Fox toolkit
@@ -54,11 +53,9 @@ public:
    virtual void toggleTranslation();
 
 protected:
-
    void initData();
 
 private:
-
    FX::FXGLCanvas*  glCanvas;          // Fox toolkit's GL Canvas
    FX::FXGLVisual*  glVisual;          // Fox toolkit's OpenGL visual
    FX::FXComposite* myComp;            // our parent

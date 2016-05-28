@@ -10,7 +10,6 @@
 //-------------------------------------------------------
 class TestWindow : public FXMainWindow
 {
-   // macro generated code
    FXDECLARE(TestWindow)
 
 public:
@@ -19,8 +18,6 @@ public:
 
    // initialize
    void create();
-
-   void drawScene();
 
    // define additional message IDs for this window
    enum {
@@ -60,6 +57,8 @@ protected:
    TestWindow()    {}
 
 private:
+   void drawScene();
+
    FXGLCanvas* glcanvas;         // GL canvas for drawing
    FXRealSpinner* speedcontrol;  // spinner control for speed
    FXGLVisual* glvisual;         // OpenGL visual

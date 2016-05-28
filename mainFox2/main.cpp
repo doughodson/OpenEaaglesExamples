@@ -3,21 +3,94 @@
 
 #include "TestWindow.h"
 
-int main(int argc, char* argv[]){
+#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/Pair.h"
+#include "openeaagles/graphics/Display.h"
 
-  // application object
-  FXApp application("example", "openeaagles");
+// factories
+#include "openeaagles/graphics/factory.h"
+#include "openeaagles/base/factory.h"
+#include "Worm.h"
 
-  // init application and open display (no actual window will open)
-  application.init(argc, argv);
+#include "openeaagles/base/safe_ptr.h"
 
-  // create main/central window for the application
-  // associate it with application
-  new TestWindow(&application);
+#include <string>
 
-  // create application's windows
-  application.create();
+// class factory
+oe::base::Object* factory(const std::string& name)
+{
+   oe::base::Object* obj = nullptr;
 
-  // start event loop
-  return application.run();
+   if ( name == Worm::getFactoryName() ) {
+      obj = new Worm;
+   }
+
+   if (obj == nullptr) obj = oe::graphics::factory(name);
+   if (obj == nullptr) obj = oe::base::factory(name);
+
+   return obj;
+}
+
+// assemble a Display from configuration
+oe::graphics::Display* builder(const std::string& filename)
+{
+   // read configuration file
+   unsigned int num_errors = 0;
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
+   if (num_errors > 0) {
+      std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+
+   // test to see if an object was created
+   if (obj == nullptr) {
+      std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+
+   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   if (pair != nullptr) {
+      obj = pair->object();
+      obj->ref();
+      pair->unref();
+   }
+
+   // try to cast to proper object, and check
+   oe::graphics::Display* display = dynamic_cast<oe::graphics::Display*>(obj);
+   if (display == nullptr) {
+      std::cerr << "Invalid configuration file!" << std::endl;
+      std::exit(EXIT_FAILURE);
+   }
+   return display;
+}
+
+int main(int argc, char* argv[])
+{
+   // default configuration filename
+   std::string configFilename = "testdisplay.edl";
+   // set optional input file
+   for (int i = 1; i < argc; i++) {
+      if ( std::string(argv[i]) == "-f" ) {
+         configFilename = argv[++i];
+      }
+   }
+
+   // build a display
+   oe::base::safe_ptr<oe::graphics::Display> display(builder(configFilename), false);
+
+   // application object
+   FXApp application("example", "openeaagles");
+
+   // init application and open display (no actual window will open)
+   application.init(argc, argv);
+   // create main/central window for the application
+   // associate it with application
+   new TestWindow(&application, display);
+
+   // create application's windows
+   application.create();
+
+   // start event loop
+   return application.run();
 }

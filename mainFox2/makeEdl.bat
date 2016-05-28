@@ -1,7 +1,13 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% configs/foxdisplay.epp > foxdisplay.edl ^
+%mcpp% configs/testdisplay.epp > testdisplay.edl ^
+ -I ..\..\openeaagles\include\openeaagles ^
+ -I ..\shared\data ^
+ -DFONT_PATH="\"../shared/data/fonts/\"" ^
+ -DTEXTURES_PATH="\"../shared/data/textures/\""
+
+%mcpp% configs/wormdisplay.epp > wormdisplay.edl ^
  -I ..\..\openeaagles\include\openeaagles ^
  -I ..\shared\data ^
  -DFONT_PATH="\"../shared/data/fonts/\"" ^

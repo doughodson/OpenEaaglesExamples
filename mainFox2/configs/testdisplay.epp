@@ -2,11 +2,10 @@
 // Simple example display ---
 // ---
 
-display ( Display
+display: ( Display
 
     name: "Alignment Window"
     color: red
-    fullScreen: true
 
     left:       -15.0   // 30 degrees horizontal
     right:       15.0

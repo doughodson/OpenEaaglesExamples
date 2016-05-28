@@ -10,9 +10,9 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = main.o TestWindow.o
+OBJS = main.o TestWindow.o Worm.o
 
-LDFLAGS += -loesimulation -loedafif -loeinstruments -loegraphics -loebase
+LDFLAGS += -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL
 #LDFLAGS += -lXrandr -lXi -lXinerama
@@ -23,7 +23,8 @@ LDFLAGS += -lpthread -lrt
 all: $(PGM)
 
 edl:
-	cpp configs/display.epp > display.edl  $(EPPFLAGS)
+	cpp configs/testdisplay.epp > testdisplay.edl  $(EPPFLAGS)
+	cpp configs/wormdisplay.epp > wormdisplay.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
