@@ -68,7 +68,7 @@ project "mainFox1"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
+   defines { "_CONSOLE", "HAVE_GL_H", "HAVE_GLU_H" }
    filter "configurations:Release*"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
@@ -95,7 +95,7 @@ project "mainFox2"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
+   defines { "_CONSOLE", "HAVE_GL_H", "HAVE_GLU_H" }
    filter "configurations:Release*"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
@@ -122,7 +122,7 @@ project "mainFox3"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
    libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE" }
+   defines { "_CONSOLE", "HAVE_GL_H", "HAVE_GLU_H" }
    filter "configurations:Release*"
       links {"oesimulation", "oedafif", "oeinstruments"}
       links {"oegraphics", "oebase"}
