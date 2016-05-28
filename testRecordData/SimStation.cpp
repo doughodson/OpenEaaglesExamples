@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: SimStation
-//------------------------------------------------------------------------------
+
 #include "SimStation.h"
 
 #include "openeaagles/simulation/Simulation.h"
@@ -17,11 +15,11 @@
 #include "openeaagles/base/units/Times.h"
 #include "openeaagles/base/osg/Vec4"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(SimStation,"SimStation")
 EMPTY_SERIALIZER(SimStation)
+EMPTY_DELETEDATA(SimStation)
 
 // slot table for this class type
 BEGIN_SLOTTABLE(SimStation)
@@ -35,9 +33,6 @@ BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 2, setSlotAutoResetTime,       base::Time)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 SimStation::SimStation()
 {
     STANDARD_CONSTRUCTOR()
@@ -49,9 +44,6 @@ SimStation::SimStation()
     autoResetTimer = 0.0;
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void SimStation::copyData(const SimStation& org, const bool cc)
 {
     BaseClass::copyData(org);
@@ -63,14 +55,6 @@ void SimStation::copyData(const SimStation& org, const bool cc)
     autoResetTimer = org.autoResetTimer;
 }
 
-
-void SimStation::deleteData()
-{
-}
-
-//------------------------------------------------------------------------------
-// reset() -- Reset the station
-//------------------------------------------------------------------------------
 void SimStation::reset()
 {
     if (!displayInit && mainDisplay != nullptr) {
@@ -95,9 +79,6 @@ void SimStation::reset()
     BaseClass::reset();
 }
 
-//------------------------------------------------------------------------------
-// updateTC() -- update time critical stuff here
-//------------------------------------------------------------------------------
 void SimStation::updateTC(const double dt)
 {
     // First update the simulation
@@ -110,9 +91,6 @@ void SimStation::updateTC(const double dt)
     if (mainDisplay != nullptr) mainDisplay->updateTC(dt);
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void SimStation::updateData(const double dt)
 {
     // ### Don't call updateData for our 'mainDisplay', which is derived from
@@ -170,10 +148,6 @@ void SimStation::stepOwnshipPlayer()
     }
 }
 
-//------------------------------------------------------------------------------
-// Set Slot Functions
-//------------------------------------------------------------------------------
-
 // Main Display
 bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 {
@@ -200,13 +174,7 @@ bool SimStation::setSlotAutoResetTime(const base::Time* const num)
     return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for graphics::Page
-//------------------------------------------------------------------------------
 base::Object* SimStation::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
-}
-
-}
 }

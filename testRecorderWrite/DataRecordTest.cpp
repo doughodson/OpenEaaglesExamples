@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: DataRecordTest
-//------------------------------------------------------------------------------
 
 #include "DataRecordTest.h"
 
@@ -41,13 +38,7 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
-
-
-//==============================================================================
-// DataRecordTest
-//==============================================================================
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(DataRecordTest,"DataRecordTest")
 EMPTY_SERIALIZER(DataRecordTest)
@@ -74,9 +65,6 @@ BEGIN_SLOT_MAP(DataRecordTest)
 
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 DataRecordTest::DataRecordTest()
 {
    STANDARD_CONSTRUCTOR()
@@ -101,12 +89,8 @@ DataRecordTest::DataRecordTest()
       selection[i].condition = oe::recorder::PrintSelected::EQ;
       selection[i].timeOnly = false;
    }
-
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -125,9 +109,6 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
    }
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void DataRecordTest::deleteData()
 {
    myRecPrint = nullptr;
@@ -138,10 +119,6 @@ void DataRecordTest::deleteData()
    myPrintSelected = nullptr;
    myPrintSelected2 = nullptr;
 }
-
-//------------------------------------------------------------------------------
-// Slot functions
-//------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
 //setSlotTabPrinter() -- Set slot for pointer to the TabPrinter class
@@ -213,7 +190,6 @@ bool DataRecordTest::setSlotFileWriter(recorder::FileWriter* const p)
    return ok;
 }
 
-
 //------------------------------------------------------------------------------
 //setSlotFileReader() -- Set slot for pointer to the file (serialized) read class
 //------------------------------------------------------------------------------
@@ -255,17 +231,11 @@ bool DataRecordTest::setSlotRecordData(simulation::DataRecorder* const p)
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Component
-//------------------------------------------------------------------------------
 base::Object* DataRecordTest::getSlotByIndex(const int si)
 {
    return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// testSerialize - Test serialize/parsing to/from a file
-//------------------------------------------------------------------------------
 bool DataRecordTest::testSerialize()
 {
    int exitTest = 1;
@@ -1523,8 +1493,4 @@ double DataRecordTest::getUtcTime()
    static double utcTime = 3000;
    utcTime += 100;
    return utcTime;
-}
-
-
-}
 }

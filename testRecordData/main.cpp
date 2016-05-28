@@ -13,20 +13,17 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace test {
-
 // default background frame rate
 const unsigned int BG_RATE = 10;
 
-simulation::Station* station = nullptr;
+oe::simulation::Station* station = nullptr;
 
 // station builder
-simulation::Station* builder(const std::string& filename)
+oe::simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -39,7 +36,7 @@ simulation::Station* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -47,7 +44,7 @@ simulation::Station* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   simulation::Station* station = dynamic_cast<simulation::Station*>(obj);
+   oe::simulation::Station* station = dynamic_cast<oe::simulation::Station*>(obj);
    if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -65,7 +62,7 @@ void updateDataCB(int msecs)
    glutTimerFunc(msecs, updateDataCB, msecs);
 
    // Current time
-   const double time = base::getComputerTime();
+   const double time = oe::base::getComputerTime();
 
    // Compute delta time
    static double time0 = time;   // N-1 Time
@@ -94,7 +91,7 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the Simulation
-   station->event(base::Component::RESET_EVENT);
+   station->event(oe::base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    const double dt = 1.0 / static_cast<double>(BG_RATE);
@@ -103,7 +100,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    station->updateData(dt);
    station->updateTC(dt);
-   station->event(base::Component::RESET_EVENT);
+   station->event(oe::base::Component::RESET_EVENT);
 
    glutTimerFunc(msecs, updateDataCB, msecs);
 
@@ -113,13 +110,4 @@ int main(int argc, char* argv[])
    // main loop
    glutMainLoop();
    return EXIT_SUCCESS;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::test::main(argc, argv);
 }

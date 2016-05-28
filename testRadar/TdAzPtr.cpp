@@ -1,14 +1,11 @@
-//------------------------------------------------------------------------------
-// Class: TdAzPtr
-//------------------------------------------------------------------------------
+
 #include "TdAzPtr.h"
 #include "openeaagles/base/Number.h"
 #include "openeaagles/base/units/Angles.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr, "TdAzPtr")
 EMPTY_SERIALIZER(TdAzPtr)
 EMPTY_DELETEDATA(TdAzPtr)
 
@@ -16,18 +13,12 @@ BEGIN_EVENT_HANDLER(TdAzPtr)
     ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// Constructor
 TdAzPtr::TdAzPtr()
 {
     STANDARD_CONSTRUCTOR()
     azimuth = 0.0;
 }
 
-// copy member data
 void TdAzPtr::copyData(const TdAzPtr& org, const bool)
 {
     BaseClass::copyData(org);
@@ -71,7 +62,4 @@ void TdAzPtr::draw()
        graphics::Graphic::draw();
        lcRestoreMatrix();
    }
-}
-
-}
 }

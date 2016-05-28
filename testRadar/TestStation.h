@@ -1,16 +1,13 @@
-//------------------------------------------------------------------------------
-// Class: TestStation
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TestStation_H__
-#define __oe_test_TestStation_H__
+
+#ifndef __TestStation_H__
+#define __TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
    namespace base { class Number; }
    namespace glut { class GlutDisplay; }
-
-namespace test {
+}
 
 //------------------------------------------------------------------------------
 // Class: TestStation
@@ -23,9 +20,9 @@ namespace test {
 // Slots:
 //   glutDisplay  <graphics::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
-class TestStation : public simulation::Station
+class TestStation : public oe::simulation::Station
 {
-   DECLARE_SUBCLASS(TestStation,simulation::Station)
+   DECLARE_SUBCLASS(TestStation, oe::simulation::Station)
 
 public:
    TestStation();
@@ -38,9 +35,9 @@ public:
    virtual void reset() override;
 
 private:
-   bool setSlotGlutDisplay(glut::GlutDisplay* const msg);
+   bool setSlotGlutDisplay(oe::glut::GlutDisplay* const msg);
 
-   base::safe_ptr<glut::GlutDisplay> glutDisplay;
+   oe::base::safe_ptr<oe::glut::GlutDisplay> glutDisplay;
    bool glutDisplayInit;
 
    // Past (N-1) switches and values
@@ -51,8 +48,5 @@ private:
    bool incTagPlayerSw1;
    double bgAntenna;
 };
-
-}
-}
 
 #endif

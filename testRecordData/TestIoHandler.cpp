@@ -12,29 +12,19 @@
 #include "openeaagles/base/IoData.h"
 #include "openeaagles/base/util/math_utils.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-//==============================================================================
-// TestIoHandler
-//==============================================================================
-
-IMPLEMENT_SUBCLASS(TestIoHandler,"TestIoHandler")
+IMPLEMENT_SUBCLASS(TestIoHandler, "TestIoHandler")
 EMPTY_SLOTTABLE(TestIoHandler)
 EMPTY_SERIALIZER(TestIoHandler)
+EMPTY_DELETEDATA(TestIoHandler)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestIoHandler::TestIoHandler()
 {
    STANDARD_CONSTRUCTOR()
    initData();
 }
 
-//------------------------------------------------------------------------------
-// initData -- initialize our data for the first time
-//------------------------------------------------------------------------------
 void TestIoHandler::initData()
 {
    rstSw1 = false;
@@ -52,9 +42,6 @@ void TestIoHandler::initData()
    decStptSw1 = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -73,13 +60,6 @@ void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
    autopilotSw1 = org.autopilotSw1;
    incStptSw1 = org.incStptSw1;
    decStptSw1 = org.decStptSw1;
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void TestIoHandler::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------
@@ -261,7 +241,7 @@ void TestIoHandler::inputDevices(const double dt)
          autopilotSw1 = autopilotSw;
       }
 
-      { // Speedbrake switch  
+      { // Speedbrake switch
          bool sbExtSw = false;
          bool sbRetSw = false;
          inData->getDiscreteInput(SB_EXT_SW, &sbExtSw);
@@ -322,7 +302,4 @@ void TestIoHandler::inputDevices(const double dt)
 // -----------------------------------------------------------------------------
 void TestIoHandler::clear()
 {
-}
-
-} // End Test
 }

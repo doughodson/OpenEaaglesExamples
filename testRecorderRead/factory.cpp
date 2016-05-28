@@ -12,12 +12,9 @@
 
 #include <string>
 
-namespace oe {
-namespace test {
-
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-    base::Object* obj = nullptr;
+    oe::base::Object* obj = nullptr;
 
     if ( name == DataRecordTest::getFactoryName() ) {
         obj = new DataRecordTest();
@@ -26,13 +23,10 @@ base::Object* factory(const std::string& name)
         obj = new PrintMyData();
     }
     else {
-        if (obj == nullptr) obj = simulation::factory(name);
-        if (obj == nullptr) obj = base::factory(name);
-        if (obj == nullptr) obj = recorder::factory(name);
+        if (obj == nullptr) obj = oe::simulation::factory(name);
+        if (obj == nullptr) obj = oe::base::factory(name);
+        if (obj == nullptr) obj = oe::recorder::factory(name);
     }
 
     return obj;
-}
-
-}
 }

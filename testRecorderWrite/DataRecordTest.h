@@ -1,8 +1,6 @@
-//------------------------------------------------------------------------------
-// Class: DataRecordTest
-//------------------------------------------------------------------------------
-#ifndef __oe_test_DataRecordTest_H__
-#define __oe_test_DataRecordTest_H__
+
+#ifndef __DataRecordTest_H__
+#define __DataRecordTest_H__
 
 #include "openeaagles/base/Component.h"
 #include "openeaagles/recorder/TabPrinter.h"
@@ -16,31 +14,29 @@
 #include "openeaagles/simulation/Simulation.h"
 
 namespace oe {
-
-namespace Recorder { class DataRecorder; class TabPrinter; class FileWriter; class PrintSelected; }
-
-namespace test {
+   namespace Recorder { class DataRecorder; class TabPrinter; class FileWriter; class PrintSelected; }
+}
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public recorder::OutputHandler
+class DataRecordTest : public oe::recorder::OutputHandler
 {
-    DECLARE_SUBCLASS(DataRecordTest, recorder::OutputHandler)
+    DECLARE_SUBCLASS(DataRecordTest, oe::recorder::OutputHandler)
 
 public:
 
     DataRecordTest();
 
     // Slot functions
-    virtual bool setSlotFileName(base::String* const msg);
-    virtual bool setSlotTabPrinter(recorder::TabPrinter* msg);
-    virtual bool setSlotFileWriter(recorder::FileWriter* msg);
-    virtual bool setSlotFileReader(recorder::FileReader* msg);
-    virtual bool setSlotRecordData(simulation::DataRecorder* const msg);
-    virtual bool setSlotPrintPlayer(recorder::PrintPlayer* msg);
-    virtual bool setSlotPrintSelected(recorder::PrintSelected* msg);
-    virtual bool setSlotPrintSelected2(recorder::PrintSelected* msg);
+    virtual bool setSlotFileName(oe::base::String* const msg);
+    virtual bool setSlotTabPrinter(oe::recorder::TabPrinter* msg);
+    virtual bool setSlotFileWriter(oe::recorder::FileWriter* msg);
+    virtual bool setSlotFileReader(oe::recorder::FileReader* msg);
+    virtual bool setSlotRecordData(oe::simulation::DataRecorder* const msg);
+    virtual bool setSlotPrintPlayer(oe::recorder::PrintPlayer* msg);
+    virtual bool setSlotPrintSelected(oe::recorder::PrintSelected* msg);
+    virtual bool setSlotPrintSelected2(oe::recorder::PrintSelected* msg);
 
     // Select one of these in main.cpp
     bool testEvents();      // switch to test each possible event message
@@ -51,23 +47,23 @@ protected:
     void readSerialFromFile();
 
    // all messages:
-   recorder::DataRecordHandle* testFileIdMsg(int run);
-   recorder::DataRecordHandle* testNewPlayerEventMsg();
-   recorder::DataRecordHandle* testPlayerRemovedEventMsg();
-   recorder::DataRecordHandle* testPlayerDataMsg();
-   recorder::DataRecordHandle* testPlayerDamagedEventMsg();
-   recorder::DataRecordHandle* testPlayerCollisionEventMsg();
-   recorder::DataRecordHandle* testPlayerCrashEventMsg();
-   recorder::DataRecordHandle* testPlayerKilledEventMsg(unsigned int type);
-   recorder::DataRecordHandle* testWeaponReleaseEventMsg(unsigned int side);
-   recorder::DataRecordHandle* testWeaponHungEventMsg();
-   recorder::DataRecordHandle* testWeaponDetonationEventMsg();
-   recorder::DataRecordHandle* testGunFiredEventMsg();
-   recorder::DataRecordHandle* testNewTrackEventMsg();
-   recorder::DataRecordHandle* testTrackRemovedEventMsg();
-   recorder::DataRecordHandle* testTrackDataMsg();
+   oe::recorder::DataRecordHandle* testFileIdMsg(int run);
+   oe::recorder::DataRecordHandle* testNewPlayerEventMsg();
+   oe::recorder::DataRecordHandle* testPlayerRemovedEventMsg();
+   oe::recorder::DataRecordHandle* testPlayerDataMsg();
+   oe::recorder::DataRecordHandle* testPlayerDamagedEventMsg();
+   oe::recorder::DataRecordHandle* testPlayerCollisionEventMsg();
+   oe::recorder::DataRecordHandle* testPlayerCrashEventMsg();
+   oe::recorder::DataRecordHandle* testPlayerKilledEventMsg(unsigned int type);
+   oe::recorder::DataRecordHandle* testWeaponReleaseEventMsg(unsigned int side);
+   oe::recorder::DataRecordHandle* testWeaponHungEventMsg();
+   oe::recorder::DataRecordHandle* testWeaponDetonationEventMsg();
+   oe::recorder::DataRecordHandle* testGunFiredEventMsg();
+   oe::recorder::DataRecordHandle* testNewTrackEventMsg();
+   oe::recorder::DataRecordHandle* testTrackRemovedEventMsg();
+   oe::recorder::DataRecordHandle* testTrackDataMsg();
 
-   recorder::DataRecordHandle* testLastMsg();
+   oe::recorder::DataRecordHandle* testLastMsg();
 
    // Recursive function to look at each embedded message
    bool processMessage(const google::protobuf::Message* const msg);
@@ -78,7 +74,7 @@ protected:
    bool setCompareToValue(const std::string strVal);
    bool setCompareToValue(const int numVal );
    bool setCompareToValue(const double dblVal );
-   bool setCompareCondition(const recorder::PrintSelected::Condition cc);
+   bool setCompareCondition(const oe::recorder::PrintSelected::Condition cc);
    bool setTimeOnly(const bool flg );
 
    double getSimTime();
@@ -87,16 +83,16 @@ protected:
 
 private:
    const char* fileName;
-   base::safe_ptr<recorder::PrintPlayer> myPrintPlayer;
-   base::safe_ptr<recorder::PrintSelected> myPrintSelected;
-   base::safe_ptr<recorder::PrintSelected> myPrintSelected2;
-   base::safe_ptr<recorder::TabPrinter> myRecPrint;
-   base::safe_ptr<recorder::FileWriter> myFileWrite;
-   base::safe_ptr<recorder::FileReader> myFileRead;
-   base::safe_ptr<simulation::DataRecorder> myDataRec;
+   oe::base::safe_ptr<oe::recorder::PrintPlayer> myPrintPlayer;
+   oe::base::safe_ptr<oe::recorder::PrintSelected> myPrintSelected;
+   oe::base::safe_ptr<oe::recorder::PrintSelected> myPrintSelected2;
+   oe::base::safe_ptr<oe::recorder::TabPrinter> myRecPrint;
+   oe::base::safe_ptr<oe::recorder::FileWriter> myFileWrite;
+   oe::base::safe_ptr<oe::recorder::FileReader> myFileRead;
+   oe::base::safe_ptr<oe::simulation::DataRecorder> myDataRec;
 
    std::string fieldName;
-   recorder::PrintSelected::Condition condition;
+   oe::recorder::PrintSelected::Condition condition;
    int compareI;
    std::string compareS;
    double compareD;
@@ -112,14 +108,11 @@ private:
       double compareValD;
       std::string compareValS;
       int compareValI;
-      recorder::PrintSelected::Condition condition;
+      oe::recorder::PrintSelected::Condition condition;
       bool timeOnly;
    };
    SelectionCriteria selection[20];
 
 };
-
-}
-}
 
 #endif

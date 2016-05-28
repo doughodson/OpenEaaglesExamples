@@ -1,8 +1,6 @@
-//------------------------------------------------------------------------------
-// Class: TdElevPtr
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TdElevPtr_H__
-#define __oe_test_TdElevPtr_H__
+
+#ifndef __TdElevPtr_H__
+#define __TdElevPtr_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
@@ -23,11 +21,11 @@
 //------------------------------------------------------------------------------
 namespace oe {
    namespace base { class Number; }
-namespace test {
+}
 
-class TdElevPtr : public graphics::Graphic
+class TdElevPtr : public oe::graphics::Graphic
 {
-   DECLARE_SUBCLASS(TdElevPtr,graphics::Graphic)
+   DECLARE_SUBCLASS(TdElevPtr, oe::graphics::Graphic)
 
 public:
    TdElevPtr();
@@ -37,15 +35,12 @@ public:
 
    virtual void draw() override;
 
-   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
 private:
-   bool onUpdateValue(const base::Number* const);
+   bool onUpdateValue(const oe::base::Number* const);
 
    double elev;  // (degs)
 };
-
-}
-}
 
 #endif

@@ -15,13 +15,10 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace test {
-
 // our class factory
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-   base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
    //
    if ( name == DataRecordTest::getFactoryName() ) {
@@ -41,7 +38,7 @@ DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -53,8 +50,8 @@ DataRecordTest* builder(const std::string& filename)
       std::exit(EXIT_FAILURE);
    }
 
-   // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   // do we have a oe::base::Pair, if so, point to object in Pair, not Pair itself
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -70,7 +67,6 @@ DataRecordTest* builder(const std::string& filename)
    return dataRecordTest;
 }
 
-//
 int main(int argc, char* argv[])
 {
    // default configuration filename
@@ -91,13 +87,4 @@ int main(int argc, char* argv[])
  //  dataRecordTest->testSelect();
 
    return EXIT_SUCCESS;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   oe::test::main(argc, argv);
 }

@@ -1,29 +1,20 @@
-//------------------------------------------------------------------------------
-// Class: PrintMyData
-//------------------------------------------------------------------------------
+
 #include "PrintMyData.h"
 
 #include "xrecorder/protobuf/DataRecord.pb.h"
 #include "xrecorder/dataRecorderTokens.h"
 #include "openeaagles/recorder/DataRecordHandle.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-//==============================================================================
-// Class PrintMyData
-//==============================================================================
-IMPLEMENT_SUBCLASS(PrintMyData,"PrintMyData")
+IMPLEMENT_SUBCLASS(PrintMyData, "PrintMyData")
 EMPTY_SLOTTABLE(PrintMyData)
 EMPTY_SERIALIZER(PrintMyData)
 EMPTY_CONSTRUCTOR(PrintMyData)
 EMPTY_COPYDATA(PrintMyData)
 EMPTY_DELETEDATA(PrintMyData)
 
-
-//------------------------------------------------------------------------------
-// Print the data
-//------------------------------------------------------------------------------
+// print the data
 void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const handle)
 {
    if (handle == nullptr) return;  // cannot continue
@@ -61,7 +52,7 @@ void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const h
 
             printToOutput( sout.str().c_str() );
          }
-         break; 
+         break;
       }
 
       // MyData message event
@@ -84,12 +75,9 @@ void PrintMyData::processRecordImp(const oe::recorder::DataRecordHandle* const h
 
             printToOutput( sout.str().c_str() );
          }
-         break; 
+         break;
       }
 
    }
 
-}
-
-}
 }

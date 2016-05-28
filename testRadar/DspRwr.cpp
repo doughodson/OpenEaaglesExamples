@@ -1,49 +1,34 @@
-//------------------------------------------------------------------------------
-// Class: DspRwr
-//------------------------------------------------------------------------------
+
 #include "DspRwr.h"
 
 #include "openeaagles/simulation/Rwr.h"
 #include "openeaagles/base/units/Angles.h"
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(DspRwr,"DspRwr")
+IMPLEMENT_SUBCLASS(DspRwr, "DspRwr")
 EMPTY_SLOTTABLE(DspRwr)
 EMPTY_SERIALIZER(DspRwr)
 EMPTY_DELETEDATA(DspRwr)
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// Constructor
 DspRwr::DspRwr()
 {
    STANDARD_CONSTRUCTOR()
    rwr = nullptr;
 }
 
-// copy member data
 void DspRwr::copyData(const DspRwr& org, const bool)
 {
    BaseClass::copyData(org);
    rwr = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void DspRwr::updateData(const double dt)
 {
    // Update base classes stuff
    BaseClass::updateData(dt);
 }
 
-//------------------------------------------------------------------------------
-// drawFunc() -- 
-//------------------------------------------------------------------------------
 void DspRwr::drawFunc()
 {
    // Need a RWR to draw; if not, just draw a big X
@@ -79,7 +64,4 @@ void DspRwr::drawFunc()
    }
 
    glColor4dv(ocolor);
-}
-
-}
 }

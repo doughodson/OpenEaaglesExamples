@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
+
 #include "TestDisplay.h"
 #include "TestStation.h"
 #include "DspRadar.h"
@@ -23,10 +21,9 @@
 #include "openeaagles/graphics/SymbolLoader.h"
 #include <GL/glut.h>
 
-namespace oe {
-namespace test {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay,"TestDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
 EMPTY_DELETEDATA(TestDisplay)
 
@@ -54,11 +51,6 @@ BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('+',onStepOwnshipKey)  // Step ownship
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// constructor
 TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
@@ -72,7 +64,6 @@ TestDisplay::TestDisplay() : myStation(nullptr)
    range = 40.0;
 }
 
-// copy member data
 void TestDisplay::copyData(const TestDisplay& org, const bool)
 {
    BaseClass::copyData(org);
@@ -90,7 +81,6 @@ void TestDisplay::copyData(const TestDisplay& org, const bool)
    rangeSD.empty();
    headingSD.empty();
 }
-
 
 //------------------------------------------------------------------------------
 // Event handlers
@@ -140,7 +130,6 @@ bool TestDisplay::onPreRelKey()
     return true;
 }
 
-
 // Target Step Switch
 bool TestDisplay::onTgtStepKey()
 {
@@ -158,7 +147,6 @@ bool TestDisplay::onRtn2SearchKey()
     }
     return true;
 }
-
 
 // Air to Air mode key
 bool TestDisplay::onAir2AirKey()
@@ -250,10 +238,6 @@ bool TestDisplay::onStepOwnshipKey()
    return true;
 }
 
-
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void TestDisplay::updateData(const double dt)
 {
     // Find and update the test RADAR display
@@ -293,7 +277,7 @@ void TestDisplay::updateData(const double dt)
         if (pair != nullptr) rwr = static_cast<simulation::Rwr*>(pair->object());
         rwrDisplay->setRwr(rwr);
     }
-    
+
    // Send flight data to readouts
    if (getOwnship() != nullptr) {
 
@@ -329,7 +313,7 @@ void TestDisplay::updateData(const double dt)
 
             maintainAirTrackSymbols(myLoader, range);
          }
-      }        
+      }
    }
 
    // Update base classes stuff
@@ -373,43 +357,43 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
 {
     int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
     double rng2 = (rng * rng);          // Range squared (KM * KM)
-    
+
     simulation::Player* newTracks[MAX_TRACKS];  // New tracks to add
     int nNewTracks = 0;                         // Number of new tracks
-    
+
     // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
     int maxTracks = loader->getMaxSymbols();
     if (MAX_TRACKS < maxTracks) maxTracks = MAX_TRACKS;
-    
+
     // Set the initial codes
     for (int i = 0; i < maxTracks; i++) {
         if (tracks[i] != nullptr) codes[i] = -1;  // needs to be matched
         else codes[i] = 0;                  // empty slot
     }
-    
+
     // find all air vehicles within range
     {
         // get the player list
         simulation::Simulation* sim = getSimulation();
         base::PairStream* plist = sim->getPlayers();
-        
+
         // search for air vehicles or missiles within range
         base::List::Item* item = plist->getFirstItem();
         while (item != nullptr && nNewTracks < maxTracks) {
-       
+
             base::Pair* pair = static_cast<base::Pair*>(item->getValue());
             simulation::Player* p = static_cast<simulation::Player*>(pair->object());
             osg::Vec3 rpos = p->getPosition() - getOwnship()->getPosition();
             double x = rpos[0] * base::Distance::M2NM;
             double y = rpos[1] * base::Distance::M2NM;
-            
+
             if (
-               p != getOwnship() && 
+               p != getOwnship() &&
                p->isActive() &&
                ((x*x + y*y) < rng2) &&
                (p->isClassType(typeid(simulation::AirVehicle)) || p->isClassType(typeid(simulation::Missile))) ) {
                 // Ok, it's an active air vehicle or missile that's within range, and it's not us.
-                
+
                 // Are we already in the track list?
                 bool found = false;
                 for (int i = 0; !found && i < maxTracks; i++) {
@@ -419,21 +403,21 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
                         found = true;
                     }
                 }
-                
+
                 // If not found then add it to the new tracks list
                 if (!found) {
                     p->ref();
                     newTracks[nNewTracks++] = p;
                 }
-                 
+
             }
             item = item->getNext();
         }
-        
+
         plist->unref();
     }
-    
-    
+
+
     // Now remove any unmatched tracks
     for (int i = 0; i < maxTracks; i++) {
         if (codes[i] == -1) {
@@ -445,22 +429,22 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
             codes[i]  = 0;      // slot is now empty
         }
     }
-    
+
     // Now add any new tracks
     {
         int islot = 0;      // slot index
         int inew = 0;       // new track index
-        
+
         while (inew < nNewTracks && islot < maxTracks) {
             if (codes[islot] == 0) {
                 // We have an empty slot, so add the symbol
-                
+
                 int type = 4;                                       // unknown
                 if (newTracks[inew]->isClassType(typeid(simulation::AirVehicle))) {
                   if (newTracks[inew]->getSensorByType(typeid(simulation::Jammer)) == nullptr) {
                      // non-jammers
                      if (newTracks[inew]->isSide(simulation::Player::BLUE)) type = 1;      // friend
-                     else if (newTracks[inew]->isSide(simulation::Player::RED)) type = 2; // foe  
+                     else if (newTracks[inew]->isSide(simulation::Player::RED)) type = 2; // foe
                      else type = 3; // neutral/commercial
                   }
                 }
@@ -477,16 +461,16 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
                     tracks[islot] = nullptr;
                 }
                 inew++;
-                
+
             }
             islot++;
         }
-       
+
         // unref any air vehicles that didn't make it
         while (inew < nNewTracks) {
             newTracks[inew++]->unref();
         }
-    }    
+    }
 
     // now update the active tracks
     for (int i = 0; i < maxTracks; i++) {
@@ -501,7 +485,6 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
     }
 
 }
-
 
 //------------------------------------------------------------------------------
 // Simulation access functions
@@ -529,7 +512,4 @@ simulation::Station* TestDisplay::getStation()
         if (s != nullptr) myStation = s;
     }
     return myStation;
-}
-
-}
 }

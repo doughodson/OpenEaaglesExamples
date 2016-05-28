@@ -1,13 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: PrintMyData
-//------------------------------------------------------------------------------
-#ifndef __oe_test_PrintMyData_H__
-#define __oe_test_PrintMyData_H__
+
+#ifndef __PrintMyData_H__
+#define __PrintMyData_H__
 
 #include "openeaagles/recorder/PrintHandler.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class: PrintMyData
@@ -15,21 +10,18 @@ namespace test {
 //
 // Factory name: PrintMyData
 //------------------------------------------------------------------------------
-class PrintMyData : public recorder::PrintHandler
+class PrintMyData : public oe::recorder::PrintHandler
 {
-   DECLARE_SUBCLASS(PrintMyData, recorder::PrintHandler)
+   DECLARE_SUBCLASS(PrintMyData, oe::recorder::PrintHandler)
 
 public:
    PrintMyData();
 
 protected:
-   virtual void processRecordImp(const recorder::DataRecordHandle* const handle) override;
+   virtual void processRecordImp(const oe::recorder::DataRecordHandle* const handle) override;
 
 private:
    void initData();
 };
-
-}
-}
 
 #endif

@@ -1,15 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: DspRwr
-//------------------------------------------------------------------------------
-#ifndef __oe_test_DspRwr_H__
-#define __oe_test_DspRwr_H__
+
+#ifndef __DspRwr_H__
+#define __DspRwr_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
    namespace simulation { class Rwr; }
-
-namespace test {
+}
 
 //------------------------------------------------------------------------------
 // Class: DspRwr
@@ -18,26 +15,23 @@ namespace test {
 //              the angle of arrival.
 // Factory name: DspRwr
 //------------------------------------------------------------------------------
-class DspRwr : public graphics::Graphic
+class DspRwr : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(DspRwr, graphics::Graphic)
+    DECLARE_SUBCLASS(DspRwr, oe::graphics::Graphic)
 
 public:
     DspRwr();
 
-    simulation::Rwr* getRwr()             { return rwr; }
-    const simulation::Rwr* getRwr() const { return rwr; }
-    void setRwr(simulation::Rwr* s)       { rwr = s; }
+    oe::simulation::Rwr* getRwr()               { return rwr; }
+    const oe::simulation::Rwr* getRwr() const   { return rwr; }
+    void setRwr(oe::simulation::Rwr* s)         { rwr = s; }
 
     virtual void drawFunc() override;
 
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    simulation::Rwr* rwr;     // The test RWR sensor
+    oe::simulation::Rwr* rwr;     // The test RWR sensor
 };
-
-}
-}
 
 #endif

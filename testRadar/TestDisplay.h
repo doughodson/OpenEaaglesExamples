@@ -1,18 +1,16 @@
-//------------------------------------------------------------------------------
-// Class: TestDisplay
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TestDisplay_H__
-#define __oe_test_TestDisplay_H__
+
+#ifndef __TestDisplay_H__
+#define __TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
    namespace simulation { class Missile; class Player; class Simulation; class Station; }
    namespace graphics { class SymbolLoader; }
+}
 
-namespace test {
-   class DspRadar;
-   class DspRwr;
+class DspRadar;
+class DspRwr;
 
 //------------------------------------------------------------------------------
 // Class: TestDisplay
@@ -35,22 +33,22 @@ namespace test {
 //   'd' or 'D'   -- Decrease Range
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
-class TestDisplay : public glut::GlutDisplay
+class TestDisplay : public oe::glut::GlutDisplay
 {
-    DECLARE_SUBCLASS(TestDisplay, glut::GlutDisplay)
+    DECLARE_SUBCLASS(TestDisplay, oe::glut::GlutDisplay)
 
 public:
     TestDisplay();
 
-    simulation::Player* getOwnship();
-    simulation::Simulation* getSimulation();
-    simulation::Station* getStation();
+    oe::simulation::Player* getOwnship();
+    oe::simulation::Simulation* getSimulation();
+    oe::simulation::Station* getStation();
 
-    virtual void maintainAirTrackSymbols(graphics::SymbolLoader* loader, const double rng);
+    virtual void maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng);
 
     virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
 
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
     virtual void updateData(const double dt = 0.0) override;
 
 private:
@@ -67,22 +65,19 @@ private:
     bool onDecRngKey();
     bool onStepOwnshipKey();
 
-    DspRadar*       rdrDisplay;     // Test RADAR display
-    DspRwr*         rwrDisplay;     // Test RWR display
+    DspRadar*  rdrDisplay;     // Test RADAR display
+    DspRwr*    rwrDisplay;     // Test RWR display
 
-    double          range;          // SD range
+    double     range;          // SD range
 
-    SendData        headingSD;
-    SendData        rangeSD;
+    SendData   headingSD;
+    SendData   rangeSD;
 
-    base::safe_ptr<simulation::Station> myStation;
+    oe::base::safe_ptr<oe::simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
-    simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
-    int              trkIdx[MAX_TRACKS];    // Index of track symbols
+    oe::simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
+    int           trkIdx[MAX_TRACKS];              // Index of track symbols
 };
-
-}
-}
 
 #endif

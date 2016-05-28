@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Class: DataRecordTest
-//------------------------------------------------------------------------------
+
 #include "DataRecordTest.h"
 
 #include "openeaagles/recorder/InputHandler.h"
@@ -9,12 +7,7 @@
 
 #include "xrecorder/protobuf/DataRecord.pb.h"
 
-namespace oe {
-namespace test {
-
-//==============================================================================
-// DataRecordTest
-//==============================================================================
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(DataRecordTest,"DataRecordTest")
 EMPTY_SERIALIZER(DataRecordTest)
@@ -24,19 +17,15 @@ BEGIN_SLOTTABLE(DataRecordTest)
    "outputHandler",
 END_SLOTTABLE(DataRecordTest)
 
-// Map slot table to handles 
+// Map slot table to handles
 BEGIN_SLOT_MAP(DataRecordTest)
    ON_SLOT(1, setSlotInputHandler,   oe::recorder::InputHandler)
    ON_SLOT(2, setSlotOutputHandler,   oe::recorder::OutputHandler)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 DataRecordTest::DataRecordTest()
 {
    STANDARD_CONSTRUCTOR()
-
    initData();
 }
 
@@ -46,9 +35,6 @@ void DataRecordTest::initData()
    outputHandler = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -69,18 +55,13 @@ void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
    }
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void DataRecordTest::deleteData()
 {
    setSlotInputHandler(nullptr);
    setSlotOutputHandler(nullptr);
 }
 
-//------------------------------------------------------------------------------
 // Main test
-//------------------------------------------------------------------------------
 void DataRecordTest::runTest()
 {
    if (inputHandler == nullptr) {
@@ -103,9 +84,6 @@ void DataRecordTest::runTest()
    }
 }
 
-//------------------------------------------------------------------------------
-// Slot functions
-//------------------------------------------------------------------------------
 bool DataRecordTest::setSlotInputHandler(oe::recorder::InputHandler* const msg)
 {
    inputHandler = msg;
@@ -120,14 +98,7 @@ bool DataRecordTest::setSlotOutputHandler(oe::recorder::OutputHandler* const msg
    return true;
 }
 
-
-//------------------------------------------------------------------------------
-// getSlotByIndex() 
-//------------------------------------------------------------------------------
 base::Object* DataRecordTest::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
-}
-
-}
 }

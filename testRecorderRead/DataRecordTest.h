@@ -1,23 +1,19 @@
-//------------------------------------------------------------------------------
-// Class: DataRecordTest
-//------------------------------------------------------------------------------
-#ifndef __oe_test_DataRecordTest_H__
-#define __oe_test_DataRecordTest_H__
+
+#ifndef __DataRecordTest_H__
+#define __DataRecordTest_H__
 
 #include "openeaagles/base/Component.h"
 
 namespace oe {
-
-namespace recorder { class InputHandler; class OutputHandler; }
-
-namespace test {
+   namespace recorder { class InputHandler; class OutputHandler; }
+}
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest : public base::Component
+class DataRecordTest : public oe::base::Component
 {
-   DECLARE_SUBCLASS(DataRecordTest, base::Component)
+   DECLARE_SUBCLASS(DataRecordTest, oe::base::Component)
 
 public:
     DataRecordTest();
@@ -27,17 +23,14 @@ public:
 
 protected:
     // Slot functions
-    virtual bool setSlotInputHandler(recorder::InputHandler* const msg);
-    virtual bool setSlotOutputHandler(recorder::OutputHandler* const msg);
+    virtual bool setSlotInputHandler(oe::recorder::InputHandler* const msg);
+    virtual bool setSlotOutputHandler(oe::recorder::OutputHandler* const msg);
 
 private:
    void initData();
 
-   base::safe_ptr<recorder::InputHandler> inputHandler;
-   base::safe_ptr<recorder::OutputHandler> outputHandler;
+   oe::base::safe_ptr<oe::recorder::InputHandler> inputHandler;
+   oe::base::safe_ptr<oe::recorder::OutputHandler> outputHandler;
 };
-
-}
-}
 
 #endif

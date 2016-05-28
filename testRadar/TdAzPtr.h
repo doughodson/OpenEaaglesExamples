@@ -1,14 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: TdAzPtr
-//------------------------------------------------------------------------------
-#ifndef __oe_test_TdAzPtr_H__
-#define __oe_test_TdAzPtr_H__
+
+#ifndef __TdAzPtr_H__
+#define __TdAzPtr_H__
 
 #include "openeaagles/graphics/Graphic.h"
 
 namespace oe {
    namespace base { class Number; }
-namespace test {
+}
 
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
@@ -26,9 +24,9 @@ namespace test {
 // Events:
 //    UPDATE_VALUE  <Number>  ! azimuth angle (degs)
 //------------------------------------------------------------------------------
-class TdAzPtr : public graphics::Graphic
+class TdAzPtr : public oe::graphics::Graphic
 {
-   DECLARE_SUBCLASS(TdAzPtr, graphics::Graphic)
+   DECLARE_SUBCLASS(TdAzPtr, oe::graphics::Graphic)
 
 public:
    TdAzPtr();
@@ -38,16 +36,12 @@ public:
 
    virtual void draw() override;
 
-   virtual bool event(const int event, base::Object* const obj = nullptr) override;
+   virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
 
 private:
-   bool onUpdateValue(const base::Number* const msg);
+   bool onUpdateValue(const oe::base::Number* const msg);
 
    double azimuth;  // (degs)
 };
 
-}
-}
-
 #endif
-
