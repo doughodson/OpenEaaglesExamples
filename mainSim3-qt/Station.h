@@ -1,6 +1,6 @@
 
-#ifndef __oe_example_Station_H__
-#define __oe_example_Station_H__
+#ifndef __Station_H__
+#define __Station_H__
 
 #include "openeaagles/simulation/Station.h"
 #include <QObject>

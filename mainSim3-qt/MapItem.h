@@ -1,5 +1,6 @@
-#ifndef __oe_example_MapItem_H__
-#define __oe_example_MapItem_H__
+
+#ifndef __MapItem_H__
+#define __MapItem_H__
 
 #include <QGraphicsItem>
 

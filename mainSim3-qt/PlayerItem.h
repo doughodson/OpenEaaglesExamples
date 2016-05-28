@@ -1,6 +1,6 @@
 
-#ifndef __oe_example_PlayerItem_H__
-#define __oe_example_PlayerItem_H__
+#ifndef __PlayerItem_H__
+#define __PlayerItem_H__
 
 #include <QGraphicsItem>
 
