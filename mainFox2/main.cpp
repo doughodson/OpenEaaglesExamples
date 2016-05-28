@@ -1,11 +1,9 @@
 
-
 #include "fx.h"
-#include "fx3d.h"
 
 #include "TestWindow.h"
 
-int main(int argc,char *argv[]){
+int main(int argc, char* argv[]){
 
   // application object
   FXApp application("example", "openeaagles");

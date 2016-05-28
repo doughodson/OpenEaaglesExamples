@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainFox1
 
-CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR) -DHAVE_GL_H
+CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR)
 LDFLAGS  += $(FOX_LIBS)
 
 EPPFLAGS += -I$(DATA_DIR) \
@@ -24,9 +24,8 @@ edl:
 	@echo "No input files to process"
 
 $(PGM): $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-

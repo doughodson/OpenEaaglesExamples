@@ -18,25 +18,22 @@ DATA_DIR = ${OE_ROOT}/../OpenEaaglesExamples/shared/data
 OE_EXAMPLES_LIB_DIR = ${OE_EXAMPLES_ROOT}/lib/linux
 
 # ---
-# Specify location of OE libraries and our own
+# Add location of OE libraries and our own
 # ---
-LDFLAGS += -L$(OE_ROOT)/lib/linux 
+LDFLAGS += -L$(OE_ROOT)/lib/linux
 LDFLAGS += -L../lib/linux
 
 # ---
-# Specify location of 3rd party libs
+# Add location of 3rd party libs
 # ---
 ifdef OE_3RD_PARTY_ROOT
    LDFLAGS += -L$(OE_3RD_PARTY_ROOT)/lib
 endif
 
 # ---
-# Fox GUI library settings (v1.6.x or v1.7.x)
+# Fox GUI library settings
 # ---
-#FOX_DEFINES = -DFOX_1_6
-#FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.6
-#FOX_LIBS    = -lFOX-1.6
-FOX_DEFINES = -DFOX_1_7
+FOX_DEFINES = -DHAVE_GL_H -DHAVE_GLU_H
 FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.7
 FOX_LIBS    = -lFOX-1.7
 
@@ -57,5 +54,3 @@ EPPFLAGS = \
 	-DFONT_11_19_PATH=\"$(DATA_DIR)/fonts/11x19/normal/\" \
 	-DTEXTURES_PATH=\"$(DATA_DIR)/textures/\" \
 	-DJSBSIM_PATH=\"$(DATA_DIR)/JSBSim/\"
-
-

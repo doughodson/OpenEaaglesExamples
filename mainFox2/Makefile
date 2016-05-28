@@ -3,7 +3,7 @@ include ../makedefs
 
 PGM = mainFox2
 
-CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR) -DHAVE_GL_H
+CPPFLAGS += $(FOX_DEFINES) -I$(FOX_INC_DIR)
 LDFLAGS  += $(FOX_LIBS)
 
 EPPFLAGS += -I$(DATA_DIR) \
@@ -23,12 +23,11 @@ LDFLAGS += -lpthread -lrt
 all: $(PGM)
 
 edl:
-	cpp configs/foxdisplay.epp > foxdisplay.edl  $(EPPFLAGS)
+	cpp configs/display.epp > display.edl  $(EPPFLAGS)
 
 $(PGM): $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
-

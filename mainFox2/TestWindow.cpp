@@ -1,23 +1,14 @@
 
-#include "fx.h"
-#include "fx3d.h"
-
-#include <GL/glu.h>
-
 #include "TestWindow.h"
 
-// timer setting (in nanoseconds)
-const FXTime TIMER_INTERVAL = 100000000;
+#include "fx.h"
+#include "fx3d.h"
 
 //--------------------------------------------------------------------------------
 // message types in map:
 //
 // SEL_PAINT : must repaint window
 // SEL_CONFIGURE : resize
-// SEL_COMMAND : GUI command
-// SEL_UPDATE : GUI update
-// SEL_TIMEOUT : timeout occurred
-// SEL_CHORE : background chore
 //--------------------------------------------------------------------------------
 
 // message map which assoicates messages objects received to specific member functions
@@ -25,17 +16,17 @@ FXDEFMAP(TestWindow) TestWindowMap[] = {
    //___Message_Type________ID______________________________Message_Handler_______
    FXMAPFUNC(SEL_PAINT,     TestWindow::ID_CANVAS,          TestWindow::onExpose),
    FXMAPFUNC(SEL_CONFIGURE, TestWindow::ID_CANVAS,          TestWindow::onConfigure),
-   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPIN,            TestWindow::onCmdSpin),
-   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPIN,            TestWindow::onUpdSpin),
-   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPINFAST,        TestWindow::onCmdSpinFast),
-   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPINFAST,        TestWindow::onUpdSpinFast),
-   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_STOP,            TestWindow::onCmdStop),
-   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_STOP,            TestWindow::onUpdStop),
-   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPEED,           TestWindow::onUpdSpeed),
-   FXMAPFUNC(SEL_TIMEOUT,   TestWindow::ID_TIMEOUT,         TestWindow::onTimeout),
-   FXMAPFUNC(SEL_CHORE,     TestWindow::ID_CHORE,           TestWindow::onChore),
-   FXMAPFUNCS(SEL_COMMAND,  TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onCmdMultiSample),
-   FXMAPFUNCS(SEL_UPDATE,   TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onUpdMultiSample),
+//   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPIN,            TestWindow::onCmdSpin),
+//   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPIN,            TestWindow::onUpdSpin),
+//   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_SPINFAST,        TestWindow::onCmdSpinFast),
+//   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPINFAST,        TestWindow::onUpdSpinFast),
+//   FXMAPFUNC(SEL_COMMAND,   TestWindow::ID_STOP,            TestWindow::onCmdStop),
+//   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_STOP,            TestWindow::onUpdStop),
+//   FXMAPFUNC(SEL_UPDATE,    TestWindow::ID_SPEED,           TestWindow::onUpdSpeed),
+//   FXMAPFUNC(SEL_TIMEOUT,   TestWindow::ID_TIMEOUT,         TestWindow::onTimeout),
+//   FXMAPFUNC(SEL_CHORE,     TestWindow::ID_CHORE,           TestWindow::onChore),
+//   FXMAPFUNCS(SEL_COMMAND,  TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onCmdMultiSample),
+//   FXMAPFUNCS(SEL_UPDATE,   TestWindow::ID_MULTISAMPLE_OFF, TestWindow::ID_MULTISAMPLE_4X, TestWindow::onUpdMultiSample),
 };
 
 // macro generated code (class name, base class name, pointer to message map, # of entries in message map)
@@ -45,27 +36,6 @@ TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "FOX GUI Drawing an OE Display"
 {
    // right vertical frame that will contain buttons
    FXVerticalFrame* buttonFrame = new FXVerticalFrame(this, LAYOUT_SIDE_RIGHT|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
-
-   // buttons to select the mode of spinning - timers or chores
-   new FXButton(buttonFrame, tr("Spin &Timer\tSpin using interval timers\nNote the app blocks until the interal has elapsed..."),nullptr,this,ID_SPIN,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
-   new FXButton(buttonFrame, tr("Spin &Chore\tSpin as fast as possible using chores\nNote even though the app is very responsive, it never blocks;\nthere is always something to do..."),nullptr,this,ID_SPINFAST,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
-
-   // button to stop spinning
-   new FXButton(buttonFrame, tr("&Stop Spin\tStop this mad spinning, I'm getting dizzy"), nullptr, this, ID_STOP, FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
-
-   // group box which will contain a spinner control
-   FXGroupBox* groupbox1 = new FXGroupBox(buttonFrame, tr("Speed (rts)"), GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
-
-   // spinner control which is used to set speed
-   speedcontrol = new FXRealSpinner(groupbox1, 3, &dt_rts, FXDataTarget::ID_VALUE,FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X);
-   speedcontrol->setRange(0.1, 3.0);
-   speedcontrol->setIncrement(0.1);
-
-   // group box which will contain radio buttons to set sampling
-   FXGroupBox* groupbox2 = new FXGroupBox(buttonFrame, tr("Multi Sampling"), GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
-   new FXRadioButton(groupbox2, "Off", this, ID_MULTISAMPLE_OFF);
-   new FXRadioButton(groupbox2, "2x", this, ID_MULTISAMPLE_2X);
-   new FXRadioButton(groupbox2, "4x", this, ID_MULTISAMPLE_4X);
 
    // button to exit application
    new FXButton(buttonFrame, tr("&Exit\tExit the application"), nullptr, getApp(), FXApp::ID_QUIT,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_BOTTOM|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
@@ -81,20 +51,10 @@ TestWindow::TestWindow(FXApp* a):FXMainWindow(a, "FOX GUI Drawing an OE Display"
 
    // defines the area to be drawn by another object, i.e., opengl code
    glcanvas = new FXGLCanvas(glpanelFrame, glvisual, this, ID_CANVAS, LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT);
-
-   // enables tooltips
-   new FXToolTip(getApp());
-
-   spinning = false;
-   angle = 0.0;
-   rts = 1.0;
-   dt_rts.connect(rts);
 }
 
 TestWindow::~TestWindow()
 {
-   getApp()->removeTimeout(this, ID_TIMEOUT);
-   getApp()->removeChore(this, ID_CHORE);
    delete glvisual;
 }
 
@@ -122,91 +82,6 @@ long TestWindow::onExpose(FXObject*, FXSelector, void*)
    return 1;
 }
 
-// timer expired, rotate the boxes, draw and reset timer
-long TestWindow::onTimeout(FXObject*, FXSelector, void*)
-{
-   angle += 2.0;
-   if ( angle > 360.0 ) angle -= 360.0;
-   lasttime = FXThread::time();
-   drawScene();
-   getApp()->addTimeout(this, ID_TIMEOUT,TIMER_INTERVAL);
-   return 1;
-}
-
-// chore message received, rotate boxes, redraw, add new chore
-long TestWindow::onChore(FXObject*, FXSelector, void*)
-{
-   FXTime c = FXThread::time();
-   FXTime d = c - lasttime;
-   angle += (d / 1000000000.0) * (360.0 * rts);
-   if ( angle > 360.0 ) angle-=360.0;
-   lasttime = c;
-   drawScene();
-   getApp()->addChore(this, ID_CHORE);
-   return 1;
-}
-
-// start spinning, add timer to animate
-long TestWindow::onCmdSpin(FXObject*, FXSelector, void*)
-{
-   spinning = true;
-   getApp()->addTimeout(this, ID_TIMEOUT, TIMER_INTERVAL);
-   return 1;
-}
-
-// enable or disable the spin button
-long TestWindow::onUpdSpin(FXObject* sender, FXSelector, void*)
-{
-   FXButton* button = static_cast<FXButton*>(sender);
-   spinning ? button->disable() : button->enable();
-   return 1;
-}
-
-// start spinning boxes, add chore to keep spinning
-long TestWindow::onCmdSpinFast(FXObject*, FXSelector, void*)
-{
-  spinning = true;
-  lasttime = FXThread::time();
-  speedcontrol->enable();
-  getApp()->addChore(this, ID_CHORE);
-  return 1;
-}
-
-// enable or disable the spin button
-long TestWindow::onUpdSpinFast(FXObject* sender, FXSelector,void*)
-{
-   FXButton* button = static_cast<FXButton*>(sender);
-   spinning ? button->disable() : button->enable();
-   return 1;
-}
-
-// if boxes are spinning, stop them
-long TestWindow::onCmdStop(FXObject*, FXSelector, void*)
-{
-   getApp()->removeTimeout(this, ID_TIMEOUT);
-   getApp()->removeChore(this, ID_CHORE);
-   speedcontrol->disable();
-   spinning = false;
-   return 1;
-}
-
-// enable or disable the stop button
-long TestWindow::onUpdStop(FXObject* sender, FXSelector,void*)
-{
-   FXButton* button = static_cast<FXButton*>(sender);
-   spinning ? button->enable() : button->disable();
-   return 1;
-}
-
-// enable or disable the stop button
-long TestWindow::onUpdSpeed(FXObject* sender, FXSelector,void*)
-{
-   if (getApp()->hasTimeout(this, ID_TIMEOUT))
-      sender->handle(this, FXSEL(SEL_COMMAND, ID_DISABLE), nullptr);
-   else
-      sender->handle(this, FXSEL(SEL_COMMAND, ID_ENABLE), nullptr);
-   return 1;
-}
 
 // draw a box using the given corners
 void drawBox(GLfloat xmin, GLfloat ymin, GLfloat zmin, GLfloat xmax, GLfloat ymax, GLfloat zmax)
@@ -275,6 +150,8 @@ void TestWindow::drawScene()
 
    // make context current
    if (glcanvas->makeCurrent()) {
+
+      const double angle = 0;
 
       glViewport(0,0,glcanvas->getWidth(),glcanvas->getHeight());
 
@@ -362,6 +239,7 @@ void TestWindow::drawScene()
 }
 
 // switch multisampling on
+/*
 long TestWindow::onCmdMultiSample(FXObject* sender, FXSelector sel, void*)
 {
    FXint nsamples = 0;
@@ -380,8 +258,10 @@ long TestWindow::onCmdMultiSample(FXObject* sender, FXSelector sel, void*)
    glcanvas->create();
    return 1;
 }
+*/
 
 // update multisampling radio buttons
+/*
 long TestWindow::onUpdMultiSample(FXObject* sender, FXSelector sel, void*)
 {
    FXbool check = false;
@@ -396,3 +276,4 @@ long TestWindow::onUpdMultiSample(FXObject* sender, FXSelector sel, void*)
       sender->handle(this, FXSEL(SEL_COMMAND, ID_UNCHECK), nullptr);
    return 1;
 }
+*/

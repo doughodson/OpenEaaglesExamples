@@ -2,6 +2,8 @@
 #ifndef __SettingsDialog_H__
 #define __SettingsDialog_H__
 
+#include "fx.h"
+
 //-------------------------------------------------------
 // Class: SettingsDialog
 //

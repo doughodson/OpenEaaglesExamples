@@ -2,6 +2,8 @@
 #ifndef __TestWindow_H__
 #define __TestWindow_H__
 
+#include "fx.h"
+
 //-------------------------------------------------------
 // Class: TestWindow
 // Description: Central window for the application
@@ -35,7 +37,7 @@ public:
       ID_OPENGL
    };
 
-   // Message handlers
+   // message handlers
    long onMouseDown(FXObject*, FXSelector, void*);
    long onMouseUp(FXObject*, FXSelector, void*);
    long onMouseMove(FXObject*, FXSelector, void*);

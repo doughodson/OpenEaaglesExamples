@@ -1,11 +1,10 @@
 
+#include "SettingsDialog.h"
+
 #include "fx.h"
 #include "fx3d.h"
 
-#include <GL/glu.h>
-
 #include <cstdio>
-#include "SettingsDialog.h"
 
 #if defined(WIN32)
 #pragma warning(disable: 4996)
@@ -13,7 +12,7 @@
 
 #define PRINT_YESNO(x) ( x ? "yes" : "no" )
 
-// Implementation
+// implementation
 FXDEFMAP(SettingsDialog) SettingsDialogMap[] = {
    FXMAPFUNC(SEL_COMMAND, SettingsDialog::ID_SAVE, SettingsDialog::onCmdSave)
 };
@@ -325,7 +324,7 @@ FXbool SettingsDialog::saveInformation(const FXString& filename)
    return false;
 }
 
-// Save OpenGL info to file
+// save OpenGL info to file
 long SettingsDialog::onCmdSave(FXObject*, FXSelector, void*)
 {
    FXString filename = FXFileDialog::getSaveFilename(this, tr("Save Information"), FXSystem::getHomeDirectory()+PATHSEPSTRING+"opengl.txt", tr("Text Files (*.txt)\nAll Files(*.*)"));

@@ -1,11 +1,10 @@
 
-#include "fx.h"
-#include "fx3d.h"
-
-#include <GL/glu.h>
 
 #include "TestWindow.h"
 #include "SettingsDialog.h"
+
+#include "fx.h"
+#include "fx3d.h"
 
 // timer setting (in nanoseconds)
 const FXTime TIMER_INTERVAL = 100000000;
