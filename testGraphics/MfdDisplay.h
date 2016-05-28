@@ -1,3 +1,9 @@
+
+#ifndef __MfdDisplay_H__
+#define __MfdDisplay_H__
+
+#include "openeaagles/gui/glut/GlutDisplay.h"
+
 //------------------------------------------------------------------------------
 // Class: MfdDisplay
 //
@@ -6,23 +12,12 @@
 //              -- All it really does for this example is accept the ESC event.
 //
 //------------------------------------------------------------------------------
-#ifndef __oe_example_MfdDisplay_H__
-#define __oe_example_MfdDisplay_H__
-
-#include "openeaagles/gui/glut/GlutDisplay.h"
-
-namespace oe {
-namespace example {
-
-class MfdDisplay : public graphics::Display
+class MfdDisplay : public oe::graphics::Display
 {
-   DECLARE_SUBCLASS(MfdDisplay, graphics::Display)
+   DECLARE_SUBCLASS(MfdDisplay, oe::graphics::Display)
 
 public:
    MfdDisplay();
 };
-
-}
-}
 
 #endif

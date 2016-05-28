@@ -1,13 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: ServerTcpMultiple
-//------------------------------------------------------------------------------
-#ifndef __oe_test_ServerTcpMultiple_H__
-#define __oe_test_ServerTcpMultiple_H__
+
+#ifndef __ServerTcpMultiple_H__
+#define __ServerTcpMultiple_H__
 
 #include "Endpoint.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class:  ServerTcpMultiple
@@ -15,7 +10,6 @@ namespace test {
 // Description:
 //
 // Factory name: ServerTcpMulti
-//
 //------------------------------------------------------------------------------
 class ServerTcpMultiple : public Endpoint
 {
@@ -28,8 +22,5 @@ public:
    virtual void reset() override;
 
 };
-
-}
-}
 
 #endif

@@ -2,14 +2,11 @@
 #include "TestTwo.h"
 #include "openeaagles/base/units/Angles.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_SUBCLASS(TestTwo,"TestTwo")
+IMPLEMENT_SUBCLASS(TestTwo, "TestTwo")
+EMPTY_DELETEDATA(TestTwo)
 
-//------------------------------------------------------------------------------
-// slot table for this class type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(TestTwo)
     "v1",       // V1 initial value
     "v1Rate",   // V1 rate
@@ -21,9 +18,6 @@ BEGIN_SLOTTABLE(TestTwo)
     "v2Min",    // V2 min value
 END_SLOTTABLE(TestTwo)
 
-//------------------------------------------------------------------------------
-// slot mapping for this class type - replaces setSlotByIndex()
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(TestTwo)
     ON_SLOT(1, setV1, base::Number)
     ON_SLOT(2, setV1Rate, base::Number)
@@ -41,10 +35,6 @@ END_SLOT_MAP()
 BEGIN_EVENT_HANDLER(TestTwo)
 END_EVENT_HANDLER()
 
-
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestTwo::TestTwo()
 {
     STANDARD_CONSTRUCTOR()
@@ -59,9 +49,6 @@ TestTwo::TestTwo()
     reset();
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void TestTwo::copyData(const TestTwo& org, const bool)
 {
     BaseClass::copyData(org);
@@ -79,11 +66,7 @@ void TestTwo::copyData(const TestTwo& org, const bool)
     reset();
 }
 
-EMPTY_DELETEDATA(TestTwo)
-
-//------------------------------------------------------------------------------
-// resetData() -- reset member data to known state
-//------------------------------------------------------------------------------
+// reset member data to known state
 void TestTwo::reset()
 {
     v1     = iv1;
@@ -97,10 +80,6 @@ void TestTwo::reset()
     v2TitleSD.empty();
 }
 
-
-//------------------------------------------------------------------------------
-// updateTC() -- update time critical stuff here
-//------------------------------------------------------------------------------
 void TestTwo::updateTC(const double dt)
 {
     // Update base classes stuff
@@ -129,10 +108,6 @@ void TestTwo::updateTC(const double dt)
     }
 }
 
-
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void TestTwo::updateData(const double dt)
 {
     // Update base classes stuff
@@ -148,21 +123,11 @@ void TestTwo::updateData(const double dt)
     send( "v2Title", SELECT, i, v2TitleSD);
 }
 
-
-
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Rgb
-//------------------------------------------------------------------------------
 base::Object* TestTwo::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-
-
-//------------------------------------------------------------------------------
-// serialize() -- print functions
-//------------------------------------------------------------------------------
 std::ostream& TestTwo::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
     int j = 0;
@@ -204,9 +169,8 @@ std::ostream& TestTwo::serialize(std::ostream& sout, const int i, const bool slo
     return sout;
 }
 
-// Macro functions for Setting up the slot maps//
 //------------------------------------------------------------------------------
-// setV1() -- 
+// setV1() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV1(const base::Number* const sv1obj)
 {
@@ -215,7 +179,7 @@ bool TestTwo::setV1(const base::Number* const sv1obj)
 }
 
 //------------------------------------------------------------------------------
-// setV1Rate() -- 
+// setV1Rate() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV1Rate(const base::Number* const sv1robj)
 {
@@ -233,7 +197,7 @@ bool TestTwo::setV1Max(const base::Number* const sv1mobj)
 }
 
 //------------------------------------------------------------------------------
-// setV1Min() -- 
+// setV1Min() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV1Min(const base::Number* const sv1miobj)
 {
@@ -242,7 +206,7 @@ bool TestTwo::setV1Min(const base::Number* const sv1miobj)
 }
 
 //------------------------------------------------------------------------------
-// setV2() -- 
+// setV2() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV2(const base::Number* const sv2obj)
 {
@@ -251,7 +215,7 @@ bool TestTwo::setV2(const base::Number* const sv2obj)
 }
 
 //------------------------------------------------------------------------------
-// setV2Rate() -- 
+// setV2Rate() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV2Rate(const base::Number* const sv2robj)
 {
@@ -260,7 +224,7 @@ bool TestTwo::setV2Rate(const base::Number* const sv2robj)
 }
 
 //------------------------------------------------------------------------------
-// setV2Max() -- 
+// setV2Max() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV2Max(const base::Number* const sv2mobj)
 {
@@ -269,13 +233,10 @@ bool TestTwo::setV2Max(const base::Number* const sv2mobj)
 }
 
 //------------------------------------------------------------------------------
-// setV2Min() -- 
+// setV2Min() --
 //------------------------------------------------------------------------------
 bool TestTwo::setV2Min(const base::Number* const sv2miobj)
 {
     if (sv2miobj != nullptr) v2Min = sv2miobj->getReal();
     return true;
-}
-
-}
 }

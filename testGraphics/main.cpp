@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Test of basic graphics system
+// Test of graphics system
 //------------------------------------------------------------------------------
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/Timers.h"
@@ -32,9 +32,6 @@
 #include <string>
 #include <cstdlib>
 
-namespace oe {
-namespace example {
-
 // frame rate
 const int frameRate = 20;
 
@@ -47,15 +44,15 @@ void timerFunc(int)
    const unsigned int millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   base::Timer::updateTimers(static_cast<double>(dt));
-   graphics::Graphic::flashTimer(static_cast<double>(dt));
+   oe::base::Timer::updateTimers(static_cast<double>(dt));
+   oe::graphics::Graphic::flashTimer(static_cast<double>(dt));
    testDisplay->tcFrame(static_cast<double>(dt));
 }
 
 // our class factory
-base::Object* factory(const std::string& name)
+oe::base::Object* factory(const std::string& name)
 {
-   base::Object* obj = nullptr;
+   oe::base::Object* obj = nullptr;
 
    //
    if ( name == TestDisplay::getFactoryName() ) {
@@ -85,9 +82,9 @@ base::Object* factory(const std::string& name)
    }
 
    else {
-      if (obj == nullptr) obj = graphics::factory(name);
-      if (obj == nullptr) obj = glut::factory(name);
-      if (obj == nullptr) obj = base::factory(name);
+      if (obj == nullptr) obj = oe::graphics::factory(name);
+      if (obj == nullptr) obj = oe::glut::factory(name);
+      if (obj == nullptr) obj = oe::base::factory(name);
    }
    return obj;
 }
@@ -97,7 +94,7 @@ TestDisplay* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
-   base::Object* obj = base::edl_parser(filename, factory, &num_errors);
+   oe::base::Object* obj = oe::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -110,7 +107,7 @@ TestDisplay* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -155,13 +152,4 @@ int main(int argc, char* argv[])
    glutMainLoop();
 
    return 0;
-}
-
-}
-}
-
-//
-int main(int argc, char* argv[])
-{
-   return oe::example::main(argc,argv);
 }

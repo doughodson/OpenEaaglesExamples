@@ -4,37 +4,25 @@
 
 #include <cmath>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(TestOne,"TestOne")
+EMPTY_DELETEDATA(TestOne)
 
-//------------------------------------------------------------------------------
-// slot table for this class type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(TestOne)
     "speed",       // speed
     "startAngle",  // starting angle (off X axis)
 END_SLOTTABLE(TestOne)
 
-//------------------------------------------------------------------------------
-// slot mapping for this class type - replaces setSlotByIndex() using a macro
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(TestOne)
     ON_SLOT(1, realSpeed, base::Number)
     ON_SLOT(2, setAngle, base::Angle)
     ON_SLOT(2, setAngle, base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// event handler macro - takes place of event() using a macro
-//------------------------------------------------------------------------------
 BEGIN_EVENT_HANDLER(TestOne)
 END_EVENT_HANDLER()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TestOne::TestOne()
 {
     STANDARD_CONSTRUCTOR()
@@ -53,9 +41,6 @@ TestOne::TestOne()
     iangle = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void TestOne::copyData(const TestOne& org, const bool)
 {
     int i = 0;
@@ -85,11 +70,6 @@ void TestOne::copyData(const TestOne& org, const bool)
     }
 }
 
-EMPTY_DELETEDATA(TestOne)
-
-//------------------------------------------------------------------------------
-// reset() -- 
-//------------------------------------------------------------------------------
 void TestOne::reset()
 {
     BaseClass::reset();
@@ -121,7 +101,6 @@ void TestOne::setSpeed(const double xx)
     dx = std::cos(sangle) * speed;
     dy = std::sin(sangle) * speed;
 }
-
 
 //------------------------------------------------------------------------------
 // updateTC() -- update time critical stuff here
@@ -157,10 +136,6 @@ void TestOne::updateTC(const double dt)
 
 }
 
-
-//------------------------------------------------------------------------------
-// updateData() -- update non-time critical stuff here
-//------------------------------------------------------------------------------
 void TestOne::updateData(const double dt)
 {
     // Update base classes stuff
@@ -178,10 +153,6 @@ void TestOne::updateData(const double dt)
     }
 }
 
-
-//------------------------------------------------------------------------------
-// drawFunc() -- 
-//------------------------------------------------------------------------------
 void TestOne::drawFunc()
 {
     glBegin(GL_LINE_STRIP);
@@ -195,17 +166,11 @@ void TestOne::drawFunc()
     glEnd();
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Rgb
-//------------------------------------------------------------------------------
 base::Object* TestOne::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
 
-//------------------------------------------------------------------------------
-// serialize() -- print functions
-//------------------------------------------------------------------------------
 std::ostream& TestOne::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
     int j = 0;
@@ -231,8 +196,6 @@ std::ostream& TestOne::serialize(std::ostream& sout, const int i, const bool slo
     return sout;
 }
 
-
-//SLOTTABLE FUNCTIONS//
 //------------------------------------------------------------------------------
 // realSpeed() -- sets the starting real speed
 //------------------------------------------------------------------------------
@@ -244,7 +207,7 @@ bool TestOne::realSpeed(const base::Number* const rsobj)
 
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an base::Angle parameter
-//------------------------------------------------------------------------------ 
+//------------------------------------------------------------------------------
 bool TestOne::setAngle(base::Angle* saobj)
 {
     if (saobj != nullptr) {
@@ -258,12 +221,9 @@ bool TestOne::setAngle(base::Angle* saobj)
 
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an base::Number parameter
-//------------------------------------------------------------------------------ 
+//------------------------------------------------------------------------------
 bool TestOne::setAngle(const base::Number* const saobj)
 {
     setStartAngle(saobj->getReal());
     return true;
-}
-
-}
 }

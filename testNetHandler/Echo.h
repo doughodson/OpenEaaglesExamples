@@ -1,13 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: Echo
-//------------------------------------------------------------------------------
-#ifndef __oe_test_Echo_H__
-#define __oe_test_Echo_H__
+
+#ifndef __Echo_H__
+#define __Echo_H__
 
 #include "Endpoint.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Echo
@@ -28,8 +23,4 @@ private:
    unsigned int loopCounter;
 };
 
-}
-}
-
 #endif
-

@@ -1,37 +1,35 @@
+
+#ifndef __TestTwo_H__
+#define __TestTwo_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
 //------------------------------------------------------------------------------
 // Class: TestTwo
 //
 // Description: Control and Send values 'v1' and 'v2' to components
 //------------------------------------------------------------------------------
-#ifndef __oe_example_TestTwo_H__
-#define __oe_example_TestTwo_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace example {
-
-class TestTwo : public graphics::Graphic
+class TestTwo : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(TestTwo,graphics::Graphic)
+    DECLARE_SUBCLASS(TestTwo, oe::graphics::Graphic)
 
 public:
     TestTwo();
 
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
     virtual void updateTC(const double dt = 0.0) override;
     virtual void updateData(const double dt = 0.0) override;
     virtual void reset() override;
 
     //macro functions for slot table mapping
-    virtual bool setV1(const base::Number* const sv1obj);
-    virtual bool setV1Rate(const base::Number* const sv1robj);
-    virtual bool setV1Max(const base::Number* const sv1mobj);
-    virtual bool setV1Min(const base::Number* const sv1miobj);
-    virtual bool setV2(const base::Number* const sv2obj);
-    virtual bool setV2Rate(const base::Number* const sv2robj);
-    virtual bool setV2Max(const base::Number* const sv2mobj);
-    virtual bool setV2Min(const base::Number* const sv2miobj);
+    virtual bool setV1(const oe::base::Number* const sv1obj);
+    virtual bool setV1Rate(const oe::base::Number* const sv1robj);
+    virtual bool setV1Max(const oe::base::Number* const sv1mobj);
+    virtual bool setV1Min(const oe::base::Number* const sv1miobj);
+    virtual bool setV2(const oe::base::Number* const sv2obj);
+    virtual bool setV2Rate(const oe::base::Number* const sv2robj);
+    virtual bool setV2Max(const oe::base::Number* const sv2mobj);
+    virtual bool setV2Min(const oe::base::Number* const sv2miobj);
 
 private:
 
@@ -49,8 +47,5 @@ private:
     SendData v1TitleSD;
     SendData v2TitleSD;
 };
-
-}
-}
 
 #endif

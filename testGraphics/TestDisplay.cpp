@@ -6,8 +6,7 @@
 
 #include <GL/glut.h>
 
-namespace oe {
-namespace example {
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
@@ -27,8 +26,6 @@ BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('F',onFrameBufferKey)
 END_EVENT_HANDLER()
 
-
-// drawIt() -- function to display the test
 void TestDisplay::drawIt()
 {
    BaseClass::drawIt();
@@ -55,7 +52,3 @@ bool TestDisplay::onFrameBufferKey()
    image->writeFileBMP("./test.bmp");
    return true;
 }
-
-}
-}
-

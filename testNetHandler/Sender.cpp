@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: ClientSide
-//------------------------------------------------------------------------------
 
 #include "Sender.h"
 
@@ -16,21 +13,13 @@
 # pragma warning(disable: 4996)
 #endif
 
-namespace oe {
-namespace test {
-
-//==============================================================================
-// Sender
-//==============================================================================
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(Sender, "Sender")
 EMPTY_SLOTTABLE(Sender)
 EMPTY_SERIALIZER(Sender)
 EMPTY_DELETEDATA(Sender)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Sender::Sender()
 {
     STANDARD_CONSTRUCTOR()
@@ -39,9 +28,6 @@ Sender::Sender()
     recvMode = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Sender::copyData(const Sender& org, const bool)
 {
     BaseClass::copyData(org);
@@ -50,9 +36,6 @@ void Sender::copyData(const Sender& org, const bool)
     recvMode = org.recvMode;
 }
 
-//------------------------------------------------------------------------------
-// reset()
-//------------------------------------------------------------------------------
 void Sender::reset()
 {
     BaseClass::reset();
@@ -61,9 +44,7 @@ void Sender::reset()
     recvMode = false;
 }
 
-//------------------------------------------------------------------------------
-// Send and receive test messages
-//------------------------------------------------------------------------------
+// send and receive test messages
 void Sender::updateData(const double dt)
 {
     // Update base classes stuff
@@ -104,7 +85,3 @@ void Sender::updateData(const double dt)
         }
     }
 }
-
-}
-}
-

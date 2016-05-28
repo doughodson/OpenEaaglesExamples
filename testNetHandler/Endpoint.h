@@ -1,16 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: Endpoint
-//------------------------------------------------------------------------------
-#ifndef __oe_test_Endpoint_H__
-#define __oe_test_Endpoint_H__
+
+#ifndef __Endpoint_H__
+#define __Endpoint_H__
 
 #include "openeaagles/base/Component.h"
 
 namespace oe {
-
-namespace base { class NetHandler; class Number; }
-
-namespace test {
+   namespace base { class NetHandler; class Number; }
+}
 
 //------------------------------------------------------------------------------
 // Class: Endpoint
@@ -26,9 +22,9 @@ namespace test {
 //                                  halting (default: infinite)
 //
 //------------------------------------------------------------------------------
-class Endpoint : public base::Component
+class Endpoint : public oe::base::Component
 {
-   DECLARE_SUBCLASS(Endpoint, base::Component)
+   DECLARE_SUBCLASS(Endpoint, oe::base::Component)
 
 public:
     static const unsigned int MAX_SIZE = 1024;  // Max buffer size
@@ -50,10 +46,10 @@ public:
     virtual unsigned int recvData(char* const msg, const unsigned int maxsize);
 
     // Slot functions
-    virtual bool setSlotNetwork(base::NetHandler* const msg);
-    virtual bool setSlotNetInput(base::NetHandler* const msg);
-    virtual bool setSlotNoWait(base::Number* const msg);
-    virtual bool setSlotLoops(base::Number* const msg);
+    virtual bool setSlotNetwork(oe::base::NetHandler* const msg);
+    virtual bool setSlotNetInput(oe::base::NetHandler* const msg);
+    virtual bool setSlotNoWait(oe::base::Number* const msg);
+    virtual bool setSlotLoops(oe::base::Number* const msg);
 
     virtual void reset() override;
 
@@ -62,16 +58,12 @@ protected:
     unsigned int getLoops() const { return loops; }
 
 private:
-    base::safe_ptr<base::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
-    base::safe_ptr<base::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
-    unsigned int loops;                            // Number of transfer loops (zero if no limit)
-    bool   networkInitialized;                     // Network has been initialized
-    bool   networkInitFailed;                      // Network initialization has failed
-    bool   noWaitFlag;                             // No wait (unblocked) I/O flag
+    oe::base::safe_ptr<oe::base::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
+    oe::base::safe_ptr<oe::base::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
+    unsigned int loops;                                  // Number of transfer loops (zero if no limit)
+    bool   networkInitialized;                           // Network has been initialized
+    bool   networkInitFailed;                            // Network initialization has failed
+    bool   noWaitFlag;                                   // No wait (unblocked) I/O flag
 };
 
-}
-}
-
 #endif
-

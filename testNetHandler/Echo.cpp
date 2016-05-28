@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: Echo
-//------------------------------------------------------------------------------
 
 #include "Echo.h"
 
@@ -10,49 +7,32 @@
 
 #include <cstdlib>
 
-namespace oe {
-namespace test {
-
-//==============================================================================
-// Echo
-//==============================================================================
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(Echo, "Echo")
 EMPTY_SLOTTABLE(Echo)
 EMPTY_SERIALIZER(Echo)
 EMPTY_DELETEDATA(Echo)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Echo::Echo()
 {
     STANDARD_CONSTRUCTOR()
-
     loopCounter = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Echo::copyData(const Echo& org, const bool)
 {
     BaseClass::copyData(org);
     loopCounter = org.loopCounter;
 }
 
-//------------------------------------------------------------------------------
-// reset()
-//------------------------------------------------------------------------------
 void Echo::reset()
 {
     BaseClass::reset();
     loopCounter = 0;
 }
 
-//------------------------------------------------------------------------------
-// Send and receive test messages
-//------------------------------------------------------------------------------
+// send and receive test messages
 void Echo::updateData(const double dt)
 {
     // Update base classes stuff
@@ -84,7 +64,3 @@ void Echo::updateData(const double dt)
         }
     }
 }
-
-}
-}
-

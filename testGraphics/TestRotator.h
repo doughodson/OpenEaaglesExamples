@@ -1,19 +1,17 @@
+
+#ifndef __TestRotator_H__
+#define __TestRotator_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
 //------------------------------------------------------------------------------
 // Class: TestRotator
 //
 // Description: Example MFD page
 //------------------------------------------------------------------------------
-#ifndef __oe_example_TestRotator_H__
-#define __oe_example_TestRotator_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace example {
-
-class TestRotator : public graphics::Graphic
+class TestRotator : public oe::graphics::Graphic
 {
-   DECLARE_SUBCLASS(TestRotator, graphics::Graphic)
+   DECLARE_SUBCLASS(TestRotator, oe::graphics::Graphic)
 
 public:
     TestRotator();
@@ -33,8 +31,5 @@ private:
     GLfloat light_position[4];
     int count;
 };
-
-}
-}
 
 #endif

@@ -1,6 +1,3 @@
-//------------------------------------------------------------------------------
-// Class: Endpoint
-//------------------------------------------------------------------------------
 
 #include "Endpoint.h"
 
@@ -8,12 +5,7 @@
 #include "openeaagles/base/nethandlers/TcpHandler.h"
 #include "openeaagles/base/Number.h"
 
-namespace oe {
-namespace test {
-
-//==============================================================================
-// Endpoint
-//==============================================================================
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(Endpoint, "Endpoint")
 EMPTY_SERIALIZER(Endpoint)
@@ -26,7 +18,7 @@ BEGIN_SLOTTABLE(Endpoint)
    "loops",                // 5) Number of messages to send/recv before disconnecting and halting (default: infinite)
 END_SLOTTABLE(Endpoint)
 
-// Map slot table to handles 
+// Map slot table to handles
 BEGIN_SLOT_MAP(Endpoint)
     ON_SLOT(1, setSlotNetwork,   oe::base::NetHandler)
     ON_SLOT(2, setSlotNetInput,  oe::base::NetHandler)
@@ -35,10 +27,7 @@ BEGIN_SLOT_MAP(Endpoint)
     ON_SLOT(5, setSlotLoops,     oe::base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
-Endpoint::Endpoint() : netHandler(nullptr), netInput(nullptr) 
+Endpoint::Endpoint() : netHandler(nullptr), netInput(nullptr)
 {
    STANDARD_CONSTRUCTOR()
 
@@ -48,9 +37,6 @@ Endpoint::Endpoint() : netHandler(nullptr), netInput(nullptr)
    loops = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Endpoint::copyData(const Endpoint& org, const bool cc)
 {
    BaseClass::copyData(org);
@@ -70,18 +56,13 @@ void Endpoint::copyData(const Endpoint& org, const bool cc)
    networkInitFailed = false;
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void Endpoint::deleteData()
 {
    netHandler = nullptr;
    netInput = nullptr;
 }
 
-//------------------------------------------------------------------------------
-// reset() -- Reset vehicle
-//------------------------------------------------------------------------------
+// reset vehicle
 void Endpoint::reset()
 {
    BaseClass::reset();
@@ -93,9 +74,7 @@ void Endpoint::reset()
    }
 }
 
-//------------------------------------------------------------------------------
-// initNetworks() -- Init the networks
-//------------------------------------------------------------------------------
+// init the networks
 bool Endpoint::initNetworks()
 {
     // Init the main net handler
@@ -185,10 +164,6 @@ void Endpoint::closeConnections()
     if (netInput != nullptr)   netInput->closeConnection();
 }
 
-//------------------------------------------------------------------------------
-// Slot functions
-//------------------------------------------------------------------------------
-
 // Network Handler
 bool Endpoint::setSlotNetwork(oe::base::NetHandler* const msg)
 {
@@ -228,14 +203,7 @@ bool Endpoint::setSlotLoops(oe::base::Number* const msg)
     return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Component
-//------------------------------------------------------------------------------
 base::Object* Endpoint::getSlotByIndex(const int si)
 {
     return BaseClass::getSlotByIndex(si);
 }
-
-}
-}
-

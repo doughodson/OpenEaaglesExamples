@@ -1,31 +1,26 @@
+
+#ifndef __TdAzPtr_H__
+#define __TdAzPtr_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
 //------------------------------------------------------------------------------
 // Class: TdAzPtr
 //
 // Description: Test Display Azimuth Pointer
 //------------------------------------------------------------------------------
-#ifndef __oe_example_TdAzPtr_H__
-#define __oe_example_TdAzPtr_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-namespace example {
-
-class TdAzPtr : public graphics::Graphic
+class TdAzPtr : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(TdAzPtr,graphics::Graphic)
+    DECLARE_SUBCLASS(TdAzPtr, oe::graphics::Graphic)
 
 public:
     TdAzPtr();
 
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
     virtual void draw() override;
 
 private:
     double azimuth;
 };
-
-}
-}
 
 #endif

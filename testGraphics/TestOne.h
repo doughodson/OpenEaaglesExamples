@@ -1,3 +1,13 @@
+
+#ifndef __TestOne_H__
+#define __TestOne_H__
+
+#include "openeaagles/graphics/Graphic.h"
+
+namespace oe {
+   namespace base { class Angle; class Number; }
+}
+
 //------------------------------------------------------------------------------
 // Class: TestOne
 //
@@ -6,30 +16,18 @@
 //  ( def-form TestOne
 //  )
 //------------------------------------------------------------------------------
-#ifndef __oe_example_TestOne_H__
-#define __oe_example_TestOne_H__
-
-#include "openeaagles/graphics/Graphic.h"
-
-namespace oe {
-   namespace base {
-      class Angle;
-   }
-
-namespace example {
-
-class TestOne : public graphics::Graphic
+class TestOne : public oe::graphics::Graphic
 {
-    DECLARE_SUBCLASS(TestOne,graphics::Graphic)
+    DECLARE_SUBCLASS(TestOne, oe::graphics::Graphic)
 
 public:
     TestOne();
 
     void getPosition(double& xx, double& yy) const      { xx = xPos; yy = yPos; }
     void setPosition(const double xx, const double yy)  { xPos = xx; yPos = yy; }
-    virtual bool realSpeed(const base::Number* const rsobj);
-    virtual bool setAngle(base::Angle* saobj);
-    virtual bool setAngle(const base::Number* const saobj);
+    virtual bool realSpeed(const oe::base::Number* const rsobj);
+    virtual bool setAngle(oe::base::Angle* saobj);
+    virtual bool setAngle(const oe::base::Number* const saobj);
 
     double leftLimit() const                { return left; }
     void leftLimit(const double ll)         { left = ll; }
@@ -50,7 +48,7 @@ public:
 
     virtual void updateTC(const double dt = 0.0) override;
     virtual void updateData(const double dt = 0.0) override;
-    virtual bool event(const int event, base::Object* const obj = nullptr) override;
+    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;
     virtual void reset() override;
 
 private:
@@ -63,13 +61,10 @@ private:
     double dx, dy;                  // Delta position
     double speed;                   // Speed
     double sangle;                  // Starting angle (radians)
-    osg::Vec2 trail[maxHist];       // Display trail
+    oe::osg::Vec2 trail[maxHist];   // Display trail
     int    nTrails;                 // Trail size
     int    index;                   // Trail index
-    base::Angle* iangle;         // Input angle
+    oe::base::Angle* iangle;        // Input angle
 };
-
-}
-}
 
 #endif

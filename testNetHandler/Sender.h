@@ -1,13 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: Sender
-//------------------------------------------------------------------------------
-#ifndef __oe_test_Sender_H__
-#define __oe_test_Sender_H__
+
+#ifndef __Sender_H__
+#define __Sender_H__
 
 #include "Endpoint.h"
-
-namespace oe {
-namespace test {
 
 //------------------------------------------------------------------------------
 // Class: Sender
@@ -31,8 +26,4 @@ private:
     bool         recvMode;      // True if in receive mode
 };
 
-}
-}
-
 #endif
-

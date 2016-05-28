@@ -4,18 +4,13 @@
 #include "openeaagles/graphics/Rotators.h"
 #include "openeaagles/base/PairStream.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdPage,"MfdPage")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdPage, "MfdPage")
 EMPTY_SERIALIZER(MfdPage)
-
 EMPTY_COPYDATA(MfdPage)
 EMPTY_DELETEDATA(MfdPage)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 MfdPage::MfdPage()
 {
    STANDARD_CONSTRUCTOR()
@@ -24,9 +19,6 @@ MfdPage::MfdPage()
    rSD.empty();
 }
 
-//------------------------------------------------------------------------------
-// Macro event handler for MfdPage
-//------------------------------------------------------------------------------
 BEGIN_EVENT_HANDLER(MfdPage)
 END_EVENT_HANDLER()
 
@@ -53,7 +45,7 @@ bool MfdPage::onEntry()
 void MfdPage::updateData(const double dt)
 {
     BaseClass::updateData(dt);
-    
+
     rotate += (rotateRate * dt);
     if (rotate > 360) {
         rotate = 360;
@@ -63,9 +55,6 @@ void MfdPage::updateData(const double dt)
         rotate = -360;
         rotateRate = -rotateRate;
     }
-    
-    send("rotator", UPDATE_VALUE2, rotate, rSD);
-}
 
-}
+    send("rotator", UPDATE_VALUE2, rotate, rSD);
 }

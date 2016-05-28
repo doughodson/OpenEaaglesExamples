@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Tests navigation routines defined in base::Nav class
+// Tests navigation routines defined in oe::base::Nav class
 //-----------------------------------------------------------------------------
 
 #include "openeaagles/base/Nav.h"

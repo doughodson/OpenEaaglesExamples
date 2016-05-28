@@ -2,33 +2,23 @@
 #include "TdAzPtr.h"
 #include "openeaagles/base/Number.h"
 
-namespace oe {
-namespace example {
+using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr,"TdAzPtr")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr, "TdAzPtr")
 EMPTY_SERIALIZER(TdAzPtr)
+EMPTY_DELETEDATA(TdAzPtr)
 
-
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 TdAzPtr::TdAzPtr()
 {
     STANDARD_CONSTRUCTOR()
     azimuth = 0.0;
 }
 
-//------------------------------------------------------------------------------
-// copyData(), deleteData() -- copy (delete) member data
-//------------------------------------------------------------------------------
 void TdAzPtr::copyData(const TdAzPtr& org, const bool)
 {
     BaseClass::copyData(org);
     azimuth = 0.0;
 }
-
-EMPTY_DELETEDATA(TdAzPtr)
-
 
 //------------------------------------------------------------------------------
 // event() -- default event handler
@@ -45,7 +35,7 @@ bool TdAzPtr::event(const int event, base::Object* const obj)
             used = true;
         }
     }
-    
+
     if (!used)
     {
         // Otherwise, pass key events up to our base class
@@ -55,10 +45,6 @@ bool TdAzPtr::event(const int event, base::Object* const obj)
     return used;
 }
 
-
-//------------------------------------------------------------------------------
-// draw() -- draw the pointer
-//------------------------------------------------------------------------------
 void TdAzPtr::draw()
 {
    if (isVisible())  {
@@ -67,7 +53,4 @@ void TdAzPtr::draw()
        BaseClass::draw();
        lcRestoreMatrix();
    }
-}
-
-}
 }

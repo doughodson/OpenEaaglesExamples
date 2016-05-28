@@ -1,57 +1,35 @@
-//------------------------------------------------------------------------------
-// Class: ServerTcpMultiple
-//------------------------------------------------------------------------------
 
 #include "ServerTcpMultiple.h"
 
 #include "openeaagles/base/NetHandler.h"
 #include "openeaagles/base/Number.h"
 
-namespace oe {
-namespace test {
-
-//==============================================================================
-// ServerTcpMultiple
-//==============================================================================
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(ServerTcpMultiple, "ServerTcpMultiple")
 EMPTY_SLOTTABLE(ServerTcpMultiple)
 EMPTY_SERIALIZER(ServerTcpMultiple)
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 ServerTcpMultiple::ServerTcpMultiple()
 {
     STANDARD_CONSTRUCTOR()
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void ServerTcpMultiple::copyData(const ServerTcpMultiple& org, const bool)
 {
    BaseClass::copyData(org);
 }
 
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void ServerTcpMultiple::deleteData()
 {
 }
 
-//------------------------------------------------------------------------------
-// reset()
-//------------------------------------------------------------------------------
 void ServerTcpMultiple::reset()
 {
     BaseClass::reset();
 }
 
-//------------------------------------------------------------------------------
-// Send and receive test messages
-//------------------------------------------------------------------------------
+// send and receive test messages
 void ServerTcpMultiple::updateData(const double dt)
 {
     // Update base classes stuff
@@ -72,7 +50,4 @@ void ServerTcpMultiple::updateData(const double dt)
             }
         }
     }
-}
-
-}
 }
