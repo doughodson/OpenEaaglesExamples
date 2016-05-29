@@ -28,7 +28,8 @@ public:
    // define additional message IDs for this window
    enum {
       ID_CANVAS = FXMainWindow::ID_LAST,
-      ID_CHORE
+      ID_CHORE,
+      ID_LAST
    };
 
    // message handlers

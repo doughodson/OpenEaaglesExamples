@@ -32,21 +32,22 @@
 #include <string>
 #include <cstdlib>
 
-// frame rate
-const int frameRate = 20;
+// frame rate (Hz)
+const unsigned int frame_rate = 10;
+// derived delta times
+const double dt_secs = 1.0 / static_cast<double>(frame_rate);
+const unsigned int dt_msecs = static_cast<unsigned int>(dt_secs * 1000.0);
 
 TestDisplay* testDisplay = nullptr;
 
 // timerFunc() -- time critical stuff
 void timerFunc(int)
 {
-   const double dt = 1.0 / static_cast<double>(frameRate);
-   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
-   glutTimerFunc(millis, timerFunc, 1);
+   glutTimerFunc(dt_msecs, timerFunc, 1);
 
-   oe::base::Timer::updateTimers(static_cast<double>(dt));
-   oe::graphics::Graphic::flashTimer(static_cast<double>(dt));
-   testDisplay->tcFrame(static_cast<double>(dt));
+   oe::base::Timer::updateTimers(dt_secs);
+   oe::graphics::Graphic::flashTimer(dt_secs);
+   testDisplay->tcFrame(dt_secs);
 }
 
 // our class factory
@@ -123,7 +124,6 @@ TestDisplay* builder(const std::string& filename)
    return testDisplay;
 }
 
-//
 int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
@@ -144,10 +144,8 @@ int main(int argc, char* argv[])
    // create a display window
    testDisplay->createWindow();
 
-   // set timer
-   const double dt = 1.0 / static_cast<double>(frameRate);
-   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
-   glutTimerFunc(millis, timerFunc, 1);
+   // start timer to kick off animation
+   glutTimerFunc(dt_msecs, timerFunc, 1);
 
    glutMainLoop();
 

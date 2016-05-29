@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
    application.setStation(foxStation);
 
    // initialize Fox and setup non-real-time timer
-   application.init(argc,argv);
+   application.init(argc, argv);
 
    // create our main window (a Fox FXMainWindow) which
    // handles GUI events
@@ -108,4 +108,6 @@ int main(int argc, char* argv[])
 
    // cleanup
    delete mainWindow;
+
+   return 0;
 }

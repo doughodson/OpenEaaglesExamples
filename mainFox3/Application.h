@@ -27,7 +27,7 @@ public:
    // We define additional ID's, starting from the last one used by the base class+1.
    // This way, we know the ID's are all unique for this particular target.
    enum {
-      ID_TIMEOUT=FX::FXApp::ID_LAST,      // Timer ID
+      ID_CHORE=FX::FXApp::ID_LAST,
       ID_LAST,
    };
 
@@ -39,8 +39,8 @@ public:
    // FXApp interface
    virtual void init(int& argc, char** argv, bool connect=true);
 
-   // Message handlers
-   long onTimeout(FXObject*, FXSelector, void*);
+   // message handlers
+   long onChore(FXObject*, FXSelector, void*);
 
    void setStation(FoxStation* s);
    FoxStation* getStation();

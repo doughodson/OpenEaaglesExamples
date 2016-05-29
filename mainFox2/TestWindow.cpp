@@ -2,15 +2,10 @@
 #include "TestWindow.h"
 
 #include "openeaagles/graphics/Display.h"
+#include "openeaagles/base/Timers.h"
 
 #include "fx.h"
 #include "fx3d.h"
-
-// frame rate (Hz)
-const unsigned int frameRate = 10;
-// derived delta time
-const double dt_secs = 1.0 / static_cast<double>(frameRate);
-const unsigned int dt_millis = static_cast<unsigned int>(dt_secs * 1000.0);
 
 //--------------------------------------------------------------------------------
 // message types in map:
@@ -22,10 +17,10 @@ const unsigned int dt_millis = static_cast<unsigned int>(dt_secs * 1000.0);
 
 // message map which assoicates messages objects received to specific member functions
 FXDEFMAP(TestWindow) TestWindowMap[] = {
-   //___Message_Type________ID______________________________Message_Handler_______
-   FXMAPFUNC(SEL_PAINT,     TestWindow::ID_CANVAS,          TestWindow::onExpose),
-   FXMAPFUNC(SEL_CONFIGURE, TestWindow::ID_CANVAS,          TestWindow::onConfigure),
-   FXMAPFUNC(SEL_CHORE,     TestWindow::ID_CHORE,           TestWindow::onChore)
+   //________Message_Type_____ID______________________________Message_Handler_______
+   FXMAPFUNC(SEL_PAINT,       TestWindow::ID_CANVAS,          TestWindow::onExpose),
+   FXMAPFUNC(SEL_CONFIGURE,   TestWindow::ID_CANVAS,          TestWindow::onConfigure),
+   FXMAPFUNC(SEL_CHORE,       TestWindow::ID_CHORE,           TestWindow::onChore)
 };
 
 // macro generated code (class name, base class name, pointer to message map, # of entries in message map)
@@ -62,8 +57,6 @@ TestWindow::~TestWindow()
 
 void TestWindow::create()
 {
-   std::cout << "Info::create called\n";
-
    FXMainWindow::create();
    show(PLACEMENT_SCREEN);
    drawDisplay();
@@ -73,8 +66,6 @@ void TestWindow::create()
 // widget has been resized
 long TestWindow::onConfigure(FXObject*, FXSelector, void*)
 {
-   std::cout << "Info::onConfigure called\n";
-
    if ( glcanvas->makeCurrent() ) {
       display->reshapeIt(glcanvas->getWidth(), glcanvas->getHeight());
       glcanvas->makeNonCurrent();
@@ -85,8 +76,6 @@ long TestWindow::onConfigure(FXObject*, FXSelector, void*)
 // widget needs repainting
 long TestWindow::onExpose(FXObject*, FXSelector, void*)
 {
-   std::cout << "Info::onExpose called\n";
-
    drawDisplay();
    return 1;
 }
@@ -94,10 +83,22 @@ long TestWindow::onExpose(FXObject*, FXSelector, void*)
 // chore message received, draw display, add new chore
 long TestWindow::onChore(FXObject*, FXSelector, void*)
 {
-//   std::cout << "Info::onChore called\n";
+   static FXTime lt_nsecs(FXThread::time());     // last time in nanoseconds
+   const FXTime ct_nsecs = FXThread::time();     // current  time nanoseconds since Epoch (Jan 1, 1970)
+   const FXTime dt_nsecs = ct_nsecs - lt_nsecs;  // delta time difference from last time
+   lt_nsecs = FXThread::time();
+
+   const double dt_msecs = static_cast<double>(dt_nsecs) / 1000000.0;
+   const double dt_secs = dt_msecs / 1000.0;
+
+//   std::cout << "dt_nsecs: " << dt_nsecs << std::endl;
+//   std::cout << "dt_msecs: " << dt_msecs << std::endl;
+//   std::cout << "dt_secs: " << dt_secs << std::endl;
 
    display->tcFrame(dt_secs);
    display->updateData(dt_secs);
+   oe::base::Timer::updateTimers(dt_secs);
+   oe::graphics::Graphic::flashTimer(dt_secs);
    drawDisplay();
    getApp()->addChore(this, ID_CHORE);
    return 1;
