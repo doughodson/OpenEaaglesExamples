@@ -50,6 +50,38 @@ project "testGraphics"
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
+-- testInfrared: IR test
+project "testInfrared"
+   kind "ConsoleApp"
+   targetname "testInfrared"
+   targetdir "../../testInfrared"
+   debugdir "../../testInfrared"
+   files {
+      "../../testInfrared/**.cpp",
+      "../../testInfrared/**.h",
+      "../../testInfrared/**.epp",
+      "../../testInfrared/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   filter "configurations:Release*"
+      links {"oemodels", "JSBSim"}
+      links {"oeotw", LibCigi}
+      links {"oedis" }
+      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
+      links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+   filter "configurations:Debug*"
+      links {"oemodels_d", "JSBSim_d"}
+      links {"oeotw_d", LibCigi_d}
+      links {"oedis_d" }
+      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
+      links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+
 -- testIoHandler: I/O handler test
 project "testIoHandler"
    kind "WindowedApp"

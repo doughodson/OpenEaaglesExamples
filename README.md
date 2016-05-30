@@ -81,6 +81,8 @@ Test Applications
     3. OpenGL selection test: use cursor and left mouse button to select a graphic item.  The selected item will flash.
     4. Use ESC to exit
 
+* testInfrared -- general IR test program
+
 * testIoHandler -- test of I/O handler device library
 
 * testLinearSys
@@ -131,8 +133,6 @@ Tutorial applications:
 Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
 * xBehaviors -- eXample UBF behaviors
-
-* xHla -- eXample HLA interface library
 
 * xPanel -- eXample components to display an instrument panel, used by 'mainy1', 'mainUbf1' and 'testRecordData'
 

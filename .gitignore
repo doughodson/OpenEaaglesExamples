@@ -81,7 +81,6 @@ mainFox2/mainFox2
 mainFox3/mainFox3
 mainGlut/mainGlut
 mainGndMapRdr/mainGndMapRdr
-mainIr/mainIr
 mainLaero/mainLaero
 mainNonRT1/mainNonRT1
 mainPuzzle1/mainPuzzle1
@@ -94,6 +93,7 @@ mainTerrain/mainTerrain
 mainUbf1/mainUbf1
 testEvents/testEvents
 testGraphics/testGraphics
+testInfrared/testInfrared
 testIoHandler/testIoHandler
 testLinearSys/testLinearSys
 testMatrix/testMatrix

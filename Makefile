@@ -26,9 +26,6 @@ APPLICATIONS += mainTerrain
 # AI development examples
 APPLICATIONS += mainPuzzle1 mainPuzzle2
 
-# IR example
-APPLICATIONS += mainIr
-
 # simple simulation examples
 APPLICATIONS += mainSim1 mainSim2 mainSim3
 
@@ -50,8 +47,9 @@ APPLICATIONS += testTables
 APPLICATIONS += testStateMach
 APPLICATIONS += testTimer
 
-# radar test program
+# infrared and radar test programs
 APPLICATIONS += testRadar
+APPLICATIONS += testInfrared
 
 # device I/O test program
 APPLICATIONS += testIoHandler

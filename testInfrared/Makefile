@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = mainIr
+PGM = testInfrared
 
 OBJS =	factory.o TestComputer.o TestDisplay.o TestStation.o main.o
 
