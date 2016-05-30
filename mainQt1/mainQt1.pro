@@ -10,7 +10,7 @@ message(OE_3RD_PARTY_ROOT = $${OE_3RD_PARTY_ROOT})
 
 QT += core widgets
 
-TARGET = mainSim3-qt
+TARGET = mainQt1
 CONFIG += c++11
 CONFIG += console
 CONFIG -= app_bundle

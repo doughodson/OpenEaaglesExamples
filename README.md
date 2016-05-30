@@ -51,8 +51,6 @@ Example Applications
 
 * mainSim3 -- simulation that display all players on a map
 
-* mainSim3-qt -- simulation that display all players on a map using a Qt-based GUI
-
 * mainTerrain -- Displays terrain elevation data
 
 * mainUbf1 -- A version of 'mainCockpit' used to test UBF behaviors
@@ -70,12 +68,14 @@ Example GUI Applications
 
 * mainFox3 -- Opens a FOX GUI window and demonstrates animated graphics drawing
 
+* mainQt1 -- Opens a Qt GUI window and display all players on a map within a simulation
+
 Test Applications
 -----------------
 
 * testEvent -- test of Component class send() functions
 
-* testGraphics -- Example Graphics framework test program
+* testGraphics -- test of graphics framework
     1. Contains several test MFD pages with common background graphics
     2. Use 'n' and 'p' (next and previous) to move between pages
     3. OpenGL selection test: use cursor and left mouse button to select a graphic item.  The selected item will flash.

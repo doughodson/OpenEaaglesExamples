@@ -24,14 +24,14 @@ vcruntime*.dll
 #
 # qt user project file and build directories
 #
-mainSim3-qt/mainSim4-qt.pro.user
-mainSim3-qt/Makefile
-mainSim3-qt/tmp/
-build-mainSim3-qt-Desktop_Qt*
-mainSim3-qt/Makefile.Debug
-mainSim3-qt/Makefile.Release
-mainSim3-qt/release/*
-mainSim3-qt/debug/*
+mainQt1/mainQt1-qt.pro.user
+mainQt1/Makefile
+mainQt1/tmp/
+build-mainQt1-qt-Desktop_Qt*
+mainQt1/Makefile.Debug
+mainQt1/Makefile.Release
+mainQt1/release/*
+mainQt1/debug/*
 
 # visual studio generated files
 *.idb
@@ -85,10 +85,10 @@ mainLaero/mainLaero
 mainNonRT1/mainNonRT1
 mainPuzzle1/mainPuzzle1
 mainPuzzle2/mainPuzzle2
+mainQt1/mainQt1
 mainSim1/mainSim1
 mainSim2/mainSim2
 mainSim3/mainSim3
-mainSim3-qt/mainSim3-qt
 mainTerrain/mainTerrain
 mainUbf1/mainUbf1
 testEvents/testEvents
