@@ -15,9 +15,8 @@ OBJS = main.o TestWindow.o Worm.o
 LDFLAGS += -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype
 LDFLAGS += -lGLU -lGL
-#LDFLAGS += -lXrandr -lXi -lXinerama
-LDFLAGS += -lXcursor -lXrender -lXext -lXfixes -lXft -lX11
-LDFLAGS += -lfontconfig
+#LDFLAGS += -lXft -lXrender -lXrandr -lXi -lXinerama -lXcursor -lXfixes -lXext -lX11
+#LDFLAGS += -lfontconfig
 LDFLAGS += -lpthread -lrt
 
 all: $(PGM)
