@@ -8,8 +8,8 @@ OBJS = FltkDisplay.o MainWindow.o GLWindow.o FltkStation.o main.o
 LDFLAGS += -loesimulation -loeinstruments -loedafif  -loegraphics -loebase
 LDFLAGS += -lfltk_forms -lfltk_gl -lfltk_images -lfltk
 LDFLAGS += -lfreetype -lftgl -lGLU -lGL
-#LDFLAGS += -lXrandr -lXi -lXinerama -lX11
-LDFLAGS += -lXcursor -lXrender -lXext -lXfixes -lXft -lX11
+#LDFLAGS += -lXcursor -lXrandr -lXi -lXinerama -lX11
+LDFLAGS +=  -lXfixes -lXext -lXrender -lXft -lX11
 LDFLAGS += -lfontconfig
 LDFLAGS += -lpthread -lrt -ldl
 
