@@ -32,7 +32,7 @@
 #include <string>
 #include <cstdlib>
 
-// frame rate (Hz)
+// graphics frame rate (Hz)
 const unsigned int frame_rate = 10;
 // derived delta times
 const double dt_secs = 1.0 / static_cast<double>(frame_rate);

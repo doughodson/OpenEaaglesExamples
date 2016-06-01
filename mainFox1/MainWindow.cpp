@@ -47,15 +47,19 @@ MainWindow::MainWindow(FXApp* a):FXMainWindow(a, "OpenGL Test Application", null
    // right vertical frame that will contain buttons
    FXVerticalFrame* buttonFrame = new FXVerticalFrame(this, LAYOUT_SIDE_RIGHT|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
 
-   // button to open capabilities diaglog
-   new FXButton(buttonFrame, tr("&OpenGL Info\tDisplay OpenGL Capabilities"), nullptr, this, ID_OPENGL,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
+   // button to open GL capabilities dialog
+   new FXButton(buttonFrame, tr("&OpenGL Info\tDisplay OpenGL Capabilities"), nullptr, this,
+                ID_OPENGL,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0, 10,10,5,5);
 
    // buttons to select the mode of spinning - timers or chores
-   new FXButton(buttonFrame, tr("Spin &Timer\tSpin using interval timers\nNote the app blocks until the interal has elapsed..."),nullptr,this,ID_SPIN,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
-   new FXButton(buttonFrame, tr("Spin &Chore\tSpin as fast as possible using chores\nNote even though the app is very responsive, it never blocks;\nthere is always something to do..."),nullptr,this,ID_SPINFAST,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
+   new FXButton(buttonFrame, tr("Spin &Timer\tSpin using interval timers\nNote the app blocks until the interal has elapsed..."),
+                nullptr, this, ID_SPIN, FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
+   new FXButton(buttonFrame, tr("Spin &Chore\tSpin as fast as possible using chores\nNote even though the app is very responsive, it never blocks;\nthere is always something to do..."),
+                nullptr, this, ID_SPINFAST, FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT,0,0,0,0,10,10,5,5);
 
    // button to stop spinning
-   new FXButton(buttonFrame, tr("&Stop Spin\tStop this mad spinning, I'm getting dizzy"), nullptr, this, ID_STOP, FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
+   new FXButton(buttonFrame, tr("&Stop Spin\tStop this mad spinning, I'm getting dizzy"),
+                nullptr, this, ID_STOP, FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0, 10,10,5,5);
 
    // group box which will contain a spinner control
    FXGroupBox* groupbox1 = new FXGroupBox(buttonFrame, tr("Speed (rts)"), GROUPBOX_NORMAL|FRAME_GROOVE|LAYOUT_FILL_X);
@@ -72,13 +76,15 @@ MainWindow::MainWindow(FXApp* a):FXMainWindow(a, "OpenGL Test Application", null
    new FXRadioButton(groupbox2, "4x", this, ID_MULTISAMPLE_4X);
 
    // button to exit application
-   new FXButton(buttonFrame, tr("&Exit\tExit the application"), nullptr, getApp(), FXApp::ID_QUIT,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_BOTTOM|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
+   new FXButton(buttonFrame, tr("&Exit\tExit the application"), nullptr, getApp(),
+                FXApp::ID_QUIT,FRAME_THICK|FRAME_RAISED|LAYOUT_FILL_X|LAYOUT_BOTTOM|LAYOUT_LEFT, 0,0,0,0,10,10,5,5);
 
    // left vertical frame that will contain an opengl canvas
    FXVerticalFrame* glcanvasFrame = new FXVerticalFrame(this, LAYOUT_FILL_X|LAYOUT_FILL_Y, 0,0,0,0, 2,2,3,3);
 
    // subframe within drawing glcanvas
-   FXComposite* glpanelFrame = new FXVerticalFrame(glcanvasFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT, 0,0,0,0, 0,0,0,0);
+   FXComposite* glpanelFrame = new FXVerticalFrame(glcanvasFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT,
+                                                   0,0,0,0, 0,0,0,0);
 
    // a visual that contains pixel information for opengl drawing
    glvisual = new FXGLVisual(getApp(), VISUAL_DOUBLE_BUFFER);

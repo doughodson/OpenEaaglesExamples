@@ -28,14 +28,18 @@ public:
    // define additional message IDs for this window
    enum {
       ID_CANVAS = FXMainWindow::ID_LAST,
+      ID_TIMEOUT,
       ID_CHORE,
+      ID_ANIMATE,
       ID_LAST
    };
 
    // message handlers
    long onExpose(FXObject*, FXSelector, void*);
    long onConfigure(FXObject*, FXSelector, void*);
+   long onTimeout(FXObject*, FXSelector, void*);
    long onChore(FXObject*, FXSelector, void*);
+   long onCmdAnimate(FXObject*, FXSelector, void*);
 
 protected:
    MainWindow()    {}
