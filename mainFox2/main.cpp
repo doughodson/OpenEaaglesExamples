@@ -1,7 +1,7 @@
 
 #include "fx.h"
 
-#include "TestWindow.h"
+#include "MainWindow.h"
 
 #include "openeaagles/base/edl_parser.h"
 #include "openeaagles/base/Pair.h"
@@ -84,9 +84,10 @@ int main(int argc, char* argv[])
 
    // init application and open display (no actual window will open)
    application.init(argc, argv);
+
    // create main/central window for the application
    // associate it with application
-   new TestWindow(&application, display);
+   new MainWindow(&application, display);
 
    // create application's windows
    application.create();

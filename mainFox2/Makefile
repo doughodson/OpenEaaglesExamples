@@ -10,7 +10,7 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = main.o TestWindow.o Worm.o
+OBJS = main.o MainWindow.o Worm.o
 
 LDFLAGS += -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype

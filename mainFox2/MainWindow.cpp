@@ -1,5 +1,5 @@
 
-#include "TestWindow.h"
+#include "MainWindow.h"
 
 #include "openeaagles/graphics/Display.h"
 #include "openeaagles/base/Timers.h"
@@ -16,17 +16,17 @@
 //--------------------------------------------------------------------------------
 
 // message map which assoicates messages objects received to specific member functions
-FXDEFMAP(TestWindow) TestWindowMap[] = {
+FXDEFMAP(MainWindow) MainWindowMap[] = {
    //________Message_Type_____ID______________________________Message_Handler_______
-   FXMAPFUNC(SEL_PAINT,       TestWindow::ID_CANVAS,          TestWindow::onExpose),
-   FXMAPFUNC(SEL_CONFIGURE,   TestWindow::ID_CANVAS,          TestWindow::onConfigure),
-   FXMAPFUNC(SEL_CHORE,       TestWindow::ID_CHORE,           TestWindow::onChore)
+   FXMAPFUNC(SEL_PAINT,       MainWindow::ID_CANVAS,          MainWindow::onExpose),
+   FXMAPFUNC(SEL_CONFIGURE,   MainWindow::ID_CANVAS,          MainWindow::onConfigure),
+   FXMAPFUNC(SEL_CHORE,       MainWindow::ID_CHORE,           MainWindow::onChore)
 };
 
 // macro generated code (class name, base class name, pointer to message map, # of entries in message map)
-FXIMPLEMENT(TestWindow, FXMainWindow, TestWindowMap, ARRAYNUMBER(TestWindowMap))
+FXIMPLEMENT(MainWindow, FXMainWindow, MainWindowMap, ARRAYNUMBER(MainWindowMap))
 
-TestWindow::TestWindow(FXApp* a, oe::graphics::Display* d):FXMainWindow(a, "FOX GUI Drawing an OE Display", nullptr, nullptr, DECOR_ALL, 0, 0, 800, 600), display(d)
+MainWindow::MainWindow(FXApp* a, oe::graphics::Display* d):FXMainWindow(a, "FOX GUI Drawing an OE Display", nullptr, nullptr, DECOR_ALL, 0, 0, 800, 600), display(d)
 {
    display->loadTextures();
 
@@ -49,13 +49,13 @@ TestWindow::TestWindow(FXApp* a, oe::graphics::Display* d):FXMainWindow(a, "FOX 
    glcanvas = new FXGLCanvas(glpanelFrame, glvisual, this, ID_CANVAS, LAYOUT_FILL_X|LAYOUT_FILL_Y|LAYOUT_TOP|LAYOUT_LEFT);
 }
 
-TestWindow::~TestWindow()
+MainWindow::~MainWindow()
 {
    getApp()->removeChore(this, ID_CHORE);
    delete glvisual;
 }
 
-void TestWindow::create()
+void MainWindow::create()
 {
    FXMainWindow::create();
    show(PLACEMENT_SCREEN);
@@ -64,7 +64,7 @@ void TestWindow::create()
 }
 
 // widget has been resized
-long TestWindow::onConfigure(FXObject*, FXSelector, void*)
+long MainWindow::onConfigure(FXObject*, FXSelector, void*)
 {
    if ( glcanvas->makeCurrent() ) {
       display->reshapeIt(glcanvas->getWidth(), glcanvas->getHeight());
@@ -74,14 +74,14 @@ long TestWindow::onConfigure(FXObject*, FXSelector, void*)
 }
 
 // widget needs repainting
-long TestWindow::onExpose(FXObject*, FXSelector, void*)
+long MainWindow::onExpose(FXObject*, FXSelector, void*)
 {
    drawDisplay();
    return 1;
 }
 
 // chore message received, draw display, add new chore
-long TestWindow::onChore(FXObject*, FXSelector, void*)
+long MainWindow::onChore(FXObject*, FXSelector, void*)
 {
    static FXTime lt_nsecs(FXThread::time());     // last time in nanoseconds
    const FXTime ct_nsecs = FXThread::time();     // current  time nanoseconds since Epoch (Jan 1, 1970)
@@ -104,7 +104,7 @@ long TestWindow::onChore(FXObject*, FXSelector, void*)
    return 1;
 }
 
-void TestWindow::drawDisplay()
+void MainWindow::drawDisplay()
 {
    // make context current
    if (glcanvas->makeCurrent()) {

@@ -1,6 +1,6 @@
 
-#ifndef __TestWindow_H__
-#define __TestWindow_H__
+#ifndef __MainWindow_H__
+#define __MainWindow_H__
 
 #include "fx.h"
 
@@ -11,16 +11,16 @@ namespace oe {
 #include "openeaagles/base/safe_ptr.h"
 
 //-------------------------------------------------------
-// Class: TestWindow
+// Class: MainWindow
 // Description: Central window for the application
 //-------------------------------------------------------
-class TestWindow : public FXMainWindow
+class MainWindow : public FXMainWindow
 {
-   FXDECLARE(TestWindow)
+   FXDECLARE(MainWindow)
 
 public:
-   TestWindow(FXApp*, oe::graphics::Display*);
-   virtual ~TestWindow();
+   MainWindow(FXApp*, oe::graphics::Display*);
+   virtual ~MainWindow();
 
    // initialize
    void create();
@@ -38,7 +38,7 @@ public:
    long onChore(FXObject*, FXSelector, void*);
 
 protected:
-   TestWindow()    {}
+   MainWindow()    {}
 
 private:
    FXGLVisual* glvisual;         // OpenGL visual
