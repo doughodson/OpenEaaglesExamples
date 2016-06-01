@@ -108,31 +108,3 @@ project "mainFox2"
       links {"fox-1.7_d"}
       links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
       links {"WS2_32", "WinMM", "ComCtl32", "Gdi32", "mpr", "imm32"}
-
--- Fox-based GUI example
-project "mainFox3"
-   kind "WindowedApp"
-   targetname "mainFox3"
-   targetdir "../../mainFox3"
-   debugdir "../../mainFox3"
-   files {
-      "../../mainFox3/**.cpp",
-      "../../mainFox3/**.h",
-      "../../mainFox3/**.epp"
-   }
-   includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
-   libdirs     { OELibPath, OE3rdPartyLibPath }
-   defines { "_CONSOLE", "HAVE_GL_H", "HAVE_GLU_H" }
-   filter "configurations:Release*"
-      links {"oesimulation", "oedafif", "oeinstruments"}
-      links {"oegraphics", "oebase"}
-      links {"fox-1.7"}
-      links {LibFtgl, LibFreetype, LibGLU, LibGL}
-      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32", "mpr", "imm32"}
-   filter "configurations:Debug*"
-      links {"oesimulation_d", "oedafif_d", "oeinstruments_d"}
-      links {"oegraphics_d", "oebase_d"}
-      links {"fox-1.7_d"}
-      links {LibFtgl_d, LibFreetype_d, LibGLU, LibGL}
-      links {"WS2_32", "WinMM", "ComCtl32", "Gdi32", "mpr", "imm32"}
-

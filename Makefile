@@ -15,7 +15,6 @@ APPLICATIONS += mainGlut
 #APPLICATIONS += mainFltk1
 #APPLICATIONS += mainFox1
 #APPLICATIONS += mainFox2
-#APPLICATIONS += mainFox3
 
 # non-real-time simulation
 APPLICATIONS += mainNonRT1
