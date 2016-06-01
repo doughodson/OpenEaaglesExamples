@@ -64,9 +64,7 @@ Example GUI Applications
 
 * mainFox1 -- Opens a FOX GUI window
 
-* mainFox2 -- Opens a FOX GUI window and draws a pattern
-
-* mainFox3 -- Opens a FOX GUI window and demonstrates animated graphics drawing
+* mainFox2 -- Opens a FOX GUI window and draws animated moving lines (i.e., worms)
 
 * mainQt1 -- Opens a Qt GUI window and display all players on a map within a simulation
 
