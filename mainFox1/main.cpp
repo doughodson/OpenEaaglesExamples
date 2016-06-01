@@ -1,7 +1,7 @@
 
 #include "fx.h"
 
-#include "TestWindow.h"
+#include "MainWindow.h"
 
 int main(int argc, char* argv[])
 {
@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 
    // create main/central window for the application
    // associate it with application
-   new TestWindow(&application);
+   new MainWindow(&application);
 
    // create application's windows
    application.create();

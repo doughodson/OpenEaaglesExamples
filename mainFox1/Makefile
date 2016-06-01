@@ -10,7 +10,7 @@ EPPFLAGS += -I$(DATA_DIR) \
 	   -DFONT_PATH=\"$(DATA_DIR)/fonts/\" \
 	   -DTEXTURES_PATH=\"$(DATA_DIR)/textures/\"
 
-OBJS = main.o SettingsDialog.o TestWindow.o
+OBJS = main.o SettingsDialog.o MainWindow.o
 
 LDFLAGS += -lGLU -lGL
 #LDFLAGS += -lXft -lXrender -lXrandr -lXi -lXinerama -lXcursor -lXfixes -lXext -lX11

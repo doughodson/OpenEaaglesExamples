@@ -1,20 +1,20 @@
 
-#ifndef __TestWindow_H__
-#define __TestWindow_H__
+#ifndef __MainWindow_H__
+#define __MainWindow_H__
 
 #include "fx.h"
 
 //-------------------------------------------------------
-// Class: TestWindow
+// Class: MainWindow
 // Description: Central window for the application
 //-------------------------------------------------------
-class TestWindow : public FXMainWindow
+class MainWindow : public FXMainWindow
 {
-   FXDECLARE(TestWindow)
+   FXDECLARE(MainWindow)
 
 public:
-   TestWindow(FXApp*);
-   virtual ~TestWindow();
+   MainWindow(FXApp*);
+   virtual ~MainWindow();
 
    // initialize
    void create();
@@ -54,7 +54,7 @@ public:
    long onCmdOpenGL(FXObject*, FXSelector, void*);
 
 protected:
-   TestWindow()    {}
+   MainWindow()    {}
 
 private:
    void drawScene();
