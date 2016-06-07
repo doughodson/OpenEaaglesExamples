@@ -1,0 +1,56 @@
+sp {propose*initialize-IO
+    (state <s> ^superstate nil
+                -^name)
+-->
+    (<s> ^operator <o> +)
+    (<o> ^name initialize-IO)
+}
+
+sp {apply*initialize-IO
+    (state <s> ^operator <op>
+              ^io.output-link <ol>)
+    (<op> ^name initialize-IO)
+-->
+    (<s> ^name IO)
+    (<ol> ^behaviors.name init)
+}
+
+sp {IO*propose*input-output
+    (state <s> ^name IO
+                ^io.input-link.SoarState.is-tracking <v>)
+-->
+    (<s> ^operator <op> + =)
+    (<op> ^name input-output
+        ^value <v>)
+}
+
+sp {apply*input-output2
+    (state <s> ^operator <op>
+                ^io.output-link.behaviors <bh>)
+    (<bh> ^name  <old-val>)
+    (<op> ^name input-output
+            ^value 1)
+-->
+    (<bh> ^name LuaBehavior)
+    (<bh> ^vote 2)
+    (<bh> ^luaFileName |lua/mainBasic.lua|)
+    (<bh> ^luaFunctionName |LuaPlaneFollowEnemy|)
+    (<bh> ^criticalAltitude 2000.0)
+    (<bh> ^optPairStream <ops>)
+        (<ops> ^float 5000)
+    (<bh> ^name <old-val> -)
+}
+
+sp {apply*input-output3
+    (state <s> ^operator <op>
+                ^io.output-link.behaviors <bh>)
+    (<op> ^name input-output
+            ^value 0)
+-->
+    (<bh> ^name LuaBehavior)
+    (<bh> ^vote 1)
+    (<bh> ^luaFileName |lua/mainBasic.lua|)
+    (<bh> ^luaFunctionName |LuaPlaneFlyStraight|)
+    (<bh> ^optPairStream <ops>)
+        (<ops> ^float -1)
+}

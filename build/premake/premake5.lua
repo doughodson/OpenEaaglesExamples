@@ -130,3 +130,6 @@ workspace "examples"
    -- gui examples
    dofile "guidemos.lua"
 
+   -- ubf examples
+   dofile "ubf.lua"
+
