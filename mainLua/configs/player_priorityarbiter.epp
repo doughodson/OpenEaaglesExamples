@@ -23,24 +23,25 @@ priority:
                 behaviors: {
                     ( PlaneFire
                         vote: 1
-                        maxDistance: 25000
+                        maxDistance: (Meters 25000)
                     )
                     ( PlaneFlyStraight
                         vote: 1
                     )
-                    ( LuaBehavior
-                        vote: 6
-                        luaFileName: "lua/mainBasic.lua"
-                        luaFunctionName: "LuaPlaneFollowEnemy"
-                        optPairStream:{
-                            float: 25000
-                        }
-                    )
+//                    ( LuaBehavior
+//                        vote: 6
+//                        luaFileName: "lua/mainBasic.lua"
+//                        luaFunctionName: "LuaPlaneFollowEnemy"
+//                        optPairStream:{
+//                            float: 25000
+//                        }
+//                    )
                 }
             )
         )
         
-        dynamicsModel: ( JSBSimModel rootDir:  "../shared/data/JSBSim/" model: "f16" )
+//        dynamicsModel: ( JSBSimModel rootDir:  "../shared/data/JSBSim/" model: "f16" )
+	    dynamicsModel: ( LaeroModel )
         
         antennas: ( Gimbal
             components: {

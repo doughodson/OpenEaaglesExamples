@@ -6,27 +6,27 @@
 #include "f16HotasIo.h"
 
 ( TestStation
-    
+
     glutDisplay: 
     #include "adidisplay.epp"
-    
+
     mapDisplay: 
     #include "mapdisplay.epp"
-    
+
     //#include "networkSetup.epp"
     // #include "otwSetupCIGI.epp"
-    
-    ownship: luafsm
-    
+
+    ownship: soar
+
     simulation: 
     ( Simulation
         latitude:  ( LatLon direction: "n" degrees: REF_LATITUDE   minutes:  0.0 )
         longitude: ( LatLon direction: "w" degrees: REF_LONGITUDE  minutes:  0.0 )
-        
+
         players: {
             #include "player_clips.epp"
             #include "player_soar.epp"
-            #include "player_luafsm.epp"
+//            #include "player_luafsm.epp"
             #include "player_priorityarbiter.epp"
         }
     )

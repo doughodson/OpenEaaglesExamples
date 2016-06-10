@@ -25,6 +25,7 @@ soar:
             loiterMode: false
             followTheLeadMode: false
         )
+
         ubf1:
         ( UbfAgent
             state: ( PlaneState )
@@ -33,9 +34,10 @@ soar:
                 soarFileName: "scripts/teste_sml.soar"
             )
         )
-        
-        dynamicsModel: ( JSBSimModel rootDir:  "../shared/data/JSBSim/" model: "f16" )
-        
+
+//        dynamicsModel: ( JSBSimModel rootDir:  "../shared/data/JSBSim/" model: "f16" )
+   	      dynamicsModel: ( LaeroModel )
+
         antennas: ( Gimbal
             components: {
                 radar: ( Antenna
