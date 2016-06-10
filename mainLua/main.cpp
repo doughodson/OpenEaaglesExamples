@@ -78,14 +78,14 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // makeEdl.bat
-   system( "makeEdl.bat" );
+   system("makeEdl.bat");
 
    // default configuration filename
    std::string configFilename = "test.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
-      if ( std::string(argv[i]) == "-f" ) {
+      if (std::string(argv[i]) == "-f") {
          configFilename = argv[++i];
       }
    }
