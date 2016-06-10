@@ -1,14 +1,12 @@
-//------------------------------------------------------------------------------
-// Class: TestStation
-//------------------------------------------------------------------------------
+
 #ifndef __TestStation_H__
 #define __TestStation_H__
 
 #include "openeaagles/simulation/Station.h"
 
 namespace oe {
-namespace base { class Number; }
-namespace glut { class GlutDisplay; }
+   namespace base { class Number; }
+   namespace glut { class GlutDisplay; }
 }
 
 //------------------------------------------------------------------------------
@@ -20,7 +18,7 @@ namespace glut { class GlutDisplay; }
 //
 // Factory name: TestStation
 // Slots:
-//   glutDisplay  <BasicGL::GlutDisplay>  ! All of our display components
+//   glutDisplay  <graphics::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
 class TestStation : public oe::simulation::Station
 {
@@ -32,7 +30,7 @@ public:
    virtual void updateTC(const double dt = 0.0) override;
    virtual void updateData(const double dt = 0.0) override;
    virtual void reset() override;
-    
+
 private:
    bool setSlotGlutDisplay(oe::glut::GlutDisplay* const msg);
    bool setSlotMapDisplay(oe::glut::GlutDisplay* const msg);

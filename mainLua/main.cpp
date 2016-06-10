@@ -6,13 +6,16 @@
 #include "openeaagles/simulation/Station.h"
 #include "openeaagles/base/util/system.h"
 
-#include "Factory.h"
+#include "factory.h"
+
 #include <GL/glut.h>
+#include <string>
+#include <cstdlib>
 
-// Background frame rate
-const unsigned int BG_RATE = 10;
+// background frame rate
+const unsigned int bgRate = 10;
 
-// System descriptions
+// top level Station object
 oe::simulation::Station* station = nullptr;
 
 // station builder
@@ -54,38 +57,36 @@ oe::simulation::Station* builder(const std::string& filename)
 // top level of our background thread.  (Note: GlutDisplay will handle the
 // background thread, updateData, for all of its graphics components)
 //-----------------------------------------------------------------------------
-static void updateDataCB(int)
+void updateDataCB(int)
 {
-   double dt0 = 1.0/double(BG_RATE);
-   unsigned int millis = (unsigned int) (dt0 * 1000);
+   const double dt0 = 1.0 / static_cast<double>(bgRate);
+   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 
-   // Current time
-   double time = oe::base::getComputerTime();
+   // current time
+   const double time = oe::base::getComputerTime();
 
    // N-1 Time
    static double time0 = time;
 
-   // Compute delta time
-   double dt = double(time - time0);
+   // compute delta time
+   const double dt = static_cast<double>(time - time0);
    time0 = time;
 
    station->updateData(dt);
 }
 
+//
 int main(int argc, char* argv[])
 {
    glutInit(&argc, argv);
 
-   // makeEdl.bat
-   system("makeEdl.bat");
-
    // default configuration filename
    std::string configFilename = "test.edl";
 
-   // parse arguments
-   for (int i = 1; i < argc; i++) {
-      if (std::string(argv[i]) == "-f") {
+   // parse command arguments
+   for (int i=1; i<argc; i++) {
+      if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
@@ -95,23 +96,22 @@ int main(int argc, char* argv[])
 
    // reset the simulation
    station->event(oe::base::Component::RESET_EVENT);
-   // set timer for the background tasks
-   const double dt = 1.0 / static_cast<double>(BG_RATE);
-   const unsigned int msecs = static_cast<unsigned int>(dt * 1000);
-
-   // ensure everything is reset
-   station->updateData(dt);
-   station->updateTC(dt);
-   station->event(oe::base::Component::RESET_EVENT);
-
-   glutTimerFunc(msecs, updateDataCB, msecs);
 
    // create the time critical thread
    station->createTimeCriticalProcess();
 
-   // main loop
+   // set timer for the background tasks
+   const double dt = 1.0 / static_cast<double>(bgRate);
+   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
+
+   // ensure everything is reset
+   station->updateData(dt);
+   station->event(oe::base::Component::RESET_EVENT);
+
+   glutTimerFunc(millis, updateDataCB, 1);
+
+   // main loop to update graphics
    glutMainLoop();
 
    return EXIT_SUCCESS;
 }
-

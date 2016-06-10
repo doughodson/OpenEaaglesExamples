@@ -3,10 +3,10 @@
 #include "TestStation.h"
 #include "MapPage.h"
 
+#include "openeaagles/models/dynamics/LaeroModel.h"
 #include "openeaagles/simulation/AirVehicle.h"
 #include "openeaagles/simulation/Autopilot.h"
 #include "openeaagles/simulation/Player.h"
-#include "openeaagles/simulation/Simulation.h"
 
 #include "openeaagles/base/osg/Vec3"
 #include "openeaagles/base/units/Angles.h"
@@ -18,31 +18,9 @@
 
 using namespace oe;
 
-IMPLEMENT_SUBCLASS(MapDisplay, "MapTestDisplay")
-EMPTY_SLOTTABLE(MapDisplay)
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")
 EMPTY_SERIALIZER(MapDisplay)
-
-BEGIN_EVENT_HANDLER(MapDisplay)
-   ON_EVENT('r',onResetKey)
-   ON_EVENT('R',onResetKey)
-END_EVENT_HANDLER()
-
-// reset simulation
-bool MapDisplay::onResetKey()
-{
-   if ( getSimulation() != 0 ) {
-      getSimulation()->event(RESET_EVENT);
-   }
-   return true;
-}
-
-simulation::Simulation * MapDisplay::getSimulation()
-{
-   simulation::Simulation* s = 0;
-   simulation::Station* sta = getStation();
-   if (sta != 0) s = sta->getSimulation();
-   return s;
-}
+EMPTY_DELETEDATA(MapDisplay)
 
 MapDisplay::MapDisplay()
 {
@@ -63,7 +41,7 @@ MapDisplay::MapDisplay()
    maxTurnSD.empty();
 
    passiveEnable = false;
-}  
+}
 
 void MapDisplay::copyData(const MapDisplay& org, const bool)
 {
@@ -86,10 +64,6 @@ void MapDisplay::copyData(const MapDisplay& org, const bool)
    maxTurnSD.empty();
 
    passiveEnable = org.passiveEnable;
-}
-
-void MapDisplay::deleteData()
-{
 }
 
 // ----------------------------------------------------------------------------
@@ -117,23 +91,23 @@ void MapDisplay::mouseEvent(const int button, const int state, const int x, cons
 
    //   std::cout << "===========================================" << std::endl;
    //   std::cout << "winX = " << std::setw(5) << winX << "    " << "winY = " << std::setw(5) << winY << std::endl;
-   //   std::cout << "winW = " << std::setw(5) << winW 
+   //   std::cout << "winW = " << std::setw(5) << winW
    //             << "    "
-   //             << "winH = " << std::setw(5) << winH 
+   //             << "winH = " << std::setw(5) << winH
    //             << std::endl;
 
-   //   std::cout << "x    = " << std::setw(5) << x 
+   //   std::cout << "x    = " << std::setw(5) << x
    //             << "    "
-   //             << "y    = " << std::setw(5) << y 
+   //             << "y    = " << std::setw(5) << y
    //             << std::endl;
 
    //   GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
    //   getOrtho(l, r, b, t, n, f);
-   //   std::cout << "l = " << std::setw(5) << l <<  "    " 
+   //   std::cout << "l = " << std::setw(5) << l <<  "    "
    //             << "r = " << std::setw(5) << r << std::endl;
-   //   std::cout << "b = " << std::setw(5) << b <<  "    " 
+   //   std::cout << "b = " << std::setw(5) << b <<  "    "
    //             << "t = " << std::setw(5) << t << std::endl;
-   //   std::cout << "n = " << std::setw(5) << n <<  "    " 
+   //   std::cout << "n = " << std::setw(5) << n <<  "    "
    //             << "f = " << std::setw(5) << f << std::endl;
    //}
 
@@ -155,9 +129,9 @@ void MapDisplay::passiveMotionEvent(const int x, const int y)
 
    //std::cout << "passiveEnable = " << passiveEnable << std::endl;
    //if (passiveEnable) {
-   //   std::cout << "x = " << std::setw(5) << x 
+   //   std::cout << "x = " << std::setw(5) << x
    //             << "    "
-   //             << "y = " << std::setw(5) << y 
+   //             << "y = " << std::setw(5) << y
    //             << std::endl;
    //}
 }
@@ -169,7 +143,7 @@ void MapDisplay::mouseMotionEvent(const int x, const int y)
 {
     if (dragging) {
         MapPage* page = static_cast<MapPage*>(subpage());
-        if (page != 0) {
+        if (page != nullptr) {
             // get our ref lat, because we won't go passed 70 degrees lat (either way);
             double lat = page->getReferenceLatDeg();
             if ((-70 < lat) && (lat < 70)) {
@@ -198,37 +172,27 @@ void MapDisplay::buttonEvent(const int b)
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
    simulation::Player* pA = getOwnship();
-   simulation::Autopilot* ap = 0;
-   if (pA != 0) {
-      ap = (simulation::Autopilot*)pA->getPilot();
+   simulation::Autopilot* ap = nullptr;
+   if (pA != nullptr) {
+      ap = static_cast<simulation::Autopilot*>(pA->getPilot());
    }
-
-    if( page != 0 )
-    {
-        if (b == DEC_RANGE)
-        {
-            if (page->getRange() > 5)
-            {
-                page->setRange(page->getRange() - 5);
-            }
-        }
-        else if (b == INC_RANGE)
-        {
-            if (page->getRange() < 320)
-            {
-                page->setRange(page->getRange() + 5);
-            }
-        }
-    }
-
-   if (page != 0 && ap != 0)
-   {      
-      if (b == DEC_CMD_AS) {
+   if (page != nullptr && ap != nullptr) {
+      if (b == DEC_RANGE) {
+         if (page->getRange() > 5) {
+            page->setRange(page->getRange() - 5);
+         }
+      }
+      else if (b == INC_RANGE) {
+         if (page->getRange() < 320) {
+            page->setRange(page->getRange() + 5);
+         }
+      }
+      else if (b == DEC_CMD_AS) {
          double cmdAirspeed = ap->getCommandedVelocityKts();
          if (cmdAirspeed > 100) {
             cmdAirspeed -= 10;
             ap->setCommandedVelocityKts(cmdAirspeed);
-         }      
+         }
       }
       else if (b == INC_CMD_AS) {
          double cmdAirspeed = ap->getCommandedVelocityKts();
@@ -242,7 +206,7 @@ void MapDisplay::buttonEvent(const int b)
          if (cmdAltitude > 1000) {
             cmdAltitude -= 500;
             ap->setCommandedAltitudeFt(cmdAltitude);
-         }      
+         }
       }
       else if (b == INC_CMD_ALT) {
          double cmdAltitude = ap->getCommandedAltitudeFt();
@@ -307,7 +271,7 @@ void MapDisplay::buttonEvent(const int b)
          ap->setMaxBankAngleDeg(maxBank);
       }
       else if (b == PASSIVE_ENABLE) {
-         passiveEnable = true; 
+         passiveEnable = true;
       }
       else if (b == PASSIVE_DISABLE) {
          passiveEnable = false;
@@ -338,6 +302,9 @@ void MapDisplay::buttonEvent(const int b)
    }
 }
 
+// ----------------------------------------------------------------------------
+// updateData() - update background data
+// ----------------------------------------------------------------------------
 void MapDisplay::updateData(const double dt)
 {
    BaseClass::updateData(dt);
@@ -345,8 +312,8 @@ void MapDisplay::updateData(const double dt)
    // get pointer to MapPage data
    int cmdRange = 0;
    MapPage* page = static_cast<MapPage*>(subpage());
-   if (page != 0) {
-      cmdRange = (int) page->getRange();
+   if (page != nullptr) {
+      cmdRange = static_cast<int>(page->getRange());
    }
 
    double cmdAirspeed = 0, cmdAltitude = 0, cmdHeading = 0;
@@ -355,10 +322,10 @@ void MapDisplay::updateData(const double dt)
    double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
    // default to autopilot mode off
    int apMode = 1;
-   simulation::Aircraft* pA = (simulation::Aircraft*)getOwnship();
-   if (pA != 0) {
-      simulation::Autopilot* ap = (simulation::Autopilot*)pA->getPilot();
-      if (ap != 0) {
+   simulation::Aircraft* pA = static_cast<simulation::Aircraft*>(getOwnship());
+   if (pA != nullptr) {
+      simulation::Autopilot* ap = static_cast<simulation::Autopilot*>(pA->getPilot());
+      if (ap != nullptr) {
          // button visibility is based on autopilot being in NO modes
          apButtonsVis = (ap->isNavModeOn() || ap->isLoiterModeOn() || ap->isFollowTheLeadModeOn());
          cmdAirspeed = ap->getCommandedVelocityKts();
@@ -388,7 +355,6 @@ void MapDisplay::updateData(const double dt)
    send("cmdClimb",   UPDATE_VALUE, maxClimb,   maxClimbSD);
    send("cmdRot",   UPDATE_VALUE, maxTurn,   maxTurnSD);
    send("cmdBank", UPDATE_VALUE, maxBank, maxBankSD);
-
 }
 
 //------------------------------------------------------------------------------
@@ -396,20 +362,19 @@ void MapDisplay::updateData(const double dt)
 //------------------------------------------------------------------------------
 simulation::Station* MapDisplay::getStation()
 {
-    if (myStation == 0) {
+    if (myStation == nullptr) {
         simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
-        if (s != 0) myStation = s;
+        if (s != nullptr) myStation = s;
     }
     return myStation;
 }
 
 simulation::Aircraft* MapDisplay::getOwnship()
 {
-   simulation::Aircraft* p = 0;
+   simulation::Aircraft* p = nullptr;
    simulation::Station* sta = getStation();
-   if (sta != 0) {
+   if (sta != nullptr) {
       p = dynamic_cast<simulation::Aircraft*>(sta->getOwnship());
    }
    return p;
 }
-

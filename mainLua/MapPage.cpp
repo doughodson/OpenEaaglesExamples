@@ -13,7 +13,7 @@
 #include "openeaagles/graphics/SymbolLoader.h"
 #include "openeaagles/base/Pair.h"
 #include "openeaagles/base/PairStream.h"
-//#include "openeaagles/vehicles/LaeroModel.h"
+#include "openeaagles/models/dynamics/LaeroModel.h"
 #include "openeaagles/graphics/Display.h"
 #include "openeaagles/graphics/Shapes.h"
 
@@ -23,13 +23,11 @@
 
 #include <GL/glut.h>
 
-using namespace oe;
-
 namespace oe {
-   namespace graphics {
-      class OcclusionArc;
-   }
+   namespace graphics { class OcclusionArc; }
 }
+
+using namespace oe;
 
 IMPLEMENT_SUBCLASS(MapPage, "TestMapPage")
 EMPTY_SLOTTABLE(MapPage)
@@ -39,33 +37,30 @@ MapPage::MapPage()
 {
     STANDARD_CONSTRUCTOR()
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        player[i] = 0;
+        player[i] = nullptr;
         playerIdx[i] = -1;
     }
-    pStn = 0;
-    loader = 0;
+    pStn = nullptr;
+    loader = nullptr;
 
     for (int i = 0; i < MAX_READOUTS; i++) {
         latsSD[i].empty();
         lats[i] = 0;
         latReadoutXPosSD[i].empty();
-        latReadoutXPos[i] = 0;
+        latReadoutXPos[i] = 0.0;
         latReadoutYPosSD[i].empty();
-        latReadoutYPos[i] = 0;
+        latReadoutYPos[i] = 0.0;
         lonsSD[i].empty();
         lons[i] = 0;
         lonReadoutXPosSD[i].empty();
-        lonReadoutXPos[i] = 0;
+        lonReadoutXPos[i] = 0.0;
         lonReadoutYPosSD[i].empty();
-        lonReadoutYPos[i] = 0;
+        lonReadoutYPos[i] = 0.0;
     }
 
     routeLoaded = false;
-}  
+}
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void MapPage::copyData(const MapPage& org, const bool)
 {
     // copy base class stuff first
@@ -73,31 +68,31 @@ void MapPage::copyData(const MapPage& org, const bool)
 
     // regardless of copy, we will create all new symbols
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        if (player[i] != 0) {
+        if (player[i] != nullptr) {
             player[i]->unref();
-            player[i] = 0;
+            player[i] = nullptr;
         }
-        if (org.player[i] != 0) {
+        if (org.player[i] != nullptr) {
             player[i] = org.player[i];
             player[i]->ref();
         }
         playerIdx[i] = org.playerIdx[i];
     }
 
-    if (loader != 0) {
+    if (loader != nullptr) {
         loader->unref();
-        loader = 0;
+        loader = nullptr;
     }
-    if (org.loader != 0) {
+    if (org.loader != nullptr) {
         loader = org.loader;
         loader->ref();
     }
 
-    if (pStn != 0) {
+    if (pStn != nullptr) {
         pStn->unref();
-        pStn = 0;
+        pStn = nullptr;
     }
-    if (org.pStn != 0) {
+    if (org.pStn != nullptr) {
         pStn = org.pStn;
         pStn->ref();
     }
@@ -120,40 +115,37 @@ void MapPage::copyData(const MapPage& org, const bool)
     routeLoaded = org.routeLoaded;
 }
 
-//------------------------------------------------------------------------------
-// deleteData() -- delete member data
-//------------------------------------------------------------------------------
 void MapPage::deleteData()
 {
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        if (player[i] != 0) {
+        if (player[i] != nullptr) {
             player[i]->unref();
-            player[i] = 0;
+            player[i] = nullptr;
         }
     }
-    if (pStn != 0) {
+    if (pStn != nullptr) {
         pStn->unref();
-        pStn = 0;
+        pStn = nullptr;
     }
-    if (loader != 0) {
+    if (loader != nullptr) {
         loader->unref();
-        loader = 0;
+        loader = nullptr;
     }
 }
 
 void MapPage::drawLine(const double x, const double y)
 {
-      glBegin(GL_LINES);
-         glVertex2d(0.0, 0.0);
-         glVertex2d(x, y);
-      glEnd();
-} 
+   glBegin(GL_LINES);
+      glVertex2d(0.0, 0.0);
+      glVertex2d(x, y);
+   glEnd();
+}
 
 void MapPage::drawSemiCircle(const double startAngle, const double radius)
 {
    const double eps = 0.015;
-   double innerRadius = radius - eps;
-   double outerRadius = radius + eps;
+   const double innerRadius = radius - eps;
+   const double outerRadius = radius + eps;
    GLUquadricObj* q1 = gluNewQuadric();
    gluQuadricDrawStyle(q1, GLU_FILL);
    gluPartialDisk(q1, innerRadius, outerRadius, 100, 1, startAngle, 180.0);
@@ -163,7 +155,7 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 //void MapPage::drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tas)
 //{
    //if (pStn != 0) {
-   //   Simulation::Player* pPlr  = pStn->getOwnship();
+   //   simulation::Player* pPlr  = pStn->getOwnship();
    //   if (pPlr != 0) {
    //      Vehicle::LaeroModel* pRac = (Vehicle::LaeroModel*) pPlr->getDynamicsModel();
    //      if (pRac != 0) {
@@ -182,11 +174,11 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 
 void MapPage::drawHoldingPattern()
 {
-   if (pStn != 0) {
+   if (pStn != nullptr) {
       simulation::Player* pPlr  = pStn->getOwnship();
-      if (pPlr != 0) {
-         simulation::Autopilot* pRac = (simulation::Autopilot*) pPlr->getPilot();
-         if (pRac != 0) {
+      if (pPlr != nullptr) {
+         simulation::Autopilot* pRac = static_cast<simulation::Autopilot*>(pPlr->getPilot());
+         if (pRac != nullptr) {
 
          //---------------------------------------------------------------------------
          // Draw Holding Pattern
@@ -194,8 +186,8 @@ void MapPage::drawHoldingPattern()
             double aLat = 0, aLon = 0, mLat = 0, mLon = 0;
             pRac->getLoiterPointAnchors(&aLat, &aLon, &mLat, &mLon);
             //std::cout << "MIRROR LAT/LON = " << mLat << ", " << mLon << std::endl;
-            double ibCrs = pRac->getLoiterCourse();
-            double osVel = pPlr->getTotalVelocityKts();
+            const double ibCrs = pRac->getLoiterCourse();
+            const double osVel = pPlr->getTotalVelocityKts();
 
             //setReferenceLatDeg(0.0);
             //setReferenceLonDeg(0.0);
@@ -203,13 +195,13 @@ void MapPage::drawHoldingPattern()
 //            double refLat = getReferenceLatDeg();
 //            double refLon = getReferenceLonDeg();
 
-            double omegaDps = 3.0;                                      //dps
-            double omegaRps = omegaDps * base::Angle::D2RCC;           //rps
-            double rocNM = (osVel / base::Time::H2S) / omegaRps;       //nm
+            const double omegaDps = 3.0;                                  //dps
+            const double omegaRps = omegaDps * base::Angle::D2RCC;       //rps
+            const double rocNM = (osVel / base::Time::H2S) / omegaRps;   //nm
             //double obTimeMin = 2.0;                                     //min
-            //double obTimeSec = obTimeMin * Basic::Time::M2S;            //sec
-            
-            //double obDistNM = (osVel / Basic::Time::H2S) * obTimeSec;   //nm
+            //double obTimeSec = obTimeMin * base::Time::M2S;            //sec
+
+            //double obDistNM = (osVel / base::Time::H2S) * obTimeSec;   //nm
 
             double obDistNM = 0;
             if (pRac->isLoiterTimeBased()) {
@@ -223,8 +215,8 @@ void MapPage::drawHoldingPattern()
             double aLonSU = 0.0;
             latLon2Screen(aLat, aLon, &aLatSU, &aLonSU);
 
-            double rocSU = rocNM * getScale();
-            double obDistSU = obDistNM * getScale();
+            const double rocSU = rocNM * getScale();
+            const double obDistSU = obDistNM * getScale();
 
             //==============================================
             // begin drawing holding pattern
@@ -266,31 +258,29 @@ void MapPage::drawHoldingPattern()
 
 void MapPage::drawFunc()
 {
-
       //-------------------------------------------------------
-      // get data pointers 
+      // get data pointers
       //-------------------------------------------------------
-   if (pStn != 0) {
+   if (pStn != nullptr) {
       simulation::Player* pPlr  = pStn->getOwnship();
-      if (pPlr != 0) {
+      if (pPlr != nullptr) {
 
          // get the autopilot
-         simulation::Autopilot* ap = (simulation::Autopilot*)pPlr->getPilot();
-         if (ap != 0 && ap->isLoiterModeOn()) drawHoldingPattern();
-
+         simulation::Autopilot* ap = static_cast<simulation::Autopilot*>(pPlr->getPilot());
+         if (ap != nullptr && ap->isLoiterModeOn()) drawHoldingPattern();
 
          //---------------------------------------------------------------------------
          // get our viewport
          //---------------------------------------------------------------------------
          MapDisplay* pDsp = static_cast<MapDisplay*>(getDisplay());
-         //BasicGL::Display* pDsp = (BasicGL::Display*) getDisplay();
+         //graphics::Display* pDsp = (graphics::Display*) getDisplay();
 
-         if (pDsp != 0) {
+         if (pDsp != nullptr) {
             //-----------------------------------------------------------------
             // get reference lat/lon
             //-----------------------------------------------------------------
-            double refLat = getReferenceLatDeg();
-            double refLon = getReferenceLonDeg();
+            const double refLat = getReferenceLatDeg();
+            const double refLon = getReferenceLonDeg();
 
             //-----------------------------------------------------------------
             // get lat/lon drawing limits
@@ -298,31 +288,31 @@ void MapPage::drawFunc()
             GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
             pDsp->getOrtho(l, r, b, t, n, f);
 
-            double latRange = getRange() / 60.0;
-            double inchPerDegNS = t / latRange;
-            double northernLat = refLat + latRange;
-            double southernLat = refLat - latRange;
+            const double latRange = getRange() / 60.0;
+            const double inchPerDegNS = t / latRange;
+            const double northernLat = refLat + latRange;
+            const double southernLat = refLat - latRange;
 
-            double lonRange = latRange / getCosRefLat();
-            double inchPerDegEW = r / lonRange;
-            double easternLon = refLon + lonRange;
-            double westernLon = refLon - lonRange;
+            const double lonRange = latRange / getCosRefLat();
+            const double inchPerDegEW = r / lonRange;
+            const double easternLon = refLon + lonRange;
+            const double westernLon = refLon - lonRange;
 
             glPushMatrix();
             glBegin(GL_LINES);
                int latIdx = 0;
-               int startLat = base::nint((double)southernLat - 1);
-               int endLat   = base::nint((double)northernLat + 1);
+               int startLat = base::nint(static_cast<double>(southernLat) - 1);
+               const int endLat = base::nint(static_cast<double>(northernLat) + 1);
                while (startLat < endLat) {
-                  GLfloat refLatDist = GLfloat(refLat - startLat);
+                  GLfloat refLatDist = static_cast<GLfloat>(refLat - startLat);
                   if (latIdx < MAX_READOUTS) {
                      lats[latIdx] = startLat;
-                     refLatDist *= (GLfloat)inchPerDegNS;
-                     latReadoutYPos[latIdx] = float(-refLatDist + 0.2);
-                     latReadoutXPos[latIdx++] = float(l + 0.5f);
+                     refLatDist *= static_cast<GLfloat>(inchPerDegNS);
+                     latReadoutYPos[latIdx] = static_cast<float>(-refLatDist + 0.2);
+                     latReadoutXPos[latIdx++] = static_cast<float>(l + 0.5f);
                   }
-                  glVertex2f((GLfloat)l, -refLatDist);
-                  glVertex2f((GLfloat)r, -refLatDist);
+                  glVertex2f(static_cast<GLfloat>(l), -refLatDist);
+                  glVertex2f(static_cast<GLfloat>(r), -refLatDist);
                   startLat++;
                }
             glEnd();
@@ -336,18 +326,18 @@ void MapPage::drawFunc()
             glPushMatrix();
             glBegin(GL_LINES);
                int lonIdx = 0;
-               int startLon = base::nint((double)westernLon - 1);
-               int endLon   = base::nint((double)easternLon + 1);
+               int startLon = base::nint(static_cast<double>(westernLon) - 1);
+               const int endLon = base::nint(static_cast<double>(easternLon) + 1);
                while (startLon < endLon) {
-                  GLfloat refLonDist = GLfloat(refLon - startLon);
+                  GLfloat refLonDist = static_cast<GLfloat>(refLon - startLon);
                   if (lonIdx < MAX_READOUTS) {
                      lons[lonIdx] = startLon;
-                     refLonDist *= (GLfloat)inchPerDegEW;
-                     lonReadoutXPos[lonIdx] = float(-refLonDist + 0.2);
-                     lonReadoutYPos[lonIdx++] = float(t - 0.5f);
+                     refLonDist *= static_cast<GLfloat>(inchPerDegEW);
+                     lonReadoutXPos[lonIdx] = static_cast<float>(-refLonDist + 0.2);
+                     lonReadoutYPos[lonIdx++] = static_cast<float>(t - 0.5f);
                   }
-                  glVertex2f(-refLonDist, (GLfloat)b);
-                  glVertex2f(-refLonDist, (GLfloat)t);
+                  glVertex2f(-refLonDist, static_cast<GLfloat>(b));
+                  glVertex2f(-refLonDist, static_cast<GLfloat>(t));
                   startLon++;
                }
             glEnd();
@@ -368,25 +358,25 @@ void MapPage::drawFunc()
 void MapPage::updateData(const double dt)
 {
     BaseClass::updateData(dt);
-    
+
     // get our pointers
-    if (loader == 0) {
+    if (loader == nullptr) {
         base::Pair* pair = findByName("playerLoader");
-        if (pair != 0) {
+        if (pair != nullptr) {
             loader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
-            if (loader != 0) loader->ref();
+            if (loader != nullptr) loader->ref();
         }
     }
 
-    if (pStn == 0) {
+    if (pStn == nullptr) {
         graphics::Display* pDsp = getDisplay();
-        if (pDsp != 0) {
+        if (pDsp != nullptr) {
             pStn = static_cast<TestStation*>(pDsp->findContainerByType(typeid(TestStation)));
-            if (pStn != 0) {
+            if (pStn != nullptr) {
                 pStn->ref();
                 // set our reference lat / lon initially
                 simulation::Simulation* sim = pStn->getSimulation();
-                if (sim != 0) {
+                if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());
                 }
@@ -395,27 +385,27 @@ void MapPage::updateData(const double dt)
     }
 
    // go through one time and add our symbols for the route
-   if (!routeLoaded && pStn != 0) {
+   if (!routeLoaded && pStn != nullptr) {
       base::Pair* pair = findByName("routeLoader");
-      if (pair != 0) {
+      if (pair != nullptr) {
          graphics::SymbolLoader* routeLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
-         if (routeLoader != 0) {
+         if (routeLoader != nullptr) {
             // get our player's route
             simulation::Player* ply = pStn->getOwnship();
-            if (ply != 0) {
+            if (ply != nullptr) {
                simulation::Navigation* nav = ply->getNavigation();
-               if (nav != 0) {
+               if (nav != nullptr) {
                   simulation::Route* rte = nav->getPriRoute();
-                  if (rte != 0) {
+                  if (rte != nullptr) {
                      base::safe_ptr<simulation::Steerpoint> stpts[10];
                      unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
                      for (unsigned int i = 0; i < numStpts; i++) {
-                        if (stpts[i] != 0) {
+                        if (stpts[i] != nullptr) {
                            int pos = routeLoader->addSymbol(1, "stpt");
                            // now update the position
                            routeLoader->updateSymbolPositionLL(pos, stpts[i]->getLatitude(), stpts[i]->getLongitude());
                            // unref when we are done
-                           stpts[i] = 0;
+                           stpts[i] = nullptr;
                         }
                      }
                   }
@@ -426,21 +416,20 @@ void MapPage::updateData(const double dt)
       routeLoaded = true;
    }
 
-
     // let's update our players
-    if (loader != 0 && pStn != 0) {
-        base::PairStream* stream = pStn->getPlayers();                      
-        if (stream != 0) {
+    if (loader != nullptr && pStn != nullptr) {
+        base::PairStream* stream = pStn->getPlayers();
+        if (stream != nullptr) {
             // create our new player list
             simulation::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             base::List::Item* item = stream->getFirstItem();
-            while (item != 0 && numNewPlayers < MAX_PLAYERS) {
-                base::Pair* pair = (base::Pair*)item->getValue();
-                if (pair != 0) {
+            while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
+                base::Pair* pair = static_cast<base::Pair*>(item->getValue());
+                if (pair != nullptr) {
                     simulation::Player* pPlr = dynamic_cast<simulation::Player*>(pair->object());
-                    if (pPlr != 0) {
+                    if (pPlr != nullptr) {
                         newPlayers[numNewPlayers] = pPlr;
                         newPlayers[numNewPlayers++]->ref();
                     }
@@ -450,24 +439,24 @@ void MapPage::updateData(const double dt)
 
             // ok, go through our new list and match it with our old, and throw
             // away any old players that aren't in the new list, and add any new
-            // players that aren't in the old list
+            // players that arent in the old list
             for (int i = 0; i < MAX_PLAYERS; i++) {
-                if (player[i] != 0) {
-                    bool match = false; 
+                if (player[i] != nullptr) {
+                    bool match = false;
                     for (int j = 0; j < numNewPlayers && !match; j++) {
                         if (player[i] == newPlayers[j]) {
-                            // if they do match, get rid of our new player, so we don't re-add it 
+                            // if they do match, get rid of our new player, so we don't re-add it
                             // later accidentally
                             match = true;
                             newPlayers[j]->unref();
-                            newPlayers[j] = 0;
+                            newPlayers[j] = nullptr;
                         }
                     }
                     // if our player doesn't match, we remove it from our list
                     if (!match) {
                         loader->removeSymbol(playerIdx[i]);
                         player[i]->unref();
-                        player[i] = 0;
+                        player[i] = nullptr;
                         playerIdx[i] = -1;
                     }
                 }
@@ -476,51 +465,37 @@ void MapPage::updateData(const double dt)
             // ok, now we have removed our old players (and our matched ones), let's add our new ones!
             for (int i = 0; i < numNewPlayers; i++) {
                 // make sure this player wasn't deleted earlier
-                if (newPlayers[i] != 0) {
+                if (newPlayers[i] != nullptr) {
                     bool found = false;
                     for (int j = 0; j < MAX_PLAYERS && !found; j++) {
-                        if (player[j] == 0) {
+                        if (player[j] == nullptr) {
                             found = true;
                             // found an empty player, let's set him!
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type = 1;
-                            if ( player[ j ] -> isSide( simulation::Player::RED ) )
-                                type = 2;
-                            if ( std::strcmp( player[ j ] -> getType() -> getCopyString(), "AIM-120C" ) == 0 )
-                                type = 3;
-
-                            playerIdx[j] = loader->addSymbol(type, "player");
-                            if ( player[ j ] -> getName() != 0 && type != 3 )
-                            {
-                                loader -> updateSymbolText( playerIdx[ j ], "name", player[ j ] -> getName() -> getString() );
+                            if (player[j]->isSide(simulation::Player::RED)) type = 2;
+                            playerIdx[j] = loader->addSymbol(type, "");              //<LDB - "player"
+                            if (player[j]->getName() != nullptr) {
+                                loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());
                             }
                             // now let's empty our new player list
                             newPlayers[i]->unref();
-                            newPlayers[i] = 0;
+                            newPlayers[i] = nullptr;
                         }
                     }
                 }
             }
 
             // ok, now update our symbols' positions
-            for (int i = 0; i < MAX_PLAYERS; i++)
-            {
-                if (player[i] != 0)
-                {
-                    char l_str[50];
-                    std::sprintf( l_str, "%.0f kt - %.0f ft", 
-                                    player[ i ] -> getGroundSpeedKts(), 
-                                    player[ i ] -> getAltitude() * base::Distance::M2FT );
-                    
-                    loader->updateSymbolText( playerIdx[ i ], "posvel", l_str );
+            for (int i = 0; i < MAX_PLAYERS; i++) {
+                if (player[i] != nullptr) {
                     loader->updateSymbolPositionLL(playerIdx[i], player[i]->getLatitude(), player[i]->getLongitude());
                     loader->updateSymbolHeading(playerIdx[i], player[i]->getHeadingD());
                 }
             }
         }
     }
-    
 
     // now send our lat / lon text data
     send("lattext%d", UPDATE_VALUE,  lats,           latsSD,           MAX_READOUTS);
@@ -531,4 +506,3 @@ void MapPage::updateData(const double dt)
     send("lonline%d", UPDATE_VALUE,  lonReadoutXPos, lonReadoutXPosSD, MAX_READOUTS);
     send("lonline%d", UPDATE_VALUE2, lonReadoutYPos, lonReadoutYPosSD, MAX_READOUTS);
 }
-

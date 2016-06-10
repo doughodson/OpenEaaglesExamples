@@ -1,44 +1,38 @@
-// -------------------------------------------------------------------------------
-// Class: MapDisplay
-//
-// Description:
-//      Derived MapDisplay that will simply make our map page move.
-// -------------------------------------------------------------------------------
+
 #ifndef __MapDisplay_H__
 #define __MapDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.h"
 
 namespace oe {
-   namespace simulation { 
-      class Simulation;
-      class Station; 
-      class Aircraft; 
+   namespace simulation {
+      class Station;
+      class Aircraft;
    }
 }
 
+// -------------------------------------------------------------------------------
+// Class: MapDisplay
+//
+// Description:
+//      Derived MapDisplay that will simply make our map page move.
+// -------------------------------------------------------------------------------
 class MapDisplay : public oe::glut::GlutDisplay
 {
    DECLARE_SUBCLASS(MapDisplay, oe::glut::GlutDisplay)
 
 public:
-   MapDisplay();  
+   MapDisplay();
 
-   oe::simulation::Simulation* getSimulation();
    oe::simulation::Aircraft* getOwnship();
    oe::simulation::Station* getStation();
 
-   // MapDisplay interface
-   virtual void mouseMotionEvent(const int x, const int y);
-   virtual void mouseEvent(const int button, const int state, const int x, const int y);
-   virtual void passiveMotionEvent(const int x, const int y);
-   virtual void buttonEvent(const int b);
+   virtual void mouseMotionEvent(const int x, const int y) override;
+   virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
+   virtual void passiveMotionEvent(const int x, const int y) override;
+   virtual void buttonEvent(const int b) override;
 
-   // Component interface
-   virtual bool event(const int event, oe::base::Object* const obj = 0) override;
    virtual void updateData(const double dt = 0.0) override;
-
-   bool onResetKey();
 
 private:
    // button hit enumerations
@@ -49,11 +43,11 @@ private:
       INC_CMD_AS,
       DEC_CMD_ALT,               // Increase / decrease the commanded altitude (Ft - only works with no autopilot mode engaged)
       INC_CMD_ALT,
-      DEC_CMD_HDG,               // Increase / decrease the commanded heading (Degs - only works with no autopilot mode engaged) 
+      DEC_CMD_HDG,               // Increase / decrease the commanded heading (Degs - only works with no autopilot mode engaged)
       INC_CMD_HDG,
       PASSIVE_ENABLE,
       PASSIVE_DISABLE,
-      INC_CMD_AS_NPS,            // Increase / decrease our rate of acceleration 
+      INC_CMD_AS_NPS,            // Increase / decrease our rate of acceleration
       DEC_CMD_AS_NPS,
       INC_CMD_ALT_MPS,           // Increase / decrease our rate of climb / dive
       DEC_CMD_ALT_MPS,
@@ -90,4 +84,3 @@ private:
 };
 
 #endif
-

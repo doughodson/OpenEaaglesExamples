@@ -13,7 +13,7 @@
     mapDisplay: 
     #include "mapdisplay.epp"
     
-    #include "networkSetup.epp"
+    //#include "networkSetup.epp"
     // #include "otwSetupCIGI.epp"
     
     ownship: luafsm
