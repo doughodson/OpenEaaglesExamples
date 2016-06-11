@@ -24,7 +24,7 @@
 #include "openeaagles/ubf/behaviors/factory.h"
 #include "openeaagles/ubf/clips/factory.h"
 #include "openeaagles/ubf/lua/factory.h"
-#include "openeaagles/ubf/soar/factory.h"
+//#include "openeaagles/ubf/soar/factory.h"
 
 #include <string>
 
@@ -48,7 +48,6 @@ oe::base::Object* factory(const std::string& name)
     // framework libraries
     if (obj == nullptr) obj = oe::simulation::factory(name);
     if (obj == nullptr) obj = oe::instruments::factory(name);
-    if (obj == nullptr) obj = oe::iodevice::factory(name);
     if (obj == nullptr) obj = oe::instruments::factory(name);
     if (obj == nullptr) obj = oe::models::factory(name);
     if (obj == nullptr) obj = oe::otw::factory(name);
@@ -60,7 +59,7 @@ oe::base::Object* factory(const std::string& name)
     if (obj == nullptr) obj = oe::behaviors::factory(name);
     if (obj == nullptr) obj = oe::clips::factory(name);
     if (obj == nullptr) obj = oe::lua::factory(name);
-    if (obj == nullptr) obj = oe::soar::factory(name);
+//    if (obj == nullptr) obj = oe::soar::factory(name);
 
     return obj;
 }
