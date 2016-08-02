@@ -22,11 +22,11 @@ OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
 --
 if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
    OEIncPath         = OE_ROOT.."/include"
-   OELibPath         = OE_ROOT.."/lib/".._ACTION
+   OELibPath         = OE_ROOT.."/lib/"
    OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
    OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
    OEExamplesIncPath = "../../shared"
-   OEExamplesLibPath = "../../lib/".._ACTION
+   OEExamplesLibPath = "../../lib/"
 end
 print ("OpenEaagles Paths:")
 print ("  Include   : "..OEIncPath)

@@ -6,6 +6,8 @@ vs2013/
 vs2015/
 codeblocks/
 codelite/
+# lib
+lib/
 
 # vs runtime libs
 concrt*.dll
