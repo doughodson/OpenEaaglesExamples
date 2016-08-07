@@ -1,7 +1,9 @@
 
 #include "RdrAlt.h"
-#include "openeaagles/graphics/Readouts.h"
+
 #include "openeaagles/base/Pair.h"
+#include "openeaagles/base/Number.h"
+#include "openeaagles/graphics/Readouts.h"
 #include "openeaagles/graphics/Display.h"
 
 using namespace oe;
