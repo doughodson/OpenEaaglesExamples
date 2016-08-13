@@ -19,9 +19,9 @@
     vector: [ 0 2 3 6 8 3 7 1 ]
 
     visible: true
-    
+
     message: "Hello World"
-    
+
     // vertices: { [0.0 0.0] [0 -0.1] }
     // for a good example of how to convert this
     // syntax to native types, see

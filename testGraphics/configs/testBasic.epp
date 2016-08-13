@@ -20,22 +20,22 @@ textures: {
 
 // Materials
 materials: {
-  m1: ( Material diffuseColor: { 0 0.5 1 } emissiveColor: { 0.25 0 0 } specularColor: { 1 1 1 } shininess: 128 ) 
-  m2: ( Material diffuseColor: { 1 0.5 0.2 } specularColor: { 0.4 0.3 0.4 } shininess: 50 ) 
-  m3: ( Material diffuseColor: { 0.2 0.6 0.1 } specularColor: { 0.2 0.4 0.4 } shininess: 50 ) 
-  m4: ( Material diffuseColor: { 1 1 1 } specularColor: { 1 1 1 } emissiveColor: { 0.1 0 0 } shininess: 50 ) 
-  m5: ( Material ambientColor: { 0 0 0 } diffuseColor: { 0.7 0.29 0.8 } specularColor: { 0.5 0.5 0.5 } shininess: 128 ) 
-  m6: ( Material diffuseColor: { 0.2 0.2 0.2 } specularColor: { 0.5 0.5 0.5 } shininess: 50 ) 
-  m7: ( Material diffuseColor: { 0.1 0.5 1 } specularColor: { 0.8 0.8 0.8 } shininess: 50 ) 
-  m8: ( Material diffuseColor: { 0.8 0.9 0.3 } specularColor: { 1 1 1 } shininess: 128 ) 
-  m9: ( Material diffuseColor: { 1 0.5 1 } emissiveColor: { 0 0.75 0 } specularColor: { 0.5 1 1 } shininess: 25 ) 
+  m1: ( Material diffuseColor: { 0 0.5 1 } emissiveColor: { 0.25 0 0 } specularColor: { 1 1 1 } shininess: 128 )
+  m2: ( Material diffuseColor: { 1 0.5 0.2 } specularColor: { 0.4 0.3 0.4 } shininess: 50 )
+  m3: ( Material diffuseColor: { 0.2 0.6 0.1 } specularColor: { 0.2 0.4 0.4 } shininess: 50 )
+  m4: ( Material diffuseColor: { 1 1 1 } specularColor: { 1 1 1 } emissiveColor: { 0.1 0 0 } shininess: 50 )
+  m5: ( Material ambientColor: { 0 0 0 } diffuseColor: { 0.7 0.29 0.8 } specularColor: { 0.5 0.5 0.5 } shininess: 128 )
+  m6: ( Material diffuseColor: { 0.2 0.2 0.2 } specularColor: { 0.5 0.5 0.5 } shininess: 50 )
+  m7: ( Material diffuseColor: { 0.1 0.5 1 } specularColor: { 0.8 0.8 0.8 } shininess: 50 )
+  m8: ( Material diffuseColor: { 0.8 0.9 0.3 } specularColor: { 1 1 1 } shininess: 128 )
+  m9: ( Material diffuseColor: { 1 0.5 1 } emissiveColor: { 0 0.75 0 } specularColor: { 0.5 1 1 } shininess: 25 )
 }
 
 // This is the default font table, and all fields will use this font if their
 // page's do not have a font table.
 normalFont: default
 fonts: {
-  default: 
+  default:
   ( BitmapFont
       fontPosition: [ -9.5 9.5 ]
       fontWidth: 0.462
@@ -46,14 +46,14 @@ fonts: {
       lineSpacing: 0.798
       path: FONT_11_19_PATH
   )
-  bigfont:  
-  ( FTGLPolygonFonts 
+  bigfont:
+  ( FTGLPolygonFonts
       fontPosition: [ -10.5 10.5 ]
-      fontWidth: 2.0          // Font width scaling 
-      fontHeight: 2.0         // Font height scaling 
-      characterSpacing: 1.2   // This font is 2:1 (height:widht) or (lineSpaceing:charSpacing)
+      fontWidth: 2.0          // Font width scaling
+      fontHeight: 2.0         // Font height scaling
+      characterSpacing: 1.2   // This font is 2:1 (height:width) or (line spacing:char spacing)
       lineSpacing: 2
-      path: FONT_PATH  
+      path: FONT_PATH
       file: "arialn.ttf"
   )
 }
@@ -71,7 +71,7 @@ components: {
   ( AsciiText
       color: white
       transform: ( Translation -10 -10.5 5 )
-      text: "Press 'p' to page back, 'n' to page forward." 
+      text: "Press 'p' to page back, 'n' to page forward."
   )
   ( LineLoop
       color: blue
@@ -87,17 +87,17 @@ components: {
 // ---
 // All the main page formats are here!
 // ---
+page: materials // First page
 pages: {
-  #include "PageXX.epp"
-  #include "PageYY.epp"
-  #include "PageZZ.epp"
-  #include "worms.epp"
-  #include "sample.epp"
-  #include "PageHSVColors.epp"
-  #include "PageHLSColors.epp"
-  #include "PageCMYColors.epp"
-  #include "PageYIQColors.epp"
-  #include "MaterialPage.epp"
+  #include "page_materials.epp"
+  #include "page_xx.epp"
+  #include "page_yy.epp"
+  #include "page_zz.epp"
+  #include "page_worms.epp"
+  #include "page_readouts.epp"
+  #include "page_sample.epp"
+  #include "page_hsvcolors.epp"
+  #include "page_hlscolors.epp"
+  #include "page_cmycolors.epp"
+  #include "page_yiqcolors.epp"
 }
-
-

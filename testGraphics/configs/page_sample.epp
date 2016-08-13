@@ -2,7 +2,6 @@
 // Some MFD stuff
 // ---
 
-
 sample:
 ( MfdPage
     pagingEvent: {
@@ -17,7 +16,7 @@ sample:
         ( TestTwo
 
             transform: { ( Translation 0.0 -2.0 ) ( Scale 4.0 ) }
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 1
@@ -52,7 +51,7 @@ sample:
                     transform: ( Translation 0.0 -0.03 )
                     components: {
                         ( Line color: blue vertices: { [ 0 0 ] [ 0 -0.1 ] } )
-                        ( AsciiText 
+                        ( AsciiText
                             transform: { ( Translation -0.05 -0.3 ) ( Scale 0.1 ) }
                             text: "AZ"
                         )
@@ -77,7 +76,7 @@ sample:
         // --------------------------
         ( TestTwo
             selectName: 201
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 5
@@ -132,7 +131,7 @@ sample:
         // --------------------------
         ( TestTwo
             selectName: 202
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 90
@@ -165,7 +164,7 @@ sample:
         // --------------------------
         ( TestTwo
             selectName: 203
-        
+
             v1: 0
             v1Rate: 1
             v1Max: 3600

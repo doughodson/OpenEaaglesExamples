@@ -1,11 +1,8 @@
-// ---
-// Example page using previous example 'mainx' or 'worms'
-// ---
 
 worms:
 ( MfdPage
     pagingEvent: {
-        n: sample
+        n: readouts
         p: zz
     }
     components: {
@@ -53,4 +50,3 @@ worms:
         )
     }
 )
-

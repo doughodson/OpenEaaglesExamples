@@ -1,0 +1,40 @@
+// ---
+// Example Readouts
+// ---
+
+readouts:
+( MfdPage
+    pagingEvent: {
+        n: sample
+        p: worms
+        btest: worms
+    }
+
+    components: {
+        ( AsciiText position: [ 1 1 ] color: white text: "Readouts"  )
+
+        ( AsciiText position: [ 3 1 ] color: white text: "AsciiText" )
+
+        ( AsciiText position: [ 4 1 ] color: white text: "NumericReadout" )
+        ( NumericReadout position: [ 4 20 ] color: white format: "###.#" value: 20 )
+
+        ( AsciiText position: [ 5 1 ] color: white text: "HexReadout" )
+        ( HexReadout position: [ 5 20 ] color: white format: "00000#" value: 20 )
+
+        ( AsciiText position: [ 6 1 ] color: white text: "OctalReadout" )
+        ( OctalReadout position: [ 6 20 ] color: white format: "00000#" value: 20 )
+
+        ( AsciiText position: [ 7 1 ] color: white text: "TimeReadout" )
+        ( TimeReadout position: [ 7 20 ] color: white format: "HH:MM:SS.S" )
+
+        ( AsciiText position: [ 8 1 ] color: white text: "DirectionReadout" )
+        ( DirectionReadout position: [ 8 20 ] color: white format: "0DD@" )
+
+        ( AsciiText position: [ 9 1 ] color: white text: "LatitudeReadout" )
+        ( LatitudeReadout position: [ 9 20 ] color: white format: "+0D@MM" )
+
+        ( AsciiText position: [ 10 1 ] color: white text: "LongitudeReadout" )
+        ( LongitudeReadout position: [ 10 20 ] color: white format: "+0DD@MM" )
+
+    }
+)
