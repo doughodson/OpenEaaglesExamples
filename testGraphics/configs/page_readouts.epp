@@ -27,14 +27,31 @@ readouts:
         ( AsciiText position: [ 7 1 ] color: white text: "TimeReadout" )
         ( TimeReadout position: [ 7 20 ] color: white format: "HH:MM:SS.S" )
 
-        ( AsciiText position: [ 8 1 ] color: white text: "DirectionReadout" )
-        ( DirectionReadout position: [ 8 20 ] color: white format: "0DD@" )
+//        ( AsciiText position: [ 8 1 ] color: white text: "DirectionReadout" )
+//        ( DirectionReadout position: [ 8 20 ] color: white format: "0DD@" )
 
         ( AsciiText position: [ 9 1 ] color: white text: "LatitudeReadout" )
         ( LatitudeReadout position: [ 9 20 ] color: white format: "+0D@MM" )
 
         ( AsciiText position: [ 10 1 ] color: white text: "LongitudeReadout" )
         ( LongitudeReadout position: [ 10 20 ] color: white format: "+0DD@MM" )
+
+        ( Rotary position: [ 12 1 ]
+                 components: {
+                        ( AsciiText text: "V2-UP:" )                  // Rotary = 1
+                        ( AsciiText text: "V2-UP:" color: red )       // Rotary = 2
+                        ( AsciiText text: "V2-DN:" )                  // Rotary = 3
+                        ( AsciiText text: "V2-DN:" color: red )       // Rotary = 4
+                 }
+         )
+
+        ( Rotary2 position: [ 13 1 ]
+                  components: {
+                        ( AsciiText text: "V1-UP:" )       // Rotary2 = false
+                        ( AsciiText text: "V1-DN:" )       // Rotary2 = true
+                  }
+        )
+
 
     }
 )
