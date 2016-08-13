@@ -27,13 +27,12 @@ testspeedbrake:
             position: [ 20 24 ]
             color: white
             // this slot shows us how to display our number.  You can also specify leading zeros and plus and minus operators by using the "0##.#" and "+0##.#" formats.
-            //  See Readouts.h for examples.
             format: "###.#"
         )
         // this is a simple example of how to output data to an object.  You can see that this NumericReadout is named 'sbrakeRO'.  In TestSpeedBrake.cpp, in the updateData() function, we 
         // send data to this readout by using a send command.  The send command is a Component command that looks for a specific object by the name you give it, and if it finds that object
-        // it sends the Event Message, and a value to be changed to or updated, if it needs a value.  For example, NumericReadout has an event table (see Readouts.cpp, and look for the 
-        // BEGIN_EVENT_HANDLER macro) which understands the event UPDATE_VALUE (you can find all the Event message definition in basic/support.h.  
+        // it sends the Event Message, and a value to be changed to or updated, if it needs a value.  For example, NumericReadout has an event table (see NumericReadout.cpp, and look for the 
+        // BEGIN_EVENT_HANDLER macro) which understands the event UPDATE_VALUE (you can find all the Event message definition in base/eventTokens.h.  
         // TestSpeedBrake uses the send command, specifying 'sbrakeRO' as the name, and sends the UPDATE_VALUE event, and sends a new speedbrake
         // position (TestSpeedBrake.cpp, updateData() function).  The NumericReadout automatically updates the new value and displays it for you.  This way you can dynamically change the 
         // value of the speedbrake in this readout.  This is the how we pass event messages to our components via the .epp files.  

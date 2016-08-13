@@ -27,7 +27,6 @@ testspeedbrake:
             position: [ 20 24 ]
             color: white
             // this slot shows us how to display our number.  You can also specify leading zeros and plus and minus operators by using the "0##.#" and "+0##.#" formats.
-            //  See Readouts.h for examples.
             format: "###.#"
         )
         // this is a simple example of how to output data to an object.  You can see that this NumericReadout is named 'sbrakeRO'.  In TestSpeedBrake.cpp, in the updateData() function, we 
