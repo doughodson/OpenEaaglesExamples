@@ -6,7 +6,7 @@ sample:
 ( MfdPage
     pagingEvent: {
         n: hsvcolors
-        p: worms
+        p: readouts
     }
     components: {
 
