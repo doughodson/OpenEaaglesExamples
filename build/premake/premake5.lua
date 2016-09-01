@@ -20,14 +20,12 @@ OE_3RD_PARTY_ROOT = "../../../OpenEaagles3rdParty"
 --
 -- set include and library paths
 --
-if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
-   OEIncPath         = OE_ROOT.."/include"
-   OELibPath         = OE_ROOT.."/lib/"
-   OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
-   OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
-   OEExamplesIncPath = "../../shared"
-   OEExamplesLibPath = "../../lib/"
-end
+OEIncPath         = OE_ROOT.."/include"
+OELibPath         = OE_ROOT.."/lib/"
+OE3rdPartyIncPath = OE_3RD_PARTY_ROOT.."/include"
+OE3rdPartyLibPath = OE_3RD_PARTY_ROOT.."/lib/".._ACTION.."-32"
+OEExamplesIncPath = "../../shared"
+OEExamplesLibPath = "../../lib/"
 print ("OpenEaagles Paths:")
 print ("  Include   : "..OEIncPath)
 print ("  Libraries : "..OELibPath)
@@ -43,9 +41,6 @@ print ("  Libraries :"..OEExamplesLibPath)
 --
 HLA_ROOT = "../../../portico-2.0.1"
 HLAIncPath = HLA_ROOT.."/include/hla13"
-if (_ACTION == "vs2012") then
-  HLALibPath = HLA_ROOT.."/lib/vc11"
-end
 if (_ACTION == "vs2013") then
   HLALibPath = HLA_ROOT.."/lib/vc12"
 end
@@ -55,8 +50,6 @@ end
 print ("HLA Paths:")
 print ("  Include   : "..HLALibPath)
 --print ("  Libraries : "..OELibPath)
-
-locationPath  = "../" .. _ACTION
 
 --
 -- 3rd party library names
@@ -77,7 +70,7 @@ LibGL         = "opengl32"
 workspace "examples"
 
    -- destination directory for generated solution/project files
-   location (locationPath)
+   location ("../" .. _ACTION)
 
    -- create console application by default
    kind "ConsoleApp"
@@ -95,21 +88,17 @@ workspace "examples"
    -- common release configuration flags and symbols
    filter { "Release32" }
       flags { "Optimize" }
-      if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
-         -- enable compiler intrinsics and favour speed over size
-         buildoptions { "/Oi", "/Ot" }
-         defines { "WIN32", "NDEBUG" }
-      end
+      -- enable compiler intrinsics and favour speed over size
+      buildoptions { "/Oi", "/Ot" }
+      defines { "WIN32", "NDEBUG" }
 
    -- common debug configuration flags and symbols
    filter { "Debug32" }
       flags { "Symbols" }
       targetsuffix "_d"
-      if (_ACTION == "vs2013") or (_ACTION == "vs2015") then
-         -- enable compiler intrinsics
-         buildoptions { "/Oi" }
-         defines { "WIN32", "_DEBUG" }
-      end
+      -- enable compiler intrinsics
+      buildoptions { "/Oi" }
+      defines { "WIN32", "_DEBUG" }
 
 
    -- libraries
