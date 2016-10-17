@@ -12,7 +12,7 @@ testeng:
             color: white
             text: "testeng.epp"
         )
-        #include "openeaagles/instruments/eng/engpage.epp"
+        #include "openeaagles/instruments/engines/engpage.epp"
     }
 )
 

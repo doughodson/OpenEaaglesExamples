@@ -7,7 +7,7 @@ testlandinggear:
         p: testAoAIndexer
     }
     components: {
-        #include "openeaagles/instruments/landingGear/landinggear.epp"
+        #include "openeaagles/instruments/landinggear/landinggear.epp"
         
         // this is our readout
         ( AsciiText 
