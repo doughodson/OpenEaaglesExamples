@@ -1,6 +1,6 @@
 
-#include "Worm.h"
-#include "openeaagles/base/units/Angles.h"
+#include "Worm.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 #include <cmath>
 

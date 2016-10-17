@@ -1,10 +1,10 @@
 
-#include "TestElectronic.h"
-#include "navdefs.h"
+#include "TestElectronic.hpp"
+#include "navdefs.hpp"
 
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/units/LinearVelocity.h"
-#include "openeaagles/base/util/math_utils.h"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/LinearVelocity.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
 
 #include <cmath>
 

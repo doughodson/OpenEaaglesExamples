@@ -1,33 +1,33 @@
 //------------------------------------------------------------------------------
 // Test of graphics system
 //------------------------------------------------------------------------------
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/functors/Tables.h"
-#include "openeaagles/base/Nav.h"
-#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/functors/Tables.hpp"
+#include "openeaagles/base/Nav.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
-#include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/graphics/Image.h"
+#include "openeaagles/graphics/Graphic.hpp"
+#include "openeaagles/graphics/Image.hpp"
 
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 
-#include "TestDisplay.h"
+#include "TestDisplay.hpp"
 
 // factories
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
 
 #include <GL/glut.h>
 
-#include "MfdPage.h"
-#include "TestOne.h"
-#include "TestTwo.h"
-#include "TdAzPtr.h"
-#include "TdElevPtr.h"
-#include "TestRotator.h"
+#include "MfdPage.hpp"
+#include "TestOne.hpp"
+#include "TestTwo.hpp"
+#include "TdAzPtr.hpp"
+#include "TdElevPtr.hpp"
+#include "TestRotator.hpp"
 
 #include <string>
 #include <cstdlib>

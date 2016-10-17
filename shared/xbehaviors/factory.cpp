@@ -1,11 +1,11 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "PlaneState.h"
-#include "PlaneBehaviors.h"
-#include "PriorityArbiter.h"
+#include "PlaneState.hpp"
+#include "PlaneBehaviors.hpp"
+#include "PriorityArbiter.hpp"
 
 #include <string>
 

@@ -3,14 +3,14 @@
 #include <string>
 #include <cstdlib>
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/edl_parser.hpp"
 
 // factories
-#include "openeaagles/base/factory.h"
+#include "openeaagles/base/factory.hpp"
 
-#include "Uniform.h"
-#include "Exp.h"
+#include "Uniform.hpp"
+#include "Exp.hpp"
 
 // class factory
 oe::base::Object* factory(const std::string& name)

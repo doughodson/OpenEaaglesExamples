@@ -1,15 +1,15 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "DspRadar.h"
-#include "DspRwr.h"
-#include "Hsi.h"
-#include "TdAzPtr.h"
-#include "TdElevPtr.h"
-#include "Pfd.h"
-#include "SpdLines.h"
+#include "DspRadar.hpp"
+#include "DspRwr.hpp"
+#include "Hsi.hpp"
+#include "TdAzPtr.hpp"
+#include "TdElevPtr.hpp"
+#include "Pfd.hpp"
+#include "SpdLines.hpp"
 #include <string>
 
 namespace oe {

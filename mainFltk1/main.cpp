@@ -1,18 +1,18 @@
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/PairStream.hpp"
 
 // factories
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/simulation/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/simulation/factory.hpp"
 
 #include <FL/Fl.H>
 
-#include "FltkStation.h"
-#include "FltkDisplay.h"
+#include "FltkStation.hpp"
+#include "FltkDisplay.hpp"
 
 #include <string>
 #include <cstdlib>

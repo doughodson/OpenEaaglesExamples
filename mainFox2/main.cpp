@@ -1,18 +1,18 @@
 
 #include "fx.h"
 
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/graphics/Display.h"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/graphics/Display.hpp"
 
 // factories
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/base/factory.h"
-#include "Worm.h"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/base/factory.hpp"
+#include "Worm.hpp"
 
-#include "openeaagles/base/safe_ptr.h"
+#include "openeaagles/base/safe_ptr.hpp"
 
 #include <string>
 

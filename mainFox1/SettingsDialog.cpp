@@ -1,5 +1,5 @@
 
-#include "SettingsDialog.h"
+#include "SettingsDialog.hpp"
 
 #include "fx.h"
 #include "fx3d.h"

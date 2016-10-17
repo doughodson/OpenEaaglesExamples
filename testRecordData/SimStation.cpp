@@ -1,19 +1,18 @@
 
-#include "SimStation.h"
+#include "SimStation.hpp"
 
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/gui/glut/GlutDisplay.h"
-#include "openeaagles/base/Identifier.h"
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/NetHandler.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/functors/Tables.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/units/Times.h"
-#include "openeaagles/base/osg/Vec4"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
+#include "openeaagles/base/Identifier.hpp"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/NetHandler.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/functors/Tables.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/Times.hpp"
 
 using namespace oe;
 

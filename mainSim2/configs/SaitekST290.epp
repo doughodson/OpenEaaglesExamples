@@ -24,7 +24,7 @@
 // Again, this is only necessary because the PC hoytick POV swtich is an AI and not
 // a set of DIs. Else, you can't have a trim switch.
 
-#include "f16HotasIo.h"
+#include "f16HotasIo.hpp"
 
 ( UsbJoystick
    deviceIndex: 0

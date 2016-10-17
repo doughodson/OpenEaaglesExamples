@@ -1,5 +1,5 @@
 
-#include "openeaagles/linearsystem/Sz1.h"
+#include "openeaagles/linearsystem/Sz1.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <cmath>

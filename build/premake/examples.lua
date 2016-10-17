@@ -9,8 +9,8 @@ project "mainCockpit"
    targetdir "../../mainCockpit"
    debugdir "../../mainCockpit"
    files {
+      "../../mainCockpit/**.h*",
       "../../mainCockpit/**.cpp",
-      "../../mainCockpit/**.h",
       "../../mainCockpit/**.epp",
       "../../mainCockpit/**.edl"
    }
@@ -47,8 +47,8 @@ project "mainGndMapRdr"
    targetdir "../../mainGndMapRdr"
    debugdir "../../mainGndMapRdr"
    files {
+      "../../mainGndMapRdr/**.h*",
       "../../mainGndMapRdr/**.cpp",
-      "../../mainGndMapRdr/**.h",
       "../../mainGndMapRdr/**.epp",
       "../../mainGndMapRdr/**.edl"
    }
@@ -73,8 +73,8 @@ project "mainLaero"
    targetdir "../../mainLaero"
    debugdir "../../mainLaero"
    files {
+      "../../mainLaero/**.h*",
       "../../mainLaero/**.cpp",
-      "../../mainLaero/**.h",
       "../../mainLaero/**.epp",
       "../../mainLaero/**.edl"
    }
@@ -106,8 +106,8 @@ project "mainNonRT1"
    targetdir "../../mainNonRT1"
    debugdir "../../mainNonRT1"
    files {
+      "../../mainNonRT1/**.h*",
       "../../mainNonRT1/**.cpp",
-      "../../mainNonRT1/**.h",
       "../../mainNonRT1/**.epp",
       "../../mainNonRT1/**.edl"
    }
@@ -137,8 +137,8 @@ project "mainPuzzle1"
    targetdir "../../mainPuzzle1"
    debugdir "../../mainPuzzle1"
    files {
+      "../../mainPuzzle1/**.h*",
       "../../mainPuzzle1/**.cpp",
-      "../../mainPuzzle1/**.h",
       "../../mainPuzzle1/**.epp",
       "../../mainPuzzle1/**.edl"
    }
@@ -160,8 +160,8 @@ project "mainPuzzle2"
    targetdir "../../mainPuzzle2"
    debugdir "../../mainPuzzle2"
    files {
+      "../../mainPuzzle2/**.h*",
       "../../mainPuzzle2/**.cpp",
-      "../../mainPuzzle2/**.h",
       "../../mainPuzzle2/**.epp",
       "../../mainPuzzle2/**.edl"
    }
@@ -183,8 +183,8 @@ project "mainSim1"
    targetdir "../../mainSim1"
    debugdir "../../mainSim1"
    files {
+      "../../mainSim1/**.h*",
       "../../mainSim1/**.cpp",
-      "../../mainSim1/**.h",
       "../../mainSim1/**.epp",
       "../../mainSim1/**.edl"
    }
@@ -217,8 +217,8 @@ project "mainSim2"
    targetdir "../../mainSim2"
    debugdir "../../mainSim2"
    files {
+      "../../mainSim2/**.h*",
       "../../mainSim2/**.cpp",
-      "../../mainSim2/**.h",
       "../../mainSim2/**.epp",
       "../../mainSim2/**.edl"
    }
@@ -251,8 +251,8 @@ project "mainSim3"
    targetdir "../../mainSim3"
    debugdir "../../mainSim3"
    files {
+      "../../mainSim3/**.h*",
       "../../mainSim3/**.cpp",
-      "../../mainSim3/**.h",
       "../../mainSim3/**.epp",
       "../../mainSim3/**.edl"
    }
@@ -285,8 +285,8 @@ project "mainTerrain"
    targetdir "../../mainTerrain"
    debugdir "../../mainTerrain"
    files {
+      "../../mainTerrain/**.h*",
       "../../mainTerrain/**.cpp",
-      "../../mainTerrain/**.h",
       "../../mainTerrain/**.epp",
       "../../mainTerrain/**.edl"
    }
@@ -310,8 +310,8 @@ project "mainUbf1"
    targetdir "../../mainUbf1"
    debugdir "../../mainUbf1"
    files {
+      "../../mainUbf1/**.h*",
       "../../mainUbf1/**.cpp",
-      "../../mainUbf1/**.h",
       "../../mainUbf1/**.epp",
       "../../mainUbf1/**.edl"
    }

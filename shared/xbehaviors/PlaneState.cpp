@@ -1,20 +1,17 @@
-//------------------------------------------------------------------------------
-// Class: PlaneState
-//------------------------------------------------------------------------------
 
-#include "PlaneState.h"
+#include "PlaneState.hpp"
 
-#include "openeaagles/base/List.h"
-#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/List.hpp"
+#include "openeaagles/base/PairStream.hpp"
 
-#include "openeaagles/simulation/Radar.h"
-#include "openeaagles/simulation/TrackManager.h"
-#include "openeaagles/simulation/Track.h"
-#include "openeaagles/simulation/OnboardComputer.h"
-#include "openeaagles/simulation/StoresMgr.h"
-#include "openeaagles/simulation/Missile.h"
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/simulation/Simulation.h"
+#include "openeaagles/simulation/Radar.hpp"
+#include "openeaagles/simulation/TrackManager.hpp"
+#include "openeaagles/simulation/Track.hpp"
+#include "openeaagles/simulation/OnboardComputer.hpp"
+#include "openeaagles/simulation/StoresMgr.hpp"
+#include "openeaagles/simulation/Missile.hpp"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 
 namespace oe {
 namespace xbehaviors {

@@ -1,11 +1,11 @@
 
-#include "FltkStation.h"
-#include "FltkDisplay.h"
+#include "FltkStation.hpp"
+#include "FltkDisplay.hpp"
 
 #include "FL/Fl_Window.H"
 #include "FL/Fl_Gl_Window.H"
 
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 
 IMPLEMENT_SUBCLASS(FltkStation, "FltkStation")
 EMPTY_SERIALIZER(FltkStation)

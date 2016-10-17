@@ -1,5 +1,5 @@
 
-#include "TestDigitalGauge.h"
+#include "TestDigitalGauge.hpp"
 
 using namespace oe;
 

@@ -1,16 +1,16 @@
 
-#include "TestDisplay.h"
-#include "TestStation.h"
+#include "TestDisplay.hpp"
+#include "TestStation.hpp"
 
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/simulation/Aam.h"
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/StoresMgr.h"
-#include "openeaagles/graphics/SymbolLoader.h"
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/units/Distances.h"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/simulation/Aam.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/StoresMgr.hpp"
+#include "openeaagles/graphics/SymbolLoader.hpp"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/units/Distances.hpp"
 
 IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)

@@ -1,10 +1,10 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "ZeroMQContext.h"
-#include "ZeroMQHandler.h"
+#include "ZeroMQContext.hpp"
+#include "ZeroMQHandler.hpp"
 
 #include <string>
 

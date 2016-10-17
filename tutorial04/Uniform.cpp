@@ -1,6 +1,6 @@
 
-#include "Uniform.h"
-#include "openeaagles/base/Number.h"
+#include "Uniform.hpp"
+#include "openeaagles/base/Number.hpp"
 #include <cstdlib>
 
 IMPLEMENT_SUBCLASS(Uniform, "Uniform")

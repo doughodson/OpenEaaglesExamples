@@ -2,8 +2,8 @@
 #define TEST_ONE
 //#define TEST_ALT
 
-#include "TerrainFollower.h"
-#include "openeaagles/base/Number.h"
+#include "TerrainFollower.hpp"
+#include "openeaagles/base/Number.hpp"
 #include <GL/glu.h>
 
 using namespace oe;

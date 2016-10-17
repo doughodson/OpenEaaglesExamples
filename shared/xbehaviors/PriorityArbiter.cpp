@@ -1,11 +1,9 @@
-//------------------------------------------------------------------------------
-// Class: PriorityArbiter
-//------------------------------------------------------------------------------
-#include "PriorityArbiter.h"
 
-#include "openeaagles/base/List.h"
+#include "PriorityArbiter.hpp"
 
-#include "PlaneAction.h"
+#include "openeaagles/base/List.hpp"
+
+#include "PlaneAction.hpp"
 
 namespace oe {
 namespace xbehaviors {

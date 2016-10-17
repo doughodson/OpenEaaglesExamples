@@ -1,7 +1,7 @@
 
-#include "TdAzPtr.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/units/Angles.h"
+#include "TdAzPtr.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 using namespace oe;
 

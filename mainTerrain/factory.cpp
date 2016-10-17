@@ -1,14 +1,14 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "Display.h"
+#include "Display.hpp"
 
-#include "openeaagles/terrain/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/base/factory.h"
+#include "openeaagles/terrain/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 

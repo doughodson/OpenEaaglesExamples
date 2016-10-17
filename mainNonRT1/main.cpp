@@ -1,12 +1,12 @@
 
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
 
 // factories
-#include "openeaagles/simulation/factory.h"
-#include "openeaagles/models/factory.h"
-#include "openeaagles/base/factory.h"
+#include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 #include <cstdlib>

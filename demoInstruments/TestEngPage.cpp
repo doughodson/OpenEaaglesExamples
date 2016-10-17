@@ -1,6 +1,6 @@
 
-#include "TestEngPage.h"
-#include "openeaagles/base/Pair.h"
+#include "TestEngPage.hpp"
+#include "openeaagles/base/Pair.hpp"
 
 using namespace oe;
 

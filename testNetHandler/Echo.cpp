@@ -1,9 +1,9 @@
 
-#include "Echo.h"
+#include "Echo.hpp"
 
-#include "openeaagles/base/NetHandler.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/NetHandler.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/util/system.hpp"
 
 #include <cstdlib>
 

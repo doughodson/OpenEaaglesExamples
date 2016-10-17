@@ -1,22 +1,22 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "TestDisplay.h"
-#include "TestStation.h"
-#include "DspRadar.h"
-#include "DspRwr.h"
-#include "TdAzPtr.h"
-#include "TdElevPtr.h"
+#include "TestDisplay.hpp"
+#include "TestStation.hpp"
+#include "DspRadar.hpp"
+#include "DspRwr.hpp"
+#include "TdAzPtr.hpp"
+#include "TdElevPtr.hpp"
 
-#include "openeaagles/simulation/factory.h"
-#include "openeaagles/models/factory.h"
-#include "openeaagles/networks/dis/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/base/factory.h"
+#include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
+#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 

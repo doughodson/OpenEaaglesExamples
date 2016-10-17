@@ -1,9 +1,9 @@
 
-#include "Blocks.h"
-#include "Puzzle.h"
+#include "Blocks.hpp"
+#include "Puzzle.hpp"
 
-#include "openeaagles/base/Integer.h"
-#include "openeaagles/base/List.h"
+#include "openeaagles/base/Integer.hpp"
+#include "openeaagles/base/List.hpp"
 
 using namespace oe;
 

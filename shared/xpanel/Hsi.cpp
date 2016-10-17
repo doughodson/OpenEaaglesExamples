@@ -1,5 +1,5 @@
 
-#include "Hsi.h"
+#include "Hsi.hpp"
 
 namespace oe {
 namespace xpanel {

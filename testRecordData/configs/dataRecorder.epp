@@ -10,7 +10,7 @@
 //
 // ---
 
-#include "openeaagles/simulation/dataRecorderTokens.h"
+#include "openeaagles/simulation/dataRecorderTokens.hpp"
 
 dataRecorder: ( XDataRecorder
 

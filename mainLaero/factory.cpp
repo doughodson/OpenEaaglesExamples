@@ -1,22 +1,22 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "TestStation.h"
-#include "AdiDisplay.h"
-#include "MapDisplay.h"
-#include "MapPage.h"
+#include "TestStation.hpp"
+#include "AdiDisplay.hpp"
+#include "MapDisplay.hpp"
+#include "MapPage.hpp"
 
 // factories
-#include "../shared/xzmq/factory.h"
-#include "openeaagles/simulation/factory.h"
-#include "openeaagles/models/factory.h"
-#include "openeaagles/networks/dis/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/base/factory.h"
+#include "../shared/xzmq/factory.hpp"
+#include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
+#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 

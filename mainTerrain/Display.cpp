@@ -1,18 +1,18 @@
 
-#include "openeaagles/base/Color.h"
-#include "openeaagles/base/Rgb.h"
-#include "openeaagles/base/Hsva.h"
-#include "openeaagles/base/Nav.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/String.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/Terrain.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/units/Distances.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/Color.hpp"
+#include "openeaagles/base/Rgb.hpp"
+#include "openeaagles/base/Hsva.hpp"
+#include "openeaagles/base/Nav.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/String.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/Terrain.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/util/system.hpp"
 
-#include "Display.h"
+#include "Display.hpp"
 
 #include <cmath>
 

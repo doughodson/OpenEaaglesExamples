@@ -1,30 +1,30 @@
 //----------------------------------------------------------------
 // Example flight displays 1
 //----------------------------------------------------------------
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/graphics/Graphic.hpp"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <GL/glut.h>
 
 // factories
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
 
 // test pages
-#include "TestPfd.h"
-#include "TestSD.h"
+#include "TestPfd.hpp"
+#include "TestSD.hpp"
 // instruments
-#include "CrsPntr.h"
-#include "Hsi.h"
-#include "Pfd.h"
-#include "RdrAlt.h"
-#include "SituationalDisplay.h"
-#include "SpdLines.h"
-#include "TerrainFollower.h"
+#include "CrsPntr.hpp"
+#include "Hsi.hpp"
+#include "Pfd.hpp"
+#include "RdrAlt.hpp"
+#include "SituationalDisplay.hpp"
+#include "SpdLines.hpp"
+#include "TerrainFollower.hpp"
 
 #include <string>
 #include <cstdlib>

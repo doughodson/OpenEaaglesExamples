@@ -1,8 +1,8 @@
 
-#include "ZeroMQContext.h"
+#include "ZeroMQContext.hpp"
 
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/Integer.h"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/Integer.hpp"
 
 #include <zmq.h>
 

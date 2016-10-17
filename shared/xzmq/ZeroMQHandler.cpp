@@ -1,9 +1,9 @@
 
-#include "ZeroMQHandler.h"
-#include "ZeroMQContext.h"
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/Integer.h"
-#include "openeaagles/base/String.h"
+#include "ZeroMQHandler.hpp"
+#include "ZeroMQContext.hpp"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/Integer.hpp"
+#include "openeaagles/base/String.hpp"
 
 #include <sstream>
 

@@ -1,13 +1,13 @@
 
-#include "DataRecorder.h"
+#include "DataRecorder.hpp"
 #include "protobuf/DataRecord.pb.h"
-#include "dataRecorderTokens.h"
-#include "openeaagles/base/util/math_utils.h"
+#include "dataRecorderTokens.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
 
 namespace oe {
 namespace xrecorder {
 
-IMPLEMENT_SUBCLASS(DataRecorder,"XDataRecorder")
+IMPLEMENT_SUBCLASS(DataRecorder, "XDataRecorder")
 EMPTY_SERIALIZER(DataRecorder)
 EMPTY_SLOTTABLE(DataRecorder)
 EMPTY_DELETEDATA(DataRecorder)

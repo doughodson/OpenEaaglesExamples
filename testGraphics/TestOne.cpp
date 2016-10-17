@@ -1,6 +1,6 @@
 
-#include "TestOne.h"
-#include "openeaagles/base/units/Angles.h"
+#include "TestOne.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 #include <cmath>
 

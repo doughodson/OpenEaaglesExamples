@@ -5,7 +5,7 @@
 //   -- Your Thrustmaster AI channels may be a little different (
 // =============================================================================
 
-#include "f16HotasIo.h"
+#include "f16HotasIo.hpp"
 
 ( UsbJoystick
    deviceIndex: 0

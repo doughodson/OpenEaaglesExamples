@@ -1,24 +1,24 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "SimIoHandler.h"
-#include "SimPlayer.h"
-#include "SimStation.h"
-#include "InstrumentPanel.h"
+#include "SimIoHandler.hpp"
+#include "SimPlayer.hpp"
+#include "SimStation.hpp"
+#include "InstrumentPanel.hpp"
 
 // factories
-#include "../shared/xzmq/factory.h"
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/networks/dis/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/iodevice/factory.h"
-#include "openeaagles/otw/factory.h"
-#include "openeaagles/models/factory.h"
-#include "openeaagles/simulation/factory.h"
+#include "../shared/xzmq/factory.hpp"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
+#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/iodevice/factory.hpp"
+#include "openeaagles/otw/factory.hpp"
+#include "openeaagles/models/factory.hpp"
+#include "openeaagles/simulation/factory.hpp"
 
 #include <string>
 

@@ -3,16 +3,16 @@
 #include <string>
 #include <cstdlib>
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/Color.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/String.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/Color.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/String.hpp"
 
 // factories
-#include "openeaagles/base/factory.h"
+#include "openeaagles/base/factory.hpp"
 
-#include "MyObj.h"
+#include "MyObj.hpp"
 
 // our class factory
 oe::base::Object* factory(const std::string& name)

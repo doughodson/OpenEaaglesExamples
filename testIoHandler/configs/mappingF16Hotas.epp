@@ -2,7 +2,7 @@
 // Maps AI/DI channels to table itmes
 //------------------------------------------------------------------------------
 
-#include "f16HotasIo.h"
+#include "f16HotasIo.hpp"
 
 // analog input channels
 item:  1   ai: ROLL_AI        label: "Roll"

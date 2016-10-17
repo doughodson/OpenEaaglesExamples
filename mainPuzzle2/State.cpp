@@ -1,10 +1,10 @@
 
-#include "State.h"
-#include "Blocks.h"
-#include "Puzzle.h"
+#include "State.hpp"
+#include "Blocks.hpp"
+#include "Puzzle.hpp"
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
 
 using namespace oe;
 

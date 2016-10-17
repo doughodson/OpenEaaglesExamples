@@ -4,7 +4,7 @@
 
 ( TestDisplay
     
-    name: "My_Main_Window"
+    name: "Main Window"
     
     vpX:        100
     vpY:        100

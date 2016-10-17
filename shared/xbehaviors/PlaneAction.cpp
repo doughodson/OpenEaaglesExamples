@@ -1,11 +1,8 @@
-//------------------------------------------------------------------------------
-// Class: PlaneAction
-//------------------------------------------------------------------------------
 
-#include "PlaneAction.h"
+#include "PlaneAction.hpp"
 
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/simulation/StoresMgr.h"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/simulation/StoresMgr.hpp"
 
 namespace oe {
 namespace xbehaviors {
@@ -15,6 +12,9 @@ EMPTY_SLOTTABLE(PlaneAction)
 EMPTY_DELETEDATA(PlaneAction)
 EMPTY_SERIALIZER(PlaneAction)
 
+//------------------------------------------------------------------------------
+// Class: PlaneAction
+//------------------------------------------------------------------------------
 PlaneAction::PlaneAction()
 {
    STANDARD_CONSTRUCTOR()

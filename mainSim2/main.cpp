@@ -1,18 +1,18 @@
 
 
-#include "SimStation.h"
+#include "SimStation.hpp"
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/graphics/Texture.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/graphics/Graphic.hpp"
+#include "openeaagles/graphics/Texture.hpp"
+#include "openeaagles/base/util/system.hpp"
 
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <GL/glut.h>
 
 #include <string>

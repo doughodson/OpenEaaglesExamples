@@ -1,5 +1,5 @@
 
-#include "Random.h"
+#include "Random.hpp"
 #include <cstdlib>
 
 IMPLEMENT_SUBCLASS(Random, "Random")

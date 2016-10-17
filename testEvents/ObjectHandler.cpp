@@ -1,6 +1,6 @@
 
-#include "ObjectHandler.h"
-#include "TestObject.h"
+#include "ObjectHandler.hpp"
+#include "TestObject.hpp"
 
 using namespace oe;
 

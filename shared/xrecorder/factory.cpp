@@ -1,9 +1,9 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "DataRecorder.h"
+#include "DataRecorder.hpp"
 
 #include <string>
 

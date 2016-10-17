@@ -1,11 +1,11 @@
 
-#include "MyObj.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/List.h"
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/String.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/Identifier.h"
+#include "MyObj.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/List.hpp"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/String.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/Identifier.hpp"
 #include <cstdlib>
 
 IMPLEMENT_SUBCLASS(MyObj, "MyObj")

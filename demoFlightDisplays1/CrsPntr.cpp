@@ -1,7 +1,7 @@
 
-#include "CrsPntr.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/units/Angles.h"
+#include "CrsPntr.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 IMPLEMENT_SUBCLASS(CrsPntr, "CrsPntr")
 EMPTY_SERIALIZER(CrsPntr)

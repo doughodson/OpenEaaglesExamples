@@ -1,8 +1,8 @@
 
-#include "DspRwr.h"
+#include "DspRwr.hpp"
 
-#include "openeaagles/simulation/Rwr.h"
-#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/simulation/Rwr.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 namespace oe {
 namespace xpanel {

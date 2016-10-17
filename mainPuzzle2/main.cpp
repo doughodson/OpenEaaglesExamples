@@ -1,13 +1,13 @@
 
-#include "Board.h"
-#include "Puzzle.h"
-#include "State.h"
-#include "factory.h"
+#include "Board.hpp"
+#include "Puzzle.hpp"
+#include "State.hpp"
+#include "factory.hpp"
 
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/util/system.hpp"
 
 #include <iostream>
 #include <GL/glut.h>

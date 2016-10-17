@@ -1,20 +1,19 @@
 
-#include "openeaagles/simulation/Station.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Integer.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/osg/Vec3"
-#include "openeaagles/otw/OtwPC.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/simulation/Station.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Integer.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/otw/OtwPC.hpp"
+#include "openeaagles/base/util/system.hpp"
 
 // factories
-#include "../shared/xzmq/factory.h"
-#include "openeaagles/simulation/factory.h"
-#include "openeaagles/models/factory.h"
-#include "openeaagles/networks/dis/factory.h"
-#include "openeaagles/otw/factory.h"
-#include "openeaagles/base/factory.h"
+#include "../shared/xzmq/factory.hpp"
+#include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
+#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/otw/factory.hpp"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 #include <cstdlib>
@@ -77,7 +76,7 @@ oe::simulation::Station* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename = "test00.edl";
+   std::string configFilename = "test0.edl";
 
    for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {

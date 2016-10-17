@@ -1,16 +1,16 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "Display.h"
-#include "Table.h"
+#include "Display.hpp"
+#include "Table.hpp"
 
 // factories
-#include "openeaagles/iodevice/factory.h"
-#include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/base/factory.h"
+#include "openeaagles/iodevice/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 

@@ -1,7 +1,7 @@
 
-#include "Pfd.h"
-#include "openeaagles/base/Pair.h"
-#include "SituationalDisplay.h"
+#include "Pfd.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "SituationalDisplay.hpp"
 
 #include <cstring>
 #include <cmath>

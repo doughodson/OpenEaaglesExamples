@@ -1,10 +1,10 @@
 
-#include "Exp.h"
-#include "openeaagles/base/Number.h"
+#include "Exp.hpp"
+#include "openeaagles/base/Number.hpp"
 #include <cstdlib>
 #include <cmath>
 
-IMPLEMENT_SUBCLASS(Exp,"Exp")
+IMPLEMENT_SUBCLASS(Exp, "Exp")
 // setup slot table
 BEGIN_SLOTTABLE(Exp)
   "mean",

@@ -1,8 +1,8 @@
 
-#include "Puzzle.h"
-#include "State.h"
+#include "Puzzle.hpp"
+#include "State.hpp"
 
-#include "openeaagles/base/List.h"
+#include "openeaagles/base/List.hpp"
 
 IMPLEMENT_SUBCLASS(Puzzle, "Puzzle")
 

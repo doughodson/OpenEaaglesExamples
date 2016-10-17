@@ -1,12 +1,12 @@
 //----------------------------------------------------------------
 // I/O device test program
 //----------------------------------------------------------------
-#include "Display.h"
-#include "factory.h"
+#include "Display.hpp"
+#include "factory.hpp"
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
 
 #include <GL/glut.h>
 

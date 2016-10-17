@@ -1,7 +1,7 @@
 
-#include "Pfd.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/units/Distances.h"
+#include "Pfd.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/units/Distances.hpp"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+

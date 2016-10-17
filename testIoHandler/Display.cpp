@@ -1,11 +1,11 @@
 
-#include "Display.h"
+#include "Display.hpp"
 
-#include "openeaagles/base/IoData.h"
-#include "openeaagles/base/IoHandler.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/String.h"
-#include "openeaagles/base/util/str_utils.h"
+#include "openeaagles/base/IoData.hpp"
+#include "openeaagles/base/IoHandler.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/String.hpp"
+#include "openeaagles/base/util/str_utils.hpp"
 
 #include <cstdio>
 #include <cstdlib>

@@ -1,7 +1,7 @@
 
-#include "TdElevPtr.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/units/Angles.h"
+#include "TdElevPtr.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 namespace oe {
 namespace xpanel {

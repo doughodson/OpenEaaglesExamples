@@ -1,16 +1,16 @@
 
-#include "TestIoHandler.h"
-#include "SimStation.h"
-#include "configs/io/f16HotasIo.h"
+#include "TestIoHandler.hpp"
+#include "SimStation.hpp"
+#include "configs/io/f16HotasIo.hpp"
 
-#include "openeaagles/simulation/Autopilot.h"
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/simulation/Navigation.h"
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/Route.h"
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/IoData.h"
-#include "openeaagles/base/util/math_utils.h"
+#include "openeaagles/simulation/Autopilot.hpp"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/simulation/Navigation.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/Route.hpp"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/IoData.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
 
 using namespace oe;
 

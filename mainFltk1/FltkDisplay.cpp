@@ -1,5 +1,5 @@
 
-#include "FltkDisplay.h"
+#include "FltkDisplay.hpp"
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(FltkDisplay, "FltkDisplay")
 EMPTY_SERIALIZER(FltkDisplay)

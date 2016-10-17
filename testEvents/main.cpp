@@ -1,19 +1,19 @@
 //----------------------------------------------------------------
 // Test Component send command, using different parameters
 //----------------------------------------------------------------
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Timers.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Timers.hpp"
 
 #include <GL/glut.h>
 
 // factories
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/base/factory.h"
-#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
 
-#include "Display.h"
-#include "ObjectHandler.h"
+#include "Display.hpp"
+#include "ObjectHandler.hpp"
 
 #include <string>
 #include <cstdlib>

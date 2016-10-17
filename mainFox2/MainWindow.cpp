@@ -1,8 +1,8 @@
 
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 
-#include "openeaagles/graphics/Display.h"
-#include "openeaagles/base/Timers.h"
+#include "openeaagles/graphics/Display.hpp"
+#include "openeaagles/base/Timers.hpp"
 
 #include "fx.h"
 #include "fx3d.h"

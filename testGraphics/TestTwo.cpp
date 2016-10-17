@@ -1,6 +1,6 @@
 
-#include "TestTwo.h"
-#include "openeaagles/base/units/Angles.h"
+#include "TestTwo.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 
 using namespace oe;
 

@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-#include "openeaagles/base/String.h"
+#include "openeaagles/base/String.hpp"
 
 int main(int argc, char* argv[])
 {

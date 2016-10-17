@@ -1,10 +1,10 @@
 
-#include "TestCompass.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/graphics/MapPage.h"
-#include "openeaagles/graphics/SymbolLoader.h"
-#include "openeaagles/base/Rgb.h"
+#include "TestCompass.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/graphics/MapPage.hpp"
+#include "openeaagles/graphics/SymbolLoader.hpp"
+#include "openeaagles/base/Rgb.hpp"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+

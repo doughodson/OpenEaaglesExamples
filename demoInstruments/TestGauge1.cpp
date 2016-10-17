@@ -1,5 +1,5 @@
 
-#include "TestGauge1.h"
+#include "TestGauge1.hpp"
 
 using namespace oe;
 

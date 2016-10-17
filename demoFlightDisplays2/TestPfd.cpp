@@ -1,7 +1,7 @@
 
-#include "TestPfd.h"
-#include "openeaagles/base/Pair.h"
-#include "Pfd.h"
+#include "TestPfd.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "Pfd.hpp"
 
 using namespace oe;
 

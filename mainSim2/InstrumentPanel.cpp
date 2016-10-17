@@ -1,16 +1,16 @@
 
-#include "InstrumentPanel.h"
-#include "SimStation.h"
-#include "SimPlayer.h"
+#include "InstrumentPanel.hpp"
+#include "SimStation.hpp"
+#include "SimPlayer.hpp"
 
-#include "openeaagles/instruments/eadi3D/Eadi3DPage.h"
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/units/Distances.h"
-#include "openeaagles/base/Boolean.h"
+#include "openeaagles/instruments/eadi3d/Eadi3DPage.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/Boolean.hpp"
 #include <GL/glut.h>
 
 IMPLEMENT_SUBCLASS(InstrumentPanel, "InstrumentPanel")

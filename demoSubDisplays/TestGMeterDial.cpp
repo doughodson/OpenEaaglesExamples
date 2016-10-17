@@ -1,7 +1,7 @@
 
-#include "TestGMeterDial.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/instruments/dials/GMeterDial.h"
+#include "TestGMeterDial.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/instruments/dials/GMeterDial.hpp"
 
 using namespace oe;
 

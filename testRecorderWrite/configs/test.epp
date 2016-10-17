@@ -3,7 +3,7 @@
 // ---
 //    enum MsgHdrOptions { NO_HDR, ALL_MSGS, NEW_MSG, ON_CHANGE };
 //#include "openeaagles/recorder/recorderTokens.h"
-#include "openeaagles/simulation/dataRecorderTokens.h"
+#include "openeaagles/simulation/dataRecorderTokens.hpp"
 
 ( DataRecordTest
    // Tab Printer

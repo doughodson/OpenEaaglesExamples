@@ -1,24 +1,24 @@
 //----------------------------------------------------------------
 // Example flight displays 2
 //----------------------------------------------------------------
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/graphics/Graphic.hpp"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <GL/glut.h>
 
 // factories
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
 
 // test pages
-#include "TestPfd.h"
+#include "TestPfd.hpp"
 // instruments
-#include "Pfd.h"
-#include "SpdLines.h"
+#include "Pfd.hpp"
+#include "SpdLines.hpp"
 
 #include <string>
 #include <cstdlib>

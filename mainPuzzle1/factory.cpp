@@ -1,16 +1,16 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "Blocks.h"
-#include "Board.h"
-#include "Puzzle.h"
-#include "State.h"
+#include "Blocks.hpp"
+#include "Board.hpp"
+#include "Puzzle.hpp"
+#include "State.hpp"
 
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
 
 #include <string>
 

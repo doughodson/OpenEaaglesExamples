@@ -1,13 +1,13 @@
 
-#include "AdiDisplay.h"
+#include "AdiDisplay.hpp"
 
-#include "TestStation.h"
+#include "TestStation.hpp"
 
-#include "openeaagles/simulation/AirVehicle.h"
+#include "openeaagles/simulation/AirVehicle.hpp"
 #include "openeaagles/base/osg/Vec3"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/units/Distances.h"
-#include "openeaagles/base/units/Times.h"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/units/Times.hpp"
 
 using namespace oe;
 

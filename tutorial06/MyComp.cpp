@@ -1,9 +1,9 @@
 
-#include "MyComp.h"
-#include "openeaagles/base/String.h"
+#include "MyComp.hpp"
+#include "openeaagles/base/String.hpp"
 #include <cstdlib>
 
-IMPLEMENT_SUBCLASS(MyComp,"MyComp")
+IMPLEMENT_SUBCLASS(MyComp, "MyComp")
 // setup slot table
 BEGIN_SLOTTABLE(MyComp)
   "str"

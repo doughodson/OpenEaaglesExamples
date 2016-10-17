@@ -1,7 +1,7 @@
 
-#include "Station.h"
+#include "Station.hpp"
 
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 IMPLEMENT_SUBCLASS(Station, "MapTestStation")
 EMPTY_SERIALIZER(Station)

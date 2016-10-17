@@ -1,6 +1,6 @@
 
-#include "TestRotator.h"
-#include "openeaagles/base/units/Angles.h"
+#include "TestRotator.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <cmath>

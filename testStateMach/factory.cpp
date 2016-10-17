@@ -1,17 +1,17 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "TestStateMachine01.h"
-#include "TestStateMachine02.h"
-#include "TestStateMachine03.h"
-#include "TestStateMachine04.h"
-#include "TestStateMachine04A.h"
-#include "TestStateMachine04B.h"
-#include "TestStateMachine04C.h"
+#include "TestStateMachine01.hpp"
+#include "TestStateMachine02.hpp"
+#include "TestStateMachine03.hpp"
+#include "TestStateMachine04.hpp"
+#include "TestStateMachine04A.hpp"
+#include "TestStateMachine04B.hpp"
+#include "TestStateMachine04C.hpp"
 
-#include "openeaagles/base/factory.h"
+#include "openeaagles/base/factory.hpp"
 
 #include <string>
 

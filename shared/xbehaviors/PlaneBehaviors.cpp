@@ -12,13 +12,13 @@
 //          PlaneBehaviorBase -> PlaneBarrelRoll
 //          PlaneBehaviorBase -> PlaneLoop
 //------------------------------------------------------------------------------
-#include "PlaneBehaviors.h"
-#include "PlaneAction.h"
-#include "PlaneState.h"
+#include "PlaneBehaviors.hpp"
+#include "PlaneAction.hpp"
+#include "PlaneState.hpp"
 
-#include "openeaagles/base/units/Distances.h"
-#include "openeaagles/base/ubf/State.h"
-#include "openeaagles/base/util/constants.h"
+#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/ubf/State.hpp"
+#include "openeaagles/base/util/constants.hpp"
 
 namespace oe {
 namespace xbehaviors {

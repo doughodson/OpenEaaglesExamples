@@ -1,6 +1,6 @@
 
-#include "GLWindow.h"
-#include "FltkDisplay.h"
+#include "GLWindow.hpp"
+#include "FltkDisplay.hpp"
 
 #include <FL/Fl.H>
 

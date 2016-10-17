@@ -1,14 +1,14 @@
 
-#include "Display.h"
-#include "TestObject.h"
+#include "Display.hpp"
+#include "TestObject.hpp"
 
-#include "openeaagles/base/Color.h"
-#include "openeaagles/graphics/Material.h"
-#include "openeaagles/base/Rng.h"
-#include "openeaagles/base/Number.h"
-#include "openeaagles/base/util/str_utils.h"
-#include "openeaagles/base/util/math_utils.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/Color.hpp"
+#include "openeaagles/graphics/Material.hpp"
+#include "openeaagles/base/Rng.hpp"
+#include "openeaagles/base/Number.hpp"
+#include "openeaagles/base/util/str_utils.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
+#include "openeaagles/base/util/system.hpp"
 
 #include <cstring>
 

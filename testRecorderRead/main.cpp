@@ -1,9 +1,9 @@
 
-#include "DataRecordTest.h"
-#include "factory.h"
+#include "DataRecordTest.hpp"
+#include "factory.hpp"
 
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
 
 #include <string>
 

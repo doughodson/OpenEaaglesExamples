@@ -1,6 +1,6 @@
 
-#include "TdAzPtr.h"
-#include "openeaagles/base/Number.h"
+#include "TdAzPtr.hpp"
+#include "openeaagles/base/Number.hpp"
 
 using namespace oe;
 

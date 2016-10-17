@@ -1,5 +1,5 @@
 
-#include "TestRpmDial.h"
+#include "TestRpmDial.hpp"
 
 using namespace oe;
 

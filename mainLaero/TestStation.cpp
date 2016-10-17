@@ -1,16 +1,16 @@
 
-#include "TestStation.h"
+#include "TestStation.hpp"
 
-#include "openeaagles/simulation/Antenna.h"
-#include "openeaagles/simulation/AirVehicle.h"
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/base/Boolean.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/Timers.h"
+#include "openeaagles/simulation/Antenna.hpp"
+#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/base/Boolean.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/Timers.hpp"
 
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 using namespace oe;
 

@@ -9,8 +9,8 @@
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
+         "../../shared/xbehaviors/*.h*",
          "../../shared/xbehaviors/*.cpp",
-         "../../shared/xbehaviors/*.h",
       }
       defines { "_LIB" }
 
@@ -21,9 +21,9 @@
       targetname "xrecorder"
       targetdir (OEExamplesLibPath)
       files {
+         "../../shared/xrecorder/**.h*",
          "../../shared/xrecorder/**.cpp",
          "../../shared/xrecorder/**.cc",
-         "../../shared/xrecorder/**.h",
          "../../shared/xrecorder/**.proto",
       }
       defines { "_LIB" }
@@ -36,8 +36,8 @@
       targetdir (OEExamplesLibPath)
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       files {
+         "../../shared/xpanel/*.h*",
          "../../shared/xpanel/*.cpp",
-         "../../shared/xpanel/*.h",
          "../../shared/xpanel/**.epp",
       }
       defines { "_LIB" }
@@ -50,8 +50,8 @@
       includedirs { OEIncPath, OE3rdPartyIncPath, OEExamplesIncPath }
       defines { "ZMQ_STATIC" }
       files {
+         "../../shared/xzmq/*.h*",
          "../../shared/xzmq/*.cpp",
-         "../../shared/xzmq/*.h",
          "../../shared/xzmq/**.epp",
       }
       defines { "_LIB" }

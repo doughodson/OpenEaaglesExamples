@@ -1,14 +1,14 @@
 
-#include "DspRadar.h"
+#include "DspRadar.hpp"
 
-#include "openeaagles/simulation/Antenna.h"
-#include "openeaagles/simulation/Radar.h"
-#include "openeaagles/simulation/Track.h"
-#include "openeaagles/simulation/TrackManager.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/units/Distances.h"
-#include "openeaagles/base/Hsv.h"
-#include "openeaagles/base/util/math_utils.h"
+#include "openeaagles/simulation/Antenna.hpp"
+#include "openeaagles/simulation/Radar.hpp"
+#include "openeaagles/simulation/Track.hpp"
+#include "openeaagles/simulation/TrackManager.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/Hsv.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
 
 using namespace oe;
 

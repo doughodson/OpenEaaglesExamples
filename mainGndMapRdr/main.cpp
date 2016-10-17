@@ -1,19 +1,19 @@
 
-#include "TestStation.h"
-#include "factory.h"
+#include "TestStation.hpp"
+#include "factory.hpp"
 
-#include "openeaagles/terrain/ded/DedFile.h"
+#include "openeaagles/terrain/ded/DedFile.hpp"
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/functors/Tables.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/functors/Tables.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/util/system.hpp"
 
-#include "openeaagles/graphics/Graphic.h"
+#include "openeaagles/graphics/Graphic.hpp"
 
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <GL/glut.h>
 
 #include <string>

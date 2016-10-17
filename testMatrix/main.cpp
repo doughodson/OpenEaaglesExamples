@@ -2,9 +2,9 @@
 // Test Matrix class functions
 //------------------------------------------------------------------------------
 
-#include "openeaagles/base/Matrix.h"
-#include "openeaagles/base/Vectors.h"
-#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/Matrix.hpp"
+#include "openeaagles/base/Vectors.hpp"
+#include "openeaagles/base/units/Angles.hpp"
 #include <iostream>
 #include <iomanip>
 

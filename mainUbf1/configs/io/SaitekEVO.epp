@@ -3,7 +3,7 @@
 //   -- UsbJoystick (e.g., the saitek) channels are zero(0) based.
 // =============================================================================
 
-#include "f16HotasIo.h"
+#include "f16HotasIo.hpp"
 
 ( UsbJoystick
    deviceIndex: 0

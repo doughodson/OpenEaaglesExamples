@@ -1,6 +1,6 @@
 
-#include "Random.h"
-#include "openeaagles/base/Number.h"
+#include "Random.hpp"
+#include "openeaagles/base/Number.hpp"
 #include <cstdlib>
 
 IMPLEMENT_SUBCLASS(Random, "Random")

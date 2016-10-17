@@ -1,9 +1,9 @@
 
-#include "MfdDisplay.h"
+#include "MfdDisplay.hpp"
 
 using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdDisplay,"MfdDisplay")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MfdDisplay, "MfdDisplay")
 EMPTY_SERIALIZER(MfdDisplay)
 
 EMPTY_COPYDATA(MfdDisplay)

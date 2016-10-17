@@ -1,5 +1,5 @@
 
-#include "SituationalDisplay.h"
+#include "SituationalDisplay.hpp"
 #include <cstring>
 
 // disable all deprecation warnings for now, until we fix

@@ -9,8 +9,8 @@ project "testEvents"
    targetdir "../../testEvents"
    debugdir "../../testEvents"
    files {
+      "../../testEvents/**.h*",
       "../../testEvents/**.cpp",
-      "../../testEvents/**.h",
       "../../testEvents/**.epp",
       "../../testEvents/**.edl"
    }
@@ -33,8 +33,8 @@ project "testGraphics"
    targetdir "../../testGraphics"
    debugdir "../../testGraphics"
    files {
+      "../../testGraphics/**.h*",
       "../../testGraphics/**.cpp",
-      "../../testGraphics/**.h",
       "../../testGraphics/**.epp",
       "../../testGraphics/**.edl"
    }
@@ -57,8 +57,8 @@ project "testInfrared"
    targetdir "../../testInfrared"
    debugdir "../../testInfrared"
    files {
+      "../../testInfrared/**.h*",
       "../../testInfrared/**.cpp",
-      "../../testInfrared/**.h",
       "../../testInfrared/**.epp",
       "../../testInfrared/**.edl"
    }
@@ -89,8 +89,8 @@ project "testIoHandler"
    targetdir "../../testIoHandler"
    debugdir "../../testIoHandler"
    files {
+      "../../testIoHandler/**.h*",
       "../../testIoHandler/**.cpp",
-      "../../testIoHandler/**.h",
       "../../testIoHandler/**.epp",
       "../../testIoHandler/**.edl"
    }
@@ -112,8 +112,8 @@ project "testLinearSys"
    targetdir "../../testLinearSys"
    debugdir "../../testLinearSys"
    files {
+      "../../testLinearSys/**.h*",
       "../../testLinearSys/**.cpp",
-      "../../testLinearSys/**.h",
       "../../testLinearSys/**.epp",
       "../../testLinearSys/**.edl"
    }
@@ -133,8 +133,8 @@ project "testMatrix"
    targetdir "../../testMatrix"
    debugdir "../../testMatrix"
    files {
+      "../../testMatrix/**.h*",
       "../../testMatrix/**.cpp",
-      "../../testMatrix/**.h",
       "../../testMatrix/**.epp",
       "../../testMatrix/**.edl"
    }
@@ -154,8 +154,8 @@ project "testNavigation"
    targetdir "../../testNavigation"
    debugdir "../../testNavigation"
    files {
+      "../../testNavigation/**.h*",
       "../../testNavigation/**.cpp",
-      "../../testNavigation/**.h",
       "../../testNavigation/**.epp",
       "../../testNavigation/**.edl"
    }
@@ -175,8 +175,8 @@ project "testNetHandler"
    targetdir "../../testNetHandler"
    debugdir "../../testNetHandler"
    files {
+      "../../testNetHandler/**.h*",
       "../../testNetHandler/**.cpp",
-      "../../testNetHandler/**.h",
       "../../testNetHandler/**.epp",
       "../../testNetHandler/**.edl"
    }
@@ -199,8 +199,8 @@ project "testRadar"
    targetdir "../../testRadar"
    debugdir "../../testRadar"
    files {
+      "../../testRadar/**.h*",
       "../../testRadar/**.cpp",
-      "../../testRadar/**.h",
       "../../testRadar/**.epp",
       "../../testRadar/**.edl"
    }
@@ -230,8 +230,8 @@ project "testRecordData"
    targetdir "../../testRecordData"
    debugdir "../../testRecordData"
    files {
+      "../../testRecordData/**.h*",
       "../../testRecordData/**.cpp",
-      "../../testRecordData/**.h",
       "../../testRecordData/**.epp",
       "../../testRecordData/**.edl"
    }
@@ -264,8 +264,8 @@ project "testRecorderRead"
    targetdir "../../testRecorderRead"
    debugdir "../../testRecorderRead"
    files {
+      "../../testRecorderRead/**.h*",
       "../../testRecorderRead/**.cpp",
-      "../../testRecorderRead/**.h",
       "../../testRecorderRead/**.epp",
       "../../testRecorderRead/**.edl"
    }
@@ -286,8 +286,8 @@ project "testRecorderWrite"
    targetdir "../../testRecorderWrite"
    debugdir "../../testRecorderWrite"
    files {
+      "../../testRecorderWrite/**.h*",
       "../../testRecorderWrite/**.cpp",
-      "../../testRecorderWrite/**.h",
       "../../testRecorderWrite/**.epp",
       "../../testRecorderWrite/**.edl"
    }
@@ -308,8 +308,8 @@ project "testRng"
    targetdir "../../testRng"
    debugdir "../../testRng"
    files {
+      "../../testRng/**.h*",
       "../../testRng/**.cpp",
-      "../../testRng/**.h",
       "../../testRng/**.epp",
       "../../testRng/**.edl"
    }
@@ -329,8 +329,8 @@ project "testStateMach"
    targetdir "../../testStateMach"
    debugdir "../../testStateMach"
    files {
+      "../../testStateMach/**.h*",
       "../../testStateMach/**.cpp",
-      "../../testStateMach/**.h",
       "../../testStateMach/**.epp",
       "../../testStateMach/**.edl"
    }
@@ -350,8 +350,8 @@ project "testTables"
    targetdir "../../testTables"
    debugdir "../../testTables"
    files {
+      "../../testTables/**.h*",
       "../../testTables/**.cpp",
-      "../../testTables/**.h",
       "../../testTables/**.epp",
       "../../testTables/**.edl"
    }
@@ -371,8 +371,8 @@ project "testTimer"
    targetdir "../../testTimer"
    debugdir "../../testTimer"
    files {
+      "../../testTimer/*.h*",
       "../../testTimer/*.cpp",
-      "../../testTimer/*.h",
       "../../testTimer/*.edl"
    }
    includedirs { OEIncPath }

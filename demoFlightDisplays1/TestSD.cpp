@@ -1,12 +1,12 @@
 
 #define TEST_ND
 
-#include "TestSD.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/units/Angles.h"
-#include "SituationalDisplay.h"
-#include "openeaagles/graphics/SymbolLoader.h"
+#include "TestSD.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/units/Angles.hpp"
+#include "SituationalDisplay.hpp"
+#include "openeaagles/graphics/SymbolLoader.hpp"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+

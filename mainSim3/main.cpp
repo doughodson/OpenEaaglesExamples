@@ -1,25 +1,25 @@
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
 
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <GL/glut.h>
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/util/system.hpp"
 
 // factories
-#include "../shared/xzmq/factory.h"
-#include "openeaagles/gui/glut/factory.h"
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/simulation/factory.h"
-#include "openeaagles/networks/dis/factory.h"
-#include "openeaagles/otw/factory.h"
+#include "../shared/xzmq/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/otw/factory.hpp"
 
-#include "MapPage.h"
-#include "Station.h"
-#include "Display.h"
+#include "MapPage.hpp"
+#include "Station.hpp"
+#include "Display.hpp"
 
 #include <string>
 #include <cstdlib>

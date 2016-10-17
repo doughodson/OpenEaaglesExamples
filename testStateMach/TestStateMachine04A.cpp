@@ -1,8 +1,8 @@
 
-#include "TestStateMachine04A.h"
+#include "TestStateMachine04A.hpp"
 
-#include "openeaagles/base/Integer.h"
-#include "openeaagles/base/Boolean.h"
+#include "openeaagles/base/Integer.hpp"
+#include "openeaagles/base/Boolean.hpp"
 
 using namespace oe;
 

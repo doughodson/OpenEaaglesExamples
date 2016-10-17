@@ -1,12 +1,12 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/simulation/Station.h"
-#include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/simulation/Station.hpp"
+#include "openeaagles/graphics/Graphic.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/util/system.hpp"
 
 #include <GL/glut.h>
 

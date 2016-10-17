@@ -1,9 +1,9 @@
 
-#include "PrintMyData.h"
+#include "PrintMyData.hpp"
 
 #include "xrecorder/protobuf/DataRecord.pb.h"
-#include "xrecorder/dataRecorderTokens.h"
-#include "openeaagles/recorder/DataRecordHandle.h"
+#include "xrecorder/dataRecorderTokens.hpp"
+#include "openeaagles/recorder/DataRecordHandle.hpp"
 
 using namespace oe;
 

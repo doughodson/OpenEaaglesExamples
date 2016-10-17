@@ -1,10 +1,10 @@
 
 #define TEST_PFD
 
-#include "TestPfd.h"
-#include "openeaagles/base/Pair.h"
-#include "Pfd.h"
-#include "openeaagles/graphics/Display.h"
+#include "TestPfd.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "Pfd.hpp"
+#include "openeaagles/graphics/Display.hpp"
 
 using namespace oe;
 

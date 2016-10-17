@@ -1,7 +1,7 @@
 
-#include "MainWindow.h"
-#include "GLWindow.h"
-#include "FltkDisplay.h"
+#include "MainWindow.hpp"
+#include "GLWindow.hpp"
+#include "FltkDisplay.hpp"
 
 #include <cstdlib>
 

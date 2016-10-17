@@ -1,15 +1,15 @@
 
-#include "DataRecordTest.h"
+#include "DataRecordTest.hpp"
 
-#include "openeaagles/recorder/InputHandler.h"
-#include "openeaagles/recorder/OutputHandler.h"
-#include "openeaagles/recorder/DataRecordHandle.h"
+#include "openeaagles/recorder/InputHandler.hpp"
+#include "openeaagles/recorder/OutputHandler.hpp"
+#include "openeaagles/recorder/DataRecordHandle.hpp"
 
 #include "xrecorder/protobuf/DataRecord.pb.h"
 
 using namespace oe;
 
-IMPLEMENT_SUBCLASS(DataRecordTest,"DataRecordTest")
+IMPLEMENT_SUBCLASS(DataRecordTest, "DataRecordTest")
 EMPTY_SERIALIZER(DataRecordTest)
 
 BEGIN_SLOTTABLE(DataRecordTest)
@@ -19,8 +19,8 @@ END_SLOTTABLE(DataRecordTest)
 
 // Map slot table to handles
 BEGIN_SLOT_MAP(DataRecordTest)
-   ON_SLOT(1, setSlotInputHandler,   oe::recorder::InputHandler)
-   ON_SLOT(2, setSlotOutputHandler,   oe::recorder::OutputHandler)
+   ON_SLOT(1, setSlotInputHandler, oe::recorder::InputHandler)
+   ON_SLOT(2, setSlotOutputHandler, oe::recorder::OutputHandler)
 END_SLOT_MAP()
 
 DataRecordTest::DataRecordTest()

@@ -1,8 +1,8 @@
 
-#include "SimPlayer.h"
-#include "openeaagles/base/List.h"
+#include "SimPlayer.hpp"
+#include "openeaagles/base/List.hpp"
 #include "openeaagles/base/osg/Matrix"
-#include "openeaagles/base/units/Angles.h"
+#include "openeaagles/base/units/Angles.hpp"
 
 IMPLEMENT_SUBCLASS(SimPlayer, "SimPlayer")
 EMPTY_DELETEDATA(SimPlayer)

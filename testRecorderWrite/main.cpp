@@ -1,16 +1,16 @@
 
-#include "DataRecordTest.h"
+#include "DataRecordTest.hpp"
 
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/Station.h"
-#include "openeaagles/simulation/Player.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Pair.h"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/Station.hpp"
+#include "openeaagles/simulation/Player.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Pair.hpp"
 
 // factories
-#include "openeaagles/simulation/factory.h"
-#include "openeaagles/base/factory.h"
-#include "openeaagles/recorder/factory.h"
+#include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/recorder/factory.hpp"
 
 #include <string>
 #include <cstdlib>

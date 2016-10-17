@@ -9,8 +9,8 @@ project "mainGlut"
    targetdir "../../mainGlut"
    debugdir "../../mainGlut"
    files {
+      "../../mainGlut/**.h*",
       "../../mainGlut/**.cpp",
-      "../../mainGlut/**.h",
       "../../mainGlut/**.epp",
       "../../mainGlut/**.edl"
    }
@@ -33,8 +33,8 @@ project "mainFltk1"
    targetdir "../../mainFltk1"
    debugdir "../../mainFltk1"
    files {
+      "../../mainFltk1/**.h*",
       "../../mainFltk1/**.cpp",
-      "../../mainFltk1/**.h",
       "../../mainFltk1/**.epp"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath }
@@ -62,8 +62,8 @@ project "mainFox1"
    targetdir "../../mainFox1"
    debugdir "../../mainFox1"
    files {
+      "../../mainFox1/**.h*",
       "../../mainFox1/**.cpp",
-      "../../mainFox1/**.h",
       "../../mainFox1/**.epp"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }
@@ -89,8 +89,8 @@ project "mainFox2"
    targetdir "../../mainFox2"
    debugdir "../../mainFox2"
    files {
+      "../../mainFox2/**.h*",
       "../../mainFox2/**.cpp",
-      "../../mainFox2/**.h",
       "../../mainFox2/**.epp"
    }
    includedirs { OEIncPath, OE3rdPartyIncPath, OE3rdPartyIncPath.."/fox-1.7" }

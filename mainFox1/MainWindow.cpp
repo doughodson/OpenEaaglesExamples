@@ -1,7 +1,7 @@
 
 
-#include "MainWindow.h"
-#include "SettingsDialog.h"
+#include "MainWindow.hpp"
+#include "SettingsDialog.hpp"
 
 #include "fx.h"
 #include "fx3d.h"

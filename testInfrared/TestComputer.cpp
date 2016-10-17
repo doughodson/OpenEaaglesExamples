@@ -1,12 +1,12 @@
 
-#include "TestComputer.h"
+#include "TestComputer.hpp"
 
-#include "openeaagles/simulation/Track.h"
-#include "openeaagles/simulation/AngleOnlyTrackManager.h"
-#include "openeaagles/simulation/Weapon.h"
-#include "openeaagles/simulation/IrSeeker.h"
-#include "openeaagles/simulation/IrSensor.h"
-#include "openeaagles/simulation/Simulation.h"
+#include "openeaagles/simulation/Track.hpp"
+#include "openeaagles/simulation/AngleOnlyTrackManager.hpp"
+#include "openeaagles/simulation/Weapon.hpp"
+#include "openeaagles/simulation/IrSeeker.hpp"
+#include "openeaagles/simulation/IrSensor.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 
 #include <iostream>
 

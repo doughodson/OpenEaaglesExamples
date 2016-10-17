@@ -1,8 +1,8 @@
 
-#include "Blocks.h"
+#include "Blocks.hpp"
 
-#include "openeaagles/base/Integer.h"
-#include "openeaagles/base/List.h"
+#include "openeaagles/base/Integer.hpp"
+#include "openeaagles/base/List.hpp"
 
 IMPLEMENT_ABSTRACT_SUBCLASS(Block, "PuzzleBlock")
 EMPTY_DELETEDATA(Block)

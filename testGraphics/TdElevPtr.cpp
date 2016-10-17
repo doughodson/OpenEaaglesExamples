@@ -1,6 +1,6 @@
 
-#include "TdElevPtr.h"
-#include "openeaagles/base/Number.h"
+#include "TdElevPtr.hpp"
+#include "openeaagles/base/Number.hpp"
 
 using namespace oe;
 

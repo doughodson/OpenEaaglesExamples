@@ -9,8 +9,8 @@ project "demoEfis"
    targetdir "../../demoEfis"
    debugdir "../../demoEfis"
    files {
+      "../../demoEfis/**.h*",
       "../../demoEfis/**.cpp",
-      "../../demoEfis/**.h",
       "../../demoEfis/**.epp",
       "../../demoEfis/**.edl"
    }
@@ -33,8 +33,8 @@ project "demoFlightDisplays1"
    targetdir "../../demoFlightDisplays1"
    debugdir "../../demoFlightDisplays1"
    files {
+      "../../demoFlightDisplays1/**.h*",
       "../../demoFlightDisplays1/**.cpp",
-      "../../demoFlightDisplays1/**.h",
       "../../demoFlightDisplays1/**.epp",
       "../../demoFlightDisplays1/**.edl"
    }
@@ -57,8 +57,8 @@ project "demoFlightDisplays2"
    targetdir "../../demoFlightDisplays2"
    debugdir "../../demoFlightDisplays2"
    files {
+      "../../demoFlightDisplays2/**.h*",
       "../../demoFlightDisplays2/**.cpp",
-      "../../demoFlightDisplays2/**.h",
       "../../demoFlightDisplays2/**.epp",
       "../../demoFlightDisplays2/**.edl"
    }
@@ -81,8 +81,8 @@ project "demoInstruments"
    targetdir "../../demoInstruments"
    debugdir "../../demoInstruments"
    files {
+      "../../demoInstruments/**.h*",
       "../../demoInstruments/**.cpp",
-      "../../demoInstruments/**.h",
       "../../demoInstruments/**.epp",
       "../../demoInstruments/**.edl"
    }
@@ -105,8 +105,8 @@ project "demoSubDisplays"
    targetdir "../../demoSubDisplays"
    debugdir "../../demoSubDisplays"
    files {
+      "../../demoSubDisplays/**.h*",
       "../../demoSubDisplays/**.cpp",
-      "../../demoSubDisplays/**.h",
       "../../demoSubDisplays/**.epp",
       "../../demoSubDisplays/**.edl"
    }

@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-#include "Random.h"
+#include "Random.hpp"
 
 int main(int argc, char* argv[])
 {

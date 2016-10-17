@@ -10,16 +10,16 @@
 //
 //------------------------------------------------------------------------------
 
-#include "Tester.h"
+#include "Tester.hpp"
 
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/Thread.h"
-#include "openeaagles/base/util/system.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/Thread.hpp"
+#include "openeaagles/base/util/system.hpp"
 
 // class factory
-#include "openeaagles/base/factory.h"
+#include "openeaagles/base/factory.hpp"
 
 #include <cstdio>
 #include <string>

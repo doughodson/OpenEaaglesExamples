@@ -1,6 +1,6 @@
 
-#include "SpdLines.h"
-#include "openeaagles/base/Number.h"
+#include "SpdLines.hpp"
+#include "openeaagles/base/Number.hpp"
 
 namespace oe {
 namespace xpanel {

@@ -1,14 +1,14 @@
 
-#include "MapPage.h"
-#include "Station.h"
-#include "Display.h"
-#include "openeaagles/simulation/Player.h"
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/graphics/SymbolLoader.h"
-#include "openeaagles/graphics/Display.h"
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/util/math_utils.h"
+#include "MapPage.hpp"
+#include "Station.hpp"
+#include "Display.hpp"
+#include "openeaagles/simulation/Player.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/graphics/SymbolLoader.hpp"
+#include "openeaagles/graphics/Display.hpp"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
 
 IMPLEMENT_SUBCLASS(MapPage,"MapTestMapPage")
 EMPTY_SLOTTABLE(MapPage)

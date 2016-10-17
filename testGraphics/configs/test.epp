@@ -7,7 +7,7 @@
     pickWidth:  14
     pickHeight: 14
 
-    name: "My Main Window"
+    name: "Main Window"
 
     left:       -10.5
     right:       10.5

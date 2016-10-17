@@ -1,40 +1,40 @@
 //------------------------------------------------------------------------------
 // Demo of instrument library
 //------------------------------------------------------------------------------
-#include "openeaagles/base/Pair.h"
-#include "openeaagles/base/Timers.h"
-#include "openeaagles/base/edl_parser.h"
-#include "openeaagles/graphics/Graphic.h"
-#include "openeaagles/gui/glut/GlutDisplay.h"
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/Timers.hpp"
+#include "openeaagles/base/edl_parser.hpp"
+#include "openeaagles/graphics/Graphic.hpp"
+#include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 // factories
-#include "openeaagles/base/factory.h"
-#include "openeaagles/graphics/factory.h"
-#include "openeaagles/instruments/factory.h"
-#include "openeaagles/gui/glut/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/graphics/factory.hpp"
+#include "openeaagles/instruments/factory.hpp"
+#include "openeaagles/gui/glut/factory.hpp"
 
 #include <GL/glut.h>
 
 // test files
-#include "TestSpeedBrake.h"
-#include "TestEngineDial.h"
-#include "TestCas.h"
-#include "TestFtitDial.h"
-#include "TestOilPressure.h"
-#include "TestNozzle.h"
-#include "TestRpmDial.h"
-#include "TestHsi.h"
-#include "TestGauge1.h"
-#include "TestVVI.h"
-#include "TestAlt.h"
-#include "TestCompass.h"
-#include "TestDigitalGauge.h"
-#include "TestGMeterDial.h"
-#include "TestLandingGear.h"
-#include "TestEngPage.h"
-#include "TestButtons.h"
-#include "TestAdi.h"
-#include "TestAdi2.h"
+#include "TestSpeedBrake.hpp"
+#include "TestEngineDial.hpp"
+#include "TestCas.hpp"
+#include "TestFtitDial.hpp"
+#include "TestOilPressure.hpp"
+#include "TestNozzle.hpp"
+#include "TestRpmDial.hpp"
+#include "TestHsi.hpp"
+#include "TestGauge1.hpp"
+#include "TestVVI.hpp"
+#include "TestAlt.hpp"
+#include "TestCompass.hpp"
+#include "TestDigitalGauge.hpp"
+#include "TestGMeterDial.hpp"
+#include "TestLandingGear.hpp"
+#include "TestEngPage.hpp"
+#include "TestButtons.hpp"
+#include "TestAdi.hpp"
+#include "TestAdi2.hpp"
 
 #include <string>
 #include <cstdlib>

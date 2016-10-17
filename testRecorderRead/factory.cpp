@@ -1,14 +1,14 @@
 
-#include "factory.h"
+#include "factory.hpp"
 
-#include "openeaagles/base/Object.h"
+#include "openeaagles/base/Object.hpp"
 
-#include "DataRecordTest.h"
-#include "PrintMyData.h"
+#include "DataRecordTest.hpp"
+#include "PrintMyData.hpp"
 
-#include "openeaagles/base/factory.h"
-#include "openeaagles/recorder/factory.h"
-#include "openeaagles/simulation/factory.h"
+#include "openeaagles/base/factory.hpp"
+#include "openeaagles/recorder/factory.hpp"
+#include "openeaagles/simulation/factory.hpp"
 
 #include <string>
 

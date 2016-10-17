@@ -1,6 +1,6 @@
 
-#include "Display.h"
-#include "MapPage.h"
+#include "Display.hpp"
+#include "MapPage.hpp"
 #include <GL/glut.h>
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Display, "MapTestDisplay")
