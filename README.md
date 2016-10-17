@@ -11,8 +11,6 @@ Notes
 *  Use makeEdl.bat to generate the example *.edl files under windows, and
    use 'make edl' to generate the *.edl files under linux.
 
-*  Most of the examples are in the 'Eaagles' namespace.
-
 
 Demonstration Applications
 --------------------------
