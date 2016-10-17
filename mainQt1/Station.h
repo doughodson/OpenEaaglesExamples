@@ -2,7 +2,7 @@
 #ifndef __Station_H__
 #define __Station_H__
 
-#include "openeaagles/simulation/Station.h"
+#include "openeaagles/simulation/Station.hpp"
 #include <QObject>
 
 class QTimer;

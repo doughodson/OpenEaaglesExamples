@@ -29,6 +29,7 @@ vcruntime*.dll
 mainQt1/mainQt1-qt.pro.user
 mainQt1/Makefile
 mainQt1/tmp/
+mainQt1/.qmake.stash
 build-mainQt1-qt-Desktop_Qt*
 mainQt1/Makefile.Debug
 mainQt1/Makefile.Release

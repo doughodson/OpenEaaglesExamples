@@ -1,7 +1,7 @@
 
 #include "PlayerItem.h"
 #include "MapItem.h"
-#include "openeaagles/simulation/Player.h"
+#include "openeaagles/simulation/Player.hpp"
 
 #include <QPainter>
 #include <sstream>

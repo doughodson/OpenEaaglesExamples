@@ -1,7 +1,7 @@
 
 #include "MapItem.h"
-#include "openeaagles/base/units/Angles.h"
-#include "openeaagles/base/util/math_utils.h"
+#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/util/math_utils.hpp"
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>

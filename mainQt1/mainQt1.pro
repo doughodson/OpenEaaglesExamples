@@ -1,4 +1,3 @@
-MSVC_VER = vs2015
 
 # OpenEaagles package(s)
 OE_ROOT = $$(OE_ROOT)
@@ -35,20 +34,20 @@ MOC_DIR = ./tmp/moc
 RCC_DIR = ./tmp/rcc
 
 # libraries
-# Windows (MSVC) release libraries
+# Windows release libraries
 win32:CONFIG(release, debug|release): LIBS +=        \
     # openeaagles
-    -L$${OE_ROOT}/lib/$${MSVC_VER}/                  \
+    -L$${OE_ROOT}/lib/                               \
     -loesimulation -loemodels -loedafif              \
     -loebase                                         \
     # system
     -lwinmm                                          \
     -lws2_32
 
-# Windows (MSVC) Debug libraries
+# Windows debug libraries
 else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # openeaagles
-    -L$${OE_ROOT}/lib/$${MSVC_VER}/                     \
+    -L$${OE_ROOT}/lib/                                  \
     -loesimulation_d -loemodels_d -loedafif_d           \
     -loebase_d                                          \
     # system
@@ -58,7 +57,7 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
 # Linux libraries
 else:unix:!macx:!symbian: LIBS +=                     \
     # openeaagles
-    -L$${OE_ROOT}/lib/linux/                          \
+    -L$${OE_ROOT}/lib/                                \
     -loesimulation -loemodels -loedafif               \
     -loebase                                          \
     # system

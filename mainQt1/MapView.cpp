@@ -5,11 +5,11 @@
 #include "Station.h"
 #include "PlayerItem.h"
 
-#include "openeaagles/simulation/Simulation.h"
-#include "openeaagles/simulation/Player.h"
-#include "openeaagles/base/List.h"
-#include "openeaagles/base/PairStream.h"
-#include "openeaagles/base/Pair.h"
+#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/Player.hpp"
+#include "openeaagles/base/List.hpp"
+#include "openeaagles/base/PairStream.hpp"
+#include "openeaagles/base/Pair.hpp"
 
 #include <QTimer>
 #include <iostream>
