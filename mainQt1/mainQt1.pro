@@ -19,7 +19,7 @@ TEMPLATE = app
 # file types to include in project
 SOURCES += *.cpp
 FORMS += *.ui
-HEADERS += *.h
+HEADERS += *.hpp
 OTHER_FILES += configs/*.epp
 
 # include paths

@@ -26,11 +26,11 @@ vcruntime*.dll
 #
 # qt user project file and build directories
 #
-mainQt1/mainQt1-qt.pro.user
+mainQt1/mainQt1.pro.user
 mainQt1/Makefile
 mainQt1/tmp/
 mainQt1/.qmake.stash
-build-mainQt1-qt-Desktop_Qt*
+build-mainQt1-Desktop_Qt*
 mainQt1/Makefile.Debug
 mainQt1/Makefile.Release
 mainQt1/release/*

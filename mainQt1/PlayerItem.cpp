@@ -1,6 +1,6 @@
 
-#include "PlayerItem.h"
-#include "MapItem.h"
+#include "PlayerItem.hpp"
+#include "MapItem.hpp"
 #include "openeaagles/simulation/Player.hpp"
 
 #include <QPainter>

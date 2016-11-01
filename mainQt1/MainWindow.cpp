@@ -1,6 +1,6 @@
 
-#include "MainWindow.h"
-#include "Station.h"
+#include "MainWindow.hpp"
+#include "Station.hpp"
 #include "openeaagles/simulation/Simulation.hpp"
 
 #include <QTimer>

@@ -1,9 +1,9 @@
 
-#include "MapView.h"
-#include "MainWindow.h"
-#include "MapItem.h"
-#include "Station.h"
-#include "PlayerItem.h"
+#include "MapView.hpp"
+#include "MainWindow.hpp"
+#include "MapItem.hpp"
+#include "Station.hpp"
+#include "PlayerItem.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 #include "openeaagles/simulation/Player.hpp"

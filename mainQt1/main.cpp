@@ -1,8 +1,8 @@
 
 #include <QApplication>
 
-#include "MainWindow.h"
-#include "Station.h"
+#include "MainWindow.hpp"
+#include "Station.hpp"
 
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/factory.hpp"

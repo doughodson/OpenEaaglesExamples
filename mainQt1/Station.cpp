@@ -1,6 +1,6 @@
 
-#include "Station.h"
-#include "MainWindow.h"
+#include "Station.hpp"
+#include "MainWindow.hpp"
 #include <QTimer>
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Station, "QtStation")
