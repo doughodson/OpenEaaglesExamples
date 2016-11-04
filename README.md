@@ -58,12 +58,6 @@ Example GUI Applications
 
 * mainGlut -- Opens a GLUT window and draws a pattern.
 
-* mainFltk1 -- Opens a Fltk GUI window
-
-* mainFox1 -- Opens a FOX GUI window
-
-* mainFox2 -- Opens a FOX GUI window and draws animated moving lines (i.e., worms)
-
 * mainQt1 -- Opens a Qt GUI window and display all players on a map within a simulation
 
 Test Applications
