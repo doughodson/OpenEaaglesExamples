@@ -10,11 +10,10 @@ APPLICATIONS += demoSubDisplays
 
 # graphic oriented examples
 APPLICATIONS += testGraphics
+
 # GUI examples
 APPLICATIONS += mainGlut
-#APPLICATIONS += mainFltk1
-#APPLICATIONS += mainFox1
-#APPLICATIONS += mainFox2
+#APPLICATIONS += mainQt1
 
 # non-real-time simulation
 APPLICATIONS += mainNonRT1
