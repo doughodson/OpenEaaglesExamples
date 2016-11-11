@@ -5,9 +5,13 @@
 #include "Station.hpp"
 
 #include "openeaagles/base/edl_parser.hpp"
-#include "openeaagles/base/factory.hpp"
 #include "openeaagles/base/Pair.hpp"
+
+// factories
+#include "openeaagles/base/factory.hpp"
 #include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/otw/factory.hpp"
 
 #include <cstdlib>
 #include <string>
@@ -21,8 +25,11 @@ oe::base::Object* factory(const std::string& name)
       obj = new Station;
    }
 
+   if (obj == nullptr)  { obj = oe::otw::factory(name);         }
+   if (obj == nullptr)  { obj = oe::dis::factory(name);         }
    if (obj == nullptr)  { obj = oe::simulation::factory(name);  }
    if (obj == nullptr)  { obj = oe::base::factory(name);        }
+   
    return obj;
 }
 
@@ -60,19 +67,6 @@ Station* builder(const std::string& filename)
    return station;
 }
 
-void compile_edl(const std::string& filename)
-{
-#if !defined(WIN32)
-   std::string func_call = "cpp configs/" + filename;        // cpp configs/test.edl
-   func_call = func_call.substr(0, func_call.length() - 2);  // cpp configs/test.e
-   func_call = func_call + "pp > " + filename;               // cpp configs/test.epp > test.edl
-   std::cout << "Compiling: " << filename << std::endl;
-   system(func_call.c_str());
-#endif
-
-   return;
-}
-
 int main(int argc, char* argv[])
 {
    // default configuration filename
@@ -83,8 +77,6 @@ int main(int argc, char* argv[])
          configFilename = argv[++i];
       }
    }
-
-   compile_edl(configFilename);
 
    Station* station = builder(configFilename);
 

@@ -1,5 +1,5 @@
 
-# OpenEaagles package(s)
+# OpenEaagles framework
 OE_ROOT = $$(OE_ROOT)
 isEmpty(OE_ROOT) OE_ROOT = $$PWD/../../OpenEaagles
 message(OE_ROOT = $${OE_ROOT})
@@ -8,6 +8,8 @@ isEmpty(OE_3RD_PARTY_ROOT) OE_3RD_PARTY_ROOT = $$PWD/../../OpenEaagles3rdParty
 message(OE_3RD_PARTY_ROOT = $${OE_3RD_PARTY_ROOT})
 
 QT += core widgets
+
+MAKEFILE = qtMakefile
 
 TARGET = mainQt1
 CONFIG += c++11
@@ -26,8 +28,7 @@ OTHER_FILES += configs/*.epp
 INCLUDEPATH += \
    $${OE_ROOT}/include
 
-
-# default installation of misc files
+# default location for intermediate files
 UI_DIR = ./tmp/ui
 OBJECTS_DIR = ./tmp/obj
 MOC_DIR = ./tmp/moc
@@ -38,8 +39,15 @@ RCC_DIR = ./tmp/rcc
 win32:CONFIG(release, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/                               \
-    -loesimulation -loemodels -loedafif              \
+    -L$${OE_3RD_PARTY_ROOT}/lib/                     \
+    -loedis                                          \
+    -loemodels                                       \
+    -loesimulation                                   \
+    -loeotw                                          \
+    -loedafif                                        \
     -loebase                                         \
+    -lcigicl                                         \
+    -lJSBSim                                         \
     # system
     -lwinmm                                          \
     -lws2_32
@@ -48,20 +56,34 @@ win32:CONFIG(release, debug|release): LIBS +=        \
 else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/                                  \
-    -loesimulation_d -loemodels_d -loedafif_d           \
+    -L$${OE_3RD_PARTY_ROOT}/lib/                        \
+    -loedis_d                                           \
+    -loemodels_d                                        \
+    -loesimulation_d                                    \
+    -loeotw_d                                           \
+    -loedafif_d                                         \
     -loebase_d                                          \
+    -lcigicl_d                                          \
+    -lJSBSim_d                                          \
     # system
     -lwinmm                                             \
     -lws2_32
 
 # Linux libraries
-else:unix:!macx:!symbian: LIBS +=                     \
+else:unix:!macx:!symbian: LIBS +=       \
     # openeaagles
-    -L$${OE_ROOT}/lib/                                \
-    -loesimulation -loemodels -loedafif               \
-    -loebase                                          \
+    -L$${OE_ROOT}/lib/                  \
+    -L$${OE_3RD_PARTY_ROOT}/lib/        \
+    -loedis                             \
+    -loemodels                          \
+    -loesimulation                      \
+    -loeotw                             \
+    -loedafif                           \
+    -loebase                            \
+    -lcigicl                            \
+    -lJSBSim                            \
     # system
     -lX11 -lpthread -lrt
 
 RESOURCES += \
-    data/icons.qrc
+    configs/data/icons.qrc

@@ -118,8 +118,8 @@ void MapView::refreshView()
                      // create a new player
                      if (!found) {
                         PlayerItem* p = new PlayerItem(this, map);
-                        // default it to the f16
-                        p->useDefaultImage(":f16.png", QSize(32, 32));
+                        // default image is a fighter
+                        p->useDefaultImage(":fighter.png", QSize(32, 32));
                         p->refreshPlayer(ply);
                         scene()->addItem(p);
                         players << p;
