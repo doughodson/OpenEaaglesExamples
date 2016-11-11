@@ -13,7 +13,7 @@ APPLICATIONS += testGraphics
 
 # GUI examples
 APPLICATIONS += mainGlut
-#APPLICATIONS += mainQt1
+APPLICATIONS += mainQt1
 
 # non-real-time simulation
 APPLICATIONS += mainNonRT1
