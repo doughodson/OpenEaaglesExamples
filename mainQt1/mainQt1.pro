@@ -1,8 +1,14 @@
 
-# OpenEaagles framework
+# path to framework
 OE_ROOT = $$(OE_ROOT)
 isEmpty(OE_ROOT) OE_ROOT = $$PWD/../../OpenEaagles
 message(OE_ROOT = $${OE_ROOT})
+
+# version of Visual Studio, if applicable
+MS_VER = vs2013-32
+#MS_VER = vs2015-32
+
+# path to 3rd party libraries
 OE_3RD_PARTY_ROOT = $$(OE_3RD_PARTY_ROOT)
 isEmpty(OE_3RD_PARTY_ROOT) OE_3RD_PARTY_ROOT = $$PWD/../../OpenEaagles3rdParty
 message(OE_3RD_PARTY_ROOT = $${OE_3RD_PARTY_ROOT})
@@ -39,15 +45,15 @@ RCC_DIR = ./tmp/rcc
 win32:CONFIG(release, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/                               \
-    -L$${OE_3RD_PARTY_ROOT}/lib/                     \
+    -L$${OE_3RD_PARTY_ROOT}/lib/$${MS_VER}           \
     -loedis                                          \
     -loemodels                                       \
     -loesimulation                                   \
     -loeotw                                          \
     -loedafif                                        \
     -loebase                                         \
-    -lcigicl                                         \
-    -lJSBSim                                         \
+    -lccl_lib                                        \
+    -ljsbsim                                         \
     # system
     -lwinmm                                          \
     -lws2_32
@@ -56,15 +62,15 @@ win32:CONFIG(release, debug|release): LIBS +=        \
 else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/                                  \
-    -L$${OE_3RD_PARTY_ROOT}/lib/                        \
+    -L$${OE_3RD_PARTY_ROOT}/lib/$${MS_VER}              \
     -loedis_d                                           \
     -loemodels_d                                        \
     -loesimulation_d                                    \
     -loeotw_d                                           \
     -loedafif_d                                         \
     -loebase_d                                          \
-    -lcigicl_d                                          \
-    -lJSBSim_d                                          \
+    -lccl_lib_d                                         \
+    -ljsbsim_d                                          \
     # system
     -lwinmm                                             \
     -lws2_32
@@ -84,6 +90,7 @@ else:unix:!macx:!symbian: LIBS +=       \
     -lJSBSim                            \
     # system
     -lX11 -lpthread -lrt
+
 
 RESOURCES += \
     configs/data/icons.qrc
