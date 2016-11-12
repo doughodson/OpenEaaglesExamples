@@ -17,7 +17,7 @@ LDFLAGS += -lcigicl
 LDFLAGS += -lpthread -lrt
 
 CPPFLAGS += -I../
-LDFLAGS  += -L../lib/linux -L$(OPENEAAGLES_LIB_DIR)
+LDFLAGS  += -L$(OPENEAAGLES_LIB_DIR)
 
 EPPFLAGS += -I.
 

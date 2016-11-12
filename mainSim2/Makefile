@@ -11,7 +11,7 @@ OBJS = \
 	SimPlayer.o \
 	main.o
 
-LDFLAGS += -L../lib/linux -lxzmq -lzmq
+LDFLAGS += -lxzmq -l:libzmq.a
 LDFLAGS += -loedis -loemodels -loesimulation -lJSBSim
 LDFLAGS += -loeinstruments -loeiodevice -loeotw -loedafif
 LDFLAGS += -loeglut -loegraphics -loebase -lrt -lcigicl

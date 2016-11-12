@@ -11,7 +11,7 @@ OBJS =  \
 	MapPage.o \
 	TestStation.o
 
-LDFLAGS += -L../lib/linux -lxzmq -lzmq
+LDFLAGS += -lxzmq -l:libzmq.a
 LDFLAGS += -loesimulation -loemodels -loedafif
 LDFLAGS += -loedis
 LDFLAGS += -lJSBSim
