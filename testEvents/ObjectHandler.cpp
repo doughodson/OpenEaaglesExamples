@@ -1,6 +1,7 @@
 
 #include "ObjectHandler.hpp"
 #include "TestObject.hpp"
+#include <iostream>
 
 using namespace oe;
 

@@ -2,6 +2,7 @@
 #include "SpdLines.hpp"
 #include "openeaagles/base/Number.hpp"
 #include <GL/glu.h>
+#include <iostream>
 
 using namespace oe;
 
@@ -164,7 +165,3 @@ bool SpdLines::setSlotDrawBack(const base::Number* const newDB)
     return ok;
 }
 
-base::Object* SpdLines::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

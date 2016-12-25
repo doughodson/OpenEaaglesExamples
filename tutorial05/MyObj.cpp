@@ -155,11 +155,6 @@ const oe::base::String* MyObj::getMessage() const
    return message;
 }
 
-oe::base::Object* MyObj::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
-}
-
 bool MyObj::setSlotColorTable(const oe::base::PairStream* const x)
 {
    bool ok = false;

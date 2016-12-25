@@ -8,7 +8,6 @@
 namespace oe {
    namespace base { class Table1; class PairStream; }
    namespace glut { class GlutDisplay; }
-   namespace simulation { class AirVehicle; }
 }
 
 //------------------------------------------------------------------------------

@@ -4,6 +4,7 @@
 #include "openeaagles/base/List.hpp"
 
 #include "PlaneAction.hpp"
+#include <iostream>
 
 namespace oe {
 namespace xbehaviors {

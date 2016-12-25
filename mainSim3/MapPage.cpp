@@ -2,15 +2,19 @@
 #include "MapPage.hpp"
 #include "Station.hpp"
 #include "Display.hpp"
-#include "openeaagles/simulation/Player.hpp"
+
+#include "openeaagles/models/players/Player.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
+
 #include "openeaagles/graphics/SymbolLoader.hpp"
 #include "openeaagles/graphics/Display.hpp"
+
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/util/math_utils.hpp"
 
-IMPLEMENT_SUBCLASS(MapPage,"MapTestMapPage")
+IMPLEMENT_SUBCLASS(MapPage, "MapTestMapPage")
 EMPTY_SLOTTABLE(MapPage)
 EMPTY_SERIALIZER(MapPage)
 
@@ -212,14 +216,14 @@ void MapPage::updateData(const double dt)
         oe::base::PairStream* stream = stn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
-            oe::simulation::Player* newPlayers[MAX_PLAYERS];
+            oe::models::Player* newPlayers[MAX_PLAYERS];
             unsigned int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             oe::base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
                 oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
                 if (pair != nullptr) {
-                    oe::simulation::Player* ply = dynamic_cast<oe::simulation::Player*>(pair->object());
+                    oe::models::Player* ply = dynamic_cast<oe::models::Player*>(pair->object());
                     if (ply != nullptr) {
                         newPlayers[numNewPlayers] = ply;
                         newPlayers[numNewPlayers++]->ref();
@@ -265,7 +269,7 @@ void MapPage::updateData(const double dt)
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type = 1;
-                            if (player[j]->isSide(oe::simulation::Player::RED)) type = 2;
+                            if (player[j]->isSide(oe::models::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "player");
                             if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());

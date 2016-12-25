@@ -5,7 +5,7 @@
 #include <QGraphicsItem>
 
 namespace  oe {
-   namespace simulation { class Player; }
+namespace models { class Player; }
 }
 
 class MapView;
@@ -18,7 +18,7 @@ public:
    ~PlayerItem();
 
    // update function
-   virtual void refreshPlayer(const oe::simulation::Player* const ownship);
+   virtual void refreshPlayer(const oe::models::Player* const ownship);
 
    // we can tell our PlayerItem to use a specific image file to draw
    virtual unsigned short getPlayerId() const;

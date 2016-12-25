@@ -3,11 +3,13 @@
 #include "SimStation.hpp"
 #include "configs/f16HotasIo.hpp"
 
-#include "openeaagles/simulation/Autopilot.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
-#include "openeaagles/simulation/Navigation.hpp"
+#include "openeaagles/models/systems/Autopilot.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/navigation/Navigation.hpp"
+#include "openeaagles/models/navigation/Route.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
-#include "openeaagles/simulation/Route.hpp"
+
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/IoData.hpp"
 #include "openeaagles/base/util/math_utils.hpp"
@@ -75,11 +77,11 @@ void SimIoHandler::inputDevices(const double dt)
    SimStation* const sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
    oe::simulation::Simulation* sim = nullptr;
-   oe::simulation::AirVehicle* av = nullptr;
+   oe::models::AirVehicle* av = nullptr;
 
    if (sta != nullptr) {
       sim = sta->getSimulation();
-      av = dynamic_cast<oe::simulation::AirVehicle*>(sta->getOwnship());
+      av = dynamic_cast<oe::models::AirVehicle*>(sta->getOwnship());
    }
 
    // ---
@@ -88,10 +90,10 @@ void SimIoHandler::inputDevices(const double dt)
    if (av != nullptr && sim != nullptr && inData != nullptr) {
 
       // find the (optional) autopilot
-      oe::simulation::Autopilot* ap = nullptr;
+      oe::models::Autopilot* ap = nullptr;
       {
-         oe::base::Pair* p = av->getPilotByType( typeid( oe::simulation::Autopilot) );
-         if (p != nullptr)   { ap = static_cast<oe::simulation::Autopilot*>(p->object());  }
+         oe::base::Pair* p = av->getPilotByType( typeid( oe::models::Autopilot) );
+         if (p != nullptr)   { ap = static_cast<oe::models::Autopilot*>(p->object());  }
       }
 
       // ------------------------------------------------------------
@@ -224,7 +226,7 @@ void SimIoHandler::inputDevices(const double dt)
          bool autopilotSw = false;
          inData->getDiscreteInput(PADDLE_SW, &autopilotSw);
          if (autopilotSw && !autopilotSw1) {
-            oe::simulation::Autopilot* ap = dynamic_cast<oe::simulation::Autopilot*>(av->getPilot());
+            oe::models::Autopilot* ap = dynamic_cast<oe::models::Autopilot*>(av->getPilot());
             if (ap != nullptr) {
                ap->setHeadingHoldMode(false);
                ap->setAltitudeHoldMode(false);
@@ -253,10 +255,10 @@ void SimIoHandler::inputDevices(const double dt)
          inData->getDiscreteInput(DMS_UP_SW, &incStptSw);
          if (incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
-            oe::simulation::Navigation* myNav = av->getNavigation();
+            oe::models::Navigation* myNav = av->getNavigation();
             if (myNav != nullptr) {
                myNav->ref();
-               oe::simulation::Route* myRoute = myNav->getPriRoute();
+               oe::models::Route* myRoute = myNav->getPriRoute();
                if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->incStpt();
@@ -272,10 +274,10 @@ void SimIoHandler::inputDevices(const double dt)
          inData->getDiscreteInput(DMS_DOWN_SW, &decStptSw);
          if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
-            oe::simulation::Navigation* myNav = av->getNavigation();
+            oe::models::Navigation* myNav = av->getNavigation();
             if (myNav != nullptr) {
                myNav->ref();
-               oe::simulation::Route* myRoute = myNav->getPriRoute();
+               oe::models::Route* myRoute = myNav->getPriRoute();
                if (myRoute != nullptr) {
                   myRoute->ref();
                   myRoute->decStpt();

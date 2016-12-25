@@ -1,20 +1,21 @@
 
 #include "Exp.hpp"
+
 #include "openeaagles/base/Number.hpp"
 #include <cstdlib>
 #include <cmath>
+#include <iostream>
 
 IMPLEMENT_SUBCLASS(Exp, "Exp")
-// setup slot table
+EMPTY_SERIALIZER(Exp)
+
 BEGIN_SLOTTABLE(Exp)
   "mean",
 END_SLOTTABLE(Exp)
-// map attributes to slots
+
 BEGIN_SLOT_MAP(Exp)
   ON_SLOT(1, setSlotMean, oe::base::Number)
 END_SLOT_MAP()
-// nothing to serialize
-EMPTY_SERIALIZER(Exp)
 
 Exp::Exp()
 {
@@ -54,7 +55,3 @@ bool Exp::setSlotMean(const oe::base::Number* const mean)
   return true;
 }
 
-oe::base::Object* Exp::getSlotByIndex(const int si)
-{
-  return BaseClass::getSlotByIndex(si);
-}

@@ -4,7 +4,8 @@ include ../makedefs
 PGM = mainGndMapRdr
 OBJS = Display.o factory.o main.o RealBeamRadar.o TestStation.o
 
-LDFLAGS += -loesimulation -loemodels -loeterrain
+LDFLAGS += -loemodels -lJSBSim
+LDFLAGS += -loeterrain -loesimulation
 LDFLAGS += -loeglut -loegraphics
 LDFLAGS += -loedafif -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread

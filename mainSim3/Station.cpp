@@ -101,7 +101,3 @@ bool Station::setSlotDisplay(oe::glut::GlutDisplay* dis)
     return ok;
 }
 
-oe::base::Object* Station::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
-}

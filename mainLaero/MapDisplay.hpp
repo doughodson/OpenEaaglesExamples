@@ -5,10 +5,10 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace simulation {
-      class Station;
-      class Aircraft;
-   }
+
+namespace models { class Aircraft; }
+namespace simulation { class Station; }
+
 }
 
 // -------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ class MapDisplay : public oe::glut::GlutDisplay
 public:
    MapDisplay();
 
-   oe::simulation::Aircraft* getOwnship();
+   oe::models::Aircraft* getOwnship();
    oe::simulation::Station* getStation();
 
    virtual void mouseMotionEvent(const int x, const int y) override;

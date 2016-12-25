@@ -274,9 +274,11 @@ project "testRecorderRead"
    links       { "libxrecorder" }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
+      links {"oemodels", "JSBSim" }
       links {"oerecorder", "oesimulation", "oedafif", "oebase", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
+      links {"oemodels_d", "JSBSim_d" }
       links {"oerecorder_d", "oesimulation_d", "oedafif_d", "oebase_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
@@ -296,9 +298,11 @@ project "testRecorderWrite"
    links       { "libxrecorder" }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
+      links {"oemodels", "JSBSim" }
       links {"oerecorder", "oesimulation", "oedafif", "oebase", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
+      links {"oemodels_d", "JSBSim_d" }
       links {"oerecorder_d", "oesimulation_d", "oedafif_d", "oebase_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 

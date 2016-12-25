@@ -7,9 +7,11 @@ OBJS  = SimStation.o TestDisplay.o
 OBJS += TestIoHandler.o
 OBJS += factory.o main.o
 
+LDFLAGS += -loemodels -lJSBSim
+LDFLAGS += -loedis
 LDFLAGS += -lxrecorder -lxpanel
 LDFLAGS += -loerecorder -loemodels
-LDFLAGS += -loesimulation -loeinstruments -loedis
+LDFLAGS += -loesimulation -loeinstruments
 LDFLAGS += -loeiodevice -loeotw -loedafif
 LDFLAGS += -loeglut -loegraphics -loebase
 LDFLAGS += -lprotobuf -lJSBSim

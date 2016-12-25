@@ -148,11 +148,6 @@ bool ZeroMQContext::setSlotEnableIPV6(const base::Boolean* const msg)
    return ok;
 }
 
-base::Object* ZeroMQContext::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
-}
-
 std::ostream& ZeroMQContext::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;

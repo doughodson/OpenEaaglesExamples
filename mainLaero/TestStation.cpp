@@ -1,9 +1,11 @@
 
 #include "TestStation.hpp"
 
-#include "openeaagles/simulation/Antenna.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/models/systems/Antenna.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
+
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
@@ -114,11 +116,6 @@ bool TestStation::setSlotMapDisplay(glut::GlutDisplay* const d)
    mapDisplay = d;
    mapDisplay->container(this);
    return true;
-}
-
-base::Object* TestStation::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
 }
 
 std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool slotsOnly) const

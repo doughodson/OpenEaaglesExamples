@@ -6,6 +6,7 @@
 #include "openeaagles/base/util/system.hpp"
 
 #include <cstdlib>
+#include <iostream>
 
 using namespace oe;
 

@@ -2,7 +2,8 @@
 #include "Display.hpp"
 #include "RealBeamRadar.hpp"
 
-#include "openeaagles/simulation/Player.hpp"
+#include "openeaagles/models/players/Player.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
 #include "openeaagles/simulation/Station.hpp"
 
@@ -19,11 +20,11 @@
 
 using namespace oe;
 
-IMPLEMENT_SUBCLASS(Display,"RbrDisplay")
+IMPLEMENT_SUBCLASS(Display, "RbrDisplay")
 EMPTY_SERIALIZER(Display)
 
 BEGIN_SLOTTABLE(Display)
-   "textureTest",    //  1) Texture test enabled
+   "textureTest",    //  1: Texture test enabled
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
@@ -62,11 +63,13 @@ void Display::deleteData()
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-simulation::Player* Display::getOwnship()
+models::Player* Display::getOwnship()
 {
-    simulation::Player* p = nullptr;
+    models::Player* p = nullptr;
     simulation::Station* sta = getStation();
-    if (sta != nullptr) p = sta->getOwnship();
+    if (sta != nullptr) {
+        p = dynamic_cast<models::Player*>(sta->getOwnship());
+    }
     return p;
 }
 
@@ -100,7 +103,7 @@ bool Display::setSlotTextureTest(const base::Number* const msg)
 
 void Display::drawFunc()
 {
-   simulation::Player* own = getOwnship();
+   models::Player* own = dynamic_cast<models::Player*>(getOwnship());
 
    const base::Pair* pair = nullptr;
    if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));
@@ -196,7 +199,3 @@ void Display::configure()
    glBlendFunc(GL_ONE, GL_ZERO);
 }
 
-base::Object* Display::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

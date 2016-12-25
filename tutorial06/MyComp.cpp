@@ -59,11 +59,6 @@ const oe::base::String* MyComp::getStr() const
    return str;
 }
 
-oe::base::Object* MyComp::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
-}
-
 bool MyComp::setSlotStr(const oe::base::String* const x)
 {
    bool ok = false;

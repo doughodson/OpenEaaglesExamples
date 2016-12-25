@@ -158,11 +158,6 @@ void Worm::drawFunc()
    glEnd();
 }
 
-oe::base::Object* Worm::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
-}
-
 bool Worm::realSpeed(const oe::base::Number* const rsobj)
 {
    bool ok = false;

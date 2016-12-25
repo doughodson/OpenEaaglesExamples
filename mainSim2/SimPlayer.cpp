@@ -1,7 +1,6 @@
 
 #include "SimPlayer.hpp"
 #include "openeaagles/base/List.hpp"
-#include "openeaagles/base/osg/Matrix"
 #include "openeaagles/base/units/Angles.hpp"
 
 IMPLEMENT_SUBCLASS(SimPlayer, "SimPlayer")

@@ -1,4 +1,8 @@
 
+#include "Display.hpp"
+
+#include "openeaagles/terrain/Terrain.hpp"
+
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Rgb.hpp"
 #include "openeaagles/base/Hsva.hpp"
@@ -7,12 +11,9 @@
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/Terrain.hpp"
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/util/system.hpp"
-
-#include "Display.hpp"
 
 #include <cmath>
 
@@ -37,7 +38,7 @@ BEGIN_SLOTTABLE(Display)
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
-   ON_SLOT( 1, setSlotTerrain,       base::Terrain)
+   ON_SLOT( 1, setSlotTerrain,       terrain::Terrain)
    ON_SLOT( 2, setSlotMinElevation,  base::Distance)
    ON_SLOT( 3, setSlotMaxElevation,  base::Distance)
    ON_SLOT( 4, setSlotAltitude,      base::Distance)
@@ -157,7 +158,7 @@ bool Display::clearMaxElevation()
 //------------------------------------------------------------------------------
 // Slot functions
 //------------------------------------------------------------------------------
-bool Display::setSlotTerrain(base::Terrain* const msg)
+bool Display::setSlotTerrain(terrain::Terrain* const msg)
 {
    if (terrain != nullptr) terrain->unref();
    terrain = msg;
@@ -454,15 +455,15 @@ void Display::updateData(const double dt)
 
                // Generate Masks
                if (testShadows) {
-                  base::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, NUM_ROWS, maxRng, altitude, lookAngle, beamWidth);
+                  terrain::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, NUM_ROWS, maxRng, altitude, lookAngle, beamWidth);
                }
 
                // Compute AAC data
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
                   double angle = static_cast<double>(-10.0f * base::Angle::D2RCC);
-                  osg::Vec2 vec(std::cos(angle),std::sin(angle));
-                  base::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
+                  osg::Vec2d vec(std::cos(angle),std::sin(angle));
+                  terrain::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }
 
             }
@@ -470,7 +471,7 @@ void Display::updateData(const double dt)
             // Draw a line along the Y points (moving from south to north along the latitude lines)
             for (int irow = 0; irow < NUM_ROWS; irow++) {
 
-               osg::Vec3 color(0,0,0);
+               osg::Vec3d color(0,0,0);
                double elev = 0;
                bool valid = false;
 
@@ -490,11 +491,11 @@ void Display::updateData(const double dt)
                // If valid and not masked, convert the elevation to a color (or gray) value
                if (valid && !(testShadows && maskFlgs[irow])) {
                   if (colorScale == GRAY_SCALE)
-                     base::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
+                     terrain::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
                   else if (colorScale == COLOR_SCALE)
-                     base::Terrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
+                     terrain::Terrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
                   else if (colorScale == GREEN_SCALE)
-                     base::Terrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
+                     terrain::Terrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
                }
 
                // Apply AAC data
@@ -681,8 +682,3 @@ void Display::freeImageMemory()
    }
 }
 
-
-base::Object* Display::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

@@ -4,6 +4,7 @@
 #include "openeaagles/base/NetHandler.hpp"
 #include "openeaagles/base/nethandlers/TcpHandler.hpp"
 #include "openeaagles/base/Number.hpp"
+#include <iostream>
 
 using namespace oe;
 
@@ -203,7 +204,3 @@ bool Endpoint::setSlotLoops(oe::base::Number* const msg)
     return ok;
 }
 
-base::Object* Endpoint::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

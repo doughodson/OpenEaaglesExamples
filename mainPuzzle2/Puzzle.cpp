@@ -3,22 +3,17 @@
 #include "State.hpp"
 
 #include "openeaagles/base/List.hpp"
+#include <iostream>
 
 using namespace oe;
 
 IMPLEMENT_SUBCLASS(Puzzle, "Puzzle")
 
-//------------------------------------------------------------------------------
-// Slot table for this factory type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Puzzle)
     "initState",      //  1: Our initial state
     "goalState",      //  2: Our goal state
 END_SLOTTABLE(Puzzle)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Puzzle)
     ON_SLOT( 1, setInitState, State )
     ON_SLOT( 2, setGoalState, State )
@@ -311,11 +306,6 @@ void Puzzle::clearHashTable()
       }
    }
    nhe = 0;
-}
-
-base::Object* Puzzle::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
 }
 
 std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slotsOnly) const

@@ -61,7 +61,7 @@ private:
    double dx, dy;                 // Delta position
    double speed;                  // Speed
    double sangle;                 // Starting angle (radians)
-   oe::osg::Vec2 trail[maxHist];  // Display trail
+   oe::osg::Vec2d trail[maxHist]; // Display trail
    int    nTrails;                // Trail size
    int    index;                  // Trail index
    const oe::base::Angle* iangle; // Input angle

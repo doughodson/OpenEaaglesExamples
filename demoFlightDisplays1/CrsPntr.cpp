@@ -248,7 +248,3 @@ bool CrsPntr::setSlotShowToFrom(const oe::base::Number* const newTF)
     return ok;
 }
 
-oe::base::Object* CrsPntr::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

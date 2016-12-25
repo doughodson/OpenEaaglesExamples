@@ -2,6 +2,7 @@
 #include "TestObject.hpp"
 
 #include "openeaagles/base/util/str_utils.hpp"
+#include <iostream>
 
 // disable all deprecation warnings for now, until we fix
 // they are quite annoying to see over and over again...

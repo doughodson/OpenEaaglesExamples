@@ -2,21 +2,24 @@
 #include "MapPage.hpp"
 #include "TestStation.hpp"
 #include "MapDisplay.hpp"
-#include "openeaagles/simulation/Player.hpp"
-#include "openeaagles/simulation/Autopilot.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
 
-#include "openeaagles/simulation/Navigation.hpp"
-#include "openeaagles/simulation/Route.hpp"
-#include "openeaagles/simulation/Steerpoint.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/systems/Autopilot.hpp"
+#include "openeaagles/models/navigation/Navigation.hpp"
+#include "openeaagles/models/navigation/Route.hpp"
+#include "openeaagles/models/navigation/Steerpoint.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
+
 #include "openeaagles/graphics/SymbolLoader.hpp"
-#include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/models/dynamics/LaeroModel.hpp"
 #include "openeaagles/graphics/Display.hpp"
 #include "openeaagles/graphics/Shapes.hpp"
 
+#include "openeaagles/models/dynamics/LaeroModel.hpp"
+
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
@@ -154,11 +157,11 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 
 //void MapPage::drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tas)
 //{
-   //if (pStn != 0) {
+   //if (pStn != nullptr) {
    //   simulation::Player* pPlr  = pStn->getOwnship();
-   //   if (pPlr != 0) {
+   //   if (pPlr != nullptr) {
    //      Vehicle::LaeroModel* pRac = (Vehicle::LaeroModel*) pPlr->getDynamicsModel();
-   //      if (pRac != 0) {
+   //      if (pRac != nullptr) {
 
    //         pRac->setAnchorLat(aLat);
    //         pRac->setAnchorLon(aLon);
@@ -175,9 +178,9 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 void MapPage::drawHoldingPattern()
 {
    if (pStn != nullptr) {
-      simulation::Player* pPlr  = pStn->getOwnship();
+      models::Player* pPlr  = dynamic_cast<models::Player*>(pStn->getOwnship());
       if (pPlr != nullptr) {
-         simulation::Autopilot* pRac = static_cast<simulation::Autopilot*>(pPlr->getPilot());
+         models::Autopilot* pRac = static_cast<models::Autopilot*>(pPlr->getPilot());
          if (pRac != nullptr) {
 
          //---------------------------------------------------------------------------
@@ -262,11 +265,11 @@ void MapPage::drawFunc()
       // get data pointers
       //-------------------------------------------------------
    if (pStn != nullptr) {
-      simulation::Player* pPlr  = pStn->getOwnship();
+      models::Player* pPlr  = dynamic_cast<models::Player*>(pStn->getOwnship());
       if (pPlr != nullptr) {
 
          // get the autopilot
-         simulation::Autopilot* ap = static_cast<simulation::Autopilot*>(pPlr->getPilot());
+         models::Autopilot* ap = static_cast<models::Autopilot*>(pPlr->getPilot());
          if (ap != nullptr && ap->isLoiterModeOn()) drawHoldingPattern();
 
          //---------------------------------------------------------------------------
@@ -391,13 +394,13 @@ void MapPage::updateData(const double dt)
          graphics::SymbolLoader* routeLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
             // get our player's route
-            simulation::Player* ply = pStn->getOwnship();
+            models::Player* ply = dynamic_cast<models::Player*>(pStn->getOwnship());   // DDH
             if (ply != nullptr) {
-               simulation::Navigation* nav = ply->getNavigation();
+               models::Navigation* nav = ply->getNavigation();
                if (nav != nullptr) {
-                  simulation::Route* rte = nav->getPriRoute();
+                  models::Route* rte = nav->getPriRoute();
                   if (rte != nullptr) {
-                     base::safe_ptr<simulation::Steerpoint> stpts[10];
+                     base::safe_ptr<models::Steerpoint> stpts[10];
                      unsigned int numStpts = rte->getAllSteerpoints(stpts, 10);
                      for (unsigned int i = 0; i < numStpts; i++) {
                         if (stpts[i] != nullptr) {
@@ -421,14 +424,14 @@ void MapPage::updateData(const double dt)
         base::PairStream* stream = pStn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
-            simulation::Player* newPlayers[MAX_PLAYERS];
+            models::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers = 0;
             // go through all of our non-ownship players and populate our new list
             base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
                 base::Pair* pair = static_cast<base::Pair*>(item->getValue());
                 if (pair != nullptr) {
-                    simulation::Player* pPlr = dynamic_cast<simulation::Player*>(pair->object());
+                    models::Player* pPlr = dynamic_cast<models::Player*>(pair->object());
                     if (pPlr != nullptr) {
                         newPlayers[numNewPlayers] = pPlr;
                         newPlayers[numNewPlayers++]->ref();
@@ -474,7 +477,7 @@ void MapPage::updateData(const double dt)
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type = 1;
-                            if (player[j]->isSide(simulation::Player::RED)) type = 2;
+                            if (player[j]->isSide(models::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "");              //<LDB - "player"
                             if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());

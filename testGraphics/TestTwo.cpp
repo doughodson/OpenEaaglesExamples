@@ -123,11 +123,6 @@ void TestTwo::updateData(const double dt)
     send( "v2Title", SELECT, i, v2TitleSD);
 }
 
-base::Object* TestTwo::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}
-
 std::ostream& TestTwo::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
     int j = 0;

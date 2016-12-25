@@ -5,7 +5,7 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-   namespace simulation { class Rwr; }
+namespace models { class Rwr; }
 }
 
 //------------------------------------------------------------------------------
@@ -22,16 +22,16 @@ class DspRwr : public oe::graphics::Graphic
 public:
     DspRwr();
 
-    oe::simulation::Rwr* getRwr()               { return rwr; }
-    const oe::simulation::Rwr* getRwr() const   { return rwr; }
-    void setRwr(oe::simulation::Rwr* s)         { rwr = s; }
+    oe::models::Rwr* getRwr()               { return rwr; }
+    const oe::models::Rwr* getRwr() const   { return rwr; }
+    void setRwr(oe::models::Rwr* s)         { rwr = s; }
 
     virtual void drawFunc() override;
 
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    oe::simulation::Rwr* rwr;     // The test RWR sensor
+    oe::models::Rwr* rwr;     // The test RWR sensor
 };
 
 #endif

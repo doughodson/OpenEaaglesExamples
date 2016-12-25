@@ -45,7 +45,7 @@ Display::Display()
 
     // setup a random number generator to start our colors
     base::Rng* rng = new base::Rng();
-    osg::Vec4 diffColor[MAX_MATERIALS];
+    osg::Vec4d diffColor[MAX_MATERIALS];
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator
     double x = base::getComputerTime();
@@ -173,7 +173,7 @@ void Display::updateData(const double dt)
         else myColor->setGreen(0.0);
 
         // our materials
-        osg::Vec4 diff;
+        osg::Vec4d diff;
         double x = 0, y = 0, z = 0;
         for (int i = 0; i < MAX_MATERIALS; i++) {
             if (materials[i] != nullptr) {

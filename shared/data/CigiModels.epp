@@ -4,7 +4,7 @@
 
 otwModelTypes: {
 
-    // ( Otm  formName  typeName  modelId )
+    // ( Otm  factoryName  typeName  modelId )
 
 
     // =================================================================

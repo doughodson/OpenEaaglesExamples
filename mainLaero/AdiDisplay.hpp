@@ -5,7 +5,8 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace simulation { class Station; class Aircraft; }
+namespace models { class Aircraft; }
+namespace simulation { class Station; }
 }
 
 //------------------------------------------------------------------------------
@@ -18,7 +19,7 @@ class AdiDisplay : public oe::glut::GlutDisplay
 public:
    AdiDisplay();
 
-   oe::simulation::Aircraft* getOwnship();
+   oe::models::Aircraft* getOwnship();
    oe::simulation::Station* getStation();
 
    virtual void updateData(const double dt = 0.0) override;

@@ -293,17 +293,6 @@ bool Table::setSlotColumns(base::PairStream* const msg)
    return true;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* Table::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}
-
-//------------------------------------------------------------------------------
-// serialize
-//------------------------------------------------------------------------------
 std::ostream& Table::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
     int j = 0;

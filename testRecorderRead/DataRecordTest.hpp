@@ -5,7 +5,7 @@
 #include "openeaagles/base/Component.hpp"
 
 namespace oe {
-   namespace recorder { class InputHandler; class OutputHandler; }
+namespace recorder { class InputHandler; class OutputHandler; }
 }
 
 //------------------------------------------------------------------------------

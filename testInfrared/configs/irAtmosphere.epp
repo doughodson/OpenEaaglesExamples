@@ -1,5 +1,5 @@
 
-irAtmosphere:
+atmosphere:
 ( IrAtmosphere
    
    waveBands: ( Table1

@@ -9,6 +9,7 @@
 
 // factories
 #include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
 #include "openeaagles/terrain/factory.hpp"
 #include "openeaagles/graphics/factory.hpp"
 #include "openeaagles/gui/glut/factory.hpp"
@@ -31,6 +32,7 @@ oe::base::Object* factory(const std::string& name)
     }
 
     if (obj == nullptr) obj = oe::simulation::factory(name);
+    if (obj == nullptr) obj = oe::models::factory(name);
     if (obj == nullptr) obj = oe::terrain::factory(name);
     if (obj == nullptr) obj = oe::graphics::factory(name);
     if (obj == nullptr) obj = oe::glut::factory(name);

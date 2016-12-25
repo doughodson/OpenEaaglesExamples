@@ -6,8 +6,6 @@
 
 namespace oe {
 
-namespace simulation { class Player; }
-
 namespace xbehaviors {
 
 //------------------------------------------------------------------------------

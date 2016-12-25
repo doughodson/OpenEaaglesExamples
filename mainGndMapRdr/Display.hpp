@@ -6,7 +6,8 @@
 
 namespace oe {
    namespace base { class Number; }
-   namespace simulation { class Player; class Simulation; class Station; }
+   namespace models { class Player; }
+   namespace simulation { class Simulation; class Station; }
 }
 
 // ----------------------------------------------------------------------------
@@ -26,7 +27,7 @@ class Display : public oe::glut::GlutDisplay
 public:
    Display();
 
-   oe::simulation::Player* getOwnship();
+   oe::models::Player* getOwnship();
    oe::simulation::Simulation* getSimulation();
    oe::simulation::Station* getStation();
 

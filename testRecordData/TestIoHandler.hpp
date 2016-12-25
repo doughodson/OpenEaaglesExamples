@@ -4,10 +4,6 @@
 
 #include "openeaagles/base/IoHandler.hpp"
 
-namespace oe {
-   namespace simulation { class AirVehicle; }
-}
-
 //------------------------------------------------------------------------------
 // Class: TestIoHandler
 //

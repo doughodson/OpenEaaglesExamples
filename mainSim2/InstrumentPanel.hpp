@@ -3,10 +3,10 @@
 #define __InstrumentPanel_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
-#include "openeaagles/simulation/Player.hpp"
 
 namespace oe {
-   namespace simulation { class Player; class Simulation; class Station; }
+   namespace models { class Player; }
+   namespace simulation { class Simulation; class Station; }
 }
 
 class DedDisplay;
@@ -29,7 +29,7 @@ class InstrumentPanel : public oe::glut::GlutDisplay
 public:
    InstrumentPanel();
 
-   oe::simulation::Player* getOwnship();
+   oe::models::Player* getOwnship();
    oe::simulation::Simulation* getSimulation();
    oe::simulation::Station* getStation();
 
@@ -50,7 +50,7 @@ private:
    SendData altitudeSD;
 
    // VVI Stuff
-   oe::osg::Vec3 vvi;          // velocity vector
+   oe::osg::Vec3d vvi;         // velocity vector
    SendData vviSD;
    double pastVvi;             // our past vvi value (to create a linear filter)
 

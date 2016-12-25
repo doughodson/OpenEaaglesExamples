@@ -5,7 +5,7 @@
 #include "openeaagles/graphics/MapPage.hpp"
 
 namespace oe {
-   namespace simulation { class Player; }
+   namespace models { class Player; }
    namespace graphics { class SymbolLoader; }
 }
 
@@ -37,7 +37,7 @@ private:
    static const int MAX_PLAYERS = 200;
    static const int MAX_READOUTS = 20;
 
-   oe::simulation::Player* player[MAX_PLAYERS];   // player pointer
+   oe::models::Player* player[MAX_PLAYERS];       // player pointer
    int playerIdx[MAX_PLAYERS];                    // index of our symbol for the given player
    // player symbol loader
    oe::graphics::SymbolLoader* loader;            // holds our loader for quick reference

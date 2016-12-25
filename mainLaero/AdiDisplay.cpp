@@ -3,8 +3,9 @@
 
 #include "TestStation.hpp"
 
-#include "openeaagles/simulation/AirVehicle.hpp"
-#include "openeaagles/base/osg/Vec3"
+#include "openeaagles/models/players/AirVehicle.hpp"
+
+#include "openeaagles/base/osg/Vec3d"
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
@@ -68,7 +69,7 @@ void AdiDisplay::updateData(const double dt)
    oe::osg::Vec3d av;
 
    // get access pointer to ownship
-   simulation::Aircraft* pA = getOwnship();
+   models::Aircraft* pA = getOwnship();
    if (pA != nullptr) {
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
@@ -115,12 +116,12 @@ simulation::Station* AdiDisplay::getStation()
    return myStation;
 }
 
-simulation::Aircraft* AdiDisplay::getOwnship()
+models::Aircraft* AdiDisplay::getOwnship()
 {
-   simulation::Aircraft* pA = nullptr;
+   models::Aircraft* pA = nullptr;
    simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      pA = dynamic_cast<simulation::Aircraft*>(sta->getOwnship());
+      pA = dynamic_cast<models::Aircraft*>(sta->getOwnship());
 
       //const unsigned int ffrate = 5;    //LDB
       //sta->setFastForwardRate(ffrate);  //LDB

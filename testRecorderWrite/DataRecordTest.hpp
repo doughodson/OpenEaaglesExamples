@@ -2,19 +2,24 @@
 #ifndef __DataRecordTest_H__
 #define __DataRecordTest_H__
 
-#include "openeaagles/base/Component.hpp"
-#include "openeaagles/recorder/TabPrinter.hpp"
-#include "openeaagles/recorder/PrintPlayer.hpp"
-#include "openeaagles/recorder/PrintSelected.hpp"
-#include "openeaagles/recorder/FileWriter.hpp"
-#include "openeaagles/recorder/FileReader.hpp"
-#include "openeaagles/recorder/DataRecorder.hpp"
-#include "openeaagles/recorder/protobuf/DataRecord.pb.h"
+#include "openeaagles/recorder/OutputHandler.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/recorder/PrintSelected.hpp"
+
+#include <string>
 
 namespace oe {
-   namespace Recorder { class DataRecorder; class TabPrinter; class FileWriter; class PrintSelected; }
+
+namespace base { class String; }
+
+namespace recorder {
+class TabPrinter;
+class FileWriter;
+class FileReader;
+class DataRecorder;
+class PrintPlayer;
+class DataRecordHandle;
+}
 }
 
 //------------------------------------------------------------------------------
@@ -112,7 +117,6 @@ private:
       bool timeOnly;
    };
    SelectionCriteria selection[20];
-
 };
 
 #endif

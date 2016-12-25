@@ -5,6 +5,7 @@
 #include "TerrainFollower.hpp"
 #include "openeaagles/base/Number.hpp"
 #include <GL/glu.h>
+#include <iostream>
 
 using namespace oe;
 

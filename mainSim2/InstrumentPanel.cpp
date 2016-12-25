@@ -3,9 +3,13 @@
 #include "SimStation.hpp"
 #include "SimPlayer.hpp"
 
-#include "openeaagles/instruments/eadi3d/Eadi3DPage.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/players/Player.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
+
+#include "openeaagles/instruments/eadi3d/Eadi3DPage.hpp"
+
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/units/Angles.hpp"
@@ -39,11 +43,11 @@ void InstrumentPanel::copyData(const InstrumentPanel& org, const bool)
    myStation = nullptr;
 }
 
-oe::simulation::Player* InstrumentPanel::getOwnship()
+oe::models::Player* InstrumentPanel::getOwnship()
 {
-   oe::simulation::Player* p = nullptr;
+   oe::models::Player* p = nullptr;
    oe::simulation::Station* sta = getStation();
-   if (sta != nullptr) p = sta->getOwnship();
+   if (sta != nullptr) p = dynamic_cast<oe::models::Player*>(sta->getOwnship());
    return p;
 }
 
@@ -72,7 +76,7 @@ void InstrumentPanel::updateData(const double dt)
    // try to get an Sim3 first.  If that doesn't work, then get a generic air vehicle
    // Get the data from our ownship, if we have a valid one.  Else everything goes to a default value
    // we need to dynamically cast to an AirVehicle* for this instrument panel
-   oe::simulation::AirVehicle* tempOwnship = dynamic_cast<oe::simulation::AirVehicle*>( getOwnship() );
+   oe::models::AirVehicle* tempOwnship = dynamic_cast<oe::models::AirVehicle*>( getOwnship() );
    if (tempOwnship != nullptr) {
       tempOwnship->ref();
 #if 0

@@ -1,6 +1,7 @@
 
 #include "SpdLines.hpp"
 #include "openeaagles/base/Number.hpp"
+#include <iostream>
 
 using namespace oe;
 
@@ -149,7 +150,3 @@ bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
     return ok;
 }
 
-base::Object* SpdLines::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

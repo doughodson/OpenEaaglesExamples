@@ -4,7 +4,6 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/Integer.hpp"
 #include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/otw/OtwPC.hpp"
 #include "openeaagles/base/util/system.hpp"
 
 // factories

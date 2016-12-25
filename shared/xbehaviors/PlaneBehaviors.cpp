@@ -86,15 +86,6 @@ bool PlaneBehaviorBase::setSlotVoteOnIncomingMissile(const base::Number* const n
    return ok;
 }
 
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Graphic
-//------------------------------------------------------------------------------
-base::Object* PlaneBehaviorBase::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}
-
-
 IMPLEMENT_SUBCLASS(PlaneFire, "PlaneFire")
 EMPTY_COPYDATA(PlaneFire)
 EMPTY_SERIALIZER(PlaneFire)
@@ -142,14 +133,6 @@ bool PlaneFire::setSlotMaxDistance(const base::Distance* const msg)
        ok = true;
     }
     return ok;
-}
-
-//------------------------------------------------------------------------------
-// getSlotByIndex() for Graphic
-//------------------------------------------------------------------------------
-base::Object* PlaneFire::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
 }
 
 

@@ -2,8 +2,9 @@
 #include "TestStation.hpp"
 #include "Display.hpp"
 
-#include "openeaagles/simulation/Gimbal.hpp"
-#include "openeaagles/simulation/Player.hpp"
+#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/systems/Gimbal.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/base/Identifier.hpp"
@@ -11,11 +12,10 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/osg/Vec4"
 
 using namespace oe;
 
-IMPLEMENT_SUBCLASS(TestStation,"TestStation")
+IMPLEMENT_SUBCLASS(TestStation, "TestStation")
 EMPTY_SERIALIZER(TestStation)
 EMPTY_DELETEDATA(TestStation)
 
@@ -72,7 +72,3 @@ bool TestStation::setDisplay(Display* const d)
     return true;
 }
 
-base::Object* TestStation::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

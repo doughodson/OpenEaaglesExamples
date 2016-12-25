@@ -3,6 +3,7 @@
 #include "State.hpp"
 
 #include "openeaagles/base/List.hpp"
+#include <iostream>
 
 IMPLEMENT_SUBCLASS(Puzzle, "Puzzle")
 
@@ -295,11 +296,6 @@ void Puzzle::clearHashTable()
       }
    }
    nhe = 0;
-}
-
-oe::base::Object* Puzzle::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
 }
 
 std::ostream& Puzzle::serialize(std::ostream& sout, const int i, const bool slotsOnly) const

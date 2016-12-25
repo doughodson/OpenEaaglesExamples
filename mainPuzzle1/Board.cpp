@@ -316,11 +316,6 @@ bool Board::setSlotTemplates(const oe::base::PairStream* const p)
    return true;
 }
 
-oe::base::Object* Board::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}
-
 std::ostream& Board::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;

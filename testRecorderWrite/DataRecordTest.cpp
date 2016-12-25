@@ -16,9 +16,10 @@
 
 #include "openeaagles/recorder/protobuf/DataRecord.pb.h"
 
+#include "openeaagles/models/players/Player.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
 #include "openeaagles/simulation/Station.hpp"
-#include "openeaagles/simulation/Player.hpp"
 #include "openeaagles/simulation/DataRecorder.hpp"
 
 #include "openeaagles/base/String.hpp"
@@ -229,11 +230,6 @@ bool DataRecordTest::setSlotRecordData(simulation::DataRecorder* const p)
       ok = true;
    }
    return ok;
-}
-
-base::Object* DataRecordTest::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
 }
 
 bool DataRecordTest::testSerialize()

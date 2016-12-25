@@ -494,11 +494,6 @@ bool State::setSlotBlocks(const base::PairStream* const msg)
    return ok;
 }
 
-base::Object* State::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}
-
 std::ostream& State::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;

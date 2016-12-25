@@ -3,12 +3,11 @@
 #include "TestStation.hpp"
 #include "MapPage.hpp"
 
+#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/systems/Autopilot.hpp"
 #include "openeaagles/models/dynamics/LaeroModel.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
-#include "openeaagles/simulation/Autopilot.hpp"
-#include "openeaagles/simulation/Player.hpp"
 
-#include "openeaagles/base/osg/Vec3"
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
@@ -171,10 +170,10 @@ void MapDisplay::buttonEvent(const int b)
    MapPage* page = static_cast<MapPage*>(subpage());
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
-   simulation::Player* pA = getOwnship();
-   simulation::Autopilot* ap = nullptr;
+   models::Player* pA = getOwnship();
+   models::Autopilot* ap = nullptr;
    if (pA != nullptr) {
-      ap = static_cast<simulation::Autopilot*>(pA->getPilot());
+      ap = static_cast<models::Autopilot*>(pA->getPilot());
    }
    if (page != nullptr && ap != nullptr) {
       if (b == DEC_RANGE) {
@@ -322,9 +321,9 @@ void MapDisplay::updateData(const double dt)
    double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
    // default to autopilot mode off
    int apMode = 1;
-   simulation::Aircraft* pA = static_cast<simulation::Aircraft*>(getOwnship());
+   models::Aircraft* pA = static_cast<models::Aircraft*>(getOwnship());
    if (pA != nullptr) {
-      simulation::Autopilot* ap = static_cast<simulation::Autopilot*>(pA->getPilot());
+      models::Autopilot* ap = static_cast<models::Autopilot*>(pA->getPilot());
       if (ap != nullptr) {
          // button visibility is based on autopilot being in NO modes
          apButtonsVis = (ap->isNavModeOn() || ap->isLoiterModeOn() || ap->isFollowTheLeadModeOn());
@@ -369,12 +368,12 @@ simulation::Station* MapDisplay::getStation()
     return myStation;
 }
 
-simulation::Aircraft* MapDisplay::getOwnship()
+models::Aircraft* MapDisplay::getOwnship()
 {
-   simulation::Aircraft* p = nullptr;
+   models::Aircraft* p = nullptr;
    simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      p = dynamic_cast<simulation::Aircraft*>(sta->getOwnship());
+      p = dynamic_cast<models::Aircraft*>(sta->getOwnship());
    }
    return p;
 }

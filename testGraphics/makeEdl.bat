@@ -1,7 +1,7 @@
 rem
 call ..\makedefs.bat
 rem
-%mcpp% configs/test.epp  > test.edl ^
+%mcpp% configs/test1.epp  > test1.edl ^
  -I ..\shared\data ^
  -DFONT_PATH="\"../shared/data/fonts/\"" ^
  -DFONT_11_19_PATH="\"../shared/data/fonts/11x19/normal/\"" ^

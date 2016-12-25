@@ -179,11 +179,6 @@ bool Block::setSlotRefId(const oe::base::Integer* const msg)
    return ok;
 }
 
-oe::base::Object* Block::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}
-
 std::ostream& Block::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
    int j = 0;

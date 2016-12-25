@@ -166,7 +166,3 @@ bool Tester::setSlotTimers(const oe::base::PairStream* const msg)
    return true;
 }
 
-oe::base::Object* Tester::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

@@ -1,10 +1,11 @@
 
 #include "DspRadar.hpp"
 
-#include "openeaagles/simulation/Antenna.hpp"
-#include "openeaagles/simulation/Radar.hpp"
-#include "openeaagles/simulation/Track.hpp"
-#include "openeaagles/simulation/TrackManager.hpp"
+#include "openeaagles/models/systems/Antenna.hpp"
+#include "openeaagles/models/systems/Radar.hpp"
+#include "openeaagles/models/Track.hpp"
+#include "openeaagles/models/systems/TrackManager.hpp"
+
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/Hsv.hpp"
@@ -13,7 +14,7 @@
 namespace oe {
 namespace xpanel {
 
-IMPLEMENT_SUBCLASS(DspRadar,"DspRadar")
+IMPLEMENT_SUBCLASS(DspRadar, "DspRadar")
 EMPTY_SLOTTABLE(DspRadar)
 EMPTY_SERIALIZER(DspRadar)
 EMPTY_DELETEDATA(DspRadar)
@@ -42,7 +43,7 @@ void DspRadar::copyData(const DspRadar& org, const bool)
 
 void DspRadar::updateData(const double dt)
 {
-   const simulation::Antenna* antenna = nullptr;
+   const models::Antenna* antenna = nullptr;
    nTracks = 0;
    ntsTrk = -1;
 
@@ -52,15 +53,15 @@ void DspRadar::updateData(const double dt)
       antenna = radar->getAntenna();
 
       // Get our track manager
-      const simulation::TrackManager* tm = radar->getTrackManager();
+      const models::TrackManager* tm = radar->getTrackManager();
 
       // ---
       // Get the track list and convert them to display coordinates
       if (tm != nullptr) {
-         base::safe_ptr<simulation::Track> trackList[MAX_TRKS];
+         base::safe_ptr<models::Track> trackList[MAX_TRKS];
          unsigned int n = tm->getTrackList(trackList,MAX_TRKS);
          for (unsigned int i = 0; i < n; i++) {
-            osg::Vec3 pos = trackList[i]->getPosition();
+            osg::Vec3d pos = trackList[i]->getPosition();
             trkRng[nTracks]       = pos.length();
             trkAz[nTracks]        = trackList[i]->getRelAzimuth();
             trkVel[nTracks]       = trackList[i]->getGroundSpeed();
@@ -102,8 +103,8 @@ void DspRadar::drawFunc()
    // Draw the B-Scan
    // ---
    {
-      osg::Vec4   rgb;
-      osg::Vec4   hsv;
+      osg::Vec4d rgb;
+      osg::Vec4d hsv;
 
       unsigned int n = radar->getNumSweeps();
       unsigned int nv = radar->getPtrsPerSweep();
@@ -155,9 +156,9 @@ void DspRadar::drawFunc()
    // Draw the tracks
    // ---
    {
-      osg::Vec4   rgb;
-      osg::Vec4   ntsRGB;
-      osg::Vec4   hsv;
+      osg::Vec4d rgb;
+      osg::Vec4d ntsRGB;
+      osg::Vec4d hsv;
 
       // Vertices of the basic symbol
       //static double maxRng = 40000.0;

@@ -7,6 +7,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <iostream>
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+

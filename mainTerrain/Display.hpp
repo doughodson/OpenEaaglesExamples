@@ -5,7 +5,8 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace base { class Angle; class Distance; class Number; class Terrain; }
+   namespace base { class Angle; class Distance; class Number; }
+   namespace terrain { class Terrain; }
 }
 
 class MainWindow;
@@ -42,7 +43,7 @@ public:
 public:
    Display();
 
-   const oe::base::Terrain* getTerrain() const              { return terrain; }
+   const oe::terrain::Terrain* getTerrain() const              { return terrain; }
 
    bool isMinElevValid() const { return haveMinElev; }      // Ture if the min elevation is valid
    double getMinElevation() const { return minElev; }       // Returns the min elevation (meters)
@@ -55,7 +56,7 @@ public:
    virtual bool clearMaxElevation();                        // Clears the max elevation (using datafile max elevation)
 
    // Slot functions
-   virtual bool setSlotTerrain(oe::base::Terrain* const msg);
+   virtual bool setSlotTerrain(oe::terrain::Terrain* const msg);
    virtual bool setSlotMinElevation(const oe::base::Distance* const msg);
    virtual bool setSlotMaxElevation(const oe::base::Distance* const msg);
    virtual bool setSlotAltitude(const oe::base::Distance* const msg);
@@ -79,7 +80,7 @@ private:
    bool copyImageMemory(const Display& org);
    void freeImageMemory();
 
-   oe::base::Terrain* terrain;         // Terrain data
+   oe::terrain::Terrain* terrain;      // Terrain data
    double            maxElev;          // Max elevation (meters)
    double            minElev;          // Min elevation (meters)
    double            altitude;         // Ref altitude (meters)

@@ -5,7 +5,8 @@
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/Timers.hpp"
 
-#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
@@ -100,8 +101,8 @@ void TestStation::stepOwnshipPlayer()
    oe::base::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
-      oe::simulation::Player* f = nullptr;
-      oe::simulation::Player* n = nullptr;
+      oe::models::Player* f = nullptr;
+      oe::models::Player* n = nullptr;
       bool found = false;
 
       // Find the next player
@@ -109,8 +110,8 @@ void TestStation::stepOwnshipPlayer()
       while (item != nullptr) {
          oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            oe::simulation::Player* ip = static_cast<oe::simulation::Player*>( pair->object() );
-            if ( ip->isMode(oe::simulation::Player::ACTIVE) &&
+            oe::models::Player* ip = static_cast<oe::models::Player*>( pair->object() );
+            if ( ip->isMode(oe::models::Player::ACTIVE) &&
                ip->isLocalPlayer()
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first
@@ -132,11 +133,6 @@ bool TestStation::setSlotGlutDisplay(oe::glut::GlutDisplay* const d)
     glutDisplay = d;
     glutDisplay->container(this);
     return true;
-}
-
-oe::base::Object* TestStation::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
 }
 
 std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool slotsOnly) const

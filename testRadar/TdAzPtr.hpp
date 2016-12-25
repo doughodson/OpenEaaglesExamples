@@ -5,7 +5,7 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-   namespace base { class Number; }
+namespace base { class Number; }
 }
 
 //------------------------------------------------------------------------------

@@ -3,19 +3,18 @@
 
 #include "openeaagles/simulation/Simulation.hpp"
 #include "openeaagles/simulation/Station.hpp"
-#include "openeaagles/simulation/Player.hpp"
+
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/Pair.hpp"
 
-// factories
 #include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
 #include "openeaagles/base/factory.hpp"
 #include "openeaagles/recorder/factory.hpp"
 
 #include <string>
 #include <cstdlib>
 
-// our class factory
 oe::base::Object* factory(const std::string& name)
 {
    oe::base::Object* obj = nullptr;
@@ -26,6 +25,7 @@ oe::base::Object* factory(const std::string& name)
    }
    else {
       if (obj == nullptr) obj = oe::simulation::factory(name);
+      if (obj == nullptr) obj = oe::models::factory(name);
       if (obj == nullptr) obj = oe::base::factory(name);
       if (obj == nullptr) obj = oe::recorder::factory(name);
    }

@@ -2,8 +2,11 @@
 #include "SimStation.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
+
+#include "openeaagles/models/players/AirVehicle.hpp"
+
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
+
 #include "openeaagles/base/Identifier.hpp"
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/NetHandler.hpp"
@@ -119,8 +122,8 @@ void SimStation::stepOwnshipPlayer()
    base::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
-      simulation::Player* f = nullptr;
-      simulation::Player* n = nullptr;
+      models::Player* f = nullptr;
+      models::Player* n = nullptr;
       bool found = false;
 
       // Find the next player
@@ -128,10 +131,10 @@ void SimStation::stepOwnshipPlayer()
       while (item != nullptr) {
          base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            simulation::Player* ip = static_cast<simulation::Player*>(pair->object());
-            if ( ip->isMode(simulation::Player::ACTIVE) &&
+            models::Player* ip = static_cast<models::Player*>(pair->object());
+            if ( ip->isMode(models::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
-               ip->isClassType(typeid(simulation::AirVehicle))
+               ip->isClassType(typeid(models::AirVehicle))
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first
                   if (found)        { n = ip; ; break; }
@@ -173,7 +176,3 @@ bool SimStation::setSlotAutoResetTime(const base::Time* const num)
     return true;
 }
 
-base::Object* SimStation::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

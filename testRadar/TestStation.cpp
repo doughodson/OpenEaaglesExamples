@@ -1,9 +1,11 @@
 
 #include "TestStation.hpp"
 
-#include "openeaagles/simulation/Antenna.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/models/systems/Antenna.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
+
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
@@ -110,8 +112,8 @@ void TestStation::stepOwnshipPlayer()
    base::PairStream* pl = getSimulation()->getPlayers();
    if (pl != nullptr) {
 
-      simulation::Player* f = nullptr;
-      simulation::Player* n = nullptr;
+      models::Player* f = nullptr;
+      models::Player* n = nullptr;
       bool found = false;
 
       // Find the next player
@@ -119,10 +121,10 @@ void TestStation::stepOwnshipPlayer()
       while (item != nullptr) {
          base::Pair* pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            simulation::Player* ip = static_cast<simulation::Player*>(pair->object());
-            if ( ip->isMode(simulation::Player::ACTIVE) &&
+            models::Player* ip = static_cast<models::Player*>(pair->object());
+            if ( ip->isMode(models::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
-               ip->isClassType(typeid(simulation::AirVehicle))
+               ip->isClassType(typeid(models::AirVehicle))
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first
                   if (found) { n = ip; ; break; }
@@ -143,11 +145,6 @@ bool TestStation::setSlotGlutDisplay(glut::GlutDisplay* const d)
    glutDisplay = d;
    glutDisplay->container(this);
    return true;
-}
-
-base::Object* TestStation::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
 }
 
 std::ostream& TestStation::serialize(std::ostream& sout, const int i, const bool slotsOnly) const

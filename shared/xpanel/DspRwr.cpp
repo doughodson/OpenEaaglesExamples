@@ -1,7 +1,8 @@
 
 #include "DspRwr.hpp"
 
-#include "openeaagles/simulation/Rwr.hpp"
+#include "openeaagles/models/systems/Rwr.hpp"
+
 #include "openeaagles/base/units/Angles.hpp"
 
 namespace oe {

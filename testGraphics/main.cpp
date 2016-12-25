@@ -1,6 +1,4 @@
-//------------------------------------------------------------------------------
-// Test of graphics system
-//------------------------------------------------------------------------------
+
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/Timers.hpp"
 #include "openeaagles/base/edl_parser.hpp"
@@ -129,7 +127,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename = "test.edl";
+   std::string configFilename = "test1.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {

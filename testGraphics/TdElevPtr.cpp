@@ -1,10 +1,11 @@
 
 #include "TdElevPtr.hpp"
 #include "openeaagles/base/Number.hpp"
+#include <iostream>
 
 using namespace oe;
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr, "TdElevPtr")
 EMPTY_SERIALIZER(TdElevPtr)
 EMPTY_DELETEDATA(TdElevPtr)
 

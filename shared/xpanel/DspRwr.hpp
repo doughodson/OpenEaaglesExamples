@@ -5,7 +5,8 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-   namespace simulation { class Rwr; }
+
+namespace models { class Rwr; }
 
 namespace xpanel {
 
@@ -18,21 +19,21 @@ namespace xpanel {
 //------------------------------------------------------------------------------
 class DspRwr : public graphics::Graphic
 {
-    DECLARE_SUBCLASS(DspRwr,graphics::Graphic)
+    DECLARE_SUBCLASS(DspRwr, graphics::Graphic)
 
 public:
     DspRwr();
 
-    simulation::Rwr* getRwr()             { return rwr; }
-    const simulation::Rwr* getRwr() const { return rwr; }
-    void setRwr(simulation::Rwr* s)       { rwr = s; }
+    models::Rwr* getRwr()             { return rwr; }
+    const models::Rwr* getRwr() const { return rwr; }
+    void setRwr(models::Rwr* s)       { rwr = s; }
 
     virtual void drawFunc() override;
 
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    simulation::Rwr* rwr;     // The test RWR sensor
+    models::Rwr* rwr;     // The test RWR sensor
 };
 
 }

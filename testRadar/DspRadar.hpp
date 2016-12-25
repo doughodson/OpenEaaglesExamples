@@ -5,8 +5,8 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-   namespace base      { class PairStream; }
-   namespace simulation { class Radar; }
+   namespace base { class PairStream; }
+   namespace models { class Radar; }
 }
 
 //------------------------------------------------------------------------------
@@ -22,16 +22,16 @@ class DspRadar : public oe::graphics::Graphic
 public:
    DspRadar();
 
-   const oe::simulation::Radar* getRadar()         { return radar; }
-   const oe::simulation::Radar* getRadar() const   { return radar; }
-   bool setRadar(oe::simulation::Radar* const s)   { radar = s; return true; }
+   const oe::models::Radar* getRadar()             { return radar; }
+   const oe::models::Radar* getRadar() const       { return radar; }
+   bool setRadar(oe::models::Radar* const s)       { radar = s; return true; }
 
    virtual void drawFunc() override;
 
    virtual void updateData(const double dt = 0.0) override;
 
 private:
-    const oe::simulation::Radar* radar;     // The test RADAR sensor
+    const oe::models::Radar* radar;     // The test RADAR sensor
     SendData azSD;
     SendData elSD;
 

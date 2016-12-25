@@ -2,10 +2,11 @@
 #ifndef __RealBeamRadar_H__
 #define __RealBeamRadar_H__
 
-#include "openeaagles/simulation/Radar.hpp"
+#include "openeaagles/models/systems/Radar.hpp"
 
 namespace oe {
-   namespace base { class Angle; class Distance; class Number; class Terrain; }
+   namespace base { class Angle; class Distance; class Number; }
+   namespace terrain { class Terrain; }
 }
 
 //------------------------------------------------------------------------------
@@ -13,15 +14,15 @@ namespace oe {
 //
 // Description: Real-Beam Radar Model
 //------------------------------------------------------------------------------
-class RealBeamRadar : public oe::simulation::Radar
+class RealBeamRadar : public oe::models::Radar
 {
-    DECLARE_SUBCLASS(RealBeamRadar, oe::simulation::Radar)
+    DECLARE_SUBCLASS(RealBeamRadar, oe::models::Radar)
 
 public:
     RealBeamRadar();
 
-   const oe::base::Terrain* getTerrain() const                      { return terrain; }
-   virtual bool setTerrain(const oe::base::Terrain* const msg);
+   const oe::terrain::Terrain* getTerrain() const                      { return terrain; }
+   virtual bool setTerrain(const oe::terrain::Terrain* const msg);
 
    double getAltitude() const                     { return altitude; }    // Ref altitude (meters)
    double getAntennaAzimuthAngle() const          { return antAzAngle; }  // Antenna look angle (degs)
@@ -55,14 +56,14 @@ private:
    bool copyImageMemory(const RealBeamRadar& org);
    void freeImageMemory();
 
-   const oe::base::Terrain* terrain;   // Terrain data
-   double            altitude;         // Ref altitude (meters)
-   double            antAzAngle;       // Antenna azimuth angle (degs)
-   double            antElAngle;       // Antenna elevation angle (degs)
-   int               ray0;             // Last ray generated
-   double            beamWidth;        // Antenna beam width (degs)
-   bool              interpolate;      // Interpolate flag
-   bool              fpass;            // First pass flag
+   const oe::terrain::Terrain* terrain;  // Terrain data
+   double            altitude;               // Ref altitude (meters)
+   double            antAzAngle;             // Antenna azimuth angle (degs)
+   double            antElAngle;             // Antenna elevation angle (degs)
+   int               ray0;                   // Last ray generated
+   double            beamWidth;              // Antenna beam width (degs)
+   bool              interpolate;            // Interpolate flag
+   bool              fpass;                  // First pass flag
 
    double*           elevations;       // Terrain elevations
    bool*             validFlgs;        // Terrain elevation flag flags

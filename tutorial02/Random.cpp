@@ -1,6 +1,7 @@
 
 #include "Random.hpp"
 #include <cstdlib>
+#include <iostream>
 
 IMPLEMENT_SUBCLASS(Random, "Random")
 EMPTY_SLOTTABLE(Random)

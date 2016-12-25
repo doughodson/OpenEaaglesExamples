@@ -4,13 +4,14 @@
 #include "openeaagles/base/List.hpp"
 #include "openeaagles/base/PairStream.hpp"
 
-#include "openeaagles/simulation/Radar.hpp"
-#include "openeaagles/simulation/TrackManager.hpp"
-#include "openeaagles/simulation/Track.hpp"
-#include "openeaagles/simulation/OnboardComputer.hpp"
-#include "openeaagles/simulation/StoresMgr.hpp"
-#include "openeaagles/simulation/Missile.hpp"
-#include "openeaagles/simulation/AirVehicle.hpp"
+#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/players/Missile.hpp"
+#include "openeaagles/models/systems/Radar.hpp"
+#include "openeaagles/models/systems/TrackManager.hpp"
+#include "openeaagles/models/Track.hpp"
+#include "openeaagles/models/systems/OnboardComputer.hpp"
+#include "openeaagles/models/systems/StoresMgr.hpp"
+
 #include "openeaagles/simulation/Simulation.hpp"
 
 namespace oe {
@@ -66,11 +67,11 @@ void PlaneState::reset()
 
 void PlaneState::updateState(const base::Component* const actor)
 {
-   const simulation::AirVehicle* airVehicle = dynamic_cast<const simulation::AirVehicle*>(actor);
+   const models::AirVehicle* airVehicle = dynamic_cast<const models::AirVehicle*>(actor);
    setAlive(false);
    if (airVehicle != nullptr && airVehicle->isActive()) {
       setAltitude(airVehicle->getAltitude());
-      setAlive(airVehicle->getMode() == simulation::Player::ACTIVE);
+      setAlive(airVehicle->getMode() == models::Player::ACTIVE);
       setHeading(airVehicle->getHeading());
       setPitch(airVehicle->getPitch());
       setRoll(airVehicle->getRoll());
@@ -88,7 +89,7 @@ void PlaneState::updateState(const base::Component* const actor)
 
       // determine if we have a missile to fire
 #if 1
-      const simulation::StoresMgr* stores = airVehicle->getStoresManagement();
+      const models::StoresMgr* stores = airVehicle->getStoresManagement();
       if (stores == nullptr || stores->getNextMissile() == nullptr) {
          // either we have no SMS, or we have no more missile
          setMissileFired(true);
@@ -103,8 +104,8 @@ void PlaneState::updateState(const base::Component* const actor)
          for (const base::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {
             // Get the pointer to the target player
             const base::Pair* pair = static_cast<const base::Pair*>(item->getValue());
-            const simulation::Player* player = static_cast<const simulation::Player*>(pair->object());
-            if (player->isMajorType(simulation::Player::WEAPON) && (player->isActive() || player->isMode(simulation::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
+            const models::Player* player = static_cast<const models::Player*>(pair->object());
+            if (player->isMajorType(models::Player::WEAPON) && (player->isActive() || player->isMode(models::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
                // our side has a weapon on-the-way/in-the-air;
                setMissileFired(true);
                finished=true;
@@ -115,7 +116,7 @@ void PlaneState::updateState(const base::Component* const actor)
       // this state class has no way to determine whether we've fired a missile other than checking to see if sms is out of missiles to fire.
       // which means, it will fire all its missiles at first target.
       const simulation::StoresMgr* stores = airVehicle->getStoresManagement();
-      if (stores != 0) {
+      if (stores != nullptr) {
          const simulation::Missile* wpn = stores->getNextMissile();
          if (!wpn)
             setMissileFired(true);
@@ -128,14 +129,14 @@ void PlaneState::updateState(const base::Component* const actor)
 
       //const base::String* playerName = airVehicle->getName();
       // DH - DOES NOT COMPILE WITH CONST -- ????
-      simulation::AirVehicle* airVehicleX = const_cast<simulation::AirVehicle*>(airVehicle);
-      const base::Pair* sensorPair = airVehicleX->getSensorByType(typeid(simulation::Radar));
+      models::AirVehicle* airVehicleX = const_cast<models::AirVehicle*>(airVehicle);
+      const base::Pair* sensorPair = airVehicleX->getSensorByType(typeid(models::Radar));
 
       if (sensorPair != nullptr) {
-         const simulation::Radar* radar = static_cast<const simulation::Radar*>(sensorPair->object());
+         const models::Radar* radar = static_cast<const models::Radar*>(sensorPair->object());
          if (radar != nullptr) {
-            const simulation::TrackManager* trackManager = radar->getTrackManager();
-            base::safe_ptr<simulation::Track> trackList[50];
+            const models::TrackManager* trackManager = radar->getTrackManager();
+            base::safe_ptr<models::Track> trackList[50];
             unsigned int nTracks = trackManager->getTrackList(trackList, 50);
 
             for (int trackIndex = nTracks -1; trackIndex >= 0; trackIndex--) {
@@ -153,10 +154,10 @@ void PlaneState::updateState(const base::Component* const actor)
                // hack to implement "missile warning"
                if (isIncomingMissile() == false) {
                   // is this track a weapon, and if so, is it targeting me?
-                  simulation::Player* target = trackList[trackIndex]->getTarget();
-                  simulation::Weapon* weapon = dynamic_cast<simulation::Weapon*> (target);
+                  models::Player* target = trackList[trackIndex]->getTarget();
+                  models::Weapon* weapon = dynamic_cast<models::Weapon*> (target);
                   if (weapon!=nullptr && !weapon->isDead()) {
-                     simulation::Player* wpntgt = weapon->getTargetPlayer();
+                     models::Player* wpntgt = weapon->getTargetPlayer();
                      if (wpntgt == airVehicle) {
                         setIncomingMissile(true);
                      }
@@ -167,15 +168,15 @@ void PlaneState::updateState(const base::Component* const actor)
          }
       }
 
-      const simulation::OnboardComputer* oc = airVehicle->getOnboardComputer();
+      const models::OnboardComputer* oc = airVehicle->getOnboardComputer();
       if (oc != nullptr) {
-         const simulation::TrackManager* rtm = oc->getTrackManagerByType(typeid(simulation::RwrTrkMgr));
+         const models::TrackManager* rtm = oc->getTrackManagerByType(typeid(models::RwrTrkMgr));
          if(rtm !=nullptr) {
-            base::safe_ptr<simulation::Track> trackList[50];
+            base::safe_ptr<models::Track> trackList[50];
             unsigned int nTracks = rtm->getTrackList(trackList, 50);
             int newTracks = 0;
             for (unsigned int trackIndex = 0; trackIndex < nTracks; trackIndex++) {
-               simulation::Player* target = trackList[trackIndex]->getTarget();
+               models::Player* target = trackList[trackIndex]->getTarget();
                bool alreadyTracked = false;
                for (unsigned int currTracks = 0; currTracks>getNumTracks(); currTracks++) {
                   // tracks are the same if the associated players are the same
@@ -205,9 +206,9 @@ void PlaneState::updateState(const base::Component* const actor)
                // hack to implement "missile warning"
                if (isIncomingMissile() == false) {
                   // is this track a weapon, and if so, is it targeting me?
-                  simulation::Weapon* weapon = dynamic_cast<simulation::Weapon*> (target);
+                  models::Weapon* weapon = dynamic_cast<models::Weapon*> (target);
                   if (weapon!=nullptr && !weapon->isDead()) {
-                     simulation::Player* wpntgt = weapon->getTargetPlayer();
+                     models::Player* wpntgt = weapon->getTargetPlayer();
                      if (wpntgt == airVehicle) {
                         setIncomingMissile(true);
                      }

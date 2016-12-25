@@ -1,21 +1,22 @@
 
 #include "Uniform.hpp"
+
 #include "openeaagles/base/Number.hpp"
 #include <cstdlib>
+#include <iostream>
 
 IMPLEMENT_SUBCLASS(Uniform, "Uniform")
-// setup slot table
+EMPTY_SERIALIZER(Uniform)
+
 BEGIN_SLOTTABLE(Uniform)
   "min",
   "max",
 END_SLOTTABLE(Uniform)
-// map attributes to slots
+
 BEGIN_SLOT_MAP(Uniform)
   ON_SLOT(1, setSlotMin, oe::base::Number)
   ON_SLOT(2, setSlotMax, oe::base::Number)
 END_SLOT_MAP()
-// nothing to serialize
-EMPTY_SERIALIZER(Uniform)
 
 Uniform::Uniform()
 {
@@ -52,11 +53,6 @@ void Uniform::setMax(const int x)
 int Uniform::getNum() const
 {
    return static_cast<int>((min+(max-min)*(std::rand()/(RAND_MAX+1.0))));
-}
-
-oe::base::Object* Uniform::getSlotByIndex(const int si)
-{
-   return BaseClass::getSlotByIndex(si);
 }
 
 bool Uniform::setSlotMin(const oe::base::Number* const x)

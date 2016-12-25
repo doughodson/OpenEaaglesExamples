@@ -11,10 +11,10 @@ OBJS =  \
 	MapPage.o \
 	TestStation.o
 
+LDFLAGS += -loemodels -lJSBSim
+LDFLAGS += -loedis
 LDFLAGS += -lxzmq -l:libzmq.a
 LDFLAGS += -loesimulation -loemodels -loedafif
-LDFLAGS += -loedis
-LDFLAGS += -lJSBSim
 LDFLAGS += -loeglut -loeinstruments -loegraphics -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 LDFLAGS += -lrt

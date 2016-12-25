@@ -6,6 +6,7 @@
 #include "openeaagles/recorder/DataRecordHandle.hpp"
 
 #include "xrecorder/protobuf/DataRecord.pb.h"
+#include <iostream>
 
 using namespace oe;
 
@@ -98,7 +99,3 @@ bool DataRecordTest::setSlotOutputHandler(oe::recorder::OutputHandler* const msg
    return true;
 }
 
-base::Object* DataRecordTest::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
-}

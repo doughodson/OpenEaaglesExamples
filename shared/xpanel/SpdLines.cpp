@@ -1,6 +1,7 @@
 
 #include "SpdLines.hpp"
 #include "openeaagles/base/Number.hpp"
+#include <iostream>
 
 namespace oe {
 namespace xpanel {
@@ -152,14 +153,6 @@ bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
     bool ok = false;
     if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
     return ok;
-}
-
-//------------------------------------------------------------------------------
-// getSlotByIndex()
-//------------------------------------------------------------------------------
-base::Object* SpdLines::getSlotByIndex(const int si)
-{
-    return BaseClass::getSlotByIndex(si);
 }
 
 }

@@ -47,8 +47,8 @@ win32:CONFIG(release, debug|release): LIBS +=        \
     -L$${OE_ROOT}/lib/                               \
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MS_VER}           \
     -loedis                                          \
-    -loemodels                                       \
     -loesimulation                                   \
+    -loemodels                                       \
     -loeotw                                          \
     -loedafif                                        \
     -loebase                                         \
@@ -64,8 +64,8 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     -L$${OE_ROOT}/lib/                                  \
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MS_VER}              \
     -loedis_d                                           \
-    -loemodels_d                                        \
     -loesimulation_d                                    \
+    -loemodels_d                                        \
     -loeotw_d                                           \
     -loedafif_d                                         \
     -loebase_d                                          \
@@ -81,9 +81,9 @@ else:unix:!macx:!symbian: LIBS +=       \
     -L$${OE_ROOT}/lib/                  \
     -L$${OE_3RD_PARTY_ROOT}/lib/        \
     -loedis                             \
-    -loemodels                          \
-    -loesimulation                      \
     -loeotw                             \
+    -loesimulation                      \
+    -loemodels                          \
     -loedafif                           \
     -loebase                            \
     -lcigicl                            \

@@ -14,6 +14,7 @@
 #include "openeaagles/graphics/factory.hpp"
 #include "openeaagles/instruments/factory.hpp"
 #include "openeaagles/simulation/factory.hpp"
+#include "openeaagles/models/factory.hpp"
 #include "openeaagles/networks/dis/factory.hpp"
 #include "openeaagles/otw/factory.hpp"
 
@@ -67,6 +68,7 @@ oe::base::Object* factory(const std::string& name)
     if (obj == nullptr)  { obj = oe::otw::factory(name);          }
     if (obj == nullptr)  { obj = oe::instruments::factory(name);  }
     if (obj == nullptr)  { obj = oe::simulation::factory(name);   }
+    if (obj == nullptr)  { obj = oe::models::factory(name);       }
     if (obj == nullptr)  { obj = oe::dis::factory(name);          }
     if (obj == nullptr)  { obj = oe::graphics::factory(name);     }
     if (obj == nullptr)  { obj = oe::glut::factory(name);         }

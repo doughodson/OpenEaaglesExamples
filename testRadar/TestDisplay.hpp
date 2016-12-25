@@ -5,8 +5,9 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace simulation { class Missile; class Player; class Simulation; class Station; }
-   namespace graphics { class SymbolLoader; }
+namespace models { class Missile; class Player; }
+namespace simulation { class Simulation; class Station; }
+namespace graphics { class SymbolLoader; }
 }
 
 class DspRadar;
@@ -40,7 +41,7 @@ class TestDisplay : public oe::glut::GlutDisplay
 public:
     TestDisplay();
 
-    oe::simulation::Player* getOwnship();
+    oe::models::Player* getOwnship();
     oe::simulation::Simulation* getSimulation();
     oe::simulation::Station* getStation();
 
@@ -76,7 +77,7 @@ private:
     oe::base::safe_ptr<oe::simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
-    oe::simulation::Player* tracks[MAX_TRACKS];    // players that we're displaying
+    oe::models::Player* tracks[MAX_TRACKS];        // players that we're displaying
     int           trkIdx[MAX_TRACKS];              // Index of track symbols
 };
 

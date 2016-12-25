@@ -1,7 +1,7 @@
 
 #include "PlayerItem.hpp"
 #include "MapItem.hpp"
-#include "openeaagles/simulation/Player.hpp"
+#include "openeaagles/models/players/Player.hpp"
 
 #include <QPainter>
 #include <sstream>
@@ -95,7 +95,7 @@ bool PlayerItem::setDefaultImageSize(QSize x)
    return true;
 }
 
-void PlayerItem::refreshPlayer(const oe::simulation::Player* const ownship)
+void PlayerItem::refreshPlayer(const oe::models::Player* const ownship)
 {
    if (ownship != nullptr) {
       plyId = ownship->getID();
