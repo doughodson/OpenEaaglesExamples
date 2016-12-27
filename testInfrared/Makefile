@@ -5,7 +5,8 @@ PGM = testInfrared
 
 OBJS =	factory.o TestComputer.o TestDisplay.o TestStation.o main.o
 
-LDFLAGS += -loedis -loemodels -loesimulation -loeinstruments -lJSBSim
+LDFLAGS += -loedis -loeinterop
+LDFLAGS += -loemodels -loesimulation -loeinstruments -lJSBSim
 LDFLAGS += -loeiodevice -loeotw -loedafif
 LDFLAGS += -loeglut -loegraphics -loebase -lftgl -lfreetype -lcigicl
 LDFLAGS += -lglut -lGLU -lGL -lX11

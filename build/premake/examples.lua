@@ -24,7 +24,7 @@ project "mainCockpit"
    filter "configurations:Release*"
       links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oerecorder", "oeiodevice" }
+      links { "oedis", "oeinterop", "oerecorder", "oeiodevice" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebase" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
@@ -33,7 +33,7 @@ project "mainCockpit"
    filter "configurations:Debug*"
       links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d",  LibCigi_d }
-      links { "oedis_d", "oerecorder_d", "oeiodevice_d" }
+      links { "oedis_d", "oeinterop_d", "oerecorder_d", "oeiodevice_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -86,14 +86,14 @@ project "mainLaero"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oemodels", "JSBSim", "libzmq" }
-      links {"oedis", "oeiodevice"}
+      links {"oedis", "oeinterop", "oeiodevice"}
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d", "libzmq_d" }
-      links {"oedis_d", "oeiodevice_d"}
+      links {"oedis_d", "oeinterop_d", "oeiodevice_d"}
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -117,7 +117,6 @@ project "mainNonRT1"
    filter "configurations:Release*"
       links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
-      links {"oedis" }
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -125,7 +124,6 @@ project "mainNonRT1"
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
-      links {"oedis_d" }
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -197,7 +195,7 @@ project "mainSim1"
    filter "configurations:Release*"
       links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis" }
+      links { "oedis", "oeinterop" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebase" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
@@ -205,7 +203,7 @@ project "mainSim1"
    filter "configurations:Debug*"
       links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d" }
+      links { "oedis_d", "oeinterop_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -231,7 +229,7 @@ project "mainSim2"
    filter "configurations:Release*"
       links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi}
-      links { "oedis", "oeiodevice"}
+      links { "oedis", "oeinterop", "oeiodevice"}
       links { "oesimulation", "oedafif", "oeterrain"}
       links { "oeglut", "oeinstruments", "oegraphics", "oebase"}
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -239,7 +237,7 @@ project "mainSim2"
    filter "configurations:Debug*"
       links { "oemodels_d", "JSBSim_d", "libzmq_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oeiodevice_d" }
+      links { "oedis_d", "oeinterop_d", "oeiodevice_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
@@ -265,14 +263,14 @@ project "mainSim3"
    filter "configurations:Release*"
       links { "oemodels", "JSBSim", "libzmq" }
       links { "oeotw", LibCigi }
-      links { "oedis" }
+      links { "oedis", "oeinterop", LibCigi }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebase" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    filter "configurations:Debug*"
       links { "oemodels_d", "JSBSim_d", "libzmq_d" }
-      links { "oeotw_d", LibCigi_d }
+      links { "oeotw_d", "oeinterop_d", LibCigi_d }
       links { "oedis_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
@@ -322,7 +320,7 @@ project "mainUbf1"
    filter "configurations:Release*"
       links { "oemodels", "JSBSim" }
       links { "oeotw", LibCigi }
-      links { "oedis", "oeiodevice" }
+      links { "oedis", "oeinterop", "oeiodevice" }
       links { "oesimulation", "oedafif", "oeterrain" }
       links { "oeglut", "oeinstruments", "oegraphics", "oebase" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
@@ -330,7 +328,7 @@ project "mainUbf1"
    filter "configurations:Debug*"
       links { "oemodels_d", "JSBSim_d" }
       links { "oeotw_d", LibCigi_d }
-      links { "oedis_d", "oeiodevice_d" }
+      links { "oedis_d", "oeinterop_d", "oeiodevice_d" }
       links { "oesimulation_d", "oedafif_d", "oeterrain_d" }
       links { "oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }

@@ -6,8 +6,12 @@ PGM = testRadar
 OBJS =	DspRadar.o DspRwr.o TdAzPtr.o TdElevPtr.o \
 	TestDisplay.o TestStation.o factory.o main.o
 
-LDFLAGS += -loedis -loemodels -loesimulation -loeinstruments
-LDFLAGS += -loeiodevice -loedafif -loeglut -loegraphics -loebase -lJSBSim
+LDFLAGS += -loedis -loeinterop
+LDFLAGS += -loemodels -lJSBSim
+LDFLAGS += -loesimulation
+LDFLAGS += -loeglut -loeinstruments -loegraphics
+LDFLAGS += -loeiodevice -loedafif
+LDFLAGS += -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread -lrt

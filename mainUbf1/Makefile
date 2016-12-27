@@ -10,7 +10,7 @@ OBJS += TestIoHandler.o factory.o
 
 LDFLAGS += -loemodels -lJSBSim
 LDFLAGS += -lxbehaviors -lxpanel
-LDFLAGS += -loedis -loegraphics -loeglut -loeinstruments -loesimulation
+LDFLAGS += -loedis -loeinterop -loegraphics -loeglut -loeinstruments -loesimulation
 LDFLAGS += -loeiodevice -loeotw -loedafif
 LDFLAGS += -lJSBSim -loebase
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11

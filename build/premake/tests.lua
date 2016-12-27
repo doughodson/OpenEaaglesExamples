@@ -68,7 +68,7 @@ project "testInfrared"
    filter "configurations:Release*"
       links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
-      links {"oedis" }
+      links {"oedis", "oeinterop" }
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -76,7 +76,7 @@ project "testInfrared"
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
-      links {"oedis_d" }
+      links {"oedis_d", "oeinterop_d" }
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -210,7 +210,7 @@ project "testRadar"
    filter "configurations:Release*"
       links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
-      links {"oedis", "oeiodevice"}
+      links {"oedis", "oeinterop", "oeiodevice"}
       links {"oesimulation", "oedafif", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -218,7 +218,7 @@ project "testRadar"
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
-      links {"oedis_d", "oeiodevice_d"}
+      links {"oedis_d", "oeinterop_d", "oeiodevice_d"}
       links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
@@ -242,7 +242,7 @@ project "testRecordData"
    filter "configurations:Release*"
       links {"oemodels", "JSBSim" }
       links {"oeotw", LibCigi }
-      links {"oedis", "oerecorder", "oeiodevice" }
+      links {"oedis", "oeinterop", "oerecorder", "oeiodevice" }
       links {"oesimulation", "oedafif", "oeterrain" }
       links {"oeglut", "oeinstruments", "oegraphics", "oebase" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
@@ -251,7 +251,7 @@ project "testRecordData"
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d" }
       links {"oeotw_d",  LibCigi_d }
-      links {"oedis_d", "oerecorder_d", "oeiodevice_d" }
+      links {"oedis_d", "oeinterop_d", "oerecorder_d", "oeiodevice_d" }
       links {"oesimulation_d", "oedafif_d", "oeterrain_d" }
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
