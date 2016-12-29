@@ -5,7 +5,6 @@
 #include "openeaagles/base/ubf/State.hpp"
 
 namespace oe {
-
 namespace xbehaviors {
 
 //------------------------------------------------------------------------------
