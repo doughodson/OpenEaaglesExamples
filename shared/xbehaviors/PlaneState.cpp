@@ -12,7 +12,7 @@
 #include "openeaagles/models/systems/OnboardComputer.hpp"
 #include "openeaagles/models/systems/StoresMgr.hpp"
 
-#include "openeaagles/simulation/ISimulation.hpp"
+#include "openeaagles/models/Simulation.hpp"
 
 namespace oe {
 namespace xbehaviors {
