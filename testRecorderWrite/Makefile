@@ -7,7 +7,7 @@ OBJS = main.o DataRecordTest.o
 LDFLAGS += -loemodels -lJSBSim
 LDFLAGS += -loedis
 LDFLAGS += -loerecorder -loesimulation
-LDFLAGS += -loedafif -loebase
+LDFLAGS += -loedafif -loeterrain -loebase
 LDFLAGS += -lprotobuf
 LDFLAGS += -lrt -lpthread
 

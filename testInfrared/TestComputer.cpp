@@ -7,7 +7,7 @@
 #include "openeaagles/models/systems/IrSeeker.hpp"
 #include "openeaagles/models/systems/IrSensor.hpp"
 
-#include "openeaagles/simulation/ISimulation.hpp"
+#include "openeaagles/models/Simulation.hpp"
 
 #include <iostream>
 
