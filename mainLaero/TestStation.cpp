@@ -4,8 +4,6 @@
 #include "openeaagles/models/systems/Antenna.hpp"
 #include "openeaagles/models/players/AirVehicle.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
-
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"

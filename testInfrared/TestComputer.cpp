@@ -7,7 +7,7 @@
 #include "openeaagles/models/systems/IrSeeker.hpp"
 #include "openeaagles/models/systems/IrSensor.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/ISimulation.hpp"
 
 #include <iostream>
 
@@ -63,7 +63,7 @@ void TestComputer::updateTC(const double dt0)
    // ---
    // Four phases per frame
    // ---
-   oe::simulation::Simulation* sim = getOwnship()->getSimulation();
+   oe::simulation::ISimulation* sim = getOwnship()->getSimulation();
    if (sim == nullptr) return;
 
    // ---

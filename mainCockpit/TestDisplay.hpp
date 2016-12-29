@@ -5,7 +5,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-namespace simulation { class Simulation; class Station; }
+namespace simulation { class ISimulation; class Station; }
 namespace models { class Missile; class Player; }
 namespace graphics { class SymbolLoader; }
 namespace xpanel { class DspRadar; class DspRwr; }
@@ -45,7 +45,7 @@ public:
     TestDisplay();
 
     oe::models::Player* getOwnship();
-    oe::simulation::Simulation* getSimulation();
+    oe::simulation::ISimulation* getSimulation();
     oe::simulation::Station* getStation();
 
     void maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng);

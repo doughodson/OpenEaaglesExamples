@@ -7,7 +7,7 @@
 namespace oe {
    namespace base { class Number; }
    namespace models { class Player; }
-   namespace simulation { class Simulation; class Station; }
+   namespace simulation { class ISimulation; class Station; }
 }
 
 // ----------------------------------------------------------------------------
@@ -28,7 +28,7 @@ public:
    Display();
 
    oe::models::Player* getOwnship();
-   oe::simulation::Simulation* getSimulation();
+   oe::simulation::ISimulation* getSimulation();
    oe::simulation::Station* getStation();
 
    // Slot functions

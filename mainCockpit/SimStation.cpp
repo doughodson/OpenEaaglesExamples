@@ -1,7 +1,7 @@
 
 #include "SimStation.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/ISimulation.hpp"
 
 #include "openeaagles/models/players/AirVehicle.hpp"
 
@@ -80,7 +80,7 @@ void SimStation::reset()
 
 void SimStation::updateTC(const double dt)
 {
-    // First update the simulation
+    // update station
     BaseClass::updateTC(dt);
 
     oe::base::Timer::updateTimers(dt);

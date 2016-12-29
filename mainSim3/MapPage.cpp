@@ -4,8 +4,7 @@
 #include "Display.hpp"
 
 #include "openeaagles/models/players/Player.hpp"
-
-#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/models/Simulation.hpp"
 
 #include "openeaagles/graphics/SymbolLoader.hpp"
 #include "openeaagles/graphics/Display.hpp"
@@ -202,7 +201,7 @@ void MapPage::updateData(const double dt)
             if (stn != nullptr) {
                 stn->ref();
                 // set our reference lat / lon initially
-                oe::simulation::Simulation* sim = stn->getSimulation();
+                oe::models::Simulation* sim = dynamic_cast<oe::models::Simulation*>(stn->getSimulation());
                 if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());

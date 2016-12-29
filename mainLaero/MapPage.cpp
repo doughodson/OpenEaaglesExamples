@@ -10,7 +10,7 @@
 #include "openeaagles/models/navigation/Route.hpp"
 #include "openeaagles/models/navigation/Steerpoint.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/models/Simulation.hpp"
 
 #include "openeaagles/graphics/SymbolLoader.hpp"
 #include "openeaagles/graphics/Display.hpp"
@@ -378,7 +378,7 @@ void MapPage::updateData(const double dt)
             if (pStn != nullptr) {
                 pStn->ref();
                 // set our reference lat / lon initially
-                simulation::Simulation* sim = pStn->getSimulation();
+                models::Simulation* sim = dynamic_cast<models::Simulation*>(pStn->getSimulation());
                 if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());

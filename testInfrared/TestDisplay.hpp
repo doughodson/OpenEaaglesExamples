@@ -6,7 +6,7 @@
 
 namespace oe {
 namespace models { class Missile; class Player; }
-namespace simulation { class Simulation; class Station; }
+namespace simulation { class ISimulation; class Station; }
 namespace graphics { class SymbolLoader; }
 }
 
@@ -32,7 +32,7 @@ public:
     TestDisplay();
 
     oe::models::Player* getOwnship();
-    oe::simulation::Simulation* getSimulation();
+    oe::simulation::ISimulation* getSimulation();
     oe::simulation::Station* getStation();
 
     virtual void maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng);
@@ -51,10 +51,10 @@ private:
     bool onDecRngKey();
     bool onStepOwnshipKey();
 
-    double          range;          // SD range
+    double range;          // SD range
 
-    SendData        headingSD;
-    SendData        rangeSD;
+    SendData headingSD;
+    SendData rangeSD;
 
     oe::base::safe_ptr<oe::simulation::Station> myStation;
 
