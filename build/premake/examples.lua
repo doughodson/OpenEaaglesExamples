@@ -68,7 +68,7 @@ project "mainGndMapRdr"
 
 -- mainLaero example
 project "mainLaero"
-   kind "WindowedApp"
+   kind "ConsoleApp"
    targetname "mainLaero"
    targetdir "../../mainLaero"
    debugdir "../../mainLaero"
