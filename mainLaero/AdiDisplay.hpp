@@ -19,12 +19,12 @@ class AdiDisplay : public oe::glut::GlutDisplay
 public:
    AdiDisplay();
 
-   oe::models::Aircraft* getOwnship();
-   oe::simulation::Station* getStation();
-
    virtual void updateData(const double dt = 0.0) override;
 
 private:
+   oe::models::Aircraft* getOwnship();
+   oe::simulation::Station* getStation();
+
    oe::base::safe_ptr<oe::simulation::Station> myStation;
 
    //-----------------------------

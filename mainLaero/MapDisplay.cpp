@@ -15,8 +15,6 @@
 #include <GL/glut.h>
 #include <iomanip>
 
-using namespace oe;
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(MapDisplay, "MapTestDisplay")
 EMPTY_SERIALIZER(MapDisplay)
 EMPTY_DELETEDATA(MapDisplay)
@@ -170,10 +168,10 @@ void MapDisplay::buttonEvent(const int b)
    MapPage* page = static_cast<MapPage*>(subpage());
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
-   models::Player* pA = getOwnship();
-   models::Autopilot* ap = nullptr;
+   oe::models::Player* pA = getOwnship();
+   oe::models::Autopilot* ap = nullptr;
    if (pA != nullptr) {
-      ap = static_cast<models::Autopilot*>(pA->getPilot());
+      ap = static_cast<oe::models::Autopilot*>(pA->getPilot());
    }
    if (page != nullptr && ap != nullptr) {
       if (b == DEC_RANGE) {
@@ -321,9 +319,9 @@ void MapDisplay::updateData(const double dt)
    double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
    // default to autopilot mode off
    int apMode = 1;
-   models::Aircraft* pA = static_cast<models::Aircraft*>(getOwnship());
+   oe::models::Aircraft* pA = static_cast<oe::models::Aircraft*>(getOwnship());
    if (pA != nullptr) {
-      models::Autopilot* ap = static_cast<models::Autopilot*>(pA->getPilot());
+      oe::models::Autopilot* ap = static_cast<oe::models::Autopilot*>(pA->getPilot());
       if (ap != nullptr) {
          // button visibility is based on autopilot being in NO modes
          apButtonsVis = (ap->isNavModeOn() || ap->isLoiterModeOn() || ap->isFollowTheLeadModeOn());
@@ -356,24 +354,21 @@ void MapDisplay::updateData(const double dt)
    send("cmdBank", UPDATE_VALUE, maxBank, maxBankSD);
 }
 
-//------------------------------------------------------------------------------
-// Simulation access functions
-//------------------------------------------------------------------------------
-simulation::Station* MapDisplay::getStation()
+oe::simulation::Station* MapDisplay::getStation()
 {
     if (myStation == nullptr) {
-        simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+        auto s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
         if (s != nullptr) myStation = s;
     }
     return myStation;
 }
 
-models::Aircraft* MapDisplay::getOwnship()
+oe::models::Aircraft* MapDisplay::getOwnship()
 {
-   models::Aircraft* p = nullptr;
-   simulation::Station* sta = getStation();
+   oe::models::Aircraft* p = nullptr;
+   oe::simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      p = dynamic_cast<models::Aircraft*>(sta->getOwnship());
+      p = dynamic_cast<oe::models::Aircraft*>(sta->getOwnship());
    }
    return p;
 }

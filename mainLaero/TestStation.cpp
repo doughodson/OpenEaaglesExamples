@@ -12,8 +12,6 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
-using namespace oe;
-
 IMPLEMENT_SUBCLASS(TestStation, "TestStation")
 
 // slot table for this class type
@@ -24,8 +22,8 @@ END_SLOTTABLE(TestStation)
 
 //  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
-    ON_SLOT(1, setSlotGlutDisplay, glut::GlutDisplay)
-    ON_SLOT(2, setSlotMapDisplay, glut::GlutDisplay)
+    ON_SLOT(1, setSlotGlutDisplay, oe::glut::GlutDisplay)
+    ON_SLOT(2, setSlotMapDisplay, oe::glut::GlutDisplay)
 END_SLOT_MAP()
 
 TestStation::TestStation()
@@ -63,8 +61,8 @@ void TestStation::deleteData()
 void TestStation::updateTC(const double dt)
 {
    // manage the timers
-   base::Timer::updateTimers(dt);
-   graphics::Graphic::flashTimer(dt);
+   oe::base::Timer::updateTimers(dt);
+   oe::graphics::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) glutDisplay->updateTC(dt);
    if (mapDisplay != nullptr) mapDisplay->updateTC(dt);
@@ -102,14 +100,14 @@ void TestStation::reset()
    }
 }
 
-bool TestStation::setSlotGlutDisplay(glut::GlutDisplay* const d)
+bool TestStation::setSlotGlutDisplay(oe::glut::GlutDisplay* const d)
 {
    glutDisplay = d;
    glutDisplay->container(this);
    return true;
 }
 
-bool TestStation::setSlotMapDisplay(glut::GlutDisplay* const d)
+bool TestStation::setSlotMapDisplay(oe::glut::GlutDisplay* const d)
 {
    mapDisplay = d;
    mapDisplay->container(this);
