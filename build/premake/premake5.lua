@@ -94,7 +94,7 @@ workspace "examples"
 
    -- common debug configuration flags and symbols
    filter { "Debug32" }
-      flags { "Symbols" }
+      symbols "On"
       targetsuffix "_d"
       -- enable compiler intrinsics
       buildoptions { "/Oi" }
