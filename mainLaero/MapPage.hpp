@@ -5,8 +5,8 @@
 #include "openeaagles/graphics/MapPage.hpp"
 
 namespace oe {
-   namespace models { class Player; }
-   namespace graphics { class SymbolLoader; }
+namespace models { class Player; }
+namespace graphics { class SymbolLoader; }
 }
 
 class TestStation;

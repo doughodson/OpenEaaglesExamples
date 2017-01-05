@@ -5,10 +5,8 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-
 namespace models { class Aircraft; }
 namespace simulation { class Station; }
-
 }
 
 // -------------------------------------------------------------------------------
@@ -24,9 +22,6 @@ class MapDisplay : public oe::glut::GlutDisplay
 public:
    MapDisplay();
 
-   oe::models::Aircraft* getOwnship();
-   oe::simulation::Station* getStation();
-
    virtual void mouseMotionEvent(const int x, const int y) override;
    virtual void mouseEvent(const int button, const int state, const int x, const int y) override;
    virtual void passiveMotionEvent(const int x, const int y) override;
@@ -35,6 +30,9 @@ public:
    virtual void updateData(const double dt = 0.0) override;
 
 private:
+   oe::models::Aircraft* getOwnship();
+   oe::simulation::Station* getStation();
+
    // button hit enumerations
    enum {
       DEC_RANGE = 101,           // Increase / decrease the map range (NM)

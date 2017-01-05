@@ -6,7 +6,7 @@
 
 namespace oe {
    namespace models { class Player; }
-   namespace simulation { class Simulation; class Station; }
+   namespace simulation { class ISimulation; class Station; }
 }
 
 class DedDisplay;
@@ -30,7 +30,7 @@ public:
    InstrumentPanel();
 
    oe::models::Player* getOwnship();
-   oe::simulation::Simulation* getSimulation();
+   oe::simulation::ISimulation* getSimulation();
    oe::simulation::Station* getStation();
 
    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;

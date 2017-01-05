@@ -19,6 +19,7 @@
 #include "openeaagles/iodevice/factory.hpp"
 #include "openeaagles/otw/factory.hpp"
 #include "openeaagles/models/factory.hpp"
+#include "openeaagles/terrain/factory.hpp"
 #include "openeaagles/simulation/factory.hpp"
 
 #include <string>
@@ -47,6 +48,7 @@ oe::base::Object* factory(const std::string& name)
     if (obj == nullptr) obj = oe::iodevice::factory(name);
     if (obj == nullptr) obj = oe::instruments::factory(name);
     if (obj == nullptr) obj = oe::models::factory(name);
+    if (obj == nullptr) obj = oe::terrain::factory(name);
     if (obj == nullptr) obj = oe::otw::factory(name);
     if (obj == nullptr) obj = oe::dis::factory(name);
     if (obj == nullptr) obj = oe::graphics::factory(name);

@@ -5,7 +5,7 @@
 #include "openeaagles/models/players/Player.hpp"
 #include "openeaagles/models/systems/Gimbal.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
+#include "openeaagles/simulation/ISimulation.hpp"
 
 #include "openeaagles/base/Identifier.hpp"
 #include "openeaagles/base/Boolean.hpp"

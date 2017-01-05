@@ -18,8 +18,6 @@
 
 #include "openeaagles/models/players/Player.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
-#include "openeaagles/simulation/Station.hpp"
 #include "openeaagles/simulation/DataRecorder.hpp"
 
 #include "openeaagles/base/String.hpp"

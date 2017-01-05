@@ -1,9 +1,6 @@
 
 #include "DataRecordTest.hpp"
 
-#include "openeaagles/simulation/Simulation.hpp"
-#include "openeaagles/simulation/Station.hpp"
-
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/Pair.hpp"
 

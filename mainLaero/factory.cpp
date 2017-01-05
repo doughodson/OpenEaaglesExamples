@@ -12,6 +12,7 @@
 #include "../shared/xzmq/factory.hpp"
 #include "openeaagles/simulation/factory.hpp"
 #include "openeaagles/models/factory.hpp"
+#include "openeaagles/terrain/factory.hpp"
 #include "openeaagles/networks/dis/factory.hpp"
 #include "openeaagles/instruments/factory.hpp"
 #include "openeaagles/graphics/factory.hpp"
@@ -43,6 +44,7 @@ oe::base::Object* factory(const std::string& name)
     // Framework libraries
     if (obj == nullptr) obj = oe::simulation::factory(name);
     if (obj == nullptr) obj = oe::models::factory(name);
+    if (obj == nullptr) obj = oe::terrain::factory(name);
     if (obj == nullptr) obj = oe::instruments::factory(name);
     if (obj == nullptr) obj = oe::dis::factory(name);
     if (obj == nullptr) obj = oe::graphics::factory(name);

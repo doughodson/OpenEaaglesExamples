@@ -10,8 +10,6 @@
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
 
-using namespace oe;
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
 EMPTY_DELETEDATA(AdiDisplay)
@@ -69,7 +67,7 @@ void AdiDisplay::updateData(const double dt)
    oe::osg::Vec3d av;
 
    // get access pointer to ownship
-   models::Aircraft* pA = getOwnship();
+   oe::models::Aircraft* pA = getOwnship();
    if (pA != nullptr) {
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
@@ -80,9 +78,9 @@ void AdiDisplay::updateData(const double dt)
 
       av = pA->getAngularVelocities();
 
-      pRO   = av[0] * base::Angle::R2DCC;
-      qRO   = av[1] * base::Angle::R2DCC;
-      rRO   = av[2] * base::Angle::R2DCC;
+      pRO   = av[0] * oe::base::Angle::R2DCC;
+      qRO   = av[1] * oe::base::Angle::R2DCC;
+      rRO   = av[2] * oe::base::Angle::R2DCC;
 
       pitchADI = pA->getPitchD();
       bankADI  = pA->getRollD();
@@ -105,10 +103,10 @@ void AdiDisplay::updateData(const double dt)
    //send("pitchangle",   UPDATE_INSTRUMENTS, pitch,    pitchSD);
 }
 
-simulation::Station* AdiDisplay::getStation()
+oe::simulation::Station* AdiDisplay::getStation()
 {
    if (myStation == nullptr) {
-      simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+      oe::simulation::Station* s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
       if (s != nullptr) {
          myStation = s;
       }
@@ -116,13 +114,12 @@ simulation::Station* AdiDisplay::getStation()
    return myStation;
 }
 
-models::Aircraft* AdiDisplay::getOwnship()
+oe::models::Aircraft* AdiDisplay::getOwnship()
 {
-   models::Aircraft* pA = nullptr;
-   simulation::Station* sta = getStation();
+   oe::models::Aircraft* pA = nullptr;
+   oe::simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      pA = dynamic_cast<models::Aircraft*>(sta->getOwnship());
-
+      pA = dynamic_cast<oe::models::Aircraft*>(sta->getOwnship());
       //const unsigned int ffrate = 5;    //LDB
       //sta->setFastForwardRate(ffrate);  //LDB
    }
