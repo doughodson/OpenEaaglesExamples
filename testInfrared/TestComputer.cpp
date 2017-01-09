@@ -63,7 +63,7 @@ void TestComputer::updateTC(const double dt0)
    // ---
    // Four phases per frame
    // ---
-   oe::simulation::ISimulation* sim = getOwnship()->getSimulation();
+   oe::simulation::SimExec* sim = getOwnship()->getSimulation();
    if (sim == nullptr) return;
 
    // ---

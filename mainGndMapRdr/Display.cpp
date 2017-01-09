@@ -4,7 +4,7 @@
 
 #include "openeaagles/models/players/Player.hpp"
 
-#include "openeaagles/simulation/ISimulation.hpp"
+#include "openeaagles/simulation/SimExec.hpp"
 #include "openeaagles/simulation/Station.hpp"
 
 #include "openeaagles/base/Color.hpp"
@@ -73,9 +73,9 @@ models::Player* Display::getOwnship()
     return p;
 }
 
-simulation::ISimulation* Display::getSimulation()
+simulation::SimExec* Display::getSimulation()
 {
-    simulation::ISimulation* s = nullptr;
+    simulation::SimExec* s = nullptr;
     simulation::Station* sta = getStation();
     if (sta != nullptr) s = sta->getSimulation();
     return s;

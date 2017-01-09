@@ -6,7 +6,7 @@
 #include "openeaagles/models/players/AirVehicle.hpp"
 #include "openeaagles/models/players/Player.hpp"
 
-#include "openeaagles/simulation/ISimulation.hpp"
+#include "openeaagles/simulation/SimExec.hpp"
 
 #include "openeaagles/instruments/eadi3d/Eadi3DPage.hpp"
 
@@ -51,9 +51,9 @@ oe::models::Player* InstrumentPanel::getOwnship()
    return p;
 }
 
-oe::simulation::ISimulation* InstrumentPanel::getSimulation()
+oe::simulation::SimExec* InstrumentPanel::getSimulation()
 {
-   oe::simulation::ISimulation* s = nullptr;
+   oe::simulation::SimExec* s = nullptr;
    oe::simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;

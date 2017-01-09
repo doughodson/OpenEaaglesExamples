@@ -78,9 +78,6 @@ demoFlightDisplays2/demoFlightDisplays2
 demoInstruments/demoInstruments
 demoSubDisplays/demoSubDisplays
 mainCockpit/mainCockpit
-mainFltk1/mainFltk1
-mainFox1/mainFox1
-mainFox2/mainFox2
 mainGlut/mainGlut
 mainGndMapRdr/mainGndMapRdr
 mainLaero/mainLaero
@@ -101,7 +98,7 @@ testLinearSys/testLinearSys
 testMatrix/testMatrix
 testNavigation/testNavigation
 testNetHandler/testNetHandler
-testNetIO/testNetIO
+testObjMetadata/testObjMetadata
 testRadar/testRadar
 testRecordData/testRecordData
 testRecorderRead/testRecorderRead
@@ -109,6 +106,7 @@ testRecorderWrite/testRecorderWrite
 testRng/testRng
 testStateMach/testStateMach
 testTables/testTables
+testTemplates/testTemplates
 testTimer/testTimer
 tutorial01/tutorial01
 tutorial02/tutorial02

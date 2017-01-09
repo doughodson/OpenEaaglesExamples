@@ -6,7 +6,7 @@
 #include "openeaagles/models/players/AirVehicle.hpp"
 #include "openeaagles/models/systems/StoresMgr.hpp"
 
-#include "openeaagles/simulation/ISimulation.hpp"
+#include "openeaagles/simulation/SimExec.hpp"
 
 #include "openeaagles/graphics/SymbolLoader.hpp"
 
@@ -197,7 +197,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
    // find all air vehicles within range
    {
       // get the player list
-      oe::simulation::ISimulation* sim = getSimulation();
+      oe::simulation::SimExec* sim = getSimulation();
       oe::base::PairStream* plist = sim->getPlayers();
 
       // search for air vehicles or missiles within range
@@ -327,9 +327,9 @@ oe::models::Player* TestDisplay::getOwnship()
    return p;
 }
 
-oe::simulation::ISimulation* TestDisplay::getSimulation()
+oe::simulation::SimExec* TestDisplay::getSimulation()
 {
-   oe::simulation::ISimulation* s = nullptr;
+   oe::simulation::SimExec* s = nullptr;
    oe::simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
@@ -338,7 +338,7 @@ oe::simulation::ISimulation* TestDisplay::getSimulation()
 oe::simulation::Station* TestDisplay::getStation()
 {
    if (myStation == nullptr) {
-      oe::simulation::Station* s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
+      auto s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;

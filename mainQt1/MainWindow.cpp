@@ -1,7 +1,7 @@
 
 #include "MainWindow.hpp"
 #include "Station.hpp"
-#include "openeaagles/simulation/ISimulation.hpp"
+#include "openeaagles/simulation/SimExec.hpp"
 
 #include <QTimer>
 #include <sstream>
@@ -62,7 +62,7 @@ void MainWindow::play()
 {
    // get the simulation and play it!
    if (stn != nullptr) {
-      oe::simulation::ISimulation* sim = stn->getSimulation();
+      oe::simulation::SimExec* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->getFastForwardRate() != 1) stn->setFastForwardRate(1);
          if (stn->isFrozen()) stn->freeze(false);
@@ -74,7 +74,7 @@ void MainWindow::play()
 void MainWindow::pause()
 {
    if (stn != nullptr) {
-      oe::simulation::ISimulation* sim = stn->getSimulation();
+      oe::simulation::SimExec* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->isNotFrozen()) stn->freeze(true);
          if (sim->isNotFrozen()) sim->freeze(true);
@@ -85,7 +85,7 @@ void MainWindow::pause()
 void MainWindow::ff()
 {
    if (stn != nullptr) {
-      oe::simulation::ISimulation* sim = stn->getSimulation();
+      oe::simulation::SimExec* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->isFrozen()) stn->freeze(false);
          if (sim->isFrozen()) sim->freeze(false);
@@ -102,7 +102,7 @@ void MainWindow::reset()
 {
    // also freeze and set the FF rate to 1
    if (stn != nullptr) {
-      oe::simulation::ISimulation* sim = stn->getSimulation();
+      oe::simulation::SimExec* sim = stn->getSimulation();
       if (sim != nullptr) {
          if (stn->getFastForwardRate() != 1) stn->setFastForwardRate(1);
          if (stn->isNotFrozen()) stn->freeze(true);
