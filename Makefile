@@ -41,8 +41,10 @@ APPLICATIONS += mainCockpit
 
 # test table, state machines, events and timer
 APPLICATIONS += testEvents
+APPLICATIONS += testObjMetadata
 APPLICATIONS += testTables
 APPLICATIONS += testStateMach
+APPLICATIONS += testTemplates
 APPLICATIONS += testTimer
 
 # infrared and radar test programs

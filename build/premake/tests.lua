@@ -193,6 +193,27 @@ project "testNetHandler"
       links {"oebase_d", "libzmq_d" }
       links {"Ws2_32", "Winmm", "comctl32"}
 
+-- testObjMetadata
+project "testObjMetadata"
+   targetname "testObjMetadata"
+   targetdir "../../testObjMetadata"
+   debugdir "../../testObjMetadata"
+   files {
+      "../../testObjMetadata/**.h*",
+      "../../testObjMetadata/**.cpp",
+      "../../testObjMetadata/**.epp",
+      "../../testObjMetadata/**.edl"
+   }
+   includedirs { OEIncPath }
+   libdirs     { OELibPath }
+   defines { "_CONSOLE" }
+   filter "configurations:Release*"
+      links {"oebase"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+   filter "configurations:Debug*"
+      links {"oebase_d"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+
 -- testRadar
 project "testRadar"
    targetname "testRadar"
@@ -358,6 +379,27 @@ project "testTables"
       "../../testTables/**.cpp",
       "../../testTables/**.epp",
       "../../testTables/**.edl"
+   }
+   includedirs { OEIncPath }
+   libdirs     { OELibPath }
+   defines { "_CONSOLE" }
+   filter "configurations:Release*"
+      links {"oebase"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+   filter "configurations:Debug*"
+      links {"oebase_d"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+
+-- testTemplates
+project "testTemplates"
+   targetname "testTemplates"
+   targetdir "../../testTemplates"
+   debugdir "../../testTemplates"
+   files {
+      "../../testTemplates/**.h*",
+      "../../testTemplates/**.cpp",
+      "../../testTemplates/**.epp",
+      "../../testTemplates/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }
