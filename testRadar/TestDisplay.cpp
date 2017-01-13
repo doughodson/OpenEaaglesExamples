@@ -6,7 +6,7 @@
 
 #include "openeaagles/models/players/AirVehicle.hpp"
 #include "openeaagles/models/players/Missile.hpp"
-#include "openeaagles/models/players/Weapon.hpp"
+#include "openeaagles/models/players/AbstractWeapon.hpp"
 
 #include "openeaagles/models/systems/Jammer.hpp"
 #include "openeaagles/models/systems/Radar.hpp"
@@ -123,7 +123,7 @@ bool TestDisplay::onPreRelKey()
     if (getOwnship() != nullptr) {
        models::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
-            models::Weapon* wpn = sms->getCurrentWeapon();
+            models::AbstractWeapon* wpn = sms->getCurrentWeapon();
             if (wpn != nullptr) {
                wpn->prerelease();
                std::cout << "Prelaunched wpn = " << wpn << std::endl;

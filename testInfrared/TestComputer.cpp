@@ -3,7 +3,7 @@
 
 #include "openeaagles/models/Track.hpp"
 #include "openeaagles/models/systems/AngleOnlyTrackManager.hpp"
-#include "openeaagles/models/players/Weapon.hpp"
+#include "openeaagles/models/players/AbstractWeapon.hpp"
 #include "openeaagles/models/systems/IrSeeker.hpp"
 #include "openeaagles/models/systems/IrSensor.hpp"
 
@@ -136,7 +136,7 @@ bool TestComputer::processIr()
       }
    }
 
-   oe::models::Weapon* ourWeapon = dynamic_cast<oe::models::Weapon*>(getOwnship());
+   auto ourWeapon = dynamic_cast<oe::models::AbstractWeapon*>(getOwnship());
 
    // update the weapon's tracking if the target changed (includes loss of target)
    // weapon::targetPlayer tells the dynamics model where the target is -

@@ -107,7 +107,7 @@ bool TestDisplay::onPreRelKey()
        oe::models::StoresMgr* sms = getOwnship()->getStoresManagement();
         if (sms != nullptr) {
             sms->setWeaponDeliveryMode(oe::models::StoresMgr::A2A);
-            oe::models::Weapon* wpn = sms->getCurrentWeapon();
+            oe::models::AbstractWeapon* wpn = sms->getCurrentWeapon();
             if (wpn != nullptr) {
                wpn->prerelease();
                std::cout << "Prelaunched wpn = " << wpn << std::endl;
@@ -209,7 +209,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
          double x = rpos[0] * oe::base::Distance::M2NM;
          double y = rpos[1] * oe::base::Distance::M2NM;
 
-         oe::models::Weapon* weapon = dynamic_cast<oe::models::Weapon*>(p);
+         auto weapon = dynamic_cast<oe::models::AbstractWeapon*>(p);
          if (weapon && (weapon->isMode(oe::models::Player::PRE_RELEASE) || weapon->isActive())) {
             target = weapon->getTargetPlayer();
          }

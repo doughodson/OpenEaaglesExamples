@@ -38,7 +38,7 @@ public:
     virtual bool setSlotTabPrinter(oe::recorder::TabPrinter* msg);
     virtual bool setSlotFileWriter(oe::recorder::FileWriter* msg);
     virtual bool setSlotFileReader(oe::recorder::FileReader* msg);
-    virtual bool setSlotRecordData(oe::simulation::DataRecorder* const msg);
+    virtual bool setSlotRecordData(oe::recorder::DataRecorder* const msg);
     virtual bool setSlotPrintPlayer(oe::recorder::PrintPlayer* msg);
     virtual bool setSlotPrintSelected(oe::recorder::PrintSelected* msg);
     virtual bool setSlotPrintSelected2(oe::recorder::PrintSelected* msg);
@@ -94,7 +94,7 @@ private:
    oe::base::safe_ptr<oe::recorder::TabPrinter> myRecPrint;
    oe::base::safe_ptr<oe::recorder::FileWriter> myFileWrite;
    oe::base::safe_ptr<oe::recorder::FileReader> myFileRead;
-   oe::base::safe_ptr<oe::simulation::DataRecorder> myDataRec;
+   oe::base::safe_ptr<oe::recorder::DataRecorder> myDataRec;
 
    std::string fieldName;
    oe::recorder::PrintSelected::Condition condition;

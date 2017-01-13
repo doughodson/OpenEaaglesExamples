@@ -18,8 +18,6 @@
 
 #include "openeaagles/models/players/Player.hpp"
 
-#include "openeaagles/simulation/DataRecorder.hpp"
-
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
@@ -219,7 +217,7 @@ bool DataRecordTest::setSlotFileName(base::String* const msg)
 //------------------------------------------------------------------------------
 //setSlotRecordData() -- Set slot for pointer to the RecorderComponent class
 //------------------------------------------------------------------------------
-bool DataRecordTest::setSlotRecordData(simulation::DataRecorder* const p)
+bool DataRecordTest::setSlotRecordData(recorder::DataRecorder* const p)
 {
    bool ok = false;
    if (p != nullptr) {
