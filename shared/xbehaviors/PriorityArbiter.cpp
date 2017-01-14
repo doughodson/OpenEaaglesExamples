@@ -30,7 +30,7 @@ base::ubf::Action* PriorityArbiter::genComplexAction(base::List* const actionSet
    // process entire action set
    const base::List::Item* item = actionSet->getFirstItem();
    while (item != nullptr) {
-      const PlaneAction* action = dynamic_cast<const PlaneAction*>(item->getValue());
+      const auto action = dynamic_cast<const PlaneAction*>(item->getValue());
       if (action!=nullptr) {
          if (action->isHeadingChanged() && action->getVote() > maxHeadingVote) {
             complexAction->setHeading(action->getHeading());
@@ -78,7 +78,7 @@ base::ubf::Action* PriorityArbiter::genComplexAction(base::List* const actionSet
 
 void PriorityArbiter::trimChangeValidation(base::ubf::Action* const complexAction)
 {
-   auto action = static_cast<PlaneAction*>(complexAction);
+   const auto action = static_cast<PlaneAction*>(complexAction);
 
    if ( action->isPitchChanged() && action->isPitchTrimChanged() ) {
       //ignore pitch trim ONLY if the change goes against the action we want to

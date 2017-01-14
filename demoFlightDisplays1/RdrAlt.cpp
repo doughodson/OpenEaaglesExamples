@@ -76,9 +76,9 @@ void RdrAlt::updateData(const double dt)
     // here is the minimum readout display
     base::Pair* pair = findByName("rmin");
     if (pair != nullptr) {
-        graphics::NumericReadout* r = dynamic_cast<graphics::NumericReadout*>(pair->object());
+        const auto r = dynamic_cast<graphics::NumericReadout*>(pair->object());
         if (r != nullptr) {
-            base::Identifier* id = new base::Identifier("yellow");
+            const auto id = new base::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
             r->setColor(id);
             id->unref();
@@ -95,9 +95,9 @@ void RdrAlt::updateData(const double dt)
     // actual radar readout
     base::Pair* pair2 = findByName("ralt");
     if (pair2 != nullptr) {
-        graphics::NumericReadout* r1 = dynamic_cast<graphics::NumericReadout*>(pair2->object());
+        const auto r1 = dynamic_cast<graphics::NumericReadout*>(pair2->object());
         if (r1 != nullptr) {
-            base::Identifier* id = new base::Identifier("yellow");
+            const auto id = new base::Identifier("yellow");
             if (!tooLow) id->setStr("magenta");
             r1->setColor(id);
             id->unref();

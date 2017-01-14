@@ -84,7 +84,7 @@ simulation::SimExec* Display::getSimulation()
 simulation::Station* Display::getStation()
 {
     if (myStation == nullptr) {
-        simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+        const auto s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
         if (s != nullptr) myStation = s;
     }
     return myStation;
@@ -103,7 +103,7 @@ bool Display::setSlotTextureTest(const base::Number* const msg)
 
 void Display::drawFunc()
 {
-   models::Player* own = dynamic_cast<models::Player*>(getOwnship());
+   const auto own = dynamic_cast<models::Player*>(getOwnship());
 
    const base::Pair* pair = nullptr;
    if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));

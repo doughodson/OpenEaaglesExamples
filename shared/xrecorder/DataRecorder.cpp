@@ -43,8 +43,8 @@ void DataRecorder::copyData(const DataRecorder& org, const bool cc)
 //------------------------------------------------------------------------------
 bool DataRecorder::recordMyData(const base::Object* objs[4], const double values[4])
 {
-   //const simulation::Player* player = dynamic_cast<const simulation::Player*>( objs[0] );
-   recorder::pb::DataRecord* msg = new recorder::pb::DataRecord();
+   //const auto player = dynamic_cast<const simulation::Player*>( objs[0] );
+   const auto msg = new recorder::pb::DataRecord();
 
    // DataRecord header
    timeStamp(msg);
@@ -70,8 +70,8 @@ bool DataRecorder::recordMyData(const base::Object* objs[4], const double values
 //------------------------------------------------------------------------------
 bool DataRecorder::recordMarker(const base::Object* objs[4], const double values[4])
 {
-   //const simulation::Player* player = dynamic_cast<const simulation::Player*>( objs[0] );
-   recorder::pb::DataRecord* msg = new recorder::pb::DataRecord();
+   //const auto player = dynamic_cast<const simulation::Player*>( objs[0] );
+   const auto msg = new recorder::pb::DataRecord();
 
    // DataRecord header
    timeStamp(msg);

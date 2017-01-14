@@ -67,7 +67,7 @@ void PlaneState::reset()
 
 void PlaneState::updateState(const base::Component* const actor)
 {
-   const models::AirVehicle* airVehicle = dynamic_cast<const models::AirVehicle*>(actor);
+   const auto airVehicle = dynamic_cast<const models::AirVehicle*>(actor);
    setAlive(false);
    if (airVehicle != nullptr && airVehicle->isActive()) {
       setAltitude(airVehicle->getAltitude());
@@ -103,8 +103,8 @@ void PlaneState::updateState(const base::Component* const actor)
          bool finished = false;
          for (const base::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {
             // Get the pointer to the target player
-            auto pair = static_cast<const base::Pair*>(item->getValue());
-            auto player = static_cast<const models::Player*>(pair->object());
+            const auto pair = static_cast<const base::Pair*>(item->getValue());
+            const auto player = static_cast<const models::Player*>(pair->object());
             if (player->isMajorType(models::Player::WEAPON) && (player->isActive() || player->isMode(models::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
                // our side has a weapon on-the-way/in-the-air;
                setMissileFired(true);
@@ -133,7 +133,7 @@ void PlaneState::updateState(const base::Component* const actor)
       const base::Pair* sensorPair = airVehicleX->getSensorByType(typeid(models::Radar));
 
       if (sensorPair != nullptr) {
-         auto radar = static_cast<const models::Radar*>(sensorPair->object());
+         const auto radar = static_cast<const models::Radar*>(sensorPair->object());
          if (radar != nullptr) {
             const models::TrackManager* trackManager = radar->getTrackManager();
             base::safe_ptr<models::Track> trackList[50];
@@ -155,7 +155,7 @@ void PlaneState::updateState(const base::Component* const actor)
                if (isIncomingMissile() == false) {
                   // is this track a weapon, and if so, is it targeting me?
                   auto target = trackList[trackIndex]->getTarget();
-                  auto weapon = dynamic_cast<models::AbstractWeapon*> (target);
+                  const auto weapon = dynamic_cast<models::AbstractWeapon*> (target);
                   if (weapon!=nullptr && !weapon->isDead()) {
                      models::Player* wpntgt = weapon->getTargetPlayer();
                      if (wpntgt == airVehicle) {
@@ -206,7 +206,7 @@ void PlaneState::updateState(const base::Component* const actor)
                // hack to implement "missile warning"
                if (isIncomingMissile() == false) {
                   // is this track a weapon, and if so, is it targeting me?
-                  auto weapon = dynamic_cast<models::AbstractWeapon*> (target);
+                  const auto weapon = dynamic_cast<models::AbstractWeapon*> (target);
                   if (weapon!=nullptr && !weapon->isDead()) {
                      models::Player* wpntgt = weapon->getTargetPlayer();
                      if (wpntgt == airVehicle) {

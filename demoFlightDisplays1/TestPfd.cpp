@@ -465,7 +465,7 @@ void TestPfd::updateData(const double dt)
     // it using the send function.
     base::Pair* pair = findByType(typeid(Pfd));
     if (pair != nullptr) {
-        auto p = static_cast<Pfd*>(pair->object());
+        const auto p = static_cast<Pfd*>(pair->object());
         if (p != nullptr) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);

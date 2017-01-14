@@ -267,7 +267,7 @@ void MapPage::drawFunc()
       if (pPlr != nullptr) {
 
          // get the autopilot
-         auto ap = static_cast<oe::models::Autopilot*>(pPlr->getPilot());
+         const auto ap = static_cast<oe::models::Autopilot*>(pPlr->getPilot());
          if (ap != nullptr && ap->isLoiterModeOn()) drawHoldingPattern();
 
          //---------------------------------------------------------------------------

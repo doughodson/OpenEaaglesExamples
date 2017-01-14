@@ -101,7 +101,7 @@ void PlaneAction::setPitchTrim(const double x)
 
 bool PlaneAction::execute(base::Component* actor)
 {
-   models::AirVehicle* airVehicle = dynamic_cast<models::AirVehicle*>(actor);
+   const auto airVehicle = dynamic_cast<models::AirVehicle*>(actor);
    if (airVehicle != nullptr) {
       airVehicle->setControlStick(static_cast<double>(getRoll()), static_cast<double>(getPitch()));
 

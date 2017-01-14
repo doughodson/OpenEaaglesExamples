@@ -270,16 +270,16 @@ void Pfd::updateData(const double dt)
     // find the last digit for the readout tape
     double ones = ((airSpd / 10) - static_cast<int>(airSpd / 10)) * 10;
     // find the 100s value for the dynamic arc segment
-    auto rest = static_cast<int>(airSpd / 10.0);
+    const auto rest = static_cast<int>(airSpd / 10.0);
 
-    double diff = airSpd - cmdSpd;
+    const double diff = airSpd - cmdSpd;
 
-    double altDiff = alt - cmdAlt;
+    const double altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
-    double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
+    const double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
-    auto altRest = static_cast<int>(alt/99.9999);
+    const auto altRest = static_cast<int>(alt/99.9999);
 
     // all the sends are here
     // hsi

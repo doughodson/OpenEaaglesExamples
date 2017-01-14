@@ -564,21 +564,21 @@ void Pfd::updateData(const double dt)
     //std::cout << "air speed tens = " << asTens << std::endl;
     //std::cout << "air speed hunds = " << airSpdHunds << std::endl;
 
-    auto rest = static_cast<int>(airSpd / 10.0);
+    const auto rest = static_cast<int>(airSpd / 10.0);
 
     //cmdSpd = 450;
     //airSpd += (dt * 10);
-    double diff = airSpd - cmdSpd;
+    const double diff = airSpd - cmdSpd;
     //std::cout << "AIRSPEED = " << airSpd << std::endl;
     //std::cout << "CMD SPEED = " << cmdSpd << std::endl;
     //std::cout << "DIFF = " << diff << std::endl;
 
-    double altDiff = alt - cmdAlt;
+    const double altDiff = alt - cmdAlt;
     // let's break the altitude down into ones and tens, so we can
     // send that data to the tape gauge
-    double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
+    const double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
-    auto altRest = static_cast<int>(alt/99.9999);
+    const auto altRest = static_cast<int>(alt/99.9999);
     // also, for our dynamic dial arcs, we need the hundreds value of the altitude
     double altHundreds = 0;
     // find the thousands value too
@@ -714,14 +714,14 @@ void Pfd::updateData(const double dt)
         base::Pair* pair = findByType(typeid(SituationalDisplay));
         if (pair != nullptr) {
             pair->ref();
-                 // give the SituationalDisplay all the appropriate map page data
-               SituationalDisplay* myPage = dynamic_cast<SituationalDisplay*>(pair->object());
-                if (myPage != nullptr) {
-                    myPage->setReferenceLat(refLat);
-                    myPage->setReferenceLon(refLon);
-                    myPage->setHeading(trueHdg);
-                    myPage->setRange(range);
-                }
+            // give the SituationalDisplay all the appropriate map page data
+            const auto myPage = dynamic_cast<SituationalDisplay*>(pair->object());
+            if (myPage != nullptr) {
+                myPage->setReferenceLat(refLat);
+                myPage->setReferenceLon(refLon);
+                myPage->setHeading(trueHdg);
+                myPage->setRange(range);
+            }
             pair->unref();
         }
     }

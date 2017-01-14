@@ -163,7 +163,7 @@ void TestCompass::updateData(const double dt)
         base::Pair* pair = findByName("airTracks");
         if (pair != nullptr) {
             pair->ref();
-            graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
+            const auto myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_TRACKS; i++) {
                     int idx = myLoader->addSymbol(myTracks[i].type, myTracks[i].id);
@@ -182,7 +182,7 @@ void TestCompass::updateData(const double dt)
         base::Pair* pair = findByName("airports");
         if (pair != nullptr) {
             pair->ref();
-            graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
+            const auto myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_AIRPORTS; i++) {
                     int idx = myLoader->addSymbol(myAP[i].type, myAP[i].id);
@@ -201,7 +201,7 @@ void TestCompass::updateData(const double dt)
         base::Pair* pair = findByName("navaids");
         if (pair != nullptr) {
             pair->ref();
-            graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
+            const auto myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
             if (myLoader != nullptr) {
                 for (int i = 0; i < MAX_NAV_AIDS; i++) {
                     int idx = myLoader->addSymbol(myNA[i].type, myNA[i].id);

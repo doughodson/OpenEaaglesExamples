@@ -164,7 +164,7 @@ oe::glut::GlutDisplay* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -172,7 +172,7 @@ oe::glut::GlutDisplay* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   oe::glut::GlutDisplay* glutDisplay = dynamic_cast<oe::glut::GlutDisplay*>(obj);
+   const auto glutDisplay = dynamic_cast<oe::glut::GlutDisplay*>(obj);
    if (glutDisplay == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

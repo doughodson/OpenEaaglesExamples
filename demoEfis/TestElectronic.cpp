@@ -568,7 +568,7 @@ void TestElectronic::updateData(const double dt)
         }
         // elapsed time
         else if (readoutMode == ND_ET) {
-            auto hour = static_cast<int>(elapsedTime / 3600);
+            const auto hour = static_cast<int>(elapsedTime / 3600);
             bool isMin = false;    // default to show hours
             if (hour < 1) {
                 isMin = true; // show in minutes
@@ -614,7 +614,7 @@ void TestElectronic::updateData(const double dt)
 
     // glide slope
     {
-        auto gsDev = static_cast<double>(oe::base::alim (gsDots, 2.1f) * 0.35f);
+        const auto gsDev = static_cast<double>(oe::base::alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
 
