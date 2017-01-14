@@ -127,7 +127,7 @@ void MapPage::drawFunc()
     latRange *= 2;
 
     // get our viewport
-    Display* dis = static_cast<Display*>(getDisplay());
+    const auto dis = static_cast<Display*>(getDisplay());
     if (dis != nullptr) {
         int start = oe::base::nint(static_cast<double>(southernLat) - 1);
         GLdouble l = 0, r = 0, t = 0, b = 0, n = 0, f = 0;
@@ -220,9 +220,9 @@ void MapPage::updateData(const double dt)
             // go through all of our non-ownship players and populate our new list
             oe::base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
-                oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
+                const auto pair = static_cast<oe::base::Pair*>(item->getValue());
                 if (pair != nullptr) {
-                    oe::models::Player* ply = dynamic_cast<oe::models::Player*>(pair->object());
+                    const auto ply = dynamic_cast<oe::models::Player*>(pair->object());
                     if (ply != nullptr) {
                         newPlayers[numNewPlayers] = ply;
                         newPlayers[numNewPlayers++]->ref();

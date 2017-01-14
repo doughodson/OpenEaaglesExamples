@@ -35,7 +35,7 @@ Station* station = nullptr;
 void timerFunc(int)
 {
     const double dt0 = 1.0 / static_cast<double>(frameRate);
-    const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+    const auto millis = static_cast<unsigned int>(dt0 * 1000);
     glutTimerFunc(millis, timerFunc, 1);
 
     // Current time
@@ -129,7 +129,7 @@ int main(int argc, char* argv[])
 
    // set timer for the background tasks
    const double dt = 1.0 / static_cast<double>(frameRate);
-   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const auto millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    station->updateData(dt);

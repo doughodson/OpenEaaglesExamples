@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
       const double timeNow = oe::base::getComputerTime();  // time now
       const double elapsedTime = timeNow - startTime;
       const double nextFrameStart = simTime - elapsedTime;
-      const int sleepTime = static_cast<int>(nextFrameStart*1000.0);
+      const auto sleepTime = static_cast<int>(nextFrameStart*1000.0);
 
       // wait for the next frame
       if (sleepTime > 0)

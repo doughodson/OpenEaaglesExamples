@@ -88,9 +88,9 @@ void SimStation::stepOwnshipPlayer()
       // Find the next player
       base::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
+         const auto pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            models::Player* ip = static_cast<models::Player*>(pair->object());
+            const auto ip = static_cast<models::Player*>(pair->object());
             if ( ip->isMode(models::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
                ip->isClassType(typeid(models::AirVehicle))

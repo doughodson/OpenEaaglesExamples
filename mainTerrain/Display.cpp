@@ -366,8 +366,8 @@ void Display::updateData(const double dt)
          double* curvature =nullptr;
          if (testEarthCurv) {
             curvature = new double[NUM_ROWS];
-            double radius = static_cast<double>(base::Nav::ERAD60 * base::Distance::NM2M);
-            double maxRng = static_cast<double>(deltaLat * 60.0f * base::Distance::NM2M);
+            const auto radius = static_cast<double>(base::Nav::ERAD60 * base::Distance::NM2M);
+            const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::Distance::NM2M);
             for (int irow = 0; irow < NUM_ROWS; irow++) {
                double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);
                double arc = curRng / radius;
@@ -461,7 +461,7 @@ void Display::updateData(const double dt)
                // Compute AAC data
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
-                  double angle = static_cast<double>(-10.0f * base::Angle::D2RCC);
+                  const auto angle = static_cast<double>(-10.0f * base::Angle::D2RCC);
                   osg::Vec2d vec(std::cos(angle),std::sin(angle));
                   terrain::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }

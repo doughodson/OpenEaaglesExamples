@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
 
    // set timer for background tasks
    const double dt = 1.0 / static_cast<double>(BG_RATE);
-   const int msecs = static_cast<int>(dt * 1000);
+   const auto msecs = static_cast<int>(dt * 1000);
 
    // ensure everything is reset
    simStation->updateData(dt);
