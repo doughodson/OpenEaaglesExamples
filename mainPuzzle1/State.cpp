@@ -359,8 +359,8 @@ bool State::setSlotBlocks(const oe::base::PairStream* const msg)
       // Find all blocks (and check their type to make sure)
       const oe::base::List::Item* item = msg->getFirstItem();
       while (item != nullptr && n < MAX_BLOCKS && ok) {
-         const oe::base::Pair* pair = static_cast<const oe::base::Pair*>(item->getValue());
-         const Block* p = dynamic_cast<const Block*>( pair->object() );
+         const auto pair = static_cast<const oe::base::Pair*>(item->getValue());
+         const auto p = dynamic_cast<const Block*>( pair->object() );
          if (p != nullptr) {
             newBlocks[n++] = p;  // Save the point
          }

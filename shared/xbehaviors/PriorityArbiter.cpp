@@ -78,7 +78,7 @@ base::ubf::Action* PriorityArbiter::genComplexAction(base::List* const actionSet
 
 void PriorityArbiter::trimChangeValidation(base::ubf::Action* const complexAction)
 {
-   PlaneAction* action = static_cast<PlaneAction*>(complexAction);
+   auto action = static_cast<PlaneAction*>(complexAction);
 
    if ( action->isPitchChanged() && action->isPitchTrimChanged() ) {
       //ignore pitch trim ONLY if the change goes against the action we want to

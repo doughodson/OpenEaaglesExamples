@@ -196,7 +196,7 @@ void Puzzle::putOpen(State* const s)
       oe::base::List::Item* item = openStates->getFirstItem();
       oe::base::List::Item* refItem = nullptr;
       while (item != nullptr && refItem == nullptr) {
-         const State* p = static_cast<const State*>( item->getValue() );
+         const auto p = static_cast<const State*>( item->getValue() );
          if (f < p->f()) {
             refItem = item;
          }

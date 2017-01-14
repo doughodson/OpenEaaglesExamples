@@ -139,7 +139,7 @@ void MapDisplay::passiveMotionEvent(const int x, const int y)
 void MapDisplay::mouseMotionEvent(const int x, const int y)
 {
     if (dragging) {
-        MapPage* page = static_cast<MapPage*>(subpage());
+        const auto page = static_cast<MapPage*>(subpage());
         if (page != nullptr) {
             // get our ref lat, because we won't go passed 70 degrees lat (either way);
             double lat = page->getReferenceLatDeg();
@@ -165,7 +165,7 @@ void MapDisplay::mouseMotionEvent(const int x, const int y)
 void MapDisplay::buttonEvent(const int b)
 {
    // cmdRange up, down
-   MapPage* page = static_cast<MapPage*>(subpage());
+   const auto page = static_cast<MapPage*>(subpage());
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
    oe::models::Player* pA = getOwnship();
@@ -308,7 +308,7 @@ void MapDisplay::updateData(const double dt)
 
    // get pointer to MapPage data
    int cmdRange = 0;
-   MapPage* page = static_cast<MapPage*>(subpage());
+   const auto page = static_cast<MapPage*>(subpage());
    if (page != nullptr) {
       cmdRange = static_cast<int>(page->getRange());
    }
@@ -319,9 +319,9 @@ void MapDisplay::updateData(const double dt)
    double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
    // default to autopilot mode off
    int apMode = 1;
-   oe::models::Aircraft* pA = static_cast<oe::models::Aircraft*>(getOwnship());
+   const auto pA = static_cast<oe::models::Aircraft*>(getOwnship());
    if (pA != nullptr) {
-      oe::models::Autopilot* ap = static_cast<oe::models::Autopilot*>(pA->getPilot());
+      const auto ap = static_cast<oe::models::Autopilot*>(pA->getPilot());
       if (ap != nullptr) {
          // button visibility is based on autopilot being in NO modes
          apButtonsVis = (ap->isNavModeOn() || ap->isLoiterModeOn() || ap->isFollowTheLeadModeOn());

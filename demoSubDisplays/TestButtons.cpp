@@ -69,7 +69,7 @@ bool TestButtons::knobMoved()
 {
     whichButton = KNOB;
     // get our knob real quick and find our value
-    base::Pair* pair = static_cast<base::Pair*>(findByName("knob"));
+    auto pair = static_cast<base::Pair*>(findByName("knob"));
     if (pair != nullptr) {
         instruments::Knob* k = dynamic_cast<instruments::Knob*>(pair->object());
         if (k != nullptr) {

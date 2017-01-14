@@ -195,7 +195,7 @@ void TestSD::updateData(const double dt)
     {
     base::Pair* pair = findByType(typeid(SituationalDisplay));
         if (pair != nullptr) {
-            SituationalDisplay* p = static_cast<SituationalDisplay*>(pair->object());
+            auto p = static_cast<SituationalDisplay*>(pair->object());
             if (p != nullptr) {
                 p->setHeading(heading);
                 p->setRange(range);

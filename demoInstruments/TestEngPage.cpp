@@ -114,7 +114,7 @@ void TestEngPage::updateData(const double dt)
         // Set to the engine display
         base::Pair* pair = findByType(typeid(oe::instruments::EngPage));
         if (pair != nullptr) {
-            oe::instruments::EngPage* p = static_cast<oe::instruments::EngPage*>(pair->object());
+            auto p = static_cast<oe::instruments::EngPage*>(pair->object());
             if (p != nullptr) {
                 for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
                     int idx = (i + 1);

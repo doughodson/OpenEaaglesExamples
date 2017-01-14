@@ -103,8 +103,8 @@ void PlaneState::updateState(const base::Component* const actor)
          bool finished = false;
          for (const base::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {
             // Get the pointer to the target player
-            const base::Pair* pair = static_cast<const base::Pair*>(item->getValue());
-            const models::Player* player = static_cast<const models::Player*>(pair->object());
+            auto pair = static_cast<const base::Pair*>(item->getValue());
+            auto player = static_cast<const models::Player*>(pair->object());
             if (player->isMajorType(models::Player::WEAPON) && (player->isActive() || player->isMode(models::Player::PRE_RELEASE)) && (player->getSide() == airVehicle->getSide())) {
                // our side has a weapon on-the-way/in-the-air;
                setMissileFired(true);
@@ -129,11 +129,11 @@ void PlaneState::updateState(const base::Component* const actor)
 
       //const base::String* playerName = airVehicle->getName();
       // DH - DOES NOT COMPILE WITH CONST -- ????
-      models::AirVehicle* airVehicleX = const_cast<models::AirVehicle*>(airVehicle);
+      auto airVehicleX = const_cast<models::AirVehicle*>(airVehicle);
       const base::Pair* sensorPair = airVehicleX->getSensorByType(typeid(models::Radar));
 
       if (sensorPair != nullptr) {
-         const models::Radar* radar = static_cast<const models::Radar*>(sensorPair->object());
+         auto radar = static_cast<const models::Radar*>(sensorPair->object());
          if (radar != nullptr) {
             const models::TrackManager* trackManager = radar->getTrackManager();
             base::safe_ptr<models::Track> trackList[50];

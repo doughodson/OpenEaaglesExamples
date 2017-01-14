@@ -418,7 +418,7 @@ void TestElectronic::updateData(const double dt)
                 else moveX = -1.8;
             }
 
-            int tempCurBug = static_cast<int>(curBug);
+            auto tempCurBug = static_cast<int>(curBug);
             if (tempCurBug < 0) tempCurBug += 360;
 
             // heading bug readout value and x position.
@@ -568,13 +568,13 @@ void TestElectronic::updateData(const double dt)
         }
         // elapsed time
         else if (readoutMode == ND_ET) {
-            int hour = static_cast<int>(elapsedTime / 3600);
+            auto hour = static_cast<int>(elapsedTime / 3600);
             bool isMin = false;    // default to show hours
             if (hour < 1) {
                 isMin = true; // show in minutes
                 send("elapsedtimemin", UPDATE_VALUE, elapsedTime, elapsedTimeSD);
-            }
-            else send("elapsedtimehour", UPDATE_VALUE, elapsedTime, elapsedTimeHRSD);
+            } else
+                send("elapsedtimehour", UPDATE_VALUE, elapsedTime, elapsedTimeHRSD);
 
             // send which readout
             send("whichelapsedtimero", SELECT, isMin, whichETSD);
@@ -614,7 +614,7 @@ void TestElectronic::updateData(const double dt)
 
     // glide slope
     {
-        double gsDev = static_cast<double>(oe::base::alim (gsDots, 2.1f) * 0.35f);
+        auto gsDev = static_cast<double>(oe::base::alim (gsDots, 2.1f) * 0.35f);
         send("glideslopedev", UPDATE_VALUE2, gsDev, glideSlopeSD);
     }
 

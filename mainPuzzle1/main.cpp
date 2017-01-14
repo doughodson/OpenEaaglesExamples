@@ -24,7 +24,7 @@ Board* board = nullptr;
 void timerCB(int)
 {
    const double dt0 = 1.0 / static_cast<double>(frameRate);
-   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const auto millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, timerCB, 1);
 
    // current time
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 
    // set timer
    const double dt = 1.0 / static_cast<double>(frameRate);
-   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const auto millis = static_cast<unsigned int>(dt * 1000);
    glutTimerFunc(millis, timerCB, 1);
 
    glutMainLoop();

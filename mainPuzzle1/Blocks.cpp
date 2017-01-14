@@ -172,7 +172,7 @@ bool Block::setSlotRefId(const oe::base::Integer* const msg)
    if (msg != nullptr) {
       int i = msg->getInt();
       if (i >= 0) {
-         unsigned int id = static_cast<unsigned int>(i);
+         const auto id = static_cast<unsigned int>(i);
          ok = setReferenceID(id);
       }
    }

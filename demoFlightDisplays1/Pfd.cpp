@@ -564,7 +564,7 @@ void Pfd::updateData(const double dt)
     //std::cout << "air speed tens = " << asTens << std::endl;
     //std::cout << "air speed hunds = " << airSpdHunds << std::endl;
 
-    int rest = static_cast<int>(airSpd / 10.0);
+    auto rest = static_cast<int>(airSpd / 10.0);
 
     //cmdSpd = 450;
     //airSpd += (dt * 10);
@@ -578,7 +578,7 @@ void Pfd::updateData(const double dt)
     // send that data to the tape gauge
     double altTens = ((alt/100) - static_cast<int>(alt/100)) * 10;
     // now figure the rest of the number
-    int altRest = static_cast<int>(alt/99.9999);
+    auto altRest = static_cast<int>(alt/99.9999);
     // also, for our dynamic dial arcs, we need the hundreds value of the altitude
     double altHundreds = 0;
     // find the thousands value too

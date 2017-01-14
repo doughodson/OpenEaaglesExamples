@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
 
    // set timer for the background tasks
    const double dt = 1.0 / static_cast<double>(BG_RATE);
-   const unsigned int msecs = static_cast<unsigned int>(dt * 1000);
+   const auto msecs = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    station->updateData(dt);

@@ -176,9 +176,9 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 void MapPage::drawHoldingPattern()
 {
    if (pStn != nullptr) {
-      auto pPlr  = dynamic_cast<oe::models::Player*>(pStn->getOwnship());
+      const auto pPlr  = dynamic_cast<oe::models::Player*>(pStn->getOwnship());
       if (pPlr != nullptr) {
-         auto pRac = static_cast<oe::models::Autopilot*>(pPlr->getPilot());
+         const auto pRac = static_cast<oe::models::Autopilot*>(pPlr->getPilot());
          if (pRac != nullptr) {
 
          //---------------------------------------------------------------------------
@@ -273,7 +273,7 @@ void MapPage::drawFunc()
          //---------------------------------------------------------------------------
          // get our viewport
          //---------------------------------------------------------------------------
-         MapDisplay* pDsp = static_cast<MapDisplay*>(getDisplay());
+         const auto pDsp = static_cast<MapDisplay*>(getDisplay());
          //graphics::Display* pDsp = (graphics::Display*) getDisplay();
 
          if (pDsp != nullptr) {
@@ -427,7 +427,7 @@ void MapPage::updateData(const double dt)
             // go through all of our non-ownship players and populate our new list
             oe::base::List::Item* item = stream->getFirstItem();
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
-                auto pair = static_cast<oe::base::Pair*>(item->getValue());
+                const auto pair = static_cast<oe::base::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     auto pPlr = dynamic_cast<oe::models::Player*>(pair->object());
                     if (pPlr != nullptr) {
