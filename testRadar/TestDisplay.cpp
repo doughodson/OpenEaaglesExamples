@@ -384,8 +384,8 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
         base::List::Item* item = plist->getFirstItem();
         while (item != nullptr && nNewTracks < maxTracks) {
 
-            base::Pair* pair = static_cast<base::Pair*>(item->getValue());
-            models::Player* p = static_cast<models::Player*>(pair->object());
+            const auto pair = static_cast<base::Pair*>(item->getValue());
+            const auto p = static_cast<models::Player*>(pair->object());
             osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
             double x = rpos[0] * base::Distance::M2NM;
             double y = rpos[1] * base::Distance::M2NM;

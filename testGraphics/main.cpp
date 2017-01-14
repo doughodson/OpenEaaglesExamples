@@ -34,7 +34,7 @@
 const unsigned int frame_rate = 10;
 // derived delta times
 const double dt_secs = 1.0 / static_cast<double>(frame_rate);
-const unsigned int dt_msecs = static_cast<unsigned int>(dt_secs * 1000.0);
+const auto dt_msecs = static_cast<unsigned int>(dt_secs * 1000.0);
 
 TestDisplay* testDisplay = nullptr;
 

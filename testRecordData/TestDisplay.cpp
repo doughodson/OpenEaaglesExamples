@@ -524,11 +524,11 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
         base::List::Item* item = plist->getFirstItem();
         while (item != nullptr && nNewTracks < maxTracks) {
 
-            base::Pair* pair = static_cast<base::Pair*>(item->getValue());
-            models::Player* p = static_cast<models::Player*>(pair->object());
+            const auto pair = static_cast<base::Pair*>(item->getValue());
+            const auto p = static_cast<models::Player*>(pair->object());
             osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
-            double x = rpos[0] * base::Distance::M2NM;
-            double y = rpos[1] * base::Distance::M2NM;
+            const double x = rpos[0] * base::Distance::M2NM;
+            const double y = rpos[1] * base::Distance::M2NM;
 
             if (
                p != getOwnship() &&
@@ -665,7 +665,7 @@ simulation::Station* TestDisplay::getStation()
 //------------------------------------------------------------------------------
 void TestDisplay::updatePfd(const double)
 {
-    models::AirVehicle* av = static_cast<models::AirVehicle*>(getOwnship());
+    const auto av = static_cast<models::AirVehicle*>(getOwnship());
 
     // pitch
     pitch = av->getPitchD();
@@ -724,7 +724,7 @@ void TestDisplay::updatePfd(const double)
 
     base::Pair* pair = findByType(typeid(xpanel::Pfd));
     if (pair != nullptr) {
-        xpanel::Pfd* p = static_cast<xpanel::Pfd*>(pair->object());
+        const auto p = static_cast<xpanel::Pfd*>(pair->object());
         if (p != nullptr) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);

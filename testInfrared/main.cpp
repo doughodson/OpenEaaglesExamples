@@ -64,7 +64,7 @@ TestStation* builder(const std::string& filename)
 void updateDataCB(int)
 {
    const double dt0 = 1.0 / static_cast<double>(bgRate);
-   const unsigned int millis = static_cast<unsigned int>(dt0 * 1000);
+   const auto millis = static_cast<unsigned int>(dt0 * 1000);
    glutTimerFunc(millis, updateDataCB, 1);
 
    // Current time
@@ -74,7 +74,7 @@ void updateDataCB(int)
    static double time0 = time;
 
    // Compute delta time
-   const double dt = static_cast<double>(time - time0);
+   const auto dt = static_cast<double>(time - time0);
    time0 = time;
 
    oe::base::Timer::updateTimers(dt);
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
 
    // set timer for the background tasks
    const double dt = 1.0 / static_cast<double>(bgRate);
-   const unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const auto millis = static_cast<unsigned int>(dt * 1000);
 
    // ensure everything is reset
    testStation->updateData(dt);

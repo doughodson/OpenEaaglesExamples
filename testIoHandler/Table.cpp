@@ -173,8 +173,8 @@ void Table::position()
       // Position our subcomponents, which are all TableRow objects (see build())
       base::List::Item* item = subcomponents->getFirstItem();
       while (item != nullptr) {
-         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
-         TableRow* row = static_cast<TableRow*>(pair->object());
+         const auto pair = static_cast<base::Pair*>(item->getValue());
+         const auto row = static_cast<TableRow*>(pair->object());
 
          row->line(ln);
          row->column(cp);
@@ -207,11 +207,11 @@ void Table::build()
 
          const base::List::Item* item = columns->getFirstItem();
          while (item != nullptr) {
-            const base::Pair* pair = static_cast<const base::Pair*>(item->getValue());
+            const auto pair = static_cast<const base::Pair*>(item->getValue());
             const base::Object* obj = pair->object();
             if (obj->isClassType(typeid(graphics::Graphic))) {
                base::Pair* pp = pair->clone();
-               graphics::Graphic* gobj = static_cast<graphics::Graphic*>(pp->object());
+               const auto gobj = static_cast<graphics::Graphic*>(pp->object());
                gobj->container(row);
                row->put(pp);
                pp->unref();
@@ -279,8 +279,8 @@ bool Table::setSlotColumns(base::PairStream* const msg)
       base::PairStream* newColumns = new base::PairStream();
       base::List::Item* item = msg->getFirstItem();
       while (item != nullptr) {
-          base::Pair* pair = static_cast<base::Pair*>(item->getValue());
-          graphics::Field* g = dynamic_cast<graphics::Field*>(pair->object());
+          const auto pair = static_cast<base::Pair*>(item->getValue());
+          const auto g = dynamic_cast<graphics::Field*>(pair->object());
           if (g != nullptr) {
               // We have a Field object, so add it to the new columns list
               newColumns->put(pair);
@@ -390,8 +390,8 @@ void TableRow::position()
 
       base::List::Item* item = subcomponents->getFirstItem();
       while (item != nullptr) {
-         base::Pair* pair = static_cast<base::Pair*>(item->getValue());
-         graphics::Field* ti = static_cast<graphics::Field*>(pair->object());
+         const auto pair = static_cast<base::Pair*>(item->getValue());
+         const auto ti = static_cast<graphics::Field*>(pair->object());
 
          ti->line(ln);
          ti->column(cp);

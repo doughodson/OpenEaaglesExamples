@@ -203,8 +203,8 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
       // search for air vehicles or missiles within range
       oe::base::List::Item* item = plist->getFirstItem();
       while (item != nullptr && nNewTracks < maxTracks) {
-         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
-         oe::models::Player* p = static_cast<oe::models::Player*>(pair->object());
+         const auto pair = static_cast<oe::base::Pair*>(item->getValue());
+         const auto p = static_cast<oe::models::Player*>(pair->object());
          oe::osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
          double x = rpos[0] * oe::base::Distance::M2NM;
          double y = rpos[1] * oe::base::Distance::M2NM;

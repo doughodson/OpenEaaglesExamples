@@ -611,7 +611,7 @@ simulation::Station* TestDisplay::getStation()
 //------------------------------------------------------------------------------
 void TestDisplay::updatePfd(const double)
 {
-    models::AirVehicle* av = static_cast<models::AirVehicle*>(getOwnship());
+    const auto av = static_cast<models::AirVehicle*>(getOwnship());
 
     // pitch
     pitch = av->getPitchD();
@@ -670,7 +670,7 @@ void TestDisplay::updatePfd(const double)
 
     base::Pair* pair = findByType(typeid(xpanel::Pfd));
     if (pair != nullptr) {
-        xpanel::Pfd* p = static_cast<xpanel::Pfd*>(pair->object());
+        const auto p = static_cast<xpanel::Pfd*>(pair->object());
         if (p != nullptr) {
             p->setPitchDeg(pitch);
             p->setRollDeg(roll);

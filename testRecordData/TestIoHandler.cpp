@@ -79,7 +79,7 @@ void TestIoHandler::inputDevices(const double dt)
    // ---
    // get the Station, Simulation and our ownship player
    // ---
-   SimStation* const sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
+   const auto sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
    simulation::SimExec* sim = nullptr;
    models::AirVehicle* av = nullptr;

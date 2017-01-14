@@ -110,8 +110,8 @@ void DspRadar::drawFunc()
       unsigned int n = radar->getNumSweeps();
       unsigned int nv = radar->getPtrsPerSweep();
 
-      double sx = static_cast<double>(n-1)/2.0f;
-      double sy = static_cast<double>(nv-1);
+      const double sx = static_cast<double>(n-1)/2.0f;
+      const auto sy = static_cast<double>(nv-1);
 
       const double* s0 = radar->getSweep(0);
       const double* c0 = radar->getClosure(0);
@@ -120,8 +120,8 @@ void DspRadar::drawFunc()
       for (unsigned int i = 1; i < n; i++) {
          const double* s1 = radar->getSweep(i);
          const double* c1 = radar->getClosure(i);
-         double x0 = static_cast<double>(i0)/sx - 1.0f;
-         double x1 = static_cast<double>(i)/sx - 1.0f;
+         const double x0 = static_cast<double>(i0)/sx - 1.0f;
+         const double x1 = static_cast<double>(i)/sx - 1.0f;
 
          glBegin(GL_QUAD_STRIP);
          for (unsigned int j = 0; j < nv; j++) {

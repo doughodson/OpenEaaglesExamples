@@ -20,8 +20,8 @@ bool MyPager::onEntry()
    if (components != nullptr) {
       oe::base::List::Item* item = components->getFirstItem();
       while (item != nullptr) {
-         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
-         oe::base::Component* cp = static_cast<oe::base::Component*>(pair->object());
+         const auto pair = static_cast<oe::base::Pair*>(item->getValue());
+         const auto cp = static_cast<oe::base::Component*>(pair->object());
          if (cp != nullptr)
             cp->event(RESET_EVENT);
          item = item->getNext();

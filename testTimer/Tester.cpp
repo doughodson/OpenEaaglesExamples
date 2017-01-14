@@ -55,8 +55,8 @@ bool Tester::areAllActiveTimerAlarmsOn() const
 
       const oe::base::List::Item* item = timers->getFirstItem();
       while (item != nullptr && on) {
-         const oe::base::Pair* pair = static_cast<const oe::base::Pair*>(item->getValue());
-         const oe::base::Timer* timer = static_cast<const oe::base::Timer*>(pair->object());
+         const auto pair = static_cast<const oe::base::Pair*>(item->getValue());
+         const auto timer = static_cast<const oe::base::Timer*>(pair->object());
          on = timer->alarm() || timer->isNotRunning();
          item = item->getNext();
       }
@@ -74,8 +74,8 @@ void Tester::printTimers() const
 
       const oe::base::List::Item* item = timers->getFirstItem();
       while (item != nullptr) {
-         const oe::base::Pair* pair = static_cast<const oe::base::Pair*>(item->getValue());
-         const oe::base::Timer* timer = static_cast<const oe::base::Timer*>(pair->object());
+         const auto pair = static_cast<const oe::base::Pair*>(item->getValue());
+         const auto timer = static_cast<const oe::base::Timer*>(pair->object());
 
          std::printf("  timer(%s)", pair->slot()->getString());
          std::printf(" = %4.1f", timer->getCurrentTime());
@@ -106,8 +106,8 @@ void Tester::restartAllTimers()
 
       oe::base::List::Item* item = timers->getFirstItem();
       while (item != nullptr) {
-         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
-         oe::base::Timer* timer = static_cast<oe::base::Timer*>(pair->object());
+         const auto pair = static_cast<oe::base::Pair*>(item->getValue());
+         const auto timer = static_cast<oe::base::Timer*>(pair->object());
          timer->restart();
          item = item->getNext();
       }
@@ -121,8 +121,8 @@ void Tester::reset()
    if (timers != nullptr) {
       oe::base::List::Item* item = timers->getFirstItem();
       while (item != nullptr) {
-         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
-         oe::base::Timer* timer = static_cast<oe::base::Timer*>(pair->object());
+         const auto pair = static_cast<oe::base::Pair*>(item->getValue());
+         const auto timer = static_cast<oe::base::Timer*>(pair->object());
          timer->reset();
          item = item->getNext();
       }
@@ -145,8 +145,8 @@ bool Tester::setSlotTimers(const oe::base::PairStream* const msg)
       const oe::base::List::Item* item = msg->getFirstItem();
       while (item != nullptr) {
          n++;
-         const oe::base::Pair* const pair = static_cast<const oe::base::Pair*>(item->getValue());
-         const oe::base::Timer* const timer = dynamic_cast<const oe::base::Timer*>(pair->object());
+         const auto pair = static_cast<const oe::base::Pair*>(item->getValue());
+         const auto timer = dynamic_cast<const oe::base::Timer*>(pair->object());
          if (timer != nullptr) {
             oe::base::Pair* newPair = pair->clone();
             newList->put(newPair);

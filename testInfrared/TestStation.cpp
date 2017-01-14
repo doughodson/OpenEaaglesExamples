@@ -108,9 +108,9 @@ void TestStation::stepOwnshipPlayer()
       // Find the next player
       oe::base::List::Item* item = pl->getFirstItem();
       while (item != nullptr) {
-         oe::base::Pair* pair = static_cast<oe::base::Pair*>(item->getValue());
+         const auto pair = static_cast<oe::base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            oe::models::Player* ip = static_cast<oe::models::Player*>( pair->object() );
+            const auto ip = static_cast<oe::models::Player*>( pair->object() );
             if ( ip->isMode(oe::models::Player::ACTIVE) &&
                ip->isLocalPlayer()
                ) {

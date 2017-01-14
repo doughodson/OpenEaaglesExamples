@@ -69,7 +69,7 @@ void Sender::updateData(const double dt)
         else {
             char buffer[MAX_SIZE];
             sprintf(buffer, "Message(%d)", ++msgCounter);
-            unsigned int n = static_cast<unsigned int>(std::strlen(buffer));
+            const auto n = static_cast<unsigned int>(std::strlen(buffer));
             base::msleep(1000);
             bool ok = sendData(buffer, n);
             if (ok) {

@@ -79,7 +79,7 @@ void MyComp::reset()
 
 void MyComp::updateTC(const double dt)
 {
-   unsigned int millis = static_cast<unsigned int>(dt * 1000);
+   const auto millis = static_cast<unsigned int>(dt * 1000);
    std::cout << "Time has moved forward by " << millis << " milliseconds\n";
 
    // Update base classes stuff

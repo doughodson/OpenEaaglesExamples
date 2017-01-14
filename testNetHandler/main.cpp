@@ -109,7 +109,7 @@ int main(int argc, char* argv[])
 
       double elapsedTime = timeNow - startTime;
       double nextFrameStart = simTime - elapsedTime;
-      int sleepTime = static_cast<int>(nextFrameStart*1000.0);
+      const auto sleepTime = static_cast<int>(nextFrameStart*1000.0);
 
       // wait for the next frame
       if (sleepTime > 0)
