@@ -8,7 +8,7 @@ LDFLAGS += -loemodels -lJSBSim
 LDFLAGS += -loedis
 LDFLAGS += -lxrecorder
 LDFLAGS += -loerecorder -loesimulation
-LDFLAGS += -loedafif -loeterrain -loebase
+LDFLAGS += -loeterrain -loebase
 LDFLAGS += -lprotobuf
 LDFLAGS += -lrt -lpthread
 

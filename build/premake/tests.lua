@@ -2,6 +2,29 @@
 -- Test applications
 --------------------------------------------------------
 
+-- test dafif library functionality
+project "testDafif"
+   kind "ConsoleApp"
+   targetname "testDafif"
+   targetdir "../../testDafif"
+   debugdir "../../testDafif"
+   files {
+      "../../testDafif/**.h*",
+      "../../testDafif/**.cpp",
+      "../../testDafif/**.cxx",
+      "../../testDafif/**.epp",
+      "../../testDafif/**.edl"
+   }
+   includedirs { OEIncPath, OE3rdPartyIncPath }
+   libdirs     { OELibPath, OE3rdPartyLibPath }
+   defines { "_CONSOLE" }
+   filter "configurations:Release*"
+      links {"oedafif", "oebase"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+   filter "configurations:Debug*"
+      links {"oedafif_d", "oebase_d"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+
 -- testEvents: test of event passing
 project "testEvents"
    kind "WindowedApp"
@@ -69,7 +92,7 @@ project "testInfrared"
       links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
       links {"oedis", "oeinterop" }
-      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oesimulation", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -77,7 +100,7 @@ project "testInfrared"
       links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
       links {"oedis_d", "oeinterop_d" }
-      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oesimulation_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -232,7 +255,7 @@ project "testRadar"
       links {"oemodels", "JSBSim"}
       links {"oeotw", LibCigi}
       links {"oedis", "oeinterop", "oeiodevice"}
-      links {"oesimulation", "oedafif", "oeterrain"}
+      links {"oesimulation", "oeterrain"}
       links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -240,7 +263,7 @@ project "testRadar"
       links {"oemodels_d", "JSBSim_d"}
       links {"oeotw_d", LibCigi_d}
       links {"oedis_d", "oeinterop_d", "oeiodevice_d"}
-      links {"oesimulation_d", "oedafif_d", "oeterrain_d"}
+      links {"oesimulation_d", "oeterrain_d"}
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -264,7 +287,7 @@ project "testRecordData"
       links {"oemodels", "JSBSim" }
       links {"oeotw", LibCigi }
       links {"oedis", "oeinterop", "oerecorder", "oeiodevice" }
-      links {"oesimulation", "oedafif", "oeterrain" }
+      links {"oesimulation", "oeterrain" }
       links {"oeglut", "oeinstruments", "oegraphics", "oebase" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"libprotobuf" }
@@ -273,7 +296,7 @@ project "testRecordData"
       links {"oemodels_d", "JSBSim_d" }
       links {"oeotw_d",  LibCigi_d }
       links {"oedis_d", "oeinterop_d", "oerecorder_d", "oeiodevice_d" }
-      links {"oesimulation_d", "oedafif_d", "oeterrain_d" }
+      links {"oesimulation_d", "oeterrain_d" }
       links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"libprotobuf_d" }
@@ -296,11 +319,11 @@ project "testRecorderRead"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oemodels", "JSBSim" }
-      links {"oerecorder", "oesimulation", "oedafif", "oebase", "libprotobuf"}
+      links {"oerecorder", "oesimulation", "oebase", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d" }
-      links {"oerecorder_d", "oesimulation_d", "oedafif_d", "oebase_d", "libprotobuf_d" }
+      links {"oerecorder_d", "oesimulation_d", "oebase_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRecorderWrite
@@ -320,11 +343,11 @@ project "testRecorderWrite"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oemodels", "JSBSim" }
-      links {"oerecorder", "oesimulation", "oedafif", "oebase", "libprotobuf"}
+      links {"oerecorder", "oesimulation", "oebase", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
       links {"oemodels_d", "JSBSim_d" }
-      links {"oerecorder_d", "oesimulation_d", "oedafif_d", "oebase_d", "libprotobuf_d" }
+      links {"oerecorder_d", "oesimulation_d", "oebase_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRng

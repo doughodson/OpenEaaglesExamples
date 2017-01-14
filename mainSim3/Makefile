@@ -11,7 +11,7 @@ OBJS = \
 
 LDFLAGS += -lxzmq -l:libzmq.a
 LDFLAGS += -loedis -loeinterop -loemodels -loesimulation -lJSBSim
-LDFLAGS += -loeinstruments -loeiodevice -loeotw -loedafif -loeterrain
+LDFLAGS += -loeinstruments -loeiodevice -loeotw -loeterrain
 LDFLAGS += -loeglut -loegraphics -loebase -lrt -lcigicl
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu

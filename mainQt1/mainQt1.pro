@@ -52,7 +52,6 @@ win32:CONFIG(release, debug|release): LIBS +=        \
     -loemodels                                       \
     -loeterrain                                      \
     -loeotw                                          \
-    -loedafif                                        \
     -loebase                                         \
     -lccl_lib                                        \
     -ljsbsim                                         \
@@ -71,7 +70,6 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     -loemodels_d                                        \
     -loeterrain_d                                       \
     -loeotw_d                                           \
-    -loedafif_d                                         \
     -loebase_d                                          \
     -lccl_lib_d                                         \
     -ljsbsim_d                                          \
@@ -89,7 +87,6 @@ else:unix:!macx:!symbian: LIBS +=       \
     -loeotw                             \
     -loesimulation                      \
     -loemodels                          \
-    -loedafif                           \
     -loeterrain                         \
     -loebase                            \
     -lcigicl                            \
