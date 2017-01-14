@@ -18,7 +18,7 @@ EMPTY_DELETEDATA(PriorityArbiter)
 
 base::ubf::Action* PriorityArbiter::genComplexAction(base::List* const actionSet)
 {
-   PlaneAction* complexAction = new PlaneAction;
+   const auto complexAction = new PlaneAction;
 
    unsigned int maxPitchVote = 0;
    unsigned int maxRollVote = 0;

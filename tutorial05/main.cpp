@@ -46,7 +46,7 @@ MyObj* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -54,7 +54,7 @@ MyObj* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   MyObj* myObj = dynamic_cast<MyObj*>(obj);
+   const auto myObj = dynamic_cast<MyObj*>(obj);
    if (myObj == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
          const oe::base::Pair* p = colorTable->findByName(id->getString());
          if (p != nullptr) {
             std::cout << "Text color: " << id->getString();
-            const oe::base::Color* color = dynamic_cast<const oe::base::Color*>(p->object());
+            const auto color = dynamic_cast<const oe::base::Color*>(p->object());
             if (color != nullptr) {
                std::cout << " Red: "   << color->red();
                std::cout << " Green: " << color->green();
@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
    const oe::base::List* vector = myObj->getVector();
    if (vector != nullptr) {
       int numValues = vector->entries();
-      int* values = new int[numValues];
+      const auto values = new int[numValues];
       int n = vector->getNumberList(values,numValues);
       std::cout << "Vector: ";
       std::cout << "# Numeric Entries: " << n << " Values: ";

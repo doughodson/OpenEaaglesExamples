@@ -234,7 +234,7 @@ bool TestDisplay::onDecRngKey()
 // Step ownship key
 bool TestDisplay::onStepOwnshipKey()
 {
-   TestStation* ts = dynamic_cast<TestStation*>(getStation());
+   const auto ts = dynamic_cast<TestStation*>(getStation());
    if ( ts != nullptr ) {
       ts->stepOwnshipPlayer();
    }
@@ -308,7 +308,7 @@ void TestDisplay::updateData(const double dt)
       // Maintain Air Tracks
       base::Pair* pair = findByName("airTracks");
       if (pair != nullptr) {
-         graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
+         const auto myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (myLoader != nullptr) {
             myLoader->setRange(range);
             myLoader->setHeadingDeg(getOwnship()->getHeadingD());
@@ -333,7 +333,7 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
     if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
       base::Pair* pair = findByName("airTracks");
       if (pair != nullptr) {
-         graphics::SymbolLoader* myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
+         const auto myLoader = dynamic_cast<graphics::SymbolLoader*>(pair->object());
          if (myLoader != nullptr) {
             graphics::Graphic* selected = pick(0);
             if (selected != nullptr) {
@@ -512,7 +512,7 @@ simulation::SimExec* TestDisplay::getSimulation()
 simulation::Station* TestDisplay::getStation()
 {
     if (myStation == nullptr) {
-        simulation::Station* s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+        const auto s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
         if (s != nullptr) myStation = s;
     }
     return myStation;

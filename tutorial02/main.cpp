@@ -6,7 +6,7 @@
 int main(int argc, char* argv[])
 {
    std::cout << "Creating Random object\n";
-   Random* rgen = new Random();
+   const auto rgen = new Random();
    std::cout << "Random object created\n";
 
    rgen->setSeed(25);

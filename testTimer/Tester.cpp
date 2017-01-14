@@ -139,7 +139,7 @@ bool Tester::setSlotTimers(const oe::base::PairStream* const msg)
    // Copy the new timer list, and make sure we have only Timers
    if (msg != nullptr) {
 
-      oe::base::PairStream* newList = new oe::base::PairStream();
+      const auto newList = new oe::base::PairStream();
 
       unsigned int n = 0;
       const oe::base::List::Item* item = msg->getFirstItem();

@@ -46,7 +46,7 @@ oe::simulation::SimExec* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -54,7 +54,7 @@ oe::simulation::SimExec* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   auto simulation = dynamic_cast<oe::simulation::SimExec*>(obj);
+   const auto simulation = dynamic_cast<oe::simulation::SimExec*>(obj);
    if (simulation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

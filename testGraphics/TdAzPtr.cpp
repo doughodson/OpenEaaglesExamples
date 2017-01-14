@@ -30,7 +30,7 @@ bool TdAzPtr::event(const int event, base::Object* const obj)
 
     if (event == UPDATE_VALUE)
     {
-        const base::Number* num = dynamic_cast<const base::Number*>(obj);
+        const auto num = dynamic_cast<const base::Number*>(obj);
         if (num != nullptr) {
             azimuth = num->getReal();
             used = true;

@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[])
 {
-   oe::base::String* str = new oe::base::String("Hello world\n");
+   const auto str = new oe::base::String("Hello world\n");
 
    std::cout << str->getString();
 

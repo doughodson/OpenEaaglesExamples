@@ -176,7 +176,7 @@ unsigned int Board::setupBlockGraphics()
                unsigned int typeId = b->getTypeId();
                const base::Pair* pair = templates->getPosition(typeId);
                if (pair != nullptr) {
-                  const graphics::Graphic* g = dynamic_cast<const graphics::Graphic*>( pair->object() );
+                  const auto g = dynamic_cast<const graphics::Graphic*>( pair->object() );
                   if (g != nullptr) {
                      // Ok, we've found a graphics::Graphic to draw this block!
                      blocks[nblocks] = g->clone();

@@ -106,7 +106,7 @@ void AdiDisplay::updateData(const double dt)
 oe::simulation::Station* AdiDisplay::getStation()
 {
    if (myStation == nullptr) {
-      oe::simulation::Station* s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
+      const auto s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
       if (s != nullptr) {
          myStation = s;
       }

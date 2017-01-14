@@ -167,13 +167,13 @@ void TestStateMachine03::stateFunc13(const double)
       case 1 : {
          if (getMode() != RTN_STATE) {
             std::cout << "call(CALL_02,arg=13)";
-            base::Number* arg = new base::Integer(13);
+            const auto arg = new base::Integer(13);
             call(CALL_02, arg);
             arg->unref();
          }
          else {
             std::cout << "Returned from call; ";
-            const base::Boolean* arg = dynamic_cast<const base::Boolean*>( getArgument() );
+            const auto arg = dynamic_cast<const base::Boolean*>( getArgument() );
             if (arg != nullptr) {
                std::cout << "arg(" << arg->getBoolean() << "); ";
             }
@@ -206,7 +206,7 @@ void TestStateMachine03::stateFunc15(const double)
 
 void TestStateMachine03::stateFunc21(const double)
 {
-   const base::Number* arg = dynamic_cast<const base::Number*>( getArgument() );
+   const auto arg = dynamic_cast<const base::Number*>( getArgument() );
    if (arg != nullptr) {
       std::cout << "arg(" << arg->getReal() << "); ";
    }
@@ -224,7 +224,7 @@ void TestStateMachine03::stateFunc22(const double)
 void TestStateMachine03::stateFunc23(const double)
 {
    std::cout << "rtn(arg=true)";
-   base::Boolean* arg = new base::Boolean(true);
+   const auto arg = new base::Boolean(true);
    rtn(arg);
    arg->unref();
 }

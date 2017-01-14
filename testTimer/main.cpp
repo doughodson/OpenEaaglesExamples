@@ -64,7 +64,7 @@ unsigned long TimerThread::userFunc(const double dt)
 //------------------------------------------------------------------------------
 TimerThread* createTheThread(Tester* const tester)
 {
-   TimerThread* thread = new TimerThread(tester, THREAD_PRI, THREAD_RATE);
+   auto thread = new TimerThread(tester, THREAD_PRI, THREAD_RATE);
 
    bool ok = thread->create();
    if (!ok) {
@@ -107,7 +107,7 @@ Tester* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -115,7 +115,7 @@ Tester* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   Tester* tester = dynamic_cast<Tester*>(obj);
+   const auto tester = dynamic_cast<Tester*>(obj);
    if (tester == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -135,7 +135,7 @@ void run(Tester* const tester)
       double dt = 1.0 / static_cast<double>(TIMERS_PRINT_RATE);
 
       // Our main test control timer
-      oe::base::UpTimer* mainTimer = new oe::base::UpTimer();
+      const auto mainTimer = new oe::base::UpTimer();
       mainTimer->setAlarmTime(MAIN_TIMER_VALUE);
       mainTimer->start();
 

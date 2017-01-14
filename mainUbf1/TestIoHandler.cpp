@@ -229,7 +229,7 @@ void TestIoHandler::inputDevices(const double)
          bool autopilotSw = false;
          inData->getDiscreteInput(PADDLE_SW, &autopilotSw);
          if (autopilotSw && !autopilotSw1) {
-            models::Autopilot* ap = dynamic_cast<models::Autopilot*>(av->getPilot());
+            const auto ap = dynamic_cast<models::Autopilot*>(av->getPilot());
             if (ap != nullptr) {
                ap->setHeadingHoldMode(false);
                ap->setAltitudeHoldMode(false);

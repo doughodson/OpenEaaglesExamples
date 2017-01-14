@@ -23,16 +23,16 @@ int main(int, char**)
 {
    std::cout << "Testing object metadata capabilities" << std::endl;
 
-   oe::base::Decibel* db = new oe::base::Decibel();
+   const auto db = new oe::base::Decibel();
    printMetadata(oe::base::Decibel::getMetadata());
 
-   oe::base::Color* c1 = new oe::base::Color();
-   oe::base::Color* c2 = new oe::base::Color();
-   oe::base::Color* c3 = new oe::base::Color();
+   const auto c1 = new oe::base::Color();
+   const auto c2 = new oe::base::Color();
+   const auto c3 = new oe::base::Color();
    c2->unref();
    printMetadata(oe::base::Color::getMetadata());
 
-   oe::base::Matrix* matrix1 = new oe::base::Matrix();
+   const auto matrix1 = new oe::base::Matrix();
    printMetadata(oe::base::Matrix::getMetadata());
 
    return 0;

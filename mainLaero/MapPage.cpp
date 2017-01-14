@@ -263,7 +263,7 @@ void MapPage::drawFunc()
       // get data pointers
       //-------------------------------------------------------
    if (pStn != nullptr) {
-      auto pPlr  = dynamic_cast<oe::models::Player*>(pStn->getOwnship());
+      const auto pPlr  = dynamic_cast<oe::models::Player*>(pStn->getOwnship());
       if (pPlr != nullptr) {
 
          // get the autopilot
@@ -376,7 +376,7 @@ void MapPage::updateData(const double dt)
             if (pStn != nullptr) {
                 pStn->ref();
                 // set our reference lat / lon initially
-                auto sim = dynamic_cast<oe::models::Simulation*>(pStn->getSimulation());
+                const auto sim = dynamic_cast<oe::models::Simulation*>(pStn->getSimulation());
                 if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());
@@ -389,10 +389,10 @@ void MapPage::updateData(const double dt)
    if (!routeLoaded && pStn != nullptr) {
       oe::base::Pair* pair = findByName("routeLoader");
       if (pair != nullptr) {
-         auto routeLoader = dynamic_cast<oe::graphics::SymbolLoader*>(pair->object());
+         const auto routeLoader = dynamic_cast<oe::graphics::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
             // get our player's route
-            auto ply = dynamic_cast<oe::models::Player*>(pStn->getOwnship());
+            const auto ply = dynamic_cast<oe::models::Player*>(pStn->getOwnship());
             if (ply != nullptr) {
                oe::models::Navigation* nav = ply->getNavigation();
                if (nav != nullptr) {
@@ -429,7 +429,7 @@ void MapPage::updateData(const double dt)
             while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
                 const auto pair = static_cast<oe::base::Pair*>(item->getValue());
                 if (pair != nullptr) {
-                    auto pPlr = dynamic_cast<oe::models::Player*>(pair->object());
+                    const auto pPlr = dynamic_cast<oe::models::Player*>(pair->object());
                     if (pPlr != nullptr) {
                         newPlayers[numNewPlayers] = pPlr;
                         newPlayers[numNewPlayers++]->ref();

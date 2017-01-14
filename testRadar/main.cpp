@@ -62,7 +62,7 @@ TestStation* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -70,7 +70,7 @@ TestStation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   TestStation* testStation = dynamic_cast<TestStation*>(obj);
+   const auto testStation = dynamic_cast<TestStation*>(obj);
    if (testStation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

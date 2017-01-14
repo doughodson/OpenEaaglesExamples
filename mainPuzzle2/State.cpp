@@ -277,7 +277,7 @@ const State* State::stateFactory(const Block* const nb, const unsigned int idx, 
    if (nb != nullptr && idx < nblocks && goal != nullptr) {
 
       // create a new state with this block.
-      State* ns = new State(*this,nb,idx);
+      const auto ns = new State(*this,nb,idx);
       ns->container(this);
       ns->defineBoard(puz);
       ns->hFunc(goal);

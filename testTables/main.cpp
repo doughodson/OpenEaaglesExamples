@@ -44,7 +44,7 @@ oe::base::Table* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -52,7 +52,7 @@ oe::base::Table* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   oe::base::Table* table = dynamic_cast<oe::base::Table*>(obj);
+   const auto table = dynamic_cast<oe::base::Table*>(obj);
    if (table == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -334,10 +334,10 @@ int main(int argc, char* argv[])
    // ---
    // Cast table pointers
    // ---
-   const oe::base::Table1* t1 = dynamic_cast<const oe::base::Table1*>(table);
-   const oe::base::Table2* t2 = dynamic_cast<const oe::base::Table2*>(table);
-   const oe::base::Table3* t3 = dynamic_cast<const oe::base::Table3*>(table);
-   const oe::base::Table4* t4 = dynamic_cast<const oe::base::Table4*>(table);
+   const auto t1 = dynamic_cast<const oe::base::Table1*>(table);
+   const auto t2 = dynamic_cast<const oe::base::Table2*>(table);
+   const auto t3 = dynamic_cast<const oe::base::Table3*>(table);
+   const auto t4 = dynamic_cast<const oe::base::Table4*>(table);
 
    // ---
    // Call the test function for this LFI table type

@@ -500,7 +500,7 @@ void TestElectronic::updateData(const double dt)
             send("primarycoursepointer", UPDATE_VALUE6, heading - curCourse, crsPntrSD);
 
             // course pointer color
-            oe::base::String* string = new oe::base::String("white");
+            const auto string = new oe::base::String("white");
             if (navType == VORTAC) {
                 if ((vhfReceive && !(vhfDIC || vhfLGS)) || (vhfLocValid && vhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
@@ -524,7 +524,7 @@ void TestElectronic::updateData(const double dt)
             send("secondarycoursepointer", UPDATE_VALUE2, curCourse - heading, secCrsPntrSD);
 
             // course pointer color
-            oe::base::String* string = new oe::base::String("white");
+            const auto string = new oe::base::String("white");
             if (secNavType == VORTAC) {
                 if ((secVhfReceive && !(secVhfDIC || secVhfLGS)) || (secVhfLocValid && secVhfLGS)) string->setStr("green");
                 else string->setStr("yellow");

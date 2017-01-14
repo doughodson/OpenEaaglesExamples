@@ -187,7 +187,7 @@ void Puzzle::putOpen(State* const s)
 
    if (s != nullptr) {
       // Create a new list item for this state and get the state's f() value
-      oe::base::List::Item* newItem = new oe::base::List::Item();
+      const auto newItem = new oe::base::List::Item();
       newItem->value = s;
       s->ref();
       int f = s->f();

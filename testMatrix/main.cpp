@@ -136,30 +136,30 @@ void testConstructors()
    //---------------------------------------------
    // Data Constructor
    //---------------------------------------------
-   Matrix* pM1 = new Matrix(d::rows, d::cols, pArr, d::size); // Constructor allocates memory for a 3x3 matrix and
-                                                              // inits matrix with data from array pArr and returns
-                                                              // a pointer to the matrix
+   const auto pM1 = new Matrix(d::rows, d::cols, pArr, d::size); // Constructor allocates memory for a 3x3 matrix and
+                                                                 // inits matrix with data from array pArr and returns
+                                                                 // a pointer to the matrix
    std::cout << "M1 = " << std::endl;
-   std::cout << *pM1 << std::endl;                            // Note fldWidth=DEF_FLDWIDTH and decPoint=DEF_DECPOINT
+   std::cout << *pM1 << std::endl;                               // Note fldWidth=DEF_FLDWIDTH and decPoint=DEF_DECPOINT
    std::cout << "M1 = " << std::endl;
-   pM1->showMatrix(3,10); std::cout << std::endl;             // Note that showMatrix used decPoint=3 to set decimal
-                                                              // precision and fldWidth=10.
+   pM1->showMatrix(3,10); std::cout << std::endl;                // Note that showMatrix used decPoint=3 to set decimal
+                                                                 // precision and fldWidth=10.
 
    //---------------------------------------------
    // Copy Constructor
    //---------------------------------------------
-   Matrix* pM2 = new Matrix(*pM1);                // Constructor creates a new matrix D with the same
-                                                  // elements as matrix C.
+   const auto pM2 = new Matrix(*pM1);                // Constructor creates a new matrix D with the same
+                                                     // elements as matrix C.
    pM2->setDecPoint(8);
-   pM2->setFldWidth(11);                          // This field width leaves no margin between row elements
-                                                  // in this example.
+   pM2->setFldWidth(11);                             // This field width leaves no margin between row elements
+                                                     // in this example.
    std::cout << "M2 = " << std::endl;
-   std::cout << *pM2 << std::endl;                // The output for the matrix is FW=14 and DP=8.
+   std::cout << *pM2 << std::endl;                   // The output for the matrix is FW=14 and DP=8.
    std::cout << "M2 = " << std::endl;
-   pM2->showMatrix(6,9); std::cout << std::endl;  // Since the field width value of 9 would leaves no space
-                                                  // between some of the matrix elements, the function
-                                                  // showMatrix calculates a field width that leaves >= 2
-                                                  // spaces between row elements for readability.
+   pM2->showMatrix(6,9); std::cout << std::endl;     // Since the field width value of 9 would leaves no space
+                                                     // between some of the matrix elements, the function
+                                                     // showMatrix calculates a field width that leaves >= 2
+                                                     // spaces between row elements for readability.
 
    //---------------------------------------------
    // cleanup
@@ -181,7 +181,7 @@ void testInformation()
    //---------------------------------------------
    // Matrix data
    //---------------------------------------------
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
@@ -217,7 +217,7 @@ void testOverloadedOps()
    //---------------------------------------------
    // Matrix data
    //---------------------------------------------
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
@@ -246,7 +246,7 @@ void testOverloadedOps()
    // overloaded "<<"
    std::cout << "B = " << std::endl << B << std::endl;
 
-   CVector* pV = new CVector(3);
+   const auto pV = new CVector(3);
    (*pV)[0] = std::sqrt(2.0);
    (*pV)[1] = std::log(2.0);
    (*pV)[2] = std::exp(2.0);
@@ -278,14 +278,14 @@ void test_getTriDiagonal()
    std::cout << "=============================================" << std::endl;
    std::cout << "Test getTriDiagonal" << std::endl;
 
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
 
    // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
-   Matrix* pB = new Matrix(d::rows, d::cols);
+   const auto pB = new Matrix(d::rows, d::cols);
    bool b1 = pA->getTriDiagonal(pB);
    std::cout << "getTriDiagonal function return value = " << std::boolalpha << b1 << std::endl;
    std::cout << std::endl;
@@ -305,15 +305,15 @@ void test_getQR()
    std::cout << "=============================================" << std::endl;
    std::cout << "Test getQR" << std::endl;
 
-   Matrix* pA = new Matrix(d::rows, d::cols,pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols,pArr, d::size);
 
    // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
-   Matrix* pQ = new Matrix(d::rows, d::cols);
-   Matrix* pR = new Matrix(d::rows, d::cols);
+   const auto pQ = new Matrix(d::rows, d::cols);
+   const auto pR = new Matrix(d::rows, d::cols);
    bool b1 = pA->getQR(pQ, pR);
    std::cout << "getQR function return value = " << std::boolalpha << b1 << std::endl;
    std::cout << std::endl;
@@ -342,7 +342,7 @@ void test_getQR()
    pI->showMatrix(); std::cout << std::endl;
 
    // get eigenvalues
-   Matrix* pB = new Matrix(*pA);
+   auto pB = new Matrix(*pA);
    for (int i=0; i<10; i++)
    {
       pB->getQR(pQ, pR);
@@ -369,15 +369,15 @@ void test_getLU()
    std::cout << "=============================================" << std::endl;
    std::cout << "Test getLU" << std::endl;
 
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
 
    // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
-   Matrix* pL = new Matrix(d::rows,d::cols);
-   Matrix* pU = new Matrix(d::rows,d::cols);
+   const auto pL = new Matrix(d::rows,d::cols);
+   const auto pU = new Matrix(d::rows,d::cols);
    bool b1 = pA->getLU(pL, pU);
    std::cout << "getLU function return value = " << std::boolalpha << b1 << std::endl;
    std::cout << std::endl;
@@ -411,15 +411,15 @@ void test_getCholesky()
    std::cout << "=============================================" << std::endl;
    std::cout << "Test getCholesky" << std::endl;
 
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
 
    // Show the base matrix
    std::cout << "=============================================" << std::endl;
    std::cout << "A = " << std::endl;
    pA->showMatrix(); std::cout << std::endl;
 
-   Matrix* pL = new Matrix(d::rows, d::cols);
-   Matrix* pU = new Matrix(d::rows, d::cols);
+   const auto pL = new Matrix(d::rows, d::cols);
+   const auto pU = new Matrix(d::rows, d::cols);
    bool b1 = pA->getCholesky(pL, pU);
    std::cout << "getCholesky function return value = " << std::boolalpha << b1 << std::endl;
    std::cout << std::endl;
@@ -453,9 +453,9 @@ void test_getEigenPower()
    double maxErr = .0001;
    int maxIter = 100;
    double Val = 0.0;
-   CVector* pVec = new CVector(d::rows);
+   const auto pVec = new CVector(d::rows);
 
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
 
    // Show the base matrix
    std::cout << "=============================================" << std::endl;
@@ -495,8 +495,8 @@ void test_getEigenPower()
 //------------------------------------------------------------------------------
 void test_getInverse()
 {
-   Matrix* pA = new Matrix(d::rows, d::cols, pArr, d::size);
-   Matrix* pI = new Matrix(d::rows, d::cols);
+   const auto pA = new Matrix(d::rows, d::cols, pArr, d::size);
+   auto pI = new Matrix(d::rows, d::cols);
 
    // Show the base matrix
    std::cout << "=============================================" << std::endl;

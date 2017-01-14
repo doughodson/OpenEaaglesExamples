@@ -48,7 +48,7 @@ DataRecordTest* builder(const std::string& filename)
    }
 
    // do we have a oe::base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -56,7 +56,7 @@ DataRecordTest* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   DataRecordTest* dataRecordTest = dynamic_cast<DataRecordTest*>(obj);
+   const auto dataRecordTest = dynamic_cast<DataRecordTest*>(obj);
    if (dataRecordTest == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

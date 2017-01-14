@@ -136,7 +136,7 @@ bool TestDisplay::onDecRngKey()
 // Step ownship key
 bool TestDisplay::onStepOwnshipKey()
 {
-   TestStation* ts = dynamic_cast<TestStation*>(getStation());
+   const auto ts = dynamic_cast<TestStation*>(getStation());
    if ( ts != nullptr ) {
       ts->stepOwnshipPlayer();
    }
@@ -157,7 +157,7 @@ void TestDisplay::updateData(const double dt)
        // Maintain Air Tracks
        oe::base::Pair* pair = findByName("airTracks");
        if (pair != nullptr) {
-          oe::graphics::SymbolLoader* myLoader = dynamic_cast<oe::graphics::SymbolLoader*>(pair->object());
+          const auto myLoader = dynamic_cast<oe::graphics::SymbolLoader*>(pair->object());
           if (myLoader != nullptr) {
              myLoader->setRange(range);
              myLoader->setHeadingDeg(getOwnship()->getHeadingD());
@@ -206,10 +206,10 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
          const auto pair = static_cast<oe::base::Pair*>(item->getValue());
          const auto p = static_cast<oe::models::Player*>(pair->object());
          oe::osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
-         double x = rpos[0] * oe::base::Distance::M2NM;
-         double y = rpos[1] * oe::base::Distance::M2NM;
+         const double x = rpos[0] * oe::base::Distance::M2NM;
+         const double y = rpos[1] * oe::base::Distance::M2NM;
 
-         auto weapon = dynamic_cast<oe::models::AbstractWeapon*>(p);
+         const auto weapon = dynamic_cast<oe::models::AbstractWeapon*>(p);
          if (weapon && (weapon->isMode(oe::models::Player::PRE_RELEASE) || weapon->isActive())) {
             target = weapon->getTargetPlayer();
          }
@@ -296,17 +296,17 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
    }
 
    // now update the active tracks
-   oe::models::Player* os = dynamic_cast<oe::models::Player*>(getOwnship());
+   const auto os = dynamic_cast<oe::models::Player*>(getOwnship());
    for (int i = 0; i < maxTracks; i++) {
-      double osX = os->getXPosition();
-      double osY = os->getYPosition();
+      const double osX = os->getXPosition();
+      const double osY = os->getYPosition();
       if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp = tracks[i]->getXPosition() - osX;
          double yp = tracks[i]->getYPosition() - osY;
          loader->updateSymbolPositionXY( trkIdx[i], (xp * oe::base::Distance::M2NM), (yp * oe::base::Distance::M2NM) );
          loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
          if (tracks[i]==target) {
-            //base::Identifier* temp = new base::Identifier("green");
+            //const auto temp = new base::Identifier("green");
             //loader->changeSymbolColor(trkIdx[i], 0, temp);
             loader->setSymbolFlashRate(trkIdx[i], nullptr, 2);
          }
@@ -338,7 +338,7 @@ oe::simulation::SimExec* TestDisplay::getSimulation()
 oe::simulation::Station* TestDisplay::getStation()
 {
    if (myStation == nullptr) {
-      auto s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
+      const auto s = dynamic_cast<oe::simulation::Station*>( findContainerByType(typeid(oe::simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;

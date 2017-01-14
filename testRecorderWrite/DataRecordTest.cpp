@@ -336,7 +336,7 @@ void DataRecordTest::readSerialFromFile()
                std::string selTime = "N";
                std::cin >> selTime;
                if ((selTime == "Y") || (selTime == "y")) {
-                  const recorder::pb::DataRecord* dataRecord = new recorder::pb::DataRecord();
+                  const auto dataRecord = new recorder::pb::DataRecord();
                   processMessage(&dataRecord->time());
                }
             }
@@ -361,7 +361,7 @@ void DataRecordTest::readSerialFromFile()
 
                   // Go through the message to select the field and criteria to match
                   const google::protobuf::Message* processMsg = nullptr;
-                  const recorder::pb::DataRecord* testDr = new recorder::pb::DataRecord();
+                  const auto testDr = new recorder::pb::DataRecord();
                   switch (eventNum) {
                      case REID_FILE_ID:           processMsg = &testDr->file_id_msg();                 break;
                      case REID_NEW_PLAYER:        processMsg = &testDr->new_player_event_msg();        break;
@@ -556,9 +556,9 @@ void DataRecordTest::eventTestMenu()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::FileIdMsg* msg = recordMsg->mutable_file_id_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_FILE_ID);
@@ -591,10 +591,10 @@ oe::recorder::DataRecordHandle* DataRecordTest::testFileIdMsg(int run)
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::NewPlayerEventMsg* msg = recordMsg->mutable_new_player_event_msg();
 
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
@@ -640,9 +640,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testNewPlayerEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::PlayerRemovedEventMsg* msg = recordMsg->mutable_player_removed_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
@@ -678,9 +678,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::PlayerDataMsg* msg = recordMsg->mutable_player_data_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
@@ -716,13 +716,13 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDataMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::PlayerDamagedEventMsg* msg = recordMsg->mutable_player_damaged_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
-   const google::protobuf::Message* recMsg = new oe::recorder::pb::DataRecord();
+   const auto recMsg = new oe::recorder::pb::DataRecord();
    const google::protobuf::Descriptor* descriptor = recMsg->GetDescriptor();
    const google::protobuf::FieldDescriptor* id_field = descriptor->FindFieldByName("id");
 
@@ -762,9 +762,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::PlayerCollisionEventMsg* msg = recordMsg->mutable_player_collision_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
    oe::recorder::pb::PlayerId* other = msg->mutable_other_player_id();
@@ -806,9 +806,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::PlayerCrashEventMsg* msg = recordMsg->mutable_player_crash_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
@@ -844,9 +844,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCrashEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigned int type)
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::PlayerKilledEventMsg* msg = recordMsg->mutable_player_killed_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
 
@@ -882,9 +882,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerKilledEventMsg(unsigne
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsigned int side)
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::WeaponReleaseEventMsg* msg = recordMsg->mutable_weapon_release_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_RELEASED);
@@ -925,9 +925,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponReleaseEventMsg(unsign
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::WeaponHungEventMsg* msg = recordMsg->mutable_weapon_hung_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_HUNG);
@@ -970,9 +970,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponHungEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::WeaponDetonationEventMsg* msg = recordMsg->mutable_weapon_detonation_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_WEAPON_DETONATION);
@@ -1026,9 +1026,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testWeaponDetonationEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::GunFiredEventMsg* msg = recordMsg->mutable_gun_fired_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_GUN_FIRED);
@@ -1054,9 +1054,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testGunFiredEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::NewTrackEventMsg* msg = recordMsg->mutable_new_track_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_NEW_TRACK);
@@ -1151,9 +1151,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testNewTrackEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::TrackRemovedEventMsg* msg = recordMsg->mutable_track_removed_event_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_TRACK_REMOVED);
@@ -1179,9 +1179,9 @@ oe::recorder::DataRecordHandle* DataRecordTest::testTrackRemovedEventMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    oe::recorder::pb::TrackDataMsg* msg = recordMsg->mutable_track_data_msg();
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // required
    recordMsg->set_id(REID_TRACK_DATA);
@@ -1267,10 +1267,10 @@ oe::recorder::DataRecordHandle* DataRecordTest::testTrackDataMsg()
 // ------------------------------------------------------------------------------------------------
 oe::recorder::DataRecordHandle* DataRecordTest::testLastMsg()
 {
-   oe::recorder::pb::DataRecord* recordMsg = new oe::recorder::pb::DataRecord();
+   const auto recordMsg = new oe::recorder::pb::DataRecord();
    recordMsg->set_id(REID_END_OF_DATA);
 
-   oe::recorder::DataRecordHandle* handle = new oe::recorder::DataRecordHandle(recordMsg);
+   const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
 
    // Still need "required" data:
    recordMsg->mutable_time()->set_exec_time(getExecTime());

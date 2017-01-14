@@ -106,7 +106,7 @@ TestDisplay* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   oe::base::Pair* pair = dynamic_cast<oe::base::Pair*>(obj);
+   const auto pair = dynamic_cast<oe::base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -114,7 +114,7 @@ TestDisplay* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   TestDisplay* testDisplay = dynamic_cast<TestDisplay*>(obj);
+   const auto testDisplay = dynamic_cast<TestDisplay*>(obj);
    if (testDisplay == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

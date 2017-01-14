@@ -201,7 +201,7 @@ void MapPage::updateData(const double dt)
             if (stn != nullptr) {
                 stn->ref();
                 // set our reference lat / lon initially
-                oe::models::Simulation* sim = dynamic_cast<oe::models::Simulation*>(stn->getSimulation());
+                const auto sim = dynamic_cast<oe::models::Simulation*>(stn->getSimulation());
                 if (sim != nullptr) {
                     setReferenceLatDeg(sim->getRefLatitude());
                     setReferenceLonDeg(sim->getRefLongitude());

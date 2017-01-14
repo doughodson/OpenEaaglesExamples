@@ -44,7 +44,7 @@ SimStation* builder(const std::string& filename)
    }
 
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
-   base::Pair* pair = dynamic_cast<base::Pair*>(obj);
+   const auto pair = dynamic_cast<base::Pair*>(obj);
    if (pair != nullptr) {
       obj = pair->object();
       obj->ref();
@@ -52,7 +52,7 @@ SimStation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   SimStation* simStation = dynamic_cast<SimStation*>(obj);
+   const auto simStation = dynamic_cast<SimStation*>(obj);
    if (simStation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);

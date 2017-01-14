@@ -44,7 +44,7 @@ Display::Display()
     myColor->setGreen(0.0);
 
     // setup a random number generator to start our colors
-    base::Rng* rng = new base::Rng();
+    const auto rng = new base::Rng();
     osg::Vec4d diffColor[MAX_MATERIALS];
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator

@@ -100,7 +100,7 @@ void TestComputer::process(const double dt)
 {
    BaseClass::process(dt);
 
-   oe::models::IrSeeker* irSeeker = dynamic_cast<oe::models::IrSeeker*>(getOwnship()->getGimbal());
+   const auto irSeeker = dynamic_cast<oe::models::IrSeeker*>(getOwnship()->getGimbal());
    if (irSeeker) {
       haveTarget = processIr();
    }
@@ -125,7 +125,7 @@ bool TestComputer::processIr()
       double pt_az = irTrk->getPredictedAzimuth();
       double pt_el = irTrk->getPredictedElevation();
 
-      oe::models::IrSeeker* irSeeker = dynamic_cast<oe::models::IrSeeker*>(getOwnship()->getGimbal());
+      const auto irSeeker = dynamic_cast<oe::models::IrSeeker*>(getOwnship()->getGimbal());
 
       // reposition seeker/gimbal to follow IR target
       if (irSeeker) {
@@ -136,7 +136,7 @@ bool TestComputer::processIr()
       }
    }
 
-   auto ourWeapon = dynamic_cast<oe::models::AbstractWeapon*>(getOwnship());
+   const auto ourWeapon = dynamic_cast<oe::models::AbstractWeapon*>(getOwnship());
 
    // update the weapon's tracking if the target changed (includes loss of target)
    // weapon::targetPlayer tells the dynamics model where the target is -
@@ -174,7 +174,7 @@ void TestComputer::updateShootList(const bool step)
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
          oe::models::Track* trk = trackList[i];
-         oe::models::IrTrack* irTrk = dynamic_cast<oe::models::IrTrack*>(trk);
+         const auto irTrk = dynamic_cast<oe::models::IrTrack*>(trk);
          std::cout << irTrk->getTarget()->getID() << " avg " << irTrk->getAvgSignal() << " max " << irTrk->getMaxSignal() << std::endl;
       }
    }
@@ -191,10 +191,10 @@ void TestComputer::updateShootList(const bool step)
                if (nNTS >= 0) {
                   // is this one closer?
                   oe::models::Track* trk = trackList[i];
-                  oe::models::IrTrack* irTrk = dynamic_cast<oe::models::IrTrack*>(trk);
+                  const auto irTrk = dynamic_cast<oe::models::IrTrack*>(trk);
 
                   trk = trackList[nNTS];
-                  oe::models::IrTrack* irTrknNTS = dynamic_cast<oe::models::IrTrack*>(trk);
+                  const auto irTrknNTS = dynamic_cast<oe::models::IrTrack*>(trk);
 
                   if (irTrk->getAvgSignal() > irTrknNTS->getAvgSignal()) {
                      nNTS = i;

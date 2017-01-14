@@ -202,7 +202,7 @@ void Table::build()
       for (unsigned int i = 1; i <= rows; i++) {
 
          // new row
-         TableRow* row = new TableRow();
+         const auto row = new TableRow();
          row->container(this);
 
          const base::List::Item* item = columns->getFirstItem();
@@ -223,8 +223,8 @@ void Table::build()
          // put the row on our components list with a slotname equal to its row number
          {
             char cbuf[8];
-            sprintf(cbuf,"%d",i);
-            base::Pair* pp = new base::Pair(cbuf,row);
+            std::sprintf(cbuf, "%d", i);
+            const auto pp = new base::Pair(cbuf,row);
             newList->put(pp);
             pp->unref();
          }
@@ -276,7 +276,7 @@ bool Table::setSlotColumns(base::PairStream* const msg)
    if (columns != nullptr) { columns->unref(); columns = nullptr; }
    if (msg != nullptr) {
       // Make a copy of the list and Make sure we have only Field objexts
-      base::PairStream* newColumns = new base::PairStream();
+      const auto newColumns = new base::PairStream();
       base::List::Item* item = msg->getFirstItem();
       while (item != nullptr) {
           const auto pair = static_cast<base::Pair*>(item->getValue());
