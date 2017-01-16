@@ -7,7 +7,6 @@
 
 #include "openeaagles/terrain/Terrain.hpp"
 
-
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Rgb.hpp"
 #include "openeaagles/base/Hsva.hpp"
@@ -17,8 +16,8 @@
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/units/Distances.hpp"
+
+#include "openeaagles/base/units/unit_utils.hpp"
 
 #include <cmath>
 
@@ -44,7 +43,7 @@ RealBeamRadar::RealBeamRadar()
 
    terrain = nullptr;
 
-   altitude = 15000.0 * base::Distance::FT2M;
+   altitude = 15000.0 * base::distance::FT2M;
    antAzAngle = 0.0;
    antElAngle = 0.0;
    ray0 = 0;
@@ -255,7 +254,7 @@ bool RealBeamRadar::computeGroundRanges(double* const groundRange, const unsigne
    if (groundRange != nullptr && n > 0 && maxRngNM > 0) {
 
       // Max range (m)
-      double maxRng = maxRngNM * base::Distance::NM2M;
+      double maxRng = maxRngNM * base::distance::NM2M;
 
       // Delta range between points (m)
       double deltaRng = maxRng/static_cast<double>(n);
@@ -321,8 +320,8 @@ bool RealBeamRadar::computeEarthCurvature(double* const curvature, const unsigne
    bool ok = false;
    if (curvature != nullptr && n > 0 && maxRngNM > 0 && radiusNM > 0) {
 
-      double radius = radiusNM * base::Distance::NM2M;
-      double maxRng = maxRngNM * base::Distance::NM2M;
+      double radius = radiusNM * base::distance::NM2M;
+      double maxRng = maxRngNM * base::distance::NM2M;
       for (unsigned int idx = 0; idx < n; idx++) {
          double curRng = maxRng * static_cast<double>(idx)/static_cast<double>(n);
          double arc = curRng / radius;

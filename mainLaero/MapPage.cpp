@@ -20,9 +20,8 @@
 
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/units/Distances.hpp"
-#include "openeaagles/base/units/Times.hpp"
+
+#include "openeaagles/base/units/unit_utils.hpp"
 
 #include <GL/glut.h>
 
@@ -197,16 +196,16 @@ void MapPage::drawHoldingPattern()
 //            double refLon = getReferenceLonDeg();
 
             const double omegaDps = 3.0;                                     //dps
-            const double omegaRps = omegaDps * oe::base::Angle::D2RCC;       //rps
-            const double rocNM = (osVel / oe::base::Time::H2S) / omegaRps;   //nm
+            const double omegaRps = omegaDps * oe::base::angle::D2RCC;       //rps
+            const double rocNM = (osVel / oe::base::time::H2S) / omegaRps;   //nm
             //double obTimeMin = 2.0;                                     //min
-            //double obTimeSec = obTimeMin * base::Time::M2S;            //sec
+            //double obTimeSec = obTimeMin * base::time::M2S;            //sec
 
-            //double obDistNM = (osVel / base::Time::H2S) * obTimeSec;   //nm
+            //double obDistNM = (osVel / base::time::H2S) * obTimeSec;   //nm
 
             double obDistNM = 0;
             if (pRac->isLoiterTimeBased()) {
-               obDistNM = (osVel / oe::base::Time::H2S) * pRac->getLoiterTime();   //nm
+               obDistNM = (osVel / oe::base::time::H2S) * pRac->getLoiterTime();   //nm
             }
             else {
                obDistNM = pRac->getLoiterPatternLengthNM();

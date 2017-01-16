@@ -6,7 +6,7 @@
 
 namespace oe {
 
-namespace base { class List; class Action; }
+namespace base { class List; class AbstractAction; }
 
 namespace xbehaviors {
 
@@ -22,7 +22,7 @@ class PriorityArbiter : public base::ubf::Arbiter
 public:
    PriorityArbiter();
 
-   virtual base::ubf::Action* genComplexAction(base::List* const actionSet) override;
+   virtual base::ubf::AbstractAction* genComplexAction(base::List* const actionSet) override;
 
 private:
 
@@ -30,7 +30,7 @@ private:
    // and the change would go against the intended control stick action.  If so,
    // invalidate the trim change.
    // Returns nothing, but modifies what the action object points to
-   void trimChangeValidation(base::ubf::Action* const);
+   void trimChangeValidation(base::ubf::AbstractAction* const);
 };
 
 }

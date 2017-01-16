@@ -6,9 +6,10 @@
 #include "openeaagles/models/players/AirVehicle.hpp"
 
 #include "openeaagles/base/osg/Vec3d"
-#include "openeaagles/base/units/Angles.hpp"
+
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
@@ -78,9 +79,9 @@ void AdiDisplay::updateData(const double dt)
 
       av = pA->getAngularVelocities();
 
-      pRO   = av[0] * oe::base::Angle::R2DCC;
-      qRO   = av[1] * oe::base::Angle::R2DCC;
-      rRO   = av[2] * oe::base::Angle::R2DCC;
+      pRO   = av[0] * oe::base::angle::R2DCC;
+      qRO   = av[1] * oe::base::angle::R2DCC;
+      rRO   = av[2] * oe::base::angle::R2DCC;
 
       pitchADI = pA->getPitchD();
       bankADI  = pA->getRollD();

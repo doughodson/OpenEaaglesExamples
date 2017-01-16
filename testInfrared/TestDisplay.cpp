@@ -13,7 +13,8 @@
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/units/Distances.hpp"
+
+#include "openeaagles/base/units/unit_utils.hpp"
 
 IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -206,8 +207,8 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
          const auto pair = static_cast<oe::base::Pair*>(item->getValue());
          const auto p = static_cast<oe::models::Player*>(pair->object());
          oe::osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
-         const double x = rpos[0] * oe::base::Distance::M2NM;
-         const double y = rpos[1] * oe::base::Distance::M2NM;
+         const double x = rpos[0] * oe::base::distance::M2NM;
+         const double y = rpos[1] * oe::base::distance::M2NM;
 
          const auto weapon = dynamic_cast<oe::models::AbstractWeapon*>(p);
          if (weapon && (weapon->isMode(oe::models::Player::PRE_RELEASE) || weapon->isActive())) {
@@ -303,7 +304,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
       if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp = tracks[i]->getXPosition() - osX;
          double yp = tracks[i]->getYPosition() - osY;
-         loader->updateSymbolPositionXY( trkIdx[i], (xp * oe::base::Distance::M2NM), (yp * oe::base::Distance::M2NM) );
+         loader->updateSymbolPositionXY( trkIdx[i], (xp * oe::base::distance::M2NM), (yp * oe::base::distance::M2NM) );
          loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
          if (tracks[i]==target) {
             //const auto temp = new base::Identifier("green");

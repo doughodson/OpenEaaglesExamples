@@ -1,7 +1,8 @@
 
 #include "TdAzPtr.hpp"
 #include "openeaagles/base/Number.hpp"
-#include "openeaagles/base/units/Angles.hpp"
+
+#include "openeaagles/base/units/unit_utils.hpp"
 
 using namespace oe;
 
@@ -35,7 +36,7 @@ double TdAzPtr::getAzimuth() const
 
 bool TdAzPtr::setAzimuth(const double v)
 {
-   azimuth = base::Angle::aepcdDeg(v);
+   azimuth = base::angle::aepcdDeg(v);
    return true;
 }
 

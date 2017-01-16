@@ -1,7 +1,7 @@
 
 #include "Pfd.hpp"
 #include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
@@ -128,7 +128,7 @@ bool Pfd::setPitchDeg(const double newP)
 bool Pfd::setPitchRad(const double newP)
 {
     // convert to degrees
-    pitch = static_cast<double>(newP * base::Angle::R2DCC);
+    pitch = static_cast<double>(newP * base::angle::R2DCC);
     return true;
 }
 
@@ -141,7 +141,7 @@ bool Pfd::setRollDeg(const double newR)
 bool Pfd::setRollRad(const double newR)
 {
     // convert to degrees
-    roll = static_cast<double>(newR * base::Angle::R2DCC);
+    roll = static_cast<double>(newR * base::angle::R2DCC);
     return true;
 }
 
@@ -214,7 +214,7 @@ bool Pfd::setFltDirBankDeg(const double newFDB)
 
 bool Pfd::setFltDirBankRad(const double newFDB)
 {
-    fDirBank = static_cast<double>(newFDB * base::Angle::R2DCC);
+    fDirBank = static_cast<double>(newFDB * base::angle::R2DCC);
     return true;
 }
 
@@ -226,7 +226,7 @@ bool Pfd::setFltDirPitchDeg(const double newFDP)
 
 bool Pfd::setFltDirPitchRad(const double newFDP)
 {
-    fDirPitch = static_cast<double>(newFDP * base::Angle::R2DCC);
+    fDirPitch = static_cast<double>(newFDP * base::angle::R2DCC);
     return true;
 }
 
@@ -330,8 +330,8 @@ void Pfd::updateData(const double dt)
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout
-    int mAlt = static_cast<int>(base::Distance::FeetToMeters(alt));
-    double mAltBug = base::Distance::FeetToMeters(cmdAlt);
+    int mAlt = static_cast<int>(base::distance::FeetToMeters(alt));
+    double mAltBug = base::distance::FeetToMeters(cmdAlt);
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }

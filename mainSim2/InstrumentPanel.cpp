@@ -12,8 +12,9 @@
 
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/units/Distances.hpp"
+
+#include "openeaagles/base/units/unit_utils.hpp"
+
 #include "openeaagles/base/Boolean.hpp"
 #include <GL/glut.h>
 
@@ -143,7 +144,7 @@ void InstrumentPanel::updateData(const double dt)
          eadi->setAirspeed(airSpeed);
          eadi->setHeading(heading);
          eadi->setAOA(aoa);
-         eadi->setVVI(-vvi.z() * oe::base::Distance::M2FT * 60.0);
+         eadi->setVVI(-vvi.z() * oe::base::distance::M2FT * 60.0);
          eadi->setPitch(pitch);
          eadi->setRoll(roll);
          eadi->setMach(mach);

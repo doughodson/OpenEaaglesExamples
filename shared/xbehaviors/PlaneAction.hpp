@@ -2,7 +2,7 @@
 #ifndef __oe_xbehaviors_PlaneAction_H__
 #define __oe_xbehaviors_PlaneAction_H__
 
-#include "openeaagles/base/ubf/Action.hpp"
+#include "openeaagles/base/ubf/AbstractAction.hpp"
 
 namespace oe {
 
@@ -13,9 +13,9 @@ namespace xbehaviors {
 //------------------------------------------------------------------------------
 // Class: PlaneAction
 //------------------------------------------------------------------------------
-class PlaneAction : public base::ubf::Action
+class PlaneAction : public base::ubf::AbstractAction
 {
-   DECLARE_SUBCLASS(PlaneAction, base::ubf::Action)
+   DECLARE_SUBCLASS(PlaneAction, base::ubf::AbstractAction)
 
 public:
    PlaneAction();

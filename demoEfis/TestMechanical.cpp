@@ -1,7 +1,7 @@
 
 #include "TestMechanical.hpp"
 
-#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 // static slew rates
 const double TestMechanical::T1 = 120;
@@ -355,7 +355,7 @@ void TestMechanical::updateData(const double dt)
 
     // Roll indicator
     // we have to roll negative in order to keep with the adi
-    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * oe::base::Angle::D2RCC), rollIndSD);
+    send("rollind", UPDATE_VALUE, -static_cast<float>(roll * oe::base::angle::D2RCC), rollIndSD);
 
     // send our visibility data down (for failure flags)
     send("rtfail", SET_VISIBILITY, rtFail, rtFailSD);

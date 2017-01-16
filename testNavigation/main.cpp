@@ -5,8 +5,9 @@
 #include "openeaagles/base/Nav.hpp"
 
 #include "openeaagles/base/EarthModel.hpp"
-#include "openeaagles/base/units/Angles.hpp"
+
 #include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -814,8 +815,8 @@ void test05_aer2xyz()
    //-----------------------------------
    // convert azim and elev to radians
    //-----------------------------------
-   azim *= base::Angle::D2RCC;
-   elev *= base::Angle::D2RCC;
+   azim *= base::angle::D2RCC;
+   elev *= base::angle::D2RCC;
 
    //-----------------------------------
    // calculate position
@@ -859,8 +860,8 @@ void test05_aer2xyz()
          std::cout << "Enter range      [M]   : "; std::cin >> ranj;
          std::cout << std::endl;
 
-         azim *= base::Angle::D2RCC;
-         elev *= base::Angle::D2RCC;
+         azim *= base::angle::D2RCC;
+         elev *= base::angle::D2RCC;
 
          std::cout << "azimuth   = 0.7854    [RAD]" << std::endl
                    << "elevation = 0.5236    [RAD]" << std::endl
@@ -1024,8 +1025,8 @@ void test06_aer2xyz()
    //-----------------------------------
    // Convert azimuth and elevation from degrees to radians
    //-----------------------------------
-   azim *= base::Angle::D2RCC;
-   elev *= base::Angle::D2RCC;
+   azim *= base::angle::D2RCC;
+   elev *= base::angle::D2RCC;
 
    //-----------------------------------
    // show expected results
@@ -1083,9 +1084,9 @@ void test06_aer2xyz()
          std::cout << "Enter yaw    [DEG  : "; std::cin >> yaw;
          std::cout << std::endl;
 
-         roll  *= base::Angle::D2RCC;
-         pitch *= base::Angle::D2RCC;
-         yaw   *= base::Angle::D2RCC;
+         roll  *= base::angle::D2RCC;
+         pitch *= base::angle::D2RCC;
+         yaw   *= base::angle::D2RCC;
 
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "roll   = " << std::setw(12) << roll  << " [RAD]" << std::endl;
@@ -1103,8 +1104,8 @@ void test06_aer2xyz()
          std::cout << "Enter range      [M]   : "; std::cin >> ranj;
          std::cout << std::endl;
 
-         azim *= base::Angle::D2RCC;
-         elev *= base::Angle::D2RCC;
+         azim *= base::angle::D2RCC;
+         elev *= base::angle::D2RCC;
 
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "azim   = " << std::setw(12) << azim << " [RAD]" << std::endl;
@@ -1434,9 +1435,9 @@ void test08_xyz2aer()
          std::cout << "Enter yaw    [DEG  : "; std::cin >> yaw;
          std::cout << std::endl;
 
-         roll  *= base::Angle::D2RCC;
-         pitch *= base::Angle::D2RCC;
-         yaw   *= base::Angle::D2RCC;
+         roll  *= base::angle::D2RCC;
+         pitch *= base::angle::D2RCC;
+         yaw   *= base::angle::D2RCC;
 
          std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
          std::cout << "roll  = " << std::setw(12) << roll  << " [RAD]" << std::endl
@@ -2765,12 +2766,12 @@ void test18_computeEulerAnglesDeg()
    const double PITCH = 20.0;
    const double YAW   = 30.0;
 
-   const double SIN_PHI = std::sin(ROLL  * base::Angle::D2RCC);
-   const double COS_PHI = std::cos(ROLL  * base::Angle::D2RCC);
-   const double SIN_THT = std::sin(PITCH * base::Angle::D2RCC);
-   const double COS_THT = std::cos(PITCH * base::Angle::D2RCC);
-   const double SIN_PSI = std::sin(YAW   * base::Angle::D2RCC);
-   const double COS_PSI = std::cos(YAW   * base::Angle::D2RCC);
+   const double SIN_PHI = std::sin(ROLL  * base::angle::D2RCC);
+   const double COS_PHI = std::cos(ROLL  * base::angle::D2RCC);
+   const double SIN_THT = std::sin(PITCH * base::angle::D2RCC);
+   const double COS_THT = std::cos(PITCH * base::angle::D2RCC);
+   const double SIN_PSI = std::sin(YAW   * base::angle::D2RCC);
+   const double COS_PSI = std::cos(YAW   * base::angle::D2RCC);
 
    osg::Matrixd testRotationMatrix;
 
@@ -3338,12 +3339,12 @@ void test21_computeRotationalMatrixDeg()
    testRotMatrix(2,1) =  0.0180;
    testRotMatrix(2,2) =  0.9254;
 
-   const double SIN_PHI = std::sin(ROLL  * base::Angle::D2RCC);
-   const double COS_PHI = std::cos(ROLL  * base::Angle::D2RCC);
-   const double SIN_THT = std::sin(PITCH * base::Angle::D2RCC);
-   const double COS_THT = std::cos(PITCH * base::Angle::D2RCC);
-   const double SIN_PSI = std::sin(YAW   * base::Angle::D2RCC);
-   const double COS_PSI = std::cos(YAW   * base::Angle::D2RCC);
+   const double SIN_PHI = std::sin(ROLL  * base::angle::D2RCC);
+   const double COS_PHI = std::cos(ROLL  * base::angle::D2RCC);
+   const double SIN_THT = std::sin(PITCH * base::angle::D2RCC);
+   const double COS_THT = std::cos(PITCH * base::angle::D2RCC);
+   const double SIN_PSI = std::sin(YAW   * base::angle::D2RCC);
+   const double COS_PSI = std::cos(YAW   * base::angle::D2RCC);
 
    //-----------------------------------
    // set output formats
@@ -3492,12 +3493,12 @@ void test22_computeRotationalMatrixDeg()
    const double PITCH   = 20.0;
    const double YAW     = 30.0;
 
-   const double SIN_PHI = std::sin(ROLL  * base::Angle::D2RCC);
-   const double COS_PHI = std::cos(ROLL  * base::Angle::D2RCC);
-   const double SIN_THT = std::sin(PITCH * base::Angle::D2RCC);
-   const double COS_THT = std::cos(PITCH * base::Angle::D2RCC);
-   const double SIN_PSI = std::sin(YAW   * base::Angle::D2RCC);
-   const double COS_PSI = std::cos(YAW   * base::Angle::D2RCC);
+   const double SIN_PHI = std::sin(ROLL  * base::angle::D2RCC);
+   const double COS_PHI = std::cos(ROLL  * base::angle::D2RCC);
+   const double SIN_THT = std::sin(PITCH * base::angle::D2RCC);
+   const double COS_THT = std::cos(PITCH * base::angle::D2RCC);
+   const double SIN_PSI = std::sin(YAW   * base::angle::D2RCC);
+   const double COS_PSI = std::cos(YAW   * base::angle::D2RCC);
 
    // inputs
    osg::Vec3d angles;

@@ -54,17 +54,17 @@ public:
 private:
 
    enum { maxHist = 10 };
-   double left, right;            // X limits
-   double bottom, top;            // Y limits
-   double xPos, yPos;             // Position
-   double xOld, yOld;             // Previous Position
-   double dx, dy;                 // Delta position
-   double speed;                  // Speed
-   double sangle;                 // Starting angle (radians)
-   oe::osg::Vec2d trail[maxHist]; // Display trail
-   int    nTrails;                // Trail size
-   int    index;                  // Trail index
-   const oe::base::Angle* iangle; // Input angle
+   double left, right;                    // X limits
+   double bottom, top;                    // Y limits
+   double xPos, yPos;                     // Position
+   double xOld, yOld;                     // Previous Position
+   double dx, dy;                         // Delta position
+   double speed;                          // Speed
+   double sangle;                         // Starting angle (radians)
+   oe::osg::Vec2d trail[maxHist];         // Display trail
+   int    nTrails;                        // Trail size
+   int    index;                          // Trail index
+   const oe::base::Angle* iangle;         // Input angle
 
 };
 

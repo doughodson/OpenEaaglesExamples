@@ -3,7 +3,7 @@
 
 #include "openeaagles/models/systems/Rwr.hpp"
 
-#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 namespace oe {
 namespace xpanel {
@@ -55,7 +55,7 @@ void DspRwr::drawFunc()
 
    unsigned int n = rwr->getNumberOfRays();
    for (unsigned int i = 0; i < n; i++) {
-      GLdouble azr = (base::Angle::D2RCC *  rwr->getRayAzimuth(i) );
+      GLdouble azr = (base::angle::D2RCC *  rwr->getRayAzimuth(i) );
       GLdouble pwr = rwr->getRay(i);
       GLdouble up = cos(azr) * pwr;
       GLdouble right = sin(azr) * pwr;

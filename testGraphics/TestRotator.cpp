@@ -1,6 +1,6 @@
 
 #include "TestRotator.hpp"
-#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <cmath>
@@ -119,8 +119,8 @@ void TestRotator::updateData(const double dt)
     //    rotateRate = -rotateRate;
     //}
 
-    light_position[0] = static_cast<GLfloat>(std::cos(rotate * base::Angle::D2RCC));
-    light_position[1] = static_cast<GLfloat>(std::sin(rotate * base::Angle::D2RCC));
-    light_position[2] = static_cast<GLfloat>(std::sin(rotate * base::Angle::D2RCC));
+    light_position[0] = static_cast<GLfloat>(std::cos(rotate * base::angle::D2RCC));
+    light_position[1] = static_cast<GLfloat>(std::sin(rotate * base::angle::D2RCC));
+    light_position[2] = static_cast<GLfloat>(std::sin(rotate * base::angle::D2RCC));
     light_position[3] = 0;
 }

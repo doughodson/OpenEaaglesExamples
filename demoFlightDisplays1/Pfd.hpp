@@ -3,7 +3,7 @@
 #define __Pfd_H__
 
 #include "openeaagles/graphics/Page.hpp"
-#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 //------------------------------------------------------------------------------
 // Class: Pfd
@@ -63,9 +63,9 @@ public:
 
     // get functions
     double getPitchDeg()            { return pitch; }
-    double getPitchRad()            { return static_cast<double>(pitch * oe::base::Angle::D2RCC); }
+    double getPitchRad()            { return static_cast<double>(pitch * oe::base::angle::D2RCC); }
     double getRollDeg()             { return roll; }
-    double getRollRad()             { return static_cast<double>(roll * oe::base::Angle::D2RCC); }
+    double getRollRad()             { return static_cast<double>(roll * oe::base::angle::D2RCC); }
     double getTrueHdg()             { return trueHdg; }
     double getCmdCourse()           { return cmdCrs; }
     double getCmdHdg()              { return cmdHdg; }
@@ -83,9 +83,9 @@ public:
     double getSideSlip()            { return slip; }
     double getGndSpdKts()           { return gSpd; }
     double getFltDirBankDeg()       { return fDirBank; }
-    double getFltDirBankRad()       { return static_cast<double>(fDirBank * oe::base::Angle::R2DCC); }
+    double getFltDirBankRad()       { return static_cast<double>(fDirBank * oe::base::angle::R2DCC); }
     double getFltDirPitchDeg()      { return fDirPitch; }
-    double getFltDirPitchRad()      { return static_cast<double>(fDirPitch * oe::base::Angle::R2DCC); }
+    double getFltDirPitchRad()      { return static_cast<double>(fDirPitch * oe::base::angle::R2DCC); }
     double getBaroPressure()        { return baro; }
     double getRdrAltFt()            { return rAlt; }
     double getNav1Brg()             { return nav1Brg; }

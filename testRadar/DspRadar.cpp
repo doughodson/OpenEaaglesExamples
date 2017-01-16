@@ -6,8 +6,8 @@
 #include "openeaagles/models/Track.hpp"
 #include "openeaagles/models/systems/TrackManager.hpp"
 
-#include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
+
 #include "openeaagles/base/Hsv.hpp"
 #include "openeaagles/base/util/math_utils.hpp"
 
@@ -73,8 +73,8 @@ void DspRadar::updateData(const double dt)
 
    // Update antenna azimuth and elevation pointers
    if (antenna != nullptr) {
-      send( "azPtr", UPDATE_VALUE, static_cast<float>(base::Angle::R2DCC * antenna->getAzimuth()),   azSD);
-      send( "elPtr", UPDATE_VALUE, static_cast<float>(base::Angle::R2DCC * antenna->getElevation()), elSD);
+      send( "azPtr", UPDATE_VALUE, static_cast<float>(base::angle::R2DCC * antenna->getAzimuth()),   azSD);
+      send( "elPtr", UPDATE_VALUE, static_cast<float>(base::angle::R2DCC * antenna->getElevation()), elSD);
    }
 
    // Update base classes stuff
@@ -163,7 +163,7 @@ void DspRadar::drawFunc()
 
       // Vertices of the basic symbol
       //static double maxRng = 40000.0;
-      double maxRng = radar->getRange() * base::Distance::NM2M;
+      double maxRng = radar->getRange() * base::distance::NM2M;
       static double ss = 0.05;
 
       // The color
@@ -178,7 +178,7 @@ void DspRadar::drawFunc()
       base::Hsv::hsv2rgb(ntsRGB, hsv);
 
       for (unsigned int i = 0; i < nTracks; i++) {
-         double xp = (base::Angle::R2DCC * trkAz[i])/30.0;
+         double xp = (base::angle::R2DCC * trkAz[i])/30.0;
          double yp = 2.0*trkRng[i]/maxRng;
          if (static_cast<int>(i) == ntsTrk) lcColor3v(ntsRGB.ptr());
          else lcColor3v(rgb.ptr());
@@ -186,7 +186,7 @@ void DspRadar::drawFunc()
          glTranslated(xp, yp, 0.0);
          glScaled(ss, ss, ss);
          if (trkVel[i] > 50.0) {
-            double gt = -(base::Angle::R2DCC * trkRelGndTrk[i]);
+            double gt = -(base::angle::R2DCC * trkRelGndTrk[i]);
             glRotated(gt, 0.0, 0.0, 1.0);
             glBegin(GL_LINE_LOOP);
                glVertex3d( -1.0, -1.0, 0.2 );

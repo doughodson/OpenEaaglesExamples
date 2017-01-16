@@ -2,7 +2,7 @@
 #ifndef __oe_xbehaviors_PlaneState_H__
 #define __oe_xbehaviors_PlaneState_H__
 
-#include "openeaagles/base/ubf/State.hpp"
+#include "openeaagles/base/ubf/AbstractState.hpp"
 
 namespace oe {
 namespace xbehaviors {
@@ -14,9 +14,9 @@ namespace xbehaviors {
 //              state has only one missile (or is ok with firing all missiles at
 //              first target)
 //------------------------------------------------------------------------------
-class PlaneState : public base::ubf::State
+class PlaneState : public base::ubf::AbstractState
 {
-   DECLARE_SUBCLASS(PlaneState, base::ubf::State)
+   DECLARE_SUBCLASS(PlaneState, base::ubf::AbstractState)
 
 public:
    PlaneState();

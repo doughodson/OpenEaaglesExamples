@@ -1,7 +1,10 @@
 
 #include "Pfd.hpp"
-#include "openeaagles/base/Pair.hpp"
+
 #include "SituationalDisplay.hpp"
+
+#include "openeaagles/base/Pair.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 #include <cstring>
 #include <cmath>
@@ -289,7 +292,7 @@ bool Pfd::setPitchDeg(const double newP)
 bool Pfd::setPitchRad(const double newP)
 {
     // convert to degrees
-    pitch = static_cast<double>(newP * base::Angle::R2DCC);
+    pitch = static_cast<double>(newP * base::angle::R2DCC);
     return true;
 }
 
@@ -302,7 +305,7 @@ bool Pfd::setRollDeg(const double newR)
 bool Pfd::setRollRad(const double newR)
 {
     // convert to degrees
-    roll = static_cast<double>(newR * base::Angle::R2DCC);
+    roll = static_cast<double>(newR * base::angle::R2DCC);
     return true;
 }
 
@@ -410,7 +413,7 @@ bool Pfd::setFltDirBankDeg(const double newFDB)
 
 bool Pfd::setFltDirBankRad(const double newFDB)
 {
-    fDirBank = static_cast<double>(newFDB * base::Angle::R2DCC);
+    fDirBank = static_cast<double>(newFDB * base::angle::R2DCC);
     return true;
 }
 
@@ -422,7 +425,7 @@ bool Pfd::setFltDirPitchDeg(const double newFDP)
 
 bool Pfd::setFltDirPitchRad(const double newFDP)
 {
-    fDirPitch = static_cast<double>(newFDP * base::Angle::R2DCC);
+    fDirPitch = static_cast<double>(newFDP * base::angle::R2DCC);
     return true;
 }
 
@@ -695,7 +698,7 @@ void Pfd::updateData(const double dt)
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // send our flight path marker it's data
     // positive pitch
-    fpmY = pitch - (aoa * std::cos(static_cast<float>(roll * base::Angle::D2RCC)));
+    fpmY = pitch - (aoa * std::cos(static_cast<float>(roll * base::angle::D2RCC)));
     // determine our flight path marker
     //std::cout << "ANGLE OF ATTACK = " << aoa << std::endl;
     //std::cout << "PITCH = " << pitch << std::endl;

@@ -5,8 +5,8 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace base { class Angle; class Distance; class Number; }
-   namespace terrain { class Terrain; }
+namespace base { class Angle; class Distance; class Number; }
+namespace terrain { class Terrain; }
 }
 
 class MainWindow;
@@ -19,18 +19,18 @@ class MainWindow;
 // Factory name: TerrainDisplay
 //
 // Slots:
-//    terrain        <simulation::Terrain>  The terrain elevation database
-//    minElevation   <Distance>  Minimum elevation (Distance) (default: use database max value)
-//    maxElevation   <Distance>  Maximum elevation (Distance) (default: use database max value)
-//    altitude       <Distance>  Reference altitude (Distance) (default: 15000 feet)
-//    lookAngle      <Angle>     Antenna look angle (Angle) (default: 0 degrees)
-//    beamWidth      <Angle>     Antenna Beam Width (Angle) (default: 180 degrees)
-//    colorScale     <Number>    Color scale:  gray(0), color(1), green(2) (default: gray)
-//    interpolate    <Boolean>   Interpolate flag (default: false)
-//    shadows        <Boolean>   Shadow test enabled
-//    aac            <Boolean>   Aspect Angle test enabled
-//    earthCurvature <Boolean>   Earth curvature test enabled
-//    textureTest    <Boolean>   Texture test enabled
+//    terrain        <terrain::Terrain>     ! The terrain elevation database
+//    minElevation   <Distance>             ! Minimum elevation (Distance) (default: use database max value)
+//    maxElevation   <Distance>             ! Maximum elevation (Distance) (default: use database max value)
+//    altitude       <Distance>             ! Reference altitude (Distance) (default: 15000 feet)
+//    lookAngle      <Angle>                ! Antenna look angle (Angle) (default: 0 degrees)
+//    beamWidth      <Angle>                ! Antenna Beam Width (Angle) (default: 180 degrees)
+//    colorScale     <Number>               ! Color scale:  gray(0), color(1), green(2) (default: gray)
+//    interpolate    <Boolean>              ! Interpolate flag (default: false)
+//    shadows        <Boolean>              ! Shadow test enabled
+//    aac            <Boolean>              ! Aspect Angle test enabled
+//    earthCurvature <Boolean>              ! Earth curvature test enabled
+//    textureTest    <Boolean>              ! Texture test enabled
 //
 // ----------------------------------------------------------------------------
 class Display : public oe::glut::GlutDisplay

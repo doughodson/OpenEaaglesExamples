@@ -11,9 +11,11 @@
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
+
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/util/system.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 
 #include <cmath>
 
@@ -58,9 +60,9 @@ Display::Display()
 
    terrain = nullptr;
 
-   maxElev = 15000.0f * base::Distance::FT2M;
+   maxElev = 15000.0f * base::distance::FT2M;
    minElev = 0;
-   altitude = 15000.0f * base::Distance::FT2M;
+   altitude = 15000.0f * base::distance::FT2M;
    lookAngle = 0;
    beamWidth = 180.0f;
    colorScale = 0;
@@ -366,8 +368,8 @@ void Display::updateData(const double dt)
          double* curvature =nullptr;
          if (testEarthCurv) {
             curvature = new double[NUM_ROWS];
-            const auto radius = static_cast<double>(base::Nav::ERAD60 * base::Distance::NM2M);
-            const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::Distance::NM2M);
+            const auto radius = static_cast<double>(base::Nav::ERAD60 * base::distance::NM2M);
+            const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
             for (int irow = 0; irow < NUM_ROWS; irow++) {
                double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);
                double arc = curRng / radius;
@@ -437,7 +439,7 @@ void Display::updateData(const double dt)
 
                // the Lat/long of the southern most point
                double latitude = cLat + (0 - NUM_ROWS/2) * spacingLat;
-               double maxRng = static_cast<double>(deltaLat * 60.0f * base::Distance::NM2M);
+               double maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
 
                // Direction
                //double direction = 30.0f * static_cast<double>(icol - NUM_COLUMNS/2)/static_cast<double>(NUM_COLUMNS/2);
@@ -461,7 +463,7 @@ void Display::updateData(const double dt)
                // Compute AAC data
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
-                  const auto angle = static_cast<double>(-10.0f * base::Angle::D2RCC);
+                  const auto angle = static_cast<double>(-10.0f * base::angle::D2RCC);
                   osg::Vec2d vec(std::cos(angle),std::sin(angle));
                   terrain::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }

@@ -2,8 +2,9 @@
 #include "TestElectronic.hpp"
 #include "navdefs.hpp"
 
-#include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/LinearVelocity.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
+
 #include "openeaagles/base/util/math_utils.hpp"
 
 #include <cmath>
@@ -401,17 +402,17 @@ void TestElectronic::updateData(const double dt)
     // current heading / current heading bug
     {
         // max rate here is 120 degs / second
-        double delta = oe::base::alim(oe::base::Angle::aepcdDeg(heading - curHdg), 120 * dt);
-        curHdg = oe::base::Angle::aepcdDeg(curHdg + delta);
+        double delta = oe::base::alim(oe::base::angle::aepcdDeg(heading - curHdg), 120 * dt);
+        curHdg = oe::base::angle::aepcdDeg(curHdg + delta);
 
         // now figure our heading bug
-        delta = oe::base::alim(oe::base::Angle::aepcdDeg(headingBug - curBug), 120 * dt);
-        curBug = oe::base::Angle::aepcdDeg(curBug + delta);
+        delta = oe::base::alim(oe::base::angle::aepcdDeg(headingBug - curBug), 120 * dt);
+        curBug = oe::base::angle::aepcdDeg(curBug + delta);
 
         if (navMode == ARC_MODE) {
             // we either move it to the left or right, depending on how far
             // off our slew is.
-            double diff = oe::base::Angle::aepcdDeg(curHdg - curBug);
+            double diff = oe::base::angle::aepcdDeg(curHdg - curBug);
             double moveX = -1.8f;
             if (diff >= -36 && diff < 36) {
                 if (diff > 0) moveX = 1.53;
@@ -479,15 +480,15 @@ void TestElectronic::updateData(const double dt)
         send("course", UPDATE_VALUE, curIntCourse, courseSD);
 
         // here is the course deviation
-        double delta = oe::base::alim (oe::base::Angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
+        double delta = oe::base::alim (oe::base::angle::aepcdDeg(tempCDI - curCdi), 4 * dt);
         curCdi = oe::base::alim (curCdi + delta, 2.0);
 
         // now find our inches to translate the cdi
         double cdiInch = curCdi * 0.43f;
 
         // now figure our course slew
-        delta = oe::base::alim(oe::base::Angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
-        curCourse = (oe::base::Angle::aepcdDeg(curCourse + delta));
+        delta = oe::base::alim(oe::base::angle::aepcdDeg(tempCourse - curCourse), 120 * dt);
+        curCourse = (oe::base::angle::aepcdDeg(curCourse + delta));
 
         // ok, do our color determination for the course pointer - primary first
         if (navSource == PRIMARY) {
@@ -671,8 +672,8 @@ void TestElectronic::updateData(const double dt)
     // TO / FROM arrow - HSI mode only
     {
         double toFrom = 0;
-        if (navSource == PRIMARY) toFrom = 1 - std::fabs(oe::base::Angle::aepcdDeg(bearing - course)) / 90;
-        else toFrom = 1 - std::fabs(oe::base::Angle::aepcdDeg(secBearing - secCourse)) / 90;
+        if (navSource == PRIMARY) toFrom = 1 - std::fabs(oe::base::angle::aepcdDeg(bearing - course)) / 90;
+        else toFrom = 1 - std::fabs(oe::base::angle::aepcdDeg(secBearing - secCourse)) / 90;
 
         double delta = oe::base::alim(toFrom - curToFrom, dt);
         curToFrom = oe::base::alim(curToFrom + delta, 0.65);

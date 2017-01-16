@@ -1,7 +1,8 @@
 
 #include "TdElevPtr.hpp"
 #include "openeaagles/base/Number.hpp"
-#include "openeaagles/base/units/Angles.hpp"
+
+#include "openeaagles/base/units/unit_utils.hpp"
 
 using namespace oe;
 
@@ -35,7 +36,7 @@ double TdElevPtr::getElevation() const
 
 bool TdElevPtr::setElevation(const double v)
 {
-   elev = base::Angle::aepcdDeg(v);
+   elev = base::angle::aepcdDeg(v);
    return true;
 }
 

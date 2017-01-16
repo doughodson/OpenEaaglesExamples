@@ -20,7 +20,7 @@
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/units/Distances.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 #include "openeaagles/graphics/SymbolLoader.hpp"
 #include <GL/glut.h>
 
@@ -482,8 +482,8 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
             const auto pair = static_cast<oe::base::Pair*>(item->getValue());
             const auto p = static_cast<oe::models::Player*>(pair->object());
             oe::osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
-            double x = rpos[0] * oe::base::Distance::M2NM;
-            double y = rpos[1] * oe::base::Distance::M2NM;
+            double x = rpos[0] * oe::base::distance::M2NM;
+            double y = rpos[1] * oe::base::distance::M2NM;
 
             if (
                p != getOwnship() &&
@@ -576,7 +576,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
         if (tracks[i] != nullptr && trkIdx[i] != 0) {
             double xp = tracks[i]->getXPosition() - osX;
             double yp = tracks[i]->getYPosition() - osY;
-            loader->updateSymbolPositionXY( trkIdx[i], (xp * oe::base::Distance::M2NM), (yp * oe::base::Distance::M2NM) );
+            loader->updateSymbolPositionXY( trkIdx[i], (xp * oe::base::distance::M2NM), (yp * oe::base::distance::M2NM) );
             loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
         }
     }
@@ -662,7 +662,7 @@ void TestDisplay::updatePfd(const double)
     // vvi tape gauge test
     const oe::osg::Vec3d vel = av->getVelocity();
     const double vvMps = -vel[2];
-    vvi = vvMps * 60.0f * oe::base::Distance::M2FT;
+    vvi = vvMps * 60.0f * oe::base::distance::M2FT;
 
     // flight director stuff
     // flight diretor bank angle

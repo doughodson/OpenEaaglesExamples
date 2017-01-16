@@ -4,7 +4,7 @@
 #include "TestSD.hpp"
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/units/Angles.hpp"
+#include "openeaagles/base/units/unit_utils.hpp"
 #include "SituationalDisplay.hpp"
 #include "openeaagles/graphics/SymbolLoader.hpp"
 
@@ -43,9 +43,9 @@ TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
     heading = 0.0;
-    headingRate = static_cast<double>(0.2f * base::Angle::R2DCC);
+    headingRate = static_cast<double>(0.2f * base::angle::R2DCC);
     bearing = 0.0;
-    bearingRate = static_cast<double>(0.4f * base::Angle::R2DCC);
+    bearingRate = static_cast<double>(0.4f * base::angle::R2DCC);
     range = 80.0;
     // navaid bearings
     nav1Brg = 0.0;
