@@ -42,7 +42,7 @@ APPLICATIONS += mainCockpit
 # test table, state machines, events and timer
 APPLICATIONS += testDafif
 APPLICATIONS += testEvents
-APPLICATIONS += testObjMetadata
+APPLICATIONS += testMetadata
 APPLICATIONS += testTables
 APPLICATIONS += testStateMach
 APPLICATIONS += testTemplates

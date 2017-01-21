@@ -171,6 +171,27 @@ project "testMatrix"
       links {"oebase_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
+-- testMetadata
+project "testMetadata"
+   targetname "testMetadata"
+   targetdir "../../testMetadata"
+   debugdir "../../testMetadata"
+   files {
+      "../../testMetadata/**.h*",
+      "../../testMetadata/**.cpp",
+      "../../testMetadata/**.epp",
+      "../../testMetadata/**.edl"
+   }
+   includedirs { OEIncPath }
+   libdirs     { OELibPath }
+   defines { "_CONSOLE" }
+   filter "configurations:Release*"
+      links {"oebase"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+   filter "configurations:Debug*"
+      links {"oebase_d"}
+      links {"Ws2_32", "Winmm", "comctl32"}
+
 -- testNavigation
 project "testNavigation"
    targetname "testNavigation"
@@ -214,27 +235,6 @@ project "testNetHandler"
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
       links {"oebase_d", "libzmq_d" }
-      links {"Ws2_32", "Winmm", "comctl32"}
-
--- testObjMetadata
-project "testObjMetadata"
-   targetname "testObjMetadata"
-   targetdir "../../testObjMetadata"
-   debugdir "../../testObjMetadata"
-   files {
-      "../../testObjMetadata/**.h*",
-      "../../testObjMetadata/**.cpp",
-      "../../testObjMetadata/**.epp",
-      "../../testObjMetadata/**.edl"
-   }
-   includedirs { OEIncPath }
-   libdirs     { OELibPath }
-   defines { "_CONSOLE" }
-   filter "configurations:Release*"
-      links {"oebase"}
-      links {"Ws2_32", "Winmm", "comctl32"}
-   filter "configurations:Debug*"
-      links {"oebase_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testRadar

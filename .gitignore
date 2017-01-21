@@ -97,9 +97,9 @@ testInfrared/testInfrared
 testIoHandler/testIoHandler
 testLinearSys/testLinearSys
 testMatrix/testMatrix
+testMetadata/testMetadata
 testNavigation/testNavigation
 testNetHandler/testNetHandler
-testObjMetadata/testObjMetadata
 testRadar/testRadar
 testRecordData/testRecordData
 testRecorderRead/testRecorderRead
