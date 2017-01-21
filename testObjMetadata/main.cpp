@@ -4,13 +4,13 @@
 
 #include <iostream>
 
-#include "openeaagles/base/ObjMetadata.hpp"
+#include "openeaagles/base/Metadata.hpp"
 
 #include "openeaagles/base/Decibel.hpp"
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Matrix.hpp"
 
-void printMetadata(const oe::base::ObjMetadata* md)
+void printMetadata(const oe::base::Metadata* md)
 {
    std::cout << "class name   : " << md->getClassName()   << std::endl
              << "factory name : " << md->getFactoryName() << std::endl
