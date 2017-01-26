@@ -171,16 +171,16 @@ project "testMatrix"
       links {"oebase_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testMetadata
-project "testMetadata"
-   targetname "testMetadata"
-   targetdir "../../testMetadata"
-   debugdir "../../testMetadata"
+-- testMetaObject
+project "testMetaObject"
+   targetname "testMetaObject"
+   targetdir "../../testMetaObject"
+   debugdir "../../testMetaObject"
    files {
-      "../../testMetadata/**.h*",
-      "../../testMetadata/**.cpp",
-      "../../testMetadata/**.epp",
-      "../../testMetadata/**.edl"
+      "../../testMetaObject/**.h*",
+      "../../testMetaObject/**.cpp",
+      "../../testMetaObject/**.epp",
+      "../../testMetaObject/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }

@@ -1,7 +1,7 @@
 #
 include ../makedefs
 
-PGM = testMetadata
+PGM = testMetaObject
 OBJS =  main.o
 
 LDFLAGS += -loebase
