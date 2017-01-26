@@ -3,10 +3,11 @@
 
 #include "openeaagles/terrain/Terrain.hpp"
 
+#include "openeaagles/base/nav_utils.hpp"
+
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Rgb.hpp"
 #include "openeaagles/base/Hsva.hpp"
-#include "openeaagles/base/Nav.hpp"
 #include "openeaagles/base/Number.hpp"
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"
@@ -368,7 +369,7 @@ void Display::updateData(const double dt)
          double* curvature =nullptr;
          if (testEarthCurv) {
             curvature = new double[NUM_ROWS];
-            const auto radius = static_cast<double>(base::Nav::ERAD60 * base::distance::NM2M);
+            const auto radius = static_cast<double>(base::nav::ERAD60 * base::distance::NM2M);
             const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
             for (int irow = 0; irow < NUM_ROWS; irow++) {
                double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);

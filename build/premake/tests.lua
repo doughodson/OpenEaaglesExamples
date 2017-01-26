@@ -192,16 +192,16 @@ project "testMetaObject"
       links {"oebase_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
--- testNavigation
-project "testNavigation"
-   targetname "testNavigation"
-   targetdir "../../testNavigation"
-   debugdir "../../testNavigation"
+-- test navigation utility functions
+project "testNavUtils"
+   targetname "testNavUtils"
+   targetdir "../../testNavUtils"
+   debugdir "../../testNavUtils"
    files {
-      "../../testNavigation/**.h*",
-      "../../testNavigation/**.cpp",
-      "../../testNavigation/**.epp",
-      "../../testNavigation/**.edl"
+      "../../testNavUtils/**.h*",
+      "../../testNavUtils/**.cpp",
+      "../../testNavUtils/**.epp",
+      "../../testNavUtils/**.edl"
    }
    includedirs { OEIncPath }
    libdirs     { OELibPath }

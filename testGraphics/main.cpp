@@ -3,7 +3,6 @@
 #include "openeaagles/base/Timers.hpp"
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/functors/Tables.hpp"
-#include "openeaagles/base/Nav.hpp"
 #include "openeaagles/base/units/Angles.hpp"
 
 #include "openeaagles/graphics/Graphic.hpp"

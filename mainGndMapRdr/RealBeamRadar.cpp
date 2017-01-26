@@ -7,11 +7,12 @@
 
 #include "openeaagles/terrain/Terrain.hpp"
 
+#include "openeaagles/base/nav_utils.hpp"
+
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Rgb.hpp"
 #include "openeaagles/base/Hsva.hpp"
 #include "openeaagles/base/Color.hpp"
-#include "openeaagles/base/Nav.hpp"
 #include "openeaagles/base/Number.hpp"
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"
@@ -151,7 +152,7 @@ void RealBeamRadar::transmit(const double dt)
 
       // Compute the earth's curvature effect
       double curvature[IMG_HEIGHT];
-      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<double>(base::Nav::ERAD60));
+      computeEarthCurvature(curvature, IMG_HEIGHT, maxRngNM, static_cast<double>(base::nav::ERAD60));
 
       double hue = 120.0;      // see Hsv
       double saturation = 0.0; // see Hsv

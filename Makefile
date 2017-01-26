@@ -62,7 +62,7 @@ APPLICATIONS += testMatrix
 APPLICATIONS += testRng
 
 # navigation tests
-APPLICATIONS += testNavigation
+APPLICATIONS += testNavUtils
 
 # network handler testing
 APPLICATIONS += testNetHandler
