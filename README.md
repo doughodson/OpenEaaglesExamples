@@ -63,7 +63,9 @@ Example GUI Applications
 Test Applications
 -----------------
 
-* testEvent -- test of Component class send() functions
+* testDafif -- tests DAFIF library
+
+* testEvents -- test of Component class send() functions
 
 * testGraphics -- test of graphics framework
     1. Contains several test MFD pages with common background graphics
@@ -79,7 +81,9 @@ Test Applications
 
 * testMatrix -- test of Matrix class functionality
 
-* testNavigation -- extensive set of navigation test routines
+* testMetaObject -- tests basic meta-object functionality
+
+* testNavUtils -- extensive set of navigation test routines
 
 * testNetHandler -- tests the network handlers (derived from NetHandler).  Includes client and server side tests/examples for the UDP, TCP, broadcast, and multicast handlers.
 
@@ -97,8 +101,11 @@ Test Applications
 
 * testTables -- collection of Table tests programs
 
+* testTemplates -- test basic template functionality
+
 * testTimer -- tests the functionality of the Timer class.
 
+* testUnits  -- temporary location for misc docs for how unit conversions were tested
 
 Tutorial applications:
 --------------------------------------------------------------------------------------------
