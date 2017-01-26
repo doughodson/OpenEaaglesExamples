@@ -3,7 +3,7 @@
 
 #include "openeaagles/models/players/Player.hpp"
 #include "openeaagles/models/systems/Antenna.hpp"
-#include "openeaagles/models/Simulation.hpp"
+#include "openeaagles/models/WorldModel.hpp"
 
 #include "openeaagles/terrain/Terrain.hpp"
 
@@ -123,7 +123,7 @@ void RealBeamRadar::transmit(const double dt)
       // Locate the terrain elevation database
       if (terrain == nullptr) {
 
-         const models::Simulation* sim = own->getSimulation();
+         const models::WorldModel* sim = own->getWorldModel();
          if (sim != nullptr) {
             setTerrain( dynamic_cast<const oe::terrain::Terrain*>(sim->getTerrain()) );    // ddh
          }

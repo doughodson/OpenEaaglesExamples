@@ -15,7 +15,7 @@
 #include "openeaagles/models/sensors/Gmti.hpp"
 #include "openeaagles/models/sensors/Tws.hpp"
 
-#include "openeaagles/simulation/SimExec.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
@@ -468,7 +468,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
     // find all air vehicles within range
     {
         // get the player list
-        simulation::SimExec* sim = getSimulation();
+        simulation::Simulation* sim = getSimulation();
         base::PairStream* plist = sim->getPlayers();
 
         // search for air vehicles or missiles within range
@@ -589,9 +589,9 @@ models::Player* TestDisplay::getOwnship()
    return p;
 }
 
-simulation::SimExec* TestDisplay::getSimulation()
+simulation::Simulation* TestDisplay::getSimulation()
 {
-   simulation::SimExec* s = nullptr;
+   simulation::Simulation* s = nullptr;
    simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;

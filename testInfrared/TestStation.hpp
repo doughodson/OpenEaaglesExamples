@@ -5,7 +5,7 @@
 #include "openeaagles/simulation/Station.hpp"
 
 namespace oe {
-   namespace glut  { class GlutDisplay; }
+namespace glut  { class GlutDisplay; }
 }
 
 //------------------------------------------------------------------------------

@@ -5,9 +5,9 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace base { class Number; }
-   namespace models { class Player; }
-   namespace simulation { class SimExec; class Station; }
+namespace base { class Number; }
+namespace models { class Player; }
+namespace simulation { class Simulation; class Station; }
 }
 
 // ----------------------------------------------------------------------------
@@ -28,7 +28,7 @@ public:
    Display();
 
    oe::models::Player* getOwnship();
-   oe::simulation::SimExec* getSimulation();
+   oe::simulation::Simulation* getSimulation();
    oe::simulation::Station* getStation();
 
    // Slot functions

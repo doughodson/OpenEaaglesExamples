@@ -5,8 +5,8 @@
 #include "openeaagles/models/systems/Radar.hpp"
 
 namespace oe {
-   namespace base { class Angle; class Distance; class Number; }
-   namespace terrain { class Terrain; }
+namespace base { class Angle; class Distance; class Number; }
+namespace terrain { class Terrain; }
 }
 
 //------------------------------------------------------------------------------

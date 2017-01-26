@@ -1,6 +1,6 @@
 // this is our simulation, which runs our scenario
 simulation:
-( Simulation 
+( WorldModel 
     // just random lat / lon to start our simulation at.
     latitude: 37.0 
     longitude: -116.0

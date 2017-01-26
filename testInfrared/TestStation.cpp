@@ -7,7 +7,7 @@
 
 #include "openeaagles/models/players/AirVehicle.hpp"
 
-#include "openeaagles/simulation/SimExec.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 

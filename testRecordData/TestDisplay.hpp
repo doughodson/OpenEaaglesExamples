@@ -6,7 +6,7 @@
 
 namespace oe {
 namespace models { class Missile; class Player; }
-namespace simulation { class SimExec; class Station; }
+namespace simulation { class Simulation; class Station; }
 namespace graphics { class SymbolLoader; }
 namespace xpanel { class DspRadar; class DspRwr; }
 }
@@ -45,7 +45,7 @@ public:
     TestDisplay();
 
     oe::models::Player* getOwnship();
-    oe::simulation::SimExec* getSimulation();
+    oe::simulation::Simulation* getSimulation();
     oe::simulation::Station* getStation();
 
     void maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng);

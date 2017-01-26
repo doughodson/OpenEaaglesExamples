@@ -6,7 +6,7 @@
 ownship: p2728
 //ownship: g12728
 
-simulation: ( Simulation
+simulation: ( WorldModel
 
    // Initial freeze condition
    freeze: false

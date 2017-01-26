@@ -12,7 +12,7 @@
 
   // Simulation scenario
   ownship: xper
-  simulation: ( Simulation
+  simulation: ( WorldModel
                 latitude:   37.0  
                 longitude: -116.0
 
@@ -31,8 +31,7 @@
               
                 } // players
 
-              ) // Simulation
-
-) // Station
+              ) // simulation
+) // station
 
 

@@ -1,5 +1,5 @@
 
-#include "openeaagles/simulation/SimExec.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/Pair.hpp"
 
@@ -29,7 +29,7 @@ oe::base::Object* factory(const std::string& name)
 }
 
 // simulation builder
-oe::simulation::SimExec* builder(const std::string& filename)
+oe::simulation::Simulation* builder(const std::string& filename)
 {
    // read configuration file
    unsigned int num_errors = 0;
@@ -54,7 +54,7 @@ oe::simulation::SimExec* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   const auto simulation = dynamic_cast<oe::simulation::SimExec*>(obj);
+   const auto simulation = dynamic_cast<oe::simulation::Simulation*>(obj);
    if (simulation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
    }
 
    // build simulation
-   oe::simulation::SimExec* simulation = builder(configFilename);
+   oe::simulation::Simulation* simulation = builder(configFilename);
 
    // reset component tree
    simulation->reset();

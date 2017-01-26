@@ -32,7 +32,7 @@
    // Simulation scenario
    // ---
    ownship: ownship
-   simulation: ( Simulation
+   simulation: ( WorldModel
    
      latitude:  REF_LAT
      longitude: REF_LON

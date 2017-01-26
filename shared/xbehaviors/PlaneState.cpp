@@ -12,7 +12,7 @@
 #include "openeaagles/models/systems/OnboardComputer.hpp"
 #include "openeaagles/models/systems/StoresMgr.hpp"
 
-#include "openeaagles/models/Simulation.hpp"
+#include "openeaagles/models/WorldModel.hpp"
 
 namespace oe {
 namespace xbehaviors {
@@ -98,7 +98,7 @@ void PlaneState::updateState(const base::Component* const actor)
          // we have an sms, and we have a missile available
          // loop through player list and attempt to find out if one of our missiles is active
          // if there is an active missile, then for the time being, we do not have a missile to fire
-         const simulation::SimExec* sim = airVehicle->getSimulation();
+         const models::WorldModel* sim = airVehicle->getWorldModel();
          const base::PairStream* players = sim->getPlayers();
          bool finished = false;
          for (const base::List::Item* item = players->getFirstItem(); item != nullptr && !finished; item = item->getNext()) {

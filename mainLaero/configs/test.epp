@@ -9,7 +9,7 @@
    ownship: player1
 
    simulation:
-   ( Simulation
+   ( WorldModel
       latitude:  0
       longitude: 0
       players: {

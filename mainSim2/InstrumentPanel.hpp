@@ -5,8 +5,8 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace models { class Player; }
-   namespace simulation { class SimExec; class Station; }
+namespace models { class Player; }
+namespace simulation { class Simulation; class Station; }
 }
 
 class DedDisplay;
@@ -30,7 +30,7 @@ public:
    InstrumentPanel();
 
    oe::models::Player* getOwnship();
-   oe::simulation::SimExec* getSimulation();
+   oe::simulation::Simulation* getSimulation();
    oe::simulation::Station* getStation();
 
    virtual bool event(const int event, oe::base::Object* const obj = nullptr) override;

@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 ownship: sim3_1
-simulation: ( Simulation
+simulation: ( WorldModel
 
    // ---
    // Initial freeze condition

@@ -2,7 +2,7 @@
 ownship: ownship    
 
 simulation:
-( Simulation
+( WorldModel
 
     latitude:    39.0
     longitude: -114.0

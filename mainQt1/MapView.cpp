@@ -7,7 +7,7 @@
 
 #include "openeaagles/models/players/Player.hpp"
 
-#include "openeaagles/models/Simulation.hpp"
+#include "openeaagles/models/WorldModel.hpp"
 
 #include "openeaagles/base/List.hpp"
 #include "openeaagles/base/PairStream.hpp"
@@ -84,7 +84,7 @@ void MapView::refreshView()
             // init the map
             if (map != nullptr && !map->isInit()) {
                // grab our simulation, if we have one
-               auto sim = dynamic_cast<const oe::models::Simulation*>(stn->getSimulation());
+               auto sim = dynamic_cast<const oe::models::WorldModel*>(stn->getSimulation());
                if (sim != nullptr) {
                   map->initialize(sim->getRefLatitude(), sim->getRefLongitude(), 100);
                }
@@ -95,7 +95,7 @@ void MapView::refreshView()
    else {
       // update the map and players
       if (map != nullptr) map->updateBG();
-      auto sim = dynamic_cast<const oe::models::Simulation*>(stn->getSimulation());
+      auto sim = dynamic_cast<const oe::models::WorldModel*>(stn->getSimulation());
       if (sim != nullptr) {
          const oe::base::PairStream* stream = sim->getPlayers();
          if (stream != nullptr) {

@@ -62,7 +62,7 @@
    // Simulation scenario
    // ---
    ownship: ownship
-      simulation: ( Simulation
+      simulation: ( WorldModel
       enableTimingStats: true
       printTimingStats: true
       players: {

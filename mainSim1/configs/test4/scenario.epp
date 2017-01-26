@@ -5,7 +5,7 @@
 
 ownship: ew
 
-simulation: ( Simulation
+simulation: ( WorldModel
 
    // Initial freeze condition
    freeze: false

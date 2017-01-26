@@ -33,7 +33,7 @@
    // Simulation scenario
    // ---
    ownship: ownship
-   simulation: ( Simulation
+   simulation: ( WorldModel
 
       // Reference position (player positions are relative to this location)
      latitude:  REF_LATITUDE

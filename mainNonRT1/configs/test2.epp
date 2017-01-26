@@ -1,5 +1,5 @@
 
-( Simulation
+( WorldModel
 
     // reference gaming area
     latitude:   41.0  
@@ -42,5 +42,5 @@
             
     } // players
 
-) // Simulation
+) // world model
 

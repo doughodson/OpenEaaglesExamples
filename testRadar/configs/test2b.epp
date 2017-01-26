@@ -41,7 +41,7 @@
     // Simulation scenario
     // ---
     ownship: p011
-    simulation: ( Simulation
+    simulation: ( WorldModel
 
         numTcThreads: 3
         numBgThreads: 1

@@ -59,7 +59,7 @@
 
 
 ownship: p01
-simulation: ( Simulation
+simulation: ( WorldModel
 
   //enableTimingStats: true
   //printTimingStats: true

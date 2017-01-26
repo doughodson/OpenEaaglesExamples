@@ -8,7 +8,7 @@
 #include "openeaagles/models/navigation/Navigation.hpp"
 #include "openeaagles/models/navigation/Route.hpp"
 
-#include "openeaagles/simulation/SimExec.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/IoData.hpp"
@@ -77,7 +77,7 @@ void TestIoHandler::inputDevices(const double dt)
    // ---
    const auto sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
-   oe::simulation::SimExec* sim = nullptr;
+   oe::simulation::Simulation* sim = nullptr;
    oe::models::AirVehicle* av = nullptr;
 
    if (sta != nullptr) {

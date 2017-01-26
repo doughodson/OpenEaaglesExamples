@@ -71,7 +71,7 @@
    // Simulation scenario
    // ---
    ownship: p00
-   simulation: ( Simulation
+   simulation: ( WorldModel
 
       latitude:  REF_LAT
       longitude: REF_LON

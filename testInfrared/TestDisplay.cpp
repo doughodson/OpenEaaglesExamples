@@ -6,7 +6,7 @@
 #include "openeaagles/models/players/AirVehicle.hpp"
 #include "openeaagles/models/systems/StoresMgr.hpp"
 
-#include "openeaagles/simulation/SimExec.hpp"
+#include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/graphics/SymbolLoader.hpp"
 
@@ -198,7 +198,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
    // find all air vehicles within range
    {
       // get the player list
-      oe::simulation::SimExec* sim = getSimulation();
+      oe::simulation::Simulation* sim = getSimulation();
       oe::base::PairStream* plist = sim->getPlayers();
 
       // search for air vehicles or missiles within range
@@ -328,9 +328,9 @@ oe::models::Player* TestDisplay::getOwnship()
    return p;
 }
 
-oe::simulation::SimExec* TestDisplay::getSimulation()
+oe::simulation::Simulation* TestDisplay::getSimulation()
 {
-   oe::simulation::SimExec* s = nullptr;
+   oe::simulation::Simulation* s = nullptr;
    oe::simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
