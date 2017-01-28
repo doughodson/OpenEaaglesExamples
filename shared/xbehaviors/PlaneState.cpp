@@ -75,7 +75,7 @@ void PlaneState::updateState(const base::Component* const actor)
       setHeading(airVehicle->getHeading());
       setPitch(airVehicle->getPitch());
       setRoll(airVehicle->getRoll());
-      osg::Vec3d angularVels = airVehicle->getAngularVelocities();
+      base::Vec3d angularVels = airVehicle->getAngularVelocities();
       setRollRate(angularVels.x());
       setPitchRate(angularVels.y());
       setYawRate(angularVels.z());

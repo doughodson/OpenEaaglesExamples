@@ -14,7 +14,7 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
 
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -206,7 +206,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
       while (item != nullptr && nNewTracks < maxTracks) {
          const auto pair = static_cast<oe::base::Pair*>(item->getValue());
          const auto p = static_cast<oe::models::Player*>(pair->object());
-         oe::osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
+         oe::base::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
          const double x = rpos[0] * oe::base::distance::M2NM;
          const double y = rpos[1] * oe::base::distance::M2NM;
 

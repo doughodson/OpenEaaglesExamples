@@ -3,8 +3,6 @@
 
 #include "openeaagles/terrain/Terrain.hpp"
 
-#include "openeaagles/base/nav_utils.hpp"
-
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Rgb.hpp"
 #include "openeaagles/base/Hsva.hpp"
@@ -15,8 +13,10 @@
 
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/base/units/Distances.hpp"
+
+#include "openeaagles/base/util/nav_utils.hpp"
 #include "openeaagles/base/util/system.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 #include <cmath>
 
@@ -465,7 +465,7 @@ void Display::updateData(const double dt)
                if (testAac) {
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
                   const auto angle = static_cast<double>(-10.0f * base::angle::D2RCC);
-                  osg::Vec2d vec(std::cos(angle),std::sin(angle));
+                  base::Vec2d vec(std::cos(angle),std::sin(angle));
                   terrain::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
                }
 
@@ -474,7 +474,7 @@ void Display::updateData(const double dt)
             // Draw a line along the Y points (moving from south to north along the latitude lines)
             for (int irow = 0; irow < NUM_ROWS; irow++) {
 
-               osg::Vec3d color(0,0,0);
+               base::Vec3d color(0,0,0);
                double elev = 0;
                bool valid = false;
 

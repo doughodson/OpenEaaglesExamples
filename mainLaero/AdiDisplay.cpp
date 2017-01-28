@@ -9,7 +9,8 @@
 
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+
+#include "openeaagles/base/util/unit_utils.hpp"
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
@@ -65,7 +66,7 @@ void AdiDisplay::updateData(const double dt)
    // Update base classes stuff
    BaseClass::updateData(dt);
 
-   oe::osg::Vec3d av;
+   oe::base::Vec3d av;
 
    // get access pointer to ownship
    oe::models::Aircraft* pA = getOwnship();

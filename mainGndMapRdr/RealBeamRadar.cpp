@@ -7,8 +7,6 @@
 
 #include "openeaagles/terrain/Terrain.hpp"
 
-#include "openeaagles/base/nav_utils.hpp"
-
 #include "openeaagles/base/Color.hpp"
 #include "openeaagles/base/Rgb.hpp"
 #include "openeaagles/base/Hsva.hpp"
@@ -18,7 +16,8 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
 
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/nav_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 #include <cmath>
 
@@ -225,7 +224,7 @@ void RealBeamRadar::transmit(const double dt)
             double sn = aacData[irow];
 
             // convert to a color (or gray) value
-            osg::Vec3d color(0,0,0);
+            base::Vec3d color(0,0,0);
             if (validFlgs[irow] && !maskFlgs[irow]) {
                terrain::Terrain::getElevationColor(sn, 0.0, 1.0, grayTable, 19, color);
             }

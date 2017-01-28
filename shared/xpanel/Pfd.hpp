@@ -3,7 +3,7 @@
 #define __oe_xpanel_Pfd_H__
 
 #include "openeaagles/graphics/Page.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 namespace oe {
 namespace xpanel {

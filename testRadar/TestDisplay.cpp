@@ -20,7 +20,7 @@
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 #include "openeaagles/graphics/SymbolLoader.hpp"
 #include <GL/glut.h>
 
@@ -386,7 +386,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
 
             const auto pair = static_cast<base::Pair*>(item->getValue());
             const auto p = static_cast<models::Player*>(pair->object());
-            osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
+            base::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
             double x = rpos[0] * base::distance::M2NM;
             double y = rpos[1] * base::distance::M2NM;
 

@@ -6,10 +6,10 @@
 #include "openeaagles/models/Track.hpp"
 #include "openeaagles/models/systems/TrackManager.hpp"
 
-#include "openeaagles/base/units/unit_utils.hpp"
-
 #include "openeaagles/base/Hsv.hpp"
+
 #include "openeaagles/base/util/math_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 namespace oe {
 namespace xpanel {
@@ -61,7 +61,7 @@ void DspRadar::updateData(const double dt)
          base::safe_ptr<models::Track> trackList[MAX_TRKS];
          unsigned int n = tm->getTrackList(trackList,MAX_TRKS);
          for (unsigned int i = 0; i < n; i++) {
-            osg::Vec3d pos = trackList[i]->getPosition();
+            base::Vec3d pos       = trackList[i]->getPosition();
             trkRng[nTracks]       = pos.length();
             trkAz[nTracks]        = trackList[i]->getRelAzimuth();
             trkVel[nTracks]       = trackList[i]->getGroundSpeed();
@@ -103,8 +103,8 @@ void DspRadar::drawFunc()
    // Draw the B-Scan
    // ---
    {
-      osg::Vec4d rgb;
-      osg::Vec4d hsv;
+      base::Vec4d rgb;
+      base::Vec4d hsv;
 
       unsigned int n = radar->getNumSweeps();
       unsigned int nv = radar->getPtrsPerSweep();
@@ -156,9 +156,9 @@ void DspRadar::drawFunc()
    // Draw the tracks
    // ---
    {
-      osg::Vec4d rgb;
-      osg::Vec4d ntsRGB;
-      osg::Vec4d hsv;
+      base::Vec4d rgb;
+      base::Vec4d ntsRGB;
+      base::Vec4d hsv;
 
       // Vertices of the basic symbol
       //static double maxRng = 40000.0;

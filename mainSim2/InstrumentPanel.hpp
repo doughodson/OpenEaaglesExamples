@@ -50,7 +50,7 @@ private:
    SendData altitudeSD;
 
    // VVI Stuff
-   oe::osg::Vec3d vvi;         // velocity vector
+   oe::base::Vec3d vvi;        // velocity vector
    SendData vviSD;
    double pastVvi;             // our past vvi value (to create a linear filter)
 

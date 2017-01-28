@@ -2,12 +2,12 @@
 // Tests navigation routines
 //-----------------------------------------------------------------------------
 
-#include "openeaagles/base/nav_utils.hpp"
-
 #include "openeaagles/base/EarthModel.hpp"
 
 #include "openeaagles/base/units/Distances.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+
+#include "openeaagles/base/util/nav_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -35,9 +35,9 @@ static const char* enterYourOwnData = "Enter your own data? (y/n) : ";
 //------------------------------------------------------------------------------
 // prototype functions
 //------------------------------------------------------------------------------
-int showVec2(const osg::Vec2d V);
-int showVec3(const osg::Vec3d V);
-int displayMatrix(const osg::Matrixd M);
+int showVec2(const base::Vec2d V);
+int showVec3(const base::Vec3d V);
+int displayMatrix(const base::Matrixd M);
 
 void test01_fbd2llE();
 void test02_fll2bdE();
@@ -782,7 +782,7 @@ void test05_aer2xyz()
    double azim = 45.0;
    double elev = 30.0;
    double ranj = 1000.0;
-   osg::Vec3d pos;
+   base::Vec3d pos;
 
    const double XPOS = 612.3724;
    const double YPOS = 612.3724;
@@ -853,7 +853,7 @@ void test05_aer2xyz()
          double azim = 0.0;
          double elev = 0.0;
          double ranj = 0.0;
-         osg::Vec3d pos;
+         base::Vec3d pos;
 
          std::cout << "Enter azimuth    [DEG] : "; std::cin >> azim;
          std::cout << "Enter elevation  [DEG] : "; std::cin >> elev;
@@ -926,7 +926,7 @@ void test06_aer2xyz()
    double roll  = 10.0;
    double pitch = 20.0;
    double yaw   = 30.0;
-   osg::Matrixd rm;
+   base::Matrixd rm;
 
    const double NORTH =   39.0485;
    const double EAST  =  819.1647;
@@ -936,9 +936,9 @@ void test06_aer2xyz()
    double azim  = 45.0;
    double elev  = 30.0;
    double ranj  = 1000.0;
-   osg::Vec3d pos;
+   base::Vec3d pos;
 
-   osg::Matrixd ER;
+   base::Matrixd ER;
    ER(0,0) =  0.8138;
    ER(0,1) =  0.4698;
    ER(0,2) = -0.3420;
@@ -1072,12 +1072,12 @@ void test06_aer2xyz()
          double roll  = 0.0;
          double pitch = 0.0;
          double yaw   = 0.0;
-         osg::Matrixd rm;
+         base::Matrixd rm;
 
          double azim  = 0.0;
          double elev  = 0.0;
          double ranj  = 0.0;
-         osg::Vec3d pos;
+         base::Vec3d pos;
 
          std::cout << "Enter roll   [DEG] : "; std::cin >> roll;
          std::cout << "Enter pitch  [DEG] : "; std::cin >> pitch;
@@ -1161,7 +1161,7 @@ void test07_xyz2aer()
    //-------------------------
    // declare function parameters
    //-------------------------
-   osg::Vec3d aer;
+   base::Vec3d aer;
    double x = 100.0;
    double y = 200.0;
    double z = 300.0;
@@ -1294,8 +1294,8 @@ void test08_xyz2aer()
    //-----------------------------------
    // declare function parameters
    //-----------------------------------
-   osg::Vec3d aer;
-   osg::Matrixd rm;
+   base::Vec3d aer;
+   base::Matrixd rm;
    double roll  =  10.0;
    double pitch =  20.0;
    double yaw   =  30.0;
@@ -1306,7 +1306,7 @@ void test08_xyz2aer()
    const double AZIM =  16.7137;  // [DEG]
    const double ELEV =  39.1375;  // [DEG]
    const double RANJ = 374.1657;  // [M]
-   osg::Matrixd erm;
+   base::Matrixd erm;
    erm(0,0) =  0.8138;
    erm(0,1) =  0.4698;
    erm(0,2) = -0.3420;
@@ -2621,9 +2621,9 @@ void test17_computeWorldMatrix()
    //-----------------------------------
    double rlat = 40.0;
    double rlon = 50.0;
-   osg::Matrixd wm;
+   base::Matrixd wm;
 
-   osg::Matrixd worldMatrix;
+   base::Matrixd worldMatrix;
    worldMatrix(0,0) = -0.4132;
    worldMatrix(0,1) = -0.4924;
    worldMatrix(0,2) =  0.7660;
@@ -2702,7 +2702,7 @@ void test17_computeWorldMatrix()
 
          double rlat = 0.0;
          double rlon = 0.0;
-         osg::Matrixd wm;
+         base::Matrixd wm;
 
          std::cout << "Enter reference latitude   [DEG] : "; std::cin  >> rlat;
          std::cout << "Enter reference longitude  [DEG] : "; std::cin  >> rlon;
@@ -2756,11 +2756,11 @@ void test18_computeEulerAnglesDeg()
    double roll  = 0.0;
    double pitch = 0.0;
    double yaw   = 0.0;
-   osg::Matrixd rm;        // IN: Rotational matrix
-   osg::Vec3d angles;      // OUT: euler angles (radians)
-   osg::Vec2d scPhi;       // OUT: Sin/Cos of phi   (Optional)
-   osg::Vec2d scTht;       // OUT: Sin/Cos of theta (Optional)
-   osg::Vec2d scPsi;       // OUT: Sin/Cos of psi   (Optional)
+   base::Matrixd rm;        // IN: Rotational matrix
+   base::Vec3d angles;      // OUT: euler angles (radians)
+   base::Vec2d scPhi;       // OUT: Sin/Cos of phi   (Optional)
+   base::Vec2d scTht;       // OUT: Sin/Cos of theta (Optional)
+   base::Vec2d scPsi;       // OUT: Sin/Cos of psi   (Optional)
 
    const double ROLL  = 10.0;
    const double PITCH = 20.0;
@@ -2773,7 +2773,7 @@ void test18_computeEulerAnglesDeg()
    const double SIN_PSI = std::sin(YAW   * base::angle::D2RCC);
    const double COS_PSI = std::cos(YAW   * base::angle::D2RCC);
 
-   osg::Matrixd testRotationMatrix;
+   base::Matrixd testRotationMatrix;
 
    //-----------------------------------
    // set output formats
@@ -2943,19 +2943,19 @@ void test19_computeRotationalMatrix()
    double roll  = 0.2;  // [RAD]
    double pitch = 0.4;  // [RAD]
    double yaw   = 0.6;  // [RAD]
-   osg::Vec3d angles;
+   base::Vec3d angles;
 
    // outputs
-   osg::Matrixd rm;
-   osg::Vec2d scPhi;
-   osg::Vec2d scTht;
-   osg::Vec2d scPsi;
+   base::Matrixd rm;
+   base::Vec2d scPhi;
+   base::Vec2d scTht;
+   base::Vec2d scPsi;
 
    const double ROLL    = 0.2;
    const double PITCH   = 0.4;
    const double YAW     = 0.6;
 
-   osg::Matrixd testRotMatrix;
+   base::Matrixd testRotMatrix;
    testRotMatrix(0,0) =  0.7602;
    testRotMatrix(0,1) =  0.5201;
    testRotMatrix(0,2) = -0.3894;
@@ -3110,22 +3110,22 @@ void test20_computeRotationalMatrix()
    // declare function parameters
    //-----------------------------------
    // inputs
-   osg::Vec3d angles;
+   base::Vec3d angles;
    angles[0] = 0.2;  // [RAD]
    angles[1] = 0.4;  // [RAD]
    angles[2] = 0.6;  // [RAD]
 
    // outputs
-   osg::Matrixd rm;
-   osg::Vec2d scPhi;
-   osg::Vec2d scTht;
-   osg::Vec2d scPsi;
+   base::Matrixd rm;
+   base::Vec2d scPhi;
+   base::Vec2d scTht;
+   base::Vec2d scPsi;
 
    const double ROLL    = 0.2;
    const double PITCH   = 0.4;
    const double YAW     = 0.6;
 
-   osg::Matrixd testRotMatrix;
+   base::Matrixd testRotMatrix;
    testRotMatrix(0,0) =  0.7602;
    testRotMatrix(0,1) =  0.5201;
    testRotMatrix(0,2) = -0.3894;
@@ -3225,13 +3225,13 @@ void test20_computeRotationalMatrix()
          double roll  = 0.0;
          double pitch = 0.0;
          double yaw   = 0.0;
-         osg::Vec3d angles;
+         base::Vec3d angles;
 
          // outputs
-         osg::Matrixd rm;
-         osg::Vec2d scPhi;
-         osg::Vec2d scTht;
-         osg::Vec2d scPsi;
+         base::Matrixd rm;
+         base::Vec2d scPhi;
+         base::Vec2d scTht;
+         base::Vec2d scPsi;
 
          std::cout << "Enter roll  angle  [RAD] : "; std::cin  >> roll;
          std::cout << "Enter pitch angle  [RAD] : "; std::cin  >> pitch;
@@ -3315,19 +3315,19 @@ void test21_computeRotationalMatrixDeg()
    double roll  = 10.0;  // [RAD]
    double pitch = 20.0;  // [RAD]
    double yaw   = 30.0;  // [RAD]
-   osg::Vec3d angles;
+   base::Vec3d angles;
 
    // outputs
-   osg::Matrixd rm;
-   osg::Vec2d scPhi;
-   osg::Vec2d scTht;
-   osg::Vec2d scPsi;
+   base::Matrixd rm;
+   base::Vec2d scPhi;
+   base::Vec2d scTht;
+   base::Vec2d scPsi;
 
    const double ROLL    = 10.0;
    const double PITCH   = 20.0;
    const double YAW     = 30.0;
 
-   osg::Matrixd testRotMatrix;
+   base::Matrixd testRotMatrix;
 
    testRotMatrix(0,0) =  0.8138;
    testRotMatrix(0,1) =  0.4698;
@@ -3501,18 +3501,18 @@ void test22_computeRotationalMatrixDeg()
    const double COS_PSI = std::cos(YAW   * base::angle::D2RCC);
 
    // inputs
-   osg::Vec3d angles;
+   base::Vec3d angles;
    angles[0] = 10.0;  // [DEG]
    angles[1] = 20.0;  // [DEG]
    angles[2] = 30.0;  // [DEG]
 
    // outputs
-   osg::Matrixd rm;
-   osg::Vec2d scPhi;
-   osg::Vec2d scTht;
-   osg::Vec2d scPsi;
+   base::Matrixd rm;
+   base::Vec2d scPhi;
+   base::Vec2d scTht;
+   base::Vec2d scPsi;
 
-   osg::Matrixd testRotMatrix;
+   base::Matrixd testRotMatrix;
    testRotMatrix(0,0) =  0.8138;
    testRotMatrix(0,1) =  0.4698;
    testRotMatrix(0,2) = -0.3420;
@@ -3605,13 +3605,13 @@ void test22_computeRotationalMatrixDeg()
          double roll  = 0.0;
          double pitch = 0.0;
          double yaw   = 0.0;
-         osg::Vec3d angles;
+         base::Vec3d angles;
 
          // outputs
-         osg::Matrixd rm;
-         osg::Vec2d scPhi;
-         osg::Vec2d scTht;
-         osg::Vec2d scPsi;
+         base::Matrixd rm;
+         base::Vec2d scPhi;
+         base::Vec2d scTht;
+         base::Vec2d scPsi;
 
          std::cout << "Enter roll  angle  [DEG] : "; std::cin  >> roll;
          std::cout << "Enter pitch angle  [DEG] : "; std::cin  >> pitch;
@@ -3697,7 +3697,7 @@ void test23_convertPosVec2llE()
    double rlat = 40.0;  // IN: source (reference) latitude  [DEG]
    double rlon = 50.0;  // IN: source (reference) longitude [DEG]
 
-   osg::Vec3d pos;      // IN: NED position vector from ref point (meters)
+   base::Vec3d pos;     // IN: NED position vector from ref point (meters)
    pos[0] = 1000.0;     //     North  [M]
    pos[1] = 2000.0;     //     East   [M]
    pos[2] = 3000.0;     //     Down   [M]
@@ -3842,7 +3842,7 @@ void test24_convertLL2PosVecE()
    double tlon =   51.0;  // IN: Target longitude      [DEG]
    double talt = 5000.0;  // IN: Target altitude       [M]
 
-   osg::Vec3d pos;        // OUT: NED position vector  [M,M,M]
+   base::Vec3d pos;       // OUT: NED position vector  [M,M,M]
 
    //const double NORTH = 111120.0000;
    //const double EAST  =  85122.8585;
@@ -4002,8 +4002,8 @@ void test25_convertEcef2Geod()
    double lon = 0.0;
    double alt = 0.0;
 
-   osg::Vec3d xyz(x, y, z);
-   osg::Vec3d lla;
+   base::Vec3d xyz(x, y, z);
+   base::Vec3d lla;
 
    double XYZ[3] = {x, y, z};
    double LLA[3];
@@ -4125,7 +4125,7 @@ void test25_convertEcef2Geod()
          double lat = 0.0;
          double lon = 0.0;
          double alt = 0.0;
-         osg::Vec3d lla;
+         base::Vec3d lla;
          double LLA[3];
          const base::EarthModel* pEM = &base::EarthModel::wgs84;
 
@@ -4133,7 +4133,7 @@ void test25_convertEcef2Geod()
          double x = 0.0;
          double y = 0.0;
          double z = 0.0;
-         osg::Vec3d xyz;
+         base::Vec3d xyz;
          double XYZ[3];
 
          std::cout << "Enter latitude  [DEG] : "; std::cin >> lat;
@@ -4231,7 +4231,7 @@ void test26_convertGeod2Ecef()
    double lon = 50.0;
    double alt =  0.0;
 
-   osg::Vec3d result;  // expected result (x, y, z)
+   base::Vec3d result;  // expected result (x, y, z)
    result[0] = 3144971.8231;
    result[1] = 3748031.4688;
    result[2] = 4077985.5722;
@@ -4285,8 +4285,8 @@ void test26_convertGeod2Ecef()
    std::cout << "base::nav::convertGeod2Ecef(lla, &xyz, pEM);" << std::endl;
    std::cout << std::endl;
    {
-      osg::Vec3d lla(lat, lon, alt);
-      osg::Vec3d xyz(0,0,0);
+      base::Vec3d lla(lat, lon, alt);
+      base::Vec3d xyz(0,0,0);
       base::nav::convertGeod2Ecef(lla, &xyz, pEM);
       std::cout << "Results:" << std::endl;
       std::cout << "  xyz[0] = " << std::setw(12) << xyz[0] << "; err = " << std::setw(8) << (xyz[0]-result[0]) << std::endl;
@@ -4324,7 +4324,7 @@ void test26_convertGeod2Ecef()
          double lat = 0.0;
          double lon = 0.0;
          double alt = 0.0;
-         osg::Vec3d lla;
+         base::Vec3d lla;
          double LLA[3];
          const base::EarthModel* pEM = &base::EarthModel::wgs84;
 
@@ -4332,7 +4332,7 @@ void test26_convertGeod2Ecef()
          double x = 0.0;
          double y = 0.0;
          double z = 0.0;
-         osg::Vec3d xyz;
+         base::Vec3d xyz;
          double XYZ[3];
 
          std::cout << "Enter latitude  [DEG] : "; std::cin >> lat;
@@ -4383,7 +4383,7 @@ void test26_convertGeod2Ecef()
 
 
 //------------------------------------------------------------------------------
-int showVec2(const osg::Vec2d V)
+int showVec2(const base::Vec2d V)
 {
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
    std::cout << std::setw(12) << V[0] << std::endl
@@ -4393,7 +4393,7 @@ int showVec2(const osg::Vec2d V)
    return 0;
 }
 
-int showVec3(const osg::Vec3d V)
+int showVec3(const base::Vec3d V)
 {
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
    std::cout << std::setw(12) << V[0] << std::endl
@@ -4404,7 +4404,7 @@ int showVec3(const osg::Vec3d V)
    return 0;
 }
 
-int displayMatrix(const osg::Matrixd M)
+int displayMatrix(const base::Matrixd M)
 {
    std::cout << std::setprecision(4) << std::setiosflags(std::ios::fixed);
    //std::cout << "Matrix: " << std::endl

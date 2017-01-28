@@ -55,7 +55,7 @@ private:
     static const int MAX_MATERIALS = 3;
     oe::graphics::Material* materials[MAX_MATERIALS];
     SendData materialSD[MAX_MATERIALS];
-    oe::osg::Vec3d diffColorRate[MAX_MATERIALS];
+    oe::base::Vec3d diffColorRate[MAX_MATERIALS];
 
     double rotations[MAX_MATERIALS];
     SendData rotationsSD[MAX_MATERIALS];

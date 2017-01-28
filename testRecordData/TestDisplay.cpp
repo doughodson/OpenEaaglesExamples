@@ -24,7 +24,7 @@
 #include "openeaagles/base/Boolean.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 #include "openeaagles/graphics/SymbolLoader.hpp"
 #include <GL/glut.h>
 
@@ -526,7 +526,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
 
             const auto pair = static_cast<base::Pair*>(item->getValue());
             const auto p = static_cast<models::Player*>(pair->object());
-            osg::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
+            base::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
             const double x = rpos[0] * base::distance::M2NM;
             const double y = rpos[1] * base::distance::M2NM;
 
@@ -708,7 +708,7 @@ void TestDisplay::updatePfd(const double)
     latDev = 0;
 
     // vvi tape gauge test
-    const osg::Vec3d vel = av->getVelocity();
+    const base::Vec3d vel = av->getVelocity();
     double vvMps = -vel[2];
     vvi = vvMps * 60.0f * base::distance::M2FT;
 

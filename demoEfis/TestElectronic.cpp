@@ -3,9 +3,9 @@
 #include "navdefs.hpp"
 
 #include "openeaagles/base/units/LinearVelocity.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
 
 #include "openeaagles/base/util/math_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 #include <cmath>
 

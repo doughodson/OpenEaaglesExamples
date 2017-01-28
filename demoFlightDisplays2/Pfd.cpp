@@ -1,7 +1,7 @@
 
 #include "Pfd.hpp"
 #include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/units/unit_utils.hpp"
+#include "openeaagles/base/util/unit_utils.hpp"
 
 // disable all deprecation warnings for now, until we fix
 #if(_MSC_VER>=1400)   // VC8+
