@@ -1,4 +1,7 @@
 
+#ifndef __WaypointTests_H__
+#define __WaypointTests_H__
+
 namespace oe {
 namespace dafif { class WaypointLoader; }
 }
@@ -29,4 +32,6 @@ public:
 private:
    oe::dafif::WaypointLoader* db;
 };
+
+#endif
 

@@ -1,4 +1,7 @@
 
+#ifndef __AirportTests_H__
+#define __AirportTests_H__
+
 //------------------------------------------------
 // AirportLoader test subroutines
 //------------------------------------------------
@@ -64,3 +67,4 @@ private:
    oe::dafif::AirportLoader* db;
 };
 
+#endif

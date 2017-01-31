@@ -1,4 +1,7 @@
 
+#ifndef __NavaidTests_H__
+#define __NavaidTests_H__
+
 namespace oe {
 namespace dafif { class NavaidLoader; } 
 }
@@ -35,3 +38,4 @@ private:
    oe::dafif::NavaidLoader* db;
 };
 
+#endif

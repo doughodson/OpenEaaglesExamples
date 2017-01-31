@@ -2,8 +2,15 @@
 include ../makedefs
 
 PGM = testDafif
-OBJS =  AirportTests.o NavaidTests.o WaypointTests.o testDafif.o
 
+OBJS =  \
+	models/NavRadios.o \
+	models/WorldModel.o \
+    AirportTests.o \
+    NavaidTests.o \
+    WaypointTests.o \
+    testDafif.o
+    
 LDFLAGS += -loedafif -loebase 
 
 all: $(PGM)
