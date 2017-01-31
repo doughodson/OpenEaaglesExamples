@@ -19,10 +19,10 @@ project "testDafif"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oedafif", "oebase"}
+      links {"oesimulation", "oemodels", "oedafif", "oebase"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oedafif_d", "oebase_d"}
+      links {"oesimulation_d", "oemodels_d", "oedafif_d", "oebase_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testEvents: test of event passing

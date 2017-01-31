@@ -85,7 +85,7 @@ oe::dafif::NavaidLoader* NavRadio::getNavaidLoader()
 {
    // If we don't have a NAVAID loader, try to get one from our simulation
    if (nvdb == nullptr) {
-      WorldModel* sim = dynamic_cast<WorldModel*>(getSimulation());
+      WorldModel* sim = dynamic_cast<WorldModel*>(getWorldModel());
       if (sim != nullptr) {
          oe::dafif::NavaidLoader* p = sim->getNavaids();
          if (p != nullptr && p->isDbLoader()) {
@@ -100,7 +100,7 @@ oe::dafif::AirportLoader* NavRadio::getAirportLoader()
 {
    // If we don't have an airport loader, try to get one from our simulation
    if (apdb == nullptr) {
-      WorldModel* sim = getSimulation();
+      WorldModel* sim = dynamic_cast<WorldModel*>(getWorldModel());
       if (sim != nullptr) {
          oe::dafif::AirportLoader* p = sim->getAirports();
          if (p != nullptr && p->isDbLoader()) {

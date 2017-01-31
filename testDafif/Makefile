@@ -11,7 +11,7 @@ OBJS =  \
     WaypointTests.o \
     testDafif.o
     
-LDFLAGS += -loedafif -loebase 
+LDFLAGS += -loemodels -loesimulation -loedafif -loebase 
 
 all: $(PGM)
 
