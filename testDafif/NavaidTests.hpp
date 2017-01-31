@@ -11,11 +11,11 @@ class NavaidTests
 public:
    NavaidTests(
       const char* country,
-      const char* file = "file2",
+      const char* file = "FILE2",
 #ifdef WIN32
-      const char* path = "data/dafif/fullall/"
+      const char* path = "./data/dafif_cycle0506_edition6/FULLALL/"
 #else
-      const char* path = "data/dafif/fullall/"
+      const char* path = "./data/dafif_cycle0506_edition6/FULLALL/"
 #endif
    );
    ~NavaidTests();

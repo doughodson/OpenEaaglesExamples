@@ -1,0 +1,272 @@
+------------------------------------------------
+FILE000:  Airport Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+   503	     9	Airports (01)
+   466	    25	Runways (02)
+   466	     0	Runways (03)
+    92	    70	Arresting Systems (04)
+   205	    16	ILS (05)
+   205	     0	ILS (06)
+   354	    67	Terminal Procedures (07)
+   176	   123	Terminal Approach Minima (08)
+   176	     0	Terminal Approach Minima (09)
+   176	     0	Terminal Approach Minima (10)
+   176	     0	Terminal Approach Minima (11)
+  1988	   969	Terminal Segments (12)
+   202	   174	Terminal Minimum Safe Altitudes (13)
+  1287	   166	Terminal Remarks (14)
+   140	    19	Airport Navaids (15)
+   246	    50	Airport Communications (16)
+   246	     0	Airport Communications (17)
+   246	     0	Airport Communications (18)
+   318	    17	Airport Comm Remarks (19)
+     1	     0	Secondary Airport (20)
+    52	    36	Terminal Climb Rates (21)
+   106	    23	Terminal Feeder Routes (22)
+     0	     0	Terminal Speed Limit (23)
+     0	     0	Airport Remarks (25)
+------------------------------------------------
+  7827	  1764	TOTALS
+------------------------------------------------
+Total Adds:   2315
+Total Mods:   5512
+Total Dels:   1764
+
+------------------------------------------------
+FILE001:  Heliport Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+    76	     0	Heliports (01)
+    60	     0	Helipads (02)
+    60	     0	Helipads (03)
+     2	     3	Terminal Procedures (04)
+     1	     3	Terminal Approach Minima (05)
+     1	     0	Terminal Approach Minima (06)
+     1	     0	Terminal Approach Minima (07)
+     1	     0	Terminal Approach Minima (08)
+    10	    24	Terminal Segments (09)
+     2	     5	Terminal Minimum Safe Altitudes (10)
+    12	     4	Terminal Remarks (11)
+     0	     0	Heliport Navaids (12)
+    13	     2	Heliport Communications (13)
+    13	     0	Heliport Communications (14)
+    13	     0	Heliport Communications (15)
+     3	     1	Heliport Comm Remarks (16)
+     0	     0	Terminal Climb Rates (17)
+     3	     4	Terminal Feeder Routes (18)
+     0	     0	Terminal Speed Limit (19)
+     0	     0	Airport Remarks (25)
+------------------------------------------------
+   271	    46	TOTALS
+------------------------------------------------
+Total Adds:    240
+Total Mods:     31
+Total Dels:     46
+
+------------------------------------------------
+FILE002:  Navaid Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+   193	    17	Navaids (01)
+   193	     0	Navaids (02)
+------------------------------------------------
+   386	    17	TOTALS
+------------------------------------------------
+Total Adds:     58
+Total Mods:    328
+Total Dels:     17
+
+------------------------------------------------
+FILE003:  Waypoint Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+  1078	   297	Waypoints (01)
+------------------------------------------------
+  1078	   297	TOTALS
+------------------------------------------------
+Total Adds:    535
+Total Mods:    543
+Total Dels:    297
+
+------------------------------------------------
+FILE004:  ATS Route Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+  6043	  2038	ATS Routes (01)
+  3139	  2038	ATS Countries (03)
+  3027	   403	ATS Remarks (05)
+------------------------------------------------
+ 12209	  4479	TOTALS
+------------------------------------------------
+Total Adds:   7259
+Total Mods:   4950
+Total Dels:   4479
+
+------------------------------------------------
+FILE005:  Airspace Boundary Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+   148	    19	Boundaries (01)
+   148	     0	Boundaries (02)
+  7792	   531	Boundary Segments (03)
+  7792	     0	Boundary Segments (04)
+  2451	   531	Boundary Countries (05)
+------------------------------------------------
+ 18331	  1081	TOTALS
+------------------------------------------------
+Total Adds:   7209
+Total Mods:  11122
+Total Dels:   1081
+
+------------------------------------------------
+FILE006:  Special Use Airspace Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+    98	    14	SUAS (01)
+    98	     0	SUAS (02)
+   541	   120	SUAS Segments (03)
+   541	     0	SUAS Segments (04)
+    45	    14	SUAS Countries (05)
+------------------------------------------------
+  1323	   148	TOTALS
+------------------------------------------------
+Total Adds:    733
+Total Mods:    590
+Total Dels:    148
+
+------------------------------------------------
+FILE007:  Air Refueling Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+    13	     0	Air Refueling (01)
+    13	     0	Air Refueling (02)
+    13	     0	Air Refueling (03)
+     6	     0	ARF Points (04)
+     6	     0	ARF Remarks (05)
+     0	     0	ARF Airspace Segments (06)
+------------------------------------------------
+    51	     0	TOTALS
+------------------------------------------------
+Total Adds:      0
+Total Mods:     51
+Total Dels:      0
+
+------------------------------------------------
+FILE008:  Military Training Route Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+     0	     0	Military Training Routes (01)
+     0	     0	Military Training Routes (02)
+     0	     0	Military Training Routes (03)
+     0	     0	MTR Descriptions (04)
+     0	     0	MTR Descriptions (05)
+     0	     0	MTR Remarks (06)
+------------------------------------------------
+     0	     0	TOTALS
+------------------------------------------------
+Total Adds:      0
+Total Mods:      0
+Total Dels:      0
+
+------------------------------------------------
+FILE009:  Preferred Route Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+     0	     0	Preferred Routes (01)
+     2	     0	Route Segments (02)
+------------------------------------------------
+     2	     0	TOTALS
+------------------------------------------------
+Total Adds:      0
+Total Mods:      2
+Total Dels:      0
+
+------------------------------------------------
+FILE010:  Parachute Jump Area Family Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+     0	     3	Parachute Jump Areas (01)
+     1	     3	Jump Area Segments (02)
+------------------------------------------------
+     1	     6	TOTALS
+------------------------------------------------
+Total Adds:      0
+Total Mods:      1
+Total Dels:      6
+
+------------------------------------------------
+FILE011:  Arpt/Hlpt Supplemental Record Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+   223	     9	General (01)
+   223	     0	General (02)
+  2841	   105	Services/Remarks (03)
+    36	     4	Fuel/Oil (04)
+    88	    16	Additional Runway Data (05)
+------------------------------------------------
+  3411	   134	TOTALS
+------------------------------------------------
+Total Adds:    839
+Total Mods:   2572
+Total Dels:    134
+
+------------------------------------------------
+FILE012:  Off Route Terrain Clearance Altitude Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+     0	     0	ORTCAs (01)
+------------------------------------------------
+     0	     0	TOTALS
+------------------------------------------------
+Total Adds:      0
+Total Mods:      0
+Total Dels:      0
+
+------------------------------------------------
+FILE013:  Precision Approach Path Point Totals
+------------------------------------------------
+
+Live          Xdel          Type
+
+     0	     0	RNAV PAPPs (01)
+------------------------------------------------
+     0	     0	TOTALS
+------------------------------------------------
+Total Adds:      0
+Total Mods:      0
+Total Dels:      0
+
+------------------------------------------------
+GRAND TOTALS
+------------------------------------------------
+Total Adds:   19188
+Total Mods:   25702
+Total Dels:    7972
+

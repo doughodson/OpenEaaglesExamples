@@ -15,11 +15,11 @@ class AirportTests
 public:
    AirportTests(
       const char* country,
-      const char* file = "file0",
+      const char* file = "FILE0",
 #ifdef WIN32
-      const char* path = "data/dafif/fullall/"
+      const char* path = "./data/dafif_cycle0506_edition6/FULLALL/"
 #else
-      const char* path = "data/dafif/fullall/"
+      const char* path = "./data/dafif_cycle0506_edition6/FULLALL/"
 #endif
    );
 
