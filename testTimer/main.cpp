@@ -15,7 +15,7 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/Timers.hpp"
-#include "openeaagles/base/Thread.hpp"
+#include "openeaagles/base/concurrent/ThreadPeriodicTask.hpp"
 #include "openeaagles/base/util/system.hpp"
 
 // class factory
