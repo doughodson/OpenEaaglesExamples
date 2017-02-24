@@ -15,7 +15,7 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/Timers.hpp"
-#include "openeaagles/base/concurrent/ThreadPeriodicTask.hpp"
+#include "openeaagles/base/concurrent/PeriodicTask.hpp"
 #include "openeaagles/base/util/system.hpp"
 
 // class factory
@@ -34,9 +34,9 @@ const double TIMERS_PRINT_RATE = 5;   // Hz
 const double THREAD_RATE = 20.0;      // hz
 const double THREAD_PRI  =  0.5;      // Pri (0 .. 1)
 
-class TimerThread : public oe::base::ThreadPeriodicTask
+class TimerThread : public oe::base::PeriodicTask
 {
-   DECLARE_SUBCLASS(TimerThread, oe::base::ThreadPeriodicTask)
+   DECLARE_SUBCLASS(TimerThread, oe::base::PeriodicTask)
    public: TimerThread(oe::base::Component* const parent, const double priority, const double rate);
    private: virtual unsigned long userFunc(const double dt) override;
 };
@@ -48,7 +48,7 @@ EMPTY_DELETEDATA(TimerThread)
 EMPTY_SERIALIZER(TimerThread)
 
 TimerThread::TimerThread(oe::base::Component* const parent, const double priority, const double rate)
-      : ThreadPeriodicTask(parent, priority, rate)
+      : PeriodicTask(parent, priority, rate)
 {
    STANDARD_CONSTRUCTOR()
 }
