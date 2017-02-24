@@ -1,7 +1,6 @@
 
 #include "Sender.hpp"
 
-#include "openeaagles/base/NetHandler.hpp"
 #include "openeaagles/base/Number.hpp"
 #include "openeaagles/base/util/system.hpp"
 

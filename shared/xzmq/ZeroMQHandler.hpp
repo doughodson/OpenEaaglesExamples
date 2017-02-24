@@ -2,21 +2,20 @@
 #ifndef __oe_xzmq_ZeroMQHandler_H__
 #define __oe_xzmq_ZeroMQHandler_H__
 
-#include "openeaagles/base/NetHandler.hpp"
+#include "openeaagles/base/network/NetHandler.hpp"
 
 #include <map>
 #include <string>
 
 namespace oe {
-   namespace base { class Boolean; class Integer; class String; };
-
+namespace base { class Boolean; class Integer; class String; };
 namespace xzmq {
-   class ZeroMQContext;
+class ZeroMQContext;
 
-   // Mapping types used to convert the enums and 0MQ constants to strings
-   // and back again!
-   typedef std::map <std::string, int> s2i_t;
-   typedef std::map <int, std::string> i2s_t;
+// Mapping types used to convert the enums and 0MQ constants to strings
+// and back again!
+typedef std::map <std::string, int> s2i_t;
+typedef std::map <int, std::string> i2s_t;
 
 //------------------------------------------------------------------------------
 // Class: ZeroMQHandler

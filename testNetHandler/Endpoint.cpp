@@ -1,8 +1,7 @@
 
 #include "Endpoint.hpp"
 
-#include "openeaagles/base/NetHandler.hpp"
-#include "openeaagles/base/nethandlers/TcpHandler.hpp"
+#include "openeaagles/base/network/TcpHandler.hpp"
 #include "openeaagles/base/Number.hpp"
 #include <iostream>
 

@@ -9,7 +9,6 @@
 
 #include "openeaagles/base/Identifier.hpp"
 #include "openeaagles/base/Boolean.hpp"
-#include "openeaagles/base/NetHandler.hpp"
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/functors/Tables.hpp"
