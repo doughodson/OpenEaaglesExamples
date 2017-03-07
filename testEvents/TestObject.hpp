@@ -5,12 +5,6 @@
 #include "openeaagles/base/Object.hpp"
 #include "openeaagles/base/util/str_utils.hpp"
 
-// disable all deprecation warnings for now, until we fix
-// they are quite annoying to see over and over again...
-#if(_MSC_VER>=1400)   // VC8+
-# pragma warning(disable: 4996)
-#endif
-
 //------------------------------------------------------------------------------
 // Class: TestObject
 // Description: A very simple object class that will hold basic information, and

@@ -9,11 +9,6 @@
 #include <cstring>
 #include <cmath>
 
-// disable all deprecation warnings for now, until we fix
-#if(_MSC_VER>=1400)   // VC8+
-# pragma warning(disable: 4996)
-#endif
-
 using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(Pfd,"Pfd")

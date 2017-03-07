@@ -31,13 +31,9 @@
 #include <iomanip>
 #include <cstdlib>
 
-#if(_MSC_VER>=1400)   // VC8+
-# pragma warning(disable: 4996)
-#endif
-
 using namespace oe;
 
-IMPLEMENT_SUBCLASS(DataRecordTest,"DataRecordTest")
+IMPLEMENT_SUBCLASS(DataRecordTest, "DataRecordTest")
 EMPTY_SERIALIZER(DataRecordTest)
 
 BEGIN_SLOTTABLE(DataRecordTest)

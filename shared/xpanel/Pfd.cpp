@@ -3,11 +3,6 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/util/unit_utils.hpp"
 
-// disable all deprecation warnings for now, until we fix
-#if(_MSC_VER>=1400)   // VC8+
-# pragma warning(disable: 4996)
-#endif
-
 namespace oe {
 namespace xpanel {
 
