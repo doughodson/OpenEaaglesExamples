@@ -5,7 +5,7 @@ PGM = testEvents
 
 OBJS = Display.o ObjectHandler.o TestObject.o main.o
 
-LDFLAGS += -loeinstruments -loeglut -loegraphics -loebase
+LDFLAGS += -loe_instruments -loe_glut -loe_graphics -loe_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

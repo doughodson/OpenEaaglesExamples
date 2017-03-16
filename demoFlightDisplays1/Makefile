@@ -15,7 +15,7 @@ OBJS =  \
 	TestPfd.o \
 	TestSD.o
 
-LDFLAGS += -loeglut -loeinstruments -loegraphics -loebase
+LDFLAGS += -loe_glut -loe_instruments -loe_graphics -loe_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

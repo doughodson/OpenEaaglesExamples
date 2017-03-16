@@ -15,14 +15,10 @@ project "tutorial01"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"oe_base"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- tutorial02
@@ -38,14 +34,10 @@ project "tutorial02"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"oe_base"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- tutorial03
@@ -63,14 +55,10 @@ project "tutorial03"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"oe_base"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- tutorial04
@@ -88,14 +76,10 @@ project "tutorial04"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"oe_base"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- tutorial05
@@ -113,14 +97,10 @@ project "tutorial05"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"oe_base"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- tutorial06
@@ -138,14 +118,10 @@ project "tutorial06"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"oe_base"}
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- tutorial07
@@ -163,15 +139,11 @@ project "tutorial07"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
+      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
+      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -191,15 +163,11 @@ project "tutorial08"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
+      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
-      if (os.is("linux")) then
-         links {"X11", "pthread", "rt"}
-      else
-         links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
-      end
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
+      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}

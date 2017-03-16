@@ -12,9 +12,9 @@ OBJS = \
 	main.o
 
 LDFLAGS += -lxzmq -l:libzmq.a
-LDFLAGS += -loedis -loeinterop -loemodels -loesimulation -lJSBSim
-LDFLAGS += -loeinstruments -loeiodevice -loeotw -loeterrain
-LDFLAGS += -loeglut -loegraphics -loebase -lrt -lcigicl
+LDFLAGS += -loe_interop_dis -loe_interop -loe_models -loe_simulation -lJSBSim
+LDFLAGS += -loe_instruments -loe_iodevice -loe_otw -loe_terrain
+LDFLAGS += -loe_glut -loe_graphics -loe_base -lrt -lcigicl
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lpthread

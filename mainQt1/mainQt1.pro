@@ -46,13 +46,13 @@ win32:CONFIG(release, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/                               \
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MS_VER}           \
-    -loedis                                          \
-    -loeinterop                                      \
-    -loesimulation                                   \
-    -loemodels                                       \
-    -loeterrain                                      \
-    -loeotw                                          \
-    -loebase                                         \
+    -loe_interop_dis                                 \
+    -loe_interop                                     \
+    -loe_simulation                                  \
+    -loe_models                                      \
+    -loe_terrain                                     \
+    -loe_otw                                         \
+    -loe_base                                        \
     -lccl_lib                                        \
     -ljsbsim                                         \
     # system
@@ -64,13 +64,13 @@ else:win32:CONFIG(debug, debug|release): LIBS +=        \
     # openeaagles
     -L$${OE_ROOT}/lib/                                  \
     -L$${OE_3RD_PARTY_ROOT}/lib/$${MS_VER}              \
-    -loedis_d                                           \
-    -loeinterop_d                                       \
-    -loesimulation_d                                    \
-    -loemodels_d                                        \
-    -loeterrain_d                                       \
-    -loeotw_d                                           \
-    -loebase_d                                          \
+    -loe_interop_dis_d                                  \
+    -loe_interop_d                                      \
+    -loe_simulation_d                                   \
+    -loe_models_d                                       \
+    -loe_terrain_d                                      \
+    -loe_otw_d                                          \
+    -loe_base_d                                         \
     -lccl_lib_d                                         \
     -ljsbsim_d                                          \
     # system
@@ -82,13 +82,13 @@ else:unix:!macx:!symbian: LIBS +=       \
     # openeaagles
     -L$${OE_ROOT}/lib/                  \
     -L$${OE_3RD_PARTY_ROOT}/lib/        \
-    -loedis                             \
-    -loeinterop                         \
-    -loeotw                             \
-    -loesimulation                      \
-    -loemodels                          \
-    -loeterrain                         \
-    -loebase                            \
+    -loe_interop_dis                    \
+    -loe_interop                        \
+    -loe_otw                            \
+    -loe_simulation                     \
+    -loe_models                         \
+    -loe_terrain                        \
+    -loe_base                           \
     -lcigicl                            \
     -lJSBSim                            \
     # system

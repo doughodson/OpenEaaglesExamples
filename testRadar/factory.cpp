@@ -13,7 +13,7 @@
 #include "openeaagles/simulation/factory.hpp"
 #include "openeaagles/models/factory.hpp"
 #include "openeaagles/terrain/factory.hpp"
-#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/interop/dis/factory.hpp"
 #include "openeaagles/instruments/factory.hpp"
 #include "openeaagles/graphics/factory.hpp"
 #include "openeaagles/gui/glut/factory.hpp"

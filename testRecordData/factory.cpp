@@ -13,7 +13,7 @@
 #include "openeaagles/base/factory.hpp"
 #include "openeaagles/graphics/factory.hpp"
 #include "openeaagles/gui/glut/factory.hpp"
-#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/interop/dis/factory.hpp"
 #include "openeaagles/instruments/factory.hpp"
 #include "openeaagles/iodevice/factory.hpp"
 #include "openeaagles/otw/factory.hpp"

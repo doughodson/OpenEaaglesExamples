@@ -6,8 +6,8 @@ PGM = mainSim1
 OBJS = main.o
 
 LDFLAGS += -lxzmq -l:libzmq.a
-LDFLAGS += -loedis -loeinterop -loeotw -loemodels -loesimulation
-LDFLAGS += -loeterrain -loebase
+LDFLAGS += -loe_interop_dis -loe_interop -loe_otw -loe_models -loe_simulation
+LDFLAGS += -loe_terrain -loe_base
 LDFLAGS += -lcigicl -lJSBSim
 LDFLAGS += -lrt -lpthread
 

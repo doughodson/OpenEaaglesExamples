@@ -15,7 +15,7 @@
 #include "openeaagles/simulation/factory.hpp"
 #include "openeaagles/models/factory.hpp"
 #include "openeaagles/terrain/factory.hpp"
-#include "openeaagles/networks/dis/factory.hpp"
+#include "openeaagles/interop/dis/factory.hpp"
 #include "openeaagles/otw/factory.hpp"
 
 #include <string>

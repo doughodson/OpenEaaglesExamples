@@ -19,10 +19,10 @@ project "testDafif"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oesimulation", "oemodels", "oeterrain", "oedafif", "oebase"}
+      links {"oe_models", "oe_simulation", "oe_terrain", "oe_dafif", "oe_base"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oesimulation_d", "oemodels_d", "oeterrain_d", "oedafif_d", "oebase_d"}
+      links {"oe_models_d", "oe_simulation_d", "oe_terrain_d", "oe_dafif_d", "oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testEvents: test of event passing
@@ -41,11 +41,11 @@ project "testEvents"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oeglut", "oegraphics", "oebase"}
+      links {"oe_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oeglut_d", "oegraphics_d", "oebase_d"}
+      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -65,11 +65,11 @@ project "testGraphics"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oeglut", "oegraphics", "oebase"}
+      links {"oe_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oeglut_d", "oegraphics_d", "oebase_d"}
+      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -89,19 +89,19 @@ project "testInfrared"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oemodels", "JSBSim"}
-      links {"oeotw", LibCigi}
-      links {"oedis", "oeinterop" }
-      links {"oesimulation", "oeterrain"}
-      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
+      links {"oe_models", "JSBSim"}
+      links {"oe_otw", LibCigi}
+      links {"oe_interop_dis", "oe_interop" }
+      links {"oe_simulation", "oe_terrain"}
+      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oemodels_d", "JSBSim_d"}
-      links {"oeotw_d", LibCigi_d}
-      links {"oedis_d", "oeinterop_d" }
-      links {"oesimulation_d", "oeterrain_d"}
-      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
+      links {"oe_models_d", "JSBSim_d"}
+      links {"oe_otw_d", LibCigi_d}
+      links {"oe_interop_dis_d", "oe_interop_d" }
+      links {"oe_simulation_d", "oe_terrain_d"}
+      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -121,11 +121,11 @@ project "testIoHandler"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oeiodevice", "oeglut", "oegraphics", "oebase"}
+      links {"oe_iodevice", "oe_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oeiodevice_d", "oeglut_d", "oegraphics_d", "oebase_d"}
+      links {"oe_iodevice_d", "oe_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -144,10 +144,10 @@ project "testLinearSys"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oelinearsystem", "oebase"}
+      links {"oe_linearsystem", "oe_base"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oelinearsystem_d", "oebase_d"}
+      links {"oe_linearsystem_d", "oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testMatrix
@@ -165,10 +165,10 @@ project "testMatrix"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testMetaObject
@@ -186,10 +186,10 @@ project "testMetaObject"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- test navigation utility functions
@@ -207,10 +207,10 @@ project "testNavUtils"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testNetHandler
@@ -231,10 +231,10 @@ project "testNetHandler"
    links { "libxzmq" }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase", "libzmq" }
+      links {"oe_base", "libzmq" }
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d", "libzmq_d" }
+      links {"oe_base_d", "libzmq_d" }
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testRadar
@@ -252,19 +252,19 @@ project "testRadar"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oemodels", "JSBSim"}
-      links {"oeotw", LibCigi}
-      links {"oedis", "oeinterop", "oeiodevice"}
-      links {"oesimulation", "oeterrain"}
-      links {"oeglut", "oeinstruments", "oegraphics", "oebase"}
+      links {"oe_models", "JSBSim"}
+      links {"oe_otw", LibCigi}
+      links {"oe_interop_dis", "oe_interop", "oe_iodevice"}
+      links {"oe_simulation", "oe_terrain"}
+      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oemodels_d", "JSBSim_d"}
-      links {"oeotw_d", LibCigi_d}
-      links {"oedis_d", "oeinterop_d", "oeiodevice_d"}
-      links {"oesimulation_d", "oeterrain_d"}
-      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d"}
+      links {"oe_models_d", "JSBSim_d"}
+      links {"oe_otw_d", LibCigi_d}
+      links {"oe_interop_dis_d", "oe_interop_d", "oe_iodevice_d"}
+      links {"oe_simulation_d", "oe_terrain_d"}
+      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -284,20 +284,20 @@ project "testRecordData"
    links       { "libxrecorder", "libxpanel" }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oemodels", "JSBSim" }
-      links {"oeotw", LibCigi }
-      links {"oedis", "oeinterop", "oerecorder", "oeiodevice" }
-      links {"oesimulation", "oeterrain" }
-      links {"oeglut", "oeinstruments", "oegraphics", "oebase" }
+      links {"oe_models", "JSBSim" }
+      links {"oe_otw", LibCigi }
+      links {"oe_interop_dis", "oe_interop", "oe_recorder", "oe_iodevice" }
+      links {"oe_simulation", "oe_terrain" }
+      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"libprotobuf" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oemodels_d", "JSBSim_d" }
-      links {"oeotw_d",  LibCigi_d }
-      links {"oedis_d", "oeinterop_d", "oerecorder_d", "oeiodevice_d" }
-      links {"oesimulation_d", "oeterrain_d" }
-      links {"oeglut_d", "oeinstruments_d", "oegraphics_d", "oebase_d" }
+      links {"oe_models_d", "JSBSim_d" }
+      links {"oe_otw_d",  LibCigi_d }
+      links {"oe_interop_dis_d", "oe_interop_d", "oe_recorder_d", "oe_iodevice_d" }
+      links {"oe_simulation_d", "oe_terrain_d" }
+      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
@@ -318,12 +318,12 @@ project "testRecorderRead"
    links       { "libxrecorder" }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oemodels", "JSBSim" }
-      links {"oerecorder", "oesimulation", "oebase", "libprotobuf"}
+      links {"oe_models", "JSBSim" }
+      links {"oe_recorder", "oe_simulation", "oe_base", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oemodels_d", "JSBSim_d" }
-      links {"oerecorder_d", "oesimulation_d", "oebase_d", "libprotobuf_d" }
+      links {"oe_models_d", "JSBSim_d" }
+      links {"oe_recorder_d", "oe_simulation_d", "oe_base_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRecorderWrite
@@ -342,12 +342,12 @@ project "testRecorderWrite"
    links       { "libxrecorder" }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oemodels", "JSBSim" }
-      links {"oerecorder", "oesimulation", "oebase", "libprotobuf"}
+      links {"oe_models", "JSBSim" }
+      links {"oe_recorder", "oe_simulation", "oe_base", "libprotobuf"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oemodels_d", "JSBSim_d" }
-      links {"oerecorder_d", "oesimulation_d", "oebase_d", "libprotobuf_d" }
+      links {"oe_models_d", "JSBSim_d" }
+      links {"oe_recorder_d", "oe_simulation_d", "oe_base_d", "libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32" }
 
 -- testRng
@@ -365,10 +365,10 @@ project "testRng"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testStateMach
@@ -386,10 +386,10 @@ project "testStateMach"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testTables
@@ -407,10 +407,10 @@ project "testTables"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testTemplates
@@ -428,10 +428,10 @@ project "testTemplates"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
 -- testTimer
@@ -448,9 +448,9 @@ project "testTimer"
    libdirs     { OELibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oebase"}
+      links {"oe_base"}
       links {"Ws2_32", "Winmm", "comctl32"}
    filter "configurations:Debug*"
-      links {"oebase_d"}
+      links {"oe_base_d"}
       links {"Ws2_32", "Winmm", "comctl32"}
 
