@@ -15,7 +15,7 @@ LDFLAGS += -loe_interop_dis -loe_interop
 LDFLAGS += -loe_models -lJSBSim
 LDFLAGS += -lxzmq -l:libzmq.a
 LDFLAGS += -loe_simulation -loe_models -loe_terrain
-LDFLAGS += -loe_glut -loe_instruments -loe_graphics -loe_base
+LDFLAGS += -loe_gui_glut -loe_instruments -loe_graphics -loe_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 LDFLAGS += -lrt
 

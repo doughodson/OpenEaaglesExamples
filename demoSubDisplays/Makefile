@@ -26,7 +26,7 @@ OBJS =  \
 	main.o
 
 
-LDFLAGS += -loe_instruments -loe_glut -loe_graphics -loe_base
+LDFLAGS += -loe_instruments -loe_gui_glut -loe_graphics -loe_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

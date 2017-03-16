@@ -26,7 +26,7 @@ project "mainCockpit"
       links { "oe_otw", LibCigi }
       links { "oe_interop_dis", "oe_interop", "oe_recorder", "oe_iodevice" }
       links { "oe_simulation", "oe_terrain" }
-      links { "oe_glut", "oe_instruments", "oe_graphics", "oe_base" }
+      links { "oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "libprotobuf" }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -35,7 +35,7 @@ project "mainCockpit"
       links { "oe_otw_d",  LibCigi_d }
       links { "oe_interop_dis_d", "oe_interop_d", "oe_recorder_d", "oe_iodevice_d" }
       links { "oe_simulation_d", "oe_terrain_d" }
-      links { "oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
+      links { "oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "libprotobuf_d" }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
@@ -57,12 +57,12 @@ project "mainGndMapRdr"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_models", "oe_simulation", "JSBSim", "oe_terrain"}
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
       links {"oe_models_d", "oe_simulation_d", "JSBSim_d", "oe_terrain_d"}
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -88,14 +88,14 @@ project "mainLaero"
       links {"oe_models", "JSBSim", "libzmq" }
       links {"oe_interop_dis", "oe_interop", "oe_iodevice"}
       links {"oe_simulation", "oe_terrain"}
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d", "libzmq_d" }
       links {"oe_interop_dis_d", "oe_interop_d", "oe_iodevice_d"}
       links {"oe_simulation_d", "oe_terrain_d"}
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -118,14 +118,14 @@ project "mainNonRT1"
       links {"oe_models", "JSBSim"}
       links {"oe_otw", LibCigi}
       links {"oe_simulation", "oe_terrain"}
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d"}
       links {"oe_otw_d", LibCigi_d}
       links {"oe_simulation_d", "oe_terrain_d"}
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -144,11 +144,11 @@ project "mainPuzzle1"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_glut", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -167,11 +167,11 @@ project "mainPuzzle2"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_glut", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -197,7 +197,7 @@ project "mainSim1"
       links { "oe_otw", LibCigi }
       links { "oe_interop_dis", "oe_interop" }
       links { "oe_simulation", "oe_terrain" }
-      links { "oe_glut", "oe_instruments", "oe_graphics", "oe_base" }
+      links { "oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    filter "configurations:Debug*"
@@ -205,7 +205,7 @@ project "mainSim1"
       links { "oe_otw_d", LibCigi_d }
       links { "oe_interop_dis_d", "oe_interop_d" }
       links { "oe_simulation_d", "oe_terrain_d" }
-      links { "oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
+      links { "oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
@@ -231,7 +231,7 @@ project "mainSim2"
       links { "oe_otw", LibCigi}
       links { "oe_interop_dis", "oe_interop", "oe_iodevice"}
       links { "oe_simulation", "oe_terrain"}
-      links { "oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links { "oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links { "Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
@@ -239,7 +239,7 @@ project "mainSim2"
       links { "oe_otw_d", LibCigi_d }
       links { "oe_interop_dis_d", "oe_interop_d", "oe_iodevice_d" }
       links { "oe_simulation_d", "oe_terrain_d" }
-      links { "oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
+      links { "oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
@@ -265,7 +265,7 @@ project "mainSim3"
       links { "oe_otw", LibCigi }
       links { "oe_interop_dis", "oe_interop", LibCigi }
       links { "oe_simulation", "oe_terrain" }
-      links { "oe_glut", "oe_instruments", "oe_graphics", "oe_base" }
+      links { "oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    filter "configurations:Debug*"
@@ -273,7 +273,7 @@ project "mainSim3"
       links { "oe_otw_d", LibCigi_d }
       links { "oe_interop_dis_d", "oe_interop_d" }
       links { "oe_simulation_d", "oe_terrain_d" }
-      links { "oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
+      links { "oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
 
@@ -293,12 +293,12 @@ project "mainTerrain"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_terrain", "oe_simulation"}
-      links {"oe_glut", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
       links {"oe_terrain_d", "oe_simulation_d"}
-      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -322,7 +322,7 @@ project "mainUbf1"
       links { "oe_otw", LibCigi }
       links { "oe_interop_dis", "oe_interop", "oe_iodevice" }
       links { "oe_simulation", "oe_terrain" }
-      links { "oe_glut", "oe_instruments", "oe_graphics", "oe_base" }
+      links { "oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links { LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }
    filter "configurations:Debug*"
@@ -330,6 +330,6 @@ project "mainUbf1"
       links { "oe_otw_d", LibCigi_d }
       links { "oe_interop_dis_d", "oe_interop_d", "oe_iodevice_d" }
       links { "oe_simulation_d", "oe_terrain_d" }
-      links { "oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
+      links { "oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links { LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL }
       links { "Ws2_32", "Winmm", "comctl32", "gdi32" }

@@ -139,11 +139,11 @@ project "tutorial07"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -163,11 +163,11 @@ project "tutorial08"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}

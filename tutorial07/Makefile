@@ -5,7 +5,7 @@ PGM = tutorial07
 
 OBJS = main.o Worm.o
 
-LDFLAGS += -loe_glut -loe_graphics -loe_base
+LDFLAGS += -loe_gui_glut -loe_graphics -loe_base
 LDFLAGS += -lpthread -lftgl -lfreetype -lglut -lGLU -lGL -lrt
 
 all: $(PGM)

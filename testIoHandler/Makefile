@@ -5,7 +5,7 @@ PGM = testIoHandler
 
 OBJS = Display.o Table.o factory.o main.o
 
-LDFLAGS += -loe_iodevice -loe_glut -loe_graphics -loe_base
+LDFLAGS += -loe_iodevice -loe_gui_glut -loe_graphics -loe_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt

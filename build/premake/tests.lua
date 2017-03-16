@@ -41,11 +41,11 @@ project "testEvents"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_glut", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -65,11 +65,11 @@ project "testGraphics"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_glut", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_glut_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -93,7 +93,7 @@ project "testInfrared"
       links {"oe_otw", LibCigi}
       links {"oe_interop_dis", "oe_interop" }
       links {"oe_simulation", "oe_terrain"}
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
@@ -101,7 +101,7 @@ project "testInfrared"
       links {"oe_otw_d", LibCigi_d}
       links {"oe_interop_dis_d", "oe_interop_d" }
       links {"oe_simulation_d", "oe_terrain_d"}
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -121,11 +121,11 @@ project "testIoHandler"
    libdirs     { OELibPath, OE3rdPartyLibPath }
    defines { "_CONSOLE" }
    filter "configurations:Release*"
-      links {"oe_iodevice", "oe_glut", "oe_graphics", "oe_base"}
+      links {"oe_iodevice", "oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
-      links {"oe_iodevice_d", "oe_glut_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_iodevice_d", "oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -256,7 +256,7 @@ project "testRadar"
       links {"oe_otw", LibCigi}
       links {"oe_interop_dis", "oe_interop", "oe_iodevice"}
       links {"oe_simulation", "oe_terrain"}
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base"}
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
    filter "configurations:Debug*"
@@ -264,7 +264,7 @@ project "testRadar"
       links {"oe_otw_d", LibCigi_d}
       links {"oe_interop_dis_d", "oe_interop_d", "oe_iodevice_d"}
       links {"oe_simulation_d", "oe_terrain_d"}
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
 
@@ -288,7 +288,7 @@ project "testRecordData"
       links {"oe_otw", LibCigi }
       links {"oe_interop_dis", "oe_interop", "oe_recorder", "oe_iodevice" }
       links {"oe_simulation", "oe_terrain" }
-      links {"oe_glut", "oe_instruments", "oe_graphics", "oe_base" }
+      links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"libprotobuf" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
@@ -297,7 +297,7 @@ project "testRecordData"
       links {"oe_otw_d",  LibCigi_d }
       links {"oe_interop_dis_d", "oe_interop_d", "oe_recorder_d", "oe_iodevice_d" }
       links {"oe_simulation_d", "oe_terrain_d" }
-      links {"oe_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
+      links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"libprotobuf_d" }
       links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
