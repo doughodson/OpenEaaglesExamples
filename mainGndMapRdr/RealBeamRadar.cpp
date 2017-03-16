@@ -1,8 +1,8 @@
 
 #include "RealBeamRadar.hpp"
 
-#include "openeaagles/models/players/Player.hpp"
-#include "openeaagles/models/systems/Antenna.hpp"
+#include "openeaagles/models/player/Player.hpp"
+#include "openeaagles/models/system/Antenna.hpp"
 #include "openeaagles/models/WorldModel.hpp"
 
 #include "openeaagles/terrain/Terrain.hpp"

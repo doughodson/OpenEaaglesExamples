@@ -3,8 +3,8 @@
 #include "SimStation.hpp"
 #include "SimPlayer.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
-#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
+#include "openeaagles/models/player/Player.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 

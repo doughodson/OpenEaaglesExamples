@@ -2,9 +2,9 @@
 #include "TestDisplay.hpp"
 #include "TestStation.hpp"
 
-#include "openeaagles/models/players/Aam.hpp"
-#include "openeaagles/models/players/AirVehicle.hpp"
-#include "openeaagles/models/systems/StoresMgr.hpp"
+#include "openeaagles/models/player/Aam.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
+#include "openeaagles/models/system/StoresMgr.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 

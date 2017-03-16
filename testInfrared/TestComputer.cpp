@@ -2,10 +2,10 @@
 #include "TestComputer.hpp"
 
 #include "openeaagles/models/Track.hpp"
-#include "openeaagles/models/systems/AngleOnlyTrackManager.hpp"
-#include "openeaagles/models/players/AbstractWeapon.hpp"
-#include "openeaagles/models/systems/IrSeeker.hpp"
-#include "openeaagles/models/systems/IrSensor.hpp"
+#include "openeaagles/models/system/AngleOnlyTrackManager.hpp"
+#include "openeaagles/models/player/AbstractWeapon.hpp"
+#include "openeaagles/models/system/IrSeeker.hpp"
+#include "openeaagles/models/system/IrSensor.hpp"
 
 #include "openeaagles/models/WorldModel.hpp"
 

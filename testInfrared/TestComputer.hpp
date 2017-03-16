@@ -2,7 +2,7 @@
 #ifndef __TestComputer_H__
 #define __TestComputer_H__
 
-#include "openeaagles/models/systems/OnboardComputer.hpp"
+#include "openeaagles/models/system/OnboardComputer.hpp"
 
 //------------------------------------------------------------------------------
 // Class: TestComputer

@@ -3,9 +3,9 @@
 #include "TestStation.hpp"
 #include "MapDisplay.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
-#include "openeaagles/models/players/Player.hpp"
-#include "openeaagles/models/systems/Autopilot.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
+#include "openeaagles/models/player/Player.hpp"
+#include "openeaagles/models/system/Autopilot.hpp"
 #include "openeaagles/models/navigation/Navigation.hpp"
 #include "openeaagles/models/navigation/Route.hpp"
 #include "openeaagles/models/navigation/Steerpoint.hpp"

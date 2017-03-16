@@ -9,15 +9,15 @@
 #include "xrecorder/DataRecorder.hpp"
 #include "xrecorder/dataRecorderTokens.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
-#include "openeaagles/models/players/Missile.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
+#include "openeaagles/models/player/Missile.hpp"
 
-#include "openeaagles/models/systems/Jammer.hpp"
-#include "openeaagles/models/systems/Radar.hpp"
-#include "openeaagles/models/systems/Rwr.hpp"
-#include "openeaagles/models/systems/StoresMgr.hpp"
-#include "openeaagles/models/sensors/Gmti.hpp"
-#include "openeaagles/models/sensors/Tws.hpp"
+#include "openeaagles/models/system/Jammer.hpp"
+#include "openeaagles/models/system/Radar.hpp"
+#include "openeaagles/models/system/Rwr.hpp"
+#include "openeaagles/models/system/StoresMgr.hpp"
+#include "openeaagles/models/sensor/Gmti.hpp"
+#include "openeaagles/models/sensor/Tws.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 

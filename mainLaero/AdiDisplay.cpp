@@ -3,7 +3,7 @@
 
 #include "TestStation.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
 
 #include "openeaagles/base/osg/Vec3d"
 

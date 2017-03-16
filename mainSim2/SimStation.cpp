@@ -3,7 +3,7 @@
 
 #include "openeaagles/simulation/Simulation.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include "openeaagles/base/Identifier.hpp"

@@ -1,7 +1,7 @@
 
 #include "DspRwr.hpp"
 
-#include "openeaagles/models/systems/Rwr.hpp"
+#include "openeaagles/models/system/Rwr.hpp"
 
 #include "openeaagles/base/util/unit_utils.hpp"
 

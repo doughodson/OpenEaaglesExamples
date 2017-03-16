@@ -3,8 +3,8 @@
 #include "SimStation.hpp"
 #include "configs/f16HotasIo.hpp"
 
-#include "openeaagles/models/systems/Autopilot.hpp"
-#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/system/Autopilot.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
 #include "openeaagles/models/navigation/Navigation.hpp"
 #include "openeaagles/models/navigation/Route.hpp"
 

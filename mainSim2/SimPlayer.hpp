@@ -2,7 +2,7 @@
 #ifndef __SimPlayer_H__
 #define __SimPlayer_H__
 
-#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
 
 //------------------------------------------------------------------------------
 // Class: SimPlayer

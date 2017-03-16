@@ -2,8 +2,8 @@
 #include "TestStation.hpp"
 #include "Display.hpp"
 
-#include "openeaagles/models/players/Player.hpp"
-#include "openeaagles/models/systems/Gimbal.hpp"
+#include "openeaagles/models/player/Player.hpp"
+#include "openeaagles/models/system/Gimbal.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 

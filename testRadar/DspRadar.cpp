@@ -1,10 +1,10 @@
 
 #include "DspRadar.hpp"
 
-#include "openeaagles/models/systems/Antenna.hpp"
-#include "openeaagles/models/systems/Radar.hpp"
+#include "openeaagles/models/system/Antenna.hpp"
+#include "openeaagles/models/system/Radar.hpp"
 #include "openeaagles/models/Track.hpp"
-#include "openeaagles/models/systems/TrackManager.hpp"
+#include "openeaagles/models/system/TrackManager.hpp"
 
 #include "openeaagles/base/Hsv.hpp"
 

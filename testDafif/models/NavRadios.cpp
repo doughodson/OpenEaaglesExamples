@@ -1,7 +1,7 @@
 
 #include "NavRadios.hpp"
 
-#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/player/Player.hpp"
 
 #include "openeaagles/dafif/AirportLoader.hpp"
 #include "openeaagles/dafif/NavaidLoader.hpp"

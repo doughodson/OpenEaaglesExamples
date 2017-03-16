@@ -1,8 +1,8 @@
 
 #include "PlaneAction.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
-#include "openeaagles/models/systems/StoresMgr.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
+#include "openeaagles/models/system/StoresMgr.hpp"
 
 namespace oe {
 namespace xbehaviors {

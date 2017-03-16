@@ -1,8 +1,8 @@
 
 #include "TestStation.hpp"
 
-#include "openeaagles/models/systems/Antenna.hpp"
-#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/system/Antenna.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 

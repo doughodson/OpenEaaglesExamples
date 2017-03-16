@@ -16,7 +16,7 @@
 
 #include "openeaagles/recorder/protobuf/DataRecord.pb.h"
 
-#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/player/Player.hpp"
 
 #include "openeaagles/base/String.hpp"
 #include "openeaagles/base/Pair.hpp"

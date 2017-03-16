@@ -3,7 +3,7 @@
 #include "Station.hpp"
 #include "Display.hpp"
 
-#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/player/Player.hpp"
 #include "openeaagles/models/WorldModel.hpp"
 
 #include "openeaagles/graphics/SymbolLoader.hpp"

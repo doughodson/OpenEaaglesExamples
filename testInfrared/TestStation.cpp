@@ -5,7 +5,7 @@
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/Timers.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 

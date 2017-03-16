@@ -2,7 +2,7 @@
 #ifndef __RealBeamRadar_H__
 #define __RealBeamRadar_H__
 
-#include "openeaagles/models/systems/Radar.hpp"
+#include "openeaagles/models/system/Radar.hpp"
 
 namespace oe {
 namespace base { class Angle; class Distance; class Number; }

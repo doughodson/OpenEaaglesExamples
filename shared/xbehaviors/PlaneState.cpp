@@ -4,13 +4,13 @@
 #include "openeaagles/base/List.hpp"
 #include "openeaagles/base/PairStream.hpp"
 
-#include "openeaagles/models/players/AirVehicle.hpp"
-#include "openeaagles/models/players/Missile.hpp"
-#include "openeaagles/models/systems/Radar.hpp"
-#include "openeaagles/models/systems/TrackManager.hpp"
+#include "openeaagles/models/player/AirVehicle.hpp"
+#include "openeaagles/models/player/Missile.hpp"
+#include "openeaagles/models/system/Radar.hpp"
+#include "openeaagles/models/system/TrackManager.hpp"
 #include "openeaagles/models/Track.hpp"
-#include "openeaagles/models/systems/OnboardComputer.hpp"
-#include "openeaagles/models/systems/StoresMgr.hpp"
+#include "openeaagles/models/system/OnboardComputer.hpp"
+#include "openeaagles/models/system/StoresMgr.hpp"
 
 #include "openeaagles/models/WorldModel.hpp"
 

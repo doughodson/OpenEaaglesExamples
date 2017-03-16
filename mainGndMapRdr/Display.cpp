@@ -2,7 +2,7 @@
 #include "Display.hpp"
 #include "RealBeamRadar.hpp"
 
-#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/player/Player.hpp"
 
 #include "openeaagles/simulation/Simulation.hpp"
 #include "openeaagles/simulation/Station.hpp"
