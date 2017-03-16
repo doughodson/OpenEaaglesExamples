@@ -2,7 +2,7 @@
 #ifndef __TestIoHandler_H___
 #define __TestIoHandler_H___
 
-#include "openeaagles/base/IoHandler.hpp"
+#include "openeaagles/base/io/IoHandler.hpp"
 
 //------------------------------------------------------------------------------
 // Class: TestIoHandler

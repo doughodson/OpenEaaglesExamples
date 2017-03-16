@@ -5,7 +5,7 @@
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
 namespace oe {
-   namespace base { class IoHandler; class Number; class String; }
+namespace base { class IoHandler; class Number; class String; }
 }
 
 //------------------------------------------------------------------------------

@@ -11,7 +11,7 @@
 #include "openeaagles/simulation/Simulation.hpp"
 
 #include "openeaagles/base/Boolean.hpp"
-#include "openeaagles/base/IoData.hpp"
+#include "openeaagles/base/io/IoData.hpp"
 #include "openeaagles/base/util/math_utils.hpp"
 
 using namespace oe;

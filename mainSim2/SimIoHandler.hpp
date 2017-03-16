@@ -2,7 +2,7 @@
 #ifndef __SimIoHandler_H__
 #define __SimIoHandler_H__
 
-#include "openeaagles/base/IoHandler.hpp"
+#include "openeaagles/base/io/IoHandler.hpp"
 
 //------------------------------------------------------------------------------
 // Class:  SimIoHandler
