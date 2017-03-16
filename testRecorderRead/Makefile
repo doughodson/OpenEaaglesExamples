@@ -6,8 +6,8 @@ OBJS = main.o DataRecordTest.o factory.o PrintMyData.o
 
 LDFLAGS += -loe_models -lJSBSim
 LDFLAGS += -lxrecorder
-LDFLAGS += -loerecorder -loesimulation
-LDFLAGS += -loeterrain -loebase
+LDFLAGS += -loe_recorder -loe_simulation
+LDFLAGS += -loe_terrain -loe_base
 LDFLAGS += -lprotobuf
 LDFLAGS += -lrt -lpthread
 
