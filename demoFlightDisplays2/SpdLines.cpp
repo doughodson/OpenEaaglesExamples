@@ -9,7 +9,6 @@ IMPLEMENT_SUBCLASS(SpdLines, "SpdLines")
 EMPTY_SERIALIZER(SpdLines)
 EMPTY_DELETEDATA(SpdLines)
 
-// Event handler
 BEGIN_EVENT_HANDLER(SpdLines)
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, base::Number)
 END_EVENT_HANDLER()
@@ -25,12 +24,10 @@ END_SLOT_MAP()
 SpdLines::SpdLines()
 {
     STANDARD_CONSTRUCTOR()
-    isAlt = false;
 }
 
 void SpdLines::copyData(const SpdLines& org, const bool)
 {
-    // copy baseclass stuff first
     BaseClass::copyData(org);
     isAlt = org.isAlt;
 }

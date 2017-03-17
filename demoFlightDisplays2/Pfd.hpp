@@ -15,155 +15,156 @@ class Pfd : public oe::graphics::Page
    DECLARE_SUBCLASS(Pfd, oe::graphics::Page)
 
 public:
-    Pfd();
+   Pfd();
 
-    enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
+   // set functions
+   virtual bool setPitchDeg(const double newP);        // Sets pitch angle (degs)
+   virtual bool setPitchRad(const double newP);        // Sets pitch angle (rads)
+   virtual bool setRollDeg(const double newR);         // Sets roll angle (degs)
+   virtual bool setRollRad(const double newR);         // Sets roll angle (rads)
+   virtual bool setTrueHeading(const double newTH);    // Sets true heading angle (degs)
+   virtual bool setCmdHdg(const double newCH);         // Sets commanded heading (degs)
+   virtual bool setAirSpeedKts(const double newAS);    // Sets airspeed (kts)
+   virtual bool setCmdAirSpdKts(const double newCAS);  // Sets commanded airspeed (kts)
+   virtual bool setAltitudeFt(const double newA);      // Sets pressure altitude (ft)
+   virtual bool setCmdAltFt(const double newCA);       // Sets commanded altitude (ft)
+   virtual bool setGlideslope(const double newGS);     // Sets glide slope deviation (dots)
+   virtual bool setLatDev(const double newLD);         // Sets localizer deviation (dots)
+   virtual bool setVVI(const double newVVI);           // Sets vertical velocity (ft/min)
+   virtual bool setSideSlip(const double newSS);       // Sets side slip (degs)
+   virtual bool setFltDirBankDeg(const double newFDB); // Sets flight directory commanded bank (deg)
+   virtual bool setFltDirPitchDeg(const double newFDP);// Sets flight director commanded pitch (deg)
+   virtual bool setFltDirBankRad(const double newFDB); // Sets flight directory commanded bank (rad)
+   virtual bool setFltDirPitchRad(const double newFDP);// Sets flight director commanded pitch (rad)
+   virtual bool setBaroPress(const double newBOP);     // Sets baro pressure (inches)
+   virtual bool setRefLat(const double newRL);         // reference latitude
+   virtual bool setRefLon(const double newRL);         // reference longitude
+   virtual bool setRange(const double newR);           // range
+   virtual bool setGLoad(const double newLoad);        // our G-load
+   virtual bool setMach(const double x);               // machine speed
 
-    // set functions
-    virtual bool setPitchDeg(const double newP);        // Sets pitch angle (degs)
-    virtual bool setPitchRad(const double newP);        // Sets pitch angle (rads)
-    virtual bool setRollDeg(const double newR);         // Sets roll angle (degs)
-    virtual bool setRollRad(const double newR);         // Sets roll angle (rads)
-    virtual bool setTrueHeading(const double newTH);    // Sets true heading angle (degs)
-    virtual bool setCmdHdg(const double newCH);         // Sets commanded heading (degs)
-    virtual bool setAirSpeedKts(const double newAS);    // Sets airspeed (kts)
-    virtual bool setCmdAirSpdKts(const double newCAS);  // Sets commanded airspeed (kts)
-    virtual bool setAltitudeFt(const double newA);      // Sets pressure altitude (ft)
-    virtual bool setCmdAltFt(const double newCA);       // Sets commanded altitude (ft)
-    virtual bool setGlideslope(const double newGS);     // Sets glide slope deviation (dots)
-    virtual bool setLatDev(const double newLD);         // Sets localizer deviation (dots)
-    virtual bool setVVI(const double newVVI);           // Sets vertical velocity (ft/min)
-    virtual bool setSideSlip(const double newSS);       // Sets side slip (degs)
-    virtual bool setFltDirBankDeg(const double newFDB); // Sets flight directory commanded bank (deg)
-    virtual bool setFltDirPitchDeg(const double newFDP);// Sets flight director commanded pitch (deg)
-    virtual bool setFltDirBankRad(const double newFDB); // Sets flight directory commanded bank (rad)
-    virtual bool setFltDirPitchRad(const double newFDP);// Sets flight director commanded pitch (rad)
-    virtual bool setBaroPress(const double newBOP);     // Sets baro pressure (inches)
-    virtual bool setRefLat(const double newRL);         // reference latitude
-    virtual bool setRefLon(const double newRL);         // reference longitude
-    virtual bool setRange(const double newR);           // range
-    virtual bool setGLoad(const double newLoad);        // our G-load
-    virtual bool setMach(const double x);               // machine speed
+   // get functions
+   double getPitchDeg()            { return pitch; }
+   double getPitchRad()            { return static_cast<double>(pitch * oe::base::angle::D2RCC); }
+   double getRollDeg()             { return roll; }
+   double getRollRad()             { return static_cast<double>(roll * oe::base::angle::D2RCC); }
+   double getTrueHdg()             { return trueHdg; }
+   double getCmdHdg()              { return cmdHdg; }
+   double getAirSpdKts()           { return airSpd; }
+   double getCmdAirSpdKts()        { return cmdSpd; }
+   double getAltFeet()             { return alt; }
+   double getCmdAltFeet()          { return cmdAlt; }
+   double getGlideSlope()          { return gSlope; }
+   double getLatDev()              { return latDev; }
+   double getVVI()                 { return vvi; }
+   double getSideSlip()            { return slip; }
+   double getFltDirBankDeg()       { return fDirBank; }
+   double getFltDirBankRad()       { return static_cast<double>(fDirBank * oe::base::angle::R2DCC); }
+   double getFltDirPitchDeg()      { return fDirPitch; }
+   double getFltDirPitchRad()      { return static_cast<double>(fDirPitch * oe::base::angle::R2DCC); }
+   double getBaroPressure()        { return baro; }
+   double getRefLat()              { return refLat; }
+   double getRefLon()              { return refLon; }
+   double getRange()               { return range; }
+   double getGLoad()               { return gLoad; }
+   double getMach()                { return mach; }
 
-    // get functions
-    double getPitchDeg()            { return pitch; }
-    double getPitchRad()            { return static_cast<double>(pitch * oe::base::angle::D2RCC); }
-    double getRollDeg()             { return roll; }
-    double getRollRad()             { return static_cast<double>(roll * oe::base::angle::D2RCC); }
-    double getTrueHdg()             { return trueHdg; }
-    double getCmdHdg()              { return cmdHdg; }
-    double getAirSpdKts()           { return airSpd; }
-    double getCmdAirSpdKts()        { return cmdSpd; }
-    double getAltFeet()             { return alt; }
-    double getCmdAltFeet()          { return cmdAlt; }
-    double getGlideSlope()          { return gSlope; }
-    double getLatDev()              { return latDev; }
-    double getVVI()                 { return vvi; }
-    double getSideSlip()            { return slip; }
-    double getFltDirBankDeg()       { return fDirBank; }
-    double getFltDirBankRad()       { return static_cast<double>(fDirBank * oe::base::angle::R2DCC); }
-    double getFltDirPitchDeg()      { return fDirPitch; }
-    double getFltDirPitchRad()      { return static_cast<double>(fDirPitch * oe::base::angle::R2DCC); }
-    double getBaroPressure()        { return baro; }
-    double getRefLat()              { return refLat; }
-    double getRefLon()              { return refLon; }
-    double getRange()               { return range; }
-    double getGLoad()               { return gLoad; }
-    double getMach()                { return mach; }
-
-    virtual void updateData(const double dt = 0.0) override;
+   virtual void updateData(const double dt = 0.0) override;
 
 private:
-    // pitch and roll
-    double pitch;           // Pitch angle (degs)
-    SendData pitchSD;
-    SendData hdgPitchSD;    // heading pitch for the heading tape
-    double roll;            // Roll angle (degs)
-    SendData rollSD;
+   static const int NCHAR_NAV1_ID = 3;
+   static const int NCHAR_NAV2_ID = 5;
 
-    // bank angle
-    SendData baSD;
-    SendData bascaleSD;
+   // pitch and roll
+   double pitch {};           // Pitch angle (degs)
+   SendData pitchSD;
+   SendData hdgPitchSD;       // heading pitch for the heading tape
+   double roll {};            // Roll angle (degs)
+   SendData rollSD;
 
-    // heading and nav stuff
-    double trueHdg;         // True heading (degs)
-    SendData tHdgSD;
+   // bank angle
+   SendData baSD;
+   SendData bascaleSD;
 
-    double cmdHdg;          // commanded heading (heading bug)
-    SendData cmdHdgROSD;
+   // heading and nav stuff
+   double trueHdg {};         // True heading (degs)
+   SendData tHdgSD;
 
-    // airspeed
-    double airSpd;          // Kts
-    SendData airSpdTpSD;    // for the airspeed tape
-    SendData onesSD;        // for the readout ones tape
-    SendData spdRstSD;      // rest of the speed data
+   double cmdHdg {};          // commanded heading (heading bug)
+   SendData cmdHdgROSD;
 
-    // altitude
-    double alt;
-    SendData alt1SD;
-    SendData alt2SD;
-    SendData alt3SD;
-    SendData altTpSD;       // for the airspeed tape
-    SendData altTensSD;
-    SendData altSelectSD;   // to select the justification
-    SendData altSD;         // for the actual altitude
+   // airspeed
+   double airSpd {100.0};     // Kts
+   SendData airSpdTpSD;       // for the airspeed tape
+   SendData onesSD;           // for the readout ones tape
+   SendData spdRstSD;         // rest of the speed data
 
-    // side slip
-    double slip;             // Side slip angle (degs)
-    SendData slipSD;
+   // altitude
+   double alt {1000.0};
+   SendData alt1SD;
+   SendData alt2SD;
+   SendData alt3SD;
+   SendData altTpSD;          // for the airspeed tape
+   SendData altTensSD;
+   SendData altSelectSD;      // to select the justification
+   SendData altSD;            // for the actual altitude
 
-    // glideslope (in dots)
-    double gSlope;
-    SendData gSlopeSD;
+   // side slip
+   double slip {};            // Side slip angle (degs)
+   SendData slipSD;
 
-    // Lateral dev
-    double latDev;
-    SendData latDevSD;
+   // glideslope (in dots)
+   double gSlope {};
+   SendData gSlopeSD;
 
-    // commanded speed
-    double cmdSpd;          // kts
-    SendData aBugSD;
-    SendData diffSD;
+   // Lateral dev
+   double latDev {};
+   SendData latDevSD;
 
-    // commanded alt
-    double cmdAlt;
-    SendData altBugSD;
-    SendData altDiffSD;
+   // commanded speed
+   double cmdSpd {};          // kts
+   SendData aBugSD;
+   SendData diffSD;
 
-    // vvi
-    double vvi;         // ft/min
-    SendData vviSD;
-    SendData vviROSD;
+   // commanded alt
+   double cmdAlt {5000.0};
+   SendData altBugSD;
+   SendData altDiffSD;
 
-    // flight director stuff (in inches)
-    double fDirBank;
-    SendData fDirBankSD;
-    double fDirPitch;
-    SendData fDirPitchSD;
+   // vvi
+   double vvi {};             // ft/min
+   SendData vviSD;
+   SendData vviROSD;
 
-    // barometric pressure
-    double baro;
-    SendData baroSD;
+   // flight director stuff (in inches)
+   double fDirBank {};
+   SendData fDirBankSD;
+   double fDirPitch {};
+   SendData fDirPitchSD;
 
-    // Hsi send data
-    SendData trueHdgSD;
-    SendData hdgTapeSD;
-    SendData cmdHdgSD;
+   // barometric pressure
+   double baro {};
+   SendData baroSD;
 
-    double refLat;
-    double refLon;
-    double range;
+   // Hsi send data
+   SendData trueHdgSD;
+   SendData hdgTapeSD;
+   SendData cmdHdgSD;
 
-    // Gs
-    double gLoad;
-    // Mach
-    double mach;         // meter altitude
-    SendData mAltSD;
-    SendData cmdMAltSD;
+   double refLat {};
+   double refLon {};
+   double range {};
 
-    // ghost horizon
-    SendData pitchGhostSD;
+   // Gs
+   double gLoad {};
 
+   // Mach
+   double mach {};            // meter altitude
+   SendData mAltSD;
+   SendData cmdMAltSD;
+
+   // ghost horizon
+   SendData pitchGhostSD;
 };
 
 #endif

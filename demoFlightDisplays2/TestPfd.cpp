@@ -12,58 +12,6 @@ EMPTY_DELETEDATA(TestPfd)
 TestPfd::TestPfd()
 {
     STANDARD_CONSTRUCTOR()
-
-    // pitch and roll
-    pitch = 0.0;
-    pitchRate = 10.0;
-    roll = 0.0;
-    rollRate = -9.0;
-
-    // heading and nav stuff
-    trueHdg = 0.0;
-    tHdgRate = 11.0;
-    cmdHdg = 0.0;
-    cmdHdgRate = 3.0;
-
-    // airspeed
-    airSpd = 0.0;
-    airSpdRate = 5.0;
-
-    // altitude
-    alt = 10000.0;
-    altRate = 80.0;
-
-    // side slip
-    slip = 0.0;
-    slipRate = 10.0;
-
-    // glideslope
-    gSlope = 0.0;
-    gSlopeRate = 0.2;
-
-    // lateral deviation
-    latDev = 0.0;
-    ldRate = 0.3;
-
-    // commanded speed
-    cmdSpd = 200.0;
-
-    // commanded alt
-    cmdAlt = 6000.0;
-
-    // vvi
-    vvi = 0.0;
-    vviRate = 500.0;
-
-    // flight director (command bars)
-    fDirBank = 0.0;
-    fDirBankRate = 4.0;
-    fDirPitch = 0.0;
-    fDirPitchRate = 7.0;
-
-    // selected barometric pressure
-    baro = 0.0;
-    baroRate = 10.0;
 }
 
 void TestPfd::copyData(const TestPfd& org, const bool)
