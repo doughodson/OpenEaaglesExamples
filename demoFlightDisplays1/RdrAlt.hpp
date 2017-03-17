@@ -5,7 +5,7 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-   namespace base { class Number; }
+namespace base { class Number; }
 }
 
 //------------------------------------------------------------------------------
@@ -41,10 +41,10 @@ private:
     bool onEventSetRAltRdrAlt(const oe::base::Number* const x);
     bool onEventSetRAltMinRdrAlt(const oe::base::Number* const x);
 
-    double rAlt;        // ft -- our actual radar alt
+    double rAlt {};        // ft -- our actual radar alt
     SendData rAltSD;
 
-    double rAltMin;     // ft -- our minimum radar altitude setting
+    double rAltMin {};     // ft -- our minimum radar altitude setting
     SendData rAltMinSD;
 };
 

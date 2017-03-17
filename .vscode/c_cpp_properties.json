@@ -16,7 +16,8 @@
             "includePath": [
                 "/usr/include",
                 "/usr/local/include",
-                "../..OpenEaagles/include"
+                "../OpenEaagles/include",
+                "../../OpenEaagles/include"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,

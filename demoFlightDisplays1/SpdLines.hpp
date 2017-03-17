@@ -33,8 +33,8 @@ protected:
     bool setSlotDrawBack(const oe::base::Number* newDB);
 
 private:
-    bool isAlt;     // are we drawing the altitude lines instead?
-    bool drawBack;  // draw the background (for transparency purposes)
+    bool isAlt {};     // are we drawing the altitude lines instead?
+    bool drawBack {};  // draw the background (for transparency purposes)
 };
 
 #endif

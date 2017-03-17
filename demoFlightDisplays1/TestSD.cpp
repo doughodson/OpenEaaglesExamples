@@ -17,7 +17,6 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestSD, "TestSD")
 EMPTY_SERIALIZER(TestSD)
 EMPTY_DELETEDATA(TestSD)
 
-// Test event handler
 BEGIN_EVENT_HANDLER(TestSD)
     ON_EVENT('r', onToggleRange)
 END_EVENT_HANDLER()
@@ -37,21 +36,6 @@ static const char* apNames[TestSD::MAX_AIRPORTS] = {
 TestSD::TestSD()
 {
     STANDARD_CONSTRUCTOR()
-    heading = 0.0;
-    headingRate = static_cast<double>(0.2f * base::angle::R2DCC);
-    bearing = 0.0;
-    bearingRate = static_cast<double>(0.4f * base::angle::R2DCC);
-    range = 80.0;
-    // navaid bearings
-    nav1Brg = 0.0;
-    nav1BrgRate = 4.0;
-    nav2Brg = 0.0;
-    nav2BrgRate = 6.0;
-    // orbit range
-    orbRange = 5.0;
-    // heading
-    hdgBug = 0.0;
-    hdgBugRate = 2.0;
 
     // initialize our air tracks to test data
     {

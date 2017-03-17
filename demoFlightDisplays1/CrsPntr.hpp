@@ -56,14 +56,14 @@ private:
     bool onUpdateCdiDotsCrsPntr(const oe::base::Number* const x);
     bool onUpdateToFromCrsPntr(const oe::base::Number* const x);
 
-    double toFrom;          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
-    double cdiDots;         // course deviation dots
-    int    numDots;         // how many dots are we using?
-    double inchesPerDot;    // how far to translate per dot
-    double inches;
-    bool showCdi;           // display the cdi?
-    bool showCrsPtr;        // show the course pointer?
-    bool showToFrom;        // show our to from arrow?
+    double toFrom {};          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
+    double cdiDots {};         // course deviation dots
+    int    numDots {4};        // how many dots are we using?
+    double inchesPerDot {};    // how far to translate per dot
+    double inches {1.76};
+    bool showCdi {true};       // display the cdi?
+    bool showCrsPtr {true};    // show the course pointer?
+    bool showToFrom {true};    // show our to from arrow?
 };
 
 #endif

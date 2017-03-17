@@ -40,24 +40,25 @@ public:
     void testElevPoints();
 
 private:
+    static const int MAX_POINTS = 1000; // maximum number of terrain elevation points
+
     // event functions
     bool onEventSetPlaneAltTerrainFollower(const oe::base::Number* const x);
     bool onEventSetScanRangeTerrainFollower(const oe::base::Number* const x);
     bool onEventSetViewHeightTerrainFollower(const oe::base::Number* const x);
     bool onEventSetViewWidthTerrainFollower(const oe::base::Number* const x);
 
-    enum { MAX_POINTS = 1000 }; // maximum number of terrain elevation points
-    double range;               // our scan range ahead of us
-    double maxAlt;              // where do we want our max altitude (1)?
-    double minAlt;              // where do we want our min altitude (0)?
-    int numElevPts;             // number of elevation points we are using
-    double elevPts[MAX_POINTS]; // our elevation points
-    double height;              // height of the viewable area we are using
-    double width;               // width of the viewable area we are using
-    double rScale;              // our range scale to use for drawing
-    double aScale;              // our altitude scale to use for drawing
-    double planeAlt;            // what is our aircraft elevation?
-    double aboveTerr;           // how far above the terrain do we want to be?  (default is 500)
+    double range {10.0};            // our scan range ahead of us
+    double maxAlt {1500.0};         // where do we want our max altitude (1)? (feet)
+    double minAlt {100.0};          // where do we want our min altitude (0)? (feet)
+    int numElevPts {89};            // number of elevation points we are using
+    double elevPts[MAX_POINTS] {};  // our elevation points
+    double height {1.8};            // height of the viewable area we are using (inches)
+    double width {4.3};             // width of the viewable area we are using (inches)
+    double rScale {};               // our range scale to use for drawing
+    double aScale {};               // our altitude scale to use for drawing
+    double planeAlt {800.0};        // what is our aircraft elevation?
+    double aboveTerr {500.0};       // how far above the terrain do we want to be?  (default is 500)
 
     SendData maxAltSD;
     SendData midAltSD;
@@ -67,10 +68,9 @@ private:
     SendData fRSD;
 
     // test data
-    double testPA;
-    double timer;
-    double timerRate;
-
+    double testPA {500.0};
+    double timer {0.0};
+    double timerRate {0.5};
 };
 
 #endif

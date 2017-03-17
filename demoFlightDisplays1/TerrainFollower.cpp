@@ -13,7 +13,6 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TerrainFollower, "TerrainFollower")
 EMPTY_SERIALIZER(TerrainFollower)
 EMPTY_DELETEDATA(TerrainFollower)
 
-// Event handler
 BEGIN_EVENT_HANDLER(TerrainFollower)
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetPlaneAltTerrainFollower, base::Number)
     ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetScanRangeTerrainFollower, base::Number)
@@ -25,7 +24,7 @@ TerrainFollower::TerrainFollower()
 {
     STANDARD_CONSTRUCTOR()
 
-    numElevPts = 89;
+    //numElevPts = 89;
     //double elev = 500;
     // fill our elevation points with test data right now
     /*
@@ -125,27 +124,6 @@ TerrainFollower::TerrainFollower()
     elevPts[86] = 630;
     elevPts[87] = 650;
     elevPts[88] = 690;
-
-    range = 10.0;
-    maxAlt = 1500.0;       // feet
-    minAlt = 100.0;       // feet
-    height = 1.8;       // inches
-    width = 4.3;        // inches
-    rScale = 0.0;
-    aScale = 0.0;
-    planeAlt = 800;
-    midAltSD.empty();
-    maxAltSD.empty();
-    firstRSD.empty();
-    secRSD.empty();
-    tRSD.empty();
-    fRSD.empty();
-    aboveTerr = 500.0;
-
-    // test
-    testPA = 500.0;
-    timer = 0.0;
-    timerRate = 0.5;
 }
 
 void TerrainFollower::copyData(const TerrainFollower& org, const bool)

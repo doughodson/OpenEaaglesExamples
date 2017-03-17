@@ -23,8 +23,6 @@ END_SLOT_MAP()
 SpdLines::SpdLines()
 {
     STANDARD_CONSTRUCTOR()
-    isAlt = false;
-    drawBack = true;
 }
 
 void SpdLines::copyData(const SpdLines& org, const bool)

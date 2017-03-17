@@ -12,7 +12,6 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(RdrAlt, "RdrAlt")
 EMPTY_SERIALIZER(RdrAlt)
 EMPTY_DELETEDATA(RdrAlt)
 
-// Event handler
 BEGIN_EVENT_HANDLER(RdrAlt)
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetRAltRdrAlt, base::Number)
     ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetRAltMinRdrAlt, base::Number)
@@ -21,10 +20,6 @@ END_EVENT_HANDLER()
 RdrAlt::RdrAlt()
 {
     STANDARD_CONSTRUCTOR()
-    rAlt = 0.0;
-    rAltMin = 0.0;
-    rAltSD.empty();
-    rAltMinSD.empty();
 }
 
 void RdrAlt::copyData(const RdrAlt& org, const bool)

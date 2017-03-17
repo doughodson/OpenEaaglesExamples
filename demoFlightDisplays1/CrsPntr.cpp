@@ -7,7 +7,6 @@ IMPLEMENT_SUBCLASS(CrsPntr, "CrsPntr")
 EMPTY_SERIALIZER(CrsPntr)
 EMPTY_DELETEDATA(CrsPntr)
 
-// Event handler
 BEGIN_EVENT_HANDLER(CrsPntr)
     ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsCrsPntr, oe::base::Number)
     ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromCrsPntr, oe::base::Number)
@@ -32,14 +31,6 @@ END_SLOT_MAP()
 CrsPntr::CrsPntr()
 {
     STANDARD_CONSTRUCTOR()
-    cdiDots = 0.0;
-    toFrom = 0.0;     // assume going to for now
-    numDots = 4;
-    inchesPerDot = 0.0;
-    inches = 1.76;  // default
-    showCdi = true;
-    showCrsPtr = true;
-    showToFrom = true;
 }
 
 void CrsPntr::copyData(const CrsPntr& org, const bool)

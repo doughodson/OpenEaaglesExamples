@@ -12,48 +12,13 @@ SituationalDisplay::SituationalDisplay()
 {
     STANDARD_CONSTRUCTOR()
 
-    refLat = 0.0;
-    refLon = 0.0;
-    heading = 0.0;
-    headingSD.empty();
-    range = 80.0;
-    rangeSD.empty();
     // navaid 1
-    nav1Brg = 0.0;
-    nav1Dme = 0.0;
     nav1Id[0] = ' ';
     nav1Id[1] = '\0';
-    nav1BrgROSD.empty();
-    nav1BrgSD.empty();
-    nav1DmeSD.empty();
-    nav1IdSD.empty();
+
     // navaid 2
-    nav2Brg = 0.0;
-    nav2Dme = 0.0;
     nav2Id[0] = ' ';
     nav2Id[1] = '\0';
-    nav2BrgROSD.empty();
-    nav2BrgSD.empty();
-    nav2DmeSD.empty();
-    nav2IdSD.empty();
-    // orbit range
-    orbRange = 5.0;
-    // heading
-    hdgBug = 0.0;
-    hdgBugSD.empty();
-    hdgBugROSD.empty();
-    // plane alt
-    planeAlt = 1000.0;
-    planeAltSD.empty();
-    // map page
-    headingROSD.empty();
-    headingSD.empty();
-    rangeROSD.empty();
-    rangeSD.empty();
-    refLatSD.empty();
-    refLonSD.empty();
-    centeredSD.empty();
-    headingCRSD.empty();
 }
 
 void SituationalDisplay::copyData(const SituationalDisplay& org, const bool)
