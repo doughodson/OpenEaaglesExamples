@@ -14,8 +14,6 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/PairStream.hpp"
 
-#include "openeaagles/base/util/unit_utils.hpp"
-
 IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
 EMPTY_SERIALIZER(TestDisplay)

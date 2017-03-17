@@ -3,11 +3,8 @@
 //-----------------------------------------------------------------------------
 
 #include "openeaagles/base/EarthModel.hpp"
-
 #include "openeaagles/base/units/Distances.hpp"
-
-#include "openeaagles/base/util/nav_utils.hpp"
-#include "openeaagles/base/util/unit_utils.hpp"
+#include "openeaagles/base/util/navigation.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -85,7 +82,6 @@ int testNavFns()
 
       std::cout << "Enter a Nav function test number: ";
       std::cin  >> testNumber;
-
 
       switch (testNumber) {
          // Direct and Inverse Methods

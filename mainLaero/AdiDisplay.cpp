@@ -10,8 +10,6 @@
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
 
-#include "openeaagles/base/util/unit_utils.hpp"
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
 EMPTY_DELETEDATA(AdiDisplay)

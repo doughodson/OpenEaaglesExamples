@@ -4,7 +4,7 @@
 #include "SituationalDisplay.hpp"
 
 #include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/util/unit_utils.hpp"
+#include "openeaagles/base/units/util/angle.hpp"
 
 #include <cstring>
 #include <cmath>

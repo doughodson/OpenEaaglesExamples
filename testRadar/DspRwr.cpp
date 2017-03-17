@@ -3,8 +3,6 @@
 
 #include "openeaagles/models/system/Rwr.hpp"
 
-#include "openeaagles/base/util/unit_utils.hpp"
-
 using namespace oe;
 
 IMPLEMENT_SUBCLASS(DspRwr, "DspRwr")

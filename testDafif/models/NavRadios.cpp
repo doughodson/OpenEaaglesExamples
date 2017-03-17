@@ -8,7 +8,7 @@
 
 #include "WorldModel.hpp"
 
-#include "openeaagles/base/util/nav_utils.hpp"
+#include "openeaagles/base/util/navigation.hpp"
 #include "openeaagles/base/Number.hpp"
 #include "openeaagles/base/units/Distances.hpp"
 

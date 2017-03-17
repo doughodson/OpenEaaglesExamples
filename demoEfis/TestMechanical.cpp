@@ -1,7 +1,7 @@
 
 #include "TestMechanical.hpp"
 
-#include "openeaagles/base/util/unit_utils.hpp"
+#include "openeaagles/base/units/util/angle.hpp"
 
 // static slew rates
 const double TestMechanical::T1 = 120;

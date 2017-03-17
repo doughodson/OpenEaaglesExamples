@@ -14,8 +14,6 @@
 #include "openeaagles/base/PairStream.hpp"
 #include "openeaagles/base/Pair.hpp"
 
-#include "openeaagles/base/util/unit_utils.hpp"
-
 #include <GL/glut.h>
 
 IMPLEMENT_SUBCLASS(InstrumentPanel, "InstrumentPanel")

@@ -1,6 +1,6 @@
 
 #include "TestAdi2.hpp"
-#include "openeaagles/base/util/unit_utils.hpp"
+#include "openeaagles/base/units/util/angle.hpp"
 
 #include <cmath>
 
