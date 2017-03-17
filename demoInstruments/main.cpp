@@ -15,31 +15,30 @@
 
 #include <GL/glut.h>
 
-// test files
-#include "TestSpeedBrake.hpp"
-#include "TestEngineDial.hpp"
-#include "TestCas.hpp"
-#include "TestFtitDial.hpp"
-#include "TestOilPressure.hpp"
-#include "TestNozzle.hpp"
-#include "TestRpmDial.hpp"
-#include "TestHsi.hpp"
-#include "TestGauge1.hpp"
-#include "TestVVI.hpp"
-#include "TestAlt.hpp"
-#include "TestCompass.hpp"
-#include "TestDigitalGauge.hpp"
-#include "TestGMeterDial.hpp"
-#include "TestLandingGear.hpp"
-#include "TestEngPage.hpp"
-#include "TestButtons.hpp"
-#include "TestAdi.hpp"
-#include "TestAdi2.hpp"
+// instrument test pages
+#include "inst_tests/TestSpeedBrake.hpp"
+#include "inst_tests/TestEngineDial.hpp"
+#include "inst_tests/TestCas.hpp"
+#include "inst_tests/TestFtitDial.hpp"
+#include "inst_tests/TestOilPressure.hpp"
+#include "inst_tests/TestNozzle.hpp"
+#include "inst_tests/TestRpmDial.hpp"
+#include "inst_tests/TestHsi.hpp"
+#include "inst_tests/TestGauge1.hpp"
+#include "inst_tests/TestVVI.hpp"
+#include "inst_tests/TestAlt.hpp"
+#include "inst_tests/TestCompass.hpp"
+#include "inst_tests/TestDigitalGauge.hpp"
+#include "inst_tests/TestGMeterDial.hpp"
+#include "inst_tests/TestLandingGear.hpp"
+#include "inst_tests/TestEngPage.hpp"
+#include "inst_tests/TestButtons.hpp"
+#include "inst_tests/TestAdi.hpp"
+#include "inst_tests/TestAdi2.hpp"
 
 #include <string>
 #include <cstdlib>
 
-// frame rate
 const unsigned int frameRate = 20;
 
 // System descriptions
