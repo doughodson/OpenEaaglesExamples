@@ -1,0 +1,13 @@
+{
+   "files.associations": {
+      "matrixd": "cpp",
+      "matrixf": "cpp",
+      "quat": "cpp",
+      "vec2d": "cpp",
+      "vec2f": "cpp",
+      "vec3d": "cpp",
+      "vec3f": "cpp",
+      "vec4d": "cpp",
+      "vec4f": "cpp"
+   }
+}

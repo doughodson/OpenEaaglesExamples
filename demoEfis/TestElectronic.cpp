@@ -1,13 +1,15 @@
 
 #include "TestElectronic.hpp"
-#include "navdefs.hpp"
 
+#include "openeaagles/base/util/enum_utils.hpp"
 #include "openeaagles/base/units/LinearVelocity.hpp"
 
 #include "openeaagles/base/util/math_utils.hpp"
 #include "openeaagles/base/units/util/angle.hpp"
 
 #include <cmath>
+
+using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestElectronic, "TestElectronic")
 EMPTY_SERIALIZER(TestElectronic)
@@ -16,113 +18,10 @@ EMPTY_DELETEDATA(TestElectronic)
 TestElectronic::TestElectronic()
 {
     STANDARD_CONSTRUCTOR()
-    // compass heading and heading bug
-    heading = 0.0;
-    headingRate = 3.0;
-    headingBug = 0.0;
-    headingSD.empty();
-    headingBugSD.empty();
-    // bearing
-    bearing = 0.0;
-    brgRate = 5.0;
-    secBearing = 0.0;
-    brgVis = true;
-    // nav stuff
-    navSource = PRIMARY;
-    navType = TACAN;
-    navMode = ARC_MODE;
-    secNavType = VORTAC;
-    secNavMode = ARC_MODE;
-    // course and validity checks
-    course = 0.0;
-    secCourse = 0.0;
-    vhfReceive = true;
-    secVhfReceive = true;
-    vhfDIC = true;
-    secVhfDIC = true;
-    vhfLocValid = true;
-    secVhfLocValid = true;
-    vhfLGS = true;
-    secVhfLGS = true;
-    dmeValid = true;
-    secDmeValid = true;
-    cdi = 0.0;
-    cdiRate = 0.3;
-    secCdi = 0.0;
-    // location
-    loc = PILOT;
-    // distance
-    dist = 0.0;
-    distRate = 3.0;
-    // made up data
-    timeToGo = 0.0;
-    ttgRate = 50.0;
-    groundSpeed = 0.0;
-    driftAngle = 0.0;
-    daRate = 10.0;
-    trueAirSpeed = 0.0;
-    tasRate = 10.0;
-    elapsedTime = 3500.0;
-    etRate = 20.0;
-    windDir = 0.0;
-    windSpeed = 0.0;
-    readoutMode = ND_TTG;
-    // glideslope
-    gsDots = 0.0;
-    gsDotsRate = 0.2;
-    vhfGSValid = true;
-    vhfGSOOV = true;
-
-    curHdg = 0.0;
-    curBug = 0.0;
-    hdgBugROMoveXSD.empty();
-    distTypeSD.empty();
-    distVisSD.empty();
-    curDistSD.empty();
-    courseSD.empty();
-    roLabelSD.empty();
-    roWhichSD.empty();
-    ttgSD.empty();
-    groundSpeedSD.empty();
-    driftAngleSD.empty();
-    driftAngSideSD.empty();
-    trueAirSpeedSD.empty();
-    elapsedTimeSD.empty();
-    elapsedTimeHRSD.empty();
-    whichETSD.empty();
-    driftAngleWindSD.empty();
-    whichSideDAWindSD.empty();
-    windDirectionSD.empty();
-    windSpeedSD.empty();
-    brgSourceSD.empty();
-    brgROSD.empty();
-    secBrgROSD.empty();
-    glideSlopeSD.empty();
-    centeredSD.empty();
-    compassHdgSD.empty();
-    hdgBugSD.empty();
-    priCourseDevSD.empty();
-    curCdi = 0.0;
-    crsPntrSD.empty();
-    whichCrsPtrSD.empty();
-    curCourse = 0.0;
-    priCrsPtrColorSD.empty();
-    secCourseDevSD.empty();
-    secCrsPntrSD.empty();
-    secCrsPtrColorSD.empty();
-    whichNavSrcSD.empty();
-    primaryPosSD.empty();
-    secondaryPosSD.empty();
-    primaryCrsVisSD.empty();
-    secondaryCrsVisSD.empty();
-    curToFrom = 0.0;
-    toOrFromSD.empty();
-    toFromSD.empty();
 }
 
 void TestElectronic::copyData(const TestElectronic& org, const bool)
 {
-    // copy our baseclass stuff first
     BaseClass::copyData(org);
     // compass
     heading = org.heading;
@@ -306,8 +205,6 @@ void TestElectronic::updateTestValues(const double dt)
     }
     if (driftAngle < -90) {
         driftAngle = -90;
-
-
         daRate = -daRate;
     }
 
@@ -342,39 +239,39 @@ void TestElectronic::updateTestValues(const double dt)
 
     // change the readout modes and bearing source here
     if (windSpeed > 500) {
-        readoutMode = ND_TTG;
+        readoutMode = ReadoutMode::ND_TTG;
         // change our nav type here, just to test
-        navType = VORTAC;
-        secNavType = TACAN;
+        navType = NavType::VORTAC;
+        secNavType = NavType::TACAN;
     }
     else if (windSpeed > 400) {
-        readoutMode = ND_GSP;
+        readoutMode = ReadoutMode::ND_GSP;
         // change our nav type here, just to test
-        navType = TACAN;
-        secNavType = INAV;
+        navType = NavType::TACAN;
+        secNavType = NavType::INAV;
     }
     else if (windSpeed > 300) {
-        readoutMode = ND_TAS;
+        readoutMode = ReadoutMode::ND_TAS;
         // change our nav type here, just to test
-        navType = INAV;
-        secNavType = VORTAC;
+        navType = NavType::INAV;
+        secNavType = NavType::VORTAC;
     }
     else if (windSpeed > 200) {
-        readoutMode = ND_ET;
+        readoutMode = ReadoutMode::ND_ET;
         // change our nav type here, just to test
-        navType = VORDME;
-        secNavType = VOR;
+        navType = NavType::VORDME;
+        secNavType = NavType::VOR;
     }
     else if (windSpeed > 100) {
-        readoutMode = ND_WIND;
+        readoutMode = ReadoutMode::ND_WIND;
         // change our nav type here, just to test
-        navType = VOR;
-        secNavType = TACAN;
+        navType = NavType::VOR;
+        secNavType = NavType::TACAN;
     }
     else {
-        readoutMode = ND_TTG;
-        navType = VORTAC;
-        secNavType = TACAN;
+        readoutMode = ReadoutMode::ND_TTG;
+        navType = NavType::VORTAC;
+        secNavType = NavType::TACAN;
     }
 
     // glideslope dots
@@ -409,7 +306,7 @@ void TestElectronic::updateData(const double dt)
         delta = oe::base::alim(oe::base::angle::aepcdDeg(headingBug - curBug), 120 * dt);
         curBug = oe::base::angle::aepcdDeg(curBug + delta);
 
-        if (navMode == ARC_MODE) {
+        if (navMode == NavMode::ARC_MODE) {
             // we either move it to the left or right, depending on how far
             // off our slew is.
             double diff = oe::base::angle::aepcdDeg(curHdg - curBug);
@@ -437,15 +334,15 @@ void TestElectronic::updateData(const double dt)
         bool distVis = true;    // initial visibility is true
         double curDist = oe::base::alim(dist, 999.9);    // current distance to DME
 
-        if (navSource == PRIMARY) {
+        if (navSource == NavSource::PRIMARY) {
             // valid DME makes our label visible
             distVis = dmeValid;
-            if (navType == INAV) distType = false;
+            if (navType == NavType::INAV) distType = false;
         }
-        else if (navSource == SECONDARY) {
+        else if (navSource == NavSource::SECONDARY) {
             // valid DME makes our label visible
             distVis = secDmeValid;
-            if (secNavType == INAV) distType = false;
+            if (secNavType == NavType::INAV) distType = false;
             else distVis = true;
         }
 
@@ -457,13 +354,13 @@ void TestElectronic::updateData(const double dt)
     // course data
     {
         // which course pointer are we using?
-        send("whichcourseptr", SELECT, navSource, whichCrsPtrSD);
+        send("whichcourseptr", SELECT, base::as_integer(navSource), whichCrsPtrSD);
 
         int curIntCourse = 0;
         double tempCDI = 0.0;
         double tempCourse = 0.0;
         // primary nav course
-        if (navSource == PRIMARY) {
+        if (navSource == NavSource::PRIMARY) {
             curIntCourse = oe::base::nint(course);
             tempCDI = cdi;
             tempCourse = course;
@@ -491,10 +388,10 @@ void TestElectronic::updateData(const double dt)
         curCourse = (oe::base::angle::aepcdDeg(curCourse + delta));
 
         // ok, do our color determination for the course pointer - primary first
-        if (navSource == PRIMARY) {
+        if (navSource == NavSource::PRIMARY) {
             // dealing with our primary course pointer here
             bool vis = true;
-            if (navMode == MAP_MODE || navMode == DECLUTTER) vis = false;
+            if (navMode == NavMode::MAP_MODE || navMode == NavMode::DECLUTTER) vis = false;
             send("primarycoursepointer", SET_VISIBILITY, vis, primaryCrsVisSD);
             // course pointer deviation and rotation
             send("primarycoursedev", UPDATE_VALUE, cdiInch, priCourseDevSD);
@@ -502,13 +399,19 @@ void TestElectronic::updateData(const double dt)
 
             // course pointer color
             const auto string = new oe::base::String("white");
-            if (navType == VORTAC) {
-                if ((vhfReceive && !(vhfDIC || vhfLGS)) || (vhfLocValid && vhfLGS)) string->setStr("green");
-                else string->setStr("yellow");
+            if (navType == NavType::VORTAC) {
+                if ((vhfReceive && !(vhfDIC || vhfLGS)) || (vhfLocValid && vhfLGS)) {
+                    string->setStr("green");
+                } else {
+                    string->setStr("yellow");
+                }
             }
             else {
-                if (dmeValid) string->setStr("green");
-                else string->setStr("yellow");
+                if (dmeValid) {
+                    string->setStr("green");
+                } else {
+                    string->setStr("yellow");
+                }
             }
 
             send("primarycoursepointer", SET_COLOR, string->getString(), priCrsPtrColorSD);
@@ -518,7 +421,9 @@ void TestElectronic::updateData(const double dt)
         else {
             // secondary course pointer
             bool vis = true;
-            if (secNavMode == MAP_MODE || secNavMode == DECLUTTER) vis = false;
+            if (secNavMode == NavMode::MAP_MODE || secNavMode == NavMode::DECLUTTER) {
+                vis = false;
+            }
             send("secondarycoursepointer", SET_VISIBILITY, vis, secondaryCrsVisSD);
             // course pointer deviation and rotation
             send("secondarycoursedev", UPDATE_VALUE, cdiInch, secCourseDevSD);
@@ -526,13 +431,16 @@ void TestElectronic::updateData(const double dt)
 
             // course pointer color
             const auto string = new oe::base::String("white");
-            if (secNavType == VORTAC) {
+            if (secNavType == NavType::VORTAC) {
                 if ((secVhfReceive && !(secVhfDIC || secVhfLGS)) || (secVhfLocValid && secVhfLGS)) string->setStr("green");
                 else string->setStr("yellow");
             }
             else {
-                if (secDmeValid) string->setStr("green");
-                else string->setStr("yellow");
+                if (secDmeValid) {
+                    string->setStr("green");
+                } else {
+                    string->setStr("yellow");
+                }
             }
 
             send("secondarycoursepointer", SET_COLOR, string->getString(), secCrsPtrColorSD);
@@ -544,17 +452,17 @@ void TestElectronic::updateData(const double dt)
     // our data readouts (TTG, Gs, etc...)
     {
         // which readout are we using
-        send("whichlabel", SELECT, readoutMode, roLabelSD);
+        send("whichlabel", SELECT, base::as_integer(readoutMode), roLabelSD);
         // send which readout we are going to use
-        send("whichreadout", SELECT, readoutMode, roWhichSD);
+        send("whichreadout", SELECT, base::as_integer(readoutMode), roWhichSD);
 
         // first readout, which is our time to go
-        if (readoutMode == ND_TTG) {
-            double curTTG = timeToGo / 60;
+        if (readoutMode == ReadoutMode::ND_TTG) {
+            const double curTTG = timeToGo / 60.0;
             send("ttg", UPDATE_VALUE, curTTG, ttgSD);
         }
         // ground speed, drift angle, drift angle side.
-        else if (readoutMode == ND_GSP) {
+        else if (readoutMode == ReadoutMode::ND_GSP) {
             // ground speed
             send("groundspeed", UPDATE_VALUE, groundSpeed, groundSpeedSD);
             // drift angle
@@ -563,12 +471,12 @@ void TestElectronic::updateData(const double dt)
             else send("driftangleside", SELECT, false, driftAngSideSD);
         }
         // true air speed
-        else if (readoutMode == ND_TAS) {
+        else if (readoutMode == ReadoutMode::ND_TAS) {
             int curTAS = oe::base::nintd(trueAirSpeed * oe::base::LinearVelocity::FPS2KTSCC);
             send("trueairspeed", UPDATE_VALUE, curTAS, trueAirSpeedSD);
         }
         // elapsed time
-        else if (readoutMode == ND_ET) {
+        else if (readoutMode == ReadoutMode::ND_ET) {
             const auto hour = static_cast<int>(elapsedTime / 3600);
             bool isMin = false;    // default to show hours
             if (hour < 1) {
@@ -581,7 +489,7 @@ void TestElectronic::updateData(const double dt)
             send("whichelapsedtimero", SELECT, isMin, whichETSD);
         }
         // wind speed, direction, and drift angle (again)
-        else if (readoutMode == ND_WIND) {
+        else if (readoutMode == ReadoutMode::ND_WIND) {
             // wind direction
             send("winddirection", UPDATE_VALUE, windDir, windDirectionSD);
             // wind speed
@@ -599,13 +507,13 @@ void TestElectronic::updateData(const double dt)
     {
         // determine the source of our bearing
         int brgSrc = 1; // default to INAV
-        if (navSource == PRIMARY) {
-            if (navType == VORTAC) brgSrc = 2;  // primary vortac
-            else if (navType == TACAN) brgSrc = 3; // primary tacan
+        if (navSource == NavSource::PRIMARY) {
+            if (navType == NavType::VORTAC) brgSrc = 2;     // primary vortac
+            else if (navType == NavType::TACAN) brgSrc = 3; // primary tacan
             send("bearingro", UPDATE_VALUE, bearing, brgROSD);
         }
         else {
-            if (secNavType == VORTAC) brgSrc = 4; // secondary vortac
+            if (secNavType == NavType::VORTAC) brgSrc = 4; // secondary vortac
             else brgSrc = 5; // secondary tacan
             send("bearingro", UPDATE_VALUE, secBearing, secBrgROSD);
         }
@@ -630,13 +538,13 @@ void TestElectronic::updateData(const double dt)
     // primary and secondary readout indicators (with asterisk)
     {
         // first of all, which position is the asterisk going in (primary or secondary?)
-        send("whichnavsource", SELECT, navSource, whichNavSrcSD);
+        send("whichnavsource", SELECT, base::as_integer(navSource), whichNavSrcSD);
 
         // primary nav source selection
         int primaryPos = 1;     // 1 is INAV
-        if (navType == VORTAC) {
+        if (navType == NavType::VORTAC) {
             // pilot
-            if (loc == PILOT) {
+            if (loc == Location::PILOT) {
                 if (vhfLGS) primaryPos = 2;
                 else primaryPos = 3;
             }
@@ -646,16 +554,16 @@ void TestElectronic::updateData(const double dt)
                 else primaryPos = 5;
             }
         }
-        else if (navType == TACAN) primaryPos = 6;
+        else if (navType == NavType::TACAN) primaryPos = 6;
 
         send("whichprimaryreadout", SELECT, primaryPos, primaryPosSD);
 
         // now do our secondary source selections
         int secondaryPos = 1;
 
-        if (secNavType == VORTAC) {
+        if (secNavType == NavType::VORTAC) {
             // pilot
-            if (loc == PILOT) {
+            if (loc == Location::PILOT) {
                 if (secVhfLGS) secondaryPos = 2;
                 else secondaryPos = 3;
             }
@@ -665,14 +573,14 @@ void TestElectronic::updateData(const double dt)
                 else secondaryPos = 5;
             }
         }
-        else if (secNavType == TACAN) secondaryPos = 6;
+        else if (secNavType == NavType::TACAN) secondaryPos = 6;
         send("whichsecondaryreadout", SELECT, secondaryPos, secondaryPosSD);
     }
 
     // TO / FROM arrow - HSI mode only
     {
         double toFrom = 0;
-        if (navSource == PRIMARY) toFrom = 1 - std::fabs(oe::base::angle::aepcdDeg(bearing - course)) / 90;
+        if (navSource == NavSource::PRIMARY) toFrom = 1 - std::fabs(oe::base::angle::aepcdDeg(bearing - course)) / 90;
         else toFrom = 1 - std::fabs(oe::base::angle::aepcdDeg(secBearing - secCourse)) / 90;
 
         double delta = oe::base::alim(toFrom - curToFrom, dt);
