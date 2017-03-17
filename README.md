@@ -33,25 +33,29 @@ Demonstration Applications
 Example Applications
 --------------------
 
-* mainCockpit -- Simple flight simulation program
+* mainCockpit -- Simple flight simulator
 
-* mainGndMapRdr -- Simple ground mapping radar example
+* mainGndMapRdr -- ground mapping radar example
 
-* mainNonRT1 -- Example that demonstrates executing the simulation as fast as possible
+* mainLaero -- demostrates flight navigation
 
-* mainPuzzle1 -- Simple problem solver example (Moves 2x2 block to first row, center position)
+* mainNonRT1 -- executes a simulation as fast as possible (not real-time, no concern about wall clock)
 
-* mainPuzzle2 -- Another problem solver example (15 block puzzle)
+* mainPuzzle1 -- puzzle problem solver (Moves 2x2 block to first row, center position)
 
-* mainSim1 -- A very simple simulation built with and only with oe classes. Includes a variety of examples.
+* mainPuzzle2 -- puzzle problem solver (15 block puzzle)
 
-* mainSim2 -- Same as mainSim2 except the vehicle can be flown with a joystick and supports the JSBSim model
+* mainQt1 -- illustrates how to interface Qt graphics with an oe simulation
+
+* mainSim1 -- presents the simpest full-featured simulation that can be built with and only with oe classes.
+
+* mainSim2 -- same as mainSim1 except the vehicle can be flown with a joystick and supports the JSBSim model
 
 * mainSim3 -- simulation that display all players on a map
 
-* mainTerrain -- Displays terrain elevation data
+* mainTerrain -- draws terrain elevation data
 
-* mainUbf1 -- A version of 'mainCockpit' used to test UBF behaviors
+* mainUbf1 -- A version of 'mainCockpit' that uses UBF behaviors to 'fly' an aircraft
 
 Example GUI Applications
 ------------------------
@@ -63,11 +67,11 @@ Example GUI Applications
 Test Applications
 -----------------
 
-* testDafif -- tests DAFIF library
+* testDafif -- exercises DAFIF library capabilities
 
-* testEvents -- test of Component class send() functions
+* testEvents -- exercises Component class send() methods
 
-* testGraphics -- test of graphics framework
+* testGraphics -- exercises graphic class available in 'graphics' library
     1. Contains several test MFD pages with common background graphics
     2. Use 'n' and 'p' (next and previous) to move between pages
     3. OpenGL selection test: use cursor and left mouse button to select a graphic item.  The selected item will flash.
@@ -75,13 +79,13 @@ Test Applications
 
 * testInfrared -- general IR test program
 
-* testIoHandler -- test of I/O handler device library
+* testIoHandler -- exercises I/O classes (i.e., i/o device library)
 
 * testLinearSys
 
-* testMatrix -- test of Matrix class functionality
+* testMatrix -- exercies Matrix class functionality
 
-* testMetaObject -- tests basic meta-object functionality
+* testMetaObject -- exercises meta-object functionality
 
 * testNavUtils -- extensive set of navigation test routines
 
@@ -101,7 +105,7 @@ Test Applications
 
 * testTables -- collection of Table tests programs
 
-* testTemplates -- test basic template functionality
+* testTemplates -- a bit of a playground for testing templates
 
 * testTimer -- tests the functionality of the Timer class.
 

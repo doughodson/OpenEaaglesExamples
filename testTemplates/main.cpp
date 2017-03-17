@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "openeaagles/base/LinkedList.hpp"
+#include "linked_list.hpp"
 #include "openeaagles/base/Color.hpp"
 
 //using namespace oe::base;
