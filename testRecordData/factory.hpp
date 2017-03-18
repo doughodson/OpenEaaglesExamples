@@ -5,7 +5,7 @@
 #include <string>
 
 namespace oe {
-   namespace base { class Object; }
+namespace base { class Object; }
 }
 
 oe::base::Object* factory(const std::string& name);

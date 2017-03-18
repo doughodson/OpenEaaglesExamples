@@ -18,17 +18,15 @@
 
 using namespace oe;
 
-IMPLEMENT_SUBCLASS(SimStation,"SimStation")
+IMPLEMENT_SUBCLASS(SimStation, "SimStation")
 EMPTY_SERIALIZER(SimStation)
 EMPTY_DELETEDATA(SimStation)
 
-// slot table for this class type
 BEGIN_SLOTTABLE(SimStation)
     "display",                  //  1) Main Display
     "autoResetTimer",           //  2: Auto RESET timer value (base::Time); default: zero (no auto reset)
 END_SLOTTABLE(SimStation)
 
-//  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay,         glut::GlutDisplay)
     ON_SLOT( 2, setSlotAutoResetTime,       base::Time)
@@ -37,20 +35,11 @@ END_SLOT_MAP()
 SimStation::SimStation()
 {
     STANDARD_CONSTRUCTOR()
-
-    mainDisplay = nullptr;
-    displayInit = false;
-
-    autoResetTimer0 = nullptr;
-    autoResetTimer = 0.0;
 }
 
-void SimStation::copyData(const SimStation& org, const bool cc)
+void SimStation::copyData(const SimStation& org, const bool)
 {
     BaseClass::copyData(org);
-    if (cc) {
-        autoResetTimer0 = nullptr;
-    }
 
     setSlotAutoResetTime(org.autoResetTimer0);
     autoResetTimer = org.autoResetTimer;
