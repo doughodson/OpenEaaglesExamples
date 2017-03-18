@@ -5,7 +5,7 @@
 #include "openeaagles/base/Component.hpp"
 
 namespace oe {
-   namespace base { class PairStream; }
+namespace base { class PairStream; }
 }
 
 //------------------------------------------------------------------------------
@@ -36,9 +36,7 @@ protected:
    bool setSlotTimers(const oe::base::PairStream* const msg);
 
 private:
-   void initData();
-
-   oe::base::PairStream* timers;    // List of timers
+   oe::base::PairStream* timers {};    // List of timers
 };
 
 #endif

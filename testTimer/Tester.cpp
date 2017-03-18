@@ -10,12 +10,10 @@
 IMPLEMENT_SUBCLASS(Tester, "Tester")
 EMPTY_SERIALIZER(Tester)
 
-// slot table
 BEGIN_SLOTTABLE(Tester)
    "timers"            // 1: List of up/down timers to be tested
 END_SLOTTABLE(Tester)
 
-// slot map
 BEGIN_SLOT_MAP(Tester)
    ON_SLOT(1, setSlotTimers, oe::base::PairStream)
 END_SLOT_MAP()
@@ -23,18 +21,11 @@ END_SLOT_MAP()
 Tester::Tester()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
-void Tester::initData()
-{
-   timers = nullptr;
-}
-
-void Tester::copyData(const Tester& org, const bool cc)
+void Tester::copyData(const Tester& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) initData();
 
    setSlotTimers(org.timers);
 }
