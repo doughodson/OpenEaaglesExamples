@@ -14,9 +14,6 @@ EMPTY_DELETEDATA(MfdPage)
 MfdPage::MfdPage()
 {
    STANDARD_CONSTRUCTOR()
-   rotate = 0;
-   rotateRate = 5;
-   rSD.empty();
 }
 
 BEGIN_EVENT_HANDLER(MfdPage)

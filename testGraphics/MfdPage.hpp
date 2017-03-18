@@ -22,8 +22,8 @@ public:
    virtual void updateData(const double dt = 0.0) override;
 
 private:
-   double rotate;
-   double rotateRate;
+   double rotate {};
+   double rotateRate {5.0};
    SendData rSD;
 };
 

@@ -48,7 +48,7 @@ private:
     SendData objSD;
 
     // characters
-    char myChar[10] {"ASCII"};
+    char myChar[10] {};
     SendData charSD;
 
     oe::base::Color* myColor {};
