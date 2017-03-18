@@ -5,9 +5,7 @@
 #include "openeaagles/base/ubf/AbstractAction.hpp"
 
 namespace oe {
-
 namespace simulation { class Player; }
-
 namespace xbehaviors {
 
 //------------------------------------------------------------------------------
@@ -57,30 +55,29 @@ public:
 
 private:
 
-   double pitch;
-   bool pitchChanged;
+   double pitch {};
+   bool pitchChanged {};
 
-   double roll;
-   bool rollChanged;
+   double roll {};
+   bool rollChanged {};
 
-   double heading;
-   bool headingChanged;
+   double heading {};
+   bool headingChanged {};
 
-   double yaw;
-   bool yawChanged;
+   double yaw {};
+   bool yawChanged {};
 
-   double throttle;
-   bool throttleChanged;
+   double throttle {};
+   bool throttleChanged {};
 
-   double speed;
-   bool speedChanged;
+   double speed {};
+   bool speedChanged {};
 
-   double pitchTrim;
-   bool pitchTrimChanged;
+   double pitchTrim {};
+   bool pitchTrimChanged {};
 
-   bool fireMissile;
-   bool fireMissileChanged;
-
+   bool fireMissile {};
+   bool fireMissileChanged {};
 };
 
 }

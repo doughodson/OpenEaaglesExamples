@@ -5,9 +5,7 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-
 namespace models { class Rwr; }
-
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -33,7 +31,7 @@ public:
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    models::Rwr* rwr;     // The test RWR sensor
+    models::Rwr* rwr {};     // The test RWR sensor
 };
 
 }

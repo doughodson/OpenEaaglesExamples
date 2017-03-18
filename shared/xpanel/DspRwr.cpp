@@ -14,7 +14,6 @@ EMPTY_DELETEDATA(DspRwr)
 DspRwr::DspRwr()
 {
    STANDARD_CONSTRUCTOR()
-   rwr = nullptr;
 }
 
 void DspRwr::copyData(const DspRwr& org, const bool)

@@ -6,7 +6,7 @@
 namespace oe {
 namespace xpanel {
 
-IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr,"TdElevPtr")
+IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdElevPtr, "TdElevPtr")
 EMPTY_SERIALIZER(TdElevPtr)
 EMPTY_DELETEDATA(TdElevPtr)
 
@@ -14,19 +14,11 @@ BEGIN_EVENT_HANDLER(TdElevPtr)
     ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)
 END_EVENT_HANDLER()
 
-
-//------------------------------------------------------------------------------
-// Class support functions
-//------------------------------------------------------------------------------
-
-// Constructor(s)
 TdElevPtr::TdElevPtr()
 {
     STANDARD_CONSTRUCTOR()
-    elev = 0.0;
 }
 
-// copy member data
 void TdElevPtr::copyData(const TdElevPtr& org, const bool)
 {
     BaseClass::copyData(org);

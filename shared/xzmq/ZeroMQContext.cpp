@@ -11,14 +11,12 @@ namespace xzmq {
 
 IMPLEMENT_SUBCLASS(ZeroMQContext, "ZeroMQContext")
 
-// Slot Table
 BEGIN_SLOTTABLE(ZeroMQContext)
    "threadCount",                // 1) Number containing the I/O thread pool count
    "maxSockets",                 // 2) Number containing the max socket count
    "enableIPV6",                 // 3) Boolean containing IPV6 valid
 END_SLOTTABLE(ZeroMQContext)
 
-// Map slot table to handles
 BEGIN_SLOT_MAP(ZeroMQContext)
    ON_SLOT(1, setSlotThreadCount, base::Integer)
    ON_SLOT(2, setSlotMaxSockets,  base::Integer)
@@ -28,7 +26,6 @@ END_SLOT_MAP()
 ZeroMQContext::ZeroMQContext()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
 void ZeroMQContext::initData()
@@ -40,13 +37,9 @@ void ZeroMQContext::initData()
    ready       = false;
 }
 
-void ZeroMQContext::copyData(const ZeroMQContext& org, const bool cc)
+void ZeroMQContext::copyData(const ZeroMQContext& org, const bool)
 {
    BaseClass::copyData (org);
-
-   if (cc) {
-      context = nullptr;
-   }
 
    threadCount = org.threadCount;
    maxSockets  = org.maxSockets;

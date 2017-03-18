@@ -5,13 +5,9 @@
 #include <string>
 
 namespace oe {
-
 namespace base { class Object; }
-
 namespace xpanel {
-
 base::Object* factory(const std::string& name);
-
 }
 }
 

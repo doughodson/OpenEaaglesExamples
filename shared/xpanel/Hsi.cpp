@@ -22,18 +22,6 @@ END_EVENT_HANDLER()
 Hsi::Hsi()
 {
     STANDARD_CONSTRUCTOR()
-    selHdg = 0;
-    selCrs = 0;
-    selCrsSD.empty();
-    cdiDots = 0;
-    cdiDotsSD.empty();
-    toFrom = -1;
-    toFromSD.empty();
-    nav1Brg = 0;
-    nav2Brg = 0;
-    nav1BrgSD.empty();
-    nav2BrgSD.empty();
-    selHdgROSD.empty();
 }
 
 void Hsi::copyData(const Hsi& org, const bool)

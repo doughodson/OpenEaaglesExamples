@@ -26,7 +26,6 @@ EMPTY_SERIALIZER(PlaneState)
 PlaneState::PlaneState()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
 void PlaneState::initData()

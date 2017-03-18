@@ -5,9 +5,7 @@
 #include <string>
 
 namespace oe {
-
 namespace base { class Object; }
-
 namespace xrecorder {
 
 base::Object* factory(const std::string& name);

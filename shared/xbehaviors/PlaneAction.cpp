@@ -15,30 +15,6 @@ EMPTY_SERIALIZER(PlaneAction)
 PlaneAction::PlaneAction()
 {
    STANDARD_CONSTRUCTOR()
-
-   pitch = 0;
-   pitchChanged = false;
-
-   roll = 0;
-   rollChanged = false;
-
-   heading = 0;
-   headingChanged = false;
-
-   yaw = 0;
-   yawChanged = false;
-
-   throttle = 0;
-   throttleChanged = false;
-
-   speed = 0;
-   speedChanged = false;
-
-   pitchTrim = 0;
-   pitchTrimChanged = false;
-
-   fireMissile = false;
-   fireMissileChanged = false;
 }
 
 void PlaneAction::copyData(const PlaneAction& org, const bool cc)

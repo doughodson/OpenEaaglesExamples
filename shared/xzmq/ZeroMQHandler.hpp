@@ -94,33 +94,32 @@ protected:
 
 private:
    void initData();
-
-private:
+   
    // The master context is the main process context.  It will be used by
    // all subsequent handlers unless otherwise specified with the context
    // slot.
    static ZeroMQContext* masterContext;
 
-   static s2i_t sts2i;           // ZeroMQHandler type maps
+   static s2i_t sts2i;                // ZeroMQHandler type maps
    static i2s_t sti2s;
 
 protected:
-   ZeroMQContext* context;       // Parent context (oe not ZeroMQ)
-   int            socketType;    // Socket type
-   std::string    endpoint;      // Endpoint for binding
-   int            linger;        // Socket linger period (ms)
-   std::string    subscribe;     // Message filter
-   int            backLog;       // Connection queue size
-   std::string    identity;      // Socket identity
-   int            sendBufSize;   // Kernel buffer size for sending
-   int            recvBufSize;   // Kernel buffer size for receiving
-   int            sendHWM;       // High-water-mark for outbound messages
-   int            recvHWM;       // High-water-mark for inbound messages
-   bool           noWait;        // No wait flag from the slot
-   void*          socket;        // 0MQ socket
-   bool           doBind;        // Accept or connect!
-   bool           dontWait;      // 0MQ no wait flag
-   bool           ready;         // Initialization was successful
+   ZeroMQContext* context {};         // Parent context (oe not ZeroMQ)
+   int            socketType {-1};    // Socket type
+   std::string    endpoint;           // Endpoint for binding
+   int            linger {-1};        // Socket linger period (ms)
+   std::string    subscribe;          // Message filter
+   int            backLog {-1};       // Connection queue size
+   std::string    identity;           // Socket identity
+   int            sendBufSize {-1};   // Kernel buffer size for sending
+   int            recvBufSize {-1};   // Kernel buffer size for receiving
+   int            sendHWM {-1};       // High-water-mark for outbound messages
+   int            recvHWM {-1};       // High-water-mark for inbound messages
+   bool           noWait {};          // No wait flag from the slot
+   void*          socket {};          // 0MQ socket
+   bool           doBind {};          // Accept or connect!
+   bool           dontWait {};        // 0MQ no wait flag
+   bool           ready {};           // Initialization was successful
 };
 
 }

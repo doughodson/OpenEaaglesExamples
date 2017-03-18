@@ -18,7 +18,6 @@ BEGIN_SLOT_MAP(SpdLines)
     ON_SLOT(1, setSlotIsAlt, base::Number)
 END_SLOT_MAP()
 
-// Event handler
 BEGIN_EVENT_HANDLER(SpdLines)
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, base::Number)
 END_EVENT_HANDLER()
@@ -26,7 +25,6 @@ END_EVENT_HANDLER()
 SpdLines::SpdLines()
 {
     STANDARD_CONSTRUCTOR()
-    isAlt = false;
 }
 
 void SpdLines::copyData(const SpdLines& org, const bool)

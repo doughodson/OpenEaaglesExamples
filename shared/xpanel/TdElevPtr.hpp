@@ -5,7 +5,7 @@
 #include "openeaagles/graphics/Graphic.hpp"
 
 namespace oe {
-   namespace base { class Number; }
+namespace base { class Number; }
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ public:
 private:
    bool onUpdateValue(const base::Number* const);
 
-   double elev;  // (degs)
+   double elev {};  // (degs)
 };
 
 }

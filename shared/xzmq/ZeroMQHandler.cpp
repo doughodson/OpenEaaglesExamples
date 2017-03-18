@@ -54,7 +54,6 @@ i2s_t ZeroMQHandler::sti2s;
 ZeroMQHandler::ZeroMQHandler()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 
    // Initialize the valid socket types
    if (sts2i.empty()) {
@@ -111,14 +110,9 @@ void ZeroMQHandler::initData()
    ready       = false;
 }
 
-void ZeroMQHandler::copyData(const ZeroMQHandler& org, const bool cc)
+void ZeroMQHandler::copyData(const ZeroMQHandler& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      context = nullptr;
-      socket  = nullptr;
-   }
 
    // Copy the socket information
    if (context != nullptr) context->unref();

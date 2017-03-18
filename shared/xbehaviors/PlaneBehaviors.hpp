@@ -18,12 +18,10 @@
 #include "openeaagles/base/ubf/AbstractBehavior.hpp"
 
 namespace oe {
-
 namespace base { class Distance; class State; }
 namespace base {
 namespace ubf { class AbstractState; class AbstractAction; }
 }
-
 namespace xbehaviors {
 
 //------------------------------------------------------------------------------
@@ -40,9 +38,9 @@ protected:
    bool setSlotVoteOnCriticalAltitude(const base::Number* const num);
    bool setSlotVoteOnIncomingMissile(const base::Number* const num);
 
-   unsigned int voteOnIncomingMissile;
-   unsigned int voteOnCriticalAltitude;
-   double criticalAltitude;
+   unsigned int voteOnIncomingMissile {};
+   unsigned int voteOnCriticalAltitude {};
+   double criticalAltitude {3500.0};
 };
 
 
@@ -60,7 +58,7 @@ public:
 protected:
    bool setSlotMaxDistance(const base::Distance* const msg);
 private:
-   double maxDistance;
+   double maxDistance {15500.0};
 };
 
 class PlaneFlyStraight : public PlaneBehaviorBase
@@ -70,7 +68,7 @@ public:
    PlaneFlyStraight();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
 private:
-   double holdingAltitude;
+   double holdingAltitude {4500.0};
 };
 
 class PlaneFollowEnemy : public PlaneBehaviorBase
@@ -87,8 +85,6 @@ class PlaneTurn : public PlaneBehaviorBase
 public:
    PlaneTurn();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
-private:
-   //double prevAlt;
 };
 
 class PlaneSlowTurn : public PlaneBehaviorBase
@@ -97,8 +93,6 @@ class PlaneSlowTurn : public PlaneBehaviorBase
 public:
    PlaneSlowTurn();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
-private:
-   //double prevAlt;
 };
 
 class PlaneClimb : public PlaneBehaviorBase
@@ -107,7 +101,6 @@ class PlaneClimb : public PlaneBehaviorBase
 public:
    PlaneClimb();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
-private:
 };
 
 class PlaneDive : public PlaneBehaviorBase
@@ -116,7 +109,6 @@ class PlaneDive : public PlaneBehaviorBase
 public:
    PlaneDive();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
-private:
 };
 
 class PlaneTrim : public PlaneBehaviorBase
@@ -126,8 +118,8 @@ public:
    PlaneTrim();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
 private:
-   double holdingAltitude;
-   int count;
+   double holdingAltitude {4500.0};
+   int count {};
 };
 
 class PlaneRoll : public PlaneBehaviorBase
@@ -136,7 +128,6 @@ class PlaneRoll : public PlaneBehaviorBase
 public:
    PlaneRoll();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
-private:
 };
 
 class PlaneBarrelRoll : public PlaneBehaviorBase
@@ -145,9 +136,7 @@ class PlaneBarrelRoll : public PlaneBehaviorBase
 public:
    PlaneBarrelRoll();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
-private:
 };
-
 
 class PlaneLoop : public PlaneBehaviorBase
 {
@@ -156,7 +145,7 @@ public:
    PlaneLoop();
    virtual base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) override;
 private:
-   bool keepGoing;
+   bool keepGoing {};
 };
 
 }

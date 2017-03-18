@@ -55,16 +55,16 @@ private:
     bool onUpdateCdiDotsHsi(const base::Number* const x);
     bool onUpdateToFromHsi(const base::Number* const x);
 
-    double selHdg;      // selected heading (degs)
+    double selHdg {};      // selected heading (degs)
     SendData selHdgSD;
-    double selCrs;      // selected course (degs)
+    double selCrs {};      // selected course (degs)
     SendData selCrsSD;
-    double cdiDots;     // course deviation (dots)
+    double cdiDots {};     // course deviation (dots)
     SendData cdiDotsSD;
-    double toFrom;      // our to from indicator ( 1 == to; 0 == from )
+    double toFrom {-1.0};  // our to from indicator ( 1 == to; 0 == from )
     SendData toFromSD;
-    double nav1Brg;     // our navaid 1 bearing (degs)
-    double nav2Brg;     // our navaid 2 bearing (degs)
+    double nav1Brg {};     // our navaid 1 bearing (degs)
+    double nav2Brg {};     // our navaid 2 bearing (degs)
     SendData nav1BrgSD;
     SendData nav2BrgSD;
     SendData selHdgROSD;

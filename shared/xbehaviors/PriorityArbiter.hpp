@@ -5,9 +5,7 @@
 #include "openeaagles/base/ubf/Arbiter.hpp"
 
 namespace oe {
-
 namespace base { class List; class AbstractAction; }
-
 namespace xbehaviors {
 
 //------------------------------------------------------------------------------

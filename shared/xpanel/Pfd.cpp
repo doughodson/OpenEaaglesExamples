@@ -13,83 +13,10 @@ EMPTY_DELETEDATA(Pfd)
 Pfd::Pfd()
 {
     STANDARD_CONSTRUCTOR()
-    // pitch and roll
-    pitch = 0;
-    pitchSD.empty();
-    roll = 0;
-    rollSD.empty();
-    // bank angle
-    baSD.empty();
-    bascaleSD.empty();
-    // heading and nav stuff
-    trueHdg = 0;
-    tHdgSD.empty();
-    cmdHdg = 0;
-    cmdHdgROSD.empty();
-    // airspeed
-    airSpd = 100;
-    airSpdTpSD.empty();
-    onesSD.empty();
-    spdRstSD.empty();
-    // altitude
-    alt = 1000;
-    altSD.empty();
-    alt1SD.empty();
-    alt2SD.empty();
-    alt3SD.empty();
-    altTpSD.empty();
-    altTensSD.empty();
-    altSelectSD.empty();
-    // side slip
-
-    slip = 0;
-    slipSD.empty();
-    // glideslope
-    gSlope = 0;
-    gSlopeSD.empty();
-    // lateral deviation
-    latDev = 0;
-    latDevSD.empty();
-    // commanded speed
-    cmdSpd = 0;
-    aBugSD.empty();
-    diffSD.empty();
-    // commanded alt
-    cmdAlt = 5000;
-    altBugSD.empty();
-    altDiffSD.empty();
-    // vvi
-    vvi = 0;
-    vviSD.empty();
-    vviROSD.empty();
-    // flight director (command bars)
-    fDirBank = 0;
-    fDirBankSD.empty();
-    fDirPitch = 0;
-    fDirPitchSD.empty();
-    // selected barometric pressure
-    baro = 0;
-    baroSD.empty();
-    // Hsi send data
-    trueHdgSD.empty();
-    cmdHdgSD.empty();
-    // lat and lon
-    refLat = 0;
-    refLon = 0;
-    range = 0;
-    // Gs
-    gLoad = 0;
-    // mach
-    mach = 0;
-    //// altitude (meters)
-    mAltSD.empty();
-    cmdMAltSD.empty();
-    pitchGhostSD.empty();
 }
 
 void Pfd::copyData(const Pfd& org, const bool)
 {
-    // Always copy base class stuff first
     BaseClass::copyData(org);
 
     pitch = org.pitch;

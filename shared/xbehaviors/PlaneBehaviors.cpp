@@ -29,14 +29,12 @@ EMPTY_COPYDATA(PlaneBehaviorBase)
 EMPTY_SERIALIZER(PlaneBehaviorBase)
 EMPTY_DELETEDATA(PlaneBehaviorBase)
 
-// slot table for this class type
 BEGIN_SLOTTABLE(PlaneBehaviorBase)
     "criticalAltitude",
     "voteOnCriticalAltitude",
     "voteOnIncomingMissile"
 END_SLOTTABLE(PlaneBehaviorBase)
 
-// map slot table to handles
 BEGIN_SLOT_MAP(PlaneBehaviorBase)
    ON_SLOT( 1, setSlotCriticalAltitude, base::Distance )
    ON_SLOT( 2, setSlotVoteOnCriticalAltitude, base::Number)
@@ -47,9 +45,6 @@ END_SLOT_MAP()
 PlaneBehaviorBase::PlaneBehaviorBase()
 {
    STANDARD_CONSTRUCTOR()
-   criticalAltitude = 3500.0f;
-   voteOnCriticalAltitude = 0;
-   voteOnIncomingMissile = 0;
 }
 
 bool PlaneBehaviorBase::setSlotCriticalAltitude(const base::Distance* const msg)
@@ -92,12 +87,10 @@ EMPTY_COPYDATA(PlaneFire)
 EMPTY_SERIALIZER(PlaneFire)
 EMPTY_DELETEDATA(PlaneFire)
 
-// slot table for this class type
 BEGIN_SLOTTABLE(PlaneFire)
     "maxDistance"
 END_SLOTTABLE(PlaneFire)
 
-// map slot table to handles
 BEGIN_SLOT_MAP(PlaneFire)
    ON_SLOT( 1, setSlotMaxDistance, base::Distance )
 END_SLOT_MAP()
@@ -105,9 +98,8 @@ END_SLOT_MAP()
 PlaneFire::PlaneFire()
 {
    STANDARD_CONSTRUCTOR()
-   maxDistance = 15500.0f;
-
 }
+
 base::ubf::AbstractAction* PlaneFire::genAction(const base::ubf::AbstractState* const state, const double dt)
 {
    PlaneAction* action = nullptr;
@@ -146,7 +138,6 @@ EMPTY_DELETEDATA(PlaneFlyStraight)
 PlaneFlyStraight::PlaneFlyStraight()
 {
    STANDARD_CONSTRUCTOR()
-   holdingAltitude = 4500;
 }
 
 base::ubf::AbstractAction* PlaneFlyStraight::genAction(const base::ubf::AbstractState* const state, const double dt)
@@ -392,8 +383,6 @@ EMPTY_DELETEDATA(PlaneTrim)
 PlaneTrim::PlaneTrim()
 {
    STANDARD_CONSTRUCTOR()
-   holdingAltitude = 4500;
-   count = 0;
 }
 
 base::ubf::AbstractAction* PlaneTrim::genAction(const base::ubf::AbstractState* const state, const double dt)
@@ -485,7 +474,6 @@ EMPTY_DELETEDATA(PlaneLoop)
 PlaneLoop::PlaneLoop()
 {
    STANDARD_CONSTRUCTOR()
-   keepGoing = false;
 }
 
 base::ubf::AbstractAction* PlaneLoop::genAction(const base::ubf::AbstractState* const state, const double dt)

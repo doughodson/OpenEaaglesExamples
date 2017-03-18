@@ -20,8 +20,6 @@ class Pfd : public graphics::Page
 public:
     Pfd();
 
-    enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
-
     // set functions
     virtual bool setPitchDeg(const double newP);        // Sets pitch angle (degs)
     virtual bool setPitchRad(const double newP);        // Sets pitch angle (rads)
@@ -77,11 +75,14 @@ public:
     virtual void updateData(const double dt = 0.0) override;
 
 private:
+    static const int NCHAR_NAV1_ID = 3;
+    static const int NCHAR_NAV2_ID = 5;
+
     // pitch and roll
-    double pitch;           // Pitch angle (degs)
+    double pitch {};           // Pitch angle (degs)
     SendData pitchSD;
-    SendData hdgPitchSD;    // heading pitch for the heading tape
-    double roll;            // Roll angle (degs)
+    SendData hdgPitchSD;       // heading pitch for the heading tape
+    double roll {};            // Roll angle (degs)
     SendData rollSD;
 
     // bank angle
@@ -89,63 +90,63 @@ private:
     SendData bascaleSD;
 
     // heading and nav stuff
-    double trueHdg;         // True heading (degs)
+    double trueHdg {};         // True heading (degs)
     SendData tHdgSD;
 
-    double cmdHdg;          // commanded heading (heading bug)
+    double cmdHdg {};          // commanded heading (heading bug)
     SendData cmdHdgROSD;
 
     // airspeed
-    double airSpd;          // Kts
-    SendData airSpdTpSD;    // for the airspeed tape
-    SendData onesSD;        // for the readout ones tape
-    SendData spdRstSD;      // rest of the speed data
+    double airSpd {100.0};     // Kts
+    SendData airSpdTpSD;       // for the airspeed tape
+    SendData onesSD;           // for the readout ones tape
+    SendData spdRstSD;         // rest of the speed data
 
     // altitude
-    double alt;
+    double alt {1000.0};
     SendData alt1SD;
     SendData alt2SD;
     SendData alt3SD;
-    SendData altTpSD;       // for the airspeed tape
+    SendData altTpSD;          // for the airspeed tape
     SendData altTensSD;
-    SendData altSelectSD;   // to select the justification
-    SendData altSD;         // for the actual altitude
+    SendData altSelectSD;      // to select the justification
+    SendData altSD;            // for the actual altitude
 
     // side slip
-    double slip;             // Side slip angle (degs)
+    double slip {};            // Side slip angle (degs)
     SendData slipSD;
 
     // glideslope (in dots)
-    double gSlope;
+    double gSlope {};
     SendData gSlopeSD;
 
     // Lateral dev
-    double latDev;
+    double latDev {};
     SendData latDevSD;
 
     // commanded speed
-    double cmdSpd;          // kts
+    double cmdSpd {};          // kts
     SendData aBugSD;
     SendData diffSD;
 
     // commanded alt
-    double cmdAlt;
+    double cmdAlt {5000.0};
     SendData altBugSD;
     SendData altDiffSD;
 
     // vvi
-    double vvi;         // ft/min
+    double vvi {};             // ft/min
     SendData vviSD;
     SendData vviROSD;
 
     // flight director stuff (in inches)
-    double fDirBank;
+    double fDirBank {};
     SendData fDirBankSD;
-    double fDirPitch;
+    double fDirPitch {};
     SendData fDirPitchSD;
 
     // barometric pressure
-    double baro;
+    double baro {};
     SendData baroSD;
 
     // Hsi send data
@@ -153,14 +154,16 @@ private:
     SendData hdgTapeSD;
     SendData cmdHdgSD;
 
-    double refLat;
-    double refLon;
-    double range;
+    // lat and lon
+    double refLat {};
+    double refLon {};
+    double range {};
 
     // Gs
-    double gLoad;
+    double gLoad {};
+
     // Mach
-    double mach;    //// meter altitude
+    double mach {};            // meter altitude
     SendData mAltSD;
     SendData cmdMAltSD;
 

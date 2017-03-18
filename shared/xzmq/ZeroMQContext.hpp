@@ -5,8 +5,7 @@
 #include "openeaagles/base/Component.hpp"
 
 namespace oe {
-   namespace base { class Boolean; class Integer; }
-
+namespace base { class Boolean; class Integer; }
 namespace xzmq {
 
 //------------------------------------------------------------------------------
@@ -54,13 +53,13 @@ protected:
    bool setEnableIPV6(const bool use);
 
 private:
-   void initData();              // initialize instance data
-
-   void* context;                // ZeroMQ context (they use void*)
-   int   threadCount;            // Number of I/O threads in pool (not set = -1)
-   int   maxSockets;             // Number of sockets (not set = -1)
-   int   enableIPV6;             // Use IPV6 sockets (0 or 1, not set = -1)
-   bool  ready;                  // initialized flag
+   void initData();
+   
+   void* context {};          // ZeroMQ context (they use void*)
+   int   threadCount {-1};    // Number of I/O threads in pool (not set = -1)
+   int   maxSockets {-1};     // Number of sockets (not set = -1)
+   int   enableIPV6 {-1};     // Use IPV6 sockets (0 or 1, not set = -1)
+   bool  ready {};            // initialized flag
 };
 
 }

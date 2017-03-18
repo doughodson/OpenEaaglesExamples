@@ -38,7 +38,7 @@ private:
     // event function
     bool onEventSetIsAltSpdLines(const base::Number* const x);
 
-    bool isAlt;     // are we drawing the altitude lines instead?
+    bool isAlt {};     // are we drawing the altitude lines instead?
 };
 
 }

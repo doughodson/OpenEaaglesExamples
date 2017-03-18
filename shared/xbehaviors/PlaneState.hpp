@@ -3,6 +3,7 @@
 #define __oe_xbehaviors_PlaneState_H__
 
 #include "openeaagles/base/ubf/AbstractState.hpp"
+#include <array>
 
 namespace oe {
 namespace xbehaviors {
@@ -95,27 +96,26 @@ public:
 private:
    void initData();
 
-   bool alive;
-   double roll;
-   double pitch;
-   double rollRate;
-   double pitchRate;
-   double yawRate;
-   double heading;
-   double altitude;
-   double throttle;
-   double speed;
-   double pitchTrim;
-   double pitchToTracked[MAX_TRACKS];
-   double headingToTracked[MAX_TRACKS];
-   double distanceToTracked[MAX_TRACKS];
-   unsigned int targetTrack;
-   unsigned int numTracks;
-   bool tracking;
-   bool missileFired;
-   bool incomingMissile;
-   int numEngines;
-
+   bool alive {};
+   double roll {};
+   double pitch {};
+   double rollRate {};
+   double pitchRate {};
+   double yawRate {};
+   double heading {};
+   double altitude {};
+   double throttle {};
+   double speed {};
+   double pitchTrim {};
+   std::array<double, MAX_TRACKS> pitchToTracked {};
+   std::array<double, MAX_TRACKS> headingToTracked {};
+   std::array<double, MAX_TRACKS> distanceToTracked {};
+   unsigned int targetTrack {MAX_TRACKS};
+   unsigned int numTracks {};
+   bool tracking {};
+   bool missileFired {};
+   bool incomingMissile {};
+   int numEngines {};
 };
 
 }

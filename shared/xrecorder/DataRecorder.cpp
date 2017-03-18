@@ -22,17 +22,11 @@ END_RECORDER_HANDLER_TABLE()
 DataRecorder::DataRecorder()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
-void DataRecorder::initData()
-{
-}
-
-void DataRecorder::copyData(const DataRecorder& org, const bool cc)
+void DataRecorder::copyData(const DataRecorder& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) initData();
 }
 
 //------------------------------------------------------------------------------
