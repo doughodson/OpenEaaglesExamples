@@ -60,45 +60,12 @@ END_SLOT_MAP()
 DataRecordTest::DataRecordTest()
 {
    STANDARD_CONSTRUCTOR()
-   fileName = "";
-   myRecPrint = nullptr;
-   myPrintPlayer = nullptr;
-   myPrintSelected = nullptr;
-   myFileWrite = nullptr;
-   myFileRead = nullptr;
-   myDataRec = nullptr;
-   fieldSelected = false;
-   timesCalled = 0;
-   selectionNum = 0;
-
-   // Initialize array for saving multiple sets of selection criteria
-   for (unsigned int i = 0; i < 20; i++) {
-      selection[i].msgToken = 0;
-      selection[i].fieldName = "";
-      selection[i].compareValD = 0;
-      selection[i].compareValS = "";
-      selection[i].compareValI = 0;
-      selection[i].condition = oe::recorder::PrintSelected::Condition::EQ;
-      selection[i].timeOnly = false;
-   }
 }
 
-void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
+void DataRecordTest::copyData(const DataRecordTest& org, const bool)
 {
    BaseClass::copyData(org);
    fileName = org.fileName;
-
-   if (cc) {
-      myRecPrint = nullptr;
-      myFileWrite = nullptr;
-      myFileRead = nullptr;
-      myDataRec = nullptr;
-      myPrintPlayer = nullptr;
-      myPrintSelected = nullptr;
-      myPrintSelected2 = nullptr;
-      fieldSelected = false;
-      selectionNum = 0;
-   }
 }
 
 void DataRecordTest::deleteData()

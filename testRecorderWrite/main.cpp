@@ -16,7 +16,6 @@ oe::base::Object* factory(const std::string& name)
 {
    oe::base::Object* obj = nullptr;
 
-   //
    if ( name == DataRecordTest::getFactoryName() ) {
       obj = new DataRecordTest();
    }
@@ -30,7 +29,6 @@ oe::base::Object* factory(const std::string& name)
    return obj;
 }
 
-// DataRecordTest builder
 DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file

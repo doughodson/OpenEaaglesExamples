@@ -5,13 +5,11 @@
 #include "openeaagles/recorder/OutputHandler.hpp"
 
 #include "openeaagles/recorder/PrintSelected.hpp"
-
 #include <string>
+#include <array>
 
 namespace oe {
-
 namespace base { class String; }
-
 namespace recorder {
 class TabPrinter;
 class FileWriter;
@@ -27,29 +25,28 @@ class DataRecordHandle;
 //------------------------------------------------------------------------------
 class DataRecordTest : public oe::recorder::OutputHandler
 {
-    DECLARE_SUBCLASS(DataRecordTest, oe::recorder::OutputHandler)
+   DECLARE_SUBCLASS(DataRecordTest, oe::recorder::OutputHandler)
 
 public:
+   DataRecordTest();
 
-    DataRecordTest();
+   // Slot functions
+   virtual bool setSlotFileName(oe::base::String* const msg);
+   virtual bool setSlotTabPrinter(oe::recorder::TabPrinter* msg);
+   virtual bool setSlotFileWriter(oe::recorder::FileWriter* msg);
+   virtual bool setSlotFileReader(oe::recorder::FileReader* msg);
+   virtual bool setSlotRecordData(oe::recorder::DataRecorder* const msg);
+   virtual bool setSlotPrintPlayer(oe::recorder::PrintPlayer* msg);
+   virtual bool setSlotPrintSelected(oe::recorder::PrintSelected* msg);
+   virtual bool setSlotPrintSelected2(oe::recorder::PrintSelected* msg);
 
-    // Slot functions
-    virtual bool setSlotFileName(oe::base::String* const msg);
-    virtual bool setSlotTabPrinter(oe::recorder::TabPrinter* msg);
-    virtual bool setSlotFileWriter(oe::recorder::FileWriter* msg);
-    virtual bool setSlotFileReader(oe::recorder::FileReader* msg);
-    virtual bool setSlotRecordData(oe::recorder::DataRecorder* const msg);
-    virtual bool setSlotPrintPlayer(oe::recorder::PrintPlayer* msg);
-    virtual bool setSlotPrintSelected(oe::recorder::PrintSelected* msg);
-    virtual bool setSlotPrintSelected2(oe::recorder::PrintSelected* msg);
-
-    // Select one of these in main.cpp
-    bool testEvents();      // switch to test each possible event message
-    bool testSerialize();   // Test to serialize and parse a set of messages
+   // Select one of these in main.cpp
+   bool testEvents();      // switch to test each possible event message
+   bool testSerialize();   // Test to serialize and parse a set of messages
 
 protected:
-    void eventTestMenu();
-    void readSerialFromFile();
+   void eventTestMenu();
+   void readSerialFromFile();
 
    // all messages:
    oe::recorder::DataRecordHandle* testFileIdMsg(int run);
@@ -87,7 +84,7 @@ protected:
    double getUtcTime();
 
 private:
-   const char* fileName;
+   const char* fileName {""};
    oe::base::safe_ptr<oe::recorder::PrintPlayer> myPrintPlayer;
    oe::base::safe_ptr<oe::recorder::PrintSelected> myPrintSelected;
    oe::base::safe_ptr<oe::recorder::PrintSelected> myPrintSelected2;
@@ -98,25 +95,25 @@ private:
 
    std::string fieldName;
    oe::recorder::PrintSelected::Condition condition;
-   int compareI;
+   int compareI {};
    std::string compareS;
-   double compareD;
+   double compareD {};
    std::string fullFieldName;
-   bool fieldSelected;
-   unsigned int timesCalled;
+   bool fieldSelected {};
+   unsigned int timesCalled {};
 
    // Struct and array for saving multiple sets of selection criteria
-   unsigned int selectionNum;
+   unsigned int selectionNum {};
    struct SelectionCriteria {
-      unsigned int msgToken;
-      std::string fieldName;
-      double compareValD;
-      std::string compareValS;
-      int compareValI;
-      oe::recorder::PrintSelected::Condition condition;
-      bool timeOnly;
+      unsigned int msgToken {};
+      std::string fieldName {""};
+      double compareValD {};
+      std::string compareValS {""};
+      int compareValI {};
+      oe::recorder::PrintSelected::Condition condition {oe::recorder::PrintSelected::Condition::EQ};
+      bool timeOnly {};
    };
-   SelectionCriteria selection[20];
+   std::array<SelectionCriteria, 20> selection;
 };
 
 #endif
