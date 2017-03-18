@@ -13,6 +13,7 @@ EMPTY_DELETEDATA(TestObject)
 TestObject::TestObject()
 {
     STANDARD_CONSTRUCTOR()
+    base::utStrcpy(charVal, sizeof(charVal), "ASCII");
 }
 
 void TestObject::copyData(const TestObject& org, const bool)

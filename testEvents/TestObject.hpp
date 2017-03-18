@@ -41,7 +41,7 @@ private:
    float floatVal {};
    double doubleVal {};
    double realVal {};
-   char charVal[10] {"ASCII"};
+   char charVal[10] {};
 };
 
 #endif
