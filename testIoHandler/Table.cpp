@@ -9,9 +9,6 @@
 
 using namespace oe;
 
-static const unsigned int DEFAULT_ROW     = 1;
-static const unsigned int DEFAULT_SPACING = 1;
-
 //==============================================================================
 // class TableRow -- One row of in the table (used by Table only)
 //          (The implementation is at the bottom of the file after the Table class)
@@ -38,45 +35,28 @@ private:
 //==============================================================================
 // Table class --
 //==============================================================================
-IMPLEMENT_SUBCLASS(Table,"Table")
+IMPLEMENT_SUBCLASS(Table, "Table")
 
-// slot table
 BEGIN_SLOTTABLE(Table)
    "rows",          //   1) Number of rows
    "spacing",       //   2) Spacing between rows
    "columns",       //   3) Column descriptions: list of items in each row
 END_SLOTTABLE(Table)
 
-// slot map
 BEGIN_SLOT_MAP(Table)
    ON_SLOT( 1, setSlotRows, base::Number)
    ON_SLOT( 2, setSlotSpacing, base::Number)
    ON_SLOT( 3, setSlotColumns, base::PairStream)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Table::Table()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
-// initData()
-void Table::initData()
-{
-   rows = DEFAULT_ROW;
-   spacing = DEFAULT_SPACING;
-   columns = nullptr;
-}
-
-// copyData() -- copy this object's data
-void Table::copyData(const Table& org, const bool cc)
+void Table::copyData(const Table& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) initData();
 
    rows = org.rows;
    spacing = org.spacing;

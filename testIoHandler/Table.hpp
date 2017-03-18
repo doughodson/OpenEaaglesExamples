@@ -5,7 +5,7 @@
 #include "openeaagles/graphics/Field.hpp"
 
 namespace oe {
-   namespace base { class Number; class PairStream; }
+namespace base { class Number; class PairStream; }
 }
 
 //------------------------------------------------------------------------------
@@ -41,13 +41,15 @@ public:
    virtual void reset() override;
 
 private:
-   void initData();
+   static const unsigned int DEFAULT_ROW     = 1;
+   static const unsigned int DEFAULT_SPACING = 1;
+
    void build();        // Builds the table into our components
    void position();     // Positions the table
 
-   unsigned int  rows;     // Number of rows in table
-   unsigned int  spacing;  // Spacing between rows (default: 1)
-   const oe::base::PairStream* columns;  // columns items
+   unsigned int rows {DEFAULT_ROW};         // Number of rows in table
+   unsigned int spacing {DEFAULT_SPACING};  // Spacing between rows (default: 1)
+   const oe::base::PairStream* columns {};  // columns items
 };
 
 #endif

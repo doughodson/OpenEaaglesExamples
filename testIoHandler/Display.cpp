@@ -42,19 +42,13 @@ void Display::initData()
 
    // Item/Channel mapping
    for (unsigned int i = 0; i < TBL_SIZE; i++) {
-      types[i] = NONE;
-      channels[i] = 0;
-      labelFlags[i] = false;
-      labels[i][0] = '\0';
-      labelBuffs[i][0] = '\0';
+      types[i] = Type::NONE;
    }
-   item = 0;
 
    // Display buffers
    for (unsigned int i = 0; i < TBL_SIZE; i++) {
       table_typeRo[i] = R_BLANK;
       table_Label[i] = labelBuffs[i];
-      table_ai[i] = 0;
    }
 
 }
@@ -174,10 +168,10 @@ void Display::updateDisplay()
 
       bool ok = false;
 
-      if (types[i] != NONE && ioData != nullptr) {
+      if (types[i] != Type::NONE && ioData != nullptr) {
 
          // Set the data
-         if (types[i] == AI) {
+         if (types[i] == Type::AI) {
             double v = 0;
             ok = ioData->getAnalogInput(channels[i], &v);
             if (ok) {
@@ -185,7 +179,7 @@ void Display::updateDisplay()
                table_typeRo[i] = R_AI;
             }
          }
-         else if (types[i] == DI) {
+         else if (types[i] == Type::DI) {
             bool flg = false;
             ok = ioData->getDiscreteInput(channels[i], &flg);
             if (ok) {
@@ -199,7 +193,7 @@ void Display::updateDisplay()
             // if not provided; make the default label
             if (!labelFlags[i]) {
                char cbuff[32];
-               if (types[i] == AI) std::sprintf(cbuff, "AI(%03d)", channels[i]);
+               if (types[i] == Type::AI) std::sprintf(cbuff, "AI(%03d)", channels[i]);
                else                std::sprintf(cbuff, "DI(%03d)", channels[i]);
                base::utStrcpy(labels[i], sizeof(labels[i]), cbuff);
             }
@@ -241,7 +235,7 @@ bool Display::setSlotItem(const base::Number* const msg)
       int v = msg->getInt();
       if (v >= 1 && v <= TBL_SIZE) {
          item = static_cast<unsigned short>(v);
-         types[item-1] = NONE;
+         types[item-1] = Type::NONE;
          channels[item-1] = 0;
          ok = true;
       }
@@ -259,7 +253,7 @@ bool Display::setSlotAiChannel(const base::Number* const msg)
       int v = msg->getInt();
       if (v >= 0 && v <= 0xFFFF) {
          channels[item-1] = static_cast<unsigned short>(v);
-         types[item-1] = AI;
+         types[item-1] = Type::AI;
          ok = true;
       }
    }
@@ -276,7 +270,7 @@ bool Display::setSlotDiChannel(const base::Number* const msg)
       int v = msg->getInt();
       if (v >= 0 && v <= 0xFFFF) {
          channels[item-1] = static_cast<unsigned short>(v);
-         types[item-1] = DI;
+         types[item-1] = Type::DI;
          ok = true;
       }
    }
@@ -323,13 +317,13 @@ std::ostream& Display::serialize(std::ostream& sout, const int i, const bool slo
 
    // Item/channel mapping
    for (unsigned int idx = 0; idx < TBL_SIZE; idx++) {
-      if (types[idx] != NONE) {
+      if (types[idx] != Type::NONE) {
          indent(sout,i+j);
          sout << "item: " << (idx+1) << "   ";
-         if (types[idx] == AI) {
+         if (types[idx] == Type::AI) {
             sout << "ai: ";
          }
-         else if (types[idx] == DI) {
+         else if (types[idx] == Type::DI) {
             sout << "di: ";
          }
          sout << channels[idx] << std::endl;

@@ -54,7 +54,7 @@ void TestComputer::updateTC(const double dt0)
    if (isFrozen()) dt = 0.0;
 
    // Delta time for methods that are running every fourth phase
-   double dt4 = dt * 4.0;
+   const double dt4 = dt * 4.0;
 
    // ---
    // Four phases per frame

@@ -3,6 +3,7 @@
 #define __Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
+#include <array>
 
 namespace oe {
 namespace base { class IoHandler; class Number; class String; }
@@ -59,7 +60,7 @@ protected:
    virtual bool onEscKey() override;
 
 private:
-   enum Type { NONE, AI, DI };
+   enum class Type { NONE, AI, DI };
    enum { R_BLANK = 1, R_AI, R_DI_0, R_DI_1 };
 
    void initData();
@@ -68,20 +69,20 @@ private:
    oe::base::safe_ptr<oe::base::IoHandler> ioHandler;   // The I/O data handler
 
    // Item/Channel mapping
-   unsigned short item;
-   Type types[TBL_SIZE];
-   unsigned short channels[TBL_SIZE];
-   bool labelFlags[TBL_SIZE];
-   char labels[TBL_SIZE][LABEL_SIZE+1];
-   char labelBuffs[TBL_SIZE][LABEL_SIZE+1+1]; // Labels with a ':' and a null char
+   unsigned short item {};
+   std::array<Type, TBL_SIZE> types;
+   std::array<unsigned short, TBL_SIZE> channels {};
+   std::array<bool, TBL_SIZE> labelFlags {};
+   char labels[TBL_SIZE][LABEL_SIZE+1] {};
+   char labelBuffs[TBL_SIZE][LABEL_SIZE+1+1] {}; // Labels with a ':' and a null char
 
    // Table data
-   char* table_Label[TBL_SIZE];
-   int   table_typeRo[TBL_SIZE];
-   double table_ai[TBL_SIZE];
-   SendData table_LabelSD[TBL_SIZE];
-   SendData table_typeRoSD[TBL_SIZE];
-   SendData table_aiSD[TBL_SIZE];
+   std::array<char*, TBL_SIZE> table_Label {};
+   std::array<int, TBL_SIZE> table_typeRo {};
+   std::array<double, TBL_SIZE> table_ai {};
+   std::array<SendData, TBL_SIZE> table_LabelSD;
+   std::array<SendData, TBL_SIZE> table_typeRoSD;
+   std::array<SendData, TBL_SIZE> table_aiSD;
 };
 
 #endif
