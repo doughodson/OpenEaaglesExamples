@@ -20,10 +20,10 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double engineRotation;          // our engine rpm position (1 - 100)
+    double engineRotation {};       // our engine rpm position (1 - 100)
+    double engineRate {10.0};       // rate which are going (up or down)
     SendData engineRotationSD;
     SendData engineReadoutSD;       // sends our readout data (to a numeric readout)
-    double  engineRate;             // rate which are going (up or down)
 };
 
 #endif

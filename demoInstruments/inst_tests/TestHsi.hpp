@@ -19,12 +19,13 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double heading;             // our heading
+    double heading {};          // our heading
+    double headingRate {20.0};  // rate which are going (up or down)
     SendData headingSD;
-    double  headingRate;        // rate which are going (up or down)
     SendData headingROSD;
+
+    double dme {};
     SendData dmeROSD;           // dme
-    double dme;
 };
 
 #endif

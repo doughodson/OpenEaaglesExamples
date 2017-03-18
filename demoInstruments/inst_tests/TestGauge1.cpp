@@ -10,19 +10,10 @@ EMPTY_DELETEDATA(TestGauge1)
 TestGauge1::TestGauge1()
 {
     STANDARD_CONSTRUCTOR()
-    gaugePosition = 0.0;
-    gaugePositionSD.empty();
-    gaugeRate = 10.0;
-    gaugePositionROSD.empty();
-    tapePos = 0.0;
-    tapeRate = 10.0;
-    tapePosSD.empty();
-    tapePosROSD.empty();
 }
 
 void TestGauge1::copyData(const TestGauge1& org, const bool)
 {
-    // copy our baseclass stuff first
     BaseClass::copyData(org);
     gaugePosition = org.gaugePosition;
     gaugePositionSD.empty();

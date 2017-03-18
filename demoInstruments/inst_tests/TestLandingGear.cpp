@@ -14,15 +14,10 @@ END_EVENT_HANDLER()
 TestLandingGear::TestLandingGear()
 {
     STANDARD_CONSTRUCTOR()
-    gearPosition = 0.0;
-    gearPositionSD.empty();
-    gearRate = 0.3;
-    gearPositionROSD.empty();
 }
 
 void TestLandingGear::copyData(const TestLandingGear& org, const bool)
 {
-    // copy our baseclass stuff first
     BaseClass::copyData(org);
     gearPosition = org.gearPosition;
     gearPositionSD.empty();

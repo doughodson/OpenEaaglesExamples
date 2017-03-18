@@ -10,11 +10,6 @@ EMPTY_DELETEDATA(TestSpeedBrake)
 TestSpeedBrake::TestSpeedBrake()
 {
     STANDARD_CONSTRUCTOR()
-
-    sbrakePosition = 0.0;
-    sbrakePositionSD.empty();
-    sbrakePositionROSD.empty();
-    sbrakeRate = 3.0;
 }
 
 void TestSpeedBrake::copyData(const TestSpeedBrake& org, const bool)

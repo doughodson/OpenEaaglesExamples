@@ -10,10 +10,6 @@ EMPTY_DELETEDATA(TestOilPressure)
 TestOilPressure::TestOilPressure()
 {
     STANDARD_CONSTRUCTOR()
-    oilPressure = 0.0;
-    oilPressureSD.empty();
-    oilRate = 10.0;
-    oilPressureROSD.empty();
 }
 
 void TestOilPressure::copyData(const TestOilPressure& org, const bool)

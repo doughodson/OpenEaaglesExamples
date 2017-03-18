@@ -10,19 +10,6 @@ EMPTY_DELETEDATA(TestAdi)
 TestAdi::TestAdi()
 {
     STANDARD_CONSTRUCTOR()
-
-    // pitch of our adi
-    pitch = 0.0;
-    pitchSD.empty();
-    pitchRate = 10.0;
-    // roll of our adi
-    roll = 0.0;
-    rollSD.empty();
-    rollRate = 25.0;
-    // side slip value
-    slip = 0.0;
-    slipSD.empty();
-    slipRate = 5.0;
 }
 
 void TestAdi::copyData(const TestAdi& org, const bool)

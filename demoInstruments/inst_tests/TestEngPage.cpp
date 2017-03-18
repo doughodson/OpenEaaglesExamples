@@ -12,10 +12,10 @@ TestEngPage::TestEngPage()
 {
     STANDARD_CONSTRUCTOR()
 
-    const double n1rates[oe::instruments::EngPage::NUM_ENG]  = {  5, 10,  2, 15 };
-    const double n2rates[oe::instruments::EngPage::NUM_ENG]  = {  2,  6,  8, 14 };
-    const double titrates[oe::instruments::EngPage::NUM_ENG] = { 50, 30, 12, 23 };
-    const double ffrates[oe::instruments::EngPage::NUM_ENG]  = {  1000,  5000, 500, 2000 };
+    const double n1rates[oe::instruments::EngPage::NUM_ENG]  = {    5,   10,   2,   15 };
+    const double n2rates[oe::instruments::EngPage::NUM_ENG]  = {    2,    6,   8,   14 };
+    const double titrates[oe::instruments::EngPage::NUM_ENG] = {   50,   30,  12,   23 };
+    const double ffrates[oe::instruments::EngPage::NUM_ENG]  = { 1000, 5000, 500, 2000 };
 
     for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {
         n1[i] = 0.0;
@@ -34,7 +34,6 @@ TestEngPage::TestEngPage()
 
 void TestEngPage::copyData(const TestEngPage& org, const bool)
 {
-    // Always copy base class stuff first
     BaseClass::copyData(org);
 
     for (int i = 0; i < oe::instruments::EngPage::NUM_ENG; i++) {

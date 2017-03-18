@@ -10,10 +10,6 @@ EMPTY_DELETEDATA(TestFtitDial)
 TestFtitDial::TestFtitDial()
 {
     STANDARD_CONSTRUCTOR()
-    ftitRotation = 0.0;
-    ftitRotationSD.empty();
-    ftitRate = 100.0;
-    ftitRotationROSD.empty();
 }
 
 void TestFtitDial::copyData(const TestFtitDial& org, const bool)

@@ -10,11 +10,6 @@ EMPTY_DELETEDATA(TestAlt)
 TestAlt::TestAlt()
 {
     STANDARD_CONSTRUCTOR()
-    // altitude (feet)
-    alt = 0.0;
-    altSD.empty();
-    altRate = 500.0;
-    altROSD.empty();
 }
 
 void TestAlt::copyData(const TestAlt& org, const bool)

@@ -23,17 +23,10 @@ END_EVENT_HANDLER()
 TestButtons::TestButtons()
 {
     STANDARD_CONSTRUCTOR()
-
-    whichButton = -1;
-    whichButtonSD.empty();
-    value = 0.0;
-    valueSD.empty();
-    latchedSD.empty();
 }
 
 void TestButtons::copyData(const TestButtons& org, const bool)
 {
-    // copy our baseclass stuff first
     BaseClass::copyData(org);
     whichButton = org.whichButton;
     whichButtonSD.empty();

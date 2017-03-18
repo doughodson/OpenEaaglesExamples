@@ -23,10 +23,10 @@ private:
     // event functions
     bool onUpdateLandingGearTestLandingGear();
 
-    double gearPosition;       // our landing gear position (0 is down, 1 is up)
+    double gearPosition {};       // our landing gear position (0 is down, 1 is up)
+    double gearRate {0.3};        // rate which are going (up or down)
     SendData gearPositionSD;
     SendData gearPositionROSD;
-    double  gearRate;          // rate which are going (up or down)
 };
 
 #endif

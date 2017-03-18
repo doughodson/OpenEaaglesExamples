@@ -21,10 +21,10 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double sbrakePosition;          // our speed brake position (1 - 100)
+    double sbrakePosition {};          // our speed brake position (1 - 100)
+    double sbrakeRate {3.0};           // rate which are going (up or down)
     SendData sbrakePositionSD;
     SendData sbrakePositionROSD;
-    double  sbrakeRate;             // rate which are going (up or down)
 };
 
 #endif

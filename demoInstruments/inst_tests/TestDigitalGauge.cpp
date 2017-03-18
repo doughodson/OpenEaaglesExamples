@@ -10,16 +10,10 @@ EMPTY_DELETEDATA(TestDigitalGauge)
 TestDigitalGauge::TestDigitalGauge()
 {
     STANDARD_CONSTRUCTOR()
-    aoa = 0.0;
-    aoaSD.empty();
-    aoaRate = 2.0;
-    aoaROSD.empty();
-    aoaASD.empty();
 }
 
 void TestDigitalGauge::copyData(const TestDigitalGauge& org, const bool)
 {
-    // copy our baseclass stuff first
     BaseClass::copyData(org);
 
     aoa = org.aoa;

@@ -12,12 +12,6 @@ EMPTY_DELETEDATA(TestGMeterDial)
 TestGMeterDial::TestGMeterDial()
 {
     STANDARD_CONSTRUCTOR()
-    currGs = 0.0;
-    currGsSD.empty();
-    currGsROSD.empty();
-    gRate = 2.0;
-    timer = 0.0;
-    timerRate = 0.2;
 }
 
 void TestGMeterDial::copyData(const TestGMeterDial& org, const bool)

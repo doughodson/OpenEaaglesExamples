@@ -10,10 +10,6 @@ EMPTY_DELETEDATA(TestEngineDial)
 TestEngineDial::TestEngineDial()
 {
     STANDARD_CONSTRUCTOR()
-    engineRotation = 0.0;
-    engineRotationSD.empty();
-    engineRate = 10.0;
-    engineReadoutSD.empty();
 }
 
 void TestEngineDial::copyData(const TestEngineDial& org, const bool)

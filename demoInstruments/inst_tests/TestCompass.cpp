@@ -12,7 +12,6 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestCompass, "TestCompass")
 EMPTY_SERIALIZER(TestCompass)
 EMPTY_DELETEDATA(TestCompass)
 
-// Test event handler
 BEGIN_EVENT_HANDLER(TestCompass)
     ON_EVENT('r', onToggleRangeTestCompass)
     ON_EVENT('d', onToggleCenteredTestCompass)
@@ -36,22 +35,6 @@ static const char* apNames[TestCompass::MAX_AIRPORTS] = {
 TestCompass::TestCompass()
 {
     STANDARD_CONSTRUCTOR()
-    heading = 0.0;
-    headingSD.empty();
-    headingCRSD.empty();
-    isCenteredCRSD.empty();
-    headingRate = 10.0;
-    headingROSD.empty();
-    bearing = 0.0;
-    bearingBRGSD.empty();
-    bearingROSD.empty();
-    bearingRate = 0.4;
-    range = 10.0;
-    rangeSD.empty();
-    rangeROSD.empty();
-    centered = true;
-    headingBRGSD.empty();
-    isCenteredBRGSD.empty();
 
     // initialize our air tracks to test data
     {

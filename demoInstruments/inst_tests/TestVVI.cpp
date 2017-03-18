@@ -10,10 +10,6 @@ EMPTY_DELETEDATA(TestVVI)
 TestVVI::TestVVI()
 {
     STANDARD_CONSTRUCTOR()
-    gaugePosition = 0;
-    gaugePositionSD.empty();
-    gaugeRate = 500;
-    gaugePositionROSD.empty();
 }
 
 void TestVVI::copyData(const TestVVI& org, const bool)

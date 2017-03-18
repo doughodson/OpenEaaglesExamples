@@ -10,11 +10,6 @@ EMPTY_DELETEDATA(TestCas)
 TestCas::TestCas()
 {
     STANDARD_CONSTRUCTOR()
-    tas = 0.0;
-    tasSD.empty();
-    tasRate = 50.0;
-    tasPointerRotationSD.empty();
-    tasROSD.empty();
 }
 
 void TestCas::copyData(const TestCas& org, const bool)

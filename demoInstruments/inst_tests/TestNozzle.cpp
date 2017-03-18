@@ -10,10 +10,6 @@ EMPTY_DELETEDATA(TestNozzle)
 TestNozzle::TestNozzle()
 {
     STANDARD_CONSTRUCTOR()
-    nozPos = 0.0;
-    nozPosSD.empty();
-    nozRate = 5.0;
-    nozPosROSD.empty();
 }
 
 void TestNozzle::copyData(const TestNozzle& org, const bool)

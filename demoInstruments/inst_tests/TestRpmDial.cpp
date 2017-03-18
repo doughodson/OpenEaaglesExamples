@@ -10,10 +10,6 @@ EMPTY_DELETEDATA(TestRpmDial)
 TestRpmDial::TestRpmDial()
 {
     STANDARD_CONSTRUCTOR()
-    rpm = 0.0;
-    rpmRate = 5.0;
-    rpmSD.empty();
-    rpmROSD.empty();
 }
 
 void TestRpmDial::copyData(const TestRpmDial& org, const bool)

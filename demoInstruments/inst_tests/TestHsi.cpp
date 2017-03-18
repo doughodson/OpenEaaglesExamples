@@ -10,12 +10,6 @@ EMPTY_DELETEDATA(TestHsi)
 TestHsi::TestHsi()
 {
     STANDARD_CONSTRUCTOR()
-    heading = 0.0;
-    headingSD.empty();
-    headingRate = 20.0;
-    headingROSD.empty();
-    dme = 0.0;
-    dmeROSD.empty();
 }
 
 void TestHsi::copyData(const TestHsi& org, const bool)

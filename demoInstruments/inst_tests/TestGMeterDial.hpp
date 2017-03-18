@@ -20,12 +20,13 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double currGs;      // current G's
+    double currGs {};       // current G's
+    double gRate {2.0};
     SendData currGsSD;
     SendData currGsROSD;
-    double gRate;
-    double timer;       // our timer for resetting the g meter
-    double timerRate;
+
+    double timer {};        // our timer for resetting the g meter
+    double timerRate {0.2};
 };
 
 #endif

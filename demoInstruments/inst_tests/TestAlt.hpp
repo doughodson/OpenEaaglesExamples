@@ -19,9 +19,9 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double alt;             // our heading
+    double alt {};             // our altitude (feet)
     SendData altSD;
-    double  altRate;        // rate which are going (up or down)
+    double  altRate {500.0};   // rate which are going (up or down)
     SendData altROSD;
 };
 

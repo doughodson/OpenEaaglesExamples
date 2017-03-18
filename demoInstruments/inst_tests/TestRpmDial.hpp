@@ -19,10 +19,10 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double rpm;
+    double rpm {};
+    double rpmRate {5.0};
     SendData rpmSD;
     SendData rpmROSD;       // sends our readout data (to a numeric readout)
-    double  rpmRate;
 };
 
 #endif

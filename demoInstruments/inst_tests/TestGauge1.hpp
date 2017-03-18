@@ -21,12 +21,13 @@ public:
     virtual void updateData(const double dt = 0) override;
 
 private:
-    double gaugePosition;       // our gauge position (inches)
+    double gaugePosition {};       // our gauge position (inches)
+    double  gaugeRate {10.0};      // rate which are going (up or down)
     SendData gaugePositionSD;
     SendData gaugePositionROSD;
-    double  gaugeRate;          // rate which are going (up or down)
-    double tapePos;             // tape position
-    double tapeRate;
+
+    double tapePos {};             // tape position
+    double tapeRate {10.0};
     SendData tapePosSD;
     SendData tapePosROSD;
 };

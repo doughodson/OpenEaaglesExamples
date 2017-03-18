@@ -31,8 +31,8 @@ private:
     bool solenoidUp();
     bool solenoidDown();
 
-    int whichButton;
-    double value;
+    int whichButton {-1};
+    double value {};
 
     SendData whichButtonSD;
     SendData valueSD;

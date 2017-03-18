@@ -13,32 +13,6 @@ EMPTY_DELETEDATA(TestAdi2)
 TestAdi2::TestAdi2()
 {
     STANDARD_CONSTRUCTOR()
-    pitch = 0.0;
-    pitchSD.empty();
-    pitchRate = 15.0;
-    roll = 0.0;
-    rollSD.empty();
-    rollBASD.empty();
-    rollRate = 10.0;
-    slip = 0.0;
-    slipSD.empty();
-    slipRate = 5.0;
-    calAS = 0.0;
-    calASRate = 20.0;
-    calASSD.empty();
-    alt = 0.0;
-    altRate = 100.0;
-    altSD.empty();
-    mag = 0.0;
-    magRate = 15.0;
-    magSD.empty();
-    cdmX = 0.0;
-    cdmY = 0.0;
-    cdmXSD.empty();
-    cdmYSD.empty();
-    cdmRollSD.empty();
-    ghostPitchSD.empty();
-    ghostRollSD.empty();
 }
 
 void TestAdi2::copyData(const TestAdi2& org, const bool)

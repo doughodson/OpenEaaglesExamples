@@ -21,9 +21,9 @@ public:
    virtual void updateData(const double dt = 0) override;
 
 private:
-    double aoa;
+    double aoa {};
+    double aoaRate {2.0};   // rate which are going (up or down)
     SendData aoaSD;
-    double  aoaRate;        // rate which are going (up or down)
     SendData aoaROSD;       // aoa readout
     SendData aoaASD;        // analog readout
 };
