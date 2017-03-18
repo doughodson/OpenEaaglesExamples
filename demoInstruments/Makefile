@@ -4,25 +4,25 @@ include ../makedefs
 PGM = demoInstruments
 
 OBJS =  \
-	inst_tests/TestAdi2.o \
-	inst_tests/TestAdi.o \
-	inst_tests/TestAlt.o \
-	inst_tests/TestButtons.o \
-	inst_tests/TestCas.o \
-	inst_tests/TestCompass.o \
-	inst_tests/TestDigitalGauge.o \
-	inst_tests/TestEngineDial.o \
-	inst_tests/TestEngPage.o \
-	inst_tests/TestFtitDial.o \
-	inst_tests/TestGauge1.o \
-	inst_tests/TestGMeterDial.o \
-	inst_tests/TestHsi.o \
-	inst_tests/TestLandingGear.o \
-	inst_tests/TestNozzle.o \
-	inst_tests/TestOilPressure.o \
-	inst_tests/TestRpmDial.o \
-	inst_tests/TestSpeedBrake.o \
-	inst_tests/TestVVI.o \
+	test_pages/TestAdi2.o \
+	test_pages/TestAdi.o \
+	test_pages/TestAlt.o \
+	test_pages/TestButtons.o \
+	test_pages/TestCas.o \
+	test_pages/TestCompass.o \
+	test_pages/TestDigitalGauge.o \
+	test_pages/TestEngineDial.o \
+	test_pages/TestEngPage.o \
+	test_pages/TestFtitDial.o \
+	test_pages/TestGauge1.o \
+	test_pages/TestGMeterDial.o \
+	test_pages/TestHsi.o \
+	test_pages/TestLandingGear.o \
+	test_pages/TestNozzle.o \
+	test_pages/TestOilPressure.o \
+	test_pages/TestRpmDial.o \
+	test_pages/TestSpeedBrake.o \
+	test_pages/TestVVI.o \
 	main.o
 
 LDFLAGS += -loe_instruments -loe_gui_glut -loe_graphics -loe_base
@@ -39,5 +39,6 @@ $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
+	-rm -f test_pages/*.o
 	-rm -f *.o
 	-rm -f $(PGM)
