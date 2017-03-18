@@ -12,9 +12,9 @@ AirportTests::AirportTests(
                const char* path)
 {
    char fullname[512];
-   oe::base::utStrcpy(fullname,512,path);
-   oe::base::utStrcat(fullname,512,"/");
-   oe::base::utStrcat(fullname,512,file);
+   oe::base::utStrcpy(fullname, 512, path);
+   oe::base::utStrcat(fullname, 512, "/");
+   oe::base::utStrcat(fullname, 512, file);
    db = new oe::dafif::AirportLoader();
    db->setPathname(path);
    db->setFilename(file);

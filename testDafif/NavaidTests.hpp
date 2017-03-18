@@ -31,7 +31,7 @@ public:
    void func2B(const double acLat, const double acLon, const double acElev, const bool printData);    // test queryByIcao()
 
 private:
-   oe::dafif::NavaidLoader* db;
+   oe::dafif::NavaidLoader* db {};
 };
 
 #endif

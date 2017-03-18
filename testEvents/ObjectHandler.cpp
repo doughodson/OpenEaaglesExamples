@@ -16,13 +16,6 @@ END_EVENT_HANDLER()
 ObjectHandler::ObjectHandler()
 {
     STANDARD_CONSTRUCTOR()
-
-    boolSD.empty();
-    intSD.empty();
-    floatSD.empty();
-    doubleSD.empty();
-    realSD.empty();
-    charSD.empty();
 }
 
 void ObjectHandler::copyData(const ObjectHandler& org, const bool)

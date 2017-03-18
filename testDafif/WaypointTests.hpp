@@ -26,7 +26,7 @@ public:
    void func3B(const double acLat, const double acLon, const double acElev, const bool printData);    // test queryByIcao()
 
 private:
-   oe::dafif::WaypointLoader* db;
+   oe::dafif::WaypointLoader* db {};
 };
 
 #endif

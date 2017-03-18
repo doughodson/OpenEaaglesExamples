@@ -3,10 +3,11 @@
 #define __Display_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
+#include <array>
 
 namespace oe {
-   namespace base { class Color; }
-   namespace graphics { class Material; }
+namespace base { class Color; }
+namespace graphics { class Material; }
 }
 
 class TestObject;
@@ -27,40 +28,41 @@ public:
 
 private:
     // boolean
-    bool myBool;
+    bool myBool {};
     SendData boolSD;
 
-    // Integer
-    int myInt;
+    // integer
+    int myInt {};
     SendData intSD;
 
     // float
-    float myFloat;
+    float myFloat {};
     SendData floatSD;
 
     // double
-    double myDouble;
+    double myDouble {};
     SendData doubleSD;
 
     // object
-    TestObject* obj;
+    TestObject* obj {};
     SendData objSD;
 
-    char myChar[10];
+    // characters
+    char myChar[10] {"ASCII"};
     SendData charSD;
 
-    oe::base::Color* myColor;
+    oe::base::Color* myColor {};
     SendData colorSD;
 
     static const int MAX_MATERIALS = 3;
-    oe::graphics::Material* materials[MAX_MATERIALS];
-    SendData materialSD[MAX_MATERIALS];
-    oe::base::Vec3d diffColorRate[MAX_MATERIALS];
+    std::array<oe::graphics::Material*, MAX_MATERIALS> materials {};
+    std::array<SendData, MAX_MATERIALS> materialSD;
+    std::array<oe::base::Vec3d, MAX_MATERIALS> diffColorRate;
 
-    double rotations[MAX_MATERIALS];
-    SendData rotationsSD[MAX_MATERIALS];
+    std::array<double, MAX_MATERIALS> rotations {};
+    std::array<SendData, MAX_MATERIALS> rotationsSD {};
 
-    int counter;    // to slowly increment our numbers
+    int counter {};    // to slowly increment our numbers
 };
 
 #endif

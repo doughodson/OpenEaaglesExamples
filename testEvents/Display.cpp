@@ -21,42 +21,33 @@ Display::Display()
 {
     STANDARD_CONSTRUCTOR()
 
-    myBool = false;
-    boolSD.empty();
-    myInt = 0;
-    intSD.empty();
-    myFloat = 0.0f;
-    floatSD.empty();
-    myDouble = 0.0;
-    doubleSD.empty();
     obj = new TestObject();
-    base::utStrcpy(myChar, sizeof(myChar), "ASCII");
-    charSD.empty();
     myColor = new base::Color();
     myColor->setRed(0.0);
     myColor->setBlue(0.0);
     myColor->setGreen(0.0);
 
     // setup a random number generator to start our colors
-    const auto rng = new base::Rng();
-    base::Vec4d diffColor[MAX_MATERIALS];
+    //const auto rng = new base::Rng();
+    base::Rng rng;
+    base::Vec4d diffColor[MAX_MATERIALS] {};
     // this will get our computer time, and take the result, giving us
     // a random seed to start our generator
     double x = base::getComputerTime();
     x -= static_cast<int>(x);
     x *= 10;
-    int seed = base::nint(static_cast<double>(x));
+    const unsigned int seed = static_cast<unsigned int>(base::nint(static_cast<double>(x)));
 
     // go through x amount of numbers before we get our next random number
     // this will allow for some pseudo-randomness.
-    for (int i = 0; i < seed; i++) rng->drawClosed();
+    for (unsigned int i = 0; i < seed; i++) rng.drawClosed();
 
-    for (int i = 0; i < MAX_MATERIALS; i++) {
+    for (unsigned int i = 0; i < MAX_MATERIALS; i++) {
         materials[i] = new graphics::Material();
         materialSD[i].empty();
-        diffColor[i].set(static_cast<double>(rng->drawClosed()),
-                         static_cast<double>(rng->drawClosed()),
-                         static_cast<double>(rng->drawClosed()), 1);
+        diffColor[i].set(static_cast<double>(rng.drawClosed()),
+                         static_cast<double>(rng.drawClosed()),
+                         static_cast<double>(rng.drawClosed()), 1);
         //std::cout << "DIFF COLOR = " << diffColor[i].x() << ", " << diffColor[i].y() << ", " << diffColor[i].z() << std::endl;
         materials[i]->setDiffuseColor(diffColor[i]);
         // set up initial different colors
@@ -64,9 +55,7 @@ Display::Display()
         rotations[i] = 0;
         rotationsSD[i].empty();
     }
-
-    rng->unref();
-    counter = 0;
+    //rng->unref();
 }
 
 void Display::copyData(const Display& org, const bool cc)
@@ -214,7 +203,7 @@ void Display::updateData(const double dt)
     for (int i = 0; i < MAX_MATERIALS; i++) {
         tempMat[i] = static_cast<base::Object*>(materials[i]);
     }
-    send("matarray%d", SET_MATERIAL, tempMat, materialSD, MAX_MATERIALS);
+    send("matarray%d", SET_MATERIAL, tempMat, materialSD.data(), MAX_MATERIALS);
     // send rotations to our objects as well
-    send("rotators%d", UPDATE_VALUE2, rotations, rotationsSD, MAX_MATERIALS);
+    send("rotators%d", UPDATE_VALUE2, rotations.data(), rotationsSD.data(), MAX_MATERIALS);
 }

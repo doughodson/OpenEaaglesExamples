@@ -59,8 +59,9 @@ public:
    void func0A();
 
    void func0B(const double acLat, const double acLon, const double acElev, const bool printData);
+
 private:
-   oe::dafif::AirportLoader* db;
+   oe::dafif::AirportLoader* db {};
 };
 
 #endif
