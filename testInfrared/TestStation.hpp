@@ -37,7 +37,7 @@ private:
    bool setSlotGlutDisplay(oe::glut::GlutDisplay* const msg);
 
    oe::base::safe_ptr<oe::glut::GlutDisplay> glutDisplay;
-   bool glutDisplayInit;
+   bool glutDisplayInit {};
 };
 
 #endif

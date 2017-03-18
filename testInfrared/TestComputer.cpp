@@ -9,8 +9,6 @@
 
 #include "openeaagles/models/WorldModel.hpp"
 
-#include <iostream>
-
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestComputer, "TestComputer")
 EMPTY_SERIALIZER(TestComputer)
 EMPTY_DELETEDATA(TestComputer)
@@ -18,8 +16,6 @@ EMPTY_DELETEDATA(TestComputer)
 TestComputer::TestComputer()
 {
    STANDARD_CONSTRUCTOR()
-   uncaged=false;
-   haveTarget=false;
 }
 
 void TestComputer::reset()

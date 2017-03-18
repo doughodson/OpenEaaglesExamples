@@ -36,8 +36,8 @@ protected:
    virtual void process(const double dt) override;
 
 private:
-   bool uncaged;      // flag that indicates whether gimbal is free to track target
-   bool haveTarget;   // flag indicating if we have a target track
+   bool uncaged {};      // flag that indicates whether gimbal is free to track target
+   bool haveTarget {};   // flag indicating if we have a target track
 };
 
 #endif

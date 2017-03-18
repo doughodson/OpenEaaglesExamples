@@ -19,7 +19,6 @@ EMPTY_SLOTTABLE(TestDisplay)
 EMPTY_SERIALIZER(TestDisplay)
 EMPTY_DELETEDATA(TestDisplay)
 
-// Event() map
 BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('r',onResetKey)        // Station Reset
    ON_EVENT('R',onResetKey)        // Station Reset
@@ -40,12 +39,6 @@ END_EVENT_HANDLER()
 TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
-
-   for (unsigned int i = 0; i < MAX_TRACKS; i++) {
-      tracks[i] = nullptr;
-      trkIdx[i] = 0;
-   }
-   range = 40.0;
 }
 
 void TestDisplay::copyData(const TestDisplay& org, const bool)
@@ -53,7 +46,7 @@ void TestDisplay::copyData(const TestDisplay& org, const bool)
    BaseClass::copyData(org);
 
    myStation = nullptr;
-   for (int i = 0; i < MAX_TRACKS; i++) {
+   for (unsigned int i = 0; i < MAX_TRACKS; i++) {
       tracks[i] = nullptr;
       trkIdx[i] = 0;
    }
@@ -176,16 +169,16 @@ void TestDisplay::updateData(const double dt)
 //------------------------------------------------------------------------------
 void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, const double rng)
 {
-   int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
-   double rng2 = (rng * rng);          // Range squared (KM * KM)
+   int codes[MAX_TRACKS] {};              // Work codes: empty(0), matched(1), unmatched(-1)
+   const double rng2 = (rng * rng);       // Range squared (KM * KM)
 
-   oe::models::Player* newTracks[MAX_TRACKS];      // New tracks to add
-   int nNewTracks = 0;                             // Number of new tracks
+   oe::models::Player* newTracks[MAX_TRACKS] {};   // New tracks to add
+   int nNewTracks {};                              // Number of new tracks
    oe::models::Player* target = nullptr;
 
    // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
    int maxTracks = loader->getMaxSymbols();
-   if (MAX_TRACKS < maxTracks) maxTracks = MAX_TRACKS;
+   if (MAX_TRACKS < static_cast<unsigned int>(maxTracks)) maxTracks = MAX_TRACKS;
 
    // Set the initial codes
    for (int i = 0; i < maxTracks; i++) {
@@ -222,7 +215,7 @@ void TestDisplay::maintainAirTrackSymbols(oe::graphics::SymbolLoader* loader, co
 
                // Are we already in the track list?
                bool found = false;
-               for (int i = 0; !found && i < maxTracks; i++) {
+               for (unsigned int i = 0; !found && i < static_cast<unsigned int>(maxTracks); i++) {
                   if (p == tracks[i]) {
                      // Yes it is.  So mark the slot as matched!
                      codes[i] = 1;

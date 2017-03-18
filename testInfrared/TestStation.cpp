@@ -13,12 +13,10 @@
 
 IMPLEMENT_SUBCLASS(TestStation, "TestStation")
 
-// slot table for this class type
 BEGIN_SLOTTABLE(TestStation)
     "glutDisplay",
 END_SLOTTABLE(TestStation)
 
-//  Map slot table to handles
 BEGIN_SLOT_MAP(TestStation)
     ON_SLOT(1, setSlotGlutDisplay, oe::glut::GlutDisplay)
 END_SLOT_MAP()
@@ -26,18 +24,11 @@ END_SLOT_MAP()
 TestStation::TestStation()
 {
    STANDARD_CONSTRUCTOR()
-
-   glutDisplay = nullptr;
-   glutDisplayInit = false;
 }
 
-void TestStation::copyData(const TestStation& org, const bool cc)
+void TestStation::copyData(const TestStation& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      glutDisplay = nullptr;
-   }
 
    setSlotGlutDisplay(nullptr);
    glutDisplayInit = false;
