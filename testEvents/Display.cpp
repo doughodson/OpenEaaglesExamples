@@ -22,13 +22,13 @@ Display::Display()
     STANDARD_CONSTRUCTOR()
 
     obj = new TestObject();
+    base::utStrcpy(myChar, sizeof(myChar), "ASCII");
     myColor = new base::Color();
     myColor->setRed(0.0);
     myColor->setBlue(0.0);
     myColor->setGreen(0.0);
 
     // setup a random number generator to start our colors
-    //const auto rng = new base::Rng();
     base::Rng rng;
     base::Vec4d diffColor[MAX_MATERIALS] {};
     // this will get our computer time, and take the result, giving us
@@ -55,7 +55,6 @@ Display::Display()
         rotations[i] = 0;
         rotationsSD[i].empty();
     }
-    //rng->unref();
 }
 
 void Display::copyData(const Display& org, const bool cc)
