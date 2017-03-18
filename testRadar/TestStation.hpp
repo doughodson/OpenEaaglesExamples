@@ -38,15 +38,15 @@ private:
    bool setSlotGlutDisplay(oe::glut::GlutDisplay* const msg);
 
    oe::base::safe_ptr<oe::glut::GlutDisplay> glutDisplay;
-   bool glutDisplayInit;
+   bool glutDisplayInit {};
 
    // Past (N-1) switches and values
-   bool rstSw1;
-   bool frzSw1;
-   bool tgtStepSw1;
-   bool wpnRelSw1;
-   bool incTagPlayerSw1;
-   double bgAntenna;
+   bool rstSw1 {};
+   bool frzSw1 {};
+   bool tgtStepSw1 {};
+   bool wpnRelSw1 {};
+   bool incTagPlayerSw1 {};
+   double bgAntenna {};
 };
 
 #endif

@@ -3,6 +3,7 @@
 #define __TestDisplay_H__
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
+#include <array>
 
 namespace oe {
 namespace models { class Missile; class Player; }
@@ -66,19 +67,19 @@ private:
     bool onDecRngKey();
     bool onStepOwnshipKey();
 
-    DspRadar*  rdrDisplay;     // Test RADAR display
-    DspRwr*    rwrDisplay;     // Test RWR display
+    DspRadar* rdrDisplay {};     // Test RADAR display
+    DspRwr*   rwrDisplay {};     // Test RWR display
 
-    double     range;          // SD range
+    double range {40.0};         // SD range
 
-    SendData   headingSD;
-    SendData   rangeSD;
+    SendData headingSD;
+    SendData rangeSD;
 
     oe::base::safe_ptr<oe::simulation::Station> myStation;
 
     static const unsigned int MAX_TRACKS = 200;
-    oe::models::Player* tracks[MAX_TRACKS];        // players that we're displaying
-    int           trkIdx[MAX_TRACKS];              // Index of track symbols
+    std::array<oe::models::Player*, MAX_TRACKS> tracks {};  // players that we're displaying
+    std::array<int, MAX_TRACKS> trkIdx {};                  // Index of track symbols
 };
 
 #endif

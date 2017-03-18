@@ -41,7 +41,7 @@ public:
 private:
    bool onUpdateValue(const oe::base::Number* const msg);
 
-   double azimuth;  // (degs)
+   double azimuth {};  // (degs)
 };
 
 #endif

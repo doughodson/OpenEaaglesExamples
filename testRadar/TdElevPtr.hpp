@@ -40,7 +40,7 @@ public:
 private:
    bool onUpdateValue(const oe::base::Number* const);
 
-   double elev;  // (degs)
+   double elev {};  // (degs)
 };
 
 #endif

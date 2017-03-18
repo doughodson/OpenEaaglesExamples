@@ -29,7 +29,6 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
 EMPTY_DELETEDATA(TestDisplay)
 
-// Event() map
 BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('r',onResetKey)        // Station Reset
    ON_EVENT('R',onResetKey)        // Station Reset
@@ -56,14 +55,6 @@ END_EVENT_HANDLER()
 TestDisplay::TestDisplay() : myStation(nullptr)
 {
    STANDARD_CONSTRUCTOR()
-
-   rdrDisplay = nullptr;
-   rwrDisplay = nullptr;
-   for (unsigned int i = 0; i < MAX_TRACKS; i++) {
-      tracks[i] = nullptr;
-      trkIdx[i] = 0;
-   }
-   range = 40.0;
 }
 
 void TestDisplay::copyData(const TestDisplay& org, const bool)
@@ -71,11 +62,8 @@ void TestDisplay::copyData(const TestDisplay& org, const bool)
    BaseClass::copyData(org);
 
    myStation = nullptr;
-   for (int i = 0; i < MAX_TRACKS; i++) {
-      tracks[i] = nullptr;
-      trkIdx[i] = 0;
-   }
-
+   tracks.fill(nullptr);
+   trkIdx.fill(0);
    rdrDisplay = nullptr;
    rwrDisplay = nullptr;
    range = org.range;
@@ -339,7 +327,7 @@ void TestDisplay::mouseEvent(const int button, const int state, const int x, con
                int idx = myLoader->getSymbolIndex(selected);
                if (idx > 0) {
                   int found = -1;
-                  for (int i = 0; found < 0 && i < MAX_TRACKS; i++) {
+                  for (unsigned int i = 0; found < 0 && i < MAX_TRACKS; i++) {
                      if (idx == trkIdx[i]) found = i;
                   }
                   if (found >= 0) {
@@ -365,7 +353,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
 
     // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
     int maxTracks = loader->getMaxSymbols();
-    if (MAX_TRACKS < maxTracks) maxTracks = MAX_TRACKS;
+    if (MAX_TRACKS < static_cast<unsigned int>(maxTracks)) maxTracks = MAX_TRACKS;
 
     // Set the initial codes
     for (int i = 0; i < maxTracks; i++) {

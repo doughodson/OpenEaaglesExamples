@@ -31,7 +31,7 @@ public:
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    oe::models::Rwr* rwr;     // The test RWR sensor
+    oe::models::Rwr* rwr {};     // The test RWR sensor
 };
 
 #endif

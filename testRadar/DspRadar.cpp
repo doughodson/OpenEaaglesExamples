@@ -20,12 +20,6 @@ EMPTY_DELETEDATA(DspRadar)
 DspRadar::DspRadar()
 {
    STANDARD_CONSTRUCTOR()
-
-   radar = nullptr;
-   nTracks = 0;
-   ntsTrk = -1;
-   azSD.empty();
-   elSD.empty();
 }
 
 void DspRadar::copyData(const DspRadar& org, const bool)

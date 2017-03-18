@@ -17,7 +17,6 @@ END_EVENT_HANDLER()
 TdElevPtr::TdElevPtr()
 {
     STANDARD_CONSTRUCTOR()
-    elev = 0.0;
 }
 
 void TdElevPtr::copyData(const TdElevPtr& org, const bool)
