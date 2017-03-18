@@ -26,7 +26,7 @@ public:
 
 private:
    // select/pick test
-   oe::graphics::Graphic* selected;
+   oe::graphics::Graphic* selected {};
 };
 
 #endif

@@ -29,23 +29,12 @@ BEGIN_SLOT_MAP(TestTwo)
     ON_SLOT(8, setV2Min, base::Number)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// event handler macro - default - replaces event()
-//------------------------------------------------------------------------------
 BEGIN_EVENT_HANDLER(TestTwo)
 END_EVENT_HANDLER()
 
 TestTwo::TestTwo()
 {
     STANDARD_CONSTRUCTOR()
-    iv1     = 0.0f;
-    iv1Rate = 0.1f;
-    v1Max  = 1.0f;
-    v1Min  = 0.0f;
-    iv2     = 0.0f;
-    iv2Rate = 0.1f;
-    v2Max  = 1.0f;
-    v2Min  = 0.0f;
     reset();
 }
 

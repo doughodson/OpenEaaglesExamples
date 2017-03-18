@@ -32,15 +32,14 @@ public:
     virtual bool setV2Min(const oe::base::Number* const sv2miobj);
 
 private:
+    double v1 {}, v1Rate {};
+    double v1Max {1.0}, v1Min {};
 
-    double v1, v1Rate;
-    double v1Max, v1Min;
+    double v2 {}, v2Rate {};
+    double v2Max {1.0}, v2Min {};
 
-    double v2, v2Rate;
-    double v2Max, v2Min;
-
-    double iv1, iv1Rate;
-    double iv2, iv2Rate;
+    double iv1 {}, iv1Rate {0.1};
+    double iv2 {}, iv2Rate {0.1};
 
     SendData v1SD;
     SendData v2SD;

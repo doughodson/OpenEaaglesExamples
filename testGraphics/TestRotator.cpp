@@ -14,19 +14,10 @@ EMPTY_DELETEDATA(TestRotator)
 TestRotator::TestRotator()
 {
     STANDARD_CONSTRUCTOR()
-    t1Pos = 0;
-    t1Rate = 0.5;
-    t2Pos = 0;
-    t2Rate = 0.7;
-    t3Pos = 0;
-    t3Rate = 0.3;
     light_position[0] = 1;
     light_position[1] = 1;
     light_position[2] = 1;
     light_position[3] = 0;
-    rotate = 0;
-    rotateRate = 20;
-    count = 0;
 }
 
 void TestRotator::copyData(const TestRotator& org, const bool)

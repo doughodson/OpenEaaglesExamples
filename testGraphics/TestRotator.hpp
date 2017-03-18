@@ -20,16 +20,16 @@ public:
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    double t1Pos;
-    double t1Rate;
-    double t2Pos;
-    double t2Rate;
-    double t3Pos;
-    double t3Rate;
-    double rotate;
-    double rotateRate;
-    GLfloat light_position[4];
-    int count;
+    double t1Pos {};
+    double t1Rate {0.5};
+    double t2Pos {};
+    double t2Rate {0.7};
+    double t3Pos {};
+    double t3Rate {0.3};
+    double rotate {};
+    double rotateRate {20};
+    GLfloat light_position[4] {};
+    int count {};
 };
 
 #endif

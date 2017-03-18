@@ -26,19 +26,7 @@ END_EVENT_HANDLER()
 TestOne::TestOne()
 {
     STANDARD_CONSTRUCTOR()
-
-    leftLimit(-10.0);
-    rightLimit(10.0);
-    bottomLimit(-10.0);
-    topLimit(10.0);
-    setPosition(0.0, 0.0);
-    xOld = 0.0;
-    yOld = 0.0;
-    nTrails = 0;
-    index  = 0;
-    sangle = 0.0;
     setSpeed(10.0);
-    iangle = nullptr;
 }
 
 void TestOne::copyData(const TestOne& org, const bool)

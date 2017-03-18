@@ -12,7 +12,6 @@ EMPTY_DELETEDATA(TdAzPtr)
 TdAzPtr::TdAzPtr()
 {
     STANDARD_CONSTRUCTOR()
-    azimuth = 0.0;
 }
 
 void TdAzPtr::copyData(const TdAzPtr& org, const bool)

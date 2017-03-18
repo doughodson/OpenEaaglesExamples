@@ -10,21 +10,18 @@ using namespace oe;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SERIALIZER(TestDisplay)
-
-TestDisplay::TestDisplay()
-{
-   STANDARD_CONSTRUCTOR()
-   selected = nullptr;
-}
-
 EMPTY_COPYDATA(TestDisplay)
 EMPTY_DELETEDATA(TestDisplay)
 
-// Event() map
 BEGIN_EVENT_HANDLER(TestDisplay)
    ON_EVENT('f',onFrameBufferKey)
    ON_EVENT('F',onFrameBufferKey)
 END_EVENT_HANDLER()
+
+TestDisplay::TestDisplay()
+{
+   STANDARD_CONSTRUCTOR()
+}
 
 void TestDisplay::drawIt()
 {

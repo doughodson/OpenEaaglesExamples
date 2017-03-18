@@ -3,6 +3,7 @@
 #define __TestOne_H__
 
 #include "openeaagles/graphics/Graphic.hpp"
+#include <array>
 
 namespace oe {
 namespace base { class Angle; class Number; }
@@ -52,19 +53,19 @@ public:
     virtual void reset() override;
 
 private:
+    static const int maxHist = 10;
 
-    enum { maxHist = 10 };
-    double left, right;                     // X limits
-    double bottom, top;                     // Y limits
-    double xPos, yPos;                      // Position
-    double xOld, yOld;                      // Previous Position
-    double dx, dy;                          // Delta position
-    double speed;                           // Speed
-    double sangle;                          // Starting angle (radians)
-    oe::base::Vec2d trail[maxHist];         // Display trail
-    int    nTrails;                         // Trail size
-    int    index;                           // Trail index
-    oe::base::Angle* iangle;                // Input angle
+    double left {-10.0}, right {10.0};           // X limits
+    double bottom {-10.0}, top {10.0};           // Y limits
+    double xPos {}, yPos {};                     // Position
+    double xOld {}, yOld {};                     // Previous Position
+    double dx {}, dy {};                         // Delta position
+    double speed {10.0};                         // Speed
+    double sangle {};                            // Starting angle (radians)
+    std::array<oe::base::Vec2d, maxHist> trail;  // Display trail
+    int nTrails {};                              // Trail size
+    int index {};                                // Trail index
+    oe::base::Angle* iangle {};                  // Input angle
 };
 
 #endif

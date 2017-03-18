@@ -20,7 +20,7 @@ public:
     virtual void draw() override;
 
 private:
-    double azimuth;
+    double azimuth {};
 };
 
 #endif

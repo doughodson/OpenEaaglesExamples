@@ -27,7 +27,7 @@ public:
     virtual bool onUpdateValue(const oe::base::Number* const ouvobj);
 
 private:
-    double  elev;
+    double elev {};
 };
 
 #endif
