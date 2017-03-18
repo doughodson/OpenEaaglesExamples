@@ -16,7 +16,7 @@ EMPTY_DELETEDATA(DataRecorder)
 // DataRecorder dispatch table
 //------------------------------------------------------------------------------
 BEGIN_RECORDER_HANDLER_TABLE(DataRecorder)
-   ON_RECORDER_EVENT_ID( REID_MY_DATA_EVENT,   recordMyData )
+   ON_RECORDER_EVENT_ID( REID_MY_DATA_EVENT, recordMyData )
 END_RECORDER_HANDLER_TABLE()
 
 DataRecorder::DataRecorder()

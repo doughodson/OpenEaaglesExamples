@@ -46,7 +46,6 @@ BEGIN_SLOTTABLE(DataRecordTest)
    "printSelected2",      // 7) printer using reflection (std out only)
 END_SLOTTABLE(DataRecordTest)
 
-// Map slot table to handles
 BEGIN_SLOT_MAP(DataRecordTest)
    ON_SLOT(1, setSlotTabPrinter,     recorder::TabPrinter)
    ON_SLOT(2, setSlotFileWriter,     recorder::FileWriter)
@@ -79,7 +78,7 @@ DataRecordTest::DataRecordTest()
       selection[i].compareValD = 0;
       selection[i].compareValS = "";
       selection[i].compareValI = 0;
-      selection[i].condition = oe::recorder::PrintSelected::EQ;
+      selection[i].condition = oe::recorder::PrintSelected::Condition::EQ;
       selection[i].timeOnly = false;
    }
 }
@@ -1351,16 +1350,16 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
                   unsigned int cond;
                   std::cin >>  cond;
                   if (cond == 1) {
-                     setCompareCondition(oe::recorder::PrintSelected::LT);
+                     setCompareCondition(oe::recorder::PrintSelected::Condition::LT);
                   }
                   else if (cond == 2) {
-                     setCompareCondition(oe::recorder::PrintSelected::GT);
+                     setCompareCondition(oe::recorder::PrintSelected::Condition::GT);
                   }
                   else {
-                     setCompareCondition(oe::recorder::PrintSelected::EQ);
+                     setCompareCondition(oe::recorder::PrintSelected::Condition::EQ);
                   }
                }
-               else setCompareCondition(oe::recorder::PrintSelected::EQ); // not needed in this case
+               else setCompareCondition(oe::recorder::PrintSelected::Condition::EQ); // not needed in this case
             }
             else if (select == "Q" || select == "q") {
                fieldSelected = true;  // force exit

@@ -18,7 +18,6 @@ BEGIN_SLOTTABLE(DataRecordTest)
    "outputHandler",
 END_SLOTTABLE(DataRecordTest)
 
-// Map slot table to handles
 BEGIN_SLOT_MAP(DataRecordTest)
    ON_SLOT(1, setSlotInputHandler, oe::recorder::InputHandler)
    ON_SLOT(2, setSlotOutputHandler, oe::recorder::OutputHandler)
