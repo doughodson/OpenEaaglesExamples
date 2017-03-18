@@ -18,9 +18,6 @@ EMPTY_DELETEDATA(Sender)
 Sender::Sender()
 {
     STANDARD_CONSTRUCTOR()
-
-    msgCounter = 0;
-    recvMode = false;
 }
 
 void Sender::copyData(const Sender& org, const bool)

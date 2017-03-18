@@ -6,10 +6,10 @@
 
 int main(int, char**)
 {
-   enum { PULSE, STEP, RAMP };
-   const unsigned int inputType = STEP;
-   const unsigned int RATE = 100;
-   const double A = 10.0;
+   enum class InputType { PULSE, STEP, RAMP };
+   const InputType inputType = InputType::STEP;
+   const unsigned int RATE {100};
+   const double A {10.0};
 
    oe::linearsystem::Sz1 filter;
 
@@ -35,18 +35,18 @@ int main(int, char**)
    for (unsigned int i = 0; i < RATE; i++) {
       time += deltaTime;
       double input = 0.0;
-      if (inputType == PULSE && i < 1) {
+      if (inputType == InputType::PULSE && i < 1) {
          input = 1.0f;
       }
-      else if (inputType == STEP) {
+      else if (inputType == InputType::STEP) {
          input = 1.0f;
       }
-      else if (inputType == RAMP) {
+      else if (inputType == InputType::RAMP) {
          input = time;
       }
-      double out = filter.g(input);
-      double ee = std::exp( -time * A );
-      std::cout << time << ", " << input << ", " << (1.0 -ee) << ", " << out << std::endl;
+      const double out = filter.g(input);
+      const double ee = std::exp( -time * A );
+      std::cout << time << ", " << input << ", " << (1.0 - ee) << ", " << out << std::endl;
    }
 
    return EXIT_SUCCESS;

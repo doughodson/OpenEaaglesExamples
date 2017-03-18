@@ -5,7 +5,7 @@
 #include "openeaagles/base/Component.hpp"
 
 namespace oe {
-   namespace base { class NetHandler; class Number; }
+namespace base { class NetHandler; class Number; }
 }
 
 //------------------------------------------------------------------------------
@@ -60,10 +60,10 @@ protected:
 private:
     oe::base::safe_ptr<oe::base::NetHandler> netHandler; // Network handler (input/output, or just output if netInput is defined)
     oe::base::safe_ptr<oe::base::NetHandler> netInput;   // Optional input handler (otherwise 'netHandler' is used)
-    unsigned int loops;                                  // Number of transfer loops (zero if no limit)
-    bool   networkInitialized;                           // Network has been initialized
-    bool   networkInitFailed;                            // Network initialization has failed
-    bool   noWaitFlag;                                   // No wait (unblocked) I/O flag
+    unsigned int loops {};                               // Number of transfer loops (zero if no limit)
+    bool networkInitialized {};                          // Network has been initialized
+    bool networkInitFailed {};                           // Network initialization has failed
+    bool noWaitFlag {};                                  // No wait (unblocked) I/O flag
 };
 
 #endif

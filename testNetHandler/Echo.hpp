@@ -20,7 +20,7 @@ public:
    virtual void reset() override;
 
 private:
-   unsigned int loopCounter;
+   unsigned int loopCounter {};
 };
 
 #endif

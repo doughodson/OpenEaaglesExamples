@@ -17,7 +17,6 @@ EMPTY_DELETEDATA(Echo)
 Echo::Echo()
 {
     STANDARD_CONSTRUCTOR()
-    loopCounter = 0;
 }
 
 void Echo::copyData(const Echo& org, const bool)

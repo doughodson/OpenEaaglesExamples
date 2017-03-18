@@ -11,16 +11,16 @@
 using namespace oe::base;
 
 namespace d {   // constants that define matrix dimensions
-	const unsigned int rows = 4;
-	const unsigned int cols = 4;
-	const unsigned int size = rows * cols;
+const unsigned int rows = 4;
+const unsigned int cols = 4;
+const unsigned int size = rows * cols;
 }
 
-  // Size = 3
-  //double pArr[] = {4,-1,1,-1,3,-2,1,-2,3};
+// Size = 3
+//double pArr[] = {4,-1,1,-1,3,-2,1,-2,3};
 
-  // Size = 4
-  double pArr[] = {4,1,-2,2,1,2,0,1,-2,0,3,-2,2,1,-2,-1};
+// Size = 4
+const double pArr[] = {4,1,-2,2,1,2,0,1,-2,0,3,-2,2,1,-2,-1};
 
 ////////////////////////////////////////////////////////////////////////////////
 void testConstructors();

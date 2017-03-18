@@ -22,8 +22,8 @@ public:
     virtual void reset() override;
 
 private:
-    unsigned int msgCounter;    // test message counter
-    bool         recvMode;      // True if in receive mode
+    unsigned int msgCounter {};  // test message counter
+    bool         recvMode {};    // True if in receive mode
 };
 
 #endif

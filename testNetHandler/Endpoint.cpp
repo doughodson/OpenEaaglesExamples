@@ -9,6 +9,7 @@ using namespace oe;
 
 IMPLEMENT_SUBCLASS(Endpoint, "Endpoint")
 EMPTY_SERIALIZER(Endpoint)
+EMPTY_DELETEDATA(Endpoint)
 
 BEGIN_SLOTTABLE(Endpoint)
    "netHandler",           // 1) Network handler (input/output, or just output if netInput is defined)
@@ -18,7 +19,6 @@ BEGIN_SLOTTABLE(Endpoint)
    "loops",                // 5) Number of messages to send/recv before disconnecting and halting (default: infinite)
 END_SLOTTABLE(Endpoint)
 
-// Map slot table to handles
 BEGIN_SLOT_MAP(Endpoint)
     ON_SLOT(1, setSlotNetwork,   oe::base::NetHandler)
     ON_SLOT(2, setSlotNetInput,  oe::base::NetHandler)
@@ -27,24 +27,14 @@ BEGIN_SLOT_MAP(Endpoint)
     ON_SLOT(5, setSlotLoops,     oe::base::Number)
 END_SLOT_MAP()
 
-Endpoint::Endpoint() : netHandler(nullptr), netInput(nullptr)
+Endpoint::Endpoint()
 {
    STANDARD_CONSTRUCTOR()
-
-   networkInitialized = false;
-   networkInitFailed = false;
-   noWaitFlag = false;
-   loops = 0;
 }
 
-void Endpoint::copyData(const Endpoint& org, const bool cc)
+void Endpoint::copyData(const Endpoint& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      netHandler = nullptr;
-      netInput = nullptr;
-   }
 
    noWaitFlag = org.noWaitFlag;
    loops = org.loops;
@@ -54,12 +44,6 @@ void Endpoint::copyData(const Endpoint& org, const bool cc)
    netInput = nullptr;
    networkInitialized = false;
    networkInitFailed = false;
-}
-
-void Endpoint::deleteData()
-{
-   netHandler = nullptr;
-   netInput = nullptr;
 }
 
 // reset vehicle
