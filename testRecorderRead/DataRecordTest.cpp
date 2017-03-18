@@ -26,19 +26,11 @@ END_SLOT_MAP()
 DataRecordTest::DataRecordTest()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
-void DataRecordTest::initData()
-{
-   inputHandler = nullptr;
-   outputHandler = nullptr;
-}
-
-void DataRecordTest::copyData(const DataRecordTest& org, const bool cc)
+void DataRecordTest::copyData(const DataRecordTest& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) initData();
 
    {  // Clone input handler
       oe::recorder::InputHandler* clone = nullptr;

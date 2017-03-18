@@ -19,9 +19,6 @@ public:
 
 protected:
    virtual void processRecordImp(const oe::recorder::DataRecordHandle* const handle) override;
-
-private:
-   void initData();
 };
 
 #endif

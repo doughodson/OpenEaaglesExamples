@@ -16,15 +16,15 @@ class DataRecordTest : public oe::base::Component
    DECLARE_SUBCLASS(DataRecordTest, oe::base::Component)
 
 public:
-    DataRecordTest();
+   DataRecordTest();
 
-    // Main test
-    void runTest();
+   // Main test
+   void runTest();
 
 protected:
-    // Slot functions
-    virtual bool setSlotInputHandler(oe::recorder::InputHandler* const msg);
-    virtual bool setSlotOutputHandler(oe::recorder::OutputHandler* const msg);
+   // Slot functions
+   virtual bool setSlotInputHandler(oe::recorder::InputHandler* const msg);
+   virtual bool setSlotOutputHandler(oe::recorder::OutputHandler* const msg);
 
 private:
    void initData();
