@@ -204,7 +204,7 @@ bool DataRecordTest::testSerialize()
       myFileWrite->processRecord(testFileIdMsg(runNum));
 
       // test the "isDataEnabled" member function
-      bool writeEnabled = myFileWrite->isDataEnabled(REID_NEW_PLAYER);
+      /* bool writeEnabled = */ myFileWrite->isDataEnabled(REID_NEW_PLAYER);
 
       //  Write messages
       myFileWrite->processRecord(testNewPlayerEventMsg());
@@ -238,7 +238,7 @@ bool DataRecordTest::testSerialize()
       myFileWrite->closeFile();
 
       // get the file name:
-      const char* fullname = myFileWrite->getFullFilename();
+      const std::string fullname = myFileWrite->getFullFilename();
       std::cout << "full file name: " << fullname << std::endl;
 
       // 3) read the file back:
@@ -449,27 +449,27 @@ bool DataRecordTest::testEvents()
 //         std::cin  >> outSelect;
 //         if (outSelect > 0) sendToFile = true;
 
-        const oe::recorder::DataRecordHandle* handle = nullptr;
+         //const oe::recorder::DataRecordHandle* handle = nullptr;
 
          switch (testNumber) {
-            case  1: { handle = testFileIdMsg(1); break; }
-            case  2: { handle = testNewPlayerEventMsg(); break; }
-            case  3: { handle = testPlayerRemovedEventMsg(); }
-            case  4: { handle = testPlayerDataMsg(); break; }
-            case  5: { handle = testPlayerDamagedEventMsg(); break; }
-            case  6: { handle = testPlayerCollisionEventMsg(); break; }
-            case  7: { handle = testPlayerCrashEventMsg(); break; }
-            case  8: { handle = testPlayerKilledEventMsg(0); break; }
-            case  9: { handle = testWeaponReleaseEventMsg(0); break; }
-            case 10: { handle = testWeaponHungEventMsg(); break; }
-            case 11: { handle = testWeaponDetonationEventMsg(); break; }
-            case 12: { handle = testGunFiredEventMsg(); break; }
-            case 13: { handle = testNewTrackEventMsg(); break; }
-            case 14: { handle = testTrackRemovedEventMsg(); break; }
-            case 15: { handle = testTrackDataMsg(); break; }
-            case 16: { handle = testLastMsg(); break; }
+            case  1: { /* handle = */ testFileIdMsg(1); break; }
+            case  2: { /* handle = */ testNewPlayerEventMsg(); break; }
+            case  3: { /* handle = */ testPlayerRemovedEventMsg(); }
+            case  4: { /* handle = */ testPlayerDataMsg(); break; }
+            case  5: { /* handle = */ testPlayerDamagedEventMsg(); break; }
+            case  6: { /* handle = */ testPlayerCollisionEventMsg(); break; }
+            case  7: { /* handle = */ testPlayerCrashEventMsg(); break; }
+            case  8: { /* handle = */ testPlayerKilledEventMsg(0); break; }
+            case  9: { /* handle = */ testWeaponReleaseEventMsg(0); break; }
+            case 10: { /* handle = */ testWeaponHungEventMsg(); break; }
+            case 11: { /* handle = */ testWeaponDetonationEventMsg(); break; }
+            case 12: { /* handle = */ testGunFiredEventMsg(); break; }
+            case 13: { /* handle = */ testNewTrackEventMsg(); break; }
+            case 14: { /* handle = */ testTrackRemovedEventMsg(); break; }
+            case 15: { /* handle = */ testTrackDataMsg(); break; }
+            case 16: { /* handle = */ testLastMsg(); break; }
             default:
-               { ynCont = 'n'; handle = nullptr; std::exit(0);  break; }
+               { ynCont = 'n'; /* handle = nullptr; */ std::exit(0);  break; }
          }
       }
       else ynCont = 'n';
@@ -689,7 +689,7 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerDamagedEventMsg()
    const google::protobuf::FieldDescriptor* id_field = descriptor->FindFieldByName("id");
 
    const google::protobuf::Reflection* reflection = recMsg->GetReflection();
-   unsigned int id = reflection->GetUInt32(*recMsg, id_field);
+   /*unsigned int id = */ reflection->GetUInt32(*recMsg, id_field);
 
 
    // required
@@ -729,7 +729,7 @@ oe::recorder::DataRecordHandle* DataRecordTest::testPlayerCollisionEventMsg()
    const auto handle = new oe::recorder::DataRecordHandle(recordMsg);
    oe::recorder::pb::PlayerId* pIdMsg = msg->mutable_id();
    oe::recorder::pb::PlayerState* pStMsg = msg->mutable_state();
-   oe::recorder::pb::PlayerId* other = msg->mutable_other_player_id();
+   /*oe::recorder::pb::PlayerId* other = */ msg->mutable_other_player_id();
 
    // required
    recordMsg->set_id(REID_PLAYER_COLLISION);
@@ -1344,7 +1344,7 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
             const google::protobuf::Message& sub_message = reflection->GetMessage(root, fieldDescriptor);
 
             // If sub message exists, process it
-            if (&sub_message != nullptr) {
+            //if (&sub_message != nullptr) {
                hasSubMessage = true;
                // Do we care?
                std::cout << "Select This Message? Y/N ";
@@ -1356,7 +1356,7 @@ bool DataRecordTest::processMessage(const google::protobuf::Message* const msg)
                   // call this until no more messages
                   processMessage(&sub_message);
                }
-            }
+            //}
          }
       }
    }

@@ -84,7 +84,7 @@ protected:
    double getUtcTime();
 
 private:
-   const char* fileName {""};
+   std::string fileName;
    oe::base::safe_ptr<oe::recorder::PrintPlayer> myPrintPlayer;
    oe::base::safe_ptr<oe::recorder::PrintSelected> myPrintSelected;
    oe::base::safe_ptr<oe::recorder::PrintSelected> myPrintSelected2;
