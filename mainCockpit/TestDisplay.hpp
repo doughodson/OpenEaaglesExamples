@@ -37,9 +37,9 @@ class TestDisplay : public oe::glut::GlutDisplay
     DECLARE_SUBCLASS(TestDisplay, oe::glut::GlutDisplay)
 
 public:
-    enum { MAX_TRACKS = 60 };
-
-    enum { NCHAR_NAV1_ID = 3, NCHAR_NAV2_ID = 5 };
+    static const int MAX_TRACKS = 60;
+    static const int NCHAR_NAV1_ID = 3;
+    static const int NCHAR_NAV2_ID = 5;
 
 public:
     TestDisplay();

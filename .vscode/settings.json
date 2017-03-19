@@ -8,6 +8,7 @@
       "vec3d": "cpp",
       "vec3f": "cpp",
       "vec4d": "cpp",
-      "vec4f": "cpp"
+      "vec4f": "cpp",
+      "string": "cpp"
    }
 }

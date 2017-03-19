@@ -24,21 +24,11 @@ EMPTY_SERIALIZER(WorldModel)
 WorldModel::WorldModel()
 {
    STANDARD_CONSTRUCTOR()
-
-   initData();
 }
 
-void WorldModel::initData()
-{
-   airports = nullptr;
-   navaids = nullptr;
-   waypoints = nullptr;
-}
-
-void WorldModel::copyData(const WorldModel& org, const bool cc)
+void WorldModel::copyData(const WorldModel& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) initData();
 
    const oe::dafif::AirportLoader* apLoader = org.airports;
    setAirports( const_cast<oe::dafif::AirportLoader*>(static_cast<const oe::dafif::AirportLoader*>(apLoader)) );

@@ -14,39 +14,21 @@
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(NavRadio, "NavRadio")
 EMPTY_SERIALIZER(NavRadio)
+EMPTY_DELETEDATA(NavRadio)
 
 NavRadio::NavRadio()
 {
    STANDARD_CONSTRUCTOR()
-
-   initData();
 }
 
-void NavRadio::initData()
-{
-   apdb           = nullptr;
-   nvdb           = nullptr;
-
-   latitude       = 0.0;
-   longitude      = 0.0;
-   altitude       = 0.0;
-}
-
-void NavRadio::copyData(const NavRadio& org, const bool cc)
+void NavRadio::copyData(const NavRadio& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) initData();
 
    latitude = org.latitude;
    longitude = org.longitude;
    altitude = org.altitude;
 
-   apdb = nullptr;
-   nvdb = nullptr;
-}
-
-void NavRadio::deleteData()
-{
    apdb = nullptr;
    nvdb = nullptr;
 }
@@ -145,18 +127,7 @@ TacanRadio::TacanRadio()
 void TacanRadio::initData()
 {
     setMaxDetectRange(120.0);
-
     setNumberOfChannels(126);
-
-    rangeIsValid = false;
-    bearingIsValid = false;
-    range = 0.0;
-    grdrange = 0.0;
-    bearing = 0.0;
-    destLatitude = 0.0;
-    destLongitude = 0.0;
-    currentMagVar = 0.0;
-    band = TCN_X_BAND;
 
     // Set frequencies
     {
@@ -301,6 +272,7 @@ bool TacanRadio::computeRangeBearing(bool* rngIsValid, double* range, double* gr
 //==============================================================================
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(IlsRadio, "IlsRadio")
 EMPTY_SERIALIZER(IlsRadio)
+EMPTY_DELETEDATA(IlsRadio)
 
 const double IlsRadio::GS_DEG_PER_DOT = 0.25;
 const double IlsRadio::LOC_DEG_PER_DOT = 1.25;
@@ -308,24 +280,7 @@ const double IlsRadio::LOC_DEG_PER_DOT = 1.25;
 IlsRadio::IlsRadio()
 {
     STANDARD_CONSTRUCTOR()
-
     setMaxDetectRange(35.0);
-
-    timerCounter = 0;
-    destLatitude = 0.0;
-    destLongitude = 0.0;
-    currentMagVar = 0.0;
-    localizerValid = false;
-    glideSlopeValid = false;
-    range = 0.0;
-    grdrange = 0.0;
-    bearing = 0.0;
-    ilsGlideSlope = 0.0;
-    acGlideSlope = 0.0;
-    deltaGlideSlope = 0.0;
-    ilsLocalizerBearing = 0.0;
-    acLocalizerBearing = 0.0;
-    deltaLocalizerBearing = 0.0;
 }
 
 void IlsRadio::copyData(const IlsRadio& org, const bool)
@@ -347,10 +302,6 @@ void IlsRadio::copyData(const IlsRadio& org, const bool)
     ilsLocalizerBearing = org.ilsLocalizerBearing;
     acLocalizerBearing = org.acLocalizerBearing;
     deltaLocalizerBearing = org.deltaLocalizerBearing;
-}
-
-void IlsRadio::deleteData()
-{
 }
 
 void IlsRadio::updateData(const double dt)

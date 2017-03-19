@@ -31,7 +31,7 @@ BEGIN_SLOTTABLE(Display)
    "altitude",       //  4) Reference altitude (Distance) (default: 15000 feet)
    "lookAngle",      //  5) Antenna look angle (Angle) (default: 0 degrees)
    "beamWidth",      //  6) Antenna Beam Width (Angle) (default: 180 degrees)
-   "colorScale",     //  7) Color scale:  gray(0), color(1), green(2) (default: gray)
+   "colorDepth",     //  7) Color scale:  gray(0), color(1), green(2) (default: gray)
    "interpolate",    //  8) Interpolate flag (default: false)
    "shadows",        //  9) Shadow test enabled
    "aac",            // 10) Aspect Angle test enabled
@@ -57,39 +57,11 @@ END_SLOT_MAP()
 Display::Display()
 {
    STANDARD_CONSTRUCTOR()
-
-   terrain = nullptr;
-
-   maxElev = 15000.0f * base::distance::FT2M;
-   minElev = 0;
-   altitude = 15000.0f * base::distance::FT2M;
-   lookAngle = 0;
-   beamWidth = 180.0f;
-   colorScale = 0;
-   haveMaxElev = false;
-   haveMinElev = false;
-   interpolate = false;
-   testShadows = false;
-   testAac = false;
-   testEarthCurv = false;
-   testTexture = false;
-
-   // the image
-   image = nullptr;
-   imgWidth = 0;
-   imgHeight = 0;
-   texture = 0;
 }
 
-void Display::copyData(const Display& org, const bool cc)
+void Display::copyData(const Display& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      terrain = nullptr;
-      texture = 0;
-      image = nullptr;
-   }
 
    if (org.terrain != nullptr)
       setSlotTerrain( org.terrain->clone() );
@@ -104,7 +76,7 @@ void Display::copyData(const Display& org, const bool cc)
 
    haveMaxElev = org.haveMaxElev;
    haveMinElev = org.haveMinElev;
-   colorScale = org.colorScale;
+   colorDepth = org.colorDepth;
    interpolate = org.interpolate;
    testShadows = org.testShadows;
    testAac = org.testAac;
@@ -228,7 +200,7 @@ bool Display::setSlotColorScale(const base::Number* const msg)
    if (msg != nullptr) {
       int s = msg->getInt();
       if (s >= 0 && s <= 2) {
-         colorScale = s;
+         colorDepth = static_cast<ColorDepth>(s);
          ok = true;
       }
    }
@@ -446,7 +418,7 @@ void Display::updateData(const double dt)
                double direction = 0;
 
                // get a strip of elevations from south to north
-               unsigned int num = terrain->getElevations(elevations, validFlgs, NUM_ROWS, latitude, longitude, direction, maxRng, interpolate);
+               /*unsigned int num = */ terrain->getElevations(elevations, validFlgs, NUM_ROWS, latitude, longitude, direction, maxRng, interpolate);
 
                // Apply earth curvature effects to terrain elevations
                if (testEarthCurv) {
@@ -492,11 +464,11 @@ void Display::updateData(const double dt)
 
                // If valid and not masked, convert the elevation to a color (or gray) value
                if (valid && !(testShadows && maskFlgs[irow])) {
-                  if (colorScale == GRAY_SCALE)
+                  if (colorDepth == ColorDepth::GRAY)
                      terrain::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
-                  else if (colorScale == COLOR_SCALE)
+                  else if (colorDepth == ColorDepth::COLOR)
                      terrain::Terrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
-                  else if (colorScale == GREEN_SCALE)
+                  else if (colorDepth == ColorDepth::GREEN)
                      terrain::Terrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
                }
 

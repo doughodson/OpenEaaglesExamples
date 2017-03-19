@@ -53,11 +53,9 @@ public:
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-   void initData();
-
-   oe::dafif::AirportLoader*  airports;     // Airport loader
-   oe::dafif::NavaidLoader*   navaids;      // NAVAID loader
-   oe::dafif::WaypointLoader* waypoints;    // Waypoint loader
+   oe::dafif::AirportLoader*  airports {};   // Airport loader
+   oe::dafif::NavaidLoader*   navaids {};    // NAVAID loader
+   oe::dafif::WaypointLoader* waypoints {};  // Waypoint loader
 
 };
 

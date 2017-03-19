@@ -8,7 +8,7 @@
     //maxElevation: ( Feet 15000 )    // Max elevation (default: use max elevation from files)
     altitude:     ( Feet 30000 )    // Ref altitude
     
-    colorScale:      1              // gray(0), color(1), green(2)
+    colorDepth:      1              // gray(0), color(1), green(2)
     interpolate:    false           // True to interpolate between elevation posts, else use nearest
     shadows:        false            // True to compute shadows (and VBW if beamWidth & lookAngle are set)
     aac:            true            // True to compute aspect angle cosines

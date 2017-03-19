@@ -186,12 +186,12 @@ void testWaypoints(const char* const ccode, const double acLat, const double acL
 
 int main(int argc, char* argv[])
 {
-   char* ccode = 0;
+   char* ccode {};
    if (argc > 1) {
       ccode = argv[1];
    }
 
-   int id = 99;
+   int id {99};
 
    std::cout << std::endl;
    std::cout << "1) Test Airport records" << std::endl; 
@@ -200,9 +200,9 @@ int main(int argc, char* argv[])
    std::cout << "select test (0 to end): ";
    std::cin >> id;
    std::cout << std::endl;
-   double acLat = 41.0;
-   double acLon = -112.0;
-   double acElev = 10000.0;
+   double acLat {41.0};
+   double acLon {-112.0};
+   double acElev {10000.0};
    std::cout << "Use Standard Test Latitude (Salt Lake area): N41.0 deg., Longitude W112.0 deg., Altitude 10000.0 m" << std::endl; 
 
    char useStandardTest;
@@ -218,8 +218,8 @@ int main(int argc, char* argv[])
       std::cin >> acElev;
    }
 
-   char usePrintData;
-   bool printData = false;
+   char usePrintData {};
+   bool printData {false};
 
    std::cout << std::endl;
    std::cout << "Print extra bearing and range data (Y/N):";

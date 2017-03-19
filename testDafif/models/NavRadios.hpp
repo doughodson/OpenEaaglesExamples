@@ -16,7 +16,7 @@ namespace dafif { class AirportLoader; class NavaidLoader; }
 //------------------------------------------------------------------------------
 class NavRadio : public oe::models::Radio
 {
-    DECLARE_SUBCLASS(NavRadio, oe::models::Radio)
+   DECLARE_SUBCLASS(NavRadio, oe::models::Radio)
 
 public:
    NavRadio();
@@ -35,14 +35,12 @@ protected:
    virtual bool shutdownNotification() override;
 
 private:
-   void initData();
-
    oe::base::safe_ptr<oe::dafif::AirportLoader> apdb; // Pointer to Airport loader
    oe::base::safe_ptr<oe::dafif::NavaidLoader> nvdb;  // Pointer to Navaid loader
 
-   double latitude;                 // Ownship Latitude
-   double longitude;                // Ownship Longitude
-   double altitude;                 // Ownship altitude HAE (ft)
+   double latitude {};           // Ownship Latitude
+   double longitude {};          // Ownship Longitude
+   double altitude {};           // Ownship altitude HAE (ft)
 };
 
 //------------------------------------------------------------------------------
@@ -56,10 +54,10 @@ class TacanRadio : public NavRadio
 
 public:
    // bands
-   enum Band { TCN_X_BAND = 0, TCN_Y_BAND };
+   enum class Band { TCN_X_BAND = 0, TCN_Y_BAND };
 
    // power modes
-   enum {
+   enum class PwrModes {
       PWR_TCN_OFF = BaseClass::PWR_OFF,
       PWR_TCN_REC,          // REC mode
       PWR_TCN_TRAN_REC,     // T/R mode
@@ -84,17 +82,17 @@ protected:
 private:
    void initData();
 
-   Band band;
+   Band band {Band::TCN_X_BAND};
 
-   bool rangeIsValid;
-   bool bearingIsValid;
+   bool rangeIsValid {};
+   bool bearingIsValid {};
 
-   double range;
-   double grdrange;
-   double bearing;
-   double destLatitude;
-   double destLongitude;
-   double currentMagVar;
+   double range {};
+   double grdrange {};
+   double bearing {};
+   double destLatitude {};
+   double destLongitude {};
+   double currentMagVar {};
 };
 
 //------------------------------------------------------------------------------
@@ -128,21 +126,21 @@ protected:
    virtual bool findLocalizerByFreq(double freq);
 
 private:
-   int timerCounter;              // For Only doing calc every so often
-   bool localizerValid;
-   bool glideSlopeValid;
-   double range;                  // slant range to the end of the runway
-   double grdrange;               // ground range to the end of the RWY
-   double bearing;                // bearing of the end of the RWY
-   double destLatitude;           // lat for end of RWY
-   double destLongitude;          // lon for end of RWY
-   double deltaGlideSlope;
-   double deltaLocalizerBearing;
-   double currentMagVar;          // mag var at glideslope emitter
-   double acGlideSlope;
-   double acLocalizerBearing;
-   double ilsGlideSlope;
-   double ilsLocalizerBearing;
+   int timerCounter {};              // For Only doing calc every so often
+   bool localizerValid {};
+   bool glideSlopeValid {};
+   double range {};                  // slant range to the end of the runway
+   double grdrange {};               // ground range to the end of the RWY
+   double bearing {};                // bearing of the end of the RWY
+   double destLatitude {};           // lat for end of RWY
+   double destLongitude {};          // lon for end of RWY
+   double deltaGlideSlope {};
+   double deltaLocalizerBearing {};
+   double currentMagVar {};          // mag var at glideslope emitter
+   double acGlideSlope {};
+   double acLocalizerBearing {};
+   double ilsGlideSlope {};
+   double ilsLocalizerBearing {};
 };
 
 #endif
