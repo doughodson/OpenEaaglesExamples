@@ -2,6 +2,7 @@
 #include "ObjectHandler.hpp"
 #include "TestObject.hpp"
 #include <iostream>
+#include <string>
 
 using namespace oe;
 
@@ -47,8 +48,8 @@ bool ObjectHandler::onUpdateObject(const TestObject* const x)
         send("objdouble", UPDATE_VALUE, doubleVal, doubleSD);
         double realVal = obj->getReal();
         send("objreal", UPDATE_VALUE, realVal, realSD);
-        const char* myChar = obj->getChar();
-        send("objascii", UPDATE_VALUE, myChar, charSD);
+        const std::string& myChar = obj->getChar();
+        send("objascii", UPDATE_VALUE, myChar.c_str(), charSD);
     }
 
     return true;

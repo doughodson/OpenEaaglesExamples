@@ -4,6 +4,7 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <array>
+#include <string>
 
 namespace oe {
 namespace base { class Color; }
@@ -48,7 +49,7 @@ private:
     SendData objSD;
 
     // characters
-    char myChar[10] {};
+    std::string myChar {"ASCII"};
     SendData charSD;
 
     oe::base::Color* myColor {};
