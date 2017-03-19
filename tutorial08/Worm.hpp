@@ -1,8 +1,8 @@
-
 #ifndef __Worm_H__
 #define __Worm_H__
 
 #include "openeaagles/graphics/Graphic.hpp"
+#include <array>
 
 namespace oe {
 namespace base { class Angle; class Number; }
@@ -13,8 +13,8 @@ namespace base { class Angle; class Number; }
 //
 // Description: Move within a user defined box displaying a trail
 //
-//  ( def-form Worm
-//  )
+// ( Worm selectName: 111 color: green speed: 10 startAngle: ( Degrees 30 ) )
+//
 //------------------------------------------------------------------------------
 class Worm : public oe::graphics::Graphic
 {
@@ -53,20 +53,19 @@ public:
    virtual void reset() override;
 
 private:
+   static const int MAX_HIST = 10;
 
-   enum { maxHist = 10 };
-   double left, right;                    // X limits
-   double bottom, top;                    // Y limits
-   double xPos, yPos;                     // Position
-   double xOld, yOld;                     // Previous Position
-   double dx, dy;                         // Delta position
-   double speed;                          // Speed
-   double sangle;                         // Starting angle (radians)
-   oe::base::Vec2d trail[maxHist];        // Display trail
-   int    nTrails;                        // Trail size
-   int    index;                          // Trail index
-   const oe::base::Angle* iangle;         // Input angle
-
+   double left {-10.0}, right {10.0};            // X limits
+   double bottom {-10.0}, top {10.0};            // Y limits
+   double xPos {}, yPos {};                      // Position
+   double xOld {}, yOld {};                      // Previous Position
+   double dx {}, dy {};                          // Delta position
+   double speed {10.0};                          // Speed
+   double sangle {};                             // Starting angle (radians)
+   std::array<oe::base::Vec2d, MAX_HIST> trail;  // Display trail
+   int    nTrails {};                            // Trail size
+   int    index {};                              // Trail index
+   const oe::base::Angle* iangle {};             // Input angle
 };
 
 #endif

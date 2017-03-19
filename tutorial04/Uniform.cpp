@@ -21,8 +21,6 @@ END_SLOT_MAP()
 Uniform::Uniform()
 {
    STANDARD_CONSTRUCTOR()
-   min = 0;
-   max = 1;
 
    std::cout << "Uniform::Uniform() called\n";
 }

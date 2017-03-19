@@ -30,13 +30,8 @@ public:
    virtual void updateTC(const double dt = 0.0) override;
    virtual void updateData(const double dt = 0.0) override;
 
-protected:
-
-   void initData();
-
 private:
-
-   const oe::base::String* str;
+   const oe::base::String* str {};
 };
 
 #endif

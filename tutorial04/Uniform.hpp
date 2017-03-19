@@ -30,8 +30,8 @@ public:
    virtual int getNum() const override;
 
 private:
-   int max;
-   int min;
+   int min {};
+   int max {1};
 };
 
 #endif

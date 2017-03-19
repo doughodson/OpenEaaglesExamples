@@ -13,7 +13,6 @@ class MyPager : public oe::graphics::Page
    DECLARE_SUBCLASS(MyPager, oe::graphics::Page)
 
 public:
-
    MyPager();
 
    virtual bool onEntry() override;

@@ -9,7 +9,7 @@
 #include <cstdlib>
 
 IMPLEMENT_SUBCLASS(MyObj, "MyObj")
-// setup slot table
+
 BEGIN_SLOTTABLE(MyObj)
    "colorTable",         // 1: The Color table     <PairStream>
    "textColor",          // 2: Text color          <Identifier>
@@ -18,7 +18,7 @@ BEGIN_SLOTTABLE(MyObj)
    "visible",            // 5: Visibility flag     <Number>
    "message",            // 6: The message         <String>
 END_SLOTTABLE(MyObj)
-// map attributes to slots
+
 BEGIN_SLOT_MAP(MyObj)
    ON_SLOT(1, setSlotColorTable, oe::base::PairStream)
    ON_SLOT(2, setSlotTextColor,  oe::base::Identifier)
@@ -27,30 +27,17 @@ BEGIN_SLOT_MAP(MyObj)
    ON_SLOT(5, setSlotVisible,    oe::base::Number)
    ON_SLOT(6, setSlotMessage,    oe::base::String)
 END_SLOT_MAP()
-// nothing to serialize
+
 EMPTY_SERIALIZER(MyObj)
 
 MyObj::MyObj()
 {
    STANDARD_CONSTRUCTOR()
-   colorTable = nullptr;
-   textColor = nullptr;
-   backColor = nullptr;
-   vector = nullptr;
-   message = nullptr;
-   visible = false;
 }
 
-void MyObj::copyData(const MyObj& org, const bool cc)
+void MyObj::copyData(const MyObj& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) {
-      colorTable = nullptr;
-      textColor = nullptr;
-      backColor = nullptr;
-      vector = nullptr;
-      message = nullptr;
-   }
 
    if (colorTable != nullptr) { colorTable->unref(); colorTable = nullptr; }
    if (org.colorTable != nullptr) colorTable = org.colorTable->clone();

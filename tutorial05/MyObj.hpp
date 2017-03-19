@@ -48,12 +48,12 @@ public:
   virtual bool isValid() const override;
 
 private:
-  const oe::base::PairStream* colorTable;
-  const oe::base::Identifier* textColor;
-  const oe::base::Identifier* backColor;
-  const oe::base::List* vector;
-  const oe::base::String* message;
-  bool visible;
+  const oe::base::PairStream* colorTable {};
+  const oe::base::Identifier* textColor {};
+  const oe::base::Identifier* backColor {};
+  const oe::base::List* vector {};
+  const oe::base::String* message {};
+  bool visible {};
 };
 
 #endif

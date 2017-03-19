@@ -29,8 +29,7 @@ public:
    virtual int getNum() const override;
 
 private:
-
-   double mean;
+   double mean {10.0};
 
 };
 

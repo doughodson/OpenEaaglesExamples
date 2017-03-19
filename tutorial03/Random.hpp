@@ -24,7 +24,6 @@ public:
 
    // slot table functions
    bool setSlotSeed(const oe::base::Number* const);
-
 };
 
 #endif

@@ -5,50 +5,32 @@
 #include <cmath>
 
 IMPLEMENT_SUBCLASS(Worm, "Worm")
+EMPTY_DELETEDATA(Worm)
+EMPTY_SERIALIZER(Worm)
 
-// slot table
 BEGIN_SLOTTABLE(Worm)
    "speed",            // 1: speed
    "startAngle",       // 2: starting angle (off X axis)
 END_SLOTTABLE(Worm)
-// slot map
+
 BEGIN_SLOT_MAP(Worm)
    ON_SLOT(1, realSpeed, oe::base::Number)
    ON_SLOT(2, setAngle, oe::base::Angle)
    ON_SLOT(2, setAngle, oe::base::Number)
 END_SLOT_MAP()
-// events
+
 BEGIN_EVENT_HANDLER(Worm)
 END_EVENT_HANDLER()
-
-EMPTY_DELETEDATA(Worm)
-EMPTY_SERIALIZER(Worm)
 
 Worm::Worm()
 {
    STANDARD_CONSTRUCTOR()
-
-   leftLimit(-10.0);
-   rightLimit(10.0);
-   bottomLimit(-10.0);
-   topLimit(10.0);
-   setPosition(0.0, 0.0);
-   xOld = 0.0;
-   yOld = 0.0;
-   nTrails = 0;
-   index  = 0;
-   sangle = 0.0;
    setSpeed(10.0);
-   iangle = nullptr;
 }
 
-void Worm::copyData(const Worm& org, const bool cc)
+void Worm::copyData(const Worm& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      iangle = nullptr;
-   }
 
    if (iangle != nullptr) { iangle->unref(); iangle = nullptr; }
    if (org.iangle != nullptr) iangle = org.iangle->clone();
@@ -140,8 +122,8 @@ void Worm::updateData(const double dt)
    // ---
    if (nTrails == 0 || xPos != xOld || yPos != yOld) {
       trail[index++].set(xPos, yPos);
-      if (index >= maxHist) index = 0;
-      if (nTrails < maxHist) nTrails++;
+      if (index >= MAX_HIST) index = 0;
+      if (nTrails < MAX_HIST) nTrails++;
       xOld = xPos;
       yOld = yPos;
    }
@@ -152,7 +134,7 @@ void Worm::drawFunc()
    glBegin(GL_LINE_STRIP);
    int idx = index - 1;
    for (int i = 0; i < nTrails; i++) {
-      if (idx < 0) idx = maxHist - 1;
+      if (idx < 0) idx = MAX_HIST - 1;
       lcVertex2v(trail[idx--].ptr());
    }
    glEnd();

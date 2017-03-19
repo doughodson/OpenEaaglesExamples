@@ -20,7 +20,6 @@ END_SLOT_MAP()
 Exp::Exp()
 {
   STANDARD_CONSTRUCTOR()
-  setMean(10.0);
 
   std::cout << "Exp::Exp() called\n";
 }
