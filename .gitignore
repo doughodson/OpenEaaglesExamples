@@ -55,8 +55,6 @@ mainQt1/qtMakefile
 *.exe
 # windows libraries
 *.lib
-# keep premake executable
-!premake4.exe
 
 # backup files
 *.bak
