@@ -1,12 +1,11 @@
 # vs directories
-vs2008/
-vs2010/
-vs2012/
 vs2013/
 vs2015/
+vs2017/
 codeblocks/
 codelite/
-# lib
+
+# lib directory
 lib/
 
 # vs runtime libs

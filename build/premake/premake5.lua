@@ -4,6 +4,7 @@
 -- Target of interest:
 --     vs2013     (Visual Studio 2013)
 --     vs2015     (Visual Studio 2015)
+--     vs2017     (Visual Studio 2017)
 --
 
 -- we must have an ide/compiler specified
@@ -36,17 +37,13 @@ print ("OpenEaaglesExamples Paths:")
 print ("  Include   :"..OEExamplesIncPath)
 print ("  Libraries :"..OEExamplesLibPath)
 
+
 --
 -- directory location for HLA include and library paths
 --
-HLA_ROOT = "../../../portico-2.0.1"
-HLAIncPath = HLA_ROOT.."/include/hla13"
-if (_ACTION == "vs2013") then
-  HLALibPath = HLA_ROOT.."/lib/vc12"
-end
-if (_ACTION == "vs2015") then
-  HLALibPath = HLA_ROOT.."/lib/vc14"
-end
+HLA_ROOT = "../../../openrti"
+HLAIncPath = HLA_ROOT.."/include"
+HLALibPath = HLA_ROOT.."/lib"
 print ("HLA Paths:")
 print ("  Include   : "..HLALibPath)
 --print ("  Libraries : "..OELibPath)
