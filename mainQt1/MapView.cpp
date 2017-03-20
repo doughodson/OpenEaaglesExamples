@@ -5,7 +5,7 @@
 #include "Station.hpp"
 #include "PlayerItem.hpp"
 
-#include "openeaagles/models/players/Player.hpp"
+#include "openeaagles/models/player/Player.hpp"
 
 #include "openeaagles/models/WorldModel.hpp"
 
@@ -30,7 +30,6 @@ MapView::MapView(QWidget* parent) : QGraphicsView(parent)
    map->setNorthUp(false);
    scene()->addItem(map);
 
-   stn = nullptr;
    players.clear();
 
    // setup a timer to call background refresh

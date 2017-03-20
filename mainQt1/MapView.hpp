@@ -25,8 +25,8 @@ protected:
 
 private:
    void clearPlayers();
-   Station* stn;                 // holds a station for reference
-   MapItem* map;                 // our map
+   Station* stn {};              // holds a station for reference
+   MapItem* map {};              // our map
    QList<PlayerItem*> players;   // our "graphical" players
 };
 

@@ -2,7 +2,7 @@
 #include "MapItem.hpp"
 
 #include "openeaagles/base/util/math_utils.hpp"
-#include "openeaagles/base/util/unit_utils.hpp"
+#include "openeaagles/base/units/util/angle.hpp"
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
@@ -17,18 +17,7 @@ MapItem::MapItem(MapView* v, QGraphicsItem* parent) : QGraphicsItem(parent)
    bRect.setTop(-5000);
    bRect.setHeight(10000);
 
-   refLat = 0.0;
-   refLon = 0.0;
-   range = 500.0;
-   pixNSRes = 1.0;
-   pixWERes = 1.0;
-   gridVis = false;
-
-   // non-equitorial map math
-   cosineLatReference = 1.0;
-   northUp = true;
    setHeading(0.0);
-   init = false;
 }
 
 QRectF MapItem::boundingRect() const

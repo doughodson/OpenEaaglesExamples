@@ -30,7 +30,7 @@ protected:
    virtual void closeEvent(QCloseEvent* event);
 
 private:
-   Station* stn;        // holds our station for quick reference
+   Station* stn {};        // holds our station for quick reference
 };
 
 inline Station* MainWindow::getStation()              { return stn; }

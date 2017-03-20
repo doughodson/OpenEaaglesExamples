@@ -30,13 +30,13 @@ public:
    void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*);
 
 private:
-   unsigned short plyId;                         // ID of the player we are representing
-   MapItem* myMap;
-   MapView* view;
+   unsigned short plyId {};             // ID of the player we are representing
+   MapItem* myMap {};
+   MapView* view {};
 
-   QImage* defaultImage;                        // this will be our default image (if we define one)
-   QSize size;                                  // our default icon size
-   QString name;                                // player's name
+   QImage* defaultImage {};             // this will be our default image (if we define one)
+   QSize size;                          // our default icon size
+   QString name;                        // player's name
 };
 
 inline unsigned short PlayerItem::getPlayerId() const      { return plyId; }

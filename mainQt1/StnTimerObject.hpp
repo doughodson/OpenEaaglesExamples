@@ -23,8 +23,8 @@ public slots:
    virtual void updateStation();
 
 private:
-   Station* stn;
-   QTimer* bgTimer;
+   Station* stn {};
+   QTimer* bgTimer {};
 };
 
 #endif

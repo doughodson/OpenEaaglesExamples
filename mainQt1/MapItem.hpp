@@ -72,32 +72,32 @@ private:
    QRectF bRect;
 
    // reference lat/lon
-   double refLat;
-   double refLon;
+   double refLat {};
+   double refLon {};
    // range (NM)
-   double range;
+   double range {500.0};
 
    // pixel resolutions (nautical miles)
-   double pixNSRes;
-   double pixWERes;
+   double pixNSRes {1.0};
+   double pixWERes {1.0};
 
    // grid visibility
-   bool gridVis;
+   bool gridVis {};
 
    // cosine of our reference latitude
-   double cosineLatReference;
+   double cosineLatReference {1.0};
    // heading (rad)
-   double heading;
+   double heading {};
    // cosine of heading
-   double headingCos;
+   double headingCos {};
    // sine of heading
-   double headingSin;
+   double headingSin {};
    // flag to use north/up or track/up map math
-   bool northUp;
+   bool northUp {true};
 
    // Our view
-   MapView* view;
-   bool init;        // our we initialized
+   MapView* view {};
+   bool init {};        // our we initialized
 };
 
 // inline functions

@@ -6,9 +6,8 @@
 
 #include <QTimer>
 
-StnTimerObject::StnTimerObject(Station* station, QObject* parent) : QObject(parent)
+StnTimerObject::StnTimerObject(Station* station, QObject* parent) : QObject(parent), stn(station)
 {
-   stn = station;
    if (stn != nullptr) stn->ref();
    // create a timer for our background thread
    bgTimer = new QTimer(this);

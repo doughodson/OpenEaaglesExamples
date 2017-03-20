@@ -6,9 +6,8 @@
 #include <QTimer>
 #include <sstream>
 
-MainWindow::MainWindow(Station* station, QWidget* parent) :QMainWindow(parent)
+MainWindow::MainWindow(Station* station, QWidget* parent) :QMainWindow(parent), stn(station)
 {
-   stn = station;
    if (stn != nullptr) stn->ref();
    setupUi(this);
    // Only use this if you want to refresh the top level window... which

@@ -20,7 +20,7 @@ public:
    virtual int createWindow(int argc, char *argv[]);
 
 private:
-   StnTimerObject* timerObj;
+   StnTimerObject* timerObj {};
 };
 
 #endif
