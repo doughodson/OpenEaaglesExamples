@@ -2,7 +2,7 @@
 #include "TdAzPtr.hpp"
 #include "openeaagles/base/Number.hpp"
 
-#include "openeaagles/base/units/util/angle.hpp"
+#include "openeaagles/base/units/angle_utils.hpp"
 
 using namespace oe;
 

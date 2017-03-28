@@ -1,7 +1,7 @@
 
 #include "Pfd.hpp"
 #include "openeaagles/base/Pair.hpp"
-#include "openeaagles/base/units/util/distance.hpp"
+#include "openeaagles/base/units/distance_utils.hpp"
 
 namespace oe {
 namespace xpanel {
