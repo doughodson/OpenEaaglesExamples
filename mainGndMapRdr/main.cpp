@@ -9,7 +9,7 @@
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/functors/Tables.hpp"
 #include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/util/system.hpp"
+#include "openeaagles/base/util/system_utils.hpp"
 
 #include "openeaagles/graphics/Graphic.hpp"
 

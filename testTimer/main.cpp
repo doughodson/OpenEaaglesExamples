@@ -16,7 +16,7 @@
 #include "openeaagles/base/edl_parser.hpp"
 #include "openeaagles/base/Timers.hpp"
 #include "openeaagles/base/concurrent/PeriodicTask.hpp"
-#include "openeaagles/base/util/system.hpp"
+#include "openeaagles/base/util/system_utils.hpp"
 
 // class factory
 #include "openeaagles/base/factory.hpp"

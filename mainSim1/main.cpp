@@ -4,7 +4,7 @@
 #include "openeaagles/base/Pair.hpp"
 #include "openeaagles/base/Integer.hpp"
 #include "openeaagles/base/units/Angles.hpp"
-#include "openeaagles/base/util/system.hpp"
+#include "openeaagles/base/util/system_utils.hpp"
 
 // factories
 #include "../shared/xzmq/factory.hpp"

@@ -10,7 +10,7 @@
 #include "openeaagles/base/units/Angles.hpp"
 #include "openeaagles/graphics/Graphic.hpp"
 #include "openeaagles/graphics/Texture.hpp"
-#include "openeaagles/base/util/system.hpp"
+#include "openeaagles/base/util/system_utils.hpp"
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 #include <GL/glut.h>

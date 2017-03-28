@@ -7,7 +7,7 @@
 #include "openeaagles/base/Rng.hpp"
 #include "openeaagles/base/Number.hpp"
 #include "openeaagles/base/util/math_utils.hpp"
-#include "openeaagles/base/util/system.hpp"
+#include "openeaagles/base/util/system_utils.hpp"
 
 #include <cstring>
 #include <array>
