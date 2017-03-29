@@ -216,8 +216,8 @@ private:
    // tacan and waypoint course
 
    // navaid 1 and 2 data
-   double nav1Brg;                        // degs
-   double nav1Dme;                        // Nm
+   double nav1Brg {};                     // degs
+   double nav1Dme {};                     // Nm
    char   nav1Id[NCHAR_NAV1_ID + 1] {};   // NAV 1 IDs
    SendData nav1DmeSD;
    SendData nav1IdSD;

@@ -13,7 +13,6 @@ class SituationalDisplay : public oe::graphics::Page
 {
    DECLARE_SUBCLASS(SituationalDisplay, oe::graphics::Page)
 
-
 public:
    SituationalDisplay();
 
