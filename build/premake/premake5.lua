@@ -80,7 +80,7 @@ workspace "examples"
    --     Release        (Application linked to Multi-threaded DLL)
    --     Debug          (Application linked to Multi-threaded Debug DLL)
    --
-   configurations { "Release32", "Debug32" }
+   configurations { "Release", "Debug" }
 
    -- visual studio options and warnings
    -- /wd4351 (C4351 warning) - disable warning associated with array brace initialization
@@ -91,14 +91,14 @@ workspace "examples"
    buildoptions( { "/wd4351", "/wd4996", "/wd4005", "/wd4100", "/Oi" } )
 
    -- common release configuration flags and symbols
-   filter { "Release32" }
+   filter { "Release" }
       flags { "Optimize" }
       -- favor speed over size
       buildoptions { "/Ot" }
       defines { "WIN32", "NDEBUG" }
 
    -- common debug configuration flags and symbols
-   filter { "Debug32" }
+   filter { "Debug" }
       symbols "On"
       targetsuffix "_d"
       defines { "WIN32", "_DEBUG" }
