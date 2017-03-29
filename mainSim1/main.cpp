@@ -24,10 +24,8 @@ const unsigned int bgRate = 10;
 // class factory
 oe::base::Object* factory(const std::string& name)
 {
-   oe::base::Object* obj = nullptr;
-
    // example libraries
-   if (obj == nullptr) obj = oe::xzmq::factory(name);
+   oe::base::Object* obj = oe::xzmq::factory(name);
 
    // framework libraries
    if (obj == nullptr) obj = oe::otw::factory(name);
@@ -36,7 +34,6 @@ oe::base::Object* factory(const std::string& name)
    if (obj == nullptr) obj = oe::terrain::factory(name);
    if (obj == nullptr) obj = oe::dis::factory(name);
    if (obj == nullptr) obj = oe::base::factory(name);
-
    return obj;
 }
 

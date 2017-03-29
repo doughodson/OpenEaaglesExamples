@@ -40,8 +40,7 @@ void timerFunc(int)
 // our class factory
 oe::base::Object* factory(const std::string& name)
 {
-   oe::base::Object* obj = nullptr;
-   if (obj == nullptr) obj = oe::glut::factory(name);
+   oe::base::Object* obj = oe::glut::factory(name);
    if (obj == nullptr) obj = oe::graphics::factory(name);
    if (obj == nullptr) obj = oe::base::factory(name);
 

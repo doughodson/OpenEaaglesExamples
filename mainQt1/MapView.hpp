@@ -13,7 +13,7 @@ class MapView : public QGraphicsView
    Q_OBJECT
 
 public:
-   MapView(QWidget* parent = nullptr);
+   explicit MapView(QWidget* parent = nullptr);
    ~MapView();
 
 public slots:

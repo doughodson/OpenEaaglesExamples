@@ -204,7 +204,7 @@ void RealBeamRadar::transmit(const double dt)
          double direction = 45.0 * static_cast<double>(xx) / static_cast<double>(IMG_WIDTH/2);
 
          // get a strip of elevations from south to north
-         unsigned int num = terrain->getElevations(elevations, validFlgs, IMG_HEIGHT, latitude, longitude, direction, groundRange[IMG_HEIGHT-1], interpolate);
+         /*unsigned int num = */terrain->getElevations(elevations, validFlgs, IMG_HEIGHT, latitude, longitude, direction, groundRange[IMG_HEIGHT-1], interpolate);
 
          // Apply earth curvature effects to terrain elevations
          for (int irow = 0; irow < IMG_HEIGHT; irow++) {

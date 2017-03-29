@@ -18,13 +18,10 @@ const unsigned int frameRate = 50;
 // class factory
 oe::base::Object* factory(const std::string& name)
 {
-   oe::base::Object* obj = nullptr;
-
-   if (obj == nullptr) obj = oe::simulation::factory(name);
+   oe::base::Object* obj = oe::simulation::factory(name);
    if (obj == nullptr) obj = oe::models::factory(name);
    if (obj == nullptr) obj = oe::terrain::factory(name);
    if (obj == nullptr) obj = oe::base::factory(name);
-
    return obj;
 }
 

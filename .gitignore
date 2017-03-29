@@ -2,8 +2,7 @@
 vs2013/
 vs2015/
 vs2017/
-codeblocks/
-codelite/
+build/obj/
 
 # lib directory
 lib/

@@ -270,8 +270,8 @@ bool Display::setSlotTextureTest(const base::Number* const msg)
 void Display::updateData(const double dt)
 {
    // Get Viewport width and height
-   GLsizei vpWidth = 0;
-   GLsizei vpHeight = 0;
+   GLsizei vpWidth {};
+   GLsizei vpHeight {};
    getViewportSize(&vpWidth, &vpHeight);
 
    // Generate an image when we have the terrain, a view port and we don't have an image
@@ -279,33 +279,33 @@ void Display::updateData(const double dt)
         vpWidth > 0 && vpHeight > 0 &&
         image == nullptr) {
 
-      GLsizei vpWidth = 1024; // default is texture sizes
-      GLsizei vpHeight = 1024;
+      GLsizei vpWidth {1024}; // default is texture sizes
+      GLsizei vpHeight {1024};
       if (!testTexture) {
          // When not using textures, get the viewport parameters
 
          // Get the maximum number of points
-         GLint vpX, vpY;
+         GLint vpX {}, vpY {};
          getViewport(&vpX, &vpY, &vpWidth, &vpHeight);
 
          // Make sure width is correct for a 4 byte alignment
-         GLsizei w0 = (vpWidth*PIXEL_SIZE);
-         GLsizei w4 = (w0/4)*4;  // Truncate to 4 bytes
-         vpWidth = w4/PIXEL_SIZE;
+         GLsizei w0 {(vpWidth * PIXEL_SIZE)};
+         GLsizei w4 {(w0 / 4) * 4};  // Truncate to 4 bytes
+         vpWidth = w4 / PIXEL_SIZE;
       }
 
       // Allocate the image memory
       bool ok = initImageMemory(vpWidth, vpHeight);
       if (ok) {
 
-         const int NUM_COLUMNS = imgWidth;
-         const int NUM_ROWS = imgHeight;
+         const int NUM_COLUMNS {imgWidth};
+         const int NUM_ROWS {imgHeight};
 
          // Allocating space for 'multi-point' tests
-         double* elevations = nullptr;
-         double* aacData = nullptr;
-         bool* validFlgs = nullptr;
-         bool* maskFlgs = nullptr;
+         double* elevations {};
+         double* aacData{};
+         bool* validFlgs{};
+         bool* maskFlgs{};
          if (testShadows || testAac || testEarthCurv) {
             elevations = new double[NUM_ROWS];
             aacData = new double[NUM_ROWS];
@@ -325,39 +325,39 @@ void Display::updateData(const double dt)
 //         double deltaElev = maxz - minz + 1;
 
          // Compute delta (range of) latitude and longitude
-         double deltaLat = terrain->getLatitudeNE()  - terrain->getLatitudeSW();
-         double deltaLon = terrain->getLongitudeNE() - terrain->getLongitudeSW();
+         const double deltaLat = terrain->getLatitudeNE()  - terrain->getLatitudeSW();
+         const double deltaLon = terrain->getLongitudeNE() - terrain->getLongitudeSW();
 
          // Compute center position (degs)
-         double cLat = terrain->getLatitudeSW()  + deltaLat / 2.0;
-         double cLon = terrain->getLongitudeSW() + deltaLon / 2.0;
+         const double cLat = terrain->getLatitudeSW()  + deltaLat / 2.0;
+         const double cLon = terrain->getLongitudeSW() + deltaLon / 2.0;
 
          // Compute distance between points with zoom factor (degs)
-         double spacingLat = deltaLat / NUM_ROWS;
-         double spacingLon = deltaLon / NUM_COLUMNS;
+         const double spacingLat = deltaLat / NUM_ROWS;
+         const double spacingLon = deltaLon / NUM_COLUMNS;
 
          // Generate the earth's curvature effect
-         double* curvature =nullptr;
+         double* curvature {};
          if (testEarthCurv) {
             curvature = new double[NUM_ROWS];
             const auto radius = static_cast<double>(base::nav::ERAD60 * base::distance::NM2M);
             const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
             for (int irow = 0; irow < NUM_ROWS; irow++) {
-               double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);
-               double arc = curRng / radius;
-               double cs = 1.0f;
-               double c0 = std::cos(arc);
+               const double curRng = maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS);
+               const double arc = curRng / radius;
+               double cs {1.0};
+               const double c0 {std::cos(arc)};
                if (c0 != 0) cs = 1.0f/c0;
                curvature[irow] = radius * (cs  - 1.0f);
             }
          }
 
-         const base::Hsva* grayTable[2];
+         const base::Hsva* grayTable[2] {};
          //                   hue     sat    value  alpha
          grayTable[0] = new base::Hsva(  120.0f,  0.0f,  0.0f,  1.0f );  // black0
          grayTable[1] = new base::Hsva(  120.0f,  0.0f,  1.0f,  1.0f ); // white0
 
-         const base::Hsva* colorTable[7];
+         const base::Hsva* colorTable[7] {};
          //                  hue     sat    value  alpha
          colorTable[0] = new base::Hsva( 240.0f,   1.0f,  1.0f,  1.0f ); // blue
          colorTable[1] = new base::Hsva( 180.0f,   1.0f,  1.0f,  1.0f ); // cyan
@@ -368,7 +368,7 @@ void Display::updateData(const double dt)
          colorTable[6] = new base::Hsva(  300.0f,  0.05f, 1.0f,  1.0f ); // white0
 
 
-         const base::Hsva* greenTable[19];
+         const base::Hsva* greenTable[19] {};
          //                   hue     sat    value  alpha
          greenTable[0]  = new base::Hsva(  120.0f,  1.0f,  0.0f,     1.0f );
          greenTable[1]  = new base::Hsva(  120.0f,  1.0f,  0.0872f,  1.0f );
@@ -391,14 +391,14 @@ void Display::updateData(const double dt)
          greenTable[18] = new base::Hsva(  120.0f,  1.0f,  1.0f,     1.0f );
 
          std::cout << "start image generation" << std::endl;
-         double start = base::getComputerTime();
+         const double start = base::getComputerTime();
 
          for (int icol = 0; icol < NUM_COLUMNS; icol++) {
 
 //            int halfway = NUM_COLUMNS / 2;
 
             // the Lat/long of the southern most point
-            double longitude = cLon + (icol - NUM_COLUMNS/2) * spacingLon;
+            const double longitude = cLon + (icol - NUM_COLUMNS/2) * spacingLon;
 
             if (testShadows || testAac || testEarthCurv) {
 
@@ -410,12 +410,12 @@ void Display::updateData(const double dt)
                }
 
                // the Lat/long of the southern most point
-               double latitude = cLat + (0 - NUM_ROWS/2) * spacingLat;
-               double maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
+               const double latitude = cLat + (0 - NUM_ROWS/2) * spacingLat;
+               const double maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
 
                // Direction
                //double direction = 30.0f * static_cast<double>(icol - NUM_COLUMNS/2)/static_cast<double>(NUM_COLUMNS/2);
-               double direction = 0;
+               double direction {};
 
                // get a strip of elevations from south to north
                /*unsigned int num = */ terrain->getElevations(elevations, validFlgs, NUM_ROWS, latitude, longitude, direction, maxRng, interpolate);
@@ -446,8 +446,8 @@ void Display::updateData(const double dt)
             for (int irow = 0; irow < NUM_ROWS; irow++) {
 
                base::Vec3d color(0,0,0);
-               double elev = 0;
-               bool valid = false;
+               double elev {};
+               bool valid {};
 
               if (testShadows || testAac || testEarthCurv) {
                   // multi-point test: get the elevation from the array
@@ -489,8 +489,8 @@ void Display::updateData(const double dt)
             }
          }
 
-         double end = base::getComputerTime();
-         double dtime = (end - start);
+         const double end {base::getComputerTime()};
+         const double dtime {(end - start)};
          std::cout << "Image finished: time(s) = " << dtime << ", per line(us) = "
                    << (dtime/static_cast<double>(NUM_COLUMNS))*1000000.0 << std::endl;
 
