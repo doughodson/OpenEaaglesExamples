@@ -3,6 +3,7 @@ vs2013/
 vs2015/
 vs2017/
 build/obj/
+*.tmp
 
 # lib directory
 lib/
