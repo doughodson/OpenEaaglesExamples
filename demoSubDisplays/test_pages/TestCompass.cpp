@@ -38,10 +38,10 @@ TestCompass::TestCompass()
 
     // initialize our air tracks to test data
     {
-        double trkX = 0.0;
-        double trkY = 0.0;
-        double hdg = 0.0;
-        int myType = 1;
+        double trkX {};
+        double trkY {};
+        double hdg {};
+        int myType {1};
         for (int i = 0; i < MAX_TRACKS; i++) {
             myTracks[i].x = trkX;
             myTracks[i].y = trkY;
@@ -60,9 +60,9 @@ TestCompass::TestCompass()
 
     // initialize our airport to test data
     {
-        double apLat = refLat + 0.1;
-        double apLon = refLon;
-        int myType = 1;
+        double apLat {refLat + 0.1};
+        double apLon {refLon};
+        int myType {1};
         for (int i = 0; i < MAX_NAV_AIDS; i++) {
             myAP[i].x = apLat;
             myAP[i].y = apLon;
@@ -82,9 +82,9 @@ TestCompass::TestCompass()
 
     // initialize our navaids to test data
     {
-        double navLat = refLat;
-        double navLon = refLon + 0.1;
-        int myType = 1;
+        double navLat {refLat};
+        double navLon {refLon + 0.1};
+        int myType {1};
         for (int i = 0; i < MAX_NAV_AIDS; i++) {
             myNA[i].x = navLat;
             myNA[i].y = navLon;
@@ -132,9 +132,9 @@ void TestCompass::updateData(const double dt)
     BaseClass::updateData(dt);
 
     heading += (headingRate * dt);
-    if (heading > 360 || heading < 0) headingRate = -headingRate;
+    if (heading > 360.0 || heading < 0.0) headingRate = -headingRate;
     bearing += (bearingRate * dt);
-    if (bearing > 6.28 || bearing < 0) bearingRate = -bearingRate;
+    if (bearing > 6.28 || bearing < 0.0) bearingRate = -bearingRate;
 
     // Load test tracks (once) - load the default (0)
     if (!tracksLoaded) {
@@ -216,8 +216,8 @@ void TestCompass::updateData(const double dt)
 // Test event handler
 bool TestCompass::onToggleRangeTestCompass()
 {
-    if (range >= 160) range = 10;
-    else range *= 2;
+    if (range >= 160.0) range = 10.0;
+    else range *= 2.0;
     return true;
 }
 bool TestCompass::onToggleCenteredTestCompass()

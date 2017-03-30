@@ -39,10 +39,10 @@ TestSD::TestSD()
 
     // initialize our air tracks to test data
     {
-        double trkX = 0.0;
-        double trkY = 0.0;
-        double hdg = 0.0;
-        int myType = 1;
+        double trkX {};
+        double trkY {};
+        double hdg {};
+        int myType {1};
         for (int i = 0; i < MAX_TRACKS; i++) {
             myTracks[i].x = trkX;
             myTracks[i].y = trkY;
@@ -52,7 +52,7 @@ TestSD::TestSD()
             trkX += 6.0;
             trkY -= 6.0;
             hdg += 45.0f;
-            if (hdg > 360.0f) hdg -= 360.0f;
+            if (hdg > 360.0) hdg -= 360.0;
             if (myType < 4) myType++;
             else myType = 1;
         }
@@ -61,9 +61,9 @@ TestSD::TestSD()
 
     // initialize our airports to test data
     {
-        double apLat = refLat + 0.1;
-        double apLon = refLon;
-        int myType = 1;
+        double apLat {refLat + 0.1};
+        double apLon {refLon};
+        int myType {1};
         for (int i = 0; i < MAX_NAV_AIDS; i++) {
             myAP[i].x = apLat;
             myAP[i].y = apLon;
@@ -83,9 +83,9 @@ TestSD::TestSD()
 
     // initialize our navaids to test data
     {
-        double navLat = refLat;
-        double navLon = refLon + 0.1;
-        int myType = 1;
+        double navLat {refLat};
+        double navLon {refLon + 0.1};
+        int myType {1};
         for (int i = 0; i < MAX_NAV_AIDS; i++) {
             myNA[i].x = navLat;
             myNA[i].y = navLon;
@@ -128,43 +128,42 @@ void TestSD::copyData(const TestSD& org, const bool)
 
 void TestSD::updateData(const double dt)
 {
-    // update our BaseClass
     BaseClass::updateData(dt);
 
     heading += (headingRate * dt);
-    if (heading > 360 || heading < 0) headingRate = -headingRate;
+    if (heading > 360.0 || heading < 0.0) headingRate = -headingRate;
     bearing += (bearingRate * dt);
-    if (bearing > 360 || bearing < 0) bearingRate = -bearingRate;
+    if (bearing > 360.0 || bearing < 0.0) bearingRate = -bearingRate;
 
 
     nav1Brg += nav1BrgRate * dt;
-    if (nav1Brg > 360) {
-        nav1Brg = 360;
+    if (nav1Brg > 360.0) {
+        nav1Brg = 360.0;
         nav1BrgRate = -nav1BrgRate;
     }
-    if (nav1Brg < 0) {
-        nav1Brg = 0;
+    if (nav1Brg < 0.0) {
+        nav1Brg = 0.0;
         nav1BrgRate = -nav1BrgRate;
     }
 
     nav2Brg += nav2BrgRate * dt;
-    if (nav2Brg > 360) {
-        nav2Brg = 360;
+    if (nav2Brg > 360.0) {
+        nav2Brg = 360.0;
         nav2BrgRate = -nav2BrgRate;
     }
-    if (nav2Brg < 0) {
-        nav2Brg = 0;
+    if (nav2Brg < 0.0) {
+        nav2Brg = 0.0;
         nav2BrgRate = -nav2BrgRate;
     }
 
     // heading bug
     hdgBug += hdgBugRate *dt;
-    if (hdgBug > 360) {
-        hdgBug = 360;
+    if (hdgBug > 360.0) {
+        hdgBug = 360.0;
         hdgBugRate = -hdgBugRate;
     }
-    if (hdgBug < 0) {
-        hdgBug = 0;
+    if (hdgBug < 0.0) {
+        hdgBug = 0.0;
         hdgBugRate = -hdgBugRate;
     }
 
