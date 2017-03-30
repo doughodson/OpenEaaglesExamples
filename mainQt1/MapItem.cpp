@@ -2,7 +2,7 @@
 #include "MapItem.hpp"
 
 #include "openeaagles/base/util/math_utils.hpp"
-#include "openeaagles/base/units/util/angle.hpp"
+#include "openeaagles/base/units/angle_utils.hpp"
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
