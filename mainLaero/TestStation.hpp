@@ -37,8 +37,8 @@ private:
 
    oe::base::safe_ptr<oe::glut::GlutDisplay> glutDisplay;
    oe::base::safe_ptr<oe::glut::GlutDisplay> mapDisplay;
-   bool glutDisplayInit;
-   bool mapDisplayInit;
+   bool glutDisplayInit {};
+   bool mapDisplayInit {};
 };
 
 #endif

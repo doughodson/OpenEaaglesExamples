@@ -58,7 +58,7 @@ protected:
    virtual bool setReferenceID(const unsigned int v);          // Sets the block's reference ID number
 
 private:
-   unsigned int x,y;     // Location
+   unsigned int x, y;    // Location
    unsigned int refId;   // Block's ref ID number
 };
 

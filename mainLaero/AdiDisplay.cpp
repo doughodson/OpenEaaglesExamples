@@ -14,31 +14,9 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_SERIALIZER(AdiDisplay)
 EMPTY_DELETEDATA(AdiDisplay)
 
-AdiDisplay::AdiDisplay() : myStation(nullptr)
+AdiDisplay::AdiDisplay()
 {
    STANDARD_CONSTRUCTOR()
-
-   psiRO    = 0.0;
-   thtRO    = 0.0;
-   phiRO    = 0.0;
-   velRO    = 0.0;
-   altRO    = 0.0;
-   pRO      = 0.0;
-   qRO      = 0.0;
-   rRO      = 0.0;
-   bankADI  = 0.0;
-   pitchADI = 0.0;
-
-   psiRO_SD.empty();
-   thtRO_SD.empty();
-   phiRO_SD.empty();
-   velRO_SD.empty();
-   altRO_SD.empty();
-   pRO_SD.empty();
-   qRO_SD.empty();
-   rRO_SD.empty();
-   bankADI_SD.empty();
-   pitchADI_SD.empty();
 }
 
 void AdiDisplay::copyData(const AdiDisplay& org, const bool)

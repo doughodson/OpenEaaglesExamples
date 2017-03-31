@@ -12,6 +12,8 @@
 #include "openeaagles/base/units/Distances.hpp"
 #include "openeaagles/base/units/Times.hpp"
 
+#include "openeaagles/base/util/enum_utils.hpp"
+
 #include <GL/glut.h>
 #include <iomanip>
 
@@ -22,27 +24,10 @@ EMPTY_DELETEDATA(MapDisplay)
 MapDisplay::MapDisplay()
 {
    STANDARD_CONSTRUCTOR()
-   startX = 0;
-   startY = 0;
-   dragging = false;
-
-   cmdRangeSD.empty();
-   cmdAirspeedSD.empty();
-   cmdAltitudeSD.empty();
-   cmdHeadingSD.empty();
-   apReqButtonVisSD.empty();
-   apModeSD.empty();
-   maxAccelSD.empty();
-   maxClimbSD.empty();
-   maxBankSD.empty();
-   maxTurnSD.empty();
-
-   passiveEnable = false;
 }
 
 void MapDisplay::copyData(const MapDisplay& org, const bool)
 {
-   // copy base class stuff first
    BaseClass::copyData(org);
 
    startX = org.startX;
@@ -174,111 +159,111 @@ void MapDisplay::buttonEvent(const int b)
       ap = static_cast<oe::models::Autopilot*>(pA->getPilot());
    }
    if (page != nullptr && ap != nullptr) {
-      if (b == DEC_RANGE) {
+      if (b == oe::base::as_integer(Btn::DEC_RANGE)) {
          if (page->getRange() > 5) {
             page->setRange(page->getRange() - 5);
          }
       }
-      else if (b == INC_RANGE) {
+      else if (b == oe::base::as_integer(Btn::INC_RANGE)) {
          if (page->getRange() < 320) {
             page->setRange(page->getRange() + 5);
          }
       }
-      else if (b == DEC_CMD_AS) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_AS)) {
          double cmdAirspeed = ap->getCommandedVelocityKts();
          if (cmdAirspeed > 100) {
             cmdAirspeed -= 10;
             ap->setCommandedVelocityKts(cmdAirspeed);
          }
       }
-      else if (b == INC_CMD_AS) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_AS)) {
          double cmdAirspeed = ap->getCommandedVelocityKts();
          if (cmdAirspeed < 400) {
             cmdAirspeed += 10;
             ap->setCommandedVelocityKts(cmdAirspeed);
          }
       }
-      else if (b == DEC_CMD_ALT) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_ALT)) {
          double cmdAltitude = ap->getCommandedAltitudeFt();
          if (cmdAltitude > 1000) {
             cmdAltitude -= 500;
             ap->setCommandedAltitudeFt(cmdAltitude);
          }
       }
-      else if (b == INC_CMD_ALT) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_ALT)) {
          double cmdAltitude = ap->getCommandedAltitudeFt();
          if (cmdAltitude < 40000) {
             cmdAltitude += 500;
             ap->setCommandedAltitudeFt(cmdAltitude);
          }
       }
-      else if (b == DEC_CMD_HDG) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_HDG)) {
          double cmdHeading = ap->getCommandedHeadingD();
          cmdHeading -= 10;
          if (cmdHeading < -180.0) cmdHeading += 360;
          ap->setCommandedHeadingD(cmdHeading);
       }
-      else if (b == INC_CMD_HDG) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_HDG)) {
          double cmdHeading = ap->getCommandedHeadingD();
          cmdHeading += 10;
          if (cmdHeading > 180.0) cmdHeading -= 360;
          ap->setCommandedHeadingD(cmdHeading);
       }
-      else if (b == INC_CMD_AS_NPS) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_AS_NPS)) {
          double maxAccel = ap->getMaxVelAcc();
          if (maxAccel < 20) maxAccel++;
          ap->setMaxVelAccNps(maxAccel);
       }
-      else if (b == DEC_CMD_AS_NPS) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_AS_NPS)) {
          double maxAccel = ap->getMaxVelAcc();
          if (maxAccel > 1) maxAccel--;
          ap->setMaxVelAccNps(maxAccel);
       }
       // Climb rate in meters per second
-      else if (b == INC_CMD_ALT_MPS) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_ALT_MPS)) {
          double maxClimb = ap->getMaxClimbRate();
          if (maxClimb < 100) maxClimb += 5;
          ap->setMaxClimbRateMps(maxClimb);
       }
-      else if (b == DEC_CMD_ALT_MPS) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_ALT_MPS)) {
          double maxClimb = ap->getMaxClimbRate();
          if (maxClimb > 5) maxClimb -= 5;
          ap->setMaxClimbRateMps(maxClimb);
       }
       // Turn rate in degrees per second
-      else if (b == INC_CMD_HDG_ROT) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_HDG_ROT)) {
          double maxTR = ap->getMaxTurnRate();
          if (maxTR < 25) maxTR++;
          ap->setMaxTurnRateDps(maxTR);
       }
-      else if (b == DEC_CMD_HDG_ROT) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_HDG_ROT)) {
          double maxTR = ap->getMaxTurnRate();
          if (maxTR > 0) maxTR--;
          ap->setMaxTurnRateDps(maxTR);
       }
       // Max bank (degrees)
-      else if (b == INC_CMD_HDG_BNK) {
+      else if (b == oe::base::as_integer(Btn::INC_CMD_HDG_BNK)) {
          double maxBank = ap->getMaxBankAngle();
          if (maxBank < 90) maxBank++;
          ap->setMaxBankAngleDeg(maxBank);
       }
-      else if (b == DEC_CMD_HDG_BNK) {
+      else if (b == oe::base::as_integer(Btn::DEC_CMD_HDG_BNK)) {
          double maxBank = ap->getMaxBankAngle();
          if (maxBank > 0) maxBank--;
          ap->setMaxBankAngleDeg(maxBank);
       }
-      else if (b == PASSIVE_ENABLE) {
+      else if (b == oe::base::as_integer(Btn::PASSIVE_ENABLE)) {
          passiveEnable = true;
       }
-      else if (b == PASSIVE_DISABLE) {
+      else if (b == oe::base::as_integer(Btn::PASSIVE_DISABLE)) {
          passiveEnable = false;
       }
       // get our autopilot mode and change it
-      else if (b == CHANGE_AP_MODE) {
+      else if (b == oe::base::as_integer(Btn::CHANGE_AP_MODE)) {
          // if off, go to nav
-         bool navMode = ap->isNavModeOn();
-         bool loiterMode = ap->isLoiterModeOn();
-         bool flMode = ap->isFollowTheLeadModeOn();
+         const bool navMode = ap->isNavModeOn();
+         const bool loiterMode = ap->isLoiterModeOn();
+         const bool flMode = ap->isFollowTheLeadModeOn();
          // if in nav mode, go to loiter mode
          if (navMode) {
             ap->setNavMode(false);
@@ -307,18 +292,18 @@ void MapDisplay::updateData(const double dt)
    BaseClass::updateData(dt);
 
    // get pointer to MapPage data
-   int cmdRange = 0;
+   int cmdRange {};
    const auto page = static_cast<MapPage*>(subpage());
    if (page != nullptr) {
       cmdRange = static_cast<int>(page->getRange());
    }
 
-   double cmdAirspeed = 0, cmdAltitude = 0, cmdHeading = 0;
-   bool apButtonsVis = false;
+   double cmdAirspeed {}, cmdAltitude {}, cmdHeading {};
+   bool apButtonsVis {};
    // pilot max
-   double maxAccel = 0, maxTurn = 0, maxBank = 0, maxClimb = 0;
+   double maxAccel {}, maxTurn {}, maxBank {}, maxClimb {};
    // default to autopilot mode off
-   int apMode = 1;
+   int apMode {1};
    const auto pA = static_cast<oe::models::Aircraft*>(getOwnship());
    if (pA != nullptr) {
       const auto ap = static_cast<oe::models::Autopilot*>(pA->getPilot());
@@ -365,7 +350,7 @@ oe::simulation::Station* MapDisplay::getStation()
 
 oe::models::Aircraft* MapDisplay::getOwnship()
 {
-   oe::models::Aircraft* p = nullptr;
+   oe::models::Aircraft* p {};
    oe::simulation::Station* sta = getStation();
    if (sta != nullptr) {
       p = dynamic_cast<oe::models::Aircraft*>(sta->getOwnship());

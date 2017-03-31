@@ -28,18 +28,18 @@ private:
    oe::base::safe_ptr<oe::simulation::Station> myStation;
 
    //-----------------------------
-   double psiRO;     // [deg]
-   double thtRO;     // [deg]
-   double phiRO;     // [deg]
-   double velRO;     // [kts]
-   double altRO;     // [ft]
+   double psiRO {};     // [deg]
+   double thtRO {};     // [deg]
+   double phiRO {};     // [deg]
+   double velRO {};     // [kts]
+   double altRO {};     // [ft]
 
-   double pRO;       // [deg/sec]
-   double qRO;       // [deg/sec]
-   double rRO;       // [deg/sec]
+   double pRO {};       // [deg/sec]
+   double qRO {};       // [deg/sec]
+   double rRO {};       // [deg/sec]
 
-   double bankADI;   // [deg]
-   double pitchADI;  // [deg]
+   double bankADI {};   // [deg]
+   double pitchADI {};  // [deg]
 
    //-----------------------------
    SendData psiRO_SD;

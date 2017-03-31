@@ -34,7 +34,7 @@ private:
    oe::simulation::Station* getStation();
 
    // button hit enumerations
-   enum {
+   enum class Btn {
       DEC_RANGE = 101,           // Increase / decrease the map range (NM)
       INC_RANGE,
       DEC_CMD_AS,                // Increase / decrease the commanded airspeed (Kts - only works with no autopilot mode engaged)
@@ -58,9 +58,9 @@ private:
 
    oe::base::safe_ptr<oe::simulation::Station> myStation;
 
-   int startX;         // startX of our last mouse position
-   int startY;         // startY of our last mouse position
-   bool dragging;      // are we dragging the map?
+   int startX {};         // startX of our last mouse position
+   int startY {};         // startY of our last mouse position
+   bool dragging {};      // are we dragging the map?
 
    SendData cmdRangeSD;
    SendData cmdAirspeedSD;
@@ -78,7 +78,7 @@ private:
    SendData maxBankSD;
    SendData maxTurnSD;
 
-   bool passiveEnable;
+   bool passiveEnable {};
 };
 
 #endif

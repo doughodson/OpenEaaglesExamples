@@ -4,6 +4,8 @@
 
 #include "openeaagles/graphics/MapPage.hpp"
 
+#include <array>
+
 namespace oe {
 namespace models { class Player; }
 namespace graphics { class SymbolLoader; }
@@ -33,38 +35,39 @@ private:
    void drawLine(const double x, const double y);
    void drawSemiCircle(const double startAngle, const double radius);
    void drawHoldingPattern();
+
    // holds our players
    static const int MAX_PLAYERS = 200;
    static const int MAX_READOUTS = 20;
 
-   oe::models::Player* player[MAX_PLAYERS];       // player pointer
-   int playerIdx[MAX_PLAYERS];                    // index of our symbol for the given player
+   std::array<oe::models::Player*, MAX_PLAYERS> player {};   // player pointer
+   std::array<int, MAX_PLAYERS> playerIdx {};                // index of our symbol for the given player
    // player symbol loader
-   oe::graphics::SymbolLoader* loader;            // holds our loader for quick reference
-   TestStation* pStn;                             // holds our station (to get the player list quickly)
+   oe::graphics::SymbolLoader* loader {};    // holds our loader for quick reference
+   TestStation* pStn {};                     // holds our station (to get the player list quickly)
 
    // is our route loaded?
-   bool routeLoaded;
+   bool routeLoaded {};
 
    // show where our lat/lons are
    SendData latsSD[MAX_READOUTS];
-   int lats[MAX_READOUTS];
+   std::array<int, MAX_READOUTS> lats {};
 
    SendData latReadoutXPosSD[MAX_READOUTS];
-   float latReadoutXPos[MAX_READOUTS];
+   std::array<float, MAX_READOUTS> latReadoutXPos {};
 
    SendData latReadoutYPosSD[MAX_READOUTS];
-   float latReadoutYPos[MAX_READOUTS];
+   std::array<float, MAX_READOUTS> latReadoutYPos {};
 
    // lons
    SendData lonsSD[MAX_READOUTS];
-   int lons[MAX_READOUTS];
+   std::array<int, MAX_READOUTS> lons {};
 
    SendData lonReadoutXPosSD[MAX_READOUTS];
-   float lonReadoutXPos[MAX_READOUTS];
+   std::array<float, MAX_READOUTS> lonReadoutXPos {};
 
    SendData lonReadoutYPosSD[MAX_READOUTS];
-   float lonReadoutYPos[MAX_READOUTS];
+   std::array<float, MAX_READOUTS> lonReadoutYPos {};
 };
 
 #endif
