@@ -46,7 +46,7 @@ public:
    bool isSpeedChanged() const         { return speedChanged;       }
 
    void setFireMissile(const bool);
-   bool getFireMissile() const          { return fireMissile;       }
+   bool getFireMissile() const         { return fireMissile;        }
    bool isFireMissileChanged() const   { return fireMissileChanged; }
 
    void setPitchTrim(const double);
