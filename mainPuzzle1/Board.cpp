@@ -9,17 +9,11 @@
 
 IMPLEMENT_SUBCLASS(Board, "PuzzleBoard")
 
-//------------------------------------------------------------------------------
-// Slot table for this form type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Board)
     "puzzle",      //  1: Our puzzle controller
     "templates",   //  2: List of block templates (slot numbers MUST match block type IDs)
 END_SLOTTABLE(Board)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Board)
     ON_SLOT( 1, setSlotPuzzle,    Puzzle )
     ON_SLOT( 2, setSlotTemplates, oe::base::PairStream )
@@ -29,18 +23,6 @@ Board::Board()
 {
    STANDARD_CONSTRUCTOR()
 
-   // Clear our list of graphics::Graphic templates for each block type
-   templates = nullptr;
-
-   // clear the puzzle
-   puzzle = nullptr;
-
-   // Clear the solution path
-   for (unsigned int i = 0; i < MAX_STATES; i++) {
-      path[i] = nullptr;
-   }
-   finalState = nullptr;
-   nstates = 0;
 
    // Clear our blocks
    for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
@@ -55,7 +37,6 @@ Board::Board()
 
    curPathState = 0;
    moveTimer = 0.0;
-   startupTimer = 0.0;
    movingFlg = false;
 }
 

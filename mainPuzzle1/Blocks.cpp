@@ -20,9 +20,6 @@ END_SLOT_MAP()
 Block::Block()
 {
    STANDARD_CONSTRUCTOR()
-   x  = 0;
-   y  = 0;
-   refId = 0;
 }
 
 void Block::copyData(const Block& org, const bool)
@@ -112,10 +109,10 @@ bool Block::collisionCheck(const Block* const b2) const
 //------------------------------------------------------------------------------
 unsigned int Block::computeHashValue(const unsigned int blockIndex, const unsigned int rehashCount) const
 {
-  unsigned int i;
-  unsigned int a = 1;
-  unsigned int b = 1;
-  unsigned int c = 1;
+  unsigned int i {};
+  unsigned int a {1};
+  unsigned int b {1};
+  unsigned int c {1};
 
   for (i = 0; i < rehashCount; i++) {
      a *= blockIndex;
@@ -155,7 +152,7 @@ bool Block::setReferenceID(const unsigned int v)
 //------------------------------------------------------------------------------
 bool Block::setSlotPosition(const oe::base::List* const msg)
 {
-   bool ok = false;
+   bool ok {};
    if (msg != nullptr) {
       int values[2];
       int n = msg->getNumberList(values, 2);
@@ -168,7 +165,7 @@ bool Block::setSlotPosition(const oe::base::List* const msg)
 
 bool Block::setSlotRefId(const oe::base::Integer* const msg)
 {
-   bool ok = false;
+   bool ok {};
    if (msg != nullptr) {
       int i = msg->getInt();
       if (i >= 0) {
@@ -181,7 +178,7 @@ bool Block::setSlotRefId(const oe::base::Integer* const msg)
 
 std::ostream& Block::serialize(std::ostream& sout, const int i, const bool slotsOnly) const
 {
-   int j = 0;
+   int j {};
    if ( !slotsOnly ) {
       sout << "( " << getFactoryName() << std::endl;
       j = 4;
@@ -222,7 +219,6 @@ Block1x1::Block1x1()
 Block::BlockId Block1x1::getTypeId() const   { return Block::BLOCK_1X1; }
 unsigned int Block1x1::getSizeX() const      { return 1; }
 unsigned int Block1x1::getSizeY() const      { return 1; }
-
 
 
 //==============================================================================
