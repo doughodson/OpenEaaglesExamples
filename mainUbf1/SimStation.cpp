@@ -23,12 +23,10 @@ EMPTY_SERIALIZER(SimStation)
 EMPTY_COPYDATA(SimStation)
 EMPTY_DELETEDATA(SimStation)
 
-// slot table for this class type
 BEGIN_SLOTTABLE(SimStation)
     "display",                  //  1) Main Display
 END_SLOTTABLE(SimStation)
 
-//  Map slot table to handles
 BEGIN_SLOT_MAP(SimStation)
     ON_SLOT( 1, setSlotMainDisplay, glut::GlutDisplay)
 END_SLOT_MAP()
@@ -36,9 +34,6 @@ END_SLOT_MAP()
 SimStation::SimStation()
 {
     STANDARD_CONSTRUCTOR()
-
-    mainDisplay = nullptr;
-    displayInit = false;
 }
 
 void SimStation::reset()

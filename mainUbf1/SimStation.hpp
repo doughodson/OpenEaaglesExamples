@@ -43,7 +43,7 @@ private:
 
     // Main Display
     oe::base::safe_ptr<oe::glut::GlutDisplay> mainDisplay;
-    bool displayInit;
+    bool displayInit {};
 
 };
 

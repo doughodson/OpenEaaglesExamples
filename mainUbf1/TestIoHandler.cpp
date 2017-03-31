@@ -24,30 +24,11 @@ EMPTY_DELETEDATA(TestIoHandler)
 TestIoHandler::TestIoHandler()
 {
    STANDARD_CONSTRUCTOR()
-   initData();
 }
 
-void TestIoHandler::initData()
-{
-   rstSw1 = false;
-   frzSw1 = false;
-   wpnReloadSw1 = false;
-
-   wpnRelSw1 = false;
-   trgSw1 = false;
-   tgtStepSw1 = false;
-   tgtDesSw1 = false;
-   rtn2SrchSw1 = false;
-
-   autopilotSw1 = false;
-   incStptSw1 = false;
-   decStptSw1 = false;
-}
-
-void TestIoHandler::copyData(const TestIoHandler& org, const bool cc)
+void TestIoHandler::copyData(const TestIoHandler& org, const bool)
 {
    BaseClass::copyData(org);
-   if (cc) initData();
 
    rstSw1 = org.rstSw1;
    frzSw1 = org.frzSw1;

@@ -4,6 +4,8 @@
 
 #include "openeaagles/gui/glut/GlutDisplay.hpp"
 
+#include <array>
+
 namespace oe {
 namespace models { class Missile; class Player; }
 namespace simulation { class Simulation; class Station; }
@@ -71,69 +73,76 @@ private:
 
     void updatePfd(const double dt);
 
-    oe::xpanel::DspRadar*   rdrDisplay;     // Test RADAR display
-    oe::xpanel::DspRwr*     rwrDisplay;     // Test RWR display
-    double range;                           // SD range
+    // ---
+    // RADAR, RWR and SA stuff
+    // ---
+    oe::xpanel::DspRadar* rdrDisplay {};     // Test RADAR display
+    oe::xpanel::DspRwr*   rwrDisplay {};     // Test RWR display
+    double range {40.0};                     // SD range
 
     SendData headingSD;
     SendData rangeSD;
 
     oe::base::safe_ptr<oe::simulation::Station> myStation;
 
-    oe::models::Player* tracks[MAX_TRACKS];    // players that we're displaying
-    int trkIdx[MAX_TRACKS];                        // Index of track symbols
+    std::array<oe::models::Player*, MAX_TRACKS> tracks {};    // players that we're displaying
+    std::array<int, MAX_TRACKS> trkIdx {};                    // Index of track symbols
+
+    // ---
+    // PFD stuff
+    // ---
 
     // pitch and roll
-    double pitch;           // degs
-    double pitchRate;       // degs/sec
-    double roll;            // degs
-    double rollRate;        // degs/sec
+    double pitch {};           // degs
+    double pitchRate {10.0};   // degs/sec
+    double roll {};            // degs
+    double rollRate {-9.0};    // degs/sec
 
     // heading and nav stuff
-    double trueHdg;         // degs
-    double tHdgRate;        // degs/sec
-    double cmdHdg;          // commanded heading (heading bug) (degs)
-    double cmdHdgRate;      // degs/sec
+    double trueHdg {};         // degs
+    double tHdgRate {11};      // degs/sec
+    double cmdHdg {};          // commanded heading (heading bug) (degs)
+    double cmdHdgRate {3};     // degs/sec
 
     // airspeed
-    double airSpd;
-    double airSpdRate;
+    double airSpd {};
+    double airSpdRate {5};
 
     // altitude
-    double alt;
-    double altRate;
+    double alt {10000.0};
+    double altRate {80.0};
 
     // side slip
-    double slip;            // degs
-    double slipRate;        // degs/sec
+    double slip {};            // degs
+    double slipRate {10.0};    // degs/sec
 
     // glideslope (in dots)
-    double gSlope;
-    double gSlopeRate;
+    double gSlope {};
+    double gSlopeRate {0.2};
 
     // Lateral dev
-    double latDev;
-    double ldRate;
+    double latDev {};
+    double ldRate {0.3};
 
     // commanded speed
-    double cmdSpd;
+    double cmdSpd {200.0};
 
     // commanded alt
-    double cmdAlt;
+    double cmdAlt {6000.0};
 
     // vvi
-    double vvi;
-    double vviRate;
+    double vvi {};
+    double vviRate {500.0};
 
     // flight director stuff (in inches)
-    double fDirBank;
-    double fDirBankRate;
-    double fDirPitch;
-    double fDirPitchRate;
+    double fDirBank {};
+    double fDirBankRate {4.0};
+    double fDirPitch {};
+    double fDirPitchRate {7.0};
 
     // barometric pressure
-    double baro;
-    double baroRate;
+    double baro {};
+    double baroRate {10.0};
 };
 
 #endif
