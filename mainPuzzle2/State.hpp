@@ -4,10 +4,11 @@
 
 #include "openeaagles/base/Component.hpp"
 
-namespace oe {
-   namespace base { class PairStream; }
-}
+#include <array>
 
+namespace oe {
+namespace base { class PairStream; }
+}
 class Block;
 class Puzzle;
 
@@ -69,14 +70,14 @@ protected:
    virtual void clearBlocks();
 
 private:
-   const Block* blocks[MAX_BLOCKS];    // Our blocks
-   unsigned int nblocks;               // Number of blocks
-   unsigned int* board;                // 2D array of block IDs that define the puzzle board
-   unsigned int  boardSize;            // Size of the board
-   bool     expanded;                  // True if we've been expanded
-   int      generation;                // Generation index
-   int      gValue;                    // g() value
-   int      hValue;                    // h() value
+   std::array<const Block*, MAX_BLOCKS> blocks {};   // Our blocks
+   unsigned int nblocks {};                          // Number of blocks
+   unsigned int* board {};            // 2D array of block IDs that define the puzzle board
+   unsigned int  boardSize {};        // Size of the board
+   bool expanded {};                  // True if we've been expanded
+   int  generation {};                // Generation index
+   int  gValue {};                    // g() value
+   int  hValue {};                    // h() value
 };
 
 #endif

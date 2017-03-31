@@ -1,13 +1,13 @@
-//------------------------------------------------------------------------------
-// Class: State
-//------------------------------------------------------------------------------
+
 #ifndef __State_H__
 #define __State_H__
 
 #include "openeaagles/base/Component.hpp"
 
+#include <array>
+
 namespace oe {
-   namespace base { class PairStream; }
+namespace base { class PairStream; }
 }
 
 class Block;
@@ -63,10 +63,10 @@ protected:
    virtual void clearBlocks();
 
 private:
-   const Block* blocks[MAX_BLOCKS];    // Our blocks
-   unsigned int nblocks;               // Number of blocks
-   bool     expanded;                  // True if we've been expanded
-   int      generation;                // Generation index
+   std::array<const Block*, MAX_BLOCKS> blocks {};    // Our blocks
+   unsigned int nblocks {};                           // Number of blocks
+   bool expanded {};             // True if we've been expanded
+   int  generation {};           // Generation index
 };
 
 #endif

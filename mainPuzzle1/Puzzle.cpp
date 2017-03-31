@@ -20,30 +20,11 @@ END_SLOT_MAP()
 Puzzle::Puzzle()
 {
    STANDARD_CONSTRUCTOR()
-
-   initState = nullptr;
-   goalState = nullptr;
-   openStates = nullptr;
-
-   for (unsigned int i = 0; i < MAX_STATES; i++) {
-      hashTable[i] = nullptr;
-   }
-   nhe = 0;
 }
 
-void Puzzle::copyData(const Puzzle& org, const bool cc)
+void Puzzle::copyData(const Puzzle& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      initState = nullptr;
-      goalState = nullptr;
-      openStates = nullptr;
-      for (unsigned int i = 0; i < MAX_STATES; i++) {
-         hashTable[i] = nullptr;
-      }
-      nhe = 0;
-   }
 
    setInitState(nullptr);
    if (org.initState != nullptr) {

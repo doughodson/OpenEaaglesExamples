@@ -43,11 +43,11 @@ public:
 private:
     // Main Display
     oe::base::safe_ptr<oe::glut::GlutDisplay> mainDisplay;
-    bool displayInit;
+    bool displayInit {};
 
     // Auto reset timer
-    double autoResetTimer;                   // Auto RESET timer (sends a RESET_EVENT after timeout)
-    const oe::base::Time* autoResetTimer0;   // Init value of the Auto RESET timer
+    double autoResetTimer {};                   // Auto RESET timer (sends a RESET_EVENT after timeout)
+    const oe::base::Time* autoResetTimer0 {};   // Init value of the Auto RESET timer
 };
 
 #endif

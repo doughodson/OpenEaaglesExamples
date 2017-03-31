@@ -30,8 +30,8 @@ protected:
     bool setSlotDisplay(oe::glut::GlutDisplay*);
 
 private:
-    oe::glut::GlutDisplay* display; // this is our main display that
-    bool displayInit;               // is our display created?
+    oe::glut::GlutDisplay* display {}; // this is our main display that
+    bool displayInit {};               // is our display created?
 };
 
 #endif

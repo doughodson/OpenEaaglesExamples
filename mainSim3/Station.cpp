@@ -14,28 +14,14 @@ BEGIN_SLOT_MAP(Station)
     ON_SLOT(1, setSlotDisplay, oe::glut::GlutDisplay)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Station::Station()
 {
     STANDARD_CONSTRUCTOR()
-    display = nullptr;
-    displayInit = false;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
-void Station::copyData(const Station& org, const bool cc)
+void Station::copyData(const Station& org, const bool)
 {
-    // copy base class stuff first
     BaseClass::copyData(org);
-
-    if (cc) {
-        display = nullptr;
-        displayInit = false;
-    }
 
     if (display != nullptr) {
         display->unref();

@@ -17,8 +17,6 @@ public:
     SimPlayer();
 
     virtual void reset() override;
-
-private:
 };
 
 #endif

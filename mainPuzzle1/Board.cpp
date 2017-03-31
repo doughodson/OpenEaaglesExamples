@@ -22,33 +22,11 @@ END_SLOT_MAP()
 Board::Board()
 {
    STANDARD_CONSTRUCTOR()
-
-
-   // Clear our blocks
-   for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = nullptr;
-      blockId[i] = 0;
-      xp[i] = 0;
-      yp[i] = 0;
-      xd[i] = 0;
-      yd[i] = 0;
-   }
-   nblocks = 0;
-
-   curPathState = 0;
-   moveTimer = 0.0;
-   movingFlg = false;
 }
 
-void Board::copyData(const Board& org, const bool cc)
+void Board::copyData(const Board& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      templates = nullptr;
-      puzzle = nullptr;
-      finalState = nullptr;
-   }
 
    setSlotPuzzle(nullptr);
    if (org.puzzle != nullptr) {

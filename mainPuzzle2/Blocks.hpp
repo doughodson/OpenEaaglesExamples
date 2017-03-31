@@ -5,7 +5,7 @@
 #include "openeaagles/base/Object.hpp"
 
 namespace oe {
-   namespace base { class List; class Integer; }
+namespace base { class List; class Integer; }
 }
 
 class Puzzle;
@@ -58,8 +58,8 @@ protected:
    virtual bool setReferenceID(const unsigned int v);          // Sets the block's reference ID number
 
 private:
-   unsigned int x, y;    // Location
-   unsigned int refId;   // Block's ref ID number
+   unsigned int x {}, y {};  // Location
+   unsigned int refId {};    // Block's ref ID number
 };
 
 //------------------------------------------------------------------------------

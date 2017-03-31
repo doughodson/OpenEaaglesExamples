@@ -20,7 +20,6 @@ const unsigned int frameRate = 20;
 
 Board* board = nullptr;
 
-//
 void timerCB(int)
 {
    const double dt0 = 1.0 / static_cast<double>(frameRate);

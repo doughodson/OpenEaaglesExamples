@@ -1,15 +1,14 @@
-//------------------------------------------------------------------------------
-// Class:  Puzzle
-//------------------------------------------------------------------------------
+
 #ifndef __Puzzle_H__
 #define __Puzzle_H__
 
 #include "openeaagles/base/Component.hpp"
 
-namespace oe {
-   namespace base { class List; }
-}
+#include <array>
 
+namespace oe {
+namespace base { class List; }
+}
 class State;
 
 //------------------------------------------------------------------------------
@@ -57,16 +56,16 @@ protected:
    virtual void clearHashTable();                     // Clears the hash table
 
 private:
-   State*         initState;     // Initial (starting) state
-   const State*   goalState;     // Goal (ending) state
+   State*       initState {};       // Initial (starting) state
+   const State* goalState {};       // Goal (ending) state
 
    // Open list
-   oe::base::List*  openStates;   // List of 'open' states (still need to be expanded)
-                                  // (list is ordered by the state's f() values)
+   oe::base::List* openStates {};   // List of 'open' states (still need to be expanded)
+                                    // (list is ordered by the state's f() values)
 
    // HashTable
-   const State* hashTable[MAX_STATES]; // Hash table (for quick lookup of states)
-   unsigned int nhe;                   // Number of entries in hash table
+   std::array<const State*, MAX_STATES> hashTable {};  // Hash table (for quick lookup of states)
+   unsigned int nhe {};                                // Number of entries in hash table
 };
 
 #endif

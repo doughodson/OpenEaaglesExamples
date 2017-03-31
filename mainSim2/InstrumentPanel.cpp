@@ -21,7 +21,6 @@ EMPTY_SERIALIZER(InstrumentPanel)
 EMPTY_SLOTTABLE(InstrumentPanel)
 EMPTY_DELETEDATA(InstrumentPanel)
 
-// Event() map
 BEGIN_EVENT_HANDLER(InstrumentPanel)
    ON_EVENT('r',onResetKey)
    ON_EVENT('R',onResetKey)
@@ -33,7 +32,6 @@ END_EVENT_HANDLER()
 InstrumentPanel::InstrumentPanel()
 {
    STANDARD_CONSTRUCTOR()
-   myStation = nullptr;
 }
 
 void InstrumentPanel::copyData(const InstrumentPanel& org, const bool)

@@ -10,16 +10,10 @@ EMPTY_DELETEDATA(Display)
 Display::Display()
 {
     STANDARD_CONSTRUCTOR()
-    startX = 0;
-    startY = 0;
-    dragging = false;
-    range = 0;
-    rangeSD.empty();
 }
 
-void Display::copyData(const Display& org, const bool cc)
+void Display::copyData(const Display& org, const bool)
 {
-    // copy base class stuff first
     BaseClass::copyData(org);
 
     startX = org.startX;

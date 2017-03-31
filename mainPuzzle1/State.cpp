@@ -19,26 +19,13 @@ END_SLOT_MAP()
 State::State()
 {
    STANDARD_CONSTRUCTOR()
-
-   for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = nullptr;
-   }
-   nblocks = 0;
-
-   expanded = false;
-   generation = 0;
 }
 
 State::State(const State& org, const Block* const nb, const unsigned int idx)
 {
    STANDARD_CONSTRUCTOR()
 
-   for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-      blocks[i] = nullptr;
-   }
-   nblocks = 0;
-
-   setBlocks(org.blocks, org.nblocks);
+   setBlocks(org.blocks.data(), org.nblocks);
 
    if (nb != nullptr && idx < nblocks) {
       if (blocks[idx] != nullptr) blocks[idx]->unref();
@@ -47,24 +34,16 @@ State::State(const State& org, const Block* const nb, const unsigned int idx)
    sortBlocks();
 
    generation = org.getGeneration() + 1;
-   expanded = false;
 }
 
-void State::copyData(const State& org, const bool cc)
+void State::copyData(const State& org, const bool)
 {
    BaseClass::copyData(org);
-
-   if (cc) {
-      for (unsigned int i = 0; i < MAX_BLOCKS; i++) {
-         blocks[i] = nullptr;
-      }
-      nblocks = 0;
-   }
 
    expanded = org.expanded;
    generation = org.generation;
 
-   setBlocks(org.blocks, org.nblocks);
+   setBlocks(org.blocks.data(), org.nblocks);
 }
 
 void State::deleteData()

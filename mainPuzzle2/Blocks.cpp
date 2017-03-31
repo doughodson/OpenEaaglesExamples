@@ -11,39 +11,24 @@ using namespace oe;
 // Class: Block
 //==============================================================================
 
-IMPLEMENT_ABSTRACT_SUBCLASS(Block,"PuzzleBlock")
+IMPLEMENT_ABSTRACT_SUBCLASS(Block, "PuzzleBlock")
+EMPTY_DELETEDATA(Block)
 
-//------------------------------------------------------------------------------
-// Slot table for this form type
-//------------------------------------------------------------------------------
 BEGIN_SLOTTABLE(Block)
     "position",      //  1: initial position vector
     "id",            //  2: Block's reference ID
 END_SLOTTABLE(Block)
 
-//------------------------------------------------------------------------------
-//  Map slot table to handles
-//------------------------------------------------------------------------------
 BEGIN_SLOT_MAP(Block)
     ON_SLOT( 1, setSlotPosition, base::List)
     ON_SLOT( 2, setSlotRefId, base::Integer)
 END_SLOT_MAP()
 
-//------------------------------------------------------------------------------
-// Constructor(s)
-//------------------------------------------------------------------------------
 Block::Block()
 {
    STANDARD_CONSTRUCTOR()
-
-   x  = 0;
-   y  = 0;
-   refId = 0;
 }
 
-//------------------------------------------------------------------------------
-// copyData() -- copy member data
-//------------------------------------------------------------------------------
 void Block::copyData(const Block& org, const bool)
 {
    BaseClass::copyData(org);
@@ -51,13 +36,6 @@ void Block::copyData(const Block& org, const bool)
    x  = org.x;
    y  = org.y;
    refId = org.refId;
-}
-
-//------------------------------------------------------------------------------
-//deleteData() -- delete member data
-//------------------------------------------------------------------------------
-void Block::deleteData()
-{
 }
 
 //------------------------------------------------------------------------------

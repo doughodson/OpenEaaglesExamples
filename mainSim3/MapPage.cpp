@@ -20,32 +20,10 @@ EMPTY_SERIALIZER(MapPage)
 MapPage::MapPage()
 {
     STANDARD_CONSTRUCTOR()
-    for (unsigned int i = 0; i < MAX_PLAYERS; i++) {
-        player[i] = nullptr;
-        playerIdx[i] = -1;
-    }
-    stn = nullptr;
-    loader = nullptr;
-
-    for (unsigned int i = 0; i < MAX_READOUTS; i++) {
-        latsSD[i].empty();
-        lats[i] = 0;
-        latReadoutXPosSD[i].empty();
-        latReadoutXPos[i] = 0.0;
-        latReadoutYPosSD[i].empty();
-        latReadoutYPos[i] = 0.0;
-        lonsSD[i].empty();
-        lons[i] = 0;
-        lonReadoutXPosSD[i].empty();
-        lonReadoutXPos[i] = 0.0;
-        lonReadoutYPosSD[i].empty();
-        lonReadoutYPos[i] = 0.0;
-    }
 }
 
 void MapPage::copyData(const MapPage& org, const bool)
 {
-    // copy base class stuff first
     BaseClass::copyData(org);
 
     // regardless of copy, we will create all new symbols
@@ -292,10 +270,10 @@ void MapPage::updateData(const double dt)
     }
 
     // now send our lat / lon text data
-    send("line%d", UPDATE_VALUE2, latReadoutYPos, latReadoutYPosSD, MAX_READOUTS);
-    send("line%d", UPDATE_VALUE, latReadoutXPos, latReadoutXPosSD, MAX_READOUTS);
-    send("text%d", UPDATE_VALUE, lats, latsSD, MAX_READOUTS);
-    send("lonline%d", UPDATE_VALUE2, lonReadoutYPos, lonReadoutYPosSD, MAX_READOUTS);
-    send("lonline%d", UPDATE_VALUE, lonReadoutXPos, lonReadoutXPosSD, MAX_READOUTS);
-    send("lontext%d", UPDATE_VALUE, lons, lonsSD, MAX_READOUTS);
+    send("line%d", UPDATE_VALUE2, latReadoutYPos.data(), latReadoutYPosSD, MAX_READOUTS);
+    send("line%d", UPDATE_VALUE, latReadoutXPos.data(), latReadoutXPosSD, MAX_READOUTS);
+    send("text%d", UPDATE_VALUE, lats.data(), latsSD, MAX_READOUTS);
+    send("lonline%d", UPDATE_VALUE2, lonReadoutYPos.data(), lonReadoutYPosSD, MAX_READOUTS);
+    send("lonline%d", UPDATE_VALUE, lonReadoutXPos.data(), lonReadoutXPosSD, MAX_READOUTS);
+    send("lontext%d", UPDATE_VALUE, lons.data(), lonsSD, MAX_READOUTS);
 }

@@ -24,10 +24,10 @@ public:
     virtual void updateData(const double dt = 0.0) override;
 
 private:
-    int startX;         // startX of our last mouse position
-    int startY;         // startY of our last mouse position
-    bool dragging;      // are we dragging the map?
-    int range;          // range of our map
+    int startX {};         // startX of our last mouse position
+    int startY {};         // startY of our last mouse position
+    bool dragging {};      // are we dragging the map?
+    int range {};          // range of our map
     SendData rangeSD;
 };
 
