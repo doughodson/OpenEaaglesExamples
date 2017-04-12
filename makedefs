@@ -31,13 +31,6 @@ ifdef OE_3RD_PARTY_ROOT
 endif
 
 # ---
-# Fox GUI library settings
-# ---
-FOX_DEFINES = -DHAVE_GL_H -DHAVE_GLU_H
-FOX_INC_DIR = $(OE_3RD_PARTY_ROOT)/include/fox-1.7
-FOX_LIBS    = -lFOX-1.7
-
-# ---
 # CPP flags
 # ---
 CPPFLAGS += -I${OE_EXAMPLES_ROOT}/shared

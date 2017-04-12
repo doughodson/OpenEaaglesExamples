@@ -67,9 +67,6 @@ APPLICATIONS += testNavUtils
 # network handler testing
 APPLICATIONS += testNetHandler
 
-# interoperability network testing
-#APPLICATIONS += testNetIO
-
 # linear systems package
 APPLICATIONS += testLinearSys
 
