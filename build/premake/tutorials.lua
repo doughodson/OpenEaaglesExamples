@@ -16,10 +16,10 @@ project "tutorial01"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- tutorial02
 project "tutorial02"
@@ -35,10 +35,10 @@ project "tutorial02"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- tutorial03
 project "tutorial03"
@@ -56,10 +56,10 @@ project "tutorial03"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- tutorial04
 project "tutorial04"
@@ -77,10 +77,10 @@ project "tutorial04"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- tutorial05
 project "tutorial05"
@@ -98,10 +98,10 @@ project "tutorial05"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- tutorial06
 project "tutorial06"
@@ -119,10 +119,10 @@ project "tutorial06"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- tutorial07
 project "tutorial07"
@@ -141,12 +141,12 @@ project "tutorial07"
    filter "configurations:Release*"
       links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 
 -- tutorial08
 project "tutorial08"
@@ -165,10 +165,10 @@ project "tutorial08"
    filter "configurations:Release*"
       links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {"ftgl", LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {"ftgl_d", "freetype2_d", "freeglut_d"}
       links {"glu32", "opengl32"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 

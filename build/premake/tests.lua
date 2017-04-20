@@ -20,10 +20,10 @@ project "testDafif"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_models", "oe_simulation", "oe_terrain", "oe_dafif", "oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_models_d", "oe_simulation_d", "oe_terrain_d", "oe_dafif_d", "oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testEvents: test of event passing
 project "testEvents"
@@ -43,11 +43,11 @@ project "testEvents"
    filter "configurations:Release*"
       links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 
 -- testGraphics : test of basic graphics
 project "testGraphics"
@@ -67,11 +67,11 @@ project "testGraphics"
    filter "configurations:Release*"
       links {"oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 
 -- testInfrared: IR test
 project "testInfrared"
@@ -95,7 +95,7 @@ project "testInfrared"
       links {"oe_simulation", "oe_terrain"}
       links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d"}
       links {"oe_otw_d", LibCigi_d}
@@ -103,7 +103,7 @@ project "testInfrared"
       links {"oe_simulation_d", "oe_terrain_d"}
       links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 
 -- testIoHandler: I/O handler test
 project "testIoHandler"
@@ -123,11 +123,11 @@ project "testIoHandler"
    filter "configurations:Release*"
       links {"oe_iodevice", "oe_gui_glut", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_iodevice_d", "oe_gui_glut_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 
 -- testLinearSys: test of linear system components
 project "testLinearSys"
@@ -145,10 +145,10 @@ project "testLinearSys"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_linearsystem", "oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_linearsystem_d", "oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testMatrix
 project "testMatrix"
@@ -166,10 +166,10 @@ project "testMatrix"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testMetaObject
 project "testMetaObject"
@@ -187,10 +187,10 @@ project "testMetaObject"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- test navigation utility functions
 project "testNavUtils"
@@ -208,10 +208,10 @@ project "testNavUtils"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testNetHandler
 project "testNetHandler"
@@ -232,10 +232,10 @@ project "testNetHandler"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base", "libzmq" }
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d", "libzmq_d" }
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testRadar
 project "testRadar"
@@ -258,7 +258,7 @@ project "testRadar"
       links {"oe_simulation", "oe_terrain"}
       links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d"}
       links {"oe_otw_d", LibCigi_d}
@@ -266,7 +266,7 @@ project "testRadar"
       links {"oe_simulation_d", "oe_terrain_d"}
       links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d"}
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
 
 -- testRecordData
 project "testRecordData"
@@ -291,7 +291,7 @@ project "testRecordData"
       links {"oe_gui_glut", "oe_instruments", "oe_graphics", "oe_base" }
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {"libprotobuf" }
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d" }
       links {"oe_otw_d",  LibCigi_d }
@@ -300,7 +300,7 @@ project "testRecordData"
       links {"oe_gui_glut_d", "oe_instruments_d", "oe_graphics_d", "oe_base_d" }
       links {LibFtgl_d, LibFreetype_d, LibGlut_d, LibGLU, LibGL}
       links {"libprotobuf_d" }
-      links {"Ws2_32", "Winmm", "comctl32", "gdi32" }
+      links {LibWindows}
 
 -- testRecorderRead
 project "testRecorderRead"
@@ -320,11 +320,11 @@ project "testRecorderRead"
    filter "configurations:Release*"
       links {"oe_models", "JSBSim" }
       links {"oe_recorder", "oe_simulation", "oe_base", "libprotobuf"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d" }
       links {"oe_recorder_d", "oe_simulation_d", "oe_base_d", "libprotobuf_d" }
-      links {"Ws2_32", "Winmm", "comctl32" }
+      links {LibWindows}
 
 -- testRecorderWrite
 project "testRecorderWrite"
@@ -344,11 +344,11 @@ project "testRecorderWrite"
    filter "configurations:Release*"
       links {"oe_models", "JSBSim" }
       links {"oe_recorder", "oe_simulation", "oe_base", "libprotobuf"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_models_d", "JSBSim_d" }
       links {"oe_recorder_d", "oe_simulation_d", "oe_base_d", "libprotobuf_d" }
-      links {"Ws2_32", "Winmm", "comctl32" }
+      links {LibWindows}
 
 -- testRng
 project "testRng"
@@ -366,10 +366,10 @@ project "testRng"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testStateMach
 project "testStateMach"
@@ -387,10 +387,10 @@ project "testStateMach"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testTables
 project "testTables"
@@ -408,10 +408,10 @@ project "testTables"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testTemplates
 project "testTemplates"
@@ -429,10 +429,10 @@ project "testTemplates"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 
 -- testTimer
 project "testTimer"
@@ -449,8 +449,8 @@ project "testTimer"
    defines { "_CONSOLE" }
    filter "configurations:Release*"
       links {"oe_base"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
    filter "configurations:Debug*"
       links {"oe_base_d"}
-      links {"Ws2_32", "Winmm", "comctl32"}
+      links {LibWindows}
 

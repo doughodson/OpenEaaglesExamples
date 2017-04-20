@@ -64,6 +64,8 @@ LibGlut_d     = LibGlut.."_d"
 LibGLU        = "glu32"
 LibGL         = "opengl32"
 
+LibWindows    = {"Ws2_32", "Winmm", "comctl32", "gdi32", "iphlpapi"}
+
 workspace "examples"
 
    -- destination directory for generated solution/project files
@@ -90,19 +92,18 @@ workspace "examples"
    -- /Oi - generate intrinsic functions
    buildoptions( { "/wd4351", "/wd4996", "/wd4005", "/wd4100", "/Oi" } )
 
-   -- common release configuration flags and symbols
+   -- common release configuration flags, symbols and libraries
    filter { "Release" }
       flags { "Optimize" }
       -- favor speed over size
       buildoptions { "/Ot" }
       defines { "WIN32", "NDEBUG" }
 
-   -- common debug configuration flags and symbols
+   -- common debug configuration flags, symbols and libraries
    filter { "Debug" }
       symbols "On"
       targetsuffix "_d"
       defines { "WIN32", "_DEBUG" }
-
 
    -- libraries
    dofile "libs.lua"
