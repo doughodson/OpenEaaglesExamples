@@ -9,6 +9,13 @@
       "vec3f": "cpp",
       "vec4d": "cpp",
       "vec4f": "cpp",
-      "string": "cpp"
+      "string": "cpp",
+      "copyop": "cpp",
+      "math": "cpp",
+      "notify": "cpp",
+      "object": "cpp",
+      "referenced": "cpp",
+      "ref_ptr": "cpp",
+      "ostream": "cpp"
    }
 }

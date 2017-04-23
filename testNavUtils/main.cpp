@@ -16,17 +16,17 @@ using namespace oe;
 // -----------------------------------------------------------------------------
 // Global Variables (and Constants)
 // -----------------------------------------------------------------------------
-static double slat = 0.0;
-static double slon = 0.0;
-static double tlat = 1.0;
-static double tlon = 1.0;
+//static double slat = 0.0;
+//static double slon = 0.0;
+//static double tlat = 1.0;
+//static double tlon = 1.0;
 static double brng = 45.0;
-static double dist = 100.0;
+//static double dist = 100.0;
 static const base::EarthModel* pEM = &base::EarthModel::wgs84;
 
 static int testNumber = 0;
 static char ynCont = 'y';
-static char ynMenu = 'y';
+//static char ynMenu = 'y';
 static const char* enterYourOwnData = "Enter your own data? (y/n) : ";
 
 //------------------------------------------------------------------------------
@@ -758,7 +758,7 @@ void test05_aer2xyz()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool aer2xyz( " << std::endl
-             << "       osg::Vec3d* const pos,   // OUT: position vector array (NED, player centered) [M]              " << std::endl
+             << "       base::Vec3d* const pos,  // OUT: position vector array (NED, player centered) [M]              " << std::endl
              << "       const double azim,       // IN:  azimuth (body)                               [RAD]            " << std::endl
              << "       const double elev,       // IN:  elevation (body)  (positive up)              [RAD]            " << std::endl
              << "       const double ranj)       // IN:  range                                        [M]              " << std::endl
@@ -901,11 +901,11 @@ void test06_aer2xyz()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:"                               << std::endl
              << "  bool computeRotationalMatrixDeg("                    << std::endl
-             << "       const osg::Vec3d& angles,    // IN:  [ phi theta psi ]  [DEG]  " << std::endl
-             << "       osg::Matrixd* const rm,      // OUT: Matrix                    " << std::endl
-             << "       osg::Vec2d* const scPhi=0,   // OUT: Sin/Cos of phi   (opt)    " << std::endl
-             << "       osg::Vec2d* const scTht=0,   // OUT: Sin/Cos of theta (opt)    " << std::endl
-             << "       osg::Vec2d* const scPsi=0);  // OUT: Sin/Cos of psi   (opt)    " << std::endl
+             << "       const base::Vec3d& angles,    // IN:  [ phi theta psi ]  [DEG]  " << std::endl
+             << "       base::Matrixd* const rm,      // OUT: Matrix                    " << std::endl
+             << "       base::Vec2d* const scPhi=0,   // OUT: Sin/Cos of phi   (opt)    " << std::endl
+             << "       base::Vec2d* const scTht=0,   // OUT: Sin/Cos of theta (opt)    " << std::endl
+             << "       base::Vec2d* const scPsi=0);  // OUT: Sin/Cos of psi   (opt)    " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -992,11 +992,11 @@ void test06_aer2xyz()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool aer2xyz( " << std::endl
-             << "       osg::Vec3d* const pos,   // OUT: position vector array (NED, player centered) [M]              " << std::endl
-             << "       const osg::Matrixd& rm,  // IN:  NED to body rotational matrix (see computeRotationalMatrix()) " << std::endl
-             << "       const double azim,       // IN:  azimuth (body)                               [RAD]            " << std::endl
-             << "       const double elev,       // IN:  elevation (body)  (positive up)              [RAD]            " << std::endl
-             << "       const double ranj)       // IN:  range                                        [M]              " << std::endl
+             << "       base::Vec3d* const pos,   // OUT: position vector array (NED, player centered) [M]              " << std::endl
+             << "       const base::Matrixd& rm,  // IN:  NED to body rotational matrix (see computeRotationalMatrix()) " << std::endl
+             << "       const double azim,        // IN:  azimuth (body)                               [RAD]            " << std::endl
+             << "       const double elev,        // IN:  elevation (body)  (positive up)              [RAD]            " << std::endl
+             << "       const double ranj)        // IN:  range                                        [M]              " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -1140,7 +1140,7 @@ void test07_xyz2aer()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:"  << std::endl
              << "bool xyz2aer("  << std::endl
-             << "   osg::Vec3d* const aer,  // OUT: azim,elev,rang   [DEG, DEG, M]  "  << std::endl
+             << "   base::Vec3d* const aer, // OUT: azim,elev,rang   [DEG, DEG, M]  "  << std::endl
              << "   const double x,         // IN:  x                [M]            "  << std::endl
              << "   const double y,         // IN:  y                [M]            "  << std::endl
              << "   const double z)         // IN:  z                [M]            "  << std::endl
@@ -1271,12 +1271,12 @@ void test08_xyz2aer()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:"  << std::endl
              << "  bool xyz2aer(" << std::endl
-             << "       osg::Vec3d* const aer,   // OUT: position vector  [DEG, DEG, M]      " << std::endl
-             << "       const osg::Matrixd& rm,  // IN:  inertial to body rotational matrix  " << std::endl
-             << "                                //      (see computeRotationalMatrix())     " << std::endl
-             << "       const double x,          // IN:  x                        [M]        " << std::endl
-             << "       const double y,          // IN:  y                        [M]        " << std::endl
-             << "       const double z)          // IN:  z                        [M]        " << std::endl
+             << "       base::Vec3d* const aer,   // OUT: position vector  [DEG, DEG, M]      " << std::endl
+             << "       const base::Matrixd& rm,  // IN:  inertial to body rotational matrix  " << std::endl
+             << "                                 //      (see computeRotationalMatrix())     " << std::endl
+             << "       const double x,           // IN:  x                        [M]        " << std::endl
+             << "       const double y,           // IN:  y                        [M]        " << std::endl
+             << "       const double z)           // IN:  z                        [M]        " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -1899,7 +1899,7 @@ void test12_gll2bdS()
    double tlon = 1.0;
    double brng = 0.0;
    double dist = 0.0;
-   const base::EarthModel* pEM = &base::EarthModel::wgs84;
+//   const base::EarthModel* pEM = &base::EarthModel::wgs84;
 
    const double BRNG = 44.9956;
    const double DIST = 84.8507;
@@ -2343,7 +2343,7 @@ void test15_vbd2ll()
    double dist = 100.0;
    double tlat = 0.0;
    double tlon = 0.0;
-   double brg2 = 0.0;
+//   double brg2 = 0.0;
    const base::EarthModel* pEM = &base::EarthModel::wgs84;
 
    const double TLAT = 1.18424220;
@@ -2410,7 +2410,7 @@ void test15_vbd2ll()
          dist = 0.0;
          tlat = 0.0;
          tlon = 0.0;
-         brg2 = 0.0;
+//         brg2 = 0.0;
 
          std::cout << "Enter source latitude   [DEG] : "; std::cin  >> slat;
          std::cout << "Enter source longitude  [DEG] : "; std::cin  >> slon;
@@ -2599,9 +2599,9 @@ void test17_computeWorldMatrix()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool computeWorldMatrix( " << std::endl
-             << "     const double refLat,     // IN:  Reference latitude  [DEG] " << std::endl
-             << "     const double refLon,     // IN:  Reference longitude [DEG] " << std::endl
-             << "     osg::Matrixd* const wm)  // OUT: World Matrix              " << std::endl
+             << "     const double refLat,      // IN:  Reference latitude  [DEG] " << std::endl
+             << "     const double refLon,      // IN:  Reference longitude [DEG] " << std::endl
+             << "     base::Matrixd* const wm)  // OUT: World Matrix              " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -2731,11 +2731,11 @@ void test18_computeEulerAnglesDeg()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype: " << std::endl
              << "  bool computeEulerAnglesDeg( " << std::endl
-             << "       const osg::Matrixd& rm,     // IN: Rotational matrix            " << std::endl
-             << "       osg::Vec3d* const anglesD,  // OUT: euler angles [DEG]          " << std::endl
-             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi (Optional)   " << std::endl
-             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional) " << std::endl
-             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi (Optional)   " << std::endl
+             << "       const base::Matrixd& rm,     // IN: Rotational matrix            " << std::endl
+             << "       base::Vec3d* const anglesD,  // OUT: euler angles [DEG]          " << std::endl
+             << "       base::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi (Optional)   " << std::endl
+             << "       base::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional) " << std::endl
+             << "       base::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi (Optional)   " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -2915,13 +2915,13 @@ void test19_computeRotationalMatrix()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool computeRotationalMatrix( " << std::endl
-             << "       const double phi,           // IN:  roll    [RAD]                 " << std::endl
-             << "       const double theta,         // IN:  pitch   [RAD]                 " << std::endl
-             << "       const double psi,           // IN:  yaw     [RAD]                 " << std::endl
-             << "       osg::Matrixd* const rm,     // OUT: Rotational matrix             " << std::endl
-             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Optional)   " << std::endl
-             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional)   " << std::endl
-             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Optional)   " << std::endl
+             << "       const double phi,            // IN:  roll    [RAD]                 " << std::endl
+             << "       const double theta,          // IN:  pitch   [RAD]                 " << std::endl
+             << "       const double psi,            // IN:  yaw     [RAD]                 " << std::endl
+             << "       base::Matrixd* const rm,     // OUT: Rotational matrix             " << std::endl
+             << "       base::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Optional)   " << std::endl
+             << "       base::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional)   " << std::endl
+             << "       base::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Optional)   " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3087,11 +3087,11 @@ void test20_computeRotationalMatrix()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool computeRotationalMatrix( " << std::endl
-             << "       const osg::Vec3d& angles,   // IN: euler angles (radians)  " << std::endl
-             << "       osg::Matrixd* const rm,     // OUT: Rotational matrix      " << std::endl
-             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Opt) " << std::endl
-             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Opt) " << std::endl
-             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Opt) " << std::endl
+             << "       const base::Vec3d& angles,   // IN: euler angles (radians)  " << std::endl
+             << "       base::Matrixd* const rm,     // OUT: Rotational matrix      " << std::endl
+             << "       base::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Opt) " << std::endl
+             << "       base::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Opt) " << std::endl
+             << "       base::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Opt) " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3287,13 +3287,13 @@ void test21_computeRotationalMatrixDeg()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool computeRotationalMatrixDeg( " << std::endl
-             << "       const double phi,           // IN:  roll    [DEG]                 " << std::endl
-             << "       const double theta,         // IN:  pitch   [DEG]                 " << std::endl
-             << "       const double psi,           // IN:  yaw     [DEG]                 " << std::endl
-             << "       osg::Matrixd* const rm,     // OUT: Rotational matrix             " << std::endl
-             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Optional)   " << std::endl
-             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional)   " << std::endl
-             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Optional)   " << std::endl
+             << "       const double phi,            // IN:  roll    [DEG]                 " << std::endl
+             << "       const double theta,          // IN:  pitch   [DEG]                 " << std::endl
+             << "       const double psi,            // IN:  yaw     [DEG]                 " << std::endl
+             << "       base::Matrixd* const rm,     // OUT: Rotational matrix             " << std::endl
+             << "       base::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Optional)   " << std::endl
+             << "       base::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Optional)   " << std::endl
+             << "       base::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Optional)   " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3467,11 +3467,11 @@ void test22_computeRotationalMatrixDeg()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool computeRotationalMatrixDeg( " << std::endl
-             << "       const osg::Vec3d& angles,   // IN: euler angles  [DEG]     " << std::endl
-             << "       osg::Matrixd* const rm,     // OUT: Rotational matrix      " << std::endl
-             << "       osg::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Opt) " << std::endl
-             << "       osg::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Opt) " << std::endl
-             << "       osg::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Opt) " << std::endl
+             << "       const base::Vec3d& angles,   // IN: euler angles  [DEG]     " << std::endl
+             << "       base::Matrixd* const rm,     // OUT: Rotational matrix      " << std::endl
+             << "       base::Vec2d* const scPhi=0,  // OUT: Sin/Cos of phi   (Opt) " << std::endl
+             << "       base::Vec2d* const scTht=0,  // OUT: Sin/Cos of theta (Opt) " << std::endl
+             << "       base::Vec2d* const scPsi=0)  // OUT: Sin/Cos of psi   (Opt) " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3671,12 +3671,12 @@ void test23_convertPosVec2llE()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool convertPosVec2llE( " << std::endl
-             << "       const double slat,      // IN: source latitude     [DEG] " << std::endl
-             << "       const double slon,      // IN: source longitude    [DEG] " << std::endl
-             << "       const osg::Vec3d& pos,  // IN: NED position vector   [M] " << std::endl
-             << "       double* const lat,      // OUT: Latitude           [DEG] " << std::endl
-             << "       double* const lon,      // OUT: Longitude          [DEG] " << std::endl
-             << "       double* const alt)      // OUT: Altitude             [M] " << std::endl
+             << "       const double slat,       // IN: source latitude     [DEG] " << std::endl
+             << "       const double slon,       // IN: source longitude    [DEG] " << std::endl
+             << "       const base::Vec3d& pos,  // IN: NED position vector   [M] " << std::endl
+             << "       double* const lat,       // OUT: Latitude           [DEG] " << std::endl
+             << "       double* const lon,       // OUT: Longitude          [DEG] " << std::endl
+             << "       double* const alt)       // OUT: Altitude             [M] " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3812,12 +3812,12 @@ void test24_convertLL2PosVecE()
    std::cout << "-----------------------------------------------------" << std::endl
              << "Nav Function Prototype:" << std::endl
              << "  bool convertLL2PosVecE( " << std::endl
-             << "       const double rlat,      // IN: Reference latitude   [DEG]   " << std::endl
-             << "       const double rlon,      // IN: Reference longitude  [DEG]   " << std::endl
-             << "       const double tlat,      // IN: Target latitude      [DEG]   " << std::endl
-             << "       const double tlon,      // IN: Target longitude     [DEG]   " << std::endl
-             << "       const double talt,      // IN: Target altitude      [M]     " << std::endl
-             << "       osg::Vec3d* const pos)  // OUT: NED position vector [M,M,M] " << std::endl
+             << "       const double rlat,       // IN: Reference latitude   [DEG]   " << std::endl
+             << "       const double rlon,       // IN: Reference longitude  [DEG]   " << std::endl
+             << "       const double tlat,       // IN: Target latitude      [DEG]   " << std::endl
+             << "       const double tlon,       // IN: Target longitude     [DEG]   " << std::endl
+             << "       const double talt,       // IN: Target altitude      [M]     " << std::endl
+             << "       base::Vec3d* const pos)  // OUT: NED position vector [M,M,M] " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3949,33 +3949,33 @@ void test25_convertEcef2Geod()
    //-----------------------------------
    // function prototype
    //-----------------------------------
-   std::cout << "-----------------------------------------------------                       " << std::endl
-             << "Nav Function Prototype: Convert ECEF (XYZ) to Geodetic (LLA)                " << std::endl
-             << "-----------------------------------------------------                       " << std::endl
-             << "  Using type double single variables                                        " << std::endl
-             << "    bool convertEcef2Geod(                                                  " << std::endl
-             << "         const double x,                // IN:  ECEF X component    [M]     " << std::endl
-             << "         const double y,                // IN:  ECEF Y component    [M]     " << std::endl
-             << "         const double z,                // IN:  ECEF Z component    [M]     " << std::endl
-             << "         double* const plat,            // OUT: Geodetic latitude   [DEG]   " << std::endl
-             << "         double* const plon,            // OUT: Geodetic longitude  [DEG]   " << std::endl
-             << "         double* const palt,            // OUT: Geodetic altitude   [DEG]   " << std::endl
-             << "         const EarthModel* const em=0); // IN:  Pointer to an optional      " << std::endl
-             << "                                                earth model (dflt: WGS-84)  " << std::endl
-             << "                                                                            " << std::endl
-             << "  Using osg::Vec3d vectors                                                  " << std::endl
-             << "    bool convertEcef2Geod(                                                  " << std::endl
-             << "         const osg::Vec3d& xyz,         // IN:  ECEF [IX IY IZ]             " << std::endl
-             << "         osg::Vec3d* const plla,        // OUT: Geodetic [ILAT ILON IALT]   " << std::endl
-             << "         const EarthModel* const em=0); // IN:  Pointer to an optional      " << std::endl
-             << "                                                earth model (dflt: WGS-84)  " << std::endl
-             << "                                                                            " << std::endl
-             << "  Using array vectors                                                       " << std::endl
-             << "    bool convertEcef2Geod(                                                  " << std::endl
-             << "         const double xyz[3],           // IN:  ECEF [IX IY IZ]             " << std::endl
-             << "         double lla[3],                 // OUT: Geodetic [ILAT ILON IALT]   " << std::endl
-             << "         const EarthModel* const em=0); // IN:  Pointer to an optional      " << std::endl
-             << "                                                earth model (dflt: WGS-84)  " << std::endl
+   std::cout << "-----------------------------------------------------                        " << std::endl
+             << "Nav Function Prototype: Convert ECEF (XYZ) to Geodetic (LLA)                 " << std::endl
+             << "-----------------------------------------------------                        " << std::endl
+             << "  Using type double single variables                                         " << std::endl
+             << "    bool convertEcef2Geod(                                                   " << std::endl
+             << "         const double x,                // IN:  ECEF X component    [M]      " << std::endl
+             << "         const double y,                // IN:  ECEF Y component    [M]      " << std::endl
+             << "         const double z,                // IN:  ECEF Z component    [M]      " << std::endl
+             << "         double* const plat,            // OUT: Geodetic latitude   [DEG]    " << std::endl
+             << "         double* const plon,            // OUT: Geodetic longitude  [DEG]    " << std::endl
+             << "         double* const palt,            // OUT: Geodetic altitude   [DEG]    " << std::endl
+             << "         const EarthModel* const em=0); // IN:  Pointer to an optional       " << std::endl
+             << "                                                earth model (dflt: WGS-84)   " << std::endl
+             << "                                                                             " << std::endl
+             << "  Using base::Vec3d vectors                                                  " << std::endl
+             << "    bool convertEcef2Geod(                                                   " << std::endl
+             << "         const base::Vec3d& xyz,         // IN:  ECEF [IX IY IZ]             " << std::endl
+             << "         base::Vec3d* const plla,        // OUT: Geodetic [ILAT ILON IALT]   " << std::endl
+             << "         const EarthModel* const em=0); // IN:  Pointer to an optional       " << std::endl
+             << "                                                earth model (dflt: WGS-84)   " << std::endl
+             << "                                                                             " << std::endl
+             << "  Using array vectors                                                        " << std::endl
+             << "    bool convertEcef2Geod(                                                   " << std::endl
+             << "         const double xyz[3],           // IN:  ECEF [IX IY IZ]              " << std::endl
+             << "         double lla[3],                 // OUT: Geodetic [ILAT ILON IALT]    " << std::endl
+             << "         const EarthModel* const em=0); // IN:  Pointer to an optional       " << std::endl
+             << "                                                earth model (dflt: WGS-84)   " << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -3991,23 +3991,23 @@ void test25_convertEcef2Geod()
    //-----------------------------------
    // declare function parameters
    //-----------------------------------
-   double x = 4000000.0;
-   double y = 4000000.0;
-   double z = 4000000.0;
-   double lat = 0.0;
-   double lon = 0.0;
-   double alt = 0.0;
+   double x {4000000.0};
+   double y {4000000.0};
+   double z {4000000.0};
+   double lat {};
+   double lon {};
+   double alt {};
 
    base::Vec3d xyz(x, y, z);
    base::Vec3d lla;
 
-   double XYZ[3] = {x, y, z};
-   double LLA[3];
+   double XYZ[3] {x, y, z};
+   double LLA[3] {};
 
-   //osg::Vec3d result(35.4314, 45.0000, 557215.8470);  // expected result (x, y, z)
-   const double LAT = 35.4314;
-   const double LON = 45.0000;
-   const double ALT = 557215.8470;
+   //base::Vec3d result(35.4314, 45.0000, 557215.8470);  // expected result (x, y, z)
+   const double LAT {35.4314};
+   const double LON {45.0000};
+   const double ALT {557215.8470};
 
    //-----------------------------------
    // set output formats
@@ -4078,8 +4078,6 @@ void test25_convertEcef2Geod()
              << "  LLA[2] error = " << std::setw(12) << (LLA[2] - ALT) << std::endl
              << std::endl;
 
-
-
    //std::cout << "----------------------------------------------------------------------" << std::endl
    //          << "Form 1:" << std::endl
    //          << "base::nav::convertEcef2Geod(x, y, z, &lat, &lon, &alt, pEM);" << std::endl
@@ -4088,8 +4086,8 @@ void test25_convertEcef2Geod()
    //
    //std::cout << "----------------------------------------------------------------------" << std::endl
    //          << "Form 2:" << std::endl
-   //          << "osg::Vec3d xyz;" << std::endl
-   //          << "osg::Vec3d lla;" << std::endl
+   //          << "base::Vec3d xyz;" << std::endl
+   //          << "base::Vec3d lla;" << std::endl
    //          << "base::nav::convertEcef2Geod(xyz, &lla, pEM);" << std::endl
    //          << std::endl;
 
@@ -4158,7 +4156,7 @@ void test25_convertEcef2Geod()
          base::nav::convertEcef2Geod(xyz, &lla, pEM);
 
          // output results
-         std::cout << "*** osg::vec3d vector: lla => xyz ***" << std::endl
+         std::cout << "*** base::vec3d vector: lla => xyz ***" << std::endl
                    << "xyz[0] = " << std::setw(12) << xyz[0] << " [M]" << std::endl
                    << "xyz[1] = " << std::setw(12) << xyz[1] << " [M]" << std::endl
                    << "xyz[2] = " << std::setw(12) << xyz[2] << " [M]" << std::endl
@@ -4192,26 +4190,26 @@ void test26_convertGeod2Ecef()
              << "Nav Function Prototypes:" << std::endl
              << std::endl
              << "  // Form 1: Using type double variables" << std::endl
-             << "  bool convertGeod2Ecef("         << std::endl
-             << "       const double lat,       // IN: Geodetic latitude   [DEG]"   << std::endl
-             << "       const double lon,       // IN: Geodetic longitude  [DEG]"   << std::endl
-             << "       const double alt,       // IN: Geodetic altitude   [M]"     << std::endl
-             << "       double* const pX,       // OUT: ECEF X component   [M]"     << std::endl
-             << "       double* const pY,       // OUT: ECEF Y component   [M]"     << std::endl
-             << "       double* const pZ,       // OUT: ECEF Z component   [M]"     << std::endl
-             << "       const EarthModel* const em=0); // IN: Pointer to an optional earth model (default: WGS-84)" << std::endl
+             << "  bool convertGeod2Ecef("                 << std::endl
+             << "       const double lat,                    // IN: Geodetic latitude   [DEG]"   << std::endl
+             << "       const double lon,                    // IN: Geodetic longitude  [DEG]"   << std::endl
+             << "       const double alt,                    // IN: Geodetic altitude   [M]"     << std::endl
+             << "       double* const pX,                    // OUT: ECEF X component   [M]"     << std::endl
+             << "       double* const pY,                    // OUT: ECEF Y component   [M]"     << std::endl
+             << "       double* const pZ,                    // OUT: ECEF Z component   [M]"     << std::endl
+             << "       const EarthModel* const em=nullptr); // IN: Pointer to an optional earth model (default: WGS-84)" << std::endl
              << std::endl
-             << "  // Form 2: Using osg::Vec3d vectors" << std::endl
-             << "  bool convertGeod2Ecef("      << std::endl
-             << "       const osg::Vec3d& lla,  // IN: Geodetic [ ILAT ILON IALT ]" << std::endl
-             << "       osg::Vec3d* const ecef, // OUT: ECEF [ IX IY IZ ]"          << std::endl
-             << "       const EarthModel* const em=0); // IN: Pointer to an optional earth model (default: WGS-84)" << std::endl
+             << "  // Form 2: Using base::Vec3d vectors" << std::endl
+             << "  bool convertGeod2Ecef("               << std::endl
+             << "       const base::Vec3d& lla,              // IN: Geodetic [ ILAT ILON IALT ]" << std::endl
+             << "       base::Vec3d* const ecef,             // OUT: ECEF [ IX IY IZ ]"          << std::endl
+             << "       const EarthModel* const em=nullptr); // IN: Pointer to an optional earth model (default: WGS-84)" << std::endl
              << std::endl
              << "  // Form 3: Using array vectors" << std::endl
              << "  bool convertGeod2Ecef(" << std::endl
-             << "       const double lla[3],    // IN: Geodetic [ ILAT ILON IALT ]" << std::endl
-             << "       double ecef[3],         // OUT: ECEF [ IX IY IZ ]"          << std::endl
-             << "       const EarthModel* const em=0); // IN: Pointer to an optional earth model (default: WGS-84)" << std::endl
+             << "       const double lla[3],                 // IN: Geodetic [ ILAT ILON IALT ]" << std::endl
+             << "       double ecef[3],                      // OUT: ECEF [ IX IY IZ ]"          << std::endl
+             << "       const EarthModel* const em=nullptr); // IN: Pointer to an optional earth model (default: WGS-84)" << std::endl
              << std::endl;
 
    //-----------------------------------
@@ -4359,7 +4357,7 @@ void test26_convertGeod2Ecef()
 
          // output results
          std::cout << std::setprecision(2) << std::setiosflags(std::ios::fixed);
-         std::cout << "*** osg::vec3d vector: lla => xyz ***" << std::endl;
+         std::cout << "*** base::vec3d vector: lla => xyz ***" << std::endl;
          std::cout << "xyz[0] = " << std::setw(12) << xyz[0] << " [M]" << std::endl;
          std::cout << "xyz[1] = " << std::setw(12) << xyz[1] << " [M]" << std::endl;
          std::cout << "xyz[2] = " << std::setw(12) << xyz[2] << " [M]" << std::endl;
@@ -4450,8 +4448,8 @@ void test27_convertUtm()
                               -10.0,  -20.0,  -30.0,  -40.0,  -50.0,  -60.0,  -70.0,  -80.0,  -90.0,
                             -100.0, -110.0, -120.0, -130.0, -140.0, -150.0, -160.0, -170.0, -180.0};
 
-   char   Zone[6];
-   char*  pZone = Zone;
+//   char   Zone[6];
+//   char*  pZone = Zone;
 
    //===========================================================================
    double latitude  = 0.0;
@@ -4465,7 +4463,7 @@ void test27_convertUtm()
    const base::EarthModel* pEM = &base::EarthModel::wgs84;
 
 
-   for (int i=0; i<ARRAY_SIZE; i++) {
+   for (unsigned int i=0; i<ARRAY_SIZE; i++) {
 
       std::cout << "==============================================" << std::endl;
       std::cout << "lat       = " << std::setw(14) << lat[i] << std::endl;
