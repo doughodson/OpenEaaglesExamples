@@ -5,6 +5,9 @@ vs2017/
 build/obj/
 *.tmp
 
+# vs code
+.vscode
+
 # lib directory
 lib/
 

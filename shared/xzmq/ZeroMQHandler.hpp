@@ -8,7 +8,7 @@
 #include <string>
 
 namespace oe {
-namespace base { class Boolean; class Integer; class String; };
+namespace base { class Boolean; class Integer; class String; }
 namespace xzmq {
 class ZeroMQContext;
 

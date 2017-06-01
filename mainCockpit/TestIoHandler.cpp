@@ -180,8 +180,8 @@ void TestIoHandler::inputDevices(const double dt)
          bool sw = false;
          inData->getDiscreteInput(PICKLE_SW, &sw);
          if (sw != wpnRelSw1) {
-            oe::base::Boolean sw(sw);
-            av->event(WPN_REL_EVENT, &sw);
+            oe::base::Boolean sw1(sw);
+            av->event(WPN_REL_EVENT, &sw1);
          }
          wpnRelSw1 = sw;
       }
@@ -190,8 +190,8 @@ void TestIoHandler::inputDevices(const double dt)
          bool sw = false;
          inData->getDiscreteInput(TRIGGER_SW2, &sw);
          if (sw != trgSw1) {
-            oe::base::Boolean sw(sw);
-            av->event(TRIGGER_SW_EVENT, &sw);
+            oe::base::Boolean sw1(sw);
+            av->event(TRIGGER_SW_EVENT, &sw1);
          }
          trgSw1 = sw;
       }
